@@ -63,14 +63,14 @@ footer { text-align: center; padding: 30px; color: #888; font-size: 12px; }
 
 
 <nav class="nav">
-    <a href="/en/" class="nav-logo">
+    <a href="/astro/en/" class="nav-logo">
         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
         Dudeoji Studio
     </a>
     <div class="nav-links">
-        <a href="/en/">Home</a>
-        <a href="/en/about/">About</a>
-        <a href="/en/blog/" class="active">Blog</a>
+        <a href="/astro/en/">Home</a>
+        <a href="/astro/en/about/">About</a>
+        <a href="/astro/en/blog/" class="active">Blog</a>
         <select class="nav-lang" onchange="if(this.value)location.href=this.value">
             <option value="/blog/3-earth-3/">KR</option>
             <option value="/en/blog/3-earth-3/" selected>EN</option>
@@ -173,7 +173,7 @@ footer { text-align: center; padding: 30px; color: #888; font-size: 12px; }
 
 <footer class="app-footer">
     &copy; 2025 Dudeoji Studio<br>
-    <a href="/en/privacy/">Privacy Policy</a>
+    <a href="/astro/en/privacy/">Privacy Policy</a>
 </footer>
 
 <button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
