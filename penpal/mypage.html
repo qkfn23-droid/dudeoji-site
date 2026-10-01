@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOGU Pal — 마이페이지</title>
+<title>Dudeoji Studio — 마이페이지</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +40,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .edit-btn{display:block;width:100%;margin-top:14px;padding:10px;background:#f0f9ff;color:#0ea5e9;border:1px solid #e0f2fe;border-radius:12px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-align:center;text-decoration:none;transition:all .2s;}
 .edit-btn:hover{background:#0ea5e9;color:#fff;}
 
-/* MOGU Pass 상태 */
+/* Dudeoji Studio Pass 상태 */
 .ticket-status{display:flex;align-items:center;gap:12px;padding:14px;background:linear-gradient(135deg,#ecfdf5,#f0fdf4);border-radius:12px;margin-top:14px;}
 .ticket-icon{font-size:28px;}
 .ticket-info{flex:1;}
@@ -139,7 +139,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <body>
 
 <nav class="nav" id="mainNav">
-    <a href="v2-penpal.html" class="nav-logo">MOGU <span>Pal</span></a>
+    <a href="v2-penpal.html" class="nav-logo">Dudeoji Studio <span>Pal</span></a>
     <div class="nav-links">
         <a href="mypage.html" class="active">마이페이지</a>
         <button onclick="history.back()" style="padding:8px 16px;border-radius:20px;border:1px solid #fecaca;background:#fff;color:#ef4444;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';">나가기</button>
@@ -148,11 +148,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <script>
 (function(){
     if(location.search.indexOf('from=world')!==-1){
-        document.title='MOGU World — 마이페이지';
+        document.title='Dudeoji Studio — 마이페이지';
         var logo=document.querySelector('#mainNav .nav-logo');
         logo.href='javascript:void(0)';
         logo.style.cursor='default';
-        logo.innerHTML='MOGU <span>World</span>';
+        logo.innerHTML='Dudeoji Studio <span>World</span>';
         var links=document.querySelector('#mainNav .nav-links');
         links.innerHTML='<a href="mypage.html?from=world" class="active">마이페이지</a><button onclick="history.back()" style="padding:8px 16px;border-radius:20px;border:1px solid #fecaca;background:#fff;color:#ef4444;font-size:13px;font-weight:600;cursor:pointer;font-family:Noto Sans KR;">나가기</button>';
     }
@@ -181,7 +181,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="ticket-status">
             <div class="ticket-icon">🎫</div>
             <div class="ticket-info">
-                <div class="ticket-label">MOGU Pass</div>
+                <div class="ticket-label">Dudeoji Studio Pass</div>
                 <div class="ticket-state">활성화됨</div>
             </div>
         </div>
@@ -302,7 +302,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 </div>
 
-<div class="footer">&copy; 2025 MOGU Pal<br><a href="privacy.html" style="color:#aaa;font-size:10px;text-decoration:none;">개인정보처리방침</a> · <a href="terms.html" style="color:#aaa;font-size:10px;text-decoration:none;">이용약관</a></div>
+<div class="footer">&copy; 2025 Dudeoji Studio<br><a href="privacy.html" style="color:#aaa;font-size:10px;text-decoration:none;">개인정보처리방침</a> · <a href="terms.html" style="color:#aaa;font-size:10px;text-decoration:none;">이용약관</a></div>
 
 <button id="darkBtn" onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'));this.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';var t=document.getElementById('darkToggle');if(t)t.classList.toggle('on',document.documentElement.classList.contains('dark'))" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#0ea5e9;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:999;">🌙</button>
 <script>

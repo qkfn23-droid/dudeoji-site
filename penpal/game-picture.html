@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOGU World — 그림 맞추기</title>
+<title>Dudeoji Studio — 그림 맞추기</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -211,7 +211,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
 <body>
 
 <nav class="nav">
-    <span class="nav-logo">MOGU <span>World</span></span>
+    <span class="nav-logo">Dudeoji Studio <span>World</span></span>
     <div class="nav-links">
         <a href="game-v2.html" class="active" onclick="return confirmLeave()">게임</a>
         <a href="shop.html?from=world">상점</a>
@@ -270,7 +270,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
                 <div class="moon-text">내 꿈의 숨은 의미</div>
                 <div class="moon-text">내 배우자는?</div>
             </div>
-            <div class="moon-brand">MOGU Moon</div>
+            <div class="moon-brand">Dudeoji Studio</div>
         </a>
     </div>
 
@@ -428,7 +428,7 @@ function initGame() {
         var card = document.createElement('div');
         card.className = 'pic-card';
         card.dataset.idx = i;
-        card.innerHTML = '<div class="pic-card-inner"><div class="pic-card-front">MOGU</div><div class="pic-card-back">' + cards[i] + '</div></div>';
+        card.innerHTML = '<div class="pic-card-inner"><div class="pic-card-front">Dudeoji Studio</div><div class="pic-card-back">' + cards[i] + '</div></div>';
         card.onclick = function(){ flipCard(this); };
         grid.appendChild(card);
     }
