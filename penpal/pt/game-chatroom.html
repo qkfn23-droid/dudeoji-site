@@ -261,7 +261,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">비속어, 욕설은 자동 Bloquear됩니다</div>
             <div class="notice-text">수다방에서 새 Amigos를 사귀어보세요!</div>
-            <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
+            <div class="notice-text">별의 Energia을 모아 Aura를 Desbloquear하세요!</div>
         </div>
     </div>
 </div>
@@ -448,7 +448,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 </div>
 
 <div class="bottom-actions">
-    <button class="ba-btn" onclick="copyInvite()">👥 초대</button>
+    <button class="ba-btn" onclick="copyInvite()">👥 Convite</button>
     <button class="ba-btn" onclick="toggleMute(this)">🔊 음소거</button>
     <button class="ba-btn exit" onclick="leaveRoom()">🚪 Sair</button>
 </div>
@@ -463,11 +463,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
     </div>
 </div>
 
-<!-- 초대 모달 -->
+<!-- Convite 모달 -->
 <div class="modal-overlay" id="inviteModal" onclick="if(event.target===this)closeInvite()">
     <div class="modal">
         <div class="modal-head">
-            <h3>👥 Amigos 초대</h3>
+            <h3>👥 Amigos Convite</h3>
             <button class="modal-close" onclick="closeInvite()">✕</button>
         </div>
         <div class="modal-body">
@@ -475,19 +475,19 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌸</div>
                 <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · Aguardando 중</div></div>
-                <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">초대</button>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">Convite</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🐱</div>
                 <div class="friend-info"><div class="friend-name">Hana</div><div class="friend-status">온라인 · Jogo 중</div></div>
-                <button class="friend-invite-btn" onclick="sendInvite(this,'Hana')">초대</button>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Hana')">Convite</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#555;">💤</div>
                 <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">오프라인</div></div>
-                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">초대</button>
+                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">Convite</button>
             </div>
         </div>
     </div>
@@ -534,7 +534,7 @@ function sendMsg(){
 function confirmLeave(){return confirm('수다방에서 나가시겠습니까?');}
 function copyInvite(){document.getElementById('inviteModal').classList.add('show');}
 function closeInvite(){document.getElementById('inviteModal').classList.remove('show');}
-function sendInvite(btn,name){btn.textContent='전송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님에게 초대를 보냈습니다';c.appendChild(s);c.scrollTop=c.scrollHeight;}
+function sendInvite(btn,name){btn.textContent='전송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님에게 Convite를 보냈습니다';c.appendChild(s);c.scrollTop=c.scrollHeight;}
 var isMuted=false;
 function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 음소거 중':'🔊 음소거';}
 function leaveRoom(){if(confirm('수다방에서 나가시겠습니까?'))location.href='game-v2.html';}

@@ -177,7 +177,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 @keyframes megaShake{0%,100%{transform:rotate(0);}25%{transform:rotate(-10deg);}75%{transform:rotate(10deg);}}
 @keyframes megaStar{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.3);}}
 
-/* 초대 모달 */
+/* Invitar 모달 */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:999;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
 .modal{background:#fff;border-radius:16px;width:340px;max-height:80vh;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.2);animation:modalIn .2s ease-out;}
@@ -284,11 +284,11 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">원카드 시즌 오픈! Penpal Amigos와 한 판 해보세요</div>
-            <div class="notice-text">이번 주 원카드 TOP 3에게 별의 기운 x50 증정!</div>
+            <div class="notice-text active">원카드 Temporada 오픈! Penpal Amigos와 한 판 해보세요</div>
+            <div class="notice-text">이번 주 원카드 TOP 3에게 별의 Energia x50 Regalo!</div>
             <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대해주세요</div>
-            <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
-            <div class="notice-text">현재 접속자 127명 · 진행 중인 Juego 23개</div>
+            <div class="notice-text">별의 Energia을 모아 Aura를 Desbloquear하세요!</div>
+            <div class="notice-text">현재 접속자 127명 · Progreso 중인 Juego 23개</div>
             <div class="notice-text">비매너 유저 Reportar 기능이 추가되었습니다</div>
         </div>
     </div>
@@ -460,9 +460,9 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title" style="color:#f59e0b;">⭐ Recompensa</div>
             <div style="font-size:11px;color:#888;line-height:1.8;">
-                🥇 1등: 별의 기운 x30<br>
-                🥈 2등: 별의 기운 x15<br>
-                🥉 3등: 별의 기운 x5
+                🥇 1등: 별의 Energia x30<br>
+                🥈 2등: 별의 Energia x15<br>
+                🥉 3등: 별의 Energia x5
             </div>
         </div>
     </div>
@@ -490,7 +490,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         </div>
     </div>
     <div class="bottom-btns">
-        <button class="bb" onclick="copyInvite(this)">👥 초대</button>
+        <button class="bb" onclick="copyInvite(this)">👥 Invitar</button>
         <button class="bb" onclick="toggleMute(this)">🔊 음소거</button>
         <button class="bb exit" onclick="leaveRoom()">🚪 Salir</button>
     </div>
@@ -506,11 +506,11 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     </div>
 </div>
 
-<!-- 초대 모달 -->
+<!-- Invitar 모달 -->
 <div class="modal-overlay" id="inviteModal" onclick="if(event.target===this)closeInvite()">
     <div class="modal">
         <div class="modal-head">
-            <h3>👥 Amigos 초대</h3>
+            <h3>👥 Amigos Invitar</h3>
             <button class="modal-close" onclick="closeInvite()">✕</button>
         </div>
         <div class="modal-body">
@@ -518,37 +518,37 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
                 <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">온라인 · Espera 중</div></div>
-                <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">초대</button>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
                 <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">온라인 · Espera 중</div></div>
-                <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">초대</button>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🎵</div>
                 <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · Juego 중</div></div>
-                <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">초대</button>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#ef4444,#f87171);">🔥</div>
                 <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">온라인 · Espera 중</div></div>
-                <button class="friend-invite-btn" onclick="sendInvite(this,'Lucas')">초대</button>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Lucas')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">🌙</div>
                 <div class="friend-info"><div class="friend-name">Alex</div><div class="friend-status">오프라인</div></div>
-                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">초대</button>
+                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">💤</div>
                 <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">오프라인</div></div>
-                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">초대</button>
+                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">Invitar</button>
             </div>
         </div>
     </div>
@@ -651,7 +651,7 @@ function addLog(html) {
     log.scrollTop = log.scrollHeight;
 }
 
-// 초대
+// Invitar
 function copyInvite() {
     document.getElementById('inviteModal').classList.add('show');
 }
@@ -661,7 +661,7 @@ function closeInvite() {
 function sendInvite(btn, name) {
     btn.textContent = '전송됨 ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[Notificacion]</span> ' + name + '님에게 초대를 보냈습니다');
+    addLog('<span class="sys">[Notificacion]</span> ' + name + '님에게 Invitar를 보냈습니다');
 }
 
 // 음소거
@@ -684,7 +684,7 @@ function toggleMute(btn) {
 // 페이지 이동 Confirmar
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Juego에서 나가시겠습니까?\n진행 중인 Juego은 Derrota 처리됩니다.');
+    return confirm('Juego에서 나가시겠습니까?\nProgreso 중인 Juego은 Derrota 처리됩니다.');
 }
 
 // Salir
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 Juego은 Derrota 처리됩니다.')) {
+    if (confirm('정말 방에서 나가시겠습니까?\nProgreso 중인 Juego은 Derrota 처리됩니다.')) {
         addLog('<span class="sys">[Notificacion]</span> TAZO님이 퇴장했습니다');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }
