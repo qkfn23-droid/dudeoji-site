@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* Left Side바 — Common */
+/* Left Sidebar — Common */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -345,11 +345,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">Hola! 오늘 what 했어? I K-pop heard~</div>
                     <div class="letter-full">Hola! 오늘 what 했어? I 오늘 하루 종day K-pop heard~ BTS New 앨범 I왔거든! 너too aime해? 그리고 Coreento Lettres trying to use 했는데 아직 어려워 Espagnolto 쓸to haha next time Coreento I will try! Recemment what when 지my? 답pcs 기다릴to~</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Maria G.')">답pcsdoing</button>
+                        <button class="btn-reply" onclick="doReply('Maria G.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Maria G.')">Profil View</button>
-                        <button class="btn-act" onclick="doSave(this)">Lettres 보관</button>
-                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정in히 Reject</button>
+                        <button class="btn-act" onclick="doSave(this)">Lettres Archive</button>
+                        <button class="btn-act warn" onclick="doDecline('Maria G.')">Politely Reject</button>
                         <button class="btn-act warn" onclick="doReport('Maria G.')">Signaler</button>
                     </div>
                 </div>
@@ -362,11 +362,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">Lettres Thank you! next time Japonaisalso tryto요~</div>
                     <div class="letter-full">Lettres Thank you! next time Japonaisalso tryto요~ 사실 Me too Coreen Studyand with데 아직 많 부족do. Japonfrom Recemment 벚Flower 피기 Debut했어요! Coreetoo 벚Flower 예쁘죠? 언젠 Coree 가 같 벚Flower after watching 싶다~ aimedoing MusiqueI drama 있으면 Recommandationdo it!</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Yuki T.')">답pcsdoing</button>
+                        <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Yuki T.')">Profil View</button>
-                        <button class="btn-act" onclick="doSave(this)">Lettres 보관</button>
-                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정in히 Reject</button>
+                        <button class="btn-act" onclick="doSave(this)">Lettres Archive</button>
+                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">Politely Reject</button>
                         <button class="btn-act warn" onclick="doReport('Yuki T.')">Signaler</button>
                     </div>
                 </div>
@@ -381,7 +381,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-actions">
                         <button class="btn-act" onclick="doProfile('Lucas S.')">Profil View</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
-                        <button class="btn-act" onclick="doSave(this)">Lettres 보관</button>
+                        <button class="btn-act" onclick="doSave(this)">Lettres Archive</button>
                         <button class="btn-act warn" onclick="doDelete(this)">Supprimer</button>
                     </div>
                 </div>
@@ -480,10 +480,10 @@ function doProfile(name){
     event.stopPropagation();var p=profiles[name];if(!p)return;
     openModal('<div class="modal-profile"><div class="mp-pic">'+picSvg[p.pic]+'</div><div class="mp-name">'+name+'</div><div class="mp-bio">'+p.bio+'</div><div class="mp-tags"><span class="mp-tag mp-tag-zodiac">'+p.zodiac+'</span><span class="mp-tag mp-tag-zodiac">'+p.element+'</span><span class="mp-tag mp-tag-lang">'+p.lang+'</span></div><div style="font-size:11px;color:#888;">apprend in: '+p.learning+'</div></div>');
 }
-function doSave(el){event.stopPropagation();el.textContent='보관됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Lettres has been saved');}
+function doSave(el){event.stopPropagation();el.textContent='Archive됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Lettres has been saved');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정in히 Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Messages Selectionplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Lettres Merci! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interet for having thanksdo! 다만 지금 new Penpal 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Lettres well read it! apprend Langue month라 아쉽지만, good Penpal 만I시길 바랍your다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Messages Envoyer</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Messages Selectionplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Lettres Merci! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interet for having thanksdo! 다만 지금 new Penpal 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Lettres well read it! apprend Langue month라 아쉽지만, good Penpal 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Messages Envoyer</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messages Selectionplease do');return;}closeModal();showToast(name+'sirto Reject Messages sent');}

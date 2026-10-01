@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* Left Side바 — Common */
+/* Left Sidebar — Common */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -345,11 +345,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">Hola! 오늘 what 했어? 私は K-pop heard~</div>
                     <div class="letter-full">Hola! 오늘 what 했어? 私は 오늘 一日 종day K-pop heard~ BTS New 앨범 I왔거든! 너too 好き해? 그리고 韓国語to 手紙 trying to use 했는데 아직 어려워 スペイン語to 쓸to haha next time 韓国語to I will try! 最近 what when 지my? 답pcs 기다릴to~</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Maria G.')">답pcsdoing</button>
+                        <button class="btn-reply" onclick="doReply('Maria G.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Maria G.')">プロフィール View</button>
                         <button class="btn-act" onclick="doSave(this)">手紙 保管</button>
-                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정in히 Reject</button>
+                        <button class="btn-act warn" onclick="doDecline('Maria G.')">Politely Reject</button>
                         <button class="btn-act warn" onclick="doReport('Maria G.')">通報</button>
                     </div>
                 </div>
@@ -362,11 +362,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">手紙 Thank you! next time 日本語also tryto요~</div>
                     <div class="letter-full">手紙 Thank you! next time 日本語also tryto요~ 사실 Me too 韓国語 勉強and with데 아직 많 부족do. 日本from 最近 벚Flower 피기 開始했어요! 韓国too 벚Flower 예쁘죠? 언젠 韓国 가 같 벚Flower after watching 싶다~ 好きdoing 音楽I drama 있으면 おすすめdo it!</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Yuki T.')">답pcsdoing</button>
+                        <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Yuki T.')">プロフィール View</button>
                         <button class="btn-act" onclick="doSave(this)">手紙 保管</button>
-                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정in히 Reject</button>
+                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">Politely Reject</button>
                         <button class="btn-act warn" onclick="doReport('Yuki T.')">通報</button>
                     </div>
                 </div>
@@ -483,7 +483,7 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='保管됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('手紙 保管されました');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정in히 Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject メッセージ 選択してください.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">手紙 ありがとうございます! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">関心 for having thanksdo! 다만 지금 new ペンパル 受け取る difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">手紙 well read it! 学んでいる 言語 month라 아쉽지만, 良い ペンパル 만I시길 바랍your다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject メッセージ 送信</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject メッセージ 選択してください.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">手紙 ありがとうございます! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">関心 for having thanksdo! 다만 지금 new ペンパル 受け取る difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">手紙 well read it! 学んでいる 言語 month라 아쉽지만, 良い ペンパル 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject メッセージ 送信</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('メッセージ 選択してください');return;}closeModal();showToast(name+'sirto Reject メッセージ sent');}

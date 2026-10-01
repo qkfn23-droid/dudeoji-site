@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* Left Side바 — common */
+/* Left Sidebar — common */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -483,7 +483,7 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='Storage됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('LettersIs Storagehas been completed');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정During히 reject</div><div class="modal-body">'+name+'sirAtto 보낼 reject Messagesthe Selectplease.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Letters thanksdoes! NowIs 여유Is 없어 replyThis 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interest Is져주셔 thanksdo! 다Only NowIs 새To운 Penpalthe Receive difficult 상황ThisAt요.</div><div class="decline-opt" onclick="selectDecline(this)">Letters well read it! learning LanguageIs month라 아쉽지Only, Good Penpal OnlyI시길 바랍your다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">reject Messages 보My기</button>');
+    openModal('<div class="modal-title">정During히 reject</div><div class="modal-body">'+name+'sirAtto 보낼 reject Messagesthe Selectplease.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Letters thanksdoes! NowIs 여유Is 없어 replyThis 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interest Is져주셔 thanksdo! 다Only NowIs 새To운 Penpalthe Receive difficult 상황ThisAt요.</div><div class="decline-opt" onclick="selectDecline(this)">Letters well read it! learning LanguageIs month라 아쉽지Only, Good Penpal OnlyI시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">reject Messages 보My기</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messagesthe Selectplease');return;}closeModal();showToast(name+'sirAtto reject Messagesthe sent');}

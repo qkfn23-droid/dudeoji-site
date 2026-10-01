@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* Left Side바 — Common */
+/* Left Sidebar — Common */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -345,11 +345,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">Hola! 오늘 what 했어? I K-pop heard~</div>
                     <div class="letter-full">Hola! 오늘 what 했어? I 오늘 하루 종day K-pop heard~ BTS New 앨범 I왔거든! 너too gern해? 그리고 Koreanischto Briefe trying to use 했는데 아직 어려워 Spanischto 쓸to haha next time Koreanischto I will try! Neulich what when 지my? 답pcs 기다릴to~</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Maria G.')">답pcsdoing</button>
+                        <button class="btn-reply" onclick="doReply('Maria G.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Maria G.')">Profil View</button>
-                        <button class="btn-act" onclick="doSave(this)">Briefe 보관</button>
-                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정in히 Reject</button>
+                        <button class="btn-act" onclick="doSave(this)">Briefe Archive</button>
+                        <button class="btn-act warn" onclick="doDecline('Maria G.')">Politely Reject</button>
                         <button class="btn-act warn" onclick="doReport('Maria G.')">Melden</button>
                     </div>
                 </div>
@@ -360,13 +360,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
                     <div class="recent-preview">Briefe Thank you! next time Japanischalso tryto요~</div>
-                    <div class="letter-full">Briefe Thank you! next time Japanischalso tryto요~ 사실 Me too Koreanisch Studyand with데 아직 많 부족do. Japanfrom Neulich 벚Flower 피기 Start했어요! Koreatoo 벚Flower 예쁘죠? 언젠 Korea 가 같 벚Flower after watching 싶다~ gerndoing MusikI drama 있으면 recommend!</div>
+                    <div class="letter-full">Briefe Thank you! next time Japanischalso tryto요~ 사실 Me too Koreanisch Studyand with데 아직 많 부족do. Japanfrom Neulich 벚Flower 피기 Start했어요! Koreatoo 벚Flower 예쁘죠? 언젠 Korea 가 같 벚Flower after watching 싶다~ loveing MusikI drama 있으면 recommend!</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Yuki T.')">답pcsdoing</button>
+                        <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Yuki T.')">Profil View</button>
-                        <button class="btn-act" onclick="doSave(this)">Briefe 보관</button>
-                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정in히 Reject</button>
+                        <button class="btn-act" onclick="doSave(this)">Briefe Archive</button>
+                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">Politely Reject</button>
                         <button class="btn-act warn" onclick="doReport('Yuki T.')">Melden</button>
                     </div>
                 </div>
@@ -377,11 +377,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
                     <div class="recent-preview">Halloplease! I am Brazilfrom on Lucasis...</div>
-                    <div class="letter-full">Halloplease! I am Brazilfrom on Lucasis. Koreanisch 배우기 Startone 지 6pcsmonth 됐어요. astronomy and Spiel gerndoing데, 혹시 비슷one Interesse사 있으면 같 Gesprachdo! Portugiesischtoo 가teach 수 have요~</div>
+                    <div class="letter-full">Halloplease! I am Brazilfrom on Lucasis. Koreanisch 배우기 Startone 지 6pcsmonth 됐어요. astronomy and Spiel loveing데, 혹시 비슷one Interesse사 있으면 같 Gesprachdo! Portugiesischtoo 가teach 수 have요~</div>
                     <div class="recent-actions">
                         <button class="btn-act" onclick="doProfile('Lucas S.')">Profil View</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
-                        <button class="btn-act" onclick="doSave(this)">Briefe 보관</button>
+                        <button class="btn-act" onclick="doSave(this)">Briefe Archive</button>
                         <button class="btn-act warn" onclick="doDelete(this)">Loschen</button>
                     </div>
                 </div>
@@ -468,7 +468,7 @@ function doTranslate(name,el){
 }
 
 var profiles={
-    'Maria G.':{zodiac:'Widder',element:'Feuer',lang:'🇪🇸 Spanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'Koreanisch learn want! K-popand Astrologie gerndo~',pic:'star'},
+    'Maria G.':{zodiac:'Widder',element:'Feuer',lang:'🇪🇸 Spanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'Koreanisch learn want! K-popand Astrologie love~',pic:'star'},
     'Yuki T.':{zodiac:'Jungfrau',element:'Erde',lang:'🇯🇵 Japanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch, 🇪🇸 Spanisch',bio:'Korea Kultur Interesse viel! 벚Flower 보러 가고 싶어~',pic:'moon'},
     'Lucas S.':{zodiac:'Zwillinge',element:'Luft',lang:'🇧🇷 Portugiesisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'astronomy and Spiel gernWelcome. Korea, Japan Freunde find!',pic:'star'}
 };
@@ -480,10 +480,10 @@ function doProfile(name){
     event.stopPropagation();var p=profiles[name];if(!p)return;
     openModal('<div class="modal-profile"><div class="mp-pic">'+picSvg[p.pic]+'</div><div class="mp-name">'+name+'</div><div class="mp-bio">'+p.bio+'</div><div class="mp-tags"><span class="mp-tag mp-tag-zodiac">'+p.zodiac+'</span><span class="mp-tag mp-tag-zodiac">'+p.element+'</span><span class="mp-tag mp-tag-lang">'+p.lang+'</span></div><div style="font-size:11px;color:#888;">lernt in: '+p.learning+'</div></div>');
 }
-function doSave(el){event.stopPropagation();el.textContent='보관됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Briefe has been saved');}
+function doSave(el){event.stopPropagation();el.textContent='Archive됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Briefe has been saved');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정in히 Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Nachrichten Auswahlplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Briefe Vielen Dank! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse for having thanksdo! 다만 지금 new Brieffreund 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Briefe well read it! lernt Sprache month라 아쉽지만, good Brieffreund 만I시길 바랍your다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Nachrichten Senden</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Nachrichten Auswahlplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Briefe Vielen Dank! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse for having thanksdo! 다만 지금 new Brieffreund 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Briefe well read it! lernt Sprache month라 아쉽지만, good Brieffreund 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Nachrichten Senden</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Nachrichten Auswahlplease do');return;}closeModal();showToast(name+'sirto Reject Nachrichten sent');}

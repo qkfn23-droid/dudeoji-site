@@ -455,7 +455,7 @@ function flipCard(el) {
                 matched++;
                 document.getElementById('myScore').textContent = myScore;
                 document.getElementById('matchMsg').textContent = 'Pair found! +1 point 🎉';
-                addLog('<span class="sys">[通知]</span> TAZO ' + cards[i1] + ' pair matchedyour다!');
+                addLog('<span class="sys">[通知]</span> TAZO ' + cards[i1] + ' pair matched.!');
                 flipped = [];
                 canFlip = true;
                 startTurnTimer();
@@ -505,7 +505,7 @@ function aiTurn() {
                     oppScore++;
                     matched++;
                     document.getElementById('oppScore').textContent = oppScore;
-                    addLog('<span class="sys">[通知]</span> Maria ' + cards[i1] + ' pair matchedyour다!');
+                    addLog('<span class="sys">[通知]</span> Maria ' + cards[i1] + ' pair matched.!');
                     if (matched === emojis.length) {
                         setTimeout(endGame, 500);
                     } else {
