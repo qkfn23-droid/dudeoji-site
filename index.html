@@ -3,155 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — 두더지 스튜디오</title>
+<title>Dudeoji Studio</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f9fa;color:#333;min-height:100vh;overflow-x:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f9fa;color:#333;min-height:100vh;display:flex;flex-direction:column;}
 
-/* 네비게이션 */
-.nav{background:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
-.nav-logo{font-size:18px;font-weight:700;color:#333;text-decoration:none;letter-spacing:1px;}
-.nav-tabs{display:flex;gap:2px;background:#f0f0f0;border-radius:10px;padding:3px;}
-.nav-tab{padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;color:#888;cursor:pointer;transition:all .2s;text-decoration:none;border:none;background:none;}
-.nav-tab:hover{color:#333;}
-.nav-tab.active{background:#fff;color:#333;font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
-.nav-right{display:flex;align-items:center;gap:8px;}
+.nav{background:#fff;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;}
+.nav-logo{font-size:17px;font-weight:700;color:#333;text-decoration:none;letter-spacing:1px;}
 .nav-lang{padding:5px 10px;border-radius:8px;border:1px solid #ddd;font-size:11px;color:#666;background:#fff;cursor:pointer;outline:none;}
-.nav-login{padding:6px 16px;border-radius:8px;background:#333;color:#fff;font-size:12px;font-weight:700;border:none;cursor:pointer;letter-spacing:1px;}
 
-@media(max-width:768px){
-.nav{padding:10px 14px;}
-.nav-tab{padding:6px 10px;font-size:11px;}
-.nav-logo{font-size:15px;}
-}
+.main{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;width:100%;}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr;max-width:400px;}}
 
-/* 히어로 */
-.hero{max-width:1100px;margin:30px auto;padding:0 20px;text-align:center;}
-.hero-mascot{margin-bottom:16px;}
-.hero h1{font-size:28px;color:#333;margin-bottom:8px;letter-spacing:2px;}
-.hero p{font-size:14px;color:#777;line-height:1.7;margin-bottom:24px;}
+.card{background:#fff;border:1px solid #eee;border-radius:16px;padding:40px 30px;text-align:center;text-decoration:none;color:#333;transition:all .3s;cursor:pointer;}
+.card:hover{border-color:#333;transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08);}
+.card-icon{font-size:48px;margin-bottom:16px;}
+.card-title{font-size:20px;font-weight:700;margin-bottom:8px;}
+.card-desc{font-size:12px;color:#999;line-height:1.6;}
 
-/* 서비스 카드 */
-.services{max-width:1100px;margin:0 auto 40px;padding:0 20px;}
-.services-title{font-size:16px;color:#333;font-weight:700;margin-bottom:16px;letter-spacing:1px;}
-.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-@media(max-width:768px){.service-grid{grid-template-columns:1fr;}}
-
-.service-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:24px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
-.service-card:hover{border-color:#333;transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08);}
-.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s;}
-.service-card:hover::before{opacity:1;}
-.card-icon{font-size:36px;margin-bottom:12px;}
-.card-title{font-size:18px;color:#333;font-weight:700;margin-bottom:6px;}
-.card-desc{font-size:12px;color:#777;line-height:1.7;}
-.card-badge{position:absolute;top:14px;right:14px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;}
-.badge-main{background:rgba(56,189,248,0.15);color:#0ea5e9;}
-.badge-hot{background:rgba(231,76,60,0.2);color:#e74c3c;}
-.badge-new{background:rgba(39,174,96,0.2);color:#27ae60;}
-
-/* 탭 콘텐츠 미리보기 */
-.tab-preview{max-width:1100px;margin:0 auto 40px;padding:0 20px;}
-.preview-box{background:#fff;border:1px solid #eee;border-radius:16px;padding:30px;display:none;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
-.preview-box.active{display:block;}
-.preview-title{font-size:20px;color:#333;font-weight:700;margin-bottom:8px;}
-.preview-desc{font-size:13px;color:#888;line-height:1.8;margin-bottom:20px;}
-.preview-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
-.preview-item{background:#f8f9fa;border:1px solid #eee;border-radius:10px;padding:14px;text-align:center;font-size:12px;color:#666;transition:all .2s;cursor:pointer;}
-.preview-item:hover{border-color:#333;color:#333;}
-.preview-item .pi-icon{font-size:24px;margin-bottom:6px;display:block;}
-
-/* 하단 연결 배너 */
-.connect-section{max-width:1100px;margin:0 auto 40px;padding:0 20px;}
-.connect-title{font-size:14px;color:#333;margin-bottom:12px;letter-spacing:1px;}
-.connect-flow{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:20px;background:#fff;border:1px solid #eee;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
-.flow-item{text-align:center;padding:12px 20px;}
-.flow-icon{font-size:28px;margin-bottom:4px;}
-.flow-name{font-size:12px;color:#333;font-weight:600;}
-.flow-arrow{color:#555;font-size:20px;}
-
-/* 푸터 */
-.footer{text-align:center;padding:30px 20px;font-size:11px;color:#999;border-top:1px solid #eee;margin-top:20px;}
-.footer a{color:#555;text-decoration:none;}
-
-/* 다크/라이트 */
-.light-mode{background:#f5f5f5 !important;color:#333 !important}
-.light-mode .nav{background:rgba(255,255,255,0.95) !important;border-color:#eee !important}
-.light-mode .nav-tab{color:#666 !important}
-.light-mode .nav-tab.active{background:rgba(201,168,76,0.15) !important;color:#c9a84c !important}
-.light-mode .service-card,.light-mode .preview-box,.light-mode .connect-flow{background:linear-gradient(135deg,#fff,#fafafa) !important;border-color:#e0e0e0 !important}
-.light-mode .card-title{color:#333 !important}
-.light-mode .card-desc,.light-mode .preview-desc{color:#666 !important}
-.light-mode .preview-item{background:rgba(0,0,0,0.02) !important;border-color:rgba(0,0,0,0.08) !important;color:#666 !important}
-.light-mode .footer{color:#999 !important;border-color:#eee !important}
+.footer{text-align:center;padding:16px;font-size:11px;color:#ccc;border-top:1px solid #eee;}
 </style>
 </head>
 <body>
-<script>if(localStorage.getItem('dudeoji_light')==='true')document.body.classList.add('light-mode');</script>
 
-<!-- 네비게이션 -->
 <nav class="nav">
-    <a href="/" class="nav-logo">
-        Dudeoji Studio
-    </a>
-    <div class="nav-right">
-        <select class="nav-lang">
-            <option selected>KR</option>
-            <option>EN</option>
-            <option>JP</option>
-            <option>DE</option>
-            <option>ES</option>
-            <option>FR</option>
-            <option>PT</option>
-        </select>
-    </div>
+    <div></div>
+    <select class="nav-lang">
+        <option selected>KR</option>
+        <option>EN</option>
+        <option>JP</option>
+        <option>DE</option>
+        <option>ES</option>
+        <option>FR</option>
+        <option>PT</option>
+    </select>
 </nav>
 
-<!-- 히어로 -->
-<div class="hero">
-    <h1>Dudeoji Studio</h1>
-</div>
-
-<!-- 메인 서비스 카드 -->
-<div class="services">
-    <div class="service-grid" style="grid-template-columns:repeat(2,1fr);">
-        <a class="service-card" style="--accent:#c9a84c;text-decoration:none;" href="/astro/">
+<div class="main">
+    <div style="text-align:center;width:100%;max-width:700px;">
+        <div style="font-size:24px;font-weight:700;color:#333;letter-spacing:2px;margin-bottom:30px;">Dudeoji Studio</div>
+    <div class="card-grid" style="max-width:700px;width:100%;">
+        <a class="card" href="/astro/">
             <div class="card-icon">🔮</div>
             <div class="card-title">점성술</div>
-            <div class="card-desc">사주 · 타로 · 베딕 · 럭키타임 · 꿈해몽<br>13가지 전통 점술 도구 · 7개 언어</div>
+            <div class="card-desc">사주 · 타로 · 베딕 · 럭키타임<br>13가지 전통 점술 도구</div>
         </a>
-        <a class="service-card" style="--accent:#38bdf8;text-decoration:none;" href="/penpal/">
+        <a class="card" href="/penpal/">
             <div class="card-icon">📮</div>
             <div class="card-title">펜팔</div>
-            <div class="card-desc">별자리 기반 언어교환 · 게임 · 채팅<br>7개 언어 · 별자리 매칭</div>
+            <div class="card-desc">별자리 기반 언어교환<br>게임 · 채팅 · 7개 언어</div>
         </a>
+    </div>
     </div>
 </div>
 
-
-<!-- 푸터 -->
-<footer class="footer">
-    &copy; 2025 Dudeoji Studio
-</footer>
-
-<!-- 테마 토글 -->
-<button id="themeBtn" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('dudeoji_light',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#1a1a3e;color:#c9a84c;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button>
-<script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeBtn'))document.getElementById('themeBtn').textContent='🌙';</script>
-
-<script>
-function showTab(tab) {
-    // 탭 활성화
-    document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
-    event.target.classList.add('active');
-
-    // 미리보기 표시
-    document.querySelectorAll('.preview-box').forEach(function(p) { p.classList.remove('active'); });
-    var preview = document.getElementById('preview-' + tab);
-    if (preview) {
-        preview.classList.add('active');
-        preview.scrollIntoView({behavior:'smooth',block:'center'});
-    }
-}
-</script>
+<footer class="footer">&copy; 2025 Dudeoji Studio</footer>
 
 </body>
 </html>
