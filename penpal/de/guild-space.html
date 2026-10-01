@@ -87,7 +87,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 @keyframes barShimmer{0%{left:-50%;}100%{left:150%;}}
 .pv-quest-text{font-size:10px;color:rgba(255,255,255,0.4);margin-top:4px;}
 
-/* Mitglied 오빗 (Small dots around planet) */
+/* Mitglied Orbit (Small dots around planet) */
 .member-orbit{position:absolute;width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;}
 .orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor;}
 
@@ -131,7 +131,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .gc-input::placeholder{color:rgba(255,255,255,0.25);}
 .gc-send{padding:7px 14px;background:#0ea5e9;color:#fff;border:none;border-radius:10px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';}
 
-/* Mitglied 링 (하단) */
+/* Mitglied 링 (bottom) */
 .member-ring{margin:12px 24px;position:relative;z-index:1;}
 .ring-title{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;text-align:center;}
 .ring-list{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
@@ -146,7 +146,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .footer{text-align:center;padding:12px 20px 8px;font-size:11px;color:rgba(255,255,255,0.25);position:relative;z-index:1;}
 .footer a{color:rgba(255,255,255,0.25);text-decoration:none;}
 
-/* 유성 */
+/* Meteor */
 .shooting-star{position:fixed;width:2px;height:2px;background:#fff;border-radius:50%;opacity:0;z-index:0;}
 .shooting-star::after{content:'';position:absolute;top:0;right:0;width:50px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.6),transparent);}
 .shoot{animation:shoot 1s ease-out forwards;}
@@ -386,7 +386,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 <div class="footer">&copy; 2025 Dudeoji Studio · <a href="privacy.html">Datenschutz</a> · <a href="terms.html">Nutzungsbedingungen</a></div>
 
 <script>
-// Star 배경
+// Star background
 var s=document.getElementById('stars');
 for(var i=0;i<150;i++){
     var d=document.createElement('div');
@@ -399,7 +399,7 @@ for(var i=0;i<150;i++){
     s.appendChild(d);
 }
 
-// 유성
+// Meteor
 function shootStar(){
     var el=document.createElement('div');
     el.className='shooting-star shoot';
@@ -411,7 +411,7 @@ function shootStar(){
 setInterval(shootStar,Math.random()*6000+5000);
 setTimeout(shootStar,3000);
 
-// Mitglied 오빗 점
+// Mitglied Orbit 점
 var orbit=document.getElementById('memberOrbit');
 var colors=['#f59e0b','#e91e63','#ab47bc','#1e88e5','#43a047','#ef6c00','#ec4899'];
 var onlineCount=7;

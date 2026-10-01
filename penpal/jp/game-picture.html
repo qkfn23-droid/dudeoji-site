@@ -303,7 +303,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="game-rule">
                 <div class="rule-basic">
                     カード 2pcs flip <b>同じ 絵</b> find!<br><br>
-                    pair if match <b>+1점</b> 獲得하고 one 번 더!<br>
+                    pair if match <b>+1점</b> 獲得and one 번 더!<br>
                     if wrong 相手Room ターンto moves on.<br><br>
                     all pair when found ゲーム end!
                 </div>
@@ -535,7 +535,7 @@ function endGame() {
     document.getElementById('matchMsg').textContent = msg;
 }
 
-// ターン 타머
+// ターン Timer
 var turnTime = 15;
 var turnSec = turnTime;
 var turnInterval = null;

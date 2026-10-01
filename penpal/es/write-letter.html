@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* Left Side바 — 공통 */
+/* Left Side바 — Common */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -252,7 +252,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Penpal Amigosto 진심 담긴 Cartas try sending!</div>
-            <div class="notice-text">Other Idiomato Cartas 쓰면 Star Energia 올라가요</div>
+            <div class="notice-text">Other Idiomato Cartas 쓰면 Star Energia goes up</div>
             <div class="notice-text">Translate Helper Feature 곧 Openwill be</div>
         </div>
     </div>
@@ -345,7 +345,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">Hola! 오늘 what 했어? I K-pop heard~</div>
                     <div class="letter-full">Hola! 오늘 what 했어? I 오늘 하루 종day K-pop heard~ BTS New 앨범 I왔거든! 너too gusta해? 그리고 Coreanoto Cartas trying to use 했는데 아직 어려워 Espanolto 쓸to haha next time Coreanoto I will try! Ultimamente what when 지my? 답pcs 기다릴to~</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Maria G.')">답pcs하기</button>
+                        <button class="btn-reply" onclick="doReply('Maria G.')">답pcsdoing</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Maria G.')">Perfil View</button>
                         <button class="btn-act" onclick="doSave(this)">Cartas 보관</button>
@@ -360,9 +360,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
                     <div class="recent-preview">Cartas Thank you! next time Japonesalso tryto요~</div>
-                    <div class="letter-full">Cartas Thank you! next time Japonesalso tryto요~ 사실 Me too Coreano Study하고 with데 아직 많 부족do. Japonfrom Ultimamente 벚Flower 피기 Inicio했어요! Coreatoo 벚Flower 예쁘죠? 언젠 Corea 가 같 벚Flower after watching 싶다~ gustadoing MusicaI drama 있으면 Recomendaciondo it!</div>
+                    <div class="letter-full">Cartas Thank you! next time Japonesalso tryto요~ 사실 Me too Coreano Studyand with데 아직 많 부족do. Japonfrom Ultimamente 벚Flower 피기 Inicio했어요! Coreatoo 벚Flower 예쁘죠? 언젠 Corea 가 같 벚Flower after watching 싶다~ gustadoing MusicaI drama 있으면 Recomendaciondo it!</div>
                     <div class="recent-actions">
-                        <button class="btn-reply" onclick="doReply('Yuki T.')">답pcs하기</button>
+                        <button class="btn-reply" onclick="doReply('Yuki T.')">답pcsdoing</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
                         <button class="btn-act" onclick="doProfile('Yuki T.')">Perfil View</button>
                         <button class="btn-act" onclick="doSave(this)">Cartas 보관</button>
@@ -397,7 +397,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="tip-item"><span class="tip-icon">👋</span> 첫 Cartas 자기Acerca de include</div>
             <div class="tip-item"><span class="tip-icon">🌍</span> Opponent Idiomato one두 문pcs 쓰면 touching</div>
             <div class="tip-item"><span class="tip-icon">❓</span> Pregunta 넣으면 답pcs 확률 높아져요</div>
-            <div class="tip-item"><span class="tip-icon">🎵</span> 공통 Interes사 찾Ah talk about it</div>
+            <div class="tip-item"><span class="tip-icon">🎵</span> Common Interes사 찾Ah talk about it</div>
             <div class="tip-item"><span class="tip-icon">⭐</span> Cartas 보my면 Star Energia +5!</div>
         </div>
         <div class="right-box">
@@ -489,7 +489,7 @@ function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(fun
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Mensajes Seleccionarplease do');return;}closeModal();showToast(name+'sirto Reject Mensajes sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Reportar하기</div><div class="modal-body">'+name+'sir Reportardoing 유 Seleccionarplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexual거I Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personales!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar received</button>');
+    openModal('<div class="modal-title">Reportardoing</div><div class="modal-body">'+name+'sir Reportardoing 유 Seleccionarplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexual거I Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personales!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar received</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Reportar 사유 Seleccionarplease do');return;}closeModal();showToast('Reportar has been received. the team reviews.');}

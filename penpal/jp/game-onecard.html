@@ -101,7 +101,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 /* 相手 area */
 .opp-row{display:flex;justify-content:space-evenly;align-items:flex-start;width:100%;}
 
-/* 相手 공통 */
+/* 相手 Common */
 .opp-player{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .opp-info{display:flex;align-items:center;gap:8px;}
 .opp-pic{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#e91e63,#ff5252);display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
@@ -447,7 +447,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 ゲーム ルール</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 カード <b>数字</b> 또 <b>模様</b> if match 낼 수 have요</div>
+                <div class="rule-basic">floor カード <b>数字</b> 또 <b>模様</b> if match 낼 수 have요</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs 攻撃</span></div>
@@ -571,7 +571,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// ターン 타머
+// ターン Timer
 var turnTime = 15;
 var turnSec = turnTime;
 var turnInterval = null;
