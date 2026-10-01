@@ -344,7 +344,7 @@ function vote(voteId,idx){
 }
 function submitVote(voteId){
     var selected=document.querySelector('#'+voteId+' .vote-radio.selected');
-    if(!selected){alert('item Selecionarplease do!');return;}
+    if(!selected){alert('item please select!');return;}
     var btn=document.getElementById(voteId+'Btn');
     btn.textContent='Votacao Concluido!';
     btn.classList.add('voted');

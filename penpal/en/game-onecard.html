@@ -284,11 +284,11 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">One Card Season Open! Penpal FriendsAnd one 판 Try it</div>
+            <div class="notice-text active">One Card Season Open! Penpal FriendsAnd Play a round</div>
             <div class="notice-text">ThisThis week One Card TOP 3Atto Star Energy x50 Gift!</div>
             <div class="notice-text">Picture Match 10month Open Scheduled! expectplease</div>
             <div class="notice-text">Star Energythe Collect Aurathe Unlockplease do!</div>
-            <div class="notice-text">Current Access자 127people · Progress During인 Game 23pcs</div>
+            <div class="notice-text">Current 127 users online · 23 games in progress</div>
             <div class="notice-text">bad manner User Report FeatureThis Addhas been completed</div>
         </div>
     </div>
@@ -315,7 +315,7 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
         </div>
 
         <div class="card-box">
-            <div class="box-title blue">👥 참Is자</div>
+            <div class="box-title blue">👥 Participants</div>
             <div class="player-list">
                 <div class="pl-item">
                     <div class="pl-dot"></div>
@@ -397,7 +397,7 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- Turn + CardMore미 -->
+            <!-- Turn + Card Deck -->
             <div class="table-center">
                 <div class="turn-badge">
                     <div class="turn-text"><span id="turnName">TAZOsirOf Turn</span><span class="turn-timer" id="turnTimer">15</span></div>
@@ -447,7 +447,7 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 Game Rules</div>
             <div class="game-rule">
-                <div class="rule-basic">floor CardAnd <b>number</b> AgainIs <b>Pattern</b>Is if match 낼 수 is available</div>
+                <div class="rule-basic">Play if the <b>number</b> or <b>suit</b> matches the floor card</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs Attack</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs Attack</span></div>
@@ -562,7 +562,7 @@ if (isSpectate) {
     // Spectate 바 Add
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 Spectate mode — Gamethe 구경and exists';
+    bar.textContent = '👁 Spectate mode — Watching the game';
     document.querySelector('.tab-bar').after(bar);
     // Join Notifications
     var badge = document.createElement('div');
@@ -594,7 +594,7 @@ function startTurnTimer() {
 function skipTurn() {
     addLog('<span class="sys">[Notifications]</span> Hours secAnd! TurnThis moves on');
     drawCard();
-    addLog('<span class="sys">[Notifications]</span> Panel티: Card 1pcs draw');
+    addLog('<span class="sys">[Notifications]</span> Penalty: Draw 1 card');
     startTurnTimer();
 }
 startTurnTimer();

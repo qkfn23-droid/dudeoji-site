@@ -322,7 +322,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="letter-area">
                 <div class="letter-label">手紙 内容</div>
                 <div class="letter-wrap">
-                    <textarea class="letter-input" placeholder="こんにちはplease! I am 韓国from on TAZOis. スペイン語 学びたい have요..." oninput="updateCount(this)"></textarea>
+                    <textarea class="letter-input" placeholder="こんにちはplease! I am 韓国from on TAZOis. スペイン語 学びたい available..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
                         <div class="char-count"><span id="charNum">0</span> / 2,000 chars</div>
                         <div class="letter-tools">
@@ -342,8 +342,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Maria G.</div>
-                    <div class="recent-preview">Hola! 오늘 what 했어? 私は K-pop heard~</div>
-                    <div class="letter-full">Hola! 오늘 what 했어? 私は 오늘 一日 종day K-pop heard~ BTS New 앨범 I왔거든! 너too 好き해? 그리고 韓国語to 手紙 trying to use 했는데 아직 어려워 スペイン語to 쓸to haha next time 韓国語to I will try! 最近 what when 지my? reply 기다릴to~</div>
+                    <div class="recent-preview">Hola! today what did? 私は K-pop heard~</div>
+                    <div class="letter-full">Hola! today what did? 私は today 一日 all day K-pop heard~ BTS New 앨범 I왔you know! you too 好き해? 그리고 韓国語to 手紙 trying to use 했는데 아직 hard スペイン語to writing haha Next time 韓国語to I will try! 最近 what when doing? reply 기다릴to~</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
@@ -360,7 +360,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
                     <div class="recent-preview">手紙 Thank you! next time 日本語also tryto요~</div>
-                    <div class="letter-full">手紙 Thank you! next time 日本語also tryto요~ 사실 Me too 韓国語 勉強and with데 아직 많 부족do. 日本from 最近 Cherry Blossom 피기 開始했어요! 韓国too Cherry Blossom 예쁘죠? 언젠 韓国 가 같 Cherry Blossom after watching 싶다~ 好きdoing 音楽I drama 있으면 おすすめdo it!</div>
+                    <div class="letter-full">手紙 Thank you! next time 日本語also tryto요~ 사실 Me too 韓国語 勉強and with데 아직 많 lacking. 日本from 最近 Cherry Blossom blooming 開始did요! 韓国too Cherry Blossom pretty right? someday 韓国 together Cherry Blossom want to see~ 好きdoing 音楽I drama if you have おすすめdo it!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
@@ -377,7 +377,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
                     <div class="recent-preview">こんにちはplease! I am ブラジルfrom on Lucasis...</div>
-                    <div class="letter-full">こんにちはplease! I am ブラジルfrom on Lucasis. 韓国語 배우기 開始one 지 6pcsmonth 됐어요. astronomy and ゲーム 好きdoing데, 혹시 비슷one 関心사 있으면 같 話do! ポルトガル語too 가teach 수 have요~</div>
+                    <div class="letter-full">こんにちはplease! I am ブラジルfrom on Lucasis. 韓国語 배우기 開始one 6 months ago. astronomy and ゲーム 好きdoing데, 혹시 similar 関心사 if you have 같 話do! ポルトガル語too teach 수 available~</div>
                     <div class="recent-actions">
                         <button class="btn-act" onclick="doProfile('Lucas S.')">プロフィール View</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
@@ -483,16 +483,16 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='保管됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('手紙 保管されました');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject メッセージ 選択してください.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">手紙 ありがとうございます! 지금 여유 없어 reply 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">関心 for having thanksdo! However 지금 new ペンパル 受け取る difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">手紙 well read it! 学んでいる 言語 month라 아쉽지만, 良い ペンパル 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject メッセージ 送信</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject メッセージ 選択してください.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">手紙 ありがとうございます! 지금 no time reply it will be difficult.</div><div class="decline-opt" onclick="selectDecline(this)">関心 thank you for your interest! However right now new ペンパル 受け取る difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">手紙 I read it well! 学んでいる 言語 unfortunately, 良い ペンパル I hope you find..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject メッセージ 送信</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('メッセージ 選択してください');return;}closeModal();showToast(name+'sirto Reject メッセージ sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">通報doing</div><div class="modal-body">'+name+'sir 通報doing 유 選択してください.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">スパム / 広告 / 宣伝</div><div class="report-opt" onclick="selectReport(this)">性的or 火쾌one 内容</div><div class="report-opt" onclick="selectReport(this)">悪口 / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">詐欺 / なりすまし</div><div class="report-opt" onclick="selectReport(this)">個人情報!구 (phone number, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">通報 received</button>');
+    openModal('<div class="modal-title">通報doing</div><div class="modal-body">'+name+'sir 通報doing reason 選択してください.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">スパム / 広告 / 宣伝</div><div class="report-opt" onclick="selectReport(this)">性的or 火쾌one 内容</div><div class="report-opt" onclick="selectReport(this)">悪口 / hate speech</div><div class="report-opt" onclick="selectReport(this)">詐欺 / なりすまし</div><div class="report-opt" onclick="selectReport(this)">個人情報request (phone number, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">通報 received</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('通報 사유 選択してください');return;}closeModal();showToast('通報 receivedされました. the team reviews.');}
+function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('通報 reason 選択してください');return;}closeModal();showToast('通報 receivedされました. The team will review.');}
 function doDelete(el){event.stopPropagation();if(!confirm(' 手紙 削除would you like?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('手紙 削除されました');}
 </script>
 </body>

@@ -393,7 +393,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                     <div class="msg-text">¡Delicioso! SpanishAlso Similar! 😄</div>
                 </div>
             </div>
-            <div class="msg-system">🎯 Mission Done! Join자 4peopleAtto 💎 x5 payment</div>
+            <div class="msg-system">🎯 Mission Done! 4 participants get 💎 x5 payment</div>
             <div class="msg">
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
@@ -435,14 +435,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
         <div class="rule-box">
             <div class="rule-title">📋 Chat Room Rules</div>
             <div class="rule-text">
-                <b>1.</b> 1인 1Account<br>
+                <b>1.</b> 1 person 1 account<br>
                 <b>2.</b> Fraud/Impersonation Prohibited<br>
                 <b>3.</b> Sexual/Violence Content Prohibited<br>
                 <b>4.</b> Personal Info force Prohibited<br>
                 <b>5.</b> Spam/Solicitation Prohibited<br>
                 <b>6.</b> Insults/Profanity Auto Block
             </div>
-            <div class="rule-warn">Violation 시: Permanent ban · 환Fire FireIs</div>
+            <div class="rule-warn">Violation 시: Permanent ban · No refund</div>
         </div>
     </div>
 </div>
@@ -522,7 +522,7 @@ function sendMsg(){
     m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
     c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
     setTimeout(function(){
-        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['haha Right!','Oh Real?','fun다 😄','IAlsoIAlso~','Wow!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['I see!','Korean is hard T_T','And Cool!','IAlso OK~','hehe like!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','Ah I see','haha Funny','I am well Not sure','GermanyfromIs 안 OK ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['Real? Wow','BrazilAlso Similar!','haha','fun다~','Oh Good 생Each!']}];
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['haha Right!','Oh Real?','fun 😄','Me tooMe too~','Wow!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['I see!','Korean is hard T_T','And Cool!','Me too OK~','hehe like!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','Ah I see','haha Funny','I am well Not sure','From Germany, not OK heh']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['Real? Wow','BrazilAlso Similar!','haha','fun~','Oh Good idea!']}];
         var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
         var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
         var reply=document.createElement('div');reply.className='msg';
@@ -549,25 +549,25 @@ document.getElementById('chatMessages').scrollTop=document.getElementById('chatM
 // Today Topic List
 var topics=[
     'your countryfrom the most unusual food in your country? 🍽️',
-    'What I watched yesterday drama/영change Recommenddo it 🎬',
-    'your countryfrom Popular 있Is song Tell me 🎵',
-    'Ispcs like하Is Korea FoodIs? 🇰🇷',
+    'What I watched yesterday drama/movie recommend 🎬',
+    'your countryfrom popular song Tell me 🎵',
+    'What is your favorite Korean food? 🇰🇷',
     'your countryOf greetingsthe Tell me! 👋',
-    'Ispcs Isafter watching 싶Is countryIs? ✈️',
+    'Which country do you most want to visit? ✈️',
     'your countryOnlyOf uniqueone CultureIs have? 🌍',
-    'These days intoIs hobby what야? 🎨',
+    'What hobby are you into these days? 🎨',
     'your country school lifeIs how about? 🏫',
     'Ispcs funny Korean mistake Tell me haha 😂',
-    'your country 욕 하IOnly Tell me haha 🤫',
-    '제day like하Is EmojiIs? 😎',
+    'Tell me a swear word from your country haha 🤫',
+    'What is your favorite emoji? 😎',
     'Now your country weather how about? ☀️',
-    'your country ChristmasIs howto 보My? 🎄',
-    'Ispcs confidentIs!리Is? 👨‍🍳',
-    'your countryfrom trendingIs 밈 have? 🤣',
-    'Korean while learning Ispcs difficult 점Is? 📚',
+    'How do you celebrate Christmas in your country? 🎄',
+    'What dish are you most confident cooking? 👨‍🍳',
+    'Any trending memes in your country? 🤣',
+    'Hardest part of learning Korean? 📚',
     'your country signature dessertIs? 🍰',
-    'Ispcs like하Is seasonIs? 🌸',
-    'your countryfrom 데Thisdate 때 what 해? 💕'
+    'What is your favorite season? 🌸',
+    'What do dates look like in your country? 💕'
 ];
 var topicIdx=Math.floor(Math.random()*topics.length);
 document.getElementById('topicText').textContent=topics[topicIdx];
@@ -576,19 +576,19 @@ function nextTopic(){topicIdx=(topicIdx+1)%topics.length;document.getElementById
 // Mission List
 var missions=[
     '"Delicious"the Say it in your language!',
-    '"love해"the Say it in your language! 💕',
+    '"I love you" in it in your language! 💕',
     '"Helloplease do"the Say it in your language! 👋',
     '"thanksdoes"the Say it in your language! 🙏',
     'your country Food Name 3pcs Try it! 🍽️',
     '"cold"the Say it in your language! ❄️',
-    'like하Is song Is사 one 줄 Try it! 🎵',
-    '"fun다"the Say it in your language! 😄',
+    'Sing one line of your favorite song! 🎵',
+    '"fun"the Say it in your language! 😄',
     'your Namethe KoreanTo Try it! ✍️',
     '"hungry"the Say it in your language! 🍔',
-    '"well 자"the Say it in your language! 🌙',
-    'your country 유people인 1people Tell me! 🌟',
+    '"Good night" in it in your language! 🌙',
+    'Name a famous person from your country! 🌟',
     '"Cool"the Say it in your language! 😎',
-    'your country 수Also Name Try it! 🏙️',
+    'Say your countrys capital! 🏙️',
     '"Friends"the Say it in your language! 🤝'
 ];
 // Mission Auto occurs (Demo: 45secevery)

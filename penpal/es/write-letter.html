@@ -322,7 +322,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="letter-area">
                 <div class="letter-label">Cartas Contenido</div>
                 <div class="letter-wrap">
-                    <textarea class="letter-input" placeholder="Holaplease! I am Coreafrom on TAZOis. Espanol learn have요..." oninput="updateCount(this)"></textarea>
+                    <textarea class="letter-input" placeholder="Holaplease! I am Coreafrom on TAZOis. Espanol learn available..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
                         <div class="char-count"><span id="charNum">0</span> / 2,000 chars</div>
                         <div class="letter-tools">
@@ -342,8 +342,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Maria G.</div>
-                    <div class="recent-preview">Hola! 오늘 what 했어? I K-pop heard~</div>
-                    <div class="letter-full">Hola! 오늘 what 했어? I 오늘 daily 종day K-pop heard~ BTS New 앨범 I왔거든! 너too gusta해? 그리고 Coreanoto Cartas trying to use 했는데 아직 어려워 Espanolto 쓸to haha next time Coreanoto I will try! Ultimamente what when 지my? reply 기다릴to~</div>
+                    <div class="recent-preview">Hola! today what did? I K-pop heard~</div>
+                    <div class="letter-full">Hola! today what did? I today daily all day K-pop heard~ BTS New 앨범 I왔you know! you too gusta해? 그리고 Coreanoto Cartas trying to use 했는데 아직 hard Espanolto writing haha Next time Coreanoto I will try! Ultimamente what when doing? reply 기다릴to~</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
@@ -360,7 +360,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
                     <div class="recent-preview">Cartas Thank you! next time Japonesalso tryto요~</div>
-                    <div class="letter-full">Cartas Thank you! next time Japonesalso tryto요~ 사실 Me too Coreano Studyand with데 아직 많 부족do. Japonfrom Ultimamente Cherry Blossom 피기 Inicio했어요! Coreatoo Cherry Blossom 예쁘죠? 언젠 Corea 가 같 Cherry Blossom after watching 싶다~ gustadoing MusicaI drama 있으면 Recomendaciondo it!</div>
+                    <div class="letter-full">Cartas Thank you! next time Japonesalso tryto요~ 사실 Me too Coreano Studyand with데 아직 많 lacking. Japonfrom Ultimamente Cherry Blossom blooming Iniciodid요! Coreatoo Cherry Blossom pretty right? someday Corea together Cherry Blossom want to see~ gustadoing MusicaI drama if you have Recomendaciondo it!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
@@ -377,7 +377,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
                     <div class="recent-preview">Holaplease! I am Brazilfrom on Lucasis...</div>
-                    <div class="letter-full">Holaplease! I am Brazilfrom on Lucasis. Coreano 배우기 Inicioone 지 6pcsmonth 됐어요. astronomy and Juego gustadoing데, 혹시 비슷one Interes사 있으면 같 hablardo! Portuguestoo 가teach 수 have요~</div>
+                    <div class="letter-full">Holaplease! I am Brazilfrom on Lucasis. Coreano 배우기 Inicioone 6 months ago. astronomy and Juego gustadoing데, 혹시 similar Interes사 if you have 같 hablardo! Portuguestoo teach 수 available~</div>
                     <div class="recent-actions">
                         <button class="btn-act" onclick="doProfile('Lucas S.')">Perfil View</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
@@ -437,7 +437,7 @@ function toggleLetter(el){var f=el.querySelector('.letter-full'),a=el.querySelec
 
 function doSend(){
     var ta=document.querySelector('.letter-input'),text=ta.value.trim(),sel=document.querySelector('.to-person.selected .to-name');
-    if(!sel){showToast('Recipient Seleccionarplease do');return;}
+    if(!sel){showToast('Recipient please select');return;}
     if(!text){showToast('Cartas Contenido please enter');return;}
     if(text.length>2000){showToast('2,000 chars has been exceeded');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
@@ -483,16 +483,16 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='Archived';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Cartas has been archived');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Mensajes Seleccionarplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas Gracias! 지금 여유 없어 reply 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interes for having thanksdo! However 지금 new Penpal 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas well read it! aprendiendo Idioma month라 아쉽지만, good Penpal 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Mensajes Enviar</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Mensajes please select.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas Gracias! 지금 no time reply it will be difficult.</div><div class="decline-opt" onclick="selectDecline(this)">Interes thank you for your interest! However right now new Penpal is difficult right now.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas I read it well! aprendiendo Idioma unfortunately, good Penpal I hope you find..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Mensajes Enviar</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Mensajes Seleccionarplease do');return;}closeModal();showToast(name+'sirto Reject Mensajes sent');}
+function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Mensajes please select');return;}closeModal();showToast(name+'sirto Reject Mensajes sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Reportardoing</div><div class="modal-body">'+name+'sir Reportardoing 유 Seleccionarplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexualor Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personales!구 (phone number, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar received</button>');
+    openModal('<div class="modal-title">Reportardoing</div><div class="modal-body">'+name+'sir Reportardoing reason please select.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexualor Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / hate speech</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personalesrequest (phone number, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report submitted</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Reportar 사유 Seleccionarplease do');return;}closeModal();showToast('Reportar has been received. the team reviews.');}
+function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Reportar reason please select');return;}closeModal();showToast('Reportar has been received. The team will review.');}
 function doDelete(el){event.stopPropagation();if(!confirm(' Cartas Eliminarwould you like?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Cartas Eliminarcompleted');}
 </script>
 </body>
