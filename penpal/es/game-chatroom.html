@@ -104,7 +104,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .mission-text{font-size:13px;color:#c4b5fd;font-weight:500;}
 .mission-reward{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;}
 
-/* 언어 레벨 뱃지 */
+/* Idioma 레벨 뱃지 */
 .lang-badge{font-size:9px;padding:1px 5px;border-radius:4px;font-weight:600;margin-left:4px;}
 .lang-badge.native{background:rgba(74,222,128,0.15);color:#4ade80;}
 .lang-badge.advanced{background:rgba(14,165,233,0.15);color:#38bdf8;}
@@ -308,7 +308,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="44" height="44"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">Horoscopo de hoy?</div>
-                <div class="moon-text">타로 한 장의 Mensajes</div>
+                <div class="moon-text">Tarot 한 장의 Mensajes</div>
                 <div class="moon-text">내 Significado oculto de suenos</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
@@ -361,7 +361,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="msg-mission">
                 <div class="mission-icon">🎯</div>
                 <div class="mission-label">말하기 미션</div>
-                <div class="mission-text">"맛있다"를 니 언어로 써봐!</div>
+                <div class="mission-text">"맛있다"를 니 Idioma로 써봐!</div>
                 <div class="mission-reward">참여 시 💎 x5 보상</div>
             </div>
 
@@ -522,7 +522,7 @@ function sendMsg(){
     m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
     c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
     setTimeout(function(){
-        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','Coreano 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ 좋아!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일에서는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','Coreano 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ gusta!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일에서는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
         var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
         var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
         var reply=document.createElement('div');reply.className='msg';
@@ -551,7 +551,7 @@ var topics=[
     '니 나라에서 가장 이상한 Comida은? 🍽️',
     '어제 본 드라마/영화 Recomendacion해줘 🎬',
     '니 나라에서 인기 있는 노래 알려줘 🎵',
-    '가장 좋아하는 Corea Comida은? 🇰🇷',
+    '가장 gusta하는 Corea Comida은? 🇰🇷',
     '니 나라의 인사법을 알려줘! 👋',
     '가장 가보고 싶은 나라는? ✈️',
     '니 나라만의 독특한 Cultura가 있어? 🌍',
@@ -559,14 +559,14 @@ var topics=[
     '니 나라 학교생활은 어때? 🏫',
     '가장 웃긴 Coreano 실수 알려줘 ㅋㅋ 😂',
     '니 나라 욕 하나만 알려줘 ㅋㅋ 🤫',
-    '제일 좋아하는 이모지는? 😎',
+    '제일 gusta하는 이모지는? 😎',
     '지금 니 나라 날씨 어때? ☀️',
     '니 나라 크리스마스는 어떻게 보내? 🎄',
     '가장 자신있는 요리는? 👨‍🍳',
     '니 나라에서 유행하는 밈 있어? 🤣',
     'Coreano 배우면서 가장 어려운 점은? 📚',
     '니 나라 대표 디저트는? 🍰',
-    '가장 좋아하는 계절은? 🌸',
+    '가장 gusta하는 계절은? 🌸',
     '니 나라에서 데이트할 때 뭐 해? 💕'
 ];
 var topicIdx=Math.floor(Math.random()*topics.length);
@@ -575,21 +575,21 @@ function nextTopic(){topicIdx=(topicIdx+1)%topics.length;document.getElementById
 
 // 미션 리스트
 var missions=[
-    '"맛있다"를 니 언어로 써봐!',
-    '"사랑해"를 니 언어로 써봐! 💕',
-    '"안녕하세요"를 니 언어로 써봐! 👋',
-    '"감사합니다"를 니 언어로 써봐! 🙏',
+    '"맛있다"를 니 Idioma로 써봐!',
+    '"사랑해"를 니 Idioma로 써봐! 💕',
+    '"안녕하세요"를 니 Idioma로 써봐! 👋',
+    '"감사합니다"를 니 Idioma로 써봐! 🙏',
     '니 나라 Comida 이름 3개 써봐! 🍽️',
-    '"춥다"를 니 언어로 써봐! ❄️',
-    '좋아하는 노래 가사 한 줄 써봐! 🎵',
-    '"재밌다"를 니 언어로 써봐! 😄',
+    '"춥다"를 니 Idioma로 써봐! ❄️',
+    'gusta하는 노래 가사 한 줄 써봐! 🎵',
+    '"재밌다"를 니 Idioma로 써봐! 😄',
     '니 이름을 Coreano로 써봐! ✍️',
-    '"배고파"를 니 언어로 써봐! 🍔',
-    '"잘 자"를 니 언어로 써봐! 🌙',
+    '"배고파"를 니 Idioma로 써봐! 🍔',
+    '"잘 자"를 니 Idioma로 써봐! 🌙',
     '니 나라 유명인 1명 알려줘! 🌟',
-    '"멋지다"를 니 언어로 써봐! 😎',
+    '"멋지다"를 니 Idioma로 써봐! 😎',
     '니 나라 수도 이름 써봐! 🏙️',
-    '"Amigos"를 니 언어로 써봐! 🤝'
+    '"Amigos"를 니 Idioma로 써봐! 🤝'
 ];
 // 미션 자동 발생 (데모: 45초마다)
 setInterval(function(){

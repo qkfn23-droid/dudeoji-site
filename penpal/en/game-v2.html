@@ -45,7 +45,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .banner p{font-size:11px;color:rgba(255,255,255,0.8);line-height:1.6;}
 .banner .bg-emoji{position:absolute;right:12px;bottom:12px;font-size:50px;opacity:0.15;animation:floatEmoji 3s ease-in-out infinite;}
 @keyframes floatEmoji{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-8px) rotate(5deg);}}
-/* 배너 반짝이 */
+/* 배너 Sparkle이 */
 .sparkle{position:absolute;color:#fff;font-size:10px;opacity:0;animation:sparkleAni 2s ease-in-out infinite;}
 .sparkle:nth-child(1){top:10px;left:20px;animation-delay:0s;}
 .sparkle:nth-child(2){top:30px;right:60px;animation-delay:0.7s;}
@@ -69,7 +69,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .slider-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;}
 .slider-dot.active{background:#fff;}
 
-/* My 프로필 카드 */
+/* My 프to필 카드 */
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
 @keyframes starGlow{0%{filter:drop-shadow(0 0 6px rgba(255,160,50,0.8)) drop-shadow(0 0 12px rgba(255,120,20,0.5)) drop-shadow(0 0 20px rgba(255,80,0,0.2));}100%{filter:drop-shadow(0 0 10px rgba(255,160,50,1)) drop-shadow(0 0 20px rgba(255,120,20,0.7)) drop-shadow(0 0 30px rgba(255,80,0,0.3));}}
@@ -78,7 +78,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .my-profile-name{font-size:14px;font-weight:700;color:#333;}
 .my-profile-sub{font-size:10px;color:#999;}
 
-/* 별의 기운 */
+/* Star Energy */
 .aura-box{background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .aura-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .aura-bar-wrap{background:#f0f0f0;border-radius:8px;height:10px;overflow:hidden;margin-bottom:6px;}
@@ -93,7 +93,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .aura-name{font-size:8px;color:#888;margin-top:2px;}
 .aura-item.active .aura-name{color:#b45309;font-weight:600;}
 
-/* 별의 기운 타이틀 이펙트 */
+/* Star Energy 타이틀 이펙트 */
 .aura-title .aura-star{display:inline-block;animation:auraTitleStar 2s ease-in-out infinite;}
 @keyframes auraTitleStar{0%,100%{transform:scale(1) rotate(0deg);}25%{transform:scale(1.2) rotate(-10deg);}50%{transform:scale(1) rotate(0deg);}75%{transform:scale(1.2) rotate(10deg);}}
 .aura-bar-fill{position:relative;overflow:hidden;}
@@ -105,7 +105,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .friend-item{display:flex;align-items:center;gap:6px;padding:8px 0;border-bottom:1px solid #f5f5f5;flex-wrap:wrap;}
 .friend-item:last-child{border-bottom:none;}
 
-/* 길드 */
+/* Guild */
 .guild-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-top:10px;}
 .guild-title{font-size:12px;font-weight:700;color:#0ea5e9;margin-bottom:10px;}
 .guild-card{display:flex;align-items:center;gap:10px;padding:10px;background:linear-gradient(135deg,#fef3c7,#fff7ed);border-radius:10px;margin-bottom:10px;}
@@ -331,13 +331,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .dark .gf-trans{color:#aaa;}
 .dark .gf-meta{color:#666;}
 
-/* 길드 탭 콘텐츠 */
+/* Guild 탭 콘텐츠 */
 .guild-content{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .dark .guild-content{background:#1e1e30;box-shadow:none;border:1px solid #2a2a3a;}
 .guild-section-title{font-size:13px;font-weight:700;color:#333;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .dark .guild-section-title{color:#ddd;}
 
-/* 길드 리더보드 */
+/* Guild 리더보드 */
 .guild-lb{margin-bottom:16px;}
 .guild-lb-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #f5f5f5;}
 .guild-lb-row:last-child{border-bottom:none;}
@@ -362,14 +362,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .gf-guild{font-size:10px;color:#0ea5e9;font-weight:600;}
 .gf-stars{color:#f59e0b;}
 
-/* 길드 퀘스트 미니 */
+/* Guild 퀘스트 미니 */
 .guild-quest-mini{margin-top:8px;}
 .guild-quest-text{font-size:10px;color:#888;margin-bottom:4px;display:flex;align-items:center;gap:4px;}
 
-/* 길드 찾기/만들기 버튼 */
+/* Guild 찾기/Create 버튼 */
 .guild-empty-text{font-size:12px;color:#888;text-align:center;margin-bottom:12px;line-height:1.6;}
 
-/* 길드before 뱃지 */
+/* Guildbefore 뱃지 */
 .r-guild-badge{font-size:9px;padding:2px 6px;background:#fef3c7;color:#b45309;border-radius:6px;font-weight:600;margin-left:4px;}
 </style>
 </head>
@@ -395,26 +395,26 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 </div>
 <div class="page-content">
 <div class="tab-bar">
-    <div class="tab-item active"><span class="t-emoji">🃏</span> 원카드 <span class="t-hot">HOT</span></div>
-    <div class="tab-item"><span class="t-emoji">🧩</span> 그림 맞추기</div>
-    <div class="tab-item"><span class="t-emoji">💬</span> 수다방</div>
-    <div class="tab-item"><span class="t-emoji">🪐</span> 길드</div>
+    <div class="tab-item active"><span class="t-emoji">🃏</span> One Card <span class="t-hot">HOT</span></div>
+    <div class="tab-item"><span class="t-emoji">🧩</span> Picture Match</div>
+    <div class="tab-item"><span class="t-emoji">💬</span> Chat Room</div>
+    <div class="tab-item"><span class="t-emoji">🪐</span> Guild</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">원카드 시즌 오픈! Penpal Friends와 one 판 해보세요</div>
-            <div class="notice-text">이번 주 원카드 TOP 3에게 별의 기운 x50 증정!</div>
-            <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대해주세요</div>
-            <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
-            <div class="notice-text">현재 접속자 127명 · 진행 중인 Game 23개</div>
-            <div class="notice-text">비매너 유저 신고 기능이 추가되었습니다</div>
+            <div class="notice-text active">One Card 시즌 오픈! Penpal Friends와 one rounds 해보세요</div>
+            <div class="notice-text">이번 주 One Card TOP 3에게 Star Energy x50 증정!</div>
+            <div class="notice-text">Picture Match 10월 오픈 예정! Stay tuned</div>
+            <div class="notice-text">Collect star energy to unlock auras!</div>
+            <div class="notice-text">현재 접속자 127members · 진행 중인 Game 23pcs</div>
+            <div class="notice-text">Bad manner 유저 신고 기능이 추go되었습니다</div>
         </div>
     </div>
 </div>
 
 <div class="game-main">
     <div class="left">
-        <!-- My 프로필 -->
+        <!-- My 프to필 -->
         <div class="my-profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg">
                 <path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/>
@@ -436,18 +436,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="banner-slider" id="bannerSlider">
             <div class="slide slide-1 active">
                 <span class="sparkle">✦</span><span class="sparkle">✧</span><span class="sparkle">⋆</span>
-                <h3>원카드 시즌 오픈! 🎉</h3>
-                <p>Penpal Friends와 원카드 one 판!<br>이번 주 TOP 3 별의 기운 x50</p>
+                <h3>One Card 시즌 오픈! 🎉</h3>
+                <p>Penpal Friends와 One Card one rounds!<br>이번 주 TOP 3 Star Energy x50</p>
                 <div class="bg-emoji">🃏</div>
             </div>
             <div class="slide slide-2">
-                <h3>그림 맞추기 오픈! 🧩</h3>
-                <p>국기 카드로 그림 맞추기!<br>Friends와 기억력 대결</p>
+                <h3>Picture Match 오픈! 🧩</h3>
+                <p>국기 카드to Picture Match!<br>Friends와 기억력 vs결</p>
                 <div class="bg-emoji">🧩</div>
             </div>
             <div class="slide slide-3">
-                <h3>별의 기운 이벤트 ✨</h3>
-                <p>Game하면 기운이 모여요!<br>오라를 해금하고 빛나세요</p>
+                <h3>Star Energy Event ✨</h3>
+                <p>Game하면 기운이 모여요!<br>Unlock auras and shine</p>
                 <div class="bg-emoji">📮</div>
             </div>
             <div class="slider-arrows">
@@ -461,37 +461,37 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- 별의 기운 -->
+        <!-- Star Energy -->
         <div class="aura-box">
-            <div class="aura-title"><span class="aura-star">✨</span> 별의 기운</div>
+            <div class="aura-title"><span class="aura-star">✨</span> Star Energy</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
-            <div class="aura-info"><span>165 / 500</span><span>다음: 💫 눈부심</span></div>
+            <div class="aura-info"><span>165 / 500</span><span>Next: 💫 Dazzle</span></div>
             <div class="aura-grid">
-                <div class="aura-item active" data-aura="basic"><div class="aura-emoji">⭐</div><div class="aura-name">기본</div></div>
-                <div class="aura-item active" data-aura="sparkle"><div class="aura-emoji">🌟</div><div class="aura-name">반짝</div></div>
-                <div class="aura-item active" data-aura="shine"><div class="aura-emoji">✨</div><div class="aura-name">빛남</div></div>
-                <div class="aura-item locked" data-aura="dazzle"><div class="aura-emoji">💫</div><div class="aura-name">눈부심</div></div>
-                <div class="aura-item locked" data-aura="transcend"><div class="aura-emoji">🌠</div><div class="aura-name">초월</div></div>
+                <div class="aura-item active" data-aura="basic"><div class="aura-emoji">⭐</div><div class="aura-name">Basic</div></div>
+                <div class="aura-item active" data-aura="sparkle"><div class="aura-emoji">🌟</div><div class="aura-name">Sparkle</div></div>
+                <div class="aura-item active" data-aura="shine"><div class="aura-emoji">✨</div><div class="aura-name">Glow</div></div>
+                <div class="aura-item locked" data-aura="dazzle"><div class="aura-emoji">💫</div><div class="aura-name">Dazzle</div></div>
+                <div class="aura-item locked" data-aura="transcend"><div class="aura-emoji">🌠</div><div class="aura-name">Transcend</div></div>
             </div>
         </div>
 
-        <!-- My 길드 -->
+        <!-- My Guild -->
         <div class="guild-box">
-            <div class="guild-title">🪐 My 길드</div>
+            <div class="guild-title">🪐 My Guild</div>
             <div class="guild-card" onclick="location.href='guild-space.html'" style="cursor:pointer;">
                 <div class="guild-emblem">♌︎</div>
                 <div class="guild-info">
                     <div class="guild-name">Stellar Lions</div>
-                    <div class="guild-members">👤 12/20 · Lv.4 쌍성</div>
+                    <div class="guild-members">👤 12/20 · Lv.4 Binary Star</div>
                 </div>
             </div>
             <div class="guild-stats">
-                <div class="guild-stat"><div class="gs-num">1,247</div><div class="gs-label">활동</div></div>
-                <div class="guild-stat"><div class="gs-num">#3</div><div class="gs-label">순위</div></div>
+                <div class="guild-stat"><div class="gs-num">1,247</div><div class="gs-label">Activity</div></div>
+                <div class="guild-stat"><div class="gs-num">#3</div><div class="gs-label">Rank</div></div>
                 <div class="guild-stat"><div class="gs-num">89</div><div class="gs-label">Game</div></div>
             </div>
             <div class="guild-quest-mini">
-                <div class="guild-quest-text">📋 주간: Game 18/24판</div>
+                <div class="guild-quest-text">📋 주간: Game 18/24rounds</div>
                 <div class="aura-bar-wrap" style="height:6px;"><div class="aura-bar-fill" style="width:75%;"></div></div>
             </div>
         </div>
@@ -502,25 +502,25 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
     <div class="right">
         <div class="room-header" id="roomHeader">
-            <h2 id="roomTitle">🃏 원카드 방 목록</h2>
-            <button class="create-btn" onclick="openModal()">+ 방 만들기</button>
+            <h2 id="roomTitle">🃏 One Card 방 List</h2>
+            <button class="create-btn" onclick="openModal()">+ Create Room</button>
         </div>
 
         <div class="room-list" id="roomListOnecard">
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Maria의 방</div><div class="r-desc">초보 환영! 같이 do~</div></div>
+                <div class="r-info"><div class="r-name">MariaRoom</div><div class="r-desc">초보 환영! 같이 do~</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#43a047,#66bb6a);">L</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">2/4</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Yuki의 방</div><div class="r-desc">Korean로 대화do 🇰🇷</div></div>
+                <div class="r-info"><div class="r-name">YukiRoom</div><div class="r-desc">Koreanto vs화do 🇰🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
@@ -528,11 +528,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">3/4</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row playing" onclick="location.href='game-onecard.html?spectate=true'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Felix의 방</div><div class="r-desc">German 대화 🇩🇪</div></div>
+                <div class="r-info"><div class="r-name">FelixRoom</div><div class="r-desc">German vs화 🇩🇪</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
@@ -540,89 +540,89 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p" style="background:linear-gradient(135deg,#43a047,#66bb6a);">L</div>
                 </div>
                 <div class="r-badge b-play">4/4</div>
-                <button class="r-enter">관before</button>
+                <button class="r-enter">viewbefore</button>
             </div>
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Jin의 방</div><div class="r-desc">아무나 환영 😊</div></div>
+                <div class="r-info"><div class="r-name">JinRoom</div><div class="r-desc">Everyone welcome 😊</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#7c4dff,#b388ff);">J</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">1/4</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Alex의 방</div><div class="r-desc">French 연습 🇫🇷</div></div>
+                <div class="r-info"><div class="r-name">AlexRoom</div><div class="r-desc">French 연습 🇫🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ff5722,#ff8a65);">A</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">2/4</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row playing" onclick="location.href='game-onecard.html?spectate=true'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Sofia의 방</div><div class="r-desc">Italian 🇮🇹</div></div>
+                <div class="r-info"><div class="r-name">SofiaRoom</div><div class="r-desc">Italian 🇮🇹</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-play">2/4</div>
-                <button class="r-enter">관before</button>
+                <button class="r-enter">viewbefore</button>
             </div>
             <div class="room-row">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Leo의 방</div><div class="r-desc">Portuguese 연습 🇧🇷</div></div>
+                <div class="r-info"><div class="r-name">LeoRoom</div><div class="r-desc">Portuguese 연습 🇧🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8);">L</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">1/4</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
         </div>
 
         <div class="room-list" id="roomListPicture" style="display:none;">
             <div class="room-row" onclick="location.href='game-picture.html'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Maria의 방</div><div class="r-desc">국기 맞추기! 같이 하자 🧩</div></div>
+                <div class="r-info"><div class="r-name">MariaRoom</div><div class="r-desc">국기 맞추기! 같이 하자 🧩</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">1/2</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row playing" onclick="location.href='game-picture.html?spectate=true'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Yuki의 방</div><div class="r-desc">기억력 대결! 🧠</div></div>
+                <div class="r-info"><div class="r-name">YukiRoom</div><div class="r-desc">기억력 vs결! 🧠</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
                 </div>
                 <div class="r-badge b-play">2/2</div>
-                <button class="r-enter">관before</button>
+                <button class="r-enter">viewbefore</button>
             </div>
             <div class="room-row" onclick="location.href='game-picture.html'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Sofia의 방</div><div class="r-desc">초보 환영! 😄</div></div>
+                <div class="r-info"><div class="r-name">SofiaRoom</div><div class="r-desc">초보 환영! 😄</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div>
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">1/2</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
         </div>
 
         <div class="room-list" id="roomListChat" style="display:none;">
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">자유 수다방</div><div class="r-desc">아무 주제나 OK! 편하게 들어와~ 😊</div></div>
+                <div class="r-info"><div class="r-name">자유 Chat Room</div><div class="r-desc">아무 주제me OK! 편하게 들어와~ 😊</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
@@ -630,7 +630,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">3/20</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
@@ -641,17 +641,17 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div><div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">2/20</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">Japanese 수다방</div><div class="r-desc">日本語で話しましょう！🇯🇵</div></div>
+                <div class="r-info"><div class="r-name">Japanese Chat Room</div><div class="r-desc">日本語で話しましょう！🇯🇵</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#7c4dff,#b388ff);">J</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div><div class="r-p empty"></div><div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">1/20</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
@@ -664,14 +664,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">4/20</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Join</button>
             </div>
         </div>
 
-        <!-- 길드 탭 콘텐츠 -->
+        <!-- Guild 탭 콘텐츠 -->
         <div id="guildContent" style="display:none;">
             <div class="guild-content" style="margin-bottom:12px;">
-                <div class="guild-section-title">🏆 인기 길드</div>
+                <div class="guild-section-title">🏆 인기 Guild</div>
                 <div class="guild-lb">
                     <div class="guild-lb-row">
                         <div class="guild-lb-rank">1</div>
@@ -702,10 +702,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
 
             <div class="guild-content" style="margin-bottom:12px;">
-                <div class="guild-section-title">🪐 은하 피드 — 인기 어휘 카드</div>
+                <div class="guild-section-title">🪐 Galaxy Feed — Popular Vocab Cards</div>
                 <div class="guild-feed">
                     <div class="guild-feed-card">
-                        <div class="gf-word">사랑해</div>
+                        <div class="gf-word">I love you</div>
                         <div class="gf-trans">Te quiero</div>
                         <div class="gf-meta"><span class="gf-guild">♈ Star Breakers</span></div>
                     </div>
@@ -716,24 +716,24 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     </div>
                     <div class="guild-feed-card">
                         <div class="gf-word">Wanderlust</div>
-                        <div class="gf-trans">방랑벽</div>
+                        <div class="gf-trans">Wanderlust</div>
                         <div class="gf-meta"><span class="gf-guild">♓ Cosmic Riders</span></div>
                     </div>
                     <div class="guild-feed-card">
                         <div class="gf-word">Saudade</div>
-                        <div class="gf-trans">그리움 (번역 Fire가)</div>
+                        <div class="gf-trans">Longing (Translate Firego)</div>
                         <div class="gf-meta"><span class="gf-guild">♌ Stellar Lions</span></div>
                     </div>
                     <div class="guild-feed-card">
                         <div class="gf-word">Dolce far niente</div>
-                        <div class="gf-trans">아무것도 안 하는 달콤함</div>
+                        <div class="gf-trans">아무것also 안 하는 Sweetness</div>
                         <div class="gf-meta"><span class="gf-guild">♎ Nebula Knights</span></div>
                     </div>
                 </div>
             </div>
 
             <div style="text-align:center;padding:12px;">
-                <a href="guild-browse.html" class="create-btn" style="display:inline-block;text-decoration:none;padding:12px 28px;font-size:13px;">🪐 길드 탐색하기</a>
+                <a href="guild-browse.html" class="create-btn" style="display:inline-block;text-decoration:none;padding:12px 28px;font-size:13px;">🪐 Guild 탐색하기</a>
             </div>
         </div>
 
@@ -742,42 +742,42 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- 오른쪽 사이드: 접속 Friends -->
     <div class="side-right">
         <div class="friend-box">
-            <div class="friend-title">👥 접속 중 (4)</div>
+            <div class="friend-title">👥 Online (4)</div>
             <div class="friend-item">
                 <div class="f-dot"></div>
                 <div class="f-pic" style="background:none;"><svg viewBox="0 0 120 120" width="28" height="28"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="f-name">Maria</div>
-                <button class="f-invite">초대</button>
+                <button class="f-invite">Invite</button>
             </div>
             <div class="friend-item">
                 <div class="f-dot"></div>
                 <div class="f-pic" style="background:none;"><svg viewBox="0 0 120 120" width="28" height="28"><path d="M75,10 C45,10 25,35 25,65 C25,95 45,115 75,115 C55,105 45,85 45,65 C45,45 55,25 75,10Z" fill="#C8E6FF" stroke="#90CAF9" stroke-width="1.5"/><ellipse cx="52" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="78" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="56" cy="64" rx="2.5" ry="2.5" fill="#555"><animate attributeName="ry" values="2.5;2.5;0.3;2.5;2.5" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0.5s"/></ellipse><ellipse cx="74" cy="64" rx="2.5" ry="2.5" fill="#555"><animate attributeName="ry" values="2.5;2.5;0.3;2.5;2.5" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0.5s"/></ellipse><path d="M60,78 Q65,84 70,78" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg></div>
                 <div class="f-name">Yuki</div>
-                <button class="f-invite">초대</button>
+                <button class="f-invite">Invite</button>
             </div>
             <div class="friend-item">
                 <div class="f-dot"></div>
                 <div class="f-pic" style="background:none;"><svg viewBox="0 0 120 120" width="28" height="28"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="f-name">Felix</div>
-                <button class="f-invite">초대</button>
+                <button class="f-invite">Invite</button>
             </div>
             <div class="friend-item">
                 <div class="f-dot"></div>
                 <div class="f-pic" style="background:none;"><svg viewBox="0 0 120 120" width="28" height="28"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1.5s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1.5s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1.5s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="1.5s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="f-name">Lucas</div>
-                <button class="f-invite">초대</button>
+                <button class="f-invite">Invite</button>
             </div>
             <div class="friend-item">
                 <div class="f-dot"></div>
                 <div class="f-pic" style="background:none;"><svg viewBox="0 0 120 120" width="28" height="28"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="f-name">Sofia</div>
-                <button class="f-invite">초대</button>
+                <button class="f-invite">Invite</button>
             </div>
             <div class="friend-item">
                 <div class="f-dot" style="background:#ccc;"></div>
                 <div class="f-pic" style="background:none;opacity:0.5;"><svg viewBox="0 0 120 120" width="28" height="28"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><circle cx="44" cy="60" r="3" fill="#555"/><circle cx="76" cy="60" r="3" fill="#555"/><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="f-name" style="color:#bbb;">Jin</div>
-                <span style="font-size:9px;color:#ccc;">오프라인</span>
+                <span style="font-size:9px;color:#ccc;">Offline</span>
             </div>
         </div>
 
@@ -800,31 +800,31 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <div class="chat-wrap">
     <div class="chat-box">
         <div class="chat-msgs" id="chatMsgs">
-            <div class="c-msg"><span class="sys">[알림]</span> Dudeoji Studio에 오신 걸 환영합니다!</div>
-            <div class="c-msg"><span class="nm c1">Maria:</span> who 원카드 할 사람~ 😄</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> 나 할래! 방 만들어줘</div>
+            <div class="c-msg"><span class="sys">[알림]</span> Dudeoji Studio에 오신 thing 환영합니다!</div>
+            <div class="c-msg"><span class="nm c1">Maria:</span> who One Card 할 사람~ 😄</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> me 할래! 방 Make one please</div>
             <div class="c-msg"><span class="sys">[알림]</span> Maria님이 방을 만들었습니다</div>
-            <div class="c-msg"><span class="nm c3">Felix:</span> 나도 들어간다!</div>
+            <div class="c-msg"><span class="nm c3">Felix:</span> mealso 들어간다!</div>
             <div class="c-msg whisper"><span class="nm">to.TAZO:</span> 야 우리 방에 와!</div>
-            <div class="c-msg"><span class="nm c4">Lucas:</span> 나도 끼워줘~</div>
-            <div class="c-msg"><span class="sys">[알림]</span> Lucas님이 Maria의 방에 입장했습니다</div>
-            <div class="c-msg"><span class="nm c1">Maria:</span> like~ 바로 시작하자!</div>
-            <div class="c-msg"><span class="nm c5">Sofia:</span> 나도 방 만들까?</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> 소피아 방 만들면 나 갈게!</div>
+            <div class="c-msg"><span class="nm c4">Lucas:</span> mealso Let me join~</div>
+            <div class="c-msg"><span class="sys">[알림]</span> Lucas님이 MariaRoom에 Join했습니다</div>
+            <div class="c-msg"><span class="nm c1">Maria:</span> like~ 바to 시작하자!</div>
+            <div class="c-msg"><span class="nm c5">Sofia:</span> mealso 방 만들까?</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> 소피아 방 만들면 me 갈게!</div>
             <div class="c-msg"><span class="sys">[알림]</span> Sofia님이 방을 만들었습니다</div>
-            <div class="c-msg"><span class="nm c6">Jin:</span> 아무나 환영~ 초보도 와요 😊</div>
-            <div class="c-msg"><span class="nm c3">Felix:</span> German로 대화하면서 하자!</div>
-            <div class="c-msg"><span class="nm c5">Sofia:</span> Italian도 가능!</div>
-            <div class="c-msg"><span class="nm c1">Maria:</span> ㅋㅋㅋ 원카드에 Language Exchange까지</div>
+            <div class="c-msg"><span class="nm c6">Jin:</span> Everyone welcome~ 초보also 와요 😊</div>
+            <div class="c-msg"><span class="nm c3">Felix:</span> Germanto vs화하면서 하자!</div>
+            <div class="c-msg"><span class="nm c5">Sofia:</span> Italianalso available!</div>
+            <div class="c-msg"><span class="nm c1">Maria:</span> ㅋㅋㅋ One Card에 Language Exchangeuntil</div>
             <div class="c-msg"><span class="nm c4">Lucas:</span> 이게 진짜 Dudeoji월드지</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> 다음 판은 My가 이길거야!</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> Next rounds은 Mygo 이길거야!</div>
         </div>
         <div class="chat-row">
             <select class="chat-to">
-                <option>-모두에게-</option>
-                <option>-귓속말-</option>
+                <option>-To all-</option>
+                <option>-Whisper-</option>
                 <option>-파티-</option>
-                <option>-길드-</option>
+                <option>-Guild-</option>
             </select>
             <input class="chat-in" placeholder="Messages를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-btn" onclick="sendChat()">before송</button>
@@ -832,16 +832,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     </div>
 </div>
 
-<!-- 방 만들기 모달 -->
+<!-- Create Room 모달 -->
 <div class="modal-bg" id="modal">
     <div class="modal">
-        <h3>🃏 방 만들기</h3>
+        <h3>🃏 Create Room</h3>
         <div class="modal-field">
             <div class="modal-label">방 이름</div>
-            <input class="modal-input" placeholder="예: TAZO의 원카드방" value="TAZO의 원카드방">
+            <input class="modal-input" placeholder="예: TAZO의 One Card방" value="TAZO의 One Card방">
         </div>
         <div class="modal-field">
-            <div class="modal-label">대화 Language</div>
+            <div class="modal-label">vs화 Language</div>
             <select class="modal-select">
                 <option>🇰🇷 Korean</option>
                 <option>🇬🇧 English</option>
@@ -856,19 +856,19 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="modal-field">
             <div class="modal-label">인원수</div>
             <div class="modal-players">
-                <div class="modal-p-btn" onclick="selectP(this)">2명</div>
-                <div class="modal-p-btn selected" onclick="selectP(this)">4명</div>
+                <div class="modal-p-btn" onclick="selectP(this)">2members</div>
+                <div class="modal-p-btn selected" onclick="selectP(this)">4members</div>
             </div>
         </div>
         <div class="modal-field">
             <label style="font-size:12px;color:#888;display:flex;align-items:center;gap:6px;cursor:pointer;">
-                <input type="checkbox" id="guildBattle" style="accent-color:#f59e0b;"> 🪐 길드before (Guild Battle)
+                <input type="checkbox" id="guildBattle" style="accent-color:#f59e0b;"> 🪐 Guildbefore (Guild Battle)
             </label>
-            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">다른 길드원 입장 시 공식 대before으로 기록됩니다</div>
+            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">Other Guild원 Join 시 공식 vsbefore으to 기록됩니다</div>
         </div>
         <div class="modal-btns">
             <button class="modal-cancel" onclick="closeModal()">취소</button>
-            <button class="modal-create" onclick="createRoom()">만들기</button>
+            <button class="modal-create" onclick="createRoom()">Create</button>
         </div>
     </div>
 </div>
@@ -885,16 +885,16 @@ function sendChat(){
     var target=document.querySelector('.chat-to').value;
     var msgs=document.getElementById('chatMsgs');
     var div=document.createElement('div');
-    if(target==='-귓속말-'){
+    if(target==='-Whisper-'){
         div.className='c-msg whisper';
         div.innerHTML='<span class="nm">to.Maria:</span> '+input.value;
     }else if(target==='-파티-'){
         div.className='c-msg party';
         div.innerHTML='<span class="nm">[파티] TAZO:</span> '+input.value;
-    }else if(target==='-길드-'){
+    }else if(target==='-Guild-'){
         div.className='c-msg';
         div.style.color='#a78bfa';
-        div.innerHTML='<span class="nm" style="color:#8b5cf6;">[길드] TAZO:</span> '+input.value;
+        div.innerHTML='<span class="nm" style="color:#8b5cf6;">[Guild] TAZO:</span> '+input.value;
     }else{
         div.className='c-msg';
         div.innerHTML='<span class="nm c6">TAZO:</span> '+input.value;
@@ -904,7 +904,7 @@ function sendChat(){
     input.value='';
 }
 var tabNames = ['onecard','picture','chat','guild'];
-var tabTitles = ['🃏 원카드 방 목록','🧩 그림 맞추기 방 목록','💬 수다방 목록','🪐 길드'];
+var tabTitles = ['🃏 One Card 방 List','🧩 Picture Match 방 List','💬 Chat Room List','🪐 Guild'];
 var roomIds = ['roomListOnecard','roomListPicture','roomListChat','guildContent'];
 document.querySelectorAll('.tab-item').forEach(function(tab, idx){
     tab.addEventListener('click',function(){
@@ -913,7 +913,7 @@ document.querySelectorAll('.tab-item').forEach(function(tab, idx){
         roomIds.forEach(function(id){document.getElementById(id).style.display='none';});
         document.getElementById(roomIds[idx]).style.display='';
         document.getElementById('roomTitle').textContent=tabTitles[idx];
-        // 길드 탭이면 방 만들기 버튼 숨기기
+        // Guild 탭이면 Create Room 버튼 숨기기
         document.querySelector('.create-btn').style.display = idx===3?'none':'';
     });
 });
@@ -973,7 +973,7 @@ function showMegaphone(name,msg){
     setTimeout(function(){banner.style.display='none';},5000);
 }
 // 데모: 15초 후 확성기 1회 표시
-setTimeout(function(){showMegaphone('Maria','원카드 고수만 와라!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','One Card 고수만 와라!! 🔥');},15000);
 
 </script>
 
