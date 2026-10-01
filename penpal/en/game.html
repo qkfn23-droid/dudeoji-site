@@ -26,10 +26,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .tab-item .t-emoji{font-size:18px;}
 .tab-item .t-hot{font-size:8px;background:#ef4444;color:#fff;padding:1px 5px;border-radius:4px;font-weight:700;}
 
-/* 메인 */
+/* Main */
 .game-main{max-width:960px;margin:16px auto;padding:0 16px;display:grid;grid-template-columns:280px 1fr;gap:14px;}
 
-/* 왼쪽 */
+/* Left */
 .left{display:flex;flex-direction:column;gap:12px;}
 .banner{background:linear-gradient(135deg,#0ea5e9,#6366f1);border-radius:14px;padding:20px;color:#fff;position:relative;overflow:hidden;}
 .banner h3{font-size:16px;margin-bottom:6px;}
@@ -47,7 +47,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .f-invite{font-size:10px;padding:3px 10px;background:#e0f2fe;color:#0ea5e9;border:none;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Noto Sans KR';}
 .f-invite:hover{background:#0ea5e9;color:#fff;}
 
-/* 오른쪽: 방 List */
+/* Right: Room List */
 .right{display:flex;flex-direction:column;gap:12px;}
 .room-header{display:flex;justify-content:space-between;align-items:center;}
 .room-header h2{font-size:15px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
@@ -74,7 +74,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .room-row.playing .r-enter{background:#e0e0e0;color:#999;cursor:default;}
 .room-row.playing{opacity:0.7;}
 
-/* 하단 Chat */
+/* Bottom Chat */
 .chat-wrap{max-width:960px;margin:12px auto 0;padding:0 16px;}
 .chat-box{background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .chat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
@@ -113,9 +113,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     </div>
 </nav>
 
-<!-- Game 탭 -->
+<!-- Game Tab -->
 <div class="tab-bar">
-    <div class="tab-item active"><span class="t-emoji">🃏</span> 원Card <span class="t-hot">HOT</span></div>
+    <div class="tab-item active"><span class="t-emoji">🃏</span> One Card <span class="t-hot">HOT</span></div>
     <div class="tab-item"><span class="t-emoji">🧩</span> Picture Match</div>
     <div class="tab-item"><span class="t-emoji">💬</span> word chain</div>
     <div class="tab-item"><span class="t-emoji">❓</span> Quiz battle</div>
@@ -123,16 +123,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <div class="game-main">
 
-    <!-- 왼쪽 -->
+    <!-- Left -->
     <div class="left">
         <div class="banner">
-            <h3>원Card Season Open! 🎉</h3>
-            <p>Penpal FriendsAnd 원Card one 판!<br>This번 주 TOP 3 special stamp Gift</p>
+            <h3>One Card Season Open! 🎉</h3>
+            <p>Penpal FriendsAnd One Card one 판!<br>This week TOP 3 get a special stamp</p>
             <div class="bg-emoji">🃏</div>
         </div>
 
         <div class="friend-box">
-            <div class="friend-title">Access During인 Friends (4)</div>
+            <div class="friend-title">Online인 Friends (4)</div>
             <div class="friend-item">
                 <div class="f-dot"></div>
                 <div class="f-pic" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
@@ -164,18 +164,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- 오른쪽 -->
+    <!-- Right -->
     <div class="right">
         <div class="room-header">
-            <h2>🃏 원Card 방 List</h2>
-            <button class="create-btn" onclick="alert('방 Only들기 (데모)')">+ 방 Only들기</button>
+            <h2>🃏 One Card Room List</h2>
+            <button class="create-btn" onclick="alert('Room Only들기 (Demo)')">+ Room Only들기</button>
         </div>
 
         <div class="room-list">
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">MariaOf 방</div>
+                    <div class="r-name">MariaOf Room</div>
                     <div class="r-desc">Beginner Welcome! 같This do~</div>
                 </div>
                 <div class="r-players">
@@ -191,7 +191,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">YukiOf 방</div>
+                    <div class="r-name">YukiOf Room</div>
                     <div class="r-desc">KoreanTo Chatdo 🇰🇷</div>
                 </div>
                 <div class="r-players">
@@ -207,7 +207,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="room-row playing">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">FelixOf 방</div>
+                    <div class="r-name">FelixOf Room</div>
                     <div class="r-desc">German Chat 🇩🇪</div>
                 </div>
                 <div class="r-players">
@@ -217,13 +217,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p" style="background:linear-gradient(135deg,#43a047,#66bb6a);">L</div>
                 </div>
                 <div class="r-badge b-play">4/4 GameDuring</div>
-                <button class="r-enter">관before</button>
+                <button class="r-enter">Spectate</button>
             </div>
 
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">JinOf 방</div>
+                    <div class="r-name">JinOf Room</div>
                     <div class="r-desc">Anyone나 Welcome 😊</div>
                 </div>
                 <div class="r-players">
@@ -239,7 +239,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">AlexOf 방</div>
+                    <div class="r-name">AlexOf Room</div>
                     <div class="r-desc">French Practice 🇫🇷</div>
                 </div>
                 <div class="r-players">
@@ -255,7 +255,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="room-row playing">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">SofiaOf 방</div>
+                    <div class="r-name">SofiaOf Room</div>
                     <div class="r-desc">Italian 🇮🇹</div>
                 </div>
                 <div class="r-players">
@@ -265,7 +265,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-play">2/4 GameDuring</div>
-                <button class="r-enter">관before</button>
+                <button class="r-enter">Spectate</button>
             </div>
         </div>
     </div>
@@ -279,9 +279,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
         <div class="chat-msgs" id="chatMsgs">
             <div class="c-msg"><span class="sys">[Notifications]</span> Dudeoji Studio Game To비Welcome to!</div>
-            <div class="c-msg"><span class="nm">Maria:</span> who 원Card 할 Person~ 😄</div>
-            <div class="c-msg"><span class="nm">Yuki:</span> 나 shall we! 방 Only들어줘</div>
-            <div class="c-msg"><span class="sys">[Notifications]</span> Maria님This 방the Onlyhas been received</div>
+            <div class="c-msg"><span class="nm">Maria:</span> who One Card 할 Person~ 😄</div>
+            <div class="c-msg"><span class="nm">Yuki:</span> 나 shall we! Room Only들어줘</div>
+            <div class="c-msg"><span class="sys">[Notifications]</span> Mariahas joined the room</div>
             <div class="c-msg"><span class="nm">Felix:</span> 나Also Entering!</div>
         </div>
         <div class="chat-row">

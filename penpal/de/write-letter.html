@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* 왼쪽 사이드바 — 공통 */
+/* Left Side바 — 공통 */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -89,7 +89,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .moon-stars span:nth-child(4){bottom:6px;right:8%;animation-delay:1.8s;}
 @keyframes starTwinkle{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:0.7;transform:scale(1.3);}}
 
-/* 중앙 — Briefe */
+/* Center — Briefe */
 .center{display:flex;flex-direction:column;gap:12px;}
 .card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
 .to-section{margin-bottom:22px;}
@@ -140,14 +140,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .btn-act:hover{border-color:#8b5cf6;color:#8b5cf6;}
 .btn-act.warn:hover{border-color:#f87171;color:#f87171;}
 
-/* 오른쪽 */
+/* Right */
 .right{display:flex;flex-direction:column;gap:12px;}
 .right-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .right-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;}
 .tip-item{display:flex;gap:8px;padding:6px 0;font-size:11px;color:#666;line-height:1.5;}
 .tip-icon{font-size:14px;flex-shrink:0;}
 
-/* 모달 */
+/* Modal */
 .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
 .modal{background:#fff;border-radius:20px;padding:24px;max-width:400px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;}
@@ -252,14 +252,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Brieffreund Freundeto 진심이 담긴 Briefe를 보내보세요!</div>
-            <div class="notice-text">다른 Sprache로 Briefe를 쓰면 별의 Energie이 올라가요</div>
-            <div class="notice-text">번역 도우미 기능이 곧 오픈됩니다</div>
+            <div class="notice-text">다른 Sprache로 Briefe를 쓰면 Star Energie이 올라가요</div>
+            <div class="notice-text">Translate Helper 기능이 곧 오픈will be</div>
         </div>
     </div>
 </div>
 
 <div class="main-grid">
-    <!-- 왼쪽 -->
+    <!-- Left -->
     <div class="left">
         <div class="my-profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
@@ -270,14 +270,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
         <div class="my-sign-card"><h3>♌ Lowe</h3><p>7월 23일 ~ 8월 22일</p><div class="sign-tag">🔥 Feuer Element · 리더십 · 열정</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
-            <div class="aura-title"><span class="aura-star">⭐</span> 별의 Energie</div>
+            <div class="aura-title"><span class="aura-star">⭐</span> Star Energie</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
-            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 눈부심</span></div>
+            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 Dazzle</span></div>
             <div class="aura-grid">
                 <div class="aura-item active"><div class="aura-emoji">⭐</div><div class="aura-name">default</div></div>
                 <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">반짝</div></div>
                 <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">빛남</div></div>
-                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">눈부심</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">Dazzle</div></div>
                 <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">초월</div></div>
             </div>
         </div>
@@ -291,7 +291,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </a>
     </div>
 
-    <!-- 중앙 -->
+    <!-- Center -->
     <div class="center">
         <div class="card">
             <div class="to-section">
@@ -322,11 +322,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="letter-area">
                 <div class="letter-label">Briefe Inhalt</div>
                 <div class="letter-wrap">
-                    <textarea class="letter-input" placeholder="Hallo하세요! 저는 Koreafrom 온 TAZO입니다. Spanisch를 배우고 있어요..." oninput="updateCount(this)"></textarea>
+                    <textarea class="letter-input" placeholder="Hallo하세요! I am Koreafrom on TAZOis. Spanisch를 learn 있어요..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
                         <div class="char-count"><span id="charNum">0</span> / 2,000자</div>
                         <div class="letter-tools">
-                            <button class="btn-act" onclick="showToast('번역 도우미 Vorbereitung 중입니다')" style="opacity:0.5;">번역 도우미 (Vorbereitung 중)</button>
+                            <button class="btn-act" onclick="showToast('Translate Helper Vorbereitung 중is')" style="opacity:0.5;">Translate Helper (Vorbereitung 중)</button>
                         </div>
                     </div>
                 </div>
@@ -342,14 +342,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Maria G.</div>
-                    <div class="recent-preview">Hola! 오늘 뭐 했어? 나는 K-pop 들었어~</div>
-                    <div class="letter-full">Hola! 오늘 뭐 했어? 나는 오늘 하루 종일 K-pop 들었어~ BTS 새 앨범 나왔거든! 너도 gern해? 그리고 Koreanisch로 Briefe 써보려고 했는데 아직 어려워서 Spanisch로 쓸게 ㅋㅋ 다음에는 Koreanisch로 도전해볼게! Neulich 뭐 하면서 지내? 답장 기다릴게~</div>
+                    <div class="recent-preview">Hola! 오늘 what 했어? 나는 K-pop heard~</div>
+                    <div class="letter-full">Hola! 오늘 what 했어? 나는 오늘 하루 종일 K-pop heard~ BTS 새 앨범 나왔거든! 너도 gern해? 그리고 Koreanisch로 Briefe 써보려고 했는데 아직 어려워서 Spanisch로 쓸게 ㅋㅋ next time는 Koreanisch로 도전해볼게! Neulich what 하면서 지내? 답장 기다릴게~</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">답장하기</button>
-                        <button class="btn-act" onclick="doTranslate('Maria G.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Maria G.')">Profil 보기</button>
+                        <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
+                        <button class="btn-act" onclick="doProfile('Maria G.')">Profil View</button>
                         <button class="btn-act" onclick="doSave(this)">Briefe 보관</button>
-                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정중히 거절</button>
+                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정중히 Reject</button>
                         <button class="btn-act warn" onclick="doReport('Maria G.')">Melden</button>
                     </div>
                 </div>
@@ -359,14 +359,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><path d="M75,10 C45,10 25,35 25,65 C25,95 45,115 75,115 C55,105 45,85 45,65 C45,45 55,25 75,10Z" fill="#C8E6FF" stroke="#90CAF9" stroke-width="1.5"/><ellipse cx="56" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="74" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="52" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="78" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><path d="M60,78 Q65,84 70,78" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
-                    <div class="recent-preview">Briefe 고마워요! 다음에 Japanisch로도 써볼게요~</div>
-                    <div class="letter-full">Briefe 고마워요! 다음에 Japanisch로도 써볼게요~ 사실 나도 Koreanisch 공부하고 with데 아직 많이 부족해요. Japanfrom는 Neulich 벚꽃이 피기 Start했어요! Korea도 벚꽃 예쁘죠? 언젠가 Korea 가서 같이 벚꽃 보고 싶다~ gerndoing Musik이나 드라마 있으면 Empfehlung해줘!</div>
+                    <div class="recent-preview">Briefe 고마워요! next time Japanisch로도 써볼게요~</div>
+                    <div class="letter-full">Briefe 고마워요! next time Japanisch로도 써볼게요~ 사실 나도 Koreanisch 공부하고 with데 아직 많이 부족do. Japanfrom는 Neulich 벚Flower이 피기 Start했어요! Korea도 벚Flower 예쁘죠? 언젠가 Korea 가서 같이 벚Flower 보고 싶다~ gerndoing Musik이나 드라마 있으면 Empfehlung해줘!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">답장하기</button>
-                        <button class="btn-act" onclick="doTranslate('Yuki T.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Yuki T.')">Profil 보기</button>
+                        <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
+                        <button class="btn-act" onclick="doProfile('Yuki T.')">Profil View</button>
                         <button class="btn-act" onclick="doSave(this)">Briefe 보관</button>
-                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정중히 거절</button>
+                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정중히 Reject</button>
                         <button class="btn-act warn" onclick="doReport('Yuki T.')">Melden</button>
                     </div>
                 </div>
@@ -376,11 +376,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
-                    <div class="recent-preview">Hallo하세요! 저는 브라질from 온 Lucas입니다...</div>
-                    <div class="letter-full">Hallo하세요! 저는 브라질from 온 Lucas입니다. Koreanisch를 배우기 Startone 지 6개월 됐어요. 천문학이랑 Spiel을 gerndoing데, 혹시 비슷one Interesse사 있으면 같이 Gesprach해요! Portugiesisch도 가르쳐줄 수 있어요~</div>
+                    <div class="recent-preview">Hallo하세요! I am 브라질from on Lucasis...</div>
+                    <div class="letter-full">Hallo하세요! I am 브라질from on Lucasis. Koreanisch를 배우기 Startone 지 6개월 됐어요. astronomy and Spiel을 gerndoing데, 혹시 비슷one Interesse사 있으면 같이 Gesprachdo! Portugiesisch도 가르쳐줄 수 있어요~</div>
                     <div class="recent-actions">
-                        <button class="btn-act" onclick="doProfile('Lucas S.')">Profil 보기</button>
-                        <button class="btn-act" onclick="doTranslate('Lucas S.',this)">번역 보기</button>
+                        <button class="btn-act" onclick="doProfile('Lucas S.')">Profil View</button>
+                        <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
                         <button class="btn-act" onclick="doSave(this)">Briefe 보관</button>
                         <button class="btn-act warn" onclick="doDelete(this)">Loschen</button>
                     </div>
@@ -390,18 +390,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- 오른쪽 -->
+    <!-- Right -->
     <div class="right">
         <div class="right-box">
             <div class="right-title">✉️ Briefe 팁</div>
             <div class="tip-item"><span class="tip-icon">👋</span> 첫 Briefe에는 자기Info를 포함하세요</div>
             <div class="tip-item"><span class="tip-icon">🌍</span> 상대 Sprache로 one두 문장 쓰면 감동이에요</div>
             <div class="tip-item"><span class="tip-icon">❓</span> Frage을 넣으면 답장 확률이 높아져요</div>
-            <div class="tip-item"><span class="tip-icon">🎵</span> 공통 Interesse사를 찾아 이야기해보세요</div>
-            <div class="tip-item"><span class="tip-icon">⭐</span> Briefe를 보내면 별의 Energie +5!</div>
+            <div class="tip-item"><span class="tip-icon">🎵</span> 공통 Interesse사를 찾아 talk about it</div>
+            <div class="tip-item"><span class="tip-icon">⭐</span> Briefe를 보내면 Star Energie +5!</div>
         </div>
         <div class="right-box">
-            <div class="right-title">📊 내 Briefe 통계</div>
+            <div class="right-title">📊 내 Briefe Stats</div>
             <div style="display:flex;justify-content:space-around;text-align:center;padding:8px 0;">
                 <div><div style="font-size:20px;font-weight:700;color:#8b5cf6;">48</div><div style="font-size:9px;color:#999;">총 Briefe</div></div>
                 <div><div style="font-size:20px;font-weight:700;color:#f59e0b;">23</div><div style="font-size:9px;color:#999;">받은 Briefe</div></div>
@@ -437,9 +437,9 @@ function toggleLetter(el){var f=el.querySelector('.letter-full'),a=el.querySelec
 
 function doSend(){
     var ta=document.querySelector('.letter-input'),text=ta.value.trim(),sel=document.querySelector('.to-person.selected .to-name');
-    if(!sel){showToast('받는 사람을 Auswahl해주세요');return;}
-    if(!text){showToast('Briefe Inhalt을 입력해주세요');return;}
-    if(text.length>2000){showToast('2,000자를 초과했습니다');return;}
+    if(!sel){showToast('받는 사람을 Auswahlplease do');return;}
+    if(!text){showToast('Briefe Inhalt을 please enter');return;}
+    if(text.length>2000){showToast('2,000자를 has been exceeded');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
     btn.textContent='전송 중...';btn.disabled=true;btn.style.opacity='0.6';
     setTimeout(function(){btn.textContent='Senden';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님to Briefe를 보냈습니다');},1000);
@@ -468,9 +468,9 @@ function doTranslate(name,el){
 }
 
 var profiles={
-    'Maria G.':{zodiac:'Widder',element:'Feuer',lang:'🇪🇸 Spanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'Koreanisch 배우고 싶어요! K-pop이랑 Astrologie gern해요~',pic:'star'},
-    'Yuki T.':{zodiac:'Jungfrau',element:'Erde',lang:'🇯🇵 Japanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch, 🇪🇸 Spanisch',bio:'Korea Kultur Interesse viel! 벚꽃 보러 가고 싶어~',pic:'moon'},
-    'Lucas S.':{zodiac:'Zwillinge',element:'Luft',lang:'🇧🇷 Portugiesisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'천문학이랑 Spiel gern합니다. Korea, Japan Freunde 찾아요!',pic:'star'}
+    'Maria G.':{zodiac:'Widder',element:'Feuer',lang:'🇪🇸 Spanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'Koreanisch learn 싶어요! K-pop이랑 Astrologie gerndo~',pic:'star'},
+    'Yuki T.':{zodiac:'Jungfrau',element:'Erde',lang:'🇯🇵 Japanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch, 🇪🇸 Spanisch',bio:'Korea Kultur Interesse viel! 벚Flower 보러 가고 싶어~',pic:'moon'},
+    'Lucas S.':{zodiac:'Zwillinge',element:'Luft',lang:'🇧🇷 Portugiesisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'astronomy and Spiel gern합니다. Korea, Japan Freunde 찾아요!',pic:'star'}
 };
 var picSvg={
     star:'<svg viewBox="0 0 120 120" width="70" height="70"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><circle cx="45.5" cy="60" r="1.2" fill="#fff"/><circle cx="77.5" cy="60" r="1.2" fill="#fff"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>',
@@ -480,20 +480,20 @@ function doProfile(name){
     event.stopPropagation();var p=profiles[name];if(!p)return;
     openModal('<div class="modal-profile"><div class="mp-pic">'+picSvg[p.pic]+'</div><div class="mp-name">'+name+'</div><div class="mp-bio">'+p.bio+'</div><div class="mp-tags"><span class="mp-tag mp-tag-zodiac">'+p.zodiac+'</span><span class="mp-tag mp-tag-zodiac">'+p.element+'</span><span class="mp-tag mp-tag-lang">'+p.lang+'</span></div><div style="font-size:11px;color:#888;">lernt 중: '+p.learning+'</div></div>');
 }
-function doSave(el){event.stopPropagation();el.textContent='보관됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Briefe가 보관되었습니다');}
+function doSave(el){event.stopPropagation();el.textContent='보관됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Briefe가 has been saved');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정중히 거절</div><div class="modal-body">'+name+'님to 보낼 거절 Nachrichten를 Auswahl해주세요.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Briefe Vielen Dank! 지금은 여유가 없어서 답장이 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse 가져주셔서 감사해요! 다만 지금은 new Brieffreund을 받기 어려운 상황이에요.</div><div class="decline-opt" onclick="selectDecline(this)">Briefe 잘 읽었어요! lernt Sprache가 달라서 아쉽지만, 좋은 Brieffreund 만나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">거절 Nachrichten Senden</button>');
+    openModal('<div class="modal-title">정중히 Reject</div><div class="modal-body">'+name+'님to 보낼 Reject Nachrichten를 Auswahlplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Briefe Vielen Dank! 지금은 여유가 없어서 답장이 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse 가져주셔서 감사do! 다만 지금은 new Brieffreund을 받기 어려운 상황이에요.</div><div class="decline-opt" onclick="selectDecline(this)">Briefe 잘 읽었어요! lernt Sprache가 달라서 아쉽지만, 좋은 Brieffreund 만나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Nachrichten Senden</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Nachrichten를 Auswahl해주세요');return;}closeModal();showToast(name+'님to 거절 Nachrichten를 보냈습니다');}
+function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Nachrichten를 Auswahlplease do');return;}closeModal();showToast(name+'님to Reject Nachrichten를 보냈습니다');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Melden하기</div><div class="modal-body">'+name+'님을 Meldendoing 이유를 Auswahl해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Werbung / Werbung</div><div class="report-opt" onclick="selectReport(this)">Sexuell이거나 Feuer쾌one Inhalt</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">Betrug / 사칭</div><div class="report-opt" onclick="selectReport(this)">Personliche Daten 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Melden 접수</button>');
+    openModal('<div class="modal-title">Melden하기</div><div class="modal-body">'+name+'님을 Meldendoing 이유를 Auswahlplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Werbung / Werbung</div><div class="report-opt" onclick="selectReport(this)">Sexuell이거나 Feuer쾌one Inhalt</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">Betrug / 사칭</div><div class="report-opt" onclick="selectReport(this)">Personliche Daten 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Melden 접수</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Melden 사유를 Auswahl해주세요');return;}closeModal();showToast('Melden가 접수되었습니다. 운영팀이 검토합니다.');}
-function doDelete(el){event.stopPropagation();if(!confirm('이 Briefe를 Loschen하시겠어요?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Briefe가 Loschen되었습니다');}
+function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Melden 사유를 Auswahlplease do');return;}closeModal();showToast('Melden가 has been received. 운영팀이 검토합니다.');}
+function doDelete(el){event.stopPropagation();if(!confirm('이 Briefe를 Loschen하시겠어요?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Briefe가 Loschencompleted');}
 </script>
 </body>
 </html>

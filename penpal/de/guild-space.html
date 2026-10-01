@@ -10,7 +10,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-height:100vh;overflow-x:hidden;}
 
-/* 네비 */
+/* Nav */
 .nav{background:rgba(10,10,26,0.9);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.06);}
 .nav-logo{font-size:22px;font-weight:700;color:#0ea5e9;text-decoration:none;}
 .nav-logo span{color:#f59e0b;}
@@ -19,7 +19,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .nav-links a:hover{background:rgba(255,255,255,0.08);color:#fff;}
 .nav-links a.active{background:#0ea5e9;color:#fff;}
 
-/* 길드 헤더 */
+/* Guild 헤더 */
 .guild-header{padding:20px 24px;display:flex;align-items:center;gap:16px;border-bottom:1px solid rgba(255,255,255,0.06);}
 .gh-planet{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fde68a,#f59e0b,#b45309);box-shadow:0 0 25px rgba(245,158,11,0.4);position:relative;animation:planetFloat 4s ease-in-out infinite;}
 .gh-planet::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 28% 22%,rgba(255,255,255,0.4) 0%,transparent 35%),radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0.7) 100%);}
@@ -38,21 +38,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .gh-btn.primary{background:#0ea5e9;border-color:#0ea5e9;}
 .gh-btn.primary:hover{background:#0284c7;}
 
-/* 별 배경 */
+/* Star Background */
 .stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--dur) ease-in-out infinite;}
 @keyframes twinkle{0%,100%{opacity:0.15;}50%{opacity:0.9;}}
 
-/* 메인 3컬럼 */
+/* Main 3-column */
 .main{position:relative;z-index:1;margin:12px 24px;display:grid;grid-template-columns:minmax(200px,16vw) 1fr minmax(200px,18vw);gap:12px;}
 
-/* 왼쪽 — UGC Sternzeichen 벽 */
+/* Left — UGC Sternzeichen Wall */
 .panel{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px;backdrop-filter:blur(4px);}
 .panel-title{font-size:12px;font-weight:700;color:#f59e0b;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;}
 .panel-title .add-btn{width:24px;height:24px;border-radius:50%;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.3);color:#f59e0b;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .panel-title .add-btn:hover{background:rgba(245,158,11,0.4);}
 
-/* Vokabular 카드 */
+/* Vokabular Card */
 .vocab-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px;margin-bottom:8px;cursor:pointer;transition:all .15s;}
 .vocab-card:hover{background:rgba(255,255,255,0.1);transform:scale(1.02);}
 .vc-word{font-size:14px;font-weight:700;color:#fff;}
@@ -69,10 +69,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .qp-name{font-size:12px;font-weight:700;color:#c4b5fd;}
 .qp-meta{font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px;}
 
-/* 센터 — 행성 뷰 + 게시판 */
+/* Center — 행성 View + Board */
 .center{display:flex;flex-direction:column;gap:12px;}
 
-/* 길드 행성 뷰 */
+/* Guild 행성 View */
 .planet-view{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;text-align:center;position:relative;overflow:hidden;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .pv-planet{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fde68a,#f59e0b,#b45309);box-shadow:0 0 40px rgba(245,158,11,0.35),0 0 80px rgba(245,158,11,0.15);position:relative;animation:pvFloat 5s ease-in-out infinite;margin-bottom:16px;}
 .pv-planet::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 28% 22%,rgba(255,255,255,0.45) 0%,transparent 35%),radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(0,0,0,0.35) 65%,rgba(0,0,0,0.7) 100%);}
@@ -87,11 +87,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 @keyframes barShimmer{0%{left:-50%;}100%{left:150%;}}
 .pv-quest-text{font-size:10px;color:rgba(255,255,255,0.4);margin-top:4px;}
 
-/* Mitglied 오빗 (행성 주변 작은 점들) */
+/* Mitglied 오빗 (Small dots around planet) */
 .member-orbit{position:absolute;width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;}
 .orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor;}
 
-/* 길드 게시판 */
+/* Guild Board */
 .board{max-height:300px;overflow-y:auto;}
 .board::-webkit-scrollbar{width:4px;}
 .board::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
@@ -105,7 +105,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .bp-pinned{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:8px 10px;margin-bottom:8px;}
 .bp-pin-label{font-size:9px;color:#f59e0b;font-weight:700;margin-bottom:2px;}
 
-/* 오른쪽 — Mitglied + Chat */
+/* Right — Mitglied + Chat */
 .member-list{margin-bottom:8px;}
 .member-item{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
 .member-item:last-child{border-bottom:none;}
@@ -117,7 +117,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .m-role.keeper{background:rgba(14,165,233,0.2);color:#38bdf8;}
 .m-level{font-size:9px;color:rgba(255,255,255,0.25);}
 
-/* 길드 Chat */
+/* Guild Chat */
 .guild-chat{margin-top:8px;}
 .gc-msgs{height:180px;overflow-y:auto;margin-bottom:6px;}
 .gc-msgs::-webkit-scrollbar{width:4px;}
@@ -169,7 +169,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
     </div>
 </nav>
 
-<!-- 길드 헤더 -->
+<!-- Guild 헤더 -->
 <div class="guild-header">
     <div class="gh-planet"></div>
     <div class="gh-info">
@@ -178,21 +178,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
     </div>
     <div class="gh-stats">
         <div class="gh-stat"><div class="gh-stat-num">12</div><div class="gh-stat-label">Mitglied</div></div>
-        <div class="gh-stat"><div class="gh-stat-num">1,247</div><div class="gh-stat-label">성진</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">1,247</div><div class="gh-stat-label">Stardust</div></div>
         <div class="gh-stat"><div class="gh-stat-num">#3</div><div class="gh-stat-label">Rangliste</div></div>
         <div class="gh-stat"><div class="gh-stat-num">89</div><div class="gh-stat-label">Spiel</div></div>
     </div>
     <div class="gh-actions">
-        <button class="gh-btn" onclick="alert('길드 Einstellungen (데모)')">⚙️ Einstellungen</button>
+        <button class="gh-btn" onclick="alert('Guild Einstellungen (Demo)')">⚙️ Einstellungen</button>
         <button class="gh-btn primary" onclick="location.href='game-v2.html'">🃏 Spiel하기</button>
     </div>
 </div>
 
 <div class="main">
-    <!-- 왼쪽 — UGC Sternzeichen 벽 -->
+    <!-- Left — UGC Sternzeichen Wall -->
     <div class="left-panel">
         <div class="panel">
-            <div class="panel-title">✨ Sternzeichen 벽 <button class="add-btn" onclick="alert('Vokabular 카드 만들기 (데모)')">+</button></div>
+            <div class="panel-title">✨ Sternzeichen Wall <button class="add-btn" onclick="alert('Vokabular Card Create (Demo)')">+</button></div>
 
             <div class="vocab-card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -210,7 +210,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                     <div class="vc-word">Saudade</div>
                     <div class="vc-lang">🇵🇹→🇰🇷</div>
                 </div>
-                <div class="vc-trans">그리움 (번역 Feuer가)</div>
+                <div class="vc-trans">그리움 (Translate Feuer가)</div>
                 <div class="vc-bottom">
                     <div class="vc-author">by Lucas</div>
                     <div class="vc-stars" onclick="this.textContent='⭐ 28'">⭐ 27</div>
@@ -241,54 +241,54 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 
             <div style="margin-top:12px;">
                 <div class="panel-title" style="margin-bottom:8px;">📚 Quiz 팩</div>
-                <div class="quiz-pack" onclick="alert('Quiz 플레이 (데모)')">
+                <div class="quiz-pack" onclick="alert('Quiz Play (Demo)')">
                     <div class="qp-name">🇯🇵 Japanisch Gefuhl Wort 10선</div>
-                    <div class="qp-meta">by Yuki · 10Problem · 🎮 48회 플레이</div>
+                    <div class="qp-meta">by Yuki · 10Problem · 🎮 48회 Play</div>
                 </div>
-                <div class="quiz-pack" onclick="alert('Quiz 플레이 (데모)')">
+                <div class="quiz-pack" onclick="alert('Quiz Play (Demo)')">
                     <div class="qp-name">🇰🇷 Korea 슬랭 Quiz</div>
-                    <div class="qp-meta">by TAZO · 8Problem · 🎮 31회 플레이</div>
+                    <div class="qp-meta">by TAZO · 8Problem · 🎮 31회 Play</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 센터 — 행성 뷰 + 게시판 -->
+    <!-- 센터 — 행성 View + Board -->
     <div class="center">
         <div class="planet-view">
             <div class="member-orbit" id="memberOrbit"></div>
             <div class="pv-planet"></div>
             <div class="pv-name">♌ Stellar Lions</div>
-            <div class="pv-level">Lv.4 쌍성 · 성진 1,247 / 3,000</div>
+            <div class="pv-level">Lv.4 쌍성 · Stardust 1,247 / 3,000</div>
             <div class="pv-quest">
-                <div class="pv-quest-title">📋 Wochenquest: Spiel 24판 플레이</div>
+                <div class="pv-quest-title">📋 Wochenquest: Spiel 24판 Play</div>
                 <div class="pv-quest-bar"><div class="pv-quest-fill" style="width:75%;"></div></div>
-                <div class="pv-quest-text">18 / 24 Fertig · Belohnung: 성진 +30, 💎 x20</div>
+                <div class="pv-quest-text">18 / 24 Fertig · Belohnung: Stardust +30, 💎 x20</div>
             </div>
         </div>
 
         <div class="panel">
-            <div class="panel-title">📋 길드 게시판 <button class="add-btn" onclick="alert('글 쓰기 (데모)')">+</button></div>
+            <div class="panel-title">📋 Guild Board <button class="add-btn" onclick="alert('글 쓰기 (Demo)')">+</button></div>
             <div class="board">
                 <div class="bp-pinned">
                     <div class="bp-pin-label">📌 Mitteilungen</div>
-                    <div class="bp-content">이번 주 길드전 토요일 오후 3시! 모두 Teilnehmen해주세요. Star Breakers 상대입니다 🔥</div>
+                    <div class="bp-content">이번 주 Guild전 토요일 오후 3시! 모두 Teilnehmenplease do. Star Breakers 상대is 🔥</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">TAZO</span>
-                        <span class="bp-role">길드장</span>
+                        <span class="bp-role">Guild장</span>
                         <span class="bp-time">2Stunden 전</span>
                     </div>
-                    <div class="bp-content">Vokabular 카드 열심히 만들어주세요! 이번 주 Ziel 50장입니다 💪</div>
+                    <div class="bp-content">Vokabular Card 열심히 please create! 이번 주 Ziel 50장is 💪</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Maria</span>
-                        <span class="bp-role">별지기</span>
+                        <span class="bp-role">Starkeeper</span>
                         <span class="bp-time">5Stunden 전</span>
                     </div>
-                    <div class="bp-content">Spanisch Quiz팩 만들었어요! one번 풀어보세요~ 🇪🇸</div>
+                    <div class="bp-content">Spanisch Quiz팩 만heard요! one번 풀어보세요~ 🇪🇸</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
@@ -302,34 +302,34 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                         <span class="bp-author">Felix</span>
                         <span class="bp-time">1일 전</span>
                     </div>
-                    <div class="bp-content">Deutsch Wort 카드 5장 올렸어요. Wanderlust Gleich 번역 Feuer가 Wort들! 🇩🇪</div>
+                    <div class="bp-content">Deutsch Wort Card 5장 올렸어요. Wanderlust Gleich Translate Feuer가 Wort들! 🇩🇪</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Lucas</span>
                         <span class="bp-time">1일 전</span>
                     </div>
-                    <div class="bp-content">어제 길드전from 3Siegesserie! 다음 주도 화이팅 🎉</div>
+                    <div class="bp-content">어제 Guild전from 3Siegesserie! 다음 주도 화이팅 🎉</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Sofia</span>
                         <span class="bp-time">2일 전</span>
                     </div>
-                    <div class="bp-content">새로 join했어요! Italienisch lernt in progress데 잘 부탁드립니다 😊</div>
+                    <div class="bp-content">새로 join했어요! Italienisch lernt in progress데 잘 please 😊</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 오른쪽 — Mitglied + Chat -->
+    <!-- Right — Mitglied + Chat -->
     <div class="right-panel">
         <div class="panel">
             <div class="panel-title">👥 Mitglied (12/20)</div>
             <div class="member-list">
-                <div class="member-item"><div class="m-dot"></div><div class="m-name">TAZO</div><span class="m-role leader">길드장</span><div class="m-level">Lv.5</div></div>
-                <div class="member-item"><div class="m-dot"></div><div class="m-name">Maria</div><span class="m-role keeper">별지기</span><div class="m-level">Lv.4</div></div>
-                <div class="member-item"><div class="m-dot"></div><div class="m-name">Yuki</div><span class="m-role keeper">별지기</span><div class="m-level">Lv.3</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">TAZO</div><span class="m-role leader">Guild장</span><div class="m-level">Lv.5</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Maria</div><span class="m-role keeper">Starkeeper</span><div class="m-level">Lv.4</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Yuki</div><span class="m-role keeper">Starkeeper</span><div class="m-level">Lv.3</div></div>
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">Felix</div><div class="m-level">Lv.4</div></div>
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">Lucas</div><div class="m-level">Lv.3</div></div>
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">Sofia</div><div class="m-level">Lv.2</div></div>
@@ -343,14 +343,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
         </div>
 
         <div class="panel guild-chat">
-            <div class="panel-title">💬 길드 Chat</div>
+            <div class="panel-title">💬 Guild Chat</div>
             <div class="gc-msgs" id="gcMsgs">
-                <div class="gc-msg"><span class="sys">[Benachrichtigung]</span> Sofia님이 길드에 join했습니다!</div>
-                <div class="gc-msg"><span class="nm">Maria:</span> 소피아 환영! 🎉</div>
+                <div class="gc-msg"><span class="sys">[Benachrichtigung]</span> Sofiahas Guild에 join했습니다!</div>
+                <div class="gc-msg"><span class="nm">Maria:</span> 소피아 Welcome! 🎉</div>
                 <div class="gc-msg"><span class="nm">Yuki:</span> 반가워요~</div>
                 <div class="gc-msg"><span class="nm">Sofia:</span> Vielen Dank! 잘 부탁드려요 😊</div>
-                <div class="gc-msg"><span class="nm">TAZO:</span> 환영! Vokabular 카드 만들어보면 재밌어</div>
-                <div class="gc-msg"><span class="nm">Felix:</span> 오늘 길드전 doing 사람?</div>
+                <div class="gc-msg"><span class="nm">TAZO:</span> Welcome! Vokabular Card 만들어보면 재밌어</div>
+                <div class="gc-msg"><span class="nm">Felix:</span> 오늘 Guild전 doing 사람?</div>
                 <div class="gc-msg"><span class="nm">Lucas:</span> 나 할래!</div>
                 <div class="gc-msg"><span class="nm">Maria:</span> 나도 ㄱ</div>
                 <div class="gc-msg"><span class="nm">Yuki:</span> Japanisch Quiz 누가 풀어볼 사람~</div>
@@ -366,7 +366,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 
 <!-- Mitglied 링 -->
 <div class="member-ring">
-    <div class="ring-title">🪐 온라인 Mitglied</div>
+    <div class="ring-title">🪐 Online Mitglied</div>
     <div class="ring-list">
         <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">T</div><div class="ring-name">TAZO</div></div>
         <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div><div class="ring-name">Maria</div></div>
@@ -427,7 +427,7 @@ for(var i=0;i<onlineCount;i++){
     orbit.appendChild(dot);
 }
 
-// 길드 Chat
+// Guild Chat
 function sendGC(){
     var input=document.getElementById('gcInput');
     if(!input.value.trim())return;

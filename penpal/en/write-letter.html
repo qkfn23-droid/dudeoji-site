@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* 왼쪽 사This드바 — common */
+/* Left Side바 — common */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -89,7 +89,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .moon-stars span:nth-child(4){bottom:6px;right:8%;animation-delay:1.8s;}
 @keyframes starTwinkle{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:0.7;transform:scale(1.3);}}
 
-/* During앙 — Letters */
+/* Center — Letters */
 .center{display:flex;flex-direction:column;gap:12px;}
 .card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
 .to-section{margin-bottom:22px;}
@@ -140,14 +140,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .btn-act:hover{border-color:#8b5cf6;color:#8b5cf6;}
 .btn-act.warn:hover{border-color:#f87171;color:#f87171;}
 
-/* 오른쪽 */
+/* Right */
 .right{display:flex;flex-direction:column;gap:12px;}
 .right-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .right-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;}
 .tip-item{display:flex;gap:8px;padding:6px 0;font-size:11px;color:#666;line-height:1.5;}
 .tip-icon{font-size:14px;flex-shrink:0;}
 
-/* 모달 */
+/* Modal */
 .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
 .modal{background:#fff;border-radius:20px;padding:24px;max-width:400px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;}
@@ -251,15 +251,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">Penpal FriendsAt게 SincerelyThis contained Lettersthe 보MySee!</div>
-            <div class="notice-text">other LanguageTo Lettersthe if use 별Of energyThis 올라Is요</div>
-            <div class="notice-text">Translation Helper FeatureThis 곧 Openwill be</div>
+            <div class="notice-text active">Penpal Send heartfelt letters to your penpal friends!</div>
+            <div class="notice-text">Writing letters in other languages increases your Star Energy</div>
+            <div class="notice-text">Translation helper feature coming soon</div>
         </div>
     </div>
 </div>
 
 <div class="main-grid">
-    <!-- 왼쪽 -->
+    <!-- Left -->
     <div class="left">
         <div class="my-profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
@@ -268,9 +268,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="my-profile-sub">⭐ Lv.5 · 🔥 Fire · Leo</div>
             </div>
         </div>
-        <div class="my-sign-card"><h3>♌ Leo</h3><p>7월 23day ~ 8월 22day</p><div class="sign-tag">🔥 Fire Element · leadership · Passion</div><div class="my-sign-icon">♌</div></div>
+        <div class="my-sign-card"><h3>♌ Leo</h3><p>7month 23day ~ 8month 22day</p><div class="sign-tag">🔥 Fire Element · leadership · Passion</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
-            <div class="aura-title"><span class="aura-star">⭐</span> 별Of energy</div>
+            <div class="aura-title"><span class="aura-star">⭐</span> Star energy</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
             <div class="aura-info"><span>165 / 500</span><span>next: 👀 dazzle</span></div>
             <div class="aura-grid">
@@ -291,7 +291,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </a>
     </div>
 
-    <!-- During앙 -->
+    <!-- Center -->
     <div class="center">
         <div class="card">
             <div class="to-section">
@@ -322,7 +322,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="letter-area">
                 <div class="letter-label">Letters MyFor</div>
                 <div class="letter-wrap">
-                    <textarea class="letter-input" placeholder="Helloplease do! 저Is KoreaAt서 from TAZOis. Spanishthe learn is available..." oninput="updateCount(this)"></textarea>
+                    <textarea class="letter-input" placeholder="Helloplease do! 저Is Koreafrom from TAZOis. Spanishthe learn is available..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
                         <div class="char-count"><span id="charNum">0</span> / 2,000자</div>
                         <div class="letter-tools">
@@ -342,8 +342,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Maria G.</div>
-                    <div class="recent-preview">Hola! Today 뭐 did? I am K-pop heard~</div>
-                    <div class="letter-full">Hola! Today 뭐 did? I am Today Day 종day K-pop heard~ BTS 새 앨범 came out! you too like해? 그리고 KoreanTo Letters 써보려고 했Is데 Not yet 어려워서 SpanishTo 쓸게 ㅋㅋ nextAtIs KoreanTo AlsobeforeWill try! These days 뭐 if서 지My? reply I will wait~</div>
+                    <div class="recent-preview">Hola! Today what did? I am K-pop heard~</div>
+                    <div class="letter-full">Hola! Today what did? I am Today Day 종day K-pop heard~ BTS 새 앨범 came out! you too like해? 그리고 KoreanTo Letters 써보려고 했Is데 Not yet 어려워서 SpanishTo 쓸게 ㅋㅋ nextAtIs KoreanTo AlsobeforeWill try! These days what if서 지My? reply I will wait~</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
@@ -360,7 +360,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
                     <div class="recent-preview">Letters Thank you! nextAt Japanesealso Will write~</div>
-                    <div class="letter-full">Letters Thank you! nextAt Japanesealso Will write~ 사실 me too Korean Studyand 있Is데 Not yet a lot 부족do. JapanAt서Is These days cherry blossomThis 피기 Startdid요! KoreaAlso cherry blossom 예쁘죠? 언젠Is Korea go together cherry blossom 보고 싶다~ like하Is musicThis나 drama if there is Recommend해줘!</div>
+                    <div class="letter-full">Letters Thank you! nextAt Japanesealso Will write~ 사실 me too Korean Studyand 있Is데 Not yet a lot 부족do. JapanfromIs These days cherry blossomThis 피기 Startdid요! KoreaAlso cherry blossom 예쁘죠? 언젠Is Korea go together cherry blossom 보고 싶다~ like하Is musicThis나 drama if there is Recommend해줘!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
@@ -376,8 +376,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
-                    <div class="recent-preview">Helloplease do! 저Is BrazilAt서 from Lucasis...</div>
-                    <div class="letter-full">Helloplease do! 저Is BrazilAt서 from Lucasis. Koreanthe 배우기 Startone 지 6months done. astronomy and Gamethe like하Is데, 혹시 비슷one Interest사 if there is together talkdo! PortugueseAlso teach 수 is available~</div>
+                    <div class="recent-preview">Helloplease do! 저Is Brazilfrom from Lucasis...</div>
+                    <div class="letter-full">Helloplease do! 저Is Brazilfrom from Lucasis. Koreanthe 배우기 Startone 지 6months done. astronomy and Gamethe like하Is데, 혹시 비슷one Interest사 if there is together talkdo! PortugueseAlso teach 수 is available~</div>
                     <div class="recent-actions">
                         <button class="btn-act" onclick="doProfile('Lucas S.')">Profile View</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
@@ -390,7 +390,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- 오른쪽 -->
+    <!-- Right -->
     <div class="right">
         <div class="right-box">
             <div class="right-title">✉️ Letters 팁</div>
@@ -398,7 +398,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="tip-item"><span class="tip-icon">🌍</span> Opponent LanguageTo one두 sentence if use I am touched</div>
             <div class="tip-item"><span class="tip-icon">❓</span> questionthe if you add reply probabilityThis increases</div>
             <div class="tip-item"><span class="tip-icon">🎵</span> common Interest사the 찾아 This야기Try it</div>
-            <div class="tip-item"><span class="tip-icon">⭐</span> Lettersthe 보My면 별Of energy +5!</div>
+            <div class="tip-item"><span class="tip-icon">⭐</span> Lettersthe 보My면 Star energy +5!</div>
         </div>
         <div class="right-box">
             <div class="right-title">📊 My Letters Stats</div>
@@ -442,7 +442,7 @@ function doSend(){
     if(text.length>2000){showToast('2,000자the 초Andhas been done');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
     btn.textContent='before송 During...';btn.disabled=true;btn.style.opacity='0.6';
-    setTimeout(function(){btn.textContent='보My기';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님At게 Lettersthe 보냈습니다');},1000);
+    setTimeout(function(){btn.textContent='보My기';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님At게 Lettersthe sent');},1000);
 }
 
 function openModal(html){document.getElementById('modalContent').innerHTML='<button class="modal-close" onclick="closeModal()">&times;</button>'+html;document.getElementById('modalOverlay').classList.add('show');}
@@ -478,7 +478,7 @@ var picSvg={
 };
 function doProfile(name){
     event.stopPropagation();var p=profiles[name];if(!p)return;
-    openModal('<div class="modal-profile"><div class="mp-pic">'+picSvg[p.pic]+'</div><div class="mp-name">'+name+'</div><div class="mp-bio">'+p.bio+'</div><div class="mp-tags"><span class="mp-tag mp-tag-zodiac">'+p.zodiac+'</span><span class="mp-tag mp-tag-zodiac">'+p.element+'</span><span class="mp-tag mp-tag-lang">'+p.lang+'</span></div><div style="font-size:11px;color:#888;">learning During: '+p.learning+'</div></div>');
+    openModal('<div class="modal-profile"><div class="mp-pic">'+picSvg[p.pic]+'</div><div class="mp-name">'+name+'</div><div class="mp-bio">'+p.bio+'</div><div class="mp-tags"><span class="mp-tag mp-tag-zodiac">'+p.zodiac+'</span><span class="mp-tag mp-tag-zodiac">'+p.element+'</span><span class="mp-tag mp-tag-lang">'+p.lang+'</span></div><div style="font-size:11px;color:#888;">Learning: '+p.learning+'</div></div>');
 }
 function doSave(el){event.stopPropagation();el.textContent='Storage됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('LettersIs Storagehas been completed');}
 function doDecline(name){
@@ -486,7 +486,7 @@ function doDecline(name){
     openModal('<div class="modal-title">정During히 reject</div><div class="modal-body">'+name+'님At게 보낼 reject Messagesthe Selectplease.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Letters 감사does! NowIs 여유Is 없어서 replyThis 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interest Is져주셔서 감사do! 다Only NowIs 새To운 Penpalthe Receive 어려운 상황ThisAt요.</div><div class="decline-opt" onclick="selectDecline(this)">Letters 잘 읽었어요! learning LanguageIs 달라서 아쉽지Only, Good Penpal Only나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">reject Messages 보My기</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messagesthe Selectplease');return;}closeModal();showToast(name+'님At게 reject Messagesthe 보냈습니다');}
+function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messagesthe Selectplease');return;}closeModal();showToast(name+'님At게 reject Messagesthe sent');}
 function doReport(name){
     event.stopPropagation();
     openModal('<div class="modal-title">ReportDo</div><div class="modal-body">'+name+'님the Report하Is This유the Selectplease.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Ads / promotion</div><div class="report-opt" onclick="selectReport(this)">SexualThis거나 Fire쾌one MyFor</div><div class="report-opt" onclick="selectReport(this)">Insults / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">Fraud / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Personal Info 요구 (before화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report 접수</button>');

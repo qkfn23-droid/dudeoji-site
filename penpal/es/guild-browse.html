@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — 길드 탐색</title>
+<title>Dudeoji Studio — Guild 탐색</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -18,7 +18,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .nav-links a:hover{background:#e0f2fe;color:#0ea5e9;}
 .nav-links a.active{background:#0ea5e9;color:#fff;}
 
-/* 탭 바 — game-v2와 동일 */
+/* Tab 바 — game-v2와 Same */
 .tab-bar{background:linear-gradient(135deg,#0ea5e9,#38bdf8);padding:0 20px;display:flex;gap:0;box-shadow:0 2px 8px rgba(14,165,233,0.2);}
 .tab-item{padding:12px 22px;font-size:13px;font-weight:700;cursor:pointer;color:rgba(255,255,255,0.6);border-bottom:3px solid transparent;display:flex;align-items:center;gap:6px;transition:all .2s;}
 .tab-item:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
@@ -28,14 +28,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .notice-icon{font-size:14px;flex-shrink:0;}
 .notice-text{font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-/* 메인 3컬럼 — game-v2와 동일 */
+/* Main 3-column — game-v2와 Same */
 .game-main{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(180px,14vw);gap:12px;}
 
-/* 공통 카드 */
+/* 공통 Card */
 .card{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .card-title{font-size:12px;font-weight:700;color:#0ea5e9;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 
-/* 왼쪽 */
+/* Left */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -50,7 +50,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .mg-name{font-size:13px;font-weight:700;color:#b45309;}
 .mg-sub{font-size:10px;color:#999;}
 
-/* 필터 */
+/* Filter */
 .filter-group{margin-bottom:10px;}
 .filter-label{font-size:11px;font-weight:600;color:#888;margin-bottom:5px;}
 .filter-pills{display:flex;flex-wrap:wrap;gap:4px;}
@@ -62,7 +62,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .create-guild-btn{display:block;width:100%;padding:14px;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#7c2d12;font-size:14px;font-weight:700;border:none;border-radius:12px;cursor:pointer;font-family:'Noto Sans KR';text-align:center;box-shadow:0 3px 10px rgba(245,158,11,0.25);transition:all .2s;}
 .create-guild-btn:hover{transform:scale(1.03);}
 
-/* 센터 — 길드 리스트 */
+/* Center — Guild List */
 .room-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
 .room-header h2{font-size:15px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
 .search-bar{display:flex;gap:6px;margin-bottom:10px;}
@@ -76,7 +76,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .room-row:hover{background:#f0f9ff;transform:scale(1.005);}
 .room-row.mine{border-left:3px solid #f59e0b;}
 .r-emblem{font-size:28px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#f8f8f8;border-radius:10px;flex-shrink:0;}
-/* Nivel별 박스 배경색 */
+/* Nivel별 Box 배경색 */
 .r-emblem.lv1{background:#f0f0f0;}
 .r-emblem.lv2{background:#e0f2fe;}
 .r-emblem.lv3{background:#ecfccb;}
@@ -87,7 +87,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .r-emblem.lv8{background:#ddd6fe;}
 .r-emblem.lv9{background:#fecdd3;}
 .r-emblem.lv10{background:#fef3c7;}
-/* Nivel별 이모지 선 글로우 (text-shadow) */
+/* Nivel별 Emoji 선 Glow (text-shadow) */
 .r-emblem.lv1 span{}
 .r-emblem.lv2 span{text-shadow:0 0 4px rgba(14,165,233,0.5);}
 .r-emblem.lv3 span{text-shadow:0 0 5px rgba(132,204,22,0.6);}
@@ -127,7 +127,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .r-join.apply{background:#8b5cf6;}
 .r-join.apply:hover{background:#7c3aed;}
 
-/* 오른쪽 */
+/* Right */
 .side-right{display:flex;flex-direction:column;gap:12px;}
 .stat-num{font-size:18px;font-weight:700;color:#0ea5e9;}
 .stat-label{font-size:9px;color:#999;}
@@ -141,7 +141,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .tg-name{font-size:11px;font-weight:600;color:#555;flex:1;}
 .tg-score{font-size:10px;color:#8b5cf6;font-weight:600;}
 
-/* Dudeoji문 배너 */
+/* Dudeoji문 Banner */
 .moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;position:relative;overflow:hidden;}
 .moon-banner:hover{transform:scale(1.03);}
 .moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;display:inline-block;}
@@ -149,7 +149,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .moon-title{font-size:13px;font-weight:700;margin-bottom:2px;}
 .moon-brand{font-size:12px;color:rgba(255,255,255,0.6);}
 
-/* 모달 */
+/* Modal */
 .modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:200;align-items:center;justify-content:center;}
 .modal-bg.show{display:flex;}
 .modal{background:#fff;border-radius:20px;padding:28px;width:400px;max-height:85vh;overflow-y:auto;box-shadow:0 8px 30px rgba(0,0,0,0.15);}
@@ -181,7 +181,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .footer{text-align:center;padding:12px 20px 8px;font-size:11px;color:#888;width:100%;display:block;clear:both;margin-top:12px;}
 
-/* 다크모드 */
+/* Dark mode */
 .dark body{background:#1a1a2a;color:#ccc;}
 .dark .nav{background:#12122a;box-shadow:0 1px 8px rgba(0,0,0,0.3);}
 .dark .nav-links a{color:#888;}
@@ -237,13 +237,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 </nav>
 
 <div class="tab-bar">
-    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🃏</span> 원카드</a>
+    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🃏</span> One Card</a>
     <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🧩</span> Imagen 맞추기</a>
-    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">💬</span> 수다방</a>
-    <div class="tab-item active"><span class="t-emoji">🪐</span> 길드</div>
+    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">💬</span> Chat Room</a>
+    <div class="tab-item active"><span class="t-emoji">🪐</span> Guild</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
-        <div class="notice-text">길드를 만들고 Juntos 빛나세요! 길드전 Recompensa 2배 Evento Progreso 중</div>
+        <div class="notice-text">Guild를 만들고 Juntos 빛나세요! Guild전 Recompensa 2배 Evento Progreso 중</div>
     </div>
 </div>
 
@@ -263,9 +263,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- 내 길드 -->
+        <!-- 내 Guild -->
         <div class="card">
-            <div class="card-title">🪐 내 길드</div>
+            <div class="card-title">🪐 내 Guild</div>
             <div class="my-guild-card" onclick="location.href='guild-space.html'">
                 <div class="mg-emblem">♌</div>
                 <div>
@@ -275,9 +275,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- 필터 -->
+        <!-- Filter -->
         <div class="card">
-            <div class="card-title">🔍 필터</div>
+            <div class="card-title">🔍 Filter</div>
             <div class="filter-group">
                 <div class="filter-label">Idioma</div>
                 <div class="filter-pills" id="langFilter">
@@ -295,13 +295,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="filter-group">
                 <div class="filter-label">정렬</div>
                 <select class="filter-select">
-                    <option>Miembro 많은 순</option>
-                    <option>Nivel 높은 순</option>
-                    <option>최신순</option>
+                    <option>Miembro 많은 Order</option>
+                    <option>Nivel 높은 Order</option>
+                    <option>최신Order</option>
                 </select>
             </div>
             <div class="filter-group">
-                <div class="filter-label">join 방식</div>
+                <div class="filter-label">join Room식</div>
                 <div class="filter-pills" id="joinFilter">
                     <div class="filter-pill active">all</div>
                     <div class="filter-pill">자유</div>
@@ -318,10 +318,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- 센터 -->
     <div>
         <div class="room-header">
-            <h2>🪐 길드 탐색</h2>
+            <h2>🪐 Guild 탐색</h2>
         </div>
         <div class="search-bar">
-            <input class="search-input" placeholder="길드 이름 Buscar...">
+            <input class="search-input" placeholder="Guild Name Buscar...">
             <button class="search-btn">Buscar</button>
         </div>
 
@@ -330,52 +330,52 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="r-emblem lv7"><span>♈</span></div>
                 <div class="r-info">
                     <div class="r-name">Star Breakers</div>
-                    <div class="r-desc">Espanol aprendiendo 사람 모여라! 매일 원카드 Torneo 🔥</div>
+                    <div class="r-desc">Espanol aprendiendo 사람 모여라! 매일 One Card Torneo 🔥</div>
                     <div class="r-tags"><div class="r-tag lang">🇪🇸 Espanol</div><div class="r-tag level">Lv.7</div><div class="r-tag open">자유</div></div>
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 28/30</div>
-                    <div class="r-score">2,840 성진</div>
-                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (데모)')">join</button>
+                    <div class="r-score">2,840 Stardust</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (Demo)')">join</button>
                 </div>
             </div>
             <div class="room-row">
                 <div class="r-emblem lv6"><span>♊</span></div>
                 <div class="r-info">
                     <div class="r-name">Luna Wolves</div>
-                    <div class="r-desc">Japones + Coreano Intercambio! 초보 환영 🌙</div>
+                    <div class="r-desc">Japones + Coreano Intercambio! 초보 Welcome 🌙</div>
                     <div class="r-tags"><div class="r-tag lang">🇯🇵 Japones</div><div class="r-tag level">Lv.6</div><div class="r-tag closed">Aprobacion</div></div>
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 22/30</div>
-                    <div class="r-score">2,105 성진</div>
-                    <button class="r-join apply" onclick="event.stopPropagation();alert('join 신청 Listo! (데모)')">신청</button>
+                    <div class="r-score">2,105 Stardust</div>
+                    <button class="r-join apply" onclick="event.stopPropagation();alert('join Apply Listo! (Demo)')">Apply</button>
                 </div>
             </div>
             <div class="room-row mine">
                 <div class="r-emblem lv4"><span>♌</span></div>
                 <div class="r-info">
-                    <div class="r-name">Stellar Lions <span class="mine-badge">내 길드</span></div>
-                    <div class="r-desc">Coreano 마스터를 Objetivo로! 길드전 매주 Participar 🦁</div>
+                    <div class="r-name">Stellar Lions <span class="mine-badge">내 Guild</span></div>
+                    <div class="r-desc">Coreano 마스터를 Objetivo로! Guild전 매주 Participar 🦁</div>
                     <div class="r-tags"><div class="r-tag lang">🇰🇷 Coreano</div><div class="r-tag level">Lv.4</div><div class="r-tag open">자유</div></div>
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 12/20</div>
-                    <div class="r-score">1,247 성진</div>
-                    <button class="r-join mine-btn" onclick="event.stopPropagation();location.href='guild-space.html'">입장</button>
+                    <div class="r-score">1,247 Stardust</div>
+                    <button class="r-join mine-btn" onclick="event.stopPropagation();location.href='guild-space.html'">Enter</button>
                 </div>
             </div>
             <div class="room-row">
                 <div class="r-emblem lv5"><span>♓</span></div>
                 <div class="r-info">
                     <div class="r-name">Cosmic Riders</div>
-                    <div class="r-desc">Aleman 중급 above! Vocabulario 카드 열심히 만들어요 🚀</div>
+                    <div class="r-desc">Aleman 중급 above! Vocabulario Card 열심히 만들어요 🚀</div>
                     <div class="r-tags"><div class="r-tag lang">🇩🇪 Aleman</div><div class="r-tag level">Lv.5</div><div class="r-tag open">자유</div></div>
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 18/20</div>
-                    <div class="r-score">980 성진</div>
-                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (데모)')">join</button>
+                    <div class="r-score">980 Stardust</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (Demo)')">join</button>
                 </div>
             </div>
             <div class="room-row">
@@ -387,8 +387,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 15/20</div>
-                    <div class="r-score">720 성진</div>
-                    <button class="r-join apply" onclick="event.stopPropagation();alert('join 신청 Listo! (데모)')">신청</button>
+                    <div class="r-score">720 Stardust</div>
+                    <button class="r-join apply" onclick="event.stopPropagation();alert('join Apply Listo! (Demo)')">Apply</button>
                 </div>
             </div>
             <div class="room-row">
@@ -400,8 +400,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 8/10</div>
-                    <div class="r-score">310 성진</div>
-                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (데모)')">join</button>
+                    <div class="r-score">310 Stardust</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (Demo)')">join</button>
                 </div>
             </div>
             <div class="room-row">
@@ -413,7 +413,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 20/20</div>
-                    <div class="r-score">1,100 성진</div>
+                    <div class="r-score">1,100 Stardust</div>
                     <button class="r-join full" disabled>마감</button>
                 </div>
             </div>
@@ -426,27 +426,27 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </div>
                 <div class="r-right">
                     <div class="r-members">👤 5/30</div>
-                    <div class="r-score">85 성진</div>
-                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (데모)')">join</button>
+                    <div class="r-score">85 Stardust</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('join Listo! (Demo)')">join</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 오른쪽 -->
+    <!-- Right -->
     <div class="side-right">
         <div class="card">
-            <div class="card-title">📊 길드 현황</div>
+            <div class="card-title">📊 Guild 현황</div>
             <div class="stat-grid">
-                <div class="stat-item"><div class="stat-num">42</div><div class="stat-label">all 길드</div></div>
+                <div class="stat-item"><div class="stat-num">42</div><div class="stat-label">all Guild</div></div>
                 <div class="stat-item"><div class="stat-num">389</div><div class="stat-label">총 Miembro</div></div>
                 <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">이번 주 신규</div></div>
-                <div class="stat-item"><div class="stat-num">156</div><div class="stat-label">길드전 수</div></div>
+                <div class="stat-item"><div class="stat-num">156</div><div class="stat-label">Guild전 수</div></div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-title">🏆 인기 길드</div>
+            <div class="card-title">🏆 인기 Guild</div>
             <div class="top-guild-item"><div class="tg-rank">🥇</div><div class="tg-emblem">♈</div><div class="tg-name">Star Breakers</div><div class="tg-score">2,840</div></div>
             <div class="top-guild-item"><div class="tg-rank">🥈</div><div class="tg-emblem">♊</div><div class="tg-name">Luna Wolves</div><div class="tg-score">2,105</div></div>
             <div class="top-guild-item"><div class="tg-rank">🥉</div><div class="tg-emblem">♌</div><div class="tg-name">Stellar Lions</div><div class="tg-score">1,247</div></div>
@@ -467,7 +467,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <div class="modal">
         <h3>🌟 Crear gremio</h3>
         <div class="modal-field">
-            <div class="modal-label">길드 이름</div>
+            <div class="modal-label">Guild Name</div>
             <input class="modal-input" placeholder="2~12자" maxlength="12">
         </div>
         <div class="modal-field">
@@ -488,7 +488,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
         <div class="modal-field">
-            <div class="modal-label">길드 색상</div>
+            <div class="modal-label">Guild 색상</div>
             <div class="color-grid">
                 <div class="color-item selected" style="background:#ef4444;" onclick="sel(this,'.color-item')"></div>
                 <div class="color-item" style="background:#f59e0b;" onclick="sel(this,'.color-item')"></div>
@@ -510,10 +510,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
         <div class="modal-field">
             <div class="modal-label">Acerca de글</div>
-            <textarea class="modal-textarea" placeholder="길드를 Acerca de해주세요 (Seleccionar)"></textarea>
+            <textarea class="modal-textarea" placeholder="Guild를 Acerca deplease do (Seleccionar)"></textarea>
         </div>
         <div class="modal-field">
-            <div class="modal-label">join 방식</div>
+            <div class="modal-label">join Room식</div>
             <div class="join-type-btns">
                 <div class="join-type-btn selected" onclick="sel(this,'.join-type-btn')">🔓 자유 join</div>
                 <div class="join-type-btn" onclick="sel(this,'.join-type-btn')">🔒 Aprobacion 필요</div>
@@ -531,7 +531,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <button class="modal-cancel" onclick="closeCreateModal()">Cancelar</button>
             <button class="modal-create" onclick="createGuild()">Crear gremio</button>
         </div>
-        <div class="modal-cost">💎 500 Fragmentos estelares이 차감됩니다</div>
+        <div class="modal-cost">💎 500 Fragmentos estelares이 차감will be</div>
     </div>
 </div>
 
@@ -553,7 +553,7 @@ document.querySelectorAll('.filter-pills').forEach(function(wrap){
 function openCreateModal(){document.getElementById('createModal').classList.add('show');}
 function closeCreateModal(){document.getElementById('createModal').classList.remove('show');}
 document.getElementById('createModal').addEventListener('click',function(e){if(e.target===this)closeCreateModal();});
-function createGuild(){closeCreateModal();alert('길드가 만들어졌습니다! (데모)\n💎 500 Fragmentos estelares 차감');}
+function createGuild(){closeCreateModal();alert('Guild가 was created! (Demo)\n💎 500 Fragmentos estelares 차감');}
 </script>
 
 </body>

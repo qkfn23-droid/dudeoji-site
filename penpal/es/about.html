@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#888;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* 왼쪽 */
+/* Izquierda */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -89,7 +89,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#888;min-hei
 .moon-stars span:nth-child(4){bottom:6px;right:8%;animation-delay:1.8s;}
 @keyframes starTwinkle{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:0.7;transform:scale(1.3);}}
 
-/* 중앙 */
+/* Centro */
 .center{display:flex;flex-direction:column;gap:12px;}
 h1{font-size:24px;color:#0ea5e9;margin-bottom:4px;text-align:center;}
 h1 span{color:#f59e0b;}
@@ -106,7 +106,7 @@ a{color:#0ea5e9;}
 .contact-btn{padding:10px 20px;background:linear-gradient(135deg,#8b5cf6,#a78bfa);border:none;border-radius:12px;color:#fff;font-size:14px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-decoration:none;display:inline-block;font-weight:600;transition:all .2s;}
 .contact-btn:hover{transform:scale(1.05);}
 
-/* 오른쪽 */
+/* Derecha */
 .right{display:flex;flex-direction:column;gap:12px;}
 .right-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .right-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;}
@@ -178,7 +178,7 @@ a{color:#0ea5e9;}
 <div class="page-content">
 
 <div class="main-grid">
-    <!-- 왼쪽 -->
+    <!-- Izquierda -->
     <div class="left">
         <div class="my-profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
@@ -187,79 +187,79 @@ a{color:#0ea5e9;}
                 <div class="my-profile-sub">⭐ Lv.5 · 🔥 Fuego · Leo</div>
             </div>
         </div>
-        <div class="my-sign-card"><h3>♌ Leo</h3><p>7월 23일 ~ 8월 22일</p><div class="sign-tag">🔥 Fuego Elemento · 리더십 · 열정</div><div class="my-sign-icon">♌</div></div>
+        <div class="my-sign-card"><h3>♌ Leo</h3><p>23 Jul ~ 22 Ago</p><div class="sign-tag">🔥 Fuego Elemento · Liderazgo · Pasión</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
-            <div class="aura-title"><span class="aura-star">⭐</span> 별의 Energia</div>
+            <div class="aura-title"><span class="aura-star">⭐</span> Energía estelar</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
-            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 눈부심</span></div>
+            <div class="aura-info"><span>165 / 500</span><span>Siguiente: 👀 Deslumbrante</span></div>
             <div class="aura-grid">
                 <div class="aura-item active"><div class="aura-emoji">⭐</div><div class="aura-name">default</div></div>
-                <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">반짝</div></div>
-                <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">빛남</div></div>
-                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">눈부심</div></div>
-                <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">초월</div></div>
+                <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">Destello</div></div>
+                <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">Brillo</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">Deslumbrante</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">Trascendencia</div></div>
             </div>
         </div>
         <a href="game-v2.html" class="pal-btn">Dudeoji Studio</a>
-        <a href="#" class="moon-banner" onclick="alert('Dudeoji Studio 오픈 Programado!');return false;">
+        <a href="#" class="moon-banner" onclick="alert('Dudeoji Studio — Apertura Programada!');return false;">
             <div class="moon-stars"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
             <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
             <div class="moon-icon"><svg width="48" height="48" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#fbbf24" opacity="0.9"/><circle cx="40" cy="46" r="3" fill="#92400e"/><circle cx="60" cy="46" r="3" fill="#92400e"/><path d="M42,60 Q50,68 58,60" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="32" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="68" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/></svg></div>
-            <div class="moon-slider" id="moonSlider"><div class="moon-text active">Horoscopo de hoy?</div><div class="moon-text">Tarot one 장의 Mensajes</div><div class="moon-text">Quien fui en mi vida pasada?</div><div class="moon-text">내 Significado oculto de suenos</div><div class="moon-text">내 배우자는?</div></div>
+            <div class="moon-slider" id="moonSlider"><div class="moon-text active">¿Horóscopo de hoy?</div><div class="moon-text">Mensajes de una carta del Tarot</div><div class="moon-text">¿Quién fui en mi vida pasada?</div><div class="moon-text">Mi significado oculto de los sueños</div><div class="moon-text">Mi alma gemela</div></div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
     </div>
 
-    <!-- 중앙 -->
+    <!-- Centro -->
     <div class="center">
         <div class="story-box" id="sec-story">
-            <h2>이 사이트를 만든 이유</h2>
-            <p>외국어를 배우고 싶었습니다. 실제로 그 Idioma를 쓰는 사람과 대화하고 싶었습니다.</p>
-            <p>Penpal 사이트에 join했습니다. 반년 동안 one 사람과 Intercambio을 했습니다. 좋은 Amigos라고 생각했습니다.</p>
-            <p>그런데 어느 날 그 사람은 제가 생각했던 사람이 아니었습니다.</p>
-            <p>충격을 받고 one동안 Penpal을 쉬었습니다.</p>
-            <p style="margin-top:16px;">Horas이 지나고 다시 시도해봤습니다. 이번엔 괜찮겠지 싶었습니다.</p>
-            <p>Perfil이 완벽one 사람이 말을 걸어왔습니다. 좋은 대학, 좋은 동네, 좋은 Foto. 잘 통doing 것 같았습니다.</p>
-            <p>하지만 그 Perfil은 <strong>Real가 아니었습니다</strong>.</p>
-            <p style="margin-top:16px;">new Penpal을 만났습니다. Cartas를 주고받았습니다. one 번, 두 번, 대화가 이어졌습니다.</p>
-            <p>그런데 어느 순간 답장이 끊겼습니다. 아무 말 없이.</p>
-            <p>기다렸습니다. 하루, 이틀, 일주일. 답장은 오지 않았습니다.</p>
-            <p>정성들여 Cartas를 썼습니다. Horas 들여서, 진심을 담아서.</p>
-            <p><strong>답장은 오지 않았습니다.</strong></p>
-            <p style="margin-top:16px;">이런 경험을 one 사람이 저만은 아닐 거라고 생각했습니다.</p>
-            <p><strong>누구나 Seguro하고</strong> Cartas를 주고받을 수 with 곳.</p>
-            <p><strong>진심as</strong> Intercambio을 하면서 다양one 사람들이 만나는 곳.</p>
-            <p>그런 곳을 directly 만들기로 했습니다.</p>
-            <p style="margin-top:16px;"><strong style="color:#8b5cf6;">"누구나 Seguro하고, 진심as."</strong></p>
-            <p><strong>Dudeoji Studio는 그렇게 태어났습니다.</strong></p>
+            <h2>Por qué creé este sitio</h2>
+            <p>Quería aprender un idioma extranjero. Quería hablar con alguien que realmente hable ese idioma.</p>
+            <p>Me registré en un sitio de amigos por correspondencia. Durante medio año, intercambié idiomas con una persona. Pensé que éramos buenos amigos.</p>
+            <p>Pero un día, esa persona no era quien yo pensaba.</p>
+            <p>Quedé en shock y dejé de hacer amigos por correspondencia por un tiempo.</p>
+            <p style="margin-top:16px;">El tiempo pasó y lo intenté de nuevo. Pensé que esta vez estaría bien.</p>
+            <p>Una persona con perfil perfecto me contactó. Buena universidad, buen barrio, buenas fotos. Parecía que nos llevábamos bien.</p>
+            <p>Pero ese perfil <strong>no era real</strong>.</p>
+            <p style="margin-top:16px;">Conocí a un nuevo amigo por correspondencia. Intercambiamos cartas. Una vez, dos veces, la conversación continuó.</p>
+            <p>Pero en algún momento las respuestas se detuvieron. Sin una palabra.</p>
+            <p>Esperé. Un día, dos días, una semana. La respuesta nunca llegó.</p>
+            <p>Escribí con cuidado. Tomándome tiempo, poniendo mi corazón.</p>
+            <p><strong>La respuesta nunca llegó.</strong></p>
+            <p style="margin-top:16px;">Pensé que no era el único con esta experiencia.</p>
+            <p><strong>Un lugar donde cualquiera pueda intercambiar cartas con tranquilidad.</strong></p>
+            <p><strong>Un lugar donde las personas intercambien idiomas con sinceridad y conozcan gente diversa.</strong></p>
+            <p>Decidí construir ese lugar yo mismo.</p>
+            <p style="margin-top:16px;"><strong style="color:#8b5cf6;">"Para todos, con tranquilidad y sinceridad."</strong></p>
+            <p><strong>Así nació Dudeoji Studio.</strong></p>
         </div>
 
-        <!-- 히어로 배너 -->
+        <!-- Banner principal -->
         <div style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:16px;padding:28px 24px;color:#fff;display:flex;align-items:center;gap:20px;">
             <div style="flex:1;">
-                <div style="font-size:20px;font-weight:700;margin-bottom:6px;">"누구나 Seguro하고, 진심as."</div>
-                <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">Seguro Intercambio & Penpal 플랫폼 Dudeoji Studio.<br>7개 Idioma · Emparejamiento zodiacal · Gratis · Expulsion permanente제로 안전하게.</div>
+                <div style="font-size:20px;font-weight:700;margin-bottom:6px;">"Para todos, con tranquilidad y sinceridad."</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">Plataforma segura de intercambio y Penpal — Dudeoji Studio.<br>7 Idiomas · Emparejamiento zodiacal · Gratis · Expulsión permanente · Sin riesgos.</div>
             </div>
             <div style="font-size:48px;opacity:0.3;">📮</div>
         </div>
 
-        <!-- 약속 + 기능 가로 배치 -->
+        <!-- Compromiso + Funciones en horizontal -->
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" id="sec-promise">
             <div class="story-box" style="margin:0;">
-                <h2>🛡️ Dudeoji Studio의 노력</h2>
+                <h2>🛡️ Nuestro compromiso</h2>
                 <div class="feature-grid">
-                    <div class="feature-item"><div class="emoji">🆓</div><div class="fname">Gratis 이용</div></div>
-                    <div class="feature-item"><div class="emoji">🔐</div><div class="fname">본인 인증</div></div>
-                    <div class="feature-item"><div class="emoji">⏰</div><div class="fname">7일 무응답 해제</div></div>
-                    <div class="feature-item"><div class="emoji">🚫</div><div class="fname">Expulsion permanente</div></div>
+                    <div class="feature-item"><div class="emoji">🆓</div><div class="fname">Uso gratuito</div></div>
+                    <div class="feature-item"><div class="emoji">🔐</div><div class="fname">Verificación de identidad</div></div>
+                    <div class="feature-item"><div class="emoji">⏰</div><div class="fname">Liberación por 7 días sin respuesta</div></div>
+                    <div class="feature-item"><div class="emoji">🚫</div><div class="fname">Expulsión permanente</div></div>
                 </div>
             </div>
             <div class="story-box" style="margin:0;" id="sec-features">
-                <h2>🌍 주요 기능</h2>
+                <h2>🌍 Funciones principales</h2>
                 <div class="feature-grid">
                     <div class="feature-item"><div class="emoji">✉️</div><div class="fname">Intercambio Penpal</div></div>
-                    <div class="feature-item"><div class="emoji">🌟</div><div class="fname">Recomendacion estelar</div></div>
-                    <div class="feature-item"><div class="emoji">🗣️</div><div class="fname">7개 Idioma</div></div>
+                    <div class="feature-item"><div class="emoji">🌟</div><div class="fname">Recomendación estelar</div></div>
+                    <div class="feature-item"><div class="emoji">🗣️</div><div class="fname">7 Idiomas</div></div>
                     <div class="feature-item"><div class="emoji">🎮</div><div class="fname">Dudeoji Studio</div></div>
                 </div>
             </div>
@@ -267,28 +267,28 @@ a{color:#0ea5e9;}
 
         <!-- Reglas -->
         <div class="story-box" id="sec-rules" style="padding:20px;">
-            <h2>📜 이용 Reglas</h2>
+            <h2>📜 Reglas de uso</h2>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;">
-                <p><strong>1.</strong> 1인 1Cuenta — 다중 Cuenta 금지</p>
-                <p><strong>2.</strong> Fraude/사칭 금지 — Expulsion permanente</p>
-                <p><strong>3.</strong> Sexual/Violencia 콘텐츠 금지 — immediately 퇴장</p>
-                <p><strong>4.</strong> 상업적 이용 금지 — Anuncio/홍보/판매</p>
-                <p><strong>5.</strong> Datos personales 강요 금지</p>
-                <p><strong>6.</strong> Spam/권유 금지</p>
+                <p><strong>1.</strong> Una cuenta por persona — se prohíben cuentas múltiples</p>
+                <p><strong>2.</strong> Prohibido el fraude/suplantación — Expulsión permanente</p>
+                <p><strong>3.</strong> Contenido sexual/violento prohibido — expulsión inmediata</p>
+                <p><strong>4.</strong> Prohibido el uso comercial — anuncios/promociones/ventas</p>
+                <p><strong>5.</strong> Prohibido exigir datos personales</p>
+                <p><strong>6.</strong> Prohibido el spam y la solicitud no deseada</p>
             </div>
             <div style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;">
-                <strong style="color:#ef4444;font-size:15px;">Violacion 시: Advertencia 없이 Expulsion permanente · 환Fuego Fuego가</strong>
+                <strong style="color:#ef4444;font-size:15px;">Ante cualquier violación: Expulsión permanente sin advertencia previa · Sin reembolso</strong>
                 <a href="contact.html" class="contact-btn" id="sec-contact">📧 Contacto</a>
             </div>
         </div>
     </div>
 
-    <!-- 오른쪽 -->
+    <!-- Derecha -->
     <div class="right">
         <div class="right-box">
-            <div class="right-title">🔗 바로가기</div>
+            <div class="right-title">🔗 Accesos rápidos</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-                <a href="v2-penpal.html" style="display:flex;align-items:center;gap:6px;padding:8px;background:#f5f3ff;border-radius:8px;font-size:11px;color:#8b5cf6;text-decoration:none;font-weight:600;">📮 홈</a>
+                <a href="v2-penpal.html" style="display:flex;align-items:center;gap:6px;padding:8px;background:#f5f3ff;border-radius:8px;font-size:11px;color:#8b5cf6;text-decoration:none;font-weight:600;">📮 Inicio</a>
                 <a href="shop.html" style="display:flex;align-items:center;gap:6px;padding:8px;background:#fef3c7;border-radius:8px;font-size:11px;color:#b45309;text-decoration:none;font-weight:600;">🛒 Tienda</a>
                 <a href="notice.html" style="display:flex;align-items:center;gap:6px;padding:8px;background:#f0fdf4;border-radius:8px;font-size:11px;color:#16a34a;text-decoration:none;font-weight:600;">📋 Avisos</a>
                 <a href="contact.html" style="display:flex;align-items:center;gap:6px;padding:8px;background:#fef2f2;border-radius:8px;font-size:11px;color:#ef4444;text-decoration:none;font-weight:600;">📧 Consulta</a>

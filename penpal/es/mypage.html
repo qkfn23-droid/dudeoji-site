@@ -60,18 +60,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .lang-fill.beginner{background:#f59e0b;width:30%;}
 .lang-label{font-size:10px;color:#999;min-width:40px;}
 
-/* 오른쪽 */
+/* Right */
 .right{display:flex;flex-direction:column;gap:16px;}
 .section-title{font-size:15px;font-weight:700;color:#333;margin-bottom:12px;}
 
-/* Cartas 통계 */
+/* Cartas Stats */
 .letter-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:6px;}
 .l-stat{text-align:center;padding:14px;background:#f8fafc;border-radius:12px;}
 .l-stat-icon{font-size:22px;margin-bottom:4px;}
 .l-stat-num{font-size:20px;font-weight:700;color:#0ea5e9;}
 .l-stat-label{font-size:10px;color:#aaa;}
 
-/* Amigos 목록 */
+/* Amigos List */
 .friend-list{display:flex;flex-direction:column;gap:8px;}
 .friend-row{display:flex;align-items:center;gap:10px;padding:10px;background:#f8fafc;border-radius:12px;transition:all .15s;}
 .friend-row:hover{background:#e0f2fe;}
@@ -83,7 +83,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .f-online{background:#4ade80;}
 .f-offline{background:#d4d4d4;}
 
-/* Juego 전적 */
+/* Juego Record */
 .game-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
 .g-stat{text-align:center;padding:12px 8px;background:#f8fafc;border-radius:12px;}
 .g-stat-num{font-size:18px;font-weight:700;color:#0ea5e9;}
@@ -109,7 +109,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .footer{text-align:center;padding:20px;font-size:11px;color:#888;font-weight:500;margin-top:20px;}
 
-/* 다크모드 */
+/* Dark mode */
 .dark body{background:#1a1a2a;color:#ccc;}
 .dark .nav{background:#12122a;}
 .dark .nav-links a{color:#888;}
@@ -161,12 +161,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <div class="main">
 
-<!-- 왼쪽: Perfil -->
+<!-- Left: Perfil -->
 <div style="display:flex;flex-direction:column;gap:16px;">
     <div class="card">
         <div class="profile-pic"><svg viewBox="0 0 120 120" width="85" height="85" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div class="profile-name">TAZO</div>
-        <div class="profile-bio">Coreafrom 온 Intercambio 매니아. Espanol aprendiendo 중! Astrologia이랑 Musica gusta해요~</div>
+        <div class="profile-bio">Coreafrom on Intercambio 매니아. Espanol aprendiendo 중! Astrologia이랑 Musica gustado~</div>
         <div class="tags">
             <span class="tag tag-zodiac">Leo</span>
             <span class="tag tag-element">🔥 Fuego</span>
@@ -207,12 +207,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     </div>
 </div>
 
-<!-- 오른쪽 -->
+<!-- Right -->
 <div class="right">
 
-    <!-- Cartas 통계 -->
+    <!-- Cartas Stats -->
     <div class="card">
-        <div class="section-title">Cartas 통계</div>
+        <div class="section-title">Cartas Stats</div>
         <div class="letter-stats">
             <div class="l-stat"><div class="l-stat-icon">📤</div><div class="l-stat-num">24</div><div class="l-stat-label">보낸 Cartas</div></div>
             <div class="l-stat"><div class="l-stat-icon">📥</div><div class="l-stat-num">24</div><div class="l-stat-label">받은 Cartas</div></div>
@@ -220,9 +220,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- Amigos 목록 -->
+    <!-- Amigos List -->
     <div class="card">
-        <div class="section-title">Amigos 목록</div>
+        <div class="section-title">Amigos List</div>
         <div class="friend-list">
             <div class="friend-row">
                 <div class="f-avatar" style="background:#e91e63;">M</div>
@@ -252,9 +252,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- Juego 전적 -->
+    <!-- Juego Record -->
     <div class="card">
-        <div class="section-title">Juego 전적</div>
+        <div class="section-title">Juego Record</div>
         <div class="game-stats">
             <div class="g-stat"><div class="g-stat-num">47</div><div class="g-stat-label">총 Juego</div></div>
             <div class="g-stat"><div class="g-stat-num">31</div><div class="g-stat-label">Victoria</div></div>
@@ -262,7 +262,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="g-stat"><div class="g-stat-num">7</div><div class="g-stat-label">Racha 최고</div></div>
         </div>
         <div style="margin-top:14px;">
-            <div class="section-title" style="font-size:13px;">별의 Energia</div>
+            <div class="section-title" style="font-size:13px;">Star Energia</div>
             <div class="stamp-row">
                 <div class="stamp">⭐</div>
                 <div class="stamp">🌟</div>
@@ -270,7 +270,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="stamp locked">💫</div>
                 <div class="stamp locked">🌠</div>
             </div>
-            <div style="font-size:10px;color:#8b5cf6;font-weight:700;margin-top:8px;">165 / 500 Energia · 다음: 💫 눈부심</div>
+            <div style="font-size:10px;color:#8b5cf6;font-weight:700;margin-top:8px;">165 / 500 Energia · 다음: 💫 Dazzle</div>
         </div>
     </div>
 
@@ -282,7 +282,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="toggle on" onclick="this.classList.toggle('on')"></div>
         </div>
         <div class="setting-item">
-            <div class="setting-label"><span class="setting-icon">🌙</span> 다크모드</div>
+            <div class="setting-label"><span class="setting-icon">🌙</span> Dark mode</div>
             <div class="toggle" id="darkToggle" onclick="this.classList.toggle('on');document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'))"></div>
         </div>
         <div class="setting-item">
@@ -294,7 +294,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <a href="contact.html" class="setting-link">Consulta</a>
         </div>
         <div style="margin-top:14px;text-align:right;">
-            <button class="danger-btn" onclick="alert('정말 Darse de baja하시겠습니까? (데모)')">회원 Darse de baja</button>
+            <button class="danger-btn" onclick="alert('정말 Darse de bajaWould you like to? (Demo)')">회원 Darse de baja</button>
         </div>
     </div>
 

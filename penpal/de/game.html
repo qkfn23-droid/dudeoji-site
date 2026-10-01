@@ -26,10 +26,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .tab-item .t-emoji{font-size:18px;}
 .tab-item .t-hot{font-size:8px;background:#ef4444;color:#fff;padding:1px 5px;border-radius:4px;font-weight:700;}
 
-/* 메인 */
+/* Main */
 .game-main{max-width:960px;margin:16px auto;padding:0 16px;display:grid;grid-template-columns:280px 1fr;gap:14px;}
 
-/* 왼쪽 */
+/* Left */
 .left{display:flex;flex-direction:column;gap:12px;}
 .banner{background:linear-gradient(135deg,#0ea5e9,#6366f1);border-radius:14px;padding:20px;color:#fff;position:relative;overflow:hidden;}
 .banner h3{font-size:16px;margin-bottom:6px;}
@@ -47,7 +47,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .f-invite{font-size:10px;padding:3px 10px;background:#e0f2fe;color:#0ea5e9;border:none;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Noto Sans KR';}
 .f-invite:hover{background:#0ea5e9;color:#fff;}
 
-/* 오른쪽: 방 목록 */
+/* Right: Room List */
 .right{display:flex;flex-direction:column;gap:12px;}
 .room-header{display:flex;justify-content:space-between;align-items:center;}
 .room-header h2{font-size:15px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
@@ -74,7 +74,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .room-row.playing .r-enter{background:#e0e0e0;color:#999;cursor:default;}
 .room-row.playing{opacity:0.7;}
 
-/* 하단 Chat */
+/* Bottom Chat */
 .chat-wrap{max-width:960px;margin:12px auto 0;padding:0 16px;}
 .chat-box{background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .chat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
@@ -115,7 +115,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <!-- Spiel 탭 -->
 <div class="tab-bar">
-    <div class="tab-item active"><span class="t-emoji">🃏</span> 원카드 <span class="t-hot">HOT</span></div>
+    <div class="tab-item active"><span class="t-emoji">🃏</span> One Card <span class="t-hot">HOT</span></div>
     <div class="tab-item"><span class="t-emoji">🧩</span> Bild 맞추기</div>
     <div class="tab-item"><span class="t-emoji">💬</span> 끝말잇기</div>
     <div class="tab-item"><span class="t-emoji">❓</span> Quiz Duell</div>
@@ -123,11 +123,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <div class="game-main">
 
-    <!-- 왼쪽 -->
+    <!-- Left -->
     <div class="left">
         <div class="banner">
-            <h3>원카드 Saison 오픈! 🎉</h3>
-            <p>Brieffreund Freunde와 원카드 one 판!<br>이번 주 TOP 3 special 우표 Geschenk</p>
+            <h3>One Card Saison 오픈! 🎉</h3>
+            <p>Brieffreund Freunde와 One Card one 판!<br>이번 주 TOP 3 special 우표 Geschenk</p>
             <div class="bg-emoji">🃏</div>
         </div>
 
@@ -164,19 +164,19 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- 오른쪽 -->
+    <!-- Right -->
     <div class="right">
         <div class="room-header">
-            <h2>🃏 원카드 방 목록</h2>
-            <button class="create-btn" onclick="alert('방 만들기 (데모)')">+ 방 만들기</button>
+            <h2>🃏 One Card Room List</h2>
+            <button class="create-btn" onclick="alert('Room Create (Demo)')">+ Room Create</button>
         </div>
 
         <div class="room-list">
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">Maria의 방</div>
-                    <div class="r-desc">초보 환영! 같이 해요~</div>
+                    <div class="r-name">Maria의 Room</div>
+                    <div class="r-desc">초보 Welcome! 같이 do~</div>
                 </div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
@@ -185,14 +185,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">2/4 Warten중</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Enter</button>
             </div>
 
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">Yuki의 방</div>
-                    <div class="r-desc">Koreanisch로 대화해요 🇰🇷</div>
+                    <div class="r-name">Yuki의 Room</div>
+                    <div class="r-desc">Koreanisch로 대화do 🇰🇷</div>
                 </div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
@@ -201,13 +201,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">3/4 Warten중</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Enter</button>
             </div>
 
             <div class="room-row playing">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">Felix의 방</div>
+                    <div class="r-name">Felix의 Room</div>
                     <div class="r-desc">Deutsch 대화 🇩🇪</div>
                 </div>
                 <div class="r-players">
@@ -223,8 +223,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">Jin의 방</div>
-                    <div class="r-desc">아무나 환영 😊</div>
+                    <div class="r-name">Jin의 Room</div>
+                    <div class="r-desc">아무나 Welcome 😊</div>
                 </div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#7c4dff,#b388ff);">J</div>
@@ -233,14 +233,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">1/4 Warten중</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Enter</button>
             </div>
 
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">Alex의 방</div>
-                    <div class="r-desc">Franzosisch 연습 🇫🇷</div>
+                    <div class="r-name">Alex의 Room</div>
+                    <div class="r-desc">Franzosisch Practice 🇫🇷</div>
                 </div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ff5722,#ff8a65);">A</div>
@@ -249,13 +249,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="r-p empty"></div>
                 </div>
                 <div class="r-badge b-wait">2/4 Warten중</div>
-                <button class="r-enter">입장</button>
+                <button class="r-enter">Enter</button>
             </div>
 
             <div class="room-row playing">
                 <div class="r-icon">🃏</div>
                 <div class="r-info">
-                    <div class="r-name">Sofia의 방</div>
+                    <div class="r-name">Sofia의 Room</div>
                     <div class="r-desc">Italienisch 🇮🇹</div>
                 </div>
                 <div class="r-players">
@@ -278,15 +278,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="chat-label">💬 Chat</div>
         </div>
         <div class="chat-msgs" id="chatMsgs">
-            <div class="c-msg"><span class="sys">[Benachrichtigung]</span> Dudeoji Studio Spiel 로비에 오신 걸 환영합니다!</div>
-            <div class="c-msg"><span class="nm">Maria:</span> 누구 원카드 할 사람~ 😄</div>
-            <div class="c-msg"><span class="nm">Yuki:</span> 나 할래! 방 만들어줘</div>
-            <div class="c-msg"><span class="sys">[Benachrichtigung]</span> Maria님이 방을 만들었습니다</div>
+            <div class="c-msg"><span class="sys">[Benachrichtigung]</span> Dudeoji Studio Spiel 로비에 오신 걸 Welcome합니다!</div>
+            <div class="c-msg"><span class="nm">Maria:</span> 누구 One Card 할 사람~ 😄</div>
+            <div class="c-msg"><span class="nm">Yuki:</span> 나 할래! Room 만들어줘</div>
+            <div class="c-msg"><span class="sys">[Benachrichtigung]</span> Mariahas Room을 created</div>
             <div class="c-msg"><span class="nm">Felix:</span> 나도 들어간다!</div>
         </div>
         <div class="chat-row">
             <div class="chat-to">-모두to-</div>
-            <input class="chat-in" placeholder="Nachrichten를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <input class="chat-in" placeholder="Nachrichten를 please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-btn" onclick="sendChat()">전송</button>
         </div>
     </div>

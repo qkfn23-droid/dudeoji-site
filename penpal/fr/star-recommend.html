@@ -10,7 +10,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-height:100vh;display:flex;flex-direction:column;}
 
-/* 네비게이션 */
+/* Nav게이션 */
 .nav{background:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:100;}
 .nav-logo{font-size:22px;font-weight:700;color:#0ea5e9;text-decoration:none;}
 .nav-logo span{color:#f59e0b;}
@@ -20,7 +20,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .nav-links a.active{background:#0ea5e9;color:#fff;}
 .sound-btn{width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 
-/* 탭바 */
+/* Tab바 */
 .tab-bar{background:linear-gradient(135deg,#8b5cf6,#a78bfa);padding:0 20px;display:flex;gap:0;box-shadow:0 2px 8px rgba(139,92,246,0.2);}
 .tab-item{padding:12px 22px;font-size:13px;font-weight:700;cursor:pointer;color:rgba(255,255,255,0.6);border-bottom:3px solid transparent;display:flex;align-items:center;gap:6px;transition:all .2s;text-decoration:none;}
 .tab-item:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
@@ -33,11 +33,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .notice-text{position:absolute;top:0;left:0;width:100%;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(10px);}
 .notice-text.active{opacity:1;transform:translateY(0);}
 
-/* 3단 그리드 */
+/* 3단 Grid */
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* 왼쪽 사이드바 */
+/* Left Side바 */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -47,7 +47,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .my-profile-name{font-size:14px;font-weight:700;color:#333;}
 .my-profile-sub{font-size:10px;color:#999;}
 
-/* 내 Zodiaque 카드 */
+/* 내 Zodiaque Card */
 .my-sign-card{background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:14px;padding:18px;color:#fff;position:relative;overflow:hidden;}
 .my-sign-card h3{font-size:15px;font-weight:700;margin-bottom:4px;}
 .my-sign-card p{font-size:11px;color:rgba(255,255,255,0.7);}
@@ -55,7 +55,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 @keyframes floatSign{0%,100%{transform:translateY(-50%) rotate(0deg);}50%{transform:translateY(calc(-50% - 6px)) rotate(5deg);}}
 .sign-tag{display:inline-block;font-size:10px;padding:3px 10px;background:rgba(255,255,255,0.2);border-radius:10px;margin-top:8px;backdrop-filter:blur(4px);}
 
-/* 별의 Energie */
+/* Star Energie */
 .aura-box{background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .aura-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .aura-title .aura-star{display:inline-block;animation:auraTitleStar 2s ease-in-out infinite;}
@@ -74,11 +74,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .aura-name{font-size:8px;color:#888;margin-top:2px;}
 .aura-item.active .aura-name{color:#b45309;font-weight:600;}
 
-/* Dudeoji Studio 버튼 */
+/* Dudeoji Studio Button */
 .pal-btn{display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;border-radius:14px;text-decoration:none;font-size:15px;font-weight:700;box-shadow:0 4px 16px rgba(14,165,233,0.3);transition:all .2s;letter-spacing:1px;}
 .pal-btn:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(14,165,233,0.4);}
 
-/* Dudeoji문 사이드 배너 */
+/* Dudeoji문 Side Banner */
 .moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;position:relative;overflow:hidden;}
 .moon-banner:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(99,102,241,0.45);}
 .moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;line-height:0;position:relative;display:inline-block;}
@@ -101,7 +101,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .moon-stars span:nth-child(4){bottom:6px;right:8%;animation-delay:1.8s;}
 @keyframes starTwinkle{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:0.7;transform:scale(1.3);}}
 
-/* 중앙 — Recommandation 목록 */
+/* Center — Recommandation List */
 .center{display:flex;flex-direction:column;gap:10px;}
 .section-header{display:flex;justify-content:space-between;align-items:center;}
 .section-header h2{font-size:15px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
@@ -126,7 +126,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .btn-letter{padding:6px 14px;background:linear-gradient(135deg,#8b5cf6,#a78bfa);color:#fff;border:none;border-radius:12px;font-size:11px;font-weight:600;cursor:pointer;flex-shrink:0;font-family:'Noto Sans KR';transition:all .2s;}
 .btn-letter:hover{transform:scale(1.05);box-shadow:0 2px 8px rgba(139,92,246,0.3);}
 
-/* 오른쪽 사이드바 */
+/* Right Side바 */
 .right{display:flex;flex-direction:column;gap:12px;}
 .element-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .element-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;}
@@ -167,13 +167,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .footer{text-align:center;padding:6px 20px 4px;font-size:11px;color:#888;font-weight:500;}
 
-/* 태블릿 */
+/* Tablet */
 @media(max-width:900px){
 .main-grid{grid-template-columns:1fr 200px;margin:12px 16px;}
 .left{display:none;}
 .chat-wrap{margin:12px 16px 0;}
 }
-/* 모바일 */
+/* Mobile */
 @media(max-width:640px){
 .main-grid{grid-template-columns:1fr;margin:10px 10px;gap:10px;}
 .left{display:flex;}
@@ -188,7 +188,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .chat-msgs{height:100px;}
 }
 
-/* 다크모드 */
+/* Dark mode */
 .dark body{background:#1a1a2a;color:#ccc;}
 .dark .nav{background:#12122a;box-shadow:0 1px 8px rgba(0,0,0,0.3);}
 .dark .nav-links a{color:#888;}
@@ -246,14 +246,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Recommandation stellaireas new Penpal을 만나보세요!</div>
             <div class="notice-text">Meme Element의 Penpal은 대화가 잘 through요</div>
-            <div class="notice-text">별의 Energie이 높을수록 더 좋은 Recommandation을 받아요</div>
+            <div class="notice-text">Star Energie이 높을수록 더 좋은 Recommandation을 받아요</div>
             <div class="notice-text">Du jour Horoscope를 Confirmer하고 Lettres를 보내보세요</div>
         </div>
     </div>
 </div>
 
 <div class="main-grid">
-    <!-- ===== 왼쪽 사이드바 ===== -->
+    <!-- ===== 왼쪽 Side바 ===== -->
     <div class="left">
         <!-- 내 Profil -->
         <div class="my-profile-card">
@@ -273,7 +273,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- 내 Zodiaque 카드 -->
+        <!-- 내 Zodiaque Card -->
         <div class="my-sign-card">
             <h3>♌ Lion</h3>
             <p>7월 23일 ~ 8월 22일</p>
@@ -281,24 +281,24 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="my-sign-icon">♌</div>
         </div>
 
-        <!-- 별의 Energie -->
+        <!-- Star Energie -->
         <div class="aura-box">
-            <div class="aura-title"><span class="aura-star">⭐</span> 별의 Energie</div>
+            <div class="aura-title"><span class="aura-star">⭐</span> Star Energie</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
-            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 눈부심</span></div>
+            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 Dazzle</span></div>
             <div class="aura-grid">
                 <div class="aura-item active"><div class="aura-emoji">⭐</div><div class="aura-name">default</div></div>
                 <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">반짝</div></div>
                 <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">빛남</div></div>
-                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">눈부심</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">Dazzle</div></div>
                 <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">초월</div></div>
             </div>
         </div>
 
-        <!-- Dudeoji Studio 버튼 -->
+        <!-- Dudeoji Studio Button -->
         <a href="game-v2.html" class="pal-btn">Dudeoji Studio</a>
 
-        <!-- Dudeoji Studio 배너 -->
+        <!-- Dudeoji Studio Banner -->
         <a href="#" class="moon-banner" onclick="alert('Dudeoji Studio 오픈 Prevu!');return false;">
             <div class="moon-stars"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
             <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
@@ -323,7 +323,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </a>
     </div>
 
-    <!-- ===== 중앙 — Recommandation 목록 ===== -->
+    <!-- ===== 중앙 — Recommandation List ===== -->
     <div class="center">
         <div class="section-header">
             <h2>⭐ Penpals recommandes</h2>
@@ -349,7 +349,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-pct" style="color:#ef4444;">95%</div>
                 </div>
                 <span class="rec-tag" style="background:#fef2f2;color:#ef4444;">♌ Meme 별</span>
-                <button class="btn-letter" onclick="alert('Sofiato Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <button class="btn-letter" onclick="alert('Sofiato Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
             <!-- Maria -->
             <div class="rec-row" data-element="fire">
@@ -363,7 +363,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-pct" style="color:#ef4444;">88%</div>
                 </div>
                 <span class="rec-tag" style="background:#fef2f2;color:#ef4444;">🔥 Feu Element</span>
-                <button class="btn-letter" onclick="alert('Mariato Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <button class="btn-letter" onclick="alert('Mariato Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
             <!-- Alex -->
             <div class="rec-row" data-element="fire">
@@ -377,7 +377,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-pct" style="color:#ef4444;">85%</div>
                 </div>
                 <span class="rec-tag" style="background:#fef2f2;color:#ef4444;">🔥 Feu Element</span>
-                <button class="btn-letter" onclick="alert('Alexto Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <button class="btn-letter" onclick="alert('Alexto Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
             <!-- Felix -->
             <div class="rec-row" data-element="air">
@@ -391,7 +391,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-pct" style="color:#3b82f6;">78%</div>
                 </div>
                 <span class="rec-tag" style="background:#eff6ff;color:#3b82f6;">💨 대화 잘 통함</span>
-                <button class="btn-letter" onclick="alert('Felixto Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <button class="btn-letter" onclick="alert('Felixto Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
             <!-- Jin -->
             <div class="rec-row" data-element="air">
@@ -405,7 +405,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-pct" style="color:#3b82f6;">72%</div>
                 </div>
                 <span class="rec-tag" style="background:#eff6ff;color:#3b82f6;">💨 대화 잘 통함</span>
-                <button class="btn-letter" onclick="alert('Jinto Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <button class="btn-letter" onclick="alert('Jinto Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
             <!-- Lucas -->
             <div class="rec-row" data-element="earth">
@@ -418,8 +418,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-bar"><div class="match-fill" style="width:65%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
                     <div class="match-pct" style="color:#22c55e;">65%</div>
                 </div>
-                <span class="rec-tag" style="background:#f0fdf4;color:#22c55e;">🌍 안정적</span>
-                <button class="btn-letter" onclick="alert('Lucasto Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <span class="rec-tag" style="background:#f0fdf4;color:#22c55e;">🌍 Stable</span>
+                <button class="btn-letter" onclick="alert('Lucasto Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
             <!-- Yuki -->
             <div class="rec-row" data-element="water">
@@ -433,7 +433,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-pct" style="color:#8b5cf6;">60%</div>
                 </div>
                 <span class="rec-tag" style="background:#faf5ff;color:#8b5cf6;">💧 감Sexuel</span>
-                <button class="btn-letter" onclick="alert('Yukito Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <button class="btn-letter" onclick="alert('Yukito Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
             <!-- Hana -->
             <div class="rec-row" data-element="earth">
@@ -446,17 +446,17 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="match-bar"><div class="match-fill" style="width:58%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
                     <div class="match-pct" style="color:#22c55e;">58%</div>
                 </div>
-                <span class="rec-tag" style="background:#f0fdf4;color:#22c55e;">🌍 안정적</span>
-                <button class="btn-letter" onclick="alert('Hanato Envoyer une lettre (데모)')">Ecrire une lettre</button>
+                <span class="rec-tag" style="background:#f0fdf4;color:#22c55e;">🌍 Stable</span>
+                <button class="btn-letter" onclick="alert('Hanato Envoyer une lettre (Demo)')">Ecrire une lettre</button>
             </div>
         </div>
     </div>
 
-    <!-- ===== 오른쪽 사이드바 ===== -->
+    <!-- ===== 오른쪽 Side바 ===== -->
     <div class="right">
-        <!-- Element 가이드 -->
+        <!-- Element Guide -->
         <div class="element-box">
-            <div class="element-title">⭐ Element 가이드</div>
+            <div class="element-title">⭐ Element Guide</div>
             <div class="element-grid">
                 <div class="element-card el-fire active">
                     <div class="el-icon">🔥</div>
@@ -471,7 +471,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="element-card el-air">
                     <div class="el-icon">💨</div>
                     <div class="el-name">Air</div>
-                    <div class="el-signs">쌍둥이·천칭·Eau병</div>
+                    <div class="el-signs">Gemini·천칭·Eau병</div>
                 </div>
                 <div class="element-card el-water">
                     <div class="el-icon">💧</div>
@@ -516,7 +516,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="compat-row">
                 <div class="compat-sign">♊</div>
-                <div class="compat-name">쌍둥이</div>
+                <div class="compat-name">Gemini</div>
                 <div class="compat-bar"><div class="compat-fill" style="width:70%;background:#3b82f6;"></div></div>
                 <div class="compat-pct" style="color:#3b82f6;">70%</div>
             </div>
@@ -565,7 +565,7 @@ setInterval(()=>{
     texts[moonIdx].classList.add('active');
 },3000);
 
-// 필터
+// Filter
 function filterRec(el,btn){
     document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
     btn.classList.add('active');

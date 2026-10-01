@@ -118,7 +118,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .comm-name{font-weight:600;color:#333;flex:1;}
 .comm-count{font-size:10px;color:#aaa;}
 
-/* Dudeoji문 배너 */
+/* Dudeoji문 Banner */
 .moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;margin-top:10px;position:relative;overflow:hidden;}
 .moon-banner:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(99,102,241,0.45);}
 .moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;line-height:0;}
@@ -138,7 +138,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .moon-sparkle:nth-child(8){bottom:6px;right:8px;font-size:10px;animation-delay:2.1s;}
 @keyframes sparkleGlow{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.2);}}
 
-/* 확성기 배너 */
+/* Megaphone Banner */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -210,7 +210,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <a href="about.html">A propos</a>
         <a href="shop.html">Boutique</a>
         <a href="mypage.html">Mon profil</a>
-        <select onchange="alert('Langue Modification: '+this.value+' (데모)')" style="padding:6px 10px;border-radius:12px;border:1px solid #e0e0e0;font-size:11px;color:#666;background:#fff;cursor:pointer;outline:none;font-family:'Noto Sans KR',sans-serif;"><option value="ko" selected>🇰🇷 Coreen</option><option value="en">🇬🇧 English</option><option value="ja">🇯🇵 日本語</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="fr">🇫🇷 Français</option><option value="pt">🇵🇹 Português</option></select>
+        <select onchange="alert('Langue Modification: '+this.value+' (Demo)')" style="padding:6px 10px;border-radius:12px;border:1px solid #e0e0e0;font-size:11px;color:#666;background:#fff;cursor:pointer;outline:none;font-family:'Noto Sans KR',sans-serif;"><option value="ko" selected>🇰🇷 Coreen</option><option value="en">🇬🇧 English</option><option value="ja">🇯🇵 日本語</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="fr">🇫🇷 Français</option><option value="pt">🇵🇹 Português</option></select>
     </div>
 </nav>
 
@@ -226,12 +226,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <div class="main">
 
-<!-- 왼쪽: Profil -->
+<!-- Left: Profil -->
 <div class="sidebar-left" style="display:flex;flex-direction:column;gap:16px;">
     <div class="card">
         <div class="profile-pic"><svg viewBox="0 0 120 120" width="75" height="75" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div class="profile-name">TAZO</div>
-        <div class="profile-bio">Coreefrom 온 Echange 매니아. Espagnol apprend 중! Astrologie이랑 Musique aime해요~</div>
+        <div class="profile-bio">Coreefrom on Echange 매니아. Espagnol apprend 중! Astrologie이랑 Musique aimedo~</div>
         <div class="tags">
             <span class="tag tag-zodiac">Lion</span>
             <span class="tag tag-element">🔥 Feu</span>
@@ -271,7 +271,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <a href="game-v2.html" style="display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;font-size:15px;font-weight:700;border-radius:14px;text-decoration:none;box-shadow:0 4px 12px rgba(14,165,233,0.25);transition:all .2s;letter-spacing:1px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Dudeoji Studio<br>World</a>
 </div>
 
-<!-- 가운데 -->
+<!-- Center -->
 <div class="center">
     <div class="actions">
         <a href="write-letter.html" class="action-btn">
@@ -302,7 +302,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="pal-info">
                 <div class="pal-name">Maria G.</div>
                 <div class="pal-langs">🇪🇸 Espagnol <span class="arrow">→</span> 🇰🇷 Coreen</div>
-                <div class="pal-bio">Coreen 배우고 싶어요! K-pop이랑 Astrologie aime해요~</div>
+                <div class="pal-bio">Coreen learn 싶어요! K-pop이랑 Astrologie aimedo~</div>
                 <div class="pal-tags">
                     <span class="tag tag-zodiac">Belier</span>
                     <span class="tag tag-element">🔥 Feu</span>
@@ -317,7 +317,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="pal-info">
                 <div class="pal-name">Lucas S.</div>
                 <div class="pal-langs">🇧🇷 Portugais <span class="arrow">→</span> 🇰🇷 Coreen</div>
-                <div class="pal-bio">Coree, Japon Amis 찾아요! 천문학이랑 Jeu aime합니다.</div>
+                <div class="pal-bio">Coree, Japon Amis 찾아요! astronomy and Jeu aime합니다.</div>
                 <div class="pal-tags">
                     <span class="tag tag-zodiac">Gemeaux</span>
                     <span class="tag tag-element">💨 Air</span>
@@ -332,7 +332,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="pal-info">
                 <div class="pal-name">Yuki T.</div>
                 <div class="pal-langs">🇯🇵 Japonais <span class="arrow">→</span> 🇪🇸 Espagnol</div>
-                <div class="pal-bio">Espagnol 연습하고 싶어요! Lettres Echange해요~</div>
+                <div class="pal-bio">Espagnol practice 싶어요! Lettres Echangedo~</div>
                 <div class="pal-tags">
                     <span class="tag tag-zodiac">Poissons</span>
                     <span class="tag tag-element">🌊 Eau</span>
@@ -362,7 +362,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="pal-info">
                 <div class="pal-name">Sofia R.</div>
                 <div class="pal-langs">🇮🇹 Italien <span class="arrow">→</span> 🇰🇷 Coreen</div>
-                <div class="pal-bio">Ciao! Coree Culture Interet beaucoup. Cuisine discussion 해요~</div>
+                <div class="pal-bio">Ciao! Coree Culture Interet beaucoup. Cuisine discussion do~</div>
                 <div class="pal-tags">
                     <span class="tag tag-zodiac">Lion</span>
                     <span class="tag tag-element">🔥 Feu</span>
@@ -374,7 +374,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     </div>
 </div>
 
-<!-- 오른쪽 -->
+<!-- Right -->
 <div class="sidebar-right">
     <div class="card">
         <div class="section-head">
@@ -385,7 +385,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="msg-pic glow-full"><svg viewBox="0 0 120 120" width="32" height="32"><circle cx="60" cy="60" r="45" fill="#FFF9C4" stroke="#FDD835" stroke-width="1.5"/><ellipse cx="40" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.3)"/><ellipse cx="80" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.3)"/><ellipse cx="44" cy="58" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0.5s"/></ellipse><ellipse cx="76" cy="58" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0.5s"/></ellipse><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
             <div class="msg-info">
                 <div class="msg-name">Maria G.</div>
-                <div class="msg-text">Bonjour! 잘 지내? 연습하고 싶어...</div>
+                <div class="msg-text">Bonjour! 잘 지내? practice 싶어...</div>
             </div>
             <div class="msg-dot"></div>
         </div>
@@ -401,7 +401,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="msg-pic glow-star"><svg viewBox="0 0 120 120" width="32" height="32"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2.5s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2.5s"/></ellipse><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
             <div class="msg-info">
                 <div class="msg-name">Lucas S.</div>
-                <div class="msg-text">다음주에 같이 연습하자!</div>
+                <div class="msg-text">다음주에 같이 Practicelets!</div>
             </div>
             <div class="msg-time">1일 전</div>
         </div>
@@ -420,7 +420,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- Dudeoji문 배너 -->
+    <!-- Dudeoji문 Banner -->
     <a href="https://dudeojistudio.com/astro" target="_blank" class="moon-banner" id="moonBanner">
         <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
         <div class="moon-icon"><svg viewBox="0 0 120 120" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -443,11 +443,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <button id="darkBtn" onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'));this.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#0ea5e9;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:999;">🌙</button>
 <script>if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
-// Dudeoji문 배너 슬라이드
+// Dudeoji문 Banner Slide
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
 if(moonTexts.length){var moonIdx=0;setInterval(function(){moonTexts[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%moonTexts.length;moonTexts[moonIdx].classList.add('active');},3000);}
 
-// 확성기
+// Megaphone
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;

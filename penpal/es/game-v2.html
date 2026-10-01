@@ -35,24 +35,24 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .notice-text{position:absolute;top:0;left:0;width:100%;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(10px);}
 .notice-text.active{opacity:1;transform:translateY(0);}
 
-/* 메인 */
+/* Main */
 .game-main{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(180px,14vw);gap:12px;}
 
-/* 왼쪽 */
+/* Left */
 .left{display:flex;flex-direction:column;gap:12px;}
 .banner{background:linear-gradient(135deg,#0ea5e9,#6366f1);border-radius:14px;padding:20px;color:#fff;position:relative;overflow:hidden;}
 .banner h3{font-size:16px;margin-bottom:6px;}
 .banner p{font-size:11px;color:rgba(255,255,255,0.8);line-height:1.6;}
 .banner .bg-emoji{position:absolute;right:12px;bottom:12px;font-size:50px;opacity:0.15;animation:floatEmoji 3s ease-in-out infinite;}
 @keyframes floatEmoji{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-8px) rotate(5deg);}}
-/* 배너 Brillo이 */
+/* Banner Brillo이 */
 .sparkle{position:absolute;color:#fff;font-size:10px;opacity:0;animation:sparkleAni 2s ease-in-out infinite;}
 .sparkle:nth-child(1){top:10px;left:20px;animation-delay:0s;}
 .sparkle:nth-child(2){top:30px;right:60px;animation-delay:0.7s;}
 .sparkle:nth-child(3){bottom:20px;left:50px;animation-delay:1.4s;}
 @keyframes sparkleAni{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:0.8;transform:scale(1.2);}}
 
-/* 슬라이드 배너 */
+/* Slide Banner */
 .banner-slider{position:relative;border-radius:14px;overflow:hidden;height:clamp(120px,12vw,180px);}
 .slide{position:absolute;top:0;left:0;width:100%;height:100%;padding:20px 44px;color:#fff;opacity:0;transition:opacity 0.6s ease;}
 .slide.active{opacity:1;}
@@ -69,7 +69,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .slider-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;}
 .slider-dot.active{background:#fff;}
 
-/* 내 Perfil 카드 */
+/* 내 Perfil Card */
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
 @keyframes starGlow{0%{filter:drop-shadow(0 0 6px rgba(255,160,50,0.8)) drop-shadow(0 0 12px rgba(255,120,20,0.5)) drop-shadow(0 0 20px rgba(255,80,0,0.2));}100%{filter:drop-shadow(0 0 10px rgba(255,160,50,1)) drop-shadow(0 0 20px rgba(255,120,20,0.7)) drop-shadow(0 0 30px rgba(255,80,0,0.3));}}
@@ -93,7 +93,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .aura-name{font-size:8px;color:#888;margin-top:2px;}
 .aura-item.active .aura-name{color:#b45309;font-weight:600;}
 
-/* Energia Estelar 타이틀 이펙트 */
+/* Energia Estelar Title Effect */
 .aura-title .aura-star{display:inline-block;animation:auraTitleStar 2s ease-in-out infinite;}
 @keyframes auraTitleStar{0%,100%{transform:scale(1) rotate(0deg);}25%{transform:scale(1.2) rotate(-10deg);}50%{transform:scale(1) rotate(0deg);}75%{transform:scale(1.2) rotate(10deg);}}
 .aura-bar-fill{position:relative;overflow:hidden;}
@@ -126,7 +126,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .f-invite{font-size:10px;padding:3px 10px;background:#e0f2fe;color:#0ea5e9;border:none;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Noto Sans KR';}
 .f-invite:hover{background:#0ea5e9;color:#fff;}
 
-/* 오른쪽 */
+/* Right */
 .right{display:flex;flex-direction:column;gap:12px;}
 .room-header{display:flex;justify-content:space-between;align-items:center;}
 .room-header h2{font-size:15px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
@@ -155,7 +155,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 @keyframes enterPulse{0%,100%{box-shadow:0 0 0 0 rgba(14,165,233,0.3);}50%{box-shadow:0 0 0 6px rgba(14,165,233,0);}}
 .room-row.playing .r-enter{background:#e0e0e0;color:#999;cursor:default;animation:none;}
 
-/* 모달 */
+/* Modal */
 .modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:200;align-items:center;justify-content:center;}
 .modal-bg.show{display:flex;}
 .modal{background:#fff;border-radius:20px;padding:28px;width:360px;box-shadow:0 8px 30px rgba(0,0,0,0.15);}
@@ -196,7 +196,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .c-msg.whisper .nm{color:#9333ea;}
 .c-msg.party{color:#4ade80;}
 .c-msg.party .nm{color:#16a34a;}
-/* 확성기 배너 */
+/* Megaphone Banner */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -222,7 +222,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .page-content{flex:1;}
 
-/* Dudeoji문 사이드 배너 */
+/* Dudeoji문 Side Banner */
 .moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;margin-top:10px;position:relative;overflow:hidden;}
 .moon-banner:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(99,102,241,0.45);}
 .moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;line-height:0;position:relative;display:inline-block;}
@@ -251,13 +251,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .footer{text-align:center;padding:6px 20px 4px;font-size:11px;color:#888;font-weight:500;}
 
-/* 태블릿 */
+/* Tablet */
 @media(max-width:900px){
 .game-main{grid-template-columns:1fr 220px;margin:12px 16px;}
 .left{display:none;}
 .chat-wrap{margin:12px 16px 0;}
 }
-/* 모바일 */
+/* Mobile */
 @media(max-width:640px){
 .game-main{grid-template-columns:1fr;margin:10px 10px;gap:10px;}
 .left{display:flex;}
@@ -284,7 +284,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .chat-in{min-width:0;}
 }
 
-/* 다크모드 */
+/* Dark mode */
 .dark body{background:#1a1a2a;color:#ccc;}
 .dark .nav{background:#12122a;box-shadow:0 1px 8px rgba(0,0,0,0.3);}
 .dark .nav-links a{color:#888;}
@@ -366,10 +366,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .guild-quest-mini{margin-top:8px;}
 .guild-quest-text{font-size:10px;color:#888;margin-bottom:4px;display:flex;align-items:center;gap:4px;}
 
-/* Gremio 찾기/만들기 버튼 */
+/* Gremio 찾기/Create Button */
 .guild-empty-text{font-size:12px;color:#888;text-align:center;margin-bottom:12px;line-height:1.6;}
 
-/* Gremio전 뱃지 */
+/* Gremio전 Badge */
 .r-guild-badge{font-size:9px;padding:2px 6px;background:#fef3c7;color:#b45309;border-radius:6px;font-weight:600;margin-left:4px;}
 </style>
 </head>
@@ -404,10 +404,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Una Carta Temporada 오픈! Penpal Amigos와 one rondas 해보세요</div>
             <div class="notice-text">이번 주 Una Carta TOP 3to Energia Estelar x50 Regalo!</div>
-            <div class="notice-text">Emparejar 10월 오픈 Programado! 기대해주세요</div>
+            <div class="notice-text">Emparejar 10월 오픈 Programado! Stay tuned</div>
             <div class="notice-text">Recoge energia estelar para desbloquear auras!</div>
             <div class="notice-text">현재 접속자 127miembros · Progreso in progress Juego 23개</div>
-            <div class="notice-text">Mala conducta Usuario Reportar 기능이 add되었습니다</div>
+            <div class="notice-text">Mala conducta Usuario Reportar 기능이 addcompleted</div>
         </div>
     </div>
 </div>
@@ -432,7 +432,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- 슬라이드 배너 -->
+        <!-- Slide Banner -->
         <div class="banner-slider" id="bannerSlider">
             <div class="slide slide-1 active">
                 <span class="sparkle">✦</span><span class="sparkle">✧</span><span class="sparkle">⋆</span>
@@ -442,7 +442,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="slide slide-2">
                 <h3>Emparejar 오픈! 🧩</h3>
-                <p>Bandera 카드로 Emparejar!<br>Amigos와 기억력 Duelo</p>
+                <p>Bandera Card로 Emparejar!<br>Amigos와 기억력 Duelo</p>
                 <div class="bg-emoji">🧩</div>
             </div>
             <div class="slide slide-3">
@@ -502,14 +502,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
     <div class="right">
         <div class="room-header" id="roomHeader">
-            <h2 id="roomTitle">🃏 Una Carta 방 Lista</h2>
+            <h2 id="roomTitle">🃏 Una Carta Room Lista</h2>
             <button class="create-btn" onclick="openModal()">+ Crear Sala</button>
         </div>
 
         <div class="room-list" id="roomListOnecard">
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Maria의 방</div><div class="r-desc">Principiantes bienvenidos!</div></div>
+                <div class="r-info"><div class="r-name">Maria의 Room</div><div class="r-desc">Principiantes bienvenidos!</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#43a047,#66bb6a);">L</div>
@@ -520,7 +520,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Yuki의 방</div><div class="r-desc">Coreano로 대화해요 🇰🇷</div></div>
+                <div class="r-info"><div class="r-name">Yuki의 Room</div><div class="r-desc">Coreano로 대화do 🇰🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
@@ -532,7 +532,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row playing" onclick="location.href='game-onecard.html?spectate=true'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Felix의 방</div><div class="r-desc">Aleman 대화 🇩🇪</div></div>
+                <div class="r-info"><div class="r-name">Felix의 Room</div><div class="r-desc">Aleman 대화 🇩🇪</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
@@ -544,7 +544,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Jin의 방</div><div class="r-desc">Todos bienvenidos 😊</div></div>
+                <div class="r-info"><div class="r-name">Jin의 Room</div><div class="r-desc">Todos bienvenidos 😊</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#7c4dff,#b388ff);">J</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div><div class="r-p empty"></div>
@@ -554,7 +554,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Alex의 방</div><div class="r-desc">Frances 연습 🇫🇷</div></div>
+                <div class="r-info"><div class="r-name">Alex의 Room</div><div class="r-desc">Frances Practice 🇫🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ff5722,#ff8a65);">A</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
@@ -565,7 +565,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row playing" onclick="location.href='game-onecard.html?spectate=true'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Sofia의 방</div><div class="r-desc">Italiano 🇮🇹</div></div>
+                <div class="r-info"><div class="r-name">Sofia의 Room</div><div class="r-desc">Italiano 🇮🇹</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
@@ -576,7 +576,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Leo의 방</div><div class="r-desc">Portugues 연습 🇧🇷</div></div>
+                <div class="r-info"><div class="r-name">Leo의 Room</div><div class="r-desc">Portugues Practice 🇧🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8);">L</div>
                     <div class="r-p empty"></div><div class="r-p empty"></div><div class="r-p empty"></div>
@@ -589,7 +589,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="room-list" id="roomListPicture" style="display:none;">
             <div class="room-row" onclick="location.href='game-picture.html'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Maria의 방</div><div class="r-desc">Bandera 맞추기! 같이 하자 🧩</div></div>
+                <div class="r-info"><div class="r-name">Maria의 Room</div><div class="r-desc">Bandera 맞추기! 같이 lets 🧩</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p empty"></div>
@@ -599,7 +599,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row playing" onclick="location.href='game-picture.html?spectate=true'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Yuki의 방</div><div class="r-desc">기억력 Duelo! 🧠</div></div>
+                <div class="r-info"><div class="r-name">Yuki의 Room</div><div class="r-desc">기억력 Duelo! 🧠</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
@@ -609,7 +609,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-picture.html'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Sofia의 방</div><div class="r-desc">초보 환영! 😄</div></div>
+                <div class="r-info"><div class="r-name">Sofia의 Room</div><div class="r-desc">초보 Welcome! 😄</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div>
                     <div class="r-p empty"></div>
@@ -622,7 +622,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="room-list" id="roomListChat" style="display:none;">
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">자유 Sala de Chat</div><div class="r-desc">아무 주제나 OK! 편하게 들어와~ 😊</div></div>
+                <div class="r-info"><div class="r-name">자유 Sala de Chat</div><div class="r-desc">아무 Topic나 OK! 편하게 들어와~ 😊</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
@@ -634,7 +634,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">Coreano 연습방</div><div class="r-desc">Coreano aprendiendo 사람들 모여라! 🇰🇷</div></div>
+                <div class="r-info"><div class="r-name">Coreano PracticeRoom</div><div class="r-desc">Coreano aprendiendo 사람들 모여라! 🇰🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#43a047,#66bb6a);">L</div>
@@ -702,7 +702,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
 
             <div class="guild-content" style="margin-bottom:12px;">
-                <div class="guild-section-title">🪐 은하 피드 — 인기 Vocabulario 카드</div>
+                <div class="guild-section-title">🪐 은하 피드 — 인기 Vocabulario Card</div>
                 <div class="guild-feed">
                     <div class="guild-feed-card">
                         <div class="gf-word">Te quiero</div>
@@ -739,7 +739,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
     </div>
 
-    <!-- 오른쪽 사이드: 접속 Amigos -->
+    <!-- Right Side: 접속 Amigos -->
     <div class="side-right">
         <div class="friend-box">
             <div class="friend-title">👥 En linea (4)</div>
@@ -800,20 +800,20 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <div class="chat-wrap">
     <div class="chat-box">
         <div class="chat-msgs" id="chatMsgs">
-            <div class="c-msg"><span class="sys">[Notificacion]</span> Dudeoji Studio에 오신 걸 환영합니다!</div>
+            <div class="c-msg"><span class="sys">[Notificacion]</span> Dudeoji Studio에 오신 걸 Welcome합니다!</div>
             <div class="c-msg"><span class="nm c1">Maria:</span> 누구 Una Carta 할 사람~ 😄</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> 나 할래! 방 만들어줘</div>
-            <div class="c-msg"><span class="sys">[Notificacion]</span> Maria님이 방을 만들었습니다</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> 나 할래! Room 만들어줘</div>
+            <div class="c-msg"><span class="sys">[Notificacion]</span> Mariahas Room을 created</div>
             <div class="c-msg"><span class="nm c3">Felix:</span> 나도 들어간다!</div>
-            <div class="c-msg whisper"><span class="nm">to.TAZO:</span> 야 우리 방에 와!</div>
+            <div class="c-msg whisper"><span class="nm">to.TAZO:</span> 야 우리 Room에 와!</div>
             <div class="c-msg"><span class="nm c4">Lucas:</span> 나도 끼워줘~</div>
-            <div class="c-msg"><span class="sys">[Notificacion]</span> Lucas님이 Maria의 방에 Entrar했습니다</div>
-            <div class="c-msg"><span class="nm c1">Maria:</span> gusta~ directo start하자!</div>
-            <div class="c-msg"><span class="nm c5">Sofia:</span> 나도 방 만들까?</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> 소피아 방 만들면 나 갈게!</div>
-            <div class="c-msg"><span class="sys">[Notificacion]</span> Sofia님이 방을 만들었습니다</div>
+            <div class="c-msg"><span class="sys">[Notificacion]</span> Lucashas Maria의 Room에 Entrar했습니다</div>
+            <div class="c-msg"><span class="nm c1">Maria:</span> gusta~ directo startlets!</div>
+            <div class="c-msg"><span class="nm c5">Sofia:</span> 나도 Room 만들까?</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> 소피아 Room 만들면 나 갈게!</div>
+            <div class="c-msg"><span class="sys">[Notificacion]</span> Sofiahas Room을 created</div>
             <div class="c-msg"><span class="nm c6">Jin:</span> Todos bienvenidos~ 초보도 와요 😊</div>
-            <div class="c-msg"><span class="nm c3">Felix:</span> Aleman로 대화하면서 하자!</div>
+            <div class="c-msg"><span class="nm c3">Felix:</span> Aleman로 대화하면서 lets!</div>
             <div class="c-msg"><span class="nm c5">Sofia:</span> Italiano도 가능!</div>
             <div class="c-msg"><span class="nm c1">Maria:</span> ㅋㅋㅋ Una Carta에 Intercambio까지</div>
             <div class="c-msg"><span class="nm c4">Lucas:</span> 이게 Real Dudeoji월드지</div>
@@ -823,10 +823,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <select class="chat-to">
                 <option>-A todos-</option>
                 <option>-Susurro-</option>
-                <option>-파티-</option>
+                <option>-Party-</option>
                 <option>-Gremio-</option>
             </select>
-            <input class="chat-in" placeholder="Mensajes를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <input class="chat-in" placeholder="Mensajes를 please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-btn" onclick="sendChat()">전송</button>
         </div>
     </div>
@@ -837,8 +837,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <div class="modal">
         <h3>🃏 Crear Sala</h3>
         <div class="modal-field">
-            <div class="modal-label">방 이름</div>
-            <input class="modal-input" placeholder="예: TAZO의 Una Carta방" value="TAZO의 Una Carta방">
+            <div class="modal-label">Room Name</div>
+            <input class="modal-input" placeholder="예: TAZO의 Una CartaRoom" value="TAZO의 Una CartaRoom">
         </div>
         <div class="modal-field">
             <div class="modal-label">대화 Idioma</div>
@@ -864,11 +864,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <label style="font-size:12px;color:#888;display:flex;align-items:center;gap:6px;cursor:pointer;">
                 <input type="checkbox" id="guildBattle" style="accent-color:#f59e0b;"> 🪐 Gremio전 (Guild Battle)
             </label>
-            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">다른 Gremio원 Entrar 시 Oficial 대전as record됩니다</div>
+            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">다른 Gremio원 Entrar 시 Oficial 대전as recordwill be</div>
         </div>
         <div class="modal-btns">
             <button class="modal-cancel" onclick="closeModal()">Cancelar</button>
-            <button class="modal-create" onclick="createRoom()">만들기</button>
+            <button class="modal-create" onclick="createRoom()">Create</button>
         </div>
     </div>
 </div>
@@ -888,9 +888,9 @@ function sendChat(){
     if(target==='-Susurro-'){
         div.className='c-msg whisper';
         div.innerHTML='<span class="nm">to.Maria:</span> '+input.value;
-    }else if(target==='-파티-'){
+    }else if(target==='-Party-'){
         div.className='c-msg party';
-        div.innerHTML='<span class="nm">[파티] TAZO:</span> '+input.value;
+        div.innerHTML='<span class="nm">[Party] TAZO:</span> '+input.value;
     }else if(target==='-Gremio-'){
         div.className='c-msg';
         div.style.color='#a78bfa';
@@ -904,7 +904,7 @@ function sendChat(){
     input.value='';
 }
 var tabNames = ['onecard','picture','chat','guild'];
-var tabTitles = ['🃏 Una Carta 방 Lista','🧩 Emparejar 방 Lista','💬 Sala de Chat Lista','🪐 Gremio'];
+var tabTitles = ['🃏 Una Carta Room Lista','🧩 Emparejar Room Lista','💬 Sala de Chat Lista','🪐 Gremio'];
 var roomIds = ['roomListOnecard','roomListPicture','roomListChat','guildContent'];
 document.querySelectorAll('.tab-item').forEach(function(tab, idx){
     tab.addEventListener('click',function(){
@@ -913,7 +913,7 @@ document.querySelectorAll('.tab-item').forEach(function(tab, idx){
         roomIds.forEach(function(id){document.getElementById(id).style.display='none';});
         document.getElementById(roomIds[idx]).style.display='';
         document.getElementById('roomTitle').textContent=tabTitles[idx];
-        // Gremio 탭이면 Crear Sala 버튼 숨기기
+        // Gremio 탭이면 Crear Sala Button 숨기기
         document.querySelector('.create-btn').style.display = idx===3?'none':'';
     });
 });
@@ -925,13 +925,13 @@ function selectP(el){
 }
 function createRoom(){
     closeModal();
-    alert('방이 만들어졌습니다! (데모)');
+    alert('Room이 was created! (Demo)');
 }
 document.getElementById('modal').addEventListener('click',function(e){
     if(e.target===this)closeModal();
 });
 
-// 배너 슬라이더
+// Banner 슬라이더
 var slideIdx=0;
 var slides=document.querySelectorAll('.slide');
 var dots=document.querySelectorAll('.slider-dot');
@@ -956,7 +956,7 @@ setInterval(function(){
     notices[noticeIdx].classList.add('active');
 },3000);
 
-// Dudeoji문 사이드 배너 슬라이드
+// Dudeoji문 Side Banner Slide
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
 var moonIdx=0;
 setInterval(function(){
@@ -965,14 +965,14 @@ setInterval(function(){
     moonTexts[moonIdx].classList.add('active');
 },3000);
 
-// 확성기
+// Megaphone
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-// 데모: 15초 후 확성기 1회 표시
+// Demo: 15초 후 Megaphone 1회 표시
 setTimeout(function(){showMegaphone('Maria','Una Carta 고수만 와라!! 🔥');},15000);
 
 </script>

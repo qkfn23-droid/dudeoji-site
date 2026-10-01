@@ -33,7 +33,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
 .page-content{flex:1;}
 
-/* 왼쪽 사이드바 — 공통 */
+/* Left Side바 — 공통 */
 .left{display:flex;flex-direction:column;gap:12px;}
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
@@ -89,7 +89,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .moon-stars span:nth-child(4){bottom:6px;right:8%;animation-delay:1.8s;}
 @keyframes starTwinkle{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:0.7;transform:scale(1.3);}}
 
-/* 중앙 — 手紙 */
+/* Center — 手紙 */
 .center{display:flex;flex-direction:column;gap:12px;}
 .card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
 .to-section{margin-bottom:22px;}
@@ -140,14 +140,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .btn-act:hover{border-color:#8b5cf6;color:#8b5cf6;}
 .btn-act.warn:hover{border-color:#f87171;color:#f87171;}
 
-/* 오른쪽 */
+/* Right */
 .right{display:flex;flex-direction:column;gap:12px;}
 .right-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .right-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;}
 .tip-item{display:flex;gap:8px;padding:6px 0;font-size:11px;color:#666;line-height:1.5;}
 .tip-icon{font-size:14px;flex-shrink:0;}
 
-/* 모달 */
+/* Modal */
 .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
 .modal{background:#fff;border-radius:20px;padding:24px;max-width:400px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;}
@@ -252,14 +252,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">ペンパル 友達to 本気이 담긴 手紙를 보내보세요!</div>
-            <div class="notice-text">다른 言語로 手紙를 쓰면 별의 気이 올라가요</div>
-            <div class="notice-text">번역 도우미 기능이 곧 오픈됩니다</div>
+            <div class="notice-text">다른 言語로 手紙를 쓰면 Star 気이 올라가요</div>
+            <div class="notice-text">Translate Helper 기능이 곧 오픈will be</div>
         </div>
     </div>
 </div>
 
 <div class="main-grid">
-    <!-- 왼쪽 -->
+    <!-- Left -->
     <div class="left">
         <div class="my-profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
@@ -270,14 +270,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
         <div class="my-sign-card"><h3>♌ 獅子座</h3><p>7월 23일 ~ 8월 22일</p><div class="sign-tag">🔥 火 エレメント · 리더십 · 열정</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
-            <div class="aura-title"><span class="aura-star">⭐</span> 별의 気</div>
+            <div class="aura-title"><span class="aura-star">⭐</span> Star 気</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
-            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 눈부심</span></div>
+            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 Dazzle</span></div>
             <div class="aura-grid">
                 <div class="aura-item active"><div class="aura-emoji">⭐</div><div class="aura-name">default</div></div>
                 <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">반짝</div></div>
                 <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">빛남</div></div>
-                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">눈부심</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">Dazzle</div></div>
                 <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">초월</div></div>
             </div>
         </div>
@@ -291,7 +291,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </a>
     </div>
 
-    <!-- 중앙 -->
+    <!-- Center -->
     <div class="center">
         <div class="card">
             <div class="to-section">
@@ -322,11 +322,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="letter-area">
                 <div class="letter-label">手紙 内容</div>
                 <div class="letter-wrap">
-                    <textarea class="letter-input" placeholder="こんにちは하세요! 저는 韓国from 온 TAZO입니다. スペイン語를 学びたい 있어요..." oninput="updateCount(this)"></textarea>
+                    <textarea class="letter-input" placeholder="こんにちは하세요! I am 韓国from on TAZOis. スペイン語를 学びたい 있어요..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
                         <div class="char-count"><span id="charNum">0</span> / 2,000자</div>
                         <div class="letter-tools">
-                            <button class="btn-act" onclick="showToast('번역 도우미 準備 중입니다')" style="opacity:0.5;">번역 도우미 (準備 중)</button>
+                            <button class="btn-act" onclick="showToast('Translate Helper 準備 중is')" style="opacity:0.5;">Translate Helper (準備 중)</button>
                         </div>
                     </div>
                 </div>
@@ -342,14 +342,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Maria G.</div>
-                    <div class="recent-preview">Hola! 오늘 뭐 했어? 私は K-pop 들었어~</div>
-                    <div class="letter-full">Hola! 오늘 뭐 했어? 私は 오늘 一日 종일 K-pop 들었어~ BTS 새 앨범 나왔거든! 너도 好き해? 그리고 韓国語로 手紙 써보려고 했는데 아직 어려워서 スペイン語로 쓸게 ㅋㅋ 다음에는 韓国語로 도전해볼게! 最近 뭐 하면서 지내? 답장 기다릴게~</div>
+                    <div class="recent-preview">Hola! 오늘 what 했어? 私は K-pop heard~</div>
+                    <div class="letter-full">Hola! 오늘 what 했어? 私は 오늘 一日 종일 K-pop heard~ BTS 새 앨범 나왔거든! 너도 好き해? 그리고 韓国語로 手紙 써보려고 했는데 아직 어려워서 スペイン語로 쓸게 ㅋㅋ next time는 韓国語로 도전해볼게! 最近 what 하면서 지내? 답장 기다릴게~</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">답장하기</button>
-                        <button class="btn-act" onclick="doTranslate('Maria G.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Maria G.')">プロフィール 보기</button>
+                        <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
+                        <button class="btn-act" onclick="doProfile('Maria G.')">プロフィール View</button>
                         <button class="btn-act" onclick="doSave(this)">手紙 保管</button>
-                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정중히 거절</button>
+                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정중히 Reject</button>
                         <button class="btn-act warn" onclick="doReport('Maria G.')">通報</button>
                     </div>
                 </div>
@@ -359,14 +359,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><path d="M75,10 C45,10 25,35 25,65 C25,95 45,115 75,115 C55,105 45,85 45,65 C45,45 55,25 75,10Z" fill="#C8E6FF" stroke="#90CAF9" stroke-width="1.5"/><ellipse cx="56" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="74" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="52" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="78" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><path d="M60,78 Q65,84 70,78" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
-                    <div class="recent-preview">手紙 고마워요! 다음에 日本語로도 써볼게요~</div>
-                    <div class="letter-full">手紙 고마워요! 다음에 日本語로도 써볼게요~ 사실 나도 韓国語 勉強하고 with데 아직 많이 부족해요. 日本from는 最近 벚꽃이 피기 開始했어요! 韓国도 벚꽃 예쁘죠? 언젠가 韓国 가서 같이 벚꽃 보고 싶다~ 好きdoing 音楽이나 드라마 있으면 おすすめ해줘!</div>
+                    <div class="recent-preview">手紙 고마워요! next time 日本語로도 써볼게요~</div>
+                    <div class="letter-full">手紙 고마워요! next time 日本語로도 써볼게요~ 사실 나도 韓国語 勉強하고 with데 아직 많이 부족do. 日本from는 最近 벚Flower이 피기 開始했어요! 韓国도 벚Flower 예쁘죠? 언젠가 韓国 가서 같이 벚Flower 보고 싶다~ 好きdoing 音楽이나 드라마 있으면 おすすめ해줘!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">답장하기</button>
-                        <button class="btn-act" onclick="doTranslate('Yuki T.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Yuki T.')">プロフィール 보기</button>
+                        <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
+                        <button class="btn-act" onclick="doProfile('Yuki T.')">プロフィール View</button>
                         <button class="btn-act" onclick="doSave(this)">手紙 保管</button>
-                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정중히 거절</button>
+                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정중히 Reject</button>
                         <button class="btn-act warn" onclick="doReport('Yuki T.')">通報</button>
                     </div>
                 </div>
@@ -376,11 +376,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
-                    <div class="recent-preview">こんにちは하세요! 저는 ブラジルfrom 온 Lucas입니다...</div>
-                    <div class="letter-full">こんにちは하세요! 저는 ブラジルfrom 온 Lucas입니다. 韓国語를 배우기 開始one 지 6개월 됐어요. 천문학이랑 ゲーム을 好きdoing데, 혹시 비슷one 関心사 있으면 같이 話해요! ポルトガル語도 가르쳐줄 수 있어요~</div>
+                    <div class="recent-preview">こんにちは하세요! I am ブラジルfrom on Lucasis...</div>
+                    <div class="letter-full">こんにちは하세요! I am ブラジルfrom on Lucasis. 韓国語를 배우기 開始one 지 6개월 됐어요. astronomy and ゲーム을 好きdoing데, 혹시 비슷one 関心사 있으면 같이 話do! ポルトガル語도 가르쳐줄 수 있어요~</div>
                     <div class="recent-actions">
-                        <button class="btn-act" onclick="doProfile('Lucas S.')">プロフィール 보기</button>
-                        <button class="btn-act" onclick="doTranslate('Lucas S.',this)">번역 보기</button>
+                        <button class="btn-act" onclick="doProfile('Lucas S.')">プロフィール View</button>
+                        <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
                         <button class="btn-act" onclick="doSave(this)">手紙 保管</button>
                         <button class="btn-act warn" onclick="doDelete(this)">削除</button>
                     </div>
@@ -390,15 +390,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- 오른쪽 -->
+    <!-- Right -->
     <div class="right">
         <div class="right-box">
             <div class="right-title">✉️ 手紙 팁</div>
             <div class="tip-item"><span class="tip-icon">👋</span> 첫 手紙에는 자기紹介를 포함하세요</div>
             <div class="tip-item"><span class="tip-icon">🌍</span> 相手 言語로 one두 문장 쓰면 감동이에요</div>
             <div class="tip-item"><span class="tip-icon">❓</span> 質問을 넣으면 답장 확률이 높아져요</div>
-            <div class="tip-item"><span class="tip-icon">🎵</span> 공통 関心사를 찾아 이야기해보세요</div>
-            <div class="tip-item"><span class="tip-icon">⭐</span> 手紙를 보내면 별의 気 +5!</div>
+            <div class="tip-item"><span class="tip-icon">🎵</span> 공통 関心사를 찾아 talk about it</div>
+            <div class="tip-item"><span class="tip-icon">⭐</span> 手紙를 보내면 Star 気 +5!</div>
         </div>
         <div class="right-box">
             <div class="right-title">📊 내 手紙 統計</div>
@@ -439,10 +439,10 @@ function doSend(){
     var ta=document.querySelector('.letter-input'),text=ta.value.trim(),sel=document.querySelector('.to-person.selected .to-name');
     if(!sel){showToast('宛先을 選択してください');return;}
     if(!text){showToast('手紙 内容을 입력してください');return;}
-    if(text.length>2000){showToast('2,000자를 초과했습니다');return;}
+    if(text.length>2000){showToast('2,000자를 has been exceeded');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
     btn.textContent='전송 중...';btn.disabled=true;btn.style.opacity='0.6';
-    setTimeout(function(){btn.textContent='送信';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님to 手紙를 보냈습니다');},1000);
+    setTimeout(function(){btn.textContent='送信';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님to 手紙를 sent');},1000);
 }
 
 function openModal(html){document.getElementById('modalContent').innerHTML='<button class="modal-close" onclick="closeModal()">&times;</button>'+html;document.getElementById('modalOverlay').classList.add('show');}
@@ -468,9 +468,9 @@ function doTranslate(name,el){
 }
 
 var profiles={
-    'Maria G.':{zodiac:'牡羊座',element:'火',lang:'🇪🇸 スペイン語 (ネイティブ)',learning:'🇰🇷 韓国語',bio:'韓国語 学びたい 싶어요! K-pop이랑 占星術 好き해요~',pic:'star'},
-    'Yuki T.':{zodiac:'乙女座',element:'土',lang:'🇯🇵 日本語 (ネイティブ)',learning:'🇰🇷 韓国語, 🇪🇸 スペイン語',bio:'韓国 文化 関心 たくさん! 벚꽃 보러 가고 싶어~',pic:'moon'},
-    'Lucas S.':{zodiac:'双子座',element:'風',lang:'🇧🇷 ポルトガル語 (ネイティブ)',learning:'🇰🇷 韓国語',bio:'천문학이랑 ゲーム 好き합니다. 韓国, 日本 友達 찾아요!',pic:'star'}
+    'Maria G.':{zodiac:'牡羊座',element:'火',lang:'🇪🇸 スペイン語 (ネイティブ)',learning:'🇰🇷 韓国語',bio:'韓国語 学びたい 싶어요! K-pop이랑 占星術 好きdo~',pic:'star'},
+    'Yuki T.':{zodiac:'乙女座',element:'土',lang:'🇯🇵 日本語 (ネイティブ)',learning:'🇰🇷 韓国語, 🇪🇸 スペイン語',bio:'韓国 文化 関心 たくさん! 벚Flower 보러 가고 싶어~',pic:'moon'},
+    'Lucas S.':{zodiac:'双子座',element:'風',lang:'🇧🇷 ポルトガル語 (ネイティブ)',learning:'🇰🇷 韓国語',bio:'astronomy and ゲーム 好き합니다. 韓国, 日本 友達 찾아요!',pic:'star'}
 };
 var picSvg={
     star:'<svg viewBox="0 0 120 120" width="70" height="70"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><circle cx="45.5" cy="60" r="1.2" fill="#fff"/><circle cx="77.5" cy="60" r="1.2" fill="#fff"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>',
@@ -483,10 +483,10 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='保管됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('手紙가 保管されました');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정중히 거절</div><div class="modal-body">'+name+'님to 보낼 거절 メッセージ를 選択してください.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">手紙 ありがとうございます! 지금은 여유가 없어서 답장이 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">関心 가져주셔서 감사해요! 다만 지금은 new ペンパル을 受け取る 어려운 상황이에요.</div><div class="decline-opt" onclick="selectDecline(this)">手紙 잘 읽었어요! 学んでいる 言語가 달라서 아쉽지만, 良い ペンパル 만나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">거절 メッセージ 送信</button>');
+    openModal('<div class="modal-title">정중히 Reject</div><div class="modal-body">'+name+'님to 보낼 Reject メッセージ를 選択してください.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">手紙 ありがとうございます! 지금은 여유가 없어서 답장이 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">関心 가져주셔서 감사do! 다만 지금은 new ペンパル을 受け取る 어려운 상황이에요.</div><div class="decline-opt" onclick="selectDecline(this)">手紙 잘 읽었어요! 学んでいる 言語가 달라서 아쉽지만, 良い ペンパル 만나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject メッセージ 送信</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('メッセージ를 選択してください');return;}closeModal();showToast(name+'님to 거절 メッセージ를 보냈습니다');}
+function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('メッセージ를 選択してください');return;}closeModal();showToast(name+'님to Reject メッセージ를 sent');}
 function doReport(name){
     event.stopPropagation();
     openModal('<div class="modal-title">通報하기</div><div class="modal-body">'+name+'님을 通報doing 이유를 選択してください.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">スパム / 広告 / 宣伝</div><div class="report-opt" onclick="selectReport(this)">性的이거나 火쾌one 内容</div><div class="report-opt" onclick="selectReport(this)">悪口 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">詐欺 / なりすまし</div><div class="report-opt" onclick="selectReport(this)">個人情報 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">通報 접수</button>');

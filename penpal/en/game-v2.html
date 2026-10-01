@@ -35,10 +35,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .notice-text{position:absolute;top:0;left:0;width:100%;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(10px);}
 .notice-text.active{opacity:1;transform:translateY(0);}
 
-/* 메인 */
+/* Main */
 .game-main{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(180px,14vw);gap:12px;}
 
-/* 왼쪽 */
+/* Left */
 .left{display:flex;flex-direction:column;gap:12px;}
 .banner{background:linear-gradient(135deg,#0ea5e9,#6366f1);border-radius:14px;padding:20px;color:#fff;position:relative;overflow:hidden;}
 .banner h3{font-size:16px;margin-bottom:6px;}
@@ -69,7 +69,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .slider-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;}
 .slider-dot.active{background:#fff;}
 
-/* My 프to필 card */
+/* My Profile card */
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
 @keyframes starGlow{0%{filter:drop-shadow(0 0 6px rgba(255,160,50,0.8)) drop-shadow(0 0 12px rgba(255,120,20,0.5)) drop-shadow(0 0 20px rgba(255,80,0,0.2));}100%{filter:drop-shadow(0 0 10px rgba(255,160,50,1)) drop-shadow(0 0 20px rgba(255,120,20,0.7)) drop-shadow(0 0 30px rgba(255,80,0,0.3));}}
@@ -93,7 +93,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .aura-name{font-size:8px;color:#888;margin-top:2px;}
 .aura-item.active .aura-name{color:#b45309;font-weight:600;}
 
-/* Star Energy 타This틀 This펙트 */
+/* Star Energy Title Effect */
 .aura-title .aura-star{display:inline-block;animation:auraTitleStar 2s ease-in-out infinite;}
 @keyframes auraTitleStar{0%,100%{transform:scale(1) rotate(0deg);}25%{transform:scale(1.2) rotate(-10deg);}50%{transform:scale(1) rotate(0deg);}75%{transform:scale(1.2) rotate(10deg);}}
 .aura-bar-fill{position:relative;overflow:hidden;}
@@ -126,7 +126,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .f-invite{font-size:10px;padding:3px 10px;background:#e0f2fe;color:#0ea5e9;border:none;border-radius:10px;cursor:pointer;font-weight:600;font-family:'Noto Sans KR';}
 .f-invite:hover{background:#0ea5e9;color:#fff;}
 
-/* 오른쪽 */
+/* Right */
 .right{display:flex;flex-direction:column;gap:12px;}
 .room-header{display:flex;justify-content:space-between;align-items:center;}
 .room-header h2{font-size:15px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
@@ -155,7 +155,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 @keyframes enterPulse{0%,100%{box-shadow:0 0 0 0 rgba(14,165,233,0.3);}50%{box-shadow:0 0 0 6px rgba(14,165,233,0);}}
 .room-row.playing .r-enter{background:#e0e0e0;color:#999;cursor:default;animation:none;}
 
-/* 모달 */
+/* Modal */
 .modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:200;align-items:center;justify-content:center;}
 .modal-bg.show{display:flex;}
 .modal{background:#fff;border-radius:20px;padding:28px;width:360px;box-shadow:0 8px 30px rgba(0,0,0,0.15);}
@@ -222,7 +222,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .page-content{flex:1;}
 
-/* Dudeoji문 Side Banner */
+/* Dudeoji Studio Side Banner */
 .moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;margin-top:10px;position:relative;overflow:hidden;}
 .moon-banner:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(99,102,241,0.45);}
 .moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;line-height:0;position:relative;display:inline-block;}
@@ -251,13 +251,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .footer{text-align:center;padding:6px 20px 4px;font-size:11px;color:#888;font-weight:500;}
 
-/* 태블릿 */
+/* Tablet */
 @media(max-width:900px){
 .game-main{grid-template-columns:1fr 220px;margin:12px 16px;}
 .left{display:none;}
 .chat-wrap{margin:12px 16px 0;}
 }
-/* 모바day */
+/* Mobile */
 @media(max-width:640px){
 .game-main{grid-template-columns:1fr;margin:10px 10px;gap:10px;}
 .left{display:flex;}
@@ -369,7 +369,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 /* Guild 찾기/Create Button */
 .guild-empty-text{font-size:12px;color:#888;text-align:center;margin-bottom:12px;line-height:1.6;}
 
-/* Guildbefore 뱃지 */
+/* Guildbefore Badge */
 .r-guild-badge{font-size:9px;padding:2px 6px;background:#fef3c7;color:#b45309;border-radius:6px;font-weight:600;margin-left:4px;}
 </style>
 </head>
@@ -404,7 +404,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">One Card Season Open! Penpal FriendsAnd one rounds Try it</div>
             <div class="notice-text">This번 주 One Card TOP 3At게 Star Energy x50 Gift!</div>
-            <div class="notice-text">Picture Match 10월 Open Scheduled! Stay tuned</div>
+            <div class="notice-text">Picture Match 10month Open Scheduled! Stay tuned</div>
             <div class="notice-text">Collect star energy to unlock auras!</div>
             <div class="notice-text">Current Access자 127members · Progress During인 Game 23pcs</div>
             <div class="notice-text">Bad manner User Report FeatureThis 추gohas been completed</div>
@@ -414,7 +414,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <div class="game-main">
     <div class="left">
-        <!-- My 프to필 -->
+        <!-- My Profile -->
         <div class="my-profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg">
                 <path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/>
@@ -502,7 +502,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
     <div class="right">
         <div class="room-header" id="roomHeader">
-            <h2 id="roomTitle">🃏 One Card 방 List</h2>
+            <h2 id="roomTitle">🃏 One Card Room List</h2>
             <button class="create-btn" onclick="openModal()">+ Create Room</button>
         </div>
 
@@ -634,7 +634,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">Korean Practice방</div><div class="r-desc">Korean learning Person들 Gather! 🇰🇷</div></div>
+                <div class="r-info"><div class="r-name">Korean PracticeRoom</div><div class="r-desc">Korean learning Person들 Gather! 🇰🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#43a047,#66bb6a);">L</div>
@@ -739,7 +739,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
     </div>
 
-    <!-- 오른쪽 Side: Access Friends -->
+    <!-- Right Side: Access Friends -->
     <div class="side-right">
         <div class="friend-box">
             <div class="friend-title">👥 Online (4)</div>
@@ -802,21 +802,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="chat-msgs" id="chatMsgs">
             <div class="c-msg"><span class="sys">[Notifications]</span> Dudeoji StudioAt 오신 thing Welcomedoes!</div>
             <div class="c-msg"><span class="nm c1">Maria:</span> who One Card 할 Person~ 😄</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> me shall we! 방 Make one please</div>
-            <div class="c-msg"><span class="sys">[Notifications]</span> Maria님This 방the Onlyhas been received</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> me shall we! Room Make one please</div>
+            <div class="c-msg"><span class="sys">[Notifications]</span> Mariahas joined the room</div>
             <div class="c-msg"><span class="nm c3">Felix:</span> mealso Entering!</div>
-            <div class="c-msg whisper"><span class="nm">to.TAZO:</span> 야 우리 방At And!</div>
+            <div class="c-msg whisper"><span class="nm">to.TAZO:</span> 야 우리 RoomAt And!</div>
             <div class="c-msg"><span class="nm c4">Lucas:</span> mealso Let me join~</div>
-            <div class="c-msg"><span class="sys">[Notifications]</span> Lucas님This MariaRoomAt Joinhas been done</div>
+            <div class="c-msg"><span class="sys">[Notifications]</span> Lucashas MariaRoomAt Joinhas been done</div>
             <div class="c-msg"><span class="nm c1">Maria:</span> like~ 바to startLet us!</div>
-            <div class="c-msg"><span class="nm c5">Sofia:</span> mealso 방 Only들까?</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> Sofia 방 Only들면 me 갈게!</div>
-            <div class="c-msg"><span class="sys">[Notifications]</span> Sofia님This 방the Onlyhas been received</div>
+            <div class="c-msg"><span class="nm c5">Sofia:</span> mealso Room Only들까?</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> Sofia Room Only들면 me 갈게!</div>
+            <div class="c-msg"><span class="sys">[Notifications]</span> Sofiahas joined the room</div>
             <div class="c-msg"><span class="nm c6">Jin:</span> Everyone welcome~ Beginneralso And요 😊</div>
             <div class="c-msg"><span class="nm c3">Felix:</span> Germanto vs화if서 Let us!</div>
             <div class="c-msg"><span class="nm c5">Sofia:</span> Italianalso available!</div>
             <div class="c-msg"><span class="nm c1">Maria:</span> ㅋㅋㅋ One CardAt Language Exchangeuntil</div>
-            <div class="c-msg"><span class="nm c4">Lucas:</span> This게 Real Dudeoji월드지</div>
+            <div class="c-msg"><span class="nm c4">Lucas:</span> This게 Real Dudeojimonth드지</div>
             <div class="c-msg"><span class="nm c2">Yuki:</span> Next roundsIs Mygo This길거야!</div>
         </div>
         <div class="chat-row">
@@ -837,8 +837,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <div class="modal">
         <h3>🃏 Create Room</h3>
         <div class="modal-field">
-            <div class="modal-label">방 This름</div>
-            <input class="modal-input" placeholder="예: TAZOOf One Card방" value="TAZOOf One Card방">
+            <div class="modal-label">Room Name</div>
+            <input class="modal-input" placeholder="예: TAZOOf One CardRoom" value="TAZOOf One CardRoom">
         </div>
         <div class="modal-field">
             <div class="modal-label">vs화 Language</div>
@@ -864,7 +864,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <label style="font-size:12px;color:#888;display:flex;align-items:center;gap:6px;cursor:pointer;">
                 <input type="checkbox" id="guildBattle" style="accent-color:#f59e0b;"> 🪐 Guildbefore (Guild Battle)
             </label>
-            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">Other Guild원 Join 시 official vsbefore으to recordwill be</div>
+            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">Other Guild원 When joining official vsbefore으to recordwill be</div>
         </div>
         <div class="modal-btns">
             <button class="modal-cancel" onclick="closeModal()">Cancel</button>
@@ -904,7 +904,7 @@ function sendChat(){
     input.value='';
 }
 var tabNames = ['onecard','picture','chat','guild'];
-var tabTitles = ['🃏 One Card 방 List','🧩 Picture Match 방 List','💬 Chat Room List','🪐 Guild'];
+var tabTitles = ['🃏 One Card Room List','🧩 Picture Match Room List','💬 Chat Room List','🪐 Guild'];
 var roomIds = ['roomListOnecard','roomListPicture','roomListChat','guildContent'];
 document.querySelectorAll('.tab-item').forEach(function(tab, idx){
     tab.addEventListener('click',function(){
@@ -956,7 +956,7 @@ setInterval(function(){
     notices[noticeIdx].classList.add('active');
 },3000);
 
-// Dudeoji문 Side Banner Slide
+// Dudeoji Studio Side Banner Slide
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
 var moonIdx=0;
 setInterval(function(){

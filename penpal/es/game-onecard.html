@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — 원카드</title>
+<title>Dudeoji Studio — One Card</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -28,11 +28,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .notice-text{position:absolute;top:0;left:0;width:100%;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(10px);}
 .notice-text.active{opacity:1;transform:translateY(0);}
 
-/* 레이아웃 */
+/* Layout */
 body{display:flex;flex-direction:column;height:100vh;overflow:hidden;}
 .page-main{margin:10px 24px;display:grid;grid-template-columns:minmax(180px,14vw) 1fr minmax(180px,14vw);gap:12px;flex:1;min-height:0;}
 
-/* 왼쪽 */
+/* Left */
 .side-left{display:flex;flex-direction:column;gap:10px;overflow:hidden;}
 .profile-card{background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
 .my-star{flex-shrink:0;}
@@ -77,7 +77,7 @@ body{display:flex;flex-direction:column;height:100vh;overflow:hidden;}
 .moon-text.active{opacity:1;transform:translateY(0);}
 .moon-brand{font-size:12px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:1px;}
 
-/* 오른쪽 */
+/* Right */
 .side-right{display:flex;flex-direction:column;gap:10px;overflow-y:auto;}
 .game-info-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 .game-info-box .box-title{font-size:12px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;color:#8b5cf6;}
@@ -91,7 +91,7 @@ body{display:flex;flex-direction:column;height:100vh;overflow:hidden;}
 .turn-item .turn-num{width:20px;height:20px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#999;flex-shrink:0;}
 .turn-item.current .turn-num{background:#0ea5e9;color:#fff;}
 
-/* 가운데 - Juego 테이블 */
+/* Center - Juego Table */
 .game-col{display:flex;flex-direction:column;gap:0;min-height:0;}
 .game-table{flex:1;border-radius:14px;position:relative;overflow:hidden;
 border:1px solid #d0cdc9;
@@ -110,7 +110,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .opp-hand{display:flex;gap:3px;margin-top:2px;}
 .card-back{width:36px;height:50px;border-radius:6px;background:linear-gradient(135deg,#3949ab,#1a237e);border:1.5px solid #0d1660;box-shadow:0 2px 6px rgba(0,0,0,0.25);}
 
-/* 가운데 */
+/* Center */
 .table-center{display:flex;flex-direction:column;align-items:center;gap:8px;}
 .turn-badge{text-align:center;}
 .turn-text{display:inline-flex;align-items:center;gap:10px;background:rgba(0,0,0,0.06);color:#333;font-size:14px;font-weight:700;padding:8px 24px;border-radius:20px;animation:tPulse 2s ease-in-out infinite;}
@@ -130,7 +130,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .played-card.red .card-num,.played-card.red .card-suit{color:#dc2626;}
 .played-card.black .card-num,.played-card.black .card-suit{color:#1a1a1a;}
 
-/* 내 카드 */
+/* 내 Card */
 .my-area{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .my-info{display:flex;align-items:center;gap:8px;}
 .my-pic{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
@@ -145,7 +145,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .my-card.black .card-num,.my-card.black .card-suit{color:#1a1a1a;}
 @keyframes glow{0%,100%{box-shadow:0 3px 10px rgba(0,0,0,0.2),0 0 6px rgba(74,222,128,0.2);}50%{box-shadow:0 3px 10px rgba(0,0,0,0.2),0 0 16px rgba(74,222,128,0.5);}}
 
-/* 하단 바 */
+/* Bottom 바 */
 .bottom-bar{flex-shrink:0;background:#fff;border-top:1px solid #e0e0e0;display:flex;align-items:stretch;height:200px;}
 .chat-area{flex:1;display:flex;flex-direction:column;border-right:1px solid #f0f0f0;min-width:0;}
 .chat-log{flex:1;overflow-y:auto;padding:12px 20px;font-size:14px;line-height:2;min-height:0;}
@@ -163,7 +163,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .bb.exit{border-color:#fecaca;color:#ef4444;}
 .bb.exit:hover{background:#fef2f2;}
 
-/* 확성기 배너 */
+/* Megaphone Banner */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -200,14 +200,14 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .friend-invite-btn:hover{background:#0ea5e9;color:#fff;}
 .friend-invite-btn.sent{background:#f0f0f0;color:#999;border-color:#e0e0e0;pointer-events:none;}
 
-/* 관전 모드 */
+/* Spectate Mode */
 .spectate-badge{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);color:#fff;padding:12px 32px;border-radius:20px;font-size:16px;font-weight:700;z-index:200;pointer-events:none;animation:specFade 2s ease forwards;}
 @keyframes specFade{0%{opacity:1;transform:translate(-50%,-50%) scale(1);}70%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(0.9);}}
 .spectate-bar{background:#1a1a2e;color:#fff;text-align:center;padding:6px;font-size:12px;font-weight:600;letter-spacing:1px;}
 body.spectate .my-card{pointer-events:none;opacity:0.5;filter:grayscale(0.3);}
 body.spectate .my-card:hover{transform:none;box-shadow:0 3px 10px rgba(0,0,0,0.08);}
 body.spectate .deck-pile{pointer-events:none;opacity:0.5;}
-body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
+body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 
 @media(max-width:900px){
 .page-main{grid-template-columns:1fr;}
@@ -226,14 +226,14 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 .dark .chat-input{background:#12122a;border-color:#2a2a3a;color:#ccc;}
 .dark .rule-title{color:#ddd;}
 .dark .turn-name{color:#ddd;}
-/* 왼쪽 사이드 */
+/* Left Side */
 .dark .profile-card{background:#1e1e30;border:none;box-shadow:none;}
 .dark .profile-name{color:#ddd;}
 .dark .profile-sub{color:#777;}
 .dark .card-box{background:#1e1e30;border:none;box-shadow:none;}
 .dark .box-title{color:#ddd;}
 .dark .pl-name{color:#ccc;}
-/* 오른쪽 사이드 */
+/* Right Side */
 .dark .game-info-box{background:#1e1e30;border:none;box-shadow:none;color:#ccc;}
 .dark .turn-item{background:#12122a;border-color:#2a2a3a;color:#ccc;}
 .dark .turn-item.current{background:#1a2a3a;}
@@ -249,7 +249,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 .dark .opp-count{color:#777;}
 .dark .my-label{color:#ccc;}
 .dark .my-card{border-color:#2a2a3a;}
-/* 하단 Chat + 버튼 */
+/* Bottom Chat + Button */
 .dark .bottom-bar{background:#1a1a2a;border-top-color:#2a2a3a;}
 .dark .chat-area{background:#1e1e30;border:none;box-shadow:none;}
 .dark .chat-log{background:#1e1e30;}
@@ -261,7 +261,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 .dark .bb{background:#1e1e30;border-color:#2a2a3a;color:#ccc;box-shadow:none;}
 .dark .bb:hover{background:#252540;}
 .dark .bb.exit{background:#2a1a1a;border-color:#4a2a2a;color:#ff6b6b;}
-/* 모달 */
+/* Modal */
 .dark .modal{background:#1e1e30;color:#ccc;box-shadow:0 8px 30px rgba(0,0,0,0.5);}
 .dark .modal h3{color:#ddd;}
 .dark .notice-ticker{background:rgba(0,0,0,0.2);}
@@ -280,22 +280,22 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     </div>
 </nav>
 <div class="tab-bar">
-    <div class="tab-room"><span class="t-emoji">🃏</span> Maria의 원카드방 (4/4)</div>
+    <div class="tab-room"><span class="t-emoji">🃏</span> Maria의 One CardRoom (4/4)</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">원카드 Temporada 오픈! Penpal Amigos와 one 판 해보세요</div>
-            <div class="notice-text">이번 주 원카드 TOP 3to 별의 Energia x50 Regalo!</div>
-            <div class="notice-text">Imagen 맞추기 10월 오픈 Programado! 기대해주세요</div>
-            <div class="notice-text">별의 Energia을 모아 Aura를 Desbloquear하세요!</div>
+            <div class="notice-text active">One Card Temporada 오픈! Penpal Amigos와 one 판 해보세요</div>
+            <div class="notice-text">이번 주 One Card TOP 3to Star Energia x50 Regalo!</div>
+            <div class="notice-text">Imagen 맞추기 10월 오픈 Programado! Stay tuned</div>
+            <div class="notice-text">Star Energia을 모아 Aura를 Desbloquear하세요!</div>
             <div class="notice-text">현재 접속자 127명 · Progreso in progress Juego 23개</div>
-            <div class="notice-text">비매너 Usuario Reportar 기능이 add되었습니다</div>
+            <div class="notice-text">비매너 Usuario Reportar 기능이 addcompleted</div>
         </div>
     </div>
 </div>
 
 <div class="page-main">
-    <!-- 왼쪽 -->
+    <!-- Left -->
     <div class="side-left">
         <div class="profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
@@ -354,7 +354,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         </a>
     </div>
 
-    <!-- 가운데 - Juego -->
+    <!-- Center - Juego -->
     <div class="game-col">
         <div class="game-table">
             <!-- 상대 3명 -->
@@ -364,7 +364,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
                         <div class="opp-pic" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">🐱</div>
                         <div>
                             <div class="opp-name">Hana K.</div>
-                            <div class="opp-count">카드 4장</div>
+                            <div class="opp-count">Card 4장</div>
                         </div>
                     </div>
                     <div class="opp-hand">
@@ -376,7 +376,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
                         <div class="opp-pic">🦊</div>
                         <div>
                             <div class="opp-name">Maria G.</div>
-                            <div class="opp-count">카드 5장</div>
+                            <div class="opp-count">Card 5장</div>
                         </div>
                     </div>
                     <div class="opp-hand">
@@ -388,7 +388,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
                         <div class="opp-pic" style="background:linear-gradient(135deg,#10b981,#34d399);">🐻</div>
                         <div>
                             <div class="opp-name">Jun P.</div>
-                            <div class="opp-count">카드 6장</div>
+                            <div class="opp-count">Card 6장</div>
                         </div>
                     </div>
                     <div class="opp-hand">
@@ -397,10 +397,10 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- 턴 + 카드더미 -->
+            <!-- Turn + Card더미 -->
             <div class="table-center">
                 <div class="turn-badge">
-                    <div class="turn-text"><span id="turnName">TAZO님의 턴</span><span class="turn-timer" id="turnTimer">15</span></div>
+                    <div class="turn-text"><span id="turnName">TAZOof Turn</span><span class="turn-timer" id="turnTimer">15</span></div>
                 </div>
                 <div class="center-mat">
                     <div class="deck-pile" onclick="drawCard()">
@@ -414,11 +414,11 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- 내 카드 -->
+            <!-- 내 Card -->
             <div class="my-area">
                 <div class="my-info">
                     <div class="my-pic">⭐</div>
-                    <div class="my-label">내 카드 (7장)</div>
+                    <div class="my-label">내 Card (7장)</div>
                 </div>
                 <div class="my-hand" id="myHand">
                     <div class="my-card red playable" onclick="playCard(this)"><div class="card-num">3</div><div class="card-suit">&#9829;</div></div>
@@ -433,10 +433,10 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         </div>
     </div>
 
-    <!-- 오른쪽 사이드 -->
+    <!-- Right Side -->
     <div class="side-right">
         <div class="game-info-box">
-            <div class="box-title">🔄 턴 순서</div>
+            <div class="box-title">🔄 Turn Order서</div>
             <div class="turn-order">
                 <div class="turn-item"><div class="turn-num">1</div><span>🦊 Maria G.</span></div>
                 <div class="turn-item current"><div class="turn-num">2</div><span>⭐ TAZO</span></div>
@@ -447,12 +447,12 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 Juego Reglas</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 카드와 <b>Numero</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
+                <div class="rule-basic">바닥 Card와 <b>Numero</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 Ataque</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 Ataque</span></div>
-                    <div class="rule-card"><span class="rc-icon">🔄</span><span>순서 뒤집기</span></div>
-                    <div class="rule-card"><span class="rc-icon">⛔</span><span>다음 턴 스킵</span></div>
+                    <div class="rule-card"><span class="rc-icon">🔄</span><span>Order서 뒤집기</span></div>
+                    <div class="rule-card"><span class="rc-icon">⛔</span><span>다음 Turn 스킵</span></div>
                     <div class="rule-card"><span class="rc-icon">7️⃣</span><span>무늬 바꾸기</span></div>
                 </div>
             </div>
@@ -460,9 +460,9 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title" style="color:#f59e0b;">⭐ Recompensa</div>
             <div style="font-size:11px;color:#888;line-height:1.8;">
-                🥇 1등: 별의 Energia x30<br>
-                🥈 2등: 별의 Energia x15<br>
-                🥉 3등: 별의 Energia x5
+                🥇 1등: Star Energia x30<br>
+                🥈 2등: Star Energia x15<br>
+                🥉 3등: Star Energia x5
             </div>
         </div>
     </div>
@@ -473,19 +473,19 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[Notificacion]</span> Maria의 원카드방에 입장했습니다</div>
-            <div class="chat-msg"><span class="sys">[Notificacion]</span> Hana K.님이 입장했습니다</div>
-            <div class="chat-msg"><span class="sys">[Notificacion]</span> Jun P.님이 입장했습니다</div>
-            <div class="chat-msg"><span class="user">Maria:</span> Hola! 원카드 하자~ 😄</div>
-            <div class="chat-msg"><span class="user">Hana:</span> gusta Inicio하자!</div>
+            <div class="chat-msg"><span class="sys">[Notificacion]</span> Maria의 One CardRoom에 joined</div>
+            <div class="chat-msg"><span class="sys">[Notificacion]</span> Hana K.has joined</div>
+            <div class="chat-msg"><span class="sys">[Notificacion]</span> Jun P.has joined</div>
+            <div class="chat-msg"><span class="user">Maria:</span> Hola! One Card lets~ 😄</div>
+            <div class="chat-msg"><span class="user">Hana:</span> gusta Iniciolets!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
-            <div class="chat-msg"><span class="sys">[Notificacion]</span> Juego이 Inicio되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[Notificacion]</span> Juego이 Iniciocompleted!</div>
             <div class="chat-msg"><span class="user">Maria:</span> Ataque 간다~ 🔥</div>
-            <div class="chat-msg"><span class="sys">[Notificacion]</span> TAZO님의 턴입니다</div>
+            <div class="chat-msg"><span class="sys">[Notificacion]</span> TAZOof Turnis</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두to-</option><option>Mariato</option></select>
-            <input class="chat-input" placeholder="Mensajes를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <input class="chat-input" placeholder="Mensajes를 please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-send" onclick="sendChat()">전송</button>
         </div>
     </div>
@@ -496,7 +496,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     </div>
 </div>
 
-<!-- 확성기 배너 -->
+<!-- Megaphone Banner -->
 <div class="megaphone-banner" id="megaBanner">
     <span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span><span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span>
     <div class="megaphone-inner">
@@ -517,37 +517,37 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
-                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">온라인 · Espera 중</div></div>
+                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">Online · Espera 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
-                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">온라인 · Espera 중</div></div>
+                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">Online · Espera 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🎵</div>
-                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · Juego 중</div></div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">Online · Juego 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#ef4444,#f87171);">🔥</div>
-                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">온라인 · Espera 중</div></div>
+                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">Online · Espera 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Lucas')">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">🌙</div>
-                <div class="friend-info"><div class="friend-name">Alex</div><div class="friend-status">오프라인</div></div>
+                <div class="friend-info"><div class="friend-name">Alex</div><div class="friend-status">Offline</div></div>
                 <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">Invitar</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">💤</div>
-                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">오프라인</div></div>
+                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">Offline</div></div>
                 <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">Invitar</button>
             </div>
         </div>
@@ -555,23 +555,23 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 </div>
 
 <script>
-// 관전 모드 체크
+// Spectate Mode 체크
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');
     // 관전 바 add
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 관전 모드 — Juego을 구경하고 있습니다';
+    bar.textContent = '👁 Spectate Mode — Juego을 구경하고 exists';
     document.querySelector('.tab-bar').after(bar);
-    // 입장 Notificacion
+    // Enter Notificacion
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
-    badge.textContent = '👁 관전 모드';
+    badge.textContent = '👁 Spectate Mode';
     document.body.appendChild(badge);
 }
 
-// 턴 타이머
+// Turn 타이머
 var turnTime = 15;
 var turnSec = turnTime;
 var turnInterval = null;
@@ -592,16 +592,16 @@ function startTurnTimer() {
     }, 1000);
 }
 function skipTurn() {
-    addLog('<span class="sys">[Notificacion]</span> Horas 초과! 턴이 넘어갑니다');
+    addLog('<span class="sys">[Notificacion]</span> Horas 초과! Turn이 넘어갑니다');
     drawCard();
-    addLog('<span class="sys">[Notificacion]</span> 패널티: 카드 1장 뽑기');
+    addLog('<span class="sys">[Notificacion]</span> 패널티: Card 1장 뽑기');
     startTurnTimer();
 }
 startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without 카드! (Mismo 무늬 또는 Mismo Numero만 가능)');
+        alert('낼 수 without Card! (Mismo 무늬 또는 Mismo Numero만 가능)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -629,12 +629,12 @@ function drawCard() {
     card.innerHTML = '<div class="card-num">' + n + '</div><div class="card-suit">' + s + '</div>';
     hand.appendChild(card);
     updateCount();
-    addLog('<span class="sys">[Notificacion]</span> 카드 1장 뽑음');
+    addLog('<span class="sys">[Notificacion]</span> Card 1장 뽑음');
     startTurnTimer();
 }
 function updateCount() {
     var c = document.getElementById('myHand').children.length;
-    document.querySelector('.my-label').textContent = '내 카드 (' + c + '장)';
+    document.querySelector('.my-label').textContent = '내 Card (' + c + '장)';
 }
 function sendChat() {
     var input = document.getElementById('chatInput');
@@ -681,10 +681,10 @@ function toggleMute(btn) {
     }
 }
 
-// 페이지 이동 Confirmar
+// Page 이동 Confirmar
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Juegofrom 나가시겠습니까?\nProgreso in progress Juego은 Derrota processing됩니다.');
+    return confirm('Juegofrom Would you like to leave?\nProgreso in progress Juego은 Derrota processingwill be.');
 }
 
 // Salir
@@ -693,20 +693,20 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방from 나가시겠습니까?\nProgreso in progress Juego은 Derrota processing됩니다.')) {
-        addLog('<span class="sys">[Notificacion]</span> TAZO님이 퇴장했습니다');
+    if (confirm('정말 Roomfrom Would you like to leave?\nProgreso in progress Juego은 Derrota processingwill be.')) {
+        addLog('<span class="sys">[Notificacion]</span> TAZOhas has left');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }
 }
 
-// 확성기
+// Megaphone
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','원카드 고수만 와라!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','One Card 고수만 와라!! 🔥');},15000);
 
 // Avisos 티커
 var noticeIdx=0;
@@ -717,7 +717,7 @@ setInterval(function(){
     notices[noticeIdx].classList.add('active');
 },3000);
 
-// Dudeoji문 배너 슬라이드
+// Dudeoji문 Banner Slide
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
 var moonIdx=0;
 setInterval(function(){

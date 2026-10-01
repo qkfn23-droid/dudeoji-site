@@ -63,7 +63,7 @@ var MOGU_FILTER = (function(){
         for(var i=0; i<ALL_BAD.length; i++){
             var word = ALL_BAD[i].toLowerCase();
             if(lower.indexOf(word) !== -1 || cleaned.indexOf(normalize(word)) !== -1){
-                return {ok:false, reason:'부적절한 표현이 포함되어 있습니다.', type:'badword'};
+                return {ok:false, reason:'Langage inapproprié détecté.', type:'badword'};
             }
         }
 
@@ -71,23 +71,23 @@ var MOGU_FILTER = (function(){
         for(var j=0; j<SNS_WORDS.length; j++){
             var sns = SNS_WORDS[j].toLowerCase();
             if(lower.indexOf(sns) !== -1){
-                return {ok:false, reason:'외부 연락처/SNS 공유는 허용되지 않습니다.', type:'sns'};
+                return {ok:false, reason:'Le partage de contacts externes/réseaux sociaux n'est pas autorisé.', type:'sns'};
             }
         }
 
         // 3. 전화번호 체크
         if(PHONE_REGEX.test(text)){
-            return {ok:false, reason:'전화번호는 공유할 수 없습니다.', type:'phone'};
+            return {ok:false, reason:'Les numéros de téléphone ne peuvent pas être partagés.', type:'phone'};
         }
 
         // 4. URL 체크
         if(URL_REGEX.test(text)){
-            return {ok:false, reason:'외부 링크는 허용되지 않습니다.', type:'url'};
+            return {ok:false, reason:'Les liens externes ne sont pas autorisés.', type:'url'};
         }
 
         // 5. 이메일 체크
         if(EMAIL_REGEX.test(text)){
-            return {ok:false, reason:'이메일 주소는 공유할 수 없습니다.', type:'email'};
+            return {ok:false, reason:'Les adresses e-mail ne peuvent pas être partagées.', type:'email'};
         }
 
         return {ok:true};
@@ -110,7 +110,7 @@ var MOGU_FILTER = (function(){
         if(text === lastMsg){
             lastMsgCount++;
             if(lastMsgCount >= 3){
-                return {ok:false, reason:'같은 메시지를 반복할 수 없습니다.', type:'repeat'};
+                return {ok:false, reason:'Vous ne pouvez pas répéter le même message.', type:'repeat'};
             }
         } else {
             lastMsg = text;
