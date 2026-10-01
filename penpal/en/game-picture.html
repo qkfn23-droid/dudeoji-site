@@ -225,8 +225,8 @@ body.spectate .game-status span:first-child::after{content:' (Spectate During)';
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Picture Match Season Open! Who can find matches fastest?</div>
-            <div class="notice-text">ThisThis week Picture Match TOP 3Atto Star Energy x50 Gift!</div>
-            <div class="notice-text">One CardAlso 같This 즐겨See!</div>
+            <div class="notice-text">thisthis week Picture Match TOP 3Atto Star Energy x50 Gift!</div>
+            <div class="notice-text">One CardAlso same enjoy!</div>
             <div class="notice-text">Star Energythe Collect Aurathe Unlockplease do!</div>
             <div class="notice-text">Current 127 users online · 23 games in progress</div>
         </div>
@@ -303,9 +303,9 @@ body.spectate .game-status span:first-child::after{content:' (Spectate During)';
             <div class="game-rule">
                 <div class="rule-basic">
                     Cardthe 2pcs flip <b>Same picture</b>the find!<br><br>
-                    짝the if match <b>+1점</b> obtainand one 번 More!<br>
+                    Match a pair for <b>+1 point</b> and another turn!<br>
                     if wrong OpponentRoom TurnTo moves on.<br><br>
-                    all 짝the when found Game end!
+                    Find all pairs to win!
                 </div>
             </div>
         </div>
@@ -326,7 +326,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectate During)';
         <div class="chat-log" id="chatLog">
             <div class="chat-msg"><span class="sys">[Notifications]</span> MariaOf Picture Match RoomAt Joinhas been done</div>
             <div class="chat-msg"><span class="user">Maria:</span> Picture Match Let us! 🧩</div>
-            <div class="chat-msg"><span class="sys">[Notifications]</span> GameThis Starthas been completed!</div>
+            <div class="chat-msg"><span class="sys">[Notifications]</span> Gamethis Starthas been completed!</div>
             <div class="chat-msg"><span class="sys">[Notifications]</span> TAZOsirOf Turnis</div>
         </div>
         <div class="chat-input-wrap">
@@ -403,7 +403,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// Card 데This터 (Flag Emoji 8쌍 = 16pcs)
+// Card 데this터 (Flag Emoji 8쌍 = 16pcs)
 var emojis = ['🇰🇷','🇯🇵','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇮🇹','🇪🇸'];
 var cards = [];
 var flipped = [];
@@ -454,8 +454,8 @@ function flipCard(el) {
                 myScore++;
                 matched++;
                 document.getElementById('myScore').textContent = myScore;
-                document.getElementById('matchMsg').textContent = '짝the found! +1점 🎉';
-                addLog('<span class="sys">[Notifications]</span> TAZOIs ' + cards[i1] + ' 짝the got it right!');
+                document.getElementById('matchMsg').textContent = 'Pair found! +1 point 🎉';
+                addLog('<span class="sys">[Notifications]</span> TAZOIs ' + cards[i1] + ' matched a pair!');
                 flipped = [];
                 canFlip = true;
                 startTurnTimer();
@@ -469,7 +469,7 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! Opponent TurnTo...';
+                document.getElementById('matchMsg').textContent = 'Miss! Opponents turn...';
                 addLog('<span class="sys">[Notifications]</span> MariasirOf Turnis');
                 flipped = [];
                 setTimeout(function(){
@@ -505,7 +505,7 @@ function aiTurn() {
                     oppScore++;
                     matched++;
                     document.getElementById('oppScore').textContent = oppScore;
-                    addLog('<span class="sys">[Notifications]</span> MariaIs ' + cards[i1] + ' 짝the got it right!');
+                    addLog('<span class="sys">[Notifications]</span> MariaIs ' + cards[i1] + ' matched a pair!');
                     if (matched === emojis.length) {
                         setTimeout(endGame, 500);
                     } else {
@@ -535,7 +535,7 @@ function endGame() {
     document.getElementById('matchMsg').textContent = msg;
 }
 
-// Turn 타This머
+// Turn 타this머
 var turnTime = 15;
 var turnSec = turnTime;
 var turnInterval = null;
@@ -559,7 +559,7 @@ function stopTurnTimer() {
     clearInterval(turnInterval);
 }
 function skipTurn() {
-    addLog('<span class="sys">[Notifications]</span> Hours secAnd! TurnThis moves on');
+    addLog('<span class="sys">[Notifications]</span> Hours secAnd! Turnthis moves on');
     document.getElementById('matchMsg').textContent = 'Hours secAnd!';
     setTimeout(function(){ document.getElementById('matchMsg').textContent = ''; }, 1500);
     aiTurn();
@@ -602,10 +602,10 @@ function toggleMute(btn) {
     btn.style.color = isMuted ? '#999' : '';
 }
 
-// Page This동 Confirm
+// Page this동 Confirm
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Gamefrom IIsWould you like to?\nProgress During인 GameIs Lose processingwill be.');
+    return confirm('Leave this game?\nGame in progress will count as a loss.');
 }
 
 // Exit
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 Roomfrom IIsWould you like to?\nProgress During인 GameIs Lose processingwill be.')) {
+    if (confirm('Really leave this room?\nGame in progress will count as a loss.')) {
         location.href = 'game-v2.html';
     }
 }
@@ -626,7 +626,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Yuki','Picture Match I랑 할 Person~! 🧩');},12000);
+setTimeout(function(){showMegaphone('Yuki','Picture Match I랑 wants to play~! 🧩');},12000);
 
 // Notice Ticker
 var noticeIdx=0;

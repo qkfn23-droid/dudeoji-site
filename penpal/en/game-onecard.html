@@ -285,11 +285,11 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">One Card Season Open! Penpal FriendsAnd Play a round</div>
-            <div class="notice-text">ThisThis week One Card TOP 3Atto Star Energy x50 Gift!</div>
+            <div class="notice-text">thisthis week One Card TOP 3Atto Star Energy x50 Gift!</div>
             <div class="notice-text">Picture Match 10month Open Scheduled! expectplease</div>
             <div class="notice-text">Star Energythe Collect Aurathe Unlockplease do!</div>
             <div class="notice-text">Current 127 users online · 23 games in progress</div>
-            <div class="notice-text">bad manner User Report FeatureThis Addhas been completed</div>
+            <div class="notice-text">bad behavior User Report Featurethis Addhas been completed</div>
         </div>
     </div>
 </div>
@@ -479,7 +479,7 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
             <div class="chat-msg"><span class="user">Maria:</span> Hello! One Card Let us~ 😄</div>
             <div class="chat-msg"><span class="user">Hana:</span> like StartLet us!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
-            <div class="chat-msg"><span class="sys">[Notifications]</span> GameThis Starthas been completed!</div>
+            <div class="chat-msg"><span class="sys">[Notifications]</span> Gamethis Starthas been completed!</div>
             <div class="chat-msg"><span class="user">Maria:</span> Here I come~ 🔥</div>
             <div class="chat-msg"><span class="sys">[Notifications]</span> TAZOsirOf Turnis</div>
         </div>
@@ -571,7 +571,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// Turn 타This머
+// Turn 타this머
 var turnTime = 15;
 var turnSec = turnTime;
 var turnInterval = null;
@@ -592,7 +592,7 @@ function startTurnTimer() {
     }, 1000);
 }
 function skipTurn() {
-    addLog('<span class="sys">[Notifications]</span> Hours secAnd! TurnThis moves on');
+    addLog('<span class="sys">[Notifications]</span> Hours secAnd! Turnthis moves on');
     drawCard();
     addLog('<span class="sys">[Notifications]</span> Penalty: Draw 1 card');
     startTurnTimer();
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 없Is Card! (Same Pattern AgainIs Same numberOnly Is능)');
+        alert('낼 수 without Card! (Same Pattern AgainIs Same numberOnly possible)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -672,19 +672,19 @@ function toggleMute(btn) {
         btn.textContent = '🔇 Mute During';
         btn.style.background = '#f0f0f0';
         btn.style.color = '#999';
-        addLog('<span class="sys">[Notifications]</span> Soundthe 껐습.');
+        addLog('<span class="sys">[Notifications]</span> Sound OFF');
     } else {
         btn.textContent = '🔊 Mute';
         btn.style.background = '';
         btn.style.color = '';
-        addLog('<span class="sys">[Notifications]</span> Soundthe 켰습.');
+        addLog('<span class="sys">[Notifications]</span> Sound ON');
     }
 }
 
-// Page This동 Confirm
+// Page this동 Confirm
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Gamefrom IIsWould you like to?\nProgress During인 GameIs Lose processingwill be.');
+    return confirm('Leave this game?\nGame in progress will count as a loss.');
 }
 
 // Exit
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 Roomfrom IIsWould you like to?\nProgress During인 GameIs Lose processingwill be.')) {
+    if (confirm('Really leave this room?\nGame in progress will count as a loss.')) {
         addLog('<span class="sys">[Notifications]</span> TAZOhas Banhas been done');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }
@@ -706,7 +706,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','One Card 고수Only And라!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','One Card pros only!! 🔥');},15000);
 
 // Notice Ticker
 var noticeIdx=0;
