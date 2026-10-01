@@ -359,8 +359,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><path d="M75,10 C45,10 25,35 25,65 C25,95 45,115 75,115 C55,105 45,85 45,65 C45,45 55,25 75,10Z" fill="#C8E6FF" stroke="#90CAF9" stroke-width="1.5"/><ellipse cx="56" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="74" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="52" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="78" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><path d="M60,78 Q65,84 70,78" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
-                    <div class="recent-preview">Lettres Thank you! next time Japonaisalso try too~</div>
-                    <div class="letter-full">Lettres Thank you! next time Japonaisalso try too~ 사실 Me too Coreen Studyand with데 아직 많 lacking. Japonfrom Recemment Cherry Blossom blooming Debutdid요! Coreetoo Cherry Blossom pretty right? someday Coree together Cherry Blossom want to see~ aimedoing MusiqueI drama if you have Recommandationdo it!</div>
+                    <div class="recent-preview">Lettres Thank you! Ill try Japanese next time too~</div>
+                    <div class="letter-full">Lettres Thank you! Ill try Japanese next time too~ 사실 Me too Coreen Studyand with데 아직 많 lacking. Japonfrom Recemment Cherry Blossom blooming Debutdid요! Coreetoo Cherry Blossom pretty right? someday Coree together Cherry Blossom want to see~ aimedoing MusiqueI drama if you have Recommandationdo it!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
@@ -393,7 +393,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- Right -->
     <div class="right">
         <div class="right-box">
-            <div class="right-title">✉️ Lettres 팁</div>
+            <div class="right-title">✉️ Letter Tips</div>
             <div class="tip-item"><span class="tip-icon">👋</span> 첫 Lettres 자기A propos include</div>
             <div class="tip-item"><span class="tip-icon">🌍</span> Opponent Langueto a sentence or two when writing its touching</div>
             <div class="tip-item"><span class="tip-icon">❓</span> Question if you add reply chances increase</div>
@@ -483,13 +483,13 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='Archived';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Lettres has been archived');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Messages Selectionplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Lettres Merci! 지금 no time reply it will be difficult.</div><div class="decline-opt" onclick="selectDecline(this)">Interet thank you for your interest! However right now new Penpal is difficult right now.</div><div class="decline-opt" onclick="selectDecline(this)">Lettres I read it well! apprend Langue unfortunately, good Penpal I hope you find..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Messages Envoyer</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Messages Selectionplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Lettres Merci! I dont have time right now, replying may be difficult.</div><div class="decline-opt" onclick="selectDecline(this)">Interet thank you for your interest! However Im not accepting new penpals right now.</div><div class="decline-opt" onclick="selectDecline(this)">Lettres I read it well! apprend Langue unfortunately, good Penpal I hope you find..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Send Decline</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messages Selectionplease do');return;}closeModal();showToast(name+'sirto Reject Messages sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Signalerdoing</div><div class="modal-body">'+name+'sir Signalerdoing reason Selectionplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Publicite / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexuelor Feu쾌one Contenu</div><div class="report-opt" onclick="selectReport(this)">Profanity / Hate speech</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Donnees personnellesrequest (phone number, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report submitted</button>');
+    openModal('<div class="modal-title">Report</div><div class="modal-body">'+name+'sir Report reason Selectionplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Publicite / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexual or inappropriate content</div><div class="report-opt" onclick="selectReport(this)">Profanity / Hate speech</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Donnees personnellesrequest (phone number, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report submitted</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Signaler reason Selectionplease do');return;}closeModal();showToast('Signaler has been received. The team will review.');}
