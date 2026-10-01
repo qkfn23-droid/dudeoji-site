@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — Guild 탐색</title>
+<title>Dudeoji Studio — Guild Browse</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -270,7 +270,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="mg-emblem">♌</div>
                 <div>
                     <div class="mg-name">Stellar Lions</div>
-                    <div class="mg-sub">Lv.4 쌍성 · 👤 12/20 · #3위</div>
+                    <div class="mg-sub">Lv.4 Binary Star · 👤 12/20 · ##3</div>
                 </div>
             </div>
         </div>
@@ -293,15 +293,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </div>
             </div>
             <div class="filter-group">
-                <div class="filter-label">정렬</div>
+                <div class="filter-label">Sort</div>
                 <select class="filter-select">
                     <option>Membro 많 Order</option>
                     <option>Nivel 높 Order</option>
-                    <option>최신Order</option>
+                    <option>Newest</option>
                 </select>
             </div>
             <div class="filter-group">
-                <div class="filter-label">join Room식</div>
+                <div class="filter-label">Join Method</div>
                 <div class="filter-pills" id="joinFilter">
                     <div class="filter-pill active">all</div>
                     <div class="filter-pill">Free</div>
@@ -318,7 +318,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- 센터 -->
     <div>
         <div class="room-header">
-            <h2>🪐 Guild 탐색</h2>
+            <h2>🪐 Guild Browse</h2>
         </div>
         <div class="search-bar">
             <input class="search-input" placeholder="Guild Name Buscar...">
@@ -414,7 +414,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="r-right">
                     <div class="r-members">👤 20/20</div>
                     <div class="r-score">1,100 Stardust</div>
-                    <button class="r-join full" disabled>마감</button>
+                    <button class="r-join full" disabled>Full</button>
                 </div>
             </div>
             <div class="room-row">
@@ -436,12 +436,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- Right -->
     <div class="side-right">
         <div class="card">
-            <div class="card-title">📊 Guild 현황</div>
+            <div class="card-title">📊 Guild Status</div>
             <div class="stat-grid">
                 <div class="stat-item"><div class="stat-num">42</div><div class="stat-label">all Guild</div></div>
                 <div class="stat-item"><div class="stat-num">389</div><div class="stat-label">총 Membro</div></div>
-                <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">This week 신규</div></div>
-                <div class="stat-item"><div class="stat-num">156</div><div class="stat-label">Guildbefore 수</div></div>
+                <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">New This Week</div></div>
+                <div class="stat-item"><div class="stat-num">156</div><div class="stat-label">Guild Battles</div></div>
             </div>
         </div>
 
@@ -513,7 +513,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <textarea class="modal-textarea" placeholder="Guild Sobreplease do (Selecionar)"></textarea>
         </div>
         <div class="modal-field">
-            <div class="modal-label">join Room식</div>
+            <div class="modal-label">Join Method</div>
             <div class="join-type-btns">
                 <div class="join-type-btn selected" onclick="sel(this,'.join-type-btn')">🔓 Free join</div>
                 <div class="join-type-btn" onclick="sel(this,'.join-type-btn')">🔒 Aprovacao 필요</div>

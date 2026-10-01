@@ -303,9 +303,9 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="game-rule">
                 <div class="rule-basic">
                     Card 2pcs flip <b>Gleich Bild</b> find!<br><br>
-                    pair 맞추면 <b>+1점</b> Earned하고 one 번 더!<br>
-                    틀리면 OpponentRoom Rundeto moves on.<br><br>
-                    all pair 찾으면 Spiel end!
+                    Match a pair for <b>+1 point</b> and another turn!<br>
+                    If wrong, it's the opponent's turn.<br><br>
+                    Find all pairs to win!
                 </div>
             </div>
         </div>
@@ -330,7 +330,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> TAZOof Rundeis</div>
         </div>
         <div class="chat-input-wrap">
-            <select class="chat-target"><option>-모두to-</option><option>Maria G.</option></select>
+            <select class="chat-target"><option>-Everyone-</option><option>Maria G.</option></select>
             <input class="chat-input" placeholder="Nachrichten please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-send" onclick="sendChat()">Send</button>
         </div>
@@ -454,7 +454,7 @@ function flipCard(el) {
                 myScore++;
                 matched++;
                 document.getElementById('myScore').textContent = myScore;
-                document.getElementById('matchMsg').textContent = 'pair found! +1점 🎉';
+                document.getElementById('matchMsg').textContent = 'Pair found! +1 point 🎉';
                 addLog('<span class="sys">[Benachrichtigung]</span> TAZO ' + cards[i1] + ' pair got it right!');
                 flipped = [];
                 canFlip = true;
@@ -469,7 +469,7 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! Opponent Rundeto...';
+                document.getElementById('matchMsg').textContent = 'Miss! Opponent's turn...';
                 addLog('<span class="sys">[Benachrichtigung]</span> Mariaof Rundeis');
                 flipped = [];
                 setTimeout(function(){
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // Page 동 Bestatigen
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Spielfrom Would you like to leave?\nFortschritt in progress Spiel Niederlage processingwill be.');
+    return confirm('Spielfrom Would you like to leave?\nGame in progress will count as a loss.');
 }
 
 // Beenden
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 Roomfrom Would you like to leave?\nFortschritt in progress Spiel Niederlage processingwill be.')) {
+    if (confirm('Really leave this room?\nGame in progress will count as a loss.')) {
         location.href = 'game-v2.html';
     }
 }
@@ -626,7 +626,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Yuki','Bild Match I랑 wants to play~! 🧩');},12000);
+setTimeout(function(){showMegaphone('Yuki','Let's play Picture Match~! 🧩');},12000);
 
 // Mitteilungen Ticker
 var noticeIdx=0;
