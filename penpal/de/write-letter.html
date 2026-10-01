@@ -360,7 +360,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
                     <div class="recent-preview">Briefe Thank you! next time Japanischalso tryto요~</div>
-                    <div class="letter-full">Briefe Thank you! next time Japanischalso tryto요~ 사실 Me too Koreanisch Studyand with데 아직 많 부족do. Japanfrom Neulich 벚Flower 피기 Start했어요! Koreatoo 벚Flower 예쁘죠? 언젠 Korea 가 같 벚Flower after watching 싶다~ loveing MusikI drama 있으면 recommend!</div>
+                    <div class="letter-full">Briefe Thank you! next time Japanischalso tryto요~ 사실 Me too Koreanisch Studyand with데 아직 많 부족do. Japanfrom Neulich Cherry Blossom 피기 Start했어요! Koreatoo Cherry Blossom 예쁘죠? 언젠 Korea 가 같 Cherry Blossom after watching 싶다~ loveing MusikI drama 있으면 recommend!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
@@ -403,7 +403,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="right-box">
             <div class="right-title">📊 my Briefe Stats</div>
             <div style="display:flex;justify-content:space-around;text-align:center;padding:8px 0;">
-                <div><div style="font-size:20px;font-weight:700;color:#8b5cf6;">48</div><div style="font-size:9px;color:#999;">총 Briefe</div></div>
+                <div><div style="font-size:20px;font-weight:700;color:#8b5cf6;">48</div><div style="font-size:9px;color:#999;">Total Briefe</div></div>
                 <div><div style="font-size:20px;font-weight:700;color:#f59e0b;">23</div><div style="font-size:9px;color:#999;">받 Briefe</div></div>
                 <div><div style="font-size:20px;font-weight:700;color:#0ea5e9;">25</div><div style="font-size:9px;color:#999;">보낸 Briefe</div></div>
             </div>
@@ -469,7 +469,7 @@ function doTranslate(name,el){
 
 var profiles={
     'Maria G.':{zodiac:'Widder',element:'Feuer',lang:'🇪🇸 Spanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'Koreanisch learn want! K-popand Astrologie love~',pic:'star'},
-    'Yuki T.':{zodiac:'Jungfrau',element:'Erde',lang:'🇯🇵 Japanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch, 🇪🇸 Spanisch',bio:'Korea Kultur Interesse viel! 벚Flower 보러 가고 싶어~',pic:'moon'},
+    'Yuki T.':{zodiac:'Jungfrau',element:'Erde',lang:'🇯🇵 Japanisch (Muttersprachler)',learning:'🇰🇷 Koreanisch, 🇪🇸 Spanisch',bio:'Korea Kultur Interesse viel! Cherry Blossom 보러 가고 싶어~',pic:'moon'},
     'Lucas S.':{zodiac:'Zwillinge',element:'Luft',lang:'🇧🇷 Portugiesisch (Muttersprachler)',learning:'🇰🇷 Koreanisch',bio:'astronomy and Spiel gernWelcome. Korea, Japan Freunde find!',pic:'star'}
 };
 var picSvg={
@@ -483,13 +483,13 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='Archive됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Briefe has been saved');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Nachrichten Auswahlplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Briefe Vielen Dank! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse for having thanksdo! 다만 지금 new Brieffreund 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Briefe well read it! lernt Sprache month라 아쉽지만, good Brieffreund 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Nachrichten Senden</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Nachrichten Auswahlplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Briefe Vielen Dank! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse for having thanksdo! However 지금 new Brieffreund 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Briefe well read it! lernt Sprache month라 아쉽지만, good Brieffreund 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Nachrichten Senden</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Nachrichten Auswahlplease do');return;}closeModal();showToast(name+'sirto Reject Nachrichten sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Meldendoing</div><div class="modal-body">'+name+'sir Meldendoing 유 Auswahlplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Werbung / Werbung</div><div class="report-opt" onclick="selectReport(this)">Sexuell거I Feuer쾌one Inhalt</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Betrug / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Personliche Daten!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Melden received</button>');
+    openModal('<div class="modal-title">Meldendoing</div><div class="modal-body">'+name+'sir Meldendoing 유 Auswahlplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Werbung / Werbung</div><div class="report-opt" onclick="selectReport(this)">Sexuellor Feuer쾌one Inhalt</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Betrug / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Personliche Daten!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Melden received</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Melden 사유 Auswahlplease do');return;}closeModal();showToast('Melden has been received. the team reviews.');}

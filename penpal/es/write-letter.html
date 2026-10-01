@@ -360,7 +360,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Yuki T.</div>
                     <div class="recent-preview">Cartas Thank you! next time Japonesalso tryto요~</div>
-                    <div class="letter-full">Cartas Thank you! next time Japonesalso tryto요~ 사실 Me too Coreano Studyand with데 아직 많 부족do. Japonfrom Ultimamente 벚Flower 피기 Inicio했어요! Coreatoo 벚Flower 예쁘죠? 언젠 Corea 가 같 벚Flower after watching 싶다~ gustadoing MusicaI drama 있으면 Recomendaciondo it!</div>
+                    <div class="letter-full">Cartas Thank you! next time Japonesalso tryto요~ 사실 Me too Coreano Studyand with데 아직 많 부족do. Japonfrom Ultimamente Cherry Blossom 피기 Inicio했어요! Coreatoo Cherry Blossom 예쁘죠? 언젠 Corea 가 같 Cherry Blossom after watching 싶다~ gustadoing MusicaI drama 있으면 Recomendaciondo it!</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">Translate View</button>
@@ -403,7 +403,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="right-box">
             <div class="right-title">📊 my Cartas Stats</div>
             <div style="display:flex;justify-content:space-around;text-align:center;padding:8px 0;">
-                <div><div style="font-size:20px;font-weight:700;color:#8b5cf6;">48</div><div style="font-size:9px;color:#999;">총 Cartas</div></div>
+                <div><div style="font-size:20px;font-weight:700;color:#8b5cf6;">48</div><div style="font-size:9px;color:#999;">Total Cartas</div></div>
                 <div><div style="font-size:20px;font-weight:700;color:#f59e0b;">23</div><div style="font-size:9px;color:#999;">받 Cartas</div></div>
                 <div><div style="font-size:20px;font-weight:700;color:#0ea5e9;">25</div><div style="font-size:9px;color:#999;">보낸 Cartas</div></div>
             </div>
@@ -469,7 +469,7 @@ function doTranslate(name,el){
 
 var profiles={
     'Maria G.':{zodiac:'Aries',element:'Fuego',lang:'🇪🇸 Espanol (Nativo)',learning:'🇰🇷 Coreano',bio:'Coreano learn want! K-popand Astrologia gustado~',pic:'star'},
-    'Yuki T.':{zodiac:'Virgo',element:'Tierra',lang:'🇯🇵 Japones (Nativo)',learning:'🇰🇷 Coreano, 🇪🇸 Espanol',bio:'Corea Cultura Interes mucho! 벚Flower 보러 가고 싶어~',pic:'moon'},
+    'Yuki T.':{zodiac:'Virgo',element:'Tierra',lang:'🇯🇵 Japones (Nativo)',learning:'🇰🇷 Coreano, 🇪🇸 Espanol',bio:'Corea Cultura Interes mucho! Cherry Blossom 보러 가고 싶어~',pic:'moon'},
     'Lucas S.':{zodiac:'Geminis',element:'Aire',lang:'🇧🇷 Portugues (Nativo)',learning:'🇰🇷 Coreano',bio:'astronomy and Juego gustaWelcome. Corea, Japon Amigos find!',pic:'star'}
 };
 var picSvg={
@@ -483,13 +483,13 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='Archive됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Cartas has been saved');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Mensajes Seleccionarplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas Gracias! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interes for having thanksdo! 다만 지금 new Penpal 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas well read it! aprendiendo Idioma month라 아쉽지만, good Penpal 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Mensajes Enviar</button>');
+    openModal('<div class="modal-title">Politely Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Mensajes Seleccionarplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas Gracias! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interes for having thanksdo! However 지금 new Penpal 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas well read it! aprendiendo Idioma month라 아쉽지만, good Penpal 만I시길 바랍..</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Mensajes Enviar</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Mensajes Seleccionarplease do');return;}closeModal();showToast(name+'sirto Reject Mensajes sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Reportardoing</div><div class="modal-body">'+name+'sir Reportardoing 유 Seleccionarplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexual거I Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personales!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar received</button>');
+    openModal('<div class="modal-title">Reportardoing</div><div class="modal-body">'+name+'sir Reportardoing 유 Seleccionarplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexualor Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personales!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar received</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Reportar 사유 Seleccionarplease do');return;}closeModal();showToast('Reportar has been received. the team reviews.');}
