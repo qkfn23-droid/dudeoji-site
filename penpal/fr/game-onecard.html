@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('No playable card! (Meme 무늬 또 Meme Nombre만 possible)');
+        alert('No playable card! (Must match suit or number)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;

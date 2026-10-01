@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('No playable card! (Mesmo 무늬 또 Mesmo Numero만 possible)');
+        alert('No playable card! (Must match suit or number)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
