@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — 원カード</title>
+<title>Dudeoji Studio — ワンカード</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -280,12 +280,12 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     </div>
 </nav>
 <div class="tab-bar">
-    <div class="tab-room"><span class="t-emoji">🃏</span> Maria 원カードRoom (4/4)</div>
+    <div class="tab-room"><span class="t-emoji">🃏</span> Maria ワンカードRoom (4/4)</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">원カード シーズン Open! ペンパル 友達 a round try it</div>
-            <div class="notice-text">This week 원カード TOP 3to Star 気 x50 プレゼント!</div>
+            <div class="notice-text active">ワンカード シーズン Open! ペンパル 友達 a round try it</div>
+            <div class="notice-text">This week ワンカード TOP 3to Star 気 x50 プレゼント!</div>
             <div class="notice-text">絵 Match 10month Open 予定! expectしてください</div>
             <div class="notice-text">Star 気 collect オーラ 解放please!</div>
             <div class="notice-text">Current users 127people · 進行 in progress ゲーム 23pcs</div>
@@ -397,7 +397,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- ターン + カード더미 -->
+            <!-- ターン + カードの山 -->
             <div class="table-center">
                 <div class="turn-badge">
                     <div class="turn-text"><span id="turnName">TAZOof ターン</span><span class="turn-timer" id="turnTimer">15</span></div>
@@ -447,12 +447,12 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 ゲーム ルール</div>
             <div class="game-rule">
-                <div class="rule-basic">floor カード <b>数字</b> 또 <b>模様</b> if match 낼 수 available</div>
+                <div class="rule-basic">場のカードと<b>数字</b>か<b>模様</b>が同じなら出せます</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">🔄</span><span>順番 Flip</span></div>
-                    <div class="rule-card"><span class="rc-icon">⛔</span><span>Next ターン 스킵</span></div>
+                    <div class="rule-card"><span class="rc-icon">⛔</span><span>次のターンスキップ</span></div>
                     <div class="rule-card"><span class="rc-icon">7️⃣</span><span>模様 change</span></div>
                 </div>
             </div>
@@ -473,10 +473,10 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[通知]</span> Maria 원カードRoom joined</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> Maria ワンカードRoom joined</div>
             <div class="chat-msg"><span class="sys">[通知]</span> Hana K.has joined</div>
             <div class="chat-msg"><span class="sys">[通知]</span> Jun P.has joined</div>
-            <div class="chat-msg"><span class="user">Maria:</span> こんにちは! 원カード lets~ 😄</div>
+            <div class="chat-msg"><span class="user">Maria:</span> こんにちは! ワンカードしよう~ 😄</div>
             <div class="chat-msg"><span class="user">Hana:</span> 好き 開始lets!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
             <div class="chat-msg"><span class="sys">[通知]</span> ゲーム 開始されました!</div>
@@ -541,13 +541,13 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">🌙</div>
-                <div class="friend-info"><div class="friend-name">Alex</div><div class="friend-status">오프ライン</div></div>
+                <div class="friend-info"><div class="friend-name">Alex</div><div class="friend-status">オフライン</div></div>
                 <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">招待</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">💤</div>
-                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">오프ライン</div></div>
+                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">オフライン</div></div>
                 <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">招待</button>
             </div>
         </div>
@@ -594,14 +594,14 @@ function startTurnTimer() {
 function skipTurn() {
     addLog('<span class="sys">[通知]</span> 時間 Exceeded! ターン moves on');
     drawCard();
-    addLog('<span class="sys">[通知]</span> パネル티: カード 1pcs 뽑기');
+    addLog('<span class="sys">[通知]</span> ペナルティ: カード1枚引き');
     startTurnTimer();
 }
 startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without カード! (同じ 模様 또 同じ 数字만 possible)');
+        alert('出せるカードがありません！(同じ模様か同じ数字のみ)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -629,7 +629,7 @@ function drawCard() {
     card.innerHTML = '<div class="card-num">' + n + '</div><div class="card-suit">' + s + '</div>';
     hand.appendChild(card);
     updateCount();
-    addLog('<span class="sys">[通知]</span> カード 1pcs 뽑음');
+    addLog('<span class="sys">[通知]</span> カード1枚引きました');
     startTurnTimer();
 }
 function updateCount() {
@@ -706,7 +706,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','원カード pros only!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','ワンカード上級者だけ!! 🔥');},15000);
 
 // お知らせ Ticker
 var noticeIdx=0;

@@ -622,7 +622,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="room-list" id="roomListChat" style="display:none;">
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">Free おしゃべり部屋</div><div class="r-desc">아무 トピックI OK! 편하to 들어~ 😊</div></div>
+                <div class="r-info"><div class="r-name">Free おしゃべり部屋</div><div class="r-desc">どんなトピックもOK！気楽にどうぞ~ 😊</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
@@ -711,7 +711,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     </div>
                     <div class="guild-feed-card">
                         <div class="gf-word">おはよう</div>
-                        <div class="gf-trans">良い 아침</div>
+                        <div class="gf-trans">おはようございます</div>
                         <div class="gf-meta"><span class="gf-guild">♊ Luna Wolves</span></div>
                     </div>
                     <div class="guild-feed-card">
@@ -721,7 +721,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     </div>
                     <div class="guild-feed-card">
                         <div class="gf-word">Saudade</div>
-                        <div class="gf-trans">恋しさ (翻訳 火가)</div>
+                        <div class="gf-trans">恋しさ (翻訳準備中)</div>
                         <div class="gf-meta"><span class="gf-guild">♌ Stellar Lions</span></div>
                     </div>
                     <div class="guild-feed-card">
@@ -801,7 +801,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <div class="chat-box">
         <div class="chat-msgs" id="chatMsgs">
             <div class="c-msg"><span class="sys">[通知]</span> Welcome to Dudeoji Studio!</div>
-            <div class="c-msg"><span class="nm c1">Maria:</span> 誰 ワンカード wants to play~ 😄</div>
+            <div class="c-msg"><span class="nm c1">Maria:</span> 誰かワンカードしない?~ 😄</div>
             <div class="c-msg"><span class="nm c2">Yuki:</span> I want to! Make a room</div>
             <div class="c-msg"><span class="sys">[通知]</span> Mariahas Room created</div>
             <div class="c-msg"><span class="nm c3">Felix:</span> Me too, joining!</div>
@@ -850,7 +850,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <option>🇩🇪 Deutsch</option>
                 <option>🇫🇷 Français</option>
                 <option>🇵🇹 Português</option>
-                <option>🌍 아무 言語</option>
+                <option>🌍 すべての言語</option>
             </select>
         </div>
         <div class="modal-field">
@@ -925,7 +925,7 @@ function selectP(el){
 }
 function createRoom(){
     closeModal();
-    alert('Room was created! (데모)');
+    alert('Room was created! (デモ)');
 }
 document.getElementById('modal').addEventListener('click',function(e){
     if(e.target===this)closeModal();
@@ -972,8 +972,8 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-// 데모: 15sec after メガホン 1times show
-setTimeout(function(){showMegaphone('Maria','ワンカード pros only!! 🔥');},15000);
+// デモ: 15sec after メガホン 1times show
+setTimeout(function(){showMegaphone('Maria','ワンカード上級者だけ!! 🔥');},15000);
 
 </script>
 

@@ -224,9 +224,9 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">絵 Match シーズン Open! 누 더 빨리 찾까?</div>
+            <div class="notice-text active">絵合わせシーズンオープン！誰が一番早く見つける?</div>
             <div class="notice-text">This week 絵 Match TOP 3to Star 気 x50 プレゼント!</div>
-            <div class="notice-text">원カードtoo 같 Enjoy!</div>
+            <div class="notice-text">ワンカードも一緒に楽しもう!</div>
             <div class="notice-text">Star 気 collect オーラ 解放please!</div>
             <div class="notice-text">Current users 127people · 進行 in progress ゲーム 23pcs</div>
         </div>
@@ -303,7 +303,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="game-rule">
                 <div class="rule-basic">
                     カード 2pcs flip <b>同じ 絵</b> find!<br><br>
-                    pair if match <b>+1점</b> 獲得and one 번 더!<br>
+                    ペアを合わせると<b>+1点</b>獲得、もう一回!<br>
                     if wrong 相手Room ターンto moves on.<br><br>
                     all pair when found ゲーム end!
                 </div>
@@ -381,7 +381,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">💤</div>
-                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">오프ライン</div></div>
+                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">オフライン</div></div>
                 <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">招待</button>
             </div>
         </div>
@@ -469,7 +469,7 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! 相手 ターンto...';
+                document.getElementById('matchMsg').textContent = '残念！相手のターンへ...';
                 addLog('<span class="sys">[通知]</span> Mariaof ターンis');
                 flipped = [];
                 setTimeout(function(){
