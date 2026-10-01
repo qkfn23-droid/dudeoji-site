@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Instagram - October 2026 Horoscope</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #333; display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; justify-content: center; }
+
+.slide {
+    width: 1080px;
+    height: 1350px;
+    background: #0a0a1a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    page-break-after: always;
+}
+
+/* 별 배경 */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1.5px 1.5px at 40% 10%, rgba(201,168,76,0.4), transparent),
+        radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 85% 60%, rgba(201,168,76,0.3), transparent),
+        radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 90% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(201,168,76,0.2), transparent),
+        radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.3), transparent);
+    z-index: 0;
+}
+
+.slide > * { position: relative; z-index: 1; }
+
+/* 테두리 장식 */
+.border-frame {
+    position: absolute;
+    top: 30px; left: 30px; right: 30px; bottom: 30px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    z-index: 1;
+}
+.border-frame::before {
+    content: '✦';
+    position: absolute;
+    top: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(201,168,76,0.5);
+    font-size: 14px;
+    background: #0a0a1a;
+    padding: 0 10px;
+}
+.border-frame::after {
+    content: '✦';
+    position: absolute;
+    bottom: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(201,168,76,0.5);
+    font-size: 14px;
+    background: #0a0a1a;
+    padding: 0 10px;
+}
+
+/* 표지 */
+.cover-moon { margin-bottom: 30px; }
+.cover-title {
+    font-size: 72px;
+    color: #c9a84c;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.cover-sub {
+    font-size: 36px;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 12px;
+    margin-bottom: 50px;
+}
+.cover-line {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+    margin: 20px 0;
+}
+.cover-year {
+    font-size: 28px;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: 8px;
+}
+.cover-brand {
+    position: absolute;
+    bottom: 60px;
+    font-size: 22px;
+    color: rgba(201,168,76,0.3);
+    letter-spacing: 4px;
+}
+
+/* 별자리 슬라이드 */
+.zodiac-symbol {
+    font-size: 160px;
+    margin-bottom: 20px;
+    color: #c9a84c;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+}
+.zodiac-name {
+    font-size: 52px;
+    color: #c9a84c;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 6px;
+}
+.zodiac-date {
+    font-size: 22px;
+    color: rgba(201,168,76,0.45);
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+.zodiac-divider {
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+    margin-bottom: 40px;
+}
+.zodiac-text {
+    font-size: 30px;
+    color: #e0d8cc;
+    line-height: 1.9;
+    text-align: center;
+    max-width: 780px;
+    padding: 0 60px;
+    word-break: keep-all;
+}
+.zodiac-keyword {
+    margin-top: 50px;
+    font-size: 20px;
+    color: rgba(201,168,76,0.5);
+    letter-spacing: 6px;
+}
+.zodiac-ruling {
+    margin-top: 14px;
+    font-size: 18px;
+    color: rgba(201,168,76,0.35);
+    letter-spacing: 2px;
+}
+.slide-brand {
+    position: absolute;
+    bottom: 50px;
+    font-size: 18px;
+    color: rgba(201,168,76,0.25);
+    letter-spacing: 3px;
+}
+.slide-num {
+    position: absolute;
+    top: 50px;
+    right: 55px;
+    font-size: 16px;
+    color: rgba(201,168,76,0.25);
+    letter-spacing: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- 1. 표지 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="cover-moon"><svg viewBox="0 0 120 120" width="180" height="180" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="cover-title">October</div>
+    <div class="cover-sub">HOROSCOPE</div>
+    <div class="cover-line"></div>
+    <div class="cover-year">2 0 2 6</div>
+    <div class="cover-brand">MOGU MOON</div>
+</div>
+
+<!-- 2. Aries -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♈</div>
+    <div class="zodiac-name">ARIES</div>
+    <div class="zodiac-date">Mar 21 — Apr 19</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Mars, your ruler, enters a domicile of authority.<br><br>
+        The malefic heat drives action without counsel.<br>
+        Temper iron before it breaks — restraint now<br>
+        yields command later. Old debts resurface;<br>
+        settle them before the New Moon.
+    </div>
+    <div class="zodiac-keyword">✦ RESTRAINT · AUTHORITY ✦</div>
+    <div class="zodiac-ruling">Ruler: Mars · Exaltation: Sun</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 3. Taurus -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♉</div>
+    <div class="zodiac-name">TAURUS</div>
+    <div class="zodiac-date">Apr 20 — May 20</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Venus traverses your house of sustenance.<br><br>
+        What was sown in spring now bears fruit.<br>
+        Guard your resources — the fixed nature<br>
+        of your sign resists change, yet the stars<br>
+        demand you release what no longer nourishes.
+    </div>
+    <div class="zodiac-keyword">✦ HARVEST · RELEASE ✦</div>
+    <div class="zodiac-ruling">Ruler: Venus · Exaltation: Moon</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 4. Gemini -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♊</div>
+    <div class="zodiac-name">GEMINI</div>
+    <div class="zodiac-date">May 21 — Jun 20</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Mercury, your lord, stations in a nocturnal sign.<br><br>
+        Words carry double weight this month.<br>
+        The twin nature seeks two paths —<br>
+        choose one and commit. Contracts<br>
+        and written agreements find favour<br>
+        after the 15th.
+    </div>
+    <div class="zodiac-keyword">✦ COMMITMENT · WORD ✦</div>
+    <div class="zodiac-ruling">Ruler: Mercury · Triplicity: Saturn (night)</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 5. Cancer -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♋</div>
+    <div class="zodiac-name">CANCER</div>
+    <div class="zodiac-date">Jun 21 — Jul 22</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        The Moon, your luminary, waxes through<br>
+        the house of ancestry and root.<br><br>
+        Matters of home and lineage demand attention.<br>
+        The shell that protects you also confines —<br>
+        open the door to those who have earned trust.
+    </div>
+    <div class="zodiac-keyword">✦ HOME · TRUST ✦</div>
+    <div class="zodiac-ruling">Ruler: Moon · Exaltation: Jupiter</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 6. Leo -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♌</div>
+    <div class="zodiac-name">LEO</div>
+    <div class="zodiac-date">Jul 23 — Aug 22</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        The Sun, your domicile lord, enters Libra —<br>
+        the sign of its fall.<br><br>
+        Pride must yield to diplomacy.<br>
+        The throne is secure, but allies are needed.<br>
+        Seek counsel from those born under Saturn's signs.
+    </div>
+    <div class="zodiac-keyword">✦ DIPLOMACY · ALLIANCE ✦</div>
+    <div class="zodiac-ruling">Ruler: Sun · Fall in Libra</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 7. Virgo -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♍</div>
+    <div class="zodiac-name">VIRGO</div>
+    <div class="zodiac-date">Aug 23 — Sep 22</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Mercury rules both your sign and its exaltation here.<br><br>
+        Precision serves you — accounts, health,<br>
+        daily ritual all respond to careful order.<br>
+        The harvest goddess rewards discipline,<br>
+        not inspiration. Attend to the body.
+    </div>
+    <div class="zodiac-keyword">✦ DISCIPLINE · HEALTH ✦</div>
+    <div class="zodiac-ruling">Ruler: Mercury · Exaltation: Mercury</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 8. Libra -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♎</div>
+    <div class="zodiac-name">LIBRA</div>
+    <div class="zodiac-date">Sep 23 — Oct 22</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Your season. Venus graces your first house —<br>
+        the native returns to power.<br><br>
+        Saturn, exalted in your sign, demands<br>
+        that beauty be built on structure.<br>
+        Partnerships forged now carry the weight<br>
+        of lasting bonds.
+    </div>
+    <div class="zodiac-keyword">✦ POWER · BOND ✦</div>
+    <div class="zodiac-ruling">Ruler: Venus · Exaltation: Saturn</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 9. Scorpio -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♏</div>
+    <div class="zodiac-name">SCORPIO</div>
+    <div class="zodiac-date">Oct 23 — Nov 21</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Mars, your traditional ruler, stirs the<br>
+        12th house — the house of hidden enemies.<br><br>
+        What festers in darkness must be cut.<br>
+        The scorpion sheds its skin before winter.<br>
+        Solitude is not exile; it is preparation.
+    </div>
+    <div class="zodiac-keyword">✦ PURGE · PREPARATION ✦</div>
+    <div class="zodiac-ruling">Ruler: Mars (traditional) · Fall: Moon</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 10. Sagittarius -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♐</div>
+    <div class="zodiac-name">SAGITTARIUS</div>
+    <div class="zodiac-date">Nov 22 — Dec 21</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Jupiter, the greater benefic and your lord,<br>
+        aspects your 11th house of good fortune.<br><br>
+        Allies appear from foreign lands or<br>
+        distant places. The arrow flies true<br>
+        when aimed with philosophy, not impulse.
+    </div>
+    <div class="zodiac-keyword">✦ FORTUNE · PHILOSOPHY ✦</div>
+    <div class="zodiac-ruling">Ruler: Jupiter · Triplicity: Sun (day)</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 11. Capricorn -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♑</div>
+    <div class="zodiac-name">CAPRICORN</div>
+    <div class="zodiac-date">Dec 22 — Jan 19</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Saturn, your domicile lord, casts its<br>
+        cold gaze upon the 10th house of rank.<br><br>
+        Advancement comes through endurance,<br>
+        not haste. Mars exalted in your sign<br>
+        grants the strength to climb — slowly,<br>
+        and without falling.
+    </div>
+    <div class="zodiac-keyword">✦ ENDURANCE · RANK ✦</div>
+    <div class="zodiac-ruling">Ruler: Saturn · Exaltation: Mars</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 12. Aquarius -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♒</div>
+    <div class="zodiac-name">AQUARIUS</div>
+    <div class="zodiac-date">Jan 20 — Feb 18</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Saturn, your traditional ruler, occupies<br>
+        a place of journeys and foreign doctrine.<br><br>
+        Knowledge sought abroad bears fruit.<br>
+        The water-bearer pours not for self<br>
+        but for the community — teach what<br>
+        you have learned.
+    </div>
+    <div class="zodiac-keyword">✦ KNOWLEDGE · SERVICE ✦</div>
+    <div class="zodiac-ruling">Ruler: Saturn (traditional) · Detriment: Sun</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 13. Pisces -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">OCTOBER 2026</div>
+    <div class="zodiac-symbol">♓</div>
+    <div class="zodiac-name">PISCES</div>
+    <div class="zodiac-date">Feb 19 — Mar 20</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        Jupiter, your traditional lord, and Venus,<br>
+        exalted in your sign, align this month.<br><br>
+        The two benefics bestow grace upon matters<br>
+        of the heart and spirit. Dreams carry<br>
+        messages — record them before dawn.
+    </div>
+    <div class="zodiac-keyword">✦ GRACE · DREAMS ✦</div>
+    <div class="zodiac-ruling">Ruler: Jupiter (traditional) · Exaltation: Venus</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+</body>
+</html>

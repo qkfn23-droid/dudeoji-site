@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Unidades - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es Convertidor de Unidades gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar Convertidor de Unidades?","acceptedAnswer":{"@type":"Answer","text":"Convierte unidades de longitud, peso, área, volumen y velocidad de forma sencilla."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/unit-convert.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/unit-convert.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/unit-convert.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/unit-convert.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/unit-convert.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/unit-convert.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/unit-convert.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/unit-convert.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/unit-convert.html">
+    <meta property="og:title" content="Convertidor de Unidades - MOGU Tools">
+    <meta property="og:description" content="Convierte unidades de longitud, peso, área, volumen y velocidad de forma sencilla.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/unit-convert.html">
+    <meta name="description" content="Convierte unidades de longitud, peso, área, volumen y velocidad de forma sencilla.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* Category tabs */
+        .tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            background: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.18s;
+        }
+
+        .tab-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            border-color: #4a90d9;
+            color: #fff;
+        }
+
+        /* Main calc box */
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .converter-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .converter-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .converter-side select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            background: #fff;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
+        }
+
+        .converter-side select:focus {
+            border-color: #4a90d9;
+        }
+
+        .converter-side input {
+            width: 100%;
+            padding: 14px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: 600;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #222;
+        }
+
+        .converter-side input:focus {
+            border-color: #4a90d9;
+        }
+
+        .converter-side input.result-input {
+            background: #f8f9fa;
+            color: #4a90d9;
+            cursor: default;
+        }
+
+        .side-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Swap button */
+        .swap-btn {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
+            background: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.18s;
+            margin-top: 28px;
+            color: #666;
+        }
+
+        .swap-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+            background: #eef4fb;
+        }
+
+        /* Formula hint */
+        .formula-hint {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 13px;
+            color: #bbb;
+            min-height: 18px;
+        }
+
+        /* Info section */
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .converter-row {
+                gap: 6px;
+            }
+            .converter-side input {
+                font-size: 18px;
+            }
+            .swap-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 15px;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Herramientas</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; Convertidores &gt; Convertidor de Unidades
+</div>
+
+<div class="container">
+    <h1>Convertidor de Unidades</h1>
+    <p class="subtitle">Convierte unidades de longitud, peso, área, volumen y velocidad en tiempo real.</p>
+
+    <!-- Category tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchCategory('length')">Longitud</button>
+        <button class="tab-btn" onclick="switchCategory('weight')">Peso</button>
+        <button class="tab-btn" onclick="switchCategory('area')">Área</button>
+        <button class="tab-btn" onclick="switchCategory('volume')">Volumen</button>
+        <button class="tab-btn" onclick="switchCategory('speed')">Velocidad</button>
+    </div>
+
+    <div class="calc-box">
+        <div class="converter-row">
+            <!-- From side -->
+            <div class="converter-side">
+                <span class="side-label">Desde</span>
+                <select id="fromUnit" onchange="convert()"></select>
+                <input type="number" id="fromVal" placeholder="0" oninput="convert()" autocomplete="off">
+            </div>
+
+            <!-- Swap button -->
+            <button class="swap-btn" onclick="swapUnits()" title="Intercambiar unidades">&#8644;</button>
+
+            <!-- To side -->
+            <div class="converter-side">
+                <span class="side-label">Hasta</span>
+                <select id="toUnit" onchange="convert()"></select>
+                <input type="number" id="toVal" class="result-input" placeholder="0" readonly>
+            </div>
+        </div>
+
+        <div class="formula-hint" id="formulaHint"></div>
+    </div>
+
+    <div class="info-section">
+        <h2>Cómo usar</h2>
+        <p>
+            Seleccione el tipo de unidad en las pestañas superiores.<br>
+            Elija la unidad de origen en el menú desplegable izquierdo y la unidad de destino en el derecho, luego ingrese un número para ver el resultado al instante.<br>
+            Pulse el botón &#8644; para intercambiar las dos unidades.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Convertidor de Unidades</h2><p>Convierte unidades de longitud, peso, área, volumen y velocidad de forma sencilla.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="temp-convert.html">Convertidor de Temperatura</a><a href="file-size.html">Conversor de Tamaño de Archivo</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    // ── Unit definitions ──────────────────────────────────────────────────────
+    // Each unit stores a factor that converts TO a common base unit.
+    // Base units: m / g / m² / mL / m·s⁻¹
+
+    const categories = {
+        length: {
+            label: 'Longitud',
+            base: 'm',
+            units: [
+                { key: 'mm',  label: 'mm (milímetro)',    factor: 0.001 },
+                { key: 'cm',  label: 'cm (centímetro)',   factor: 0.01  },
+                { key: 'm',   label: 'm (metro)',         factor: 1     },
+                { key: 'km',  label: 'km (kilómetro)',    factor: 1000  },
+                { key: 'in',  label: 'in (pulgada)',      factor: 0.0254 },
+                { key: 'ft',  label: 'ft (pie)',          factor: 0.3048 },
+                { key: 'yd',  label: 'yd (yarda)',        factor: 0.9144 },
+                { key: 'mi',  label: 'mi (milla)',        factor: 1609.344 },
+            ]
+        },
+        weight: {
+            label: 'Peso',
+            base: 'g',
+            units: [
+                { key: 'mg',  label: 'mg (miligramo)',    factor: 0.001 },
+                { key: 'g',   label: 'g (gramo)',         factor: 1     },
+                { key: 'kg',  label: 'kg (kilogramo)',    factor: 1000  },
+                { key: 't',   label: 't (tonelada)',      factor: 1e6   },
+                { key: 'oz',  label: 'oz (onza)',         factor: 28.3495 },
+                { key: 'lb',  label: 'lb (libra)',        factor: 453.592 },
+            ]
+        },
+        area: {
+            label: 'Área',
+            base: 'm²',
+            units: [
+                { key: 'mm2',  label: 'mm² (milímetro²)',  factor: 1e-6        },
+                { key: 'cm2',  label: 'cm² (centímetro²)', factor: 1e-4        },
+                { key: 'm2',   label: 'm² (metro²)',       factor: 1           },
+                { key: 'km2',  label: 'km² (kilómetro²)',  factor: 1e6         },
+                { key: 'ft2',  label: 'ft² (pie²)',        factor: 0.092903    },
+                { key: 'pyeong', label: 'pyeong',          factor: 3.30579     },
+                { key: 'acre', label: 'acre',              factor: 4046.86     },
+                { key: 'ha',   label: 'hectárea',          factor: 10000       },
+            ]
+        },
+        volume: {
+            label: 'Volumen',
+            base: 'mL',
+            units: [
+                { key: 'mL',   label: 'mL (mililitro)',   factor: 1           },
+                { key: 'L',    label: 'L (litro)',         factor: 1000        },
+                { key: 'm3',   label: 'm³ (metro³)',       factor: 1e6         },
+                { key: 'cc',   label: 'cc',                factor: 1           },
+                { key: 'gal',  label: 'galón (US)',        factor: 3785.41     },
+                { key: 'floz', label: 'onza (fl oz)',      factor: 29.5735     },
+            ]
+        },
+        speed: {
+            label: 'Velocidad',
+            base: 'm/s',
+            units: [
+                { key: 'ms',   label: 'm/s (metro/s)',     factor: 1           },
+                { key: 'kmh',  label: 'km/h (kilómetro/h)', factor: 1/3.6     },
+                { key: 'mph',  label: 'mph (milla/h)',     factor: 0.44704     },
+                { key: 'knot', label: 'knot (nudo)',        factor: 0.514444    },
+            ]
+        }
+    };
+
+    let currentCategory = 'length';
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+
+    function populateSelects(catKey) {
+        const cat = categories[catKey];
+        const fromSel = document.getElementById('fromUnit');
+        const toSel   = document.getElementById('toUnit');
+        fromSel.innerHTML = '';
+        toSel.innerHTML   = '';
+        cat.units.forEach((u, i) => {
+            fromSel.innerHTML += `<option value="${u.key}">${u.label}</option>`;
+            toSel.innerHTML   += `<option value="${u.key}">${u.label}</option>`;
+        });
+        // Default: first -> second
+        fromSel.selectedIndex = 0;
+        toSel.selectedIndex   = 1;
+    }
+
+    function getUnit(catKey, key) {
+        return categories[catKey].units.find(u => u.key === key);
+    }
+
+    function formatResult(num) {
+        if (num === null || isNaN(num)) return '';
+        // Show up to 10 significant digits but trim trailing zeros
+        if (Math.abs(num) >= 1e10 || (Math.abs(num) < 1e-6 && num !== 0)) {
+            return parseFloat(num.toExponential(6)).toString();
+        }
+        // Round to at most 8 decimal places
+        const rounded = parseFloat(num.toPrecision(10));
+        return parseFloat(rounded.toFixed(8)).toString();
+    }
+
+    function convert() {
+        const fromVal = parseFloat(document.getElementById('fromVal').value);
+        const fromKey = document.getElementById('fromUnit').value;
+        const toKey   = document.getElementById('toUnit').value;
+
+        const fromUnit = getUnit(currentCategory, fromKey);
+        const toUnit   = getUnit(currentCategory, toKey);
+
+        if (isNaN(fromVal) || !fromUnit || !toUnit) {
+            document.getElementById('toVal').value = '';
+            document.getElementById('formulaHint').textContent = '';
+            return;
+        }
+
+        // Convert: fromVal → base → toVal
+        const baseVal = fromVal * fromUnit.factor;
+        const result  = baseVal / toUnit.factor;
+
+        document.getElementById('toVal').value = formatResult(result);
+
+        // Formula hint
+        const ratio = formatResult(fromUnit.factor / toUnit.factor);
+        document.getElementById('formulaHint').textContent =
+            `1 ${fromKey} = ${ratio} ${toKey}`;
+    }
+
+    function swapUnits() {
+        const fromSel = document.getElementById('fromUnit');
+        const toSel   = document.getElementById('toUnit');
+        const fromKey = fromSel.value;
+        const toKey   = toSel.value;
+
+        // Swap selections
+        fromSel.value = toKey;
+        toSel.value   = fromKey;
+
+        // Move result value to input and re-convert
+        const resultVal = document.getElementById('toVal').value;
+        document.getElementById('fromVal').value = resultVal;
+        convert();
+    }
+
+    function switchCategory(catKey) {
+        currentCategory = catKey;
+
+        // Update tab styles
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        // Reset fields
+        document.getElementById('fromVal').value = '';
+        document.getElementById('toVal').value   = '';
+        document.getElementById('formulaHint').textContent = '';
+
+        populateSelects(catKey);
+    }
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+    populateSelects(currentCategory);
+</script>
+
+</body>
+</html>

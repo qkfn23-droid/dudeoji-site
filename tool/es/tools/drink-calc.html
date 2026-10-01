@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de alcohol - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es Calculadora de alcohol gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar Calculadora de alcohol?","acceptedAnswer":{"@type":"Answer","text":"Calcula la tasa de alcohol en sangre (BAC) y el tiempo estimado hasta poder conducir. Basado en la fórmula de Widmark."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/drink-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/drink-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/drink-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/drink-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/drink-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/drink-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/drink-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/drink-calc.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/drink-calc.html">
+    <meta property="og:title" content="Calculadora de alcohol - MOGU Tools">
+    <meta property="og:description" content="Calcula la tasa de alcohol en sangre (BAC) y el tiempo estimado hasta poder conducir. Basado en la fórmula de Widmark.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/drink-calc.html">
+    <meta name="description" content="Calcula la tasa de alcohol en sangre (BAC) y el tiempo estimado hasta poder conducir. Basado en la fórmula de Widmark.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 600px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 600px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+
+        .calc-box { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #555; }
+        .input-row { display: flex; gap: 8px; }
+        .input-row select, .input-row input { flex: 1; padding: 12px 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; outline: none; }
+        .input-row select:focus, .input-row input:focus { border-color: #4a90d9; }
+
+        .drink-list { margin-bottom: 16px; }
+        .drink-item { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .drink-item select { flex: 2; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+        .drink-item input { width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; text-align: center; }
+        .drink-item .unit { font-size: 12px; color: #888; }
+        .drink-item .remove { background: none; border: none; font-size: 18px; cursor: pointer; color: #e74c3c; padding: 4px; }
+        .add-drink { background: none; border: 1px dashed #ccc; border-radius: 8px; padding: 10px; width: 100%; cursor: pointer; color: #888; font-size: 14px; }
+        .add-drink:hover { border-color: #4a90d9; color: #4a90d9; }
+
+        .calc-btn { width: 100%; padding: 14px; background: #4a90d9; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+        .calc-btn:hover { background: #3a7bc8; }
+
+        .result { display: none; margin-top: 24px; }
+        .bac-display { text-align: center; padding: 30px; border-radius: 12px; margin-bottom: 16px; }
+        .bac-display .bac-value { font-size: 48px; font-weight: 700; }
+        .bac-display .bac-label { font-size: 14px; margin-top: 4px; }
+        .bac-display .bac-status { font-size: 18px; font-weight: 600; margin-top: 8px; }
+        .bac-safe { background: #f0f9f0; }
+        .bac-safe .bac-value { color: #27ae60; }
+        .bac-warn { background: #fef9e7; }
+        .bac-warn .bac-value { color: #f39c12; }
+        .bac-danger { background: #fdf0f0; }
+        .bac-danger .bac-value { color: #e74c3c; }
+
+        .time-info { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; }
+        .time-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .time-row:last-child { border-bottom: none; }
+        .time-row .label { color: #666; }
+        .time-row .value { font-weight: 600; color: #333; }
+
+        .warning { background: #fdf0f0; border: 1px solid #f5c6cb; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #c0392b; margin-top: 16px; }
+        .info-section { margin-top: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; }
+        .info-section h2 { font-size: 16px; margin-bottom: 12px; color: #555; }
+        .info-section p { font-size: 14px; color: #666; line-height: 1.7; }
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; Calculadoras &gt; Calculadora de alcohol
+</div>
+
+<div class="container">
+    <h1>Calculadora de alcohol</h1>
+    <p class="subtitle">Calcula la tasa de alcohol en sangre (BAC) y el tiempo estimado hasta poder conducir.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>Peso (kg)</label>
+            <div class="input-row">
+                <input type="number" id="weight" value="70" min="30" max="200">
+            </div>
+        </div>
+        <div class="input-group">
+            <label>Sexo</label>
+            <div class="input-row">
+                <select id="gender">
+                    <option value="m">Hombre</option>
+                    <option value="f">Mujer</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-group">
+            <label>Tiempo transcurrido desde que empezó a beber</label>
+            <div class="input-row">
+                <input type="number" id="hours" value="1" min="0" max="48" step="0.5"> horas
+            </div>
+        </div>
+        <div class="input-group">
+            <label>Bebidas consumidas</label>
+            <div class="drink-list" id="drinkList">
+                <div class="drink-item">
+                    <select>
+                        <option value="soju">Soju (16.5%)</option>
+                        <option value="beer">Cerveza (5%)</option>
+                        <option value="wine">Vino (13%)</option>
+                        <option value="makgeolli">Makgeolli (6%)</option>
+                        <option value="whiskey">Whiskey (40%)</option>
+                        <option value="highball">Highball (8%)</option>
+                    </select>
+                    <input type="number" value="2" min="0.5" max="30" step="0.5">
+                    <span class="unit">vasos</span>
+                    <button class="remove" onclick="this.parentElement.remove()">×</button>
+                </div>
+            </div>
+            <button class="add-drink" onclick="addDrink()">+ Añadir bebida</button>
+        </div>
+        <button class="calc-btn" onclick="calculate()">🍺 Calcular</button>
+    </div>
+
+    <div class="result" id="result">
+        <div class="bac-display" id="bacDisplay">
+            <div class="bac-value" id="bacValue">-</div>
+            <div class="bac-label">Tasa de alcohol en sangre (%)</div>
+            <div class="bac-status" id="bacStatus">-</div>
+        </div>
+        <div class="time-info" id="timeInfo"></div>
+        <div class="warning">
+            ⚠️ <strong>Advertencia:</strong> Esta calculadora es una <strong>estimación</strong> basada en la fórmula de Widmark. El BAC real puede variar según factores individuales (constitución, ingesta de alimentos, función hepática, etc.). <strong>Nunca conduzca después de beber.</strong>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Fórmula de Widmark</h2>
+        <p>
+            <strong>BAC = (alcohol ingerido / peso × ratio de agua corporal) - (tiempo transcurrido × eliminación por hora)</strong><br><br>
+            <strong>Ratio de agua corporal:</strong> Hombre 0.68, Mujer 0.55<br>
+            <strong>Eliminación por hora:</strong> aprox. 0.015% (promedio)<br>
+            <strong>Volumen por vaso:</strong> Soju 50ml, Cerveza 355ml, Vino 150ml, Makgeolli 300ml, Whiskey 30ml, Highball 250ml<br><br>
+            <strong>Límites legales de alcohol al volante (referencia general):</strong><br>
+            • 0.00% – 0.05%: Legal en la mayoría de países<br>
+            • 0.05% – 0.08%: Infracción en muchos países<br>
+            • 0.08% o más: Delito en la mayoría de países
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Calculadora de alcohol</h2><p>Calcula la tasa de alcohol en sangre (BAC) y el tiempo estimado hasta poder conducir. Basado en la fórmula de Widmark.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="bmi.html">Calculadora de IMC</a><a href="tip-calc.html">Calculadora de Propinas</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+const DRINKS = {
+    soju: { abv: 0.165, ml: 50, name: 'Soju' },
+    beer: { abv: 0.05, ml: 355, name: 'Cerveza' },
+    wine: { abv: 0.13, ml: 150, name: 'Vino' },
+    makgeolli: { abv: 0.06, ml: 300, name: 'Makgeolli' },
+    whiskey: { abv: 0.40, ml: 30, name: 'Whiskey' },
+    highball: { abv: 0.08, ml: 250, name: 'Highball' }
+};
+
+function addDrink() {
+    const list = document.getElementById('drinkList');
+    const item = document.createElement('div');
+    item.className = 'drink-item';
+    item.innerHTML = `
+        <select>
+            <option value="soju">Soju (16.5%)</option>
+            <option value="beer">Cerveza (5%)</option>
+            <option value="wine">Vino (13%)</option>
+            <option value="makgeolli">Makgeolli (6%)</option>
+            <option value="whiskey">Whiskey (40%)</option>
+            <option value="highball">Highball (8%)</option>
+        </select>
+        <input type="number" value="1" min="0.5" max="30" step="0.5">
+        <span class="unit">vasos</span>
+        <button class="remove" onclick="this.parentElement.remove()">×</button>
+    `;
+    list.appendChild(item);
+}
+
+function calculate() {
+    const weight = parseFloat(document.getElementById('weight').value) || 70;
+    const gender = document.getElementById('gender').value;
+    const hours = parseFloat(document.getElementById('hours').value) || 0;
+    const waterRatio = gender === 'm' ? 0.68 : 0.55;
+    const elimination = 0.015;
+
+    // Total alcohol consumed (grams)
+    let totalAlcohol = 0;
+    document.querySelectorAll('.drink-item').forEach(item => {
+        const type = item.querySelector('select').value;
+        const cups = parseFloat(item.querySelector('input').value) || 0;
+        const drink = DRINKS[type];
+        totalAlcohol += drink.ml * cups * drink.abv * 0.789; // 0.789 = alcohol density (g/ml)
+    });
+
+    // BAC calculation (Widmark formula)
+    let bac = (totalAlcohol / (weight * 1000 * waterRatio)) * 100;
+    bac = Math.max(0, bac - (hours * elimination));
+    bac = Math.round(bac * 1000) / 1000;
+
+    // Time until below 0.05%
+    const bacNow = bac;
+    const hoursToSafe = bacNow > 0.05 ? ((bacNow - 0.05) / elimination) : 0;
+    const hoursToZero = bacNow > 0 ? (bacNow / elimination) : 0;
+
+    // Display
+    const bacDisplay = document.getElementById('bacDisplay');
+    document.getElementById('bacValue').textContent = bac.toFixed(3) + '%';
+
+    if (bac < 0.05) {
+        bacDisplay.className = 'bac-display bac-safe';
+        document.getElementById('bacStatus').textContent = '✅ Por debajo del límite legal';
+    } else if (bac < 0.08) {
+        bacDisplay.className = 'bac-display bac-warn';
+        document.getElementById('bacStatus').textContent = '⚠️ Zona de riesgo';
+    } else {
+        bacDisplay.className = 'bac-display bac-danger';
+        document.getElementById('bacStatus').textContent = '🚨 Por encima del límite legal';
+    }
+
+    // Time info
+    const now = new Date();
+    const safeTime = new Date(now.getTime() + hoursToSafe * 3600000);
+    const zeroTime = new Date(now.getTime() + hoursToZero * 3600000);
+
+    function fmt(d) {
+        return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    }
+    function fmtH(h) {
+        const hrs = Math.floor(h);
+        const mins = Math.round((h - hrs) * 60);
+        return hrs > 0 ? `${hrs}h ${mins}min` : `${mins}min`;
+    }
+
+    document.getElementById('timeInfo').innerHTML = `
+        <div class="time-row"><span class="label">BAC actual</span><span class="value">${bac.toFixed(3)}%</span></div>
+        <div class="time-row"><span class="label">Alcohol total ingerido</span><span class="value">${totalAlcohol.toFixed(1)}g</span></div>
+        <div class="time-row"><span class="label">Estimado bajo 0.05%</span><span class="value">${bac >= 0.05 ? fmt(safeTime) + ' (en ' + fmtH(hoursToSafe) + ')' : 'Ya por debajo del límite'}</span></div>
+        <div class="time-row"><span class="label">Eliminación completa estimada</span><span class="value">${bac > 0 ? fmt(zeroTime) + ' (en ' + fmtH(hoursToZero) + ')' : 'Ya eliminado'}</span></div>
+        <div class="time-row"><span class="label">Eliminación por hora</span><span class="value">aprox. 0.015%</span></div>
+    `;
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

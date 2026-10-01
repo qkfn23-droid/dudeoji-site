@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Porcentajes - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es Calculadora de Porcentajes gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar Calculadora de Porcentajes?","acceptedAnswer":{"@type":"Answer","text":"Calcule porcentajes, proporciones y tasas de variación de forma fácil y rápida."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/ratio-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/ratio-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/ratio-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/ratio-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/ratio-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/ratio-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/ratio-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/ratio-calc.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/ratio-calc.html">
+    <meta property="og:title" content="Calculadora de Porcentajes - MOGU Tools">
+    <meta property="og:description" content="Calcule porcentajes, proporciones y tasas de variación de forma fácil y rápida.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/ratio-calc.html">
+    <meta name="description" content="Calcule porcentajes, proporciones y tasas de variación de forma fácil y rápida.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 28px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 8px;
+            background: #fff;
+            border: none;
+            font-size: 13px;
+            font-weight: 500;
+            color: #999;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .tab-btn:last-child {
+            border-right: none;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #f0f6ff;
+            color: #4a90d9;
+        }
+
+        /* Mode panels */
+        .mode-panel {
+            display: none;
+        }
+
+        .mode-panel.active {
+            display: block;
+        }
+
+        .formula-hint {
+            font-size: 13px;
+            color: #4a90d9;
+            background: #f0f6ff;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 24px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+            text-align: center;
+            padding: 28px 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .result-number {
+            font-size: 52px;
+            font-weight: 700;
+            color: #4a90d9;
+            line-height: 1;
+        }
+
+        .result-number.positive {
+            color: #5cb85c;
+        }
+
+        .result-number.negative {
+            color: #d9534f;
+        }
+
+        .result-unit {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4a90d9;
+            margin-top: 6px;
+        }
+
+        .result-unit.positive { color: #5cb85c; }
+        .result-unit.negative { color: #d9534f; }
+
+        .result-desc {
+            font-size: 14px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section ul {
+            padding-left: 18px;
+        }
+
+        .info-section li {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Herramientas</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; Calculadoras &gt; Calculadora de Porcentajes
+</div>
+
+<div class="container">
+    <h1>Calculadora de Porcentajes</h1>
+    <p class="subtitle">Calcule porcentajes, proporciones y tasas de variación fácilmente.</p>
+
+    <div class="calc-box">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(0)">Porcentaje</button>
+            <button class="tab-btn" onclick="switchTab(1)">Proporción</button>
+            <button class="tab-btn" onclick="switchTab(2)">Tasa de variación</button>
+        </div>
+
+        <!-- 모드 1: A의 B%는? -->
+        <div class="mode-panel active" id="panel-0">
+            <div class="formula-hint">¿Cuánto es el B% de A?</div>
+            <div class="input-group">
+                <label>A (valor total)</label>
+                <div class="input-row">
+                    <input type="number" id="p-a" placeholder="Ej: 50000">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>B (porcentaje)</label>
+                <div class="input-row">
+                    <input type="number" id="p-b" placeholder="Ej: 15">
+                    <span class="unit">%</span>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcPercent()">Calcular</button>
+            <div class="result" id="result-0">
+                <div class="result-number" id="r0-number">-</div>
+                <div class="result-desc" id="r0-desc">-</div>
+            </div>
+        </div>
+
+        <!-- 모드 2: A는 B의 몇 %? -->
+        <div class="mode-panel" id="panel-1">
+            <div class="formula-hint">¿Qué porcentaje de B es A?</div>
+            <div class="input-group">
+                <label>A (valor a comparar)</label>
+                <div class="input-row">
+                    <input type="number" id="r-a" placeholder="Ej: 30">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>B (valor de referencia)</label>
+                <div class="input-row">
+                    <input type="number" id="r-b" placeholder="Ej: 120">
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcRatio()">Calcular</button>
+            <div class="result" id="result-1">
+                <div class="result-number" id="r1-number">-</div>
+                <div class="result-unit">%</div>
+                <div class="result-desc" id="r1-desc">-</div>
+            </div>
+        </div>
+
+        <!-- 모드 3: 증감률 -->
+        <div class="mode-panel" id="panel-2">
+            <div class="formula-hint">¿Cuál es la tasa de variación de A a B?</div>
+            <div class="input-group">
+                <label>A (valor anterior)</label>
+                <div class="input-row">
+                    <input type="number" id="d-a" placeholder="Ej: 10000">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>B (valor posterior)</label>
+                <div class="input-row">
+                    <input type="number" id="d-b" placeholder="Ej: 13500">
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcChange()">Calcular</button>
+            <div class="result" id="result-2">
+                <div class="result-number" id="r2-number">-</div>
+                <div class="result-unit" id="r2-unit">%</div>
+                <div class="result-desc" id="r2-desc">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Método de cálculo</h2>
+        <ul>
+            <li><b>Porcentaje:</b> A × B ÷ 100</li>
+            <li><b>Proporción:</b> (A ÷ B) × 100</li>
+            <li><b>Tasa de variación:</b> (B − A) ÷ A × 100</li>
+        </ul>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Calculadora de Porcentajes</h2><p>Calcule porcentajes, proporciones y tasas de variación de forma fácil y rápida.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="percent-calc.html">Calculadora de Porcentajes</a><a href="aspect-ratio.html">Calculadora de Relación de Aspecto</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+let currentTab = 0;
+
+function switchTab(idx) {
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.mode-panel').forEach((panel, i) => {
+        panel.classList.toggle('active', i === idx);
+    });
+    currentTab = idx;
+}
+
+function formatNum(n) {
+    if (Number.isInteger(n)) return n.toLocaleString('es-ES');
+    return parseFloat(n.toFixed(4)).toLocaleString('es-ES');
+}
+
+function calcPercent() {
+    const a = parseFloat(document.getElementById('p-a').value);
+    const b = parseFloat(document.getElementById('p-b').value);
+
+    if (isNaN(a) || isNaN(b)) {
+        alert('Por favor, ingrese los valores correctamente.');
+        return;
+    }
+
+    const result = a * b / 100;
+    document.getElementById('r0-number').textContent = formatNum(result);
+    document.getElementById('r0-desc').textContent =
+        formatNum(b) + '% de ' + formatNum(a) + ' = ' + formatNum(result);
+    document.getElementById('result-0').style.display = 'block';
+}
+
+function calcRatio() {
+    const a = parseFloat(document.getElementById('r-a').value);
+    const b = parseFloat(document.getElementById('r-b').value);
+
+    if (isNaN(a) || isNaN(b)) {
+        alert('Por favor, ingrese los valores correctamente.');
+        return;
+    }
+    if (b === 0) {
+        alert('B (valor de referencia) no puede ser 0.');
+        return;
+    }
+
+    const result = (a / b) * 100;
+    document.getElementById('r1-number').textContent = formatNum(result);
+    document.getElementById('r1-desc').textContent =
+        formatNum(a) + ' es el ' + formatNum(result) + '% de ' + formatNum(b);
+    document.getElementById('result-1').style.display = 'block';
+}
+
+function calcChange() {
+    const a = parseFloat(document.getElementById('d-a').value);
+    const b = parseFloat(document.getElementById('d-b').value);
+
+    if (isNaN(a) || isNaN(b)) {
+        alert('Por favor, ingrese los valores correctamente.');
+        return;
+    }
+    if (a === 0) {
+        alert('A (valor anterior) no puede ser 0.');
+        return;
+    }
+
+    const result = ((b - a) / Math.abs(a)) * 100;
+    const rounded = parseFloat(result.toFixed(4));
+    const numEl = document.getElementById('r2-number');
+    const unitEl = document.getElementById('r2-unit');
+    const descEl = document.getElementById('r2-desc');
+
+    const sign = rounded > 0 ? '+' : '';
+    numEl.textContent = sign + formatNum(rounded);
+    unitEl.textContent = '%';
+
+    if (rounded > 0) {
+        numEl.className = 'result-number positive';
+        unitEl.className = 'result-unit positive';
+        descEl.textContent = formatNum(a) + ' → ' + formatNum(b) + '  |  ' + formatNum(Math.abs(rounded)) + '% de aumento';
+    } else if (rounded < 0) {
+        numEl.className = 'result-number negative';
+        unitEl.className = 'result-unit negative';
+        descEl.textContent = formatNum(a) + ' → ' + formatNum(b) + '  |  ' + formatNum(Math.abs(rounded)) + '% de disminución';
+    } else {
+        numEl.className = 'result-number';
+        unitEl.className = 'result-unit';
+        descEl.textContent = 'Sin cambios';
+    }
+
+    document.getElementById('result-2').style.display = 'block';
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        if (currentTab === 0) calcPercent();
+        else if (currentTab === 1) calcRatio();
+        else calcChange();
+    }
+});
+</script>
+
+</body>
+</html>

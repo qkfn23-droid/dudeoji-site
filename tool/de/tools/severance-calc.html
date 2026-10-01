@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퇴직금 계산기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Ist 퇴직금 계산기 kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100% kostenlos. Keine Anmeldung erforderlich. Alle Verarbeitung erfolgt im Browser, keine persoenlichen Daten werden an Server gesendet."}},
+    {"@type":"Question","name":"Wie benutze ich 퇴직금 계산기?","acceptedAnswer":{"@type":"Answer","text":"입사일, 퇴사일, 월 기본급을 입력하면 퇴직금 예상액을 계산해드립니다."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/severance-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/severance-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/severance-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/severance-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/severance-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/severance-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/severance-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/severance-calc.html">
+    <link rel="canonical" href="https://mogutool.com/de/tools/severance-calc.html">
+    <meta property="og:title" content="퇴직금 계산기 - MOGU Tools">
+    <meta property="og:description" content="입사일, 퇴사일, 월 기본급을 입력하면 퇴직금 예상액을 계산해드립니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/de/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/de/tools/severance-calc.html">
+    <meta name="description" content="입사일, 퇴사일, 월 기본급을 입력하면 퇴직금 예상액을 계산해드립니다.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group .label-hint {
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 28px 24px 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .result-amount {
+            font-size: 42px;
+            font-weight: 700;
+            color: #4a90d9;
+            letter-spacing: -1px;
+        }
+
+        .result-amount-sub {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+        .result-details {
+            margin-top: 16px;
+            border-radius: 10px;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 13px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row .detail-key {
+            color: #777;
+        }
+
+        .detail-row .detail-val {
+            font-weight: 600;
+            color: #333;
+            text-align: right;
+        }
+
+        .detail-row .detail-val small {
+            display: block;
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .formula-box {
+            margin-top: 16px;
+            background: #eef4fb;
+            border-radius: 10px;
+            padding: 16px 18px;
+            font-size: 13px;
+            color: #4a78a8;
+            line-height: 1.8;
+        }
+
+        .formula-box strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #3a6a9a;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section ul {
+            padding-left: 18px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Kostenlose Online-Tools</a> &gt; 계산기 &gt; 퇴직금 계산기
+</div>
+
+<div class="container">
+    <h1>퇴직금 계산기</h1>
+    <p class="subtitle">입사일과 퇴사일, 임금 정보를 입력하면 퇴직금 예상액을 계산합니다.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>입사일</label>
+            <div class="input-row">
+                <input type="date" id="startDate">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>퇴사일</label>
+            <div class="input-row">
+                <input type="date" id="endDate">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>월 기본급</label>
+            <div class="input-row">
+                <input type="number" id="baseSalary" placeholder="3,000,000" min="0" step="10000">
+                <span class="unit">원</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>연간 상여금 <span class="label-hint">(선택)</span></label>
+            <div class="input-row">
+                <input type="number" id="annualBonus" placeholder="0" min="0" step="10000">
+                <span class="unit">원</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>연차수당 <span class="label-hint">(선택 · 미사용 연차 합산액)</span></label>
+            <div class="input-row">
+                <input type="number" id="leavePay" placeholder="0" min="0" step="10000">
+                <span class="unit">원</span>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">계산하기</button>
+
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="result-label">퇴직금 예상액</div>
+                <div class="result-amount" id="resultAmount">0원</div>
+                <div class="result-amount-sub" id="resultAmountSub"></div>
+            </div>
+
+            <div class="result-details">
+                <div class="detail-row">
+                    <span class="detail-key">재직일수</span>
+                    <span class="detail-val" id="detailDays"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">1일 평균임금</span>
+                    <span class="detail-val" id="detailDailyWage"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">적용된 평균임금 산정 기간</span>
+                    <span class="detail-val" id="detailPeriod"></span>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                <strong>퇴직금 계산식</strong>
+                <span id="formulaText"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>퇴직금이란?</h2>
+        <p>
+            퇴직금은 <strong>1년 이상 근무</strong>한 근로자가 퇴직할 때 받는 법정 급여입니다.
+            근로자퇴직급여 보장법에 따라 사용자는 반드시 지급해야 합니다.
+        </p>
+        <ul>
+            <li>지급 조건: 계속 근로기간 1년 이상, 주 15시간 이상 근무</li>
+            <li>계산 기준: 퇴직 전 3개월 평균임금 × 30일 × (재직일수 ÷ 365)</li>
+            <li>평균임금: 기본급 + 상여금(3개월분) + 연차수당(3개월분) 포함</li>
+            <li>지급 기한: 퇴직일로부터 14일 이내</li>
+        </ul>
+        <p style="margin-top:10px;">
+            본 계산기는 예상액 참고용이며, 실제 퇴직금은 근로계약 조건에 따라 다를 수 있습니다.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>퇴직금 계산기</h2><p>입사일, 퇴사일, 월 기본급을 입력하면 퇴직금 예상액을 계산해드립니다.</p></div>
+<div class="seo-section"><h2>Häufige Fragen</h2><details class="seo-faq"><summary>Ist dieses Tool kostenlos?</summary><p>Ja, 100% kostenlos. Keine Anmeldung nötig. Alles wird im Browser verarbeitet — keine Daten werden an Server gesendet.</p></details><details class="seo-faq"><summary>Funktioniert es auf dem Handy?</summary><p>Ja, alle Tools sind responsiv und funktionieren auf Smartphones, Tablets und Desktops.</p></details></div>
+<div class="seo-section"><h2>Verwandte Tools</h2><div class="seo-related"><a href="savings-calc.html">적금/예금 이자 계산기</a><a href="percent-calc.html">Prozentrechner</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+function formatWon(n) {
+    return Math.round(n).toLocaleString('ko-KR') + '원';
+}
+
+function getDaysBetween(start, end) {
+    const msPerDay = 1000 * 60 * 60 * 24;
+    return Math.floor((end - start) / msPerDay);
+}
+
+function formatDuration(totalDays) {
+    const years = Math.floor(totalDays / 365);
+    const remaining = totalDays - years * 365;
+    const months = Math.floor(remaining / 30);
+    const days = remaining - months * 30;
+    let parts = [];
+    if (years > 0) parts.push(years + '년');
+    if (months > 0) parts.push(months + '개월');
+    if (days > 0) parts.push(days + '일');
+    return parts.join(' ');
+}
+
+function calculate() {
+    const startVal = document.getElementById('startDate').value;
+    const endVal = document.getElementById('endDate').value;
+    const baseSalary = parseFloat(document.getElementById('baseSalary').value) || 0;
+    const annualBonus = parseFloat(document.getElementById('annualBonus').value) || 0;
+    const leavePay = parseFloat(document.getElementById('leavePay').value) || 0;
+
+    if (!startVal || !endVal) {
+        alert('입사일과 퇴사일을 입력해주세요.');
+        return;
+    }
+
+    const startDate = new Date(startVal);
+    const endDate = new Date(endVal);
+
+    if (endDate <= startDate) {
+        alert('퇴사일은 입사일 이후여야 합니다.');
+        return;
+    }
+
+    if (baseSalary <= 0) {
+        alert('월 기본급을 올바르게 입력해주세요.');
+        return;
+    }
+
+    const totalDays = getDaysBetween(startDate, endDate);
+
+    if (totalDays < 365) {
+        alert('재직일수가 1년(365일) 미만이면 퇴직금이 발생하지 않습니다.\n현재 재직일수: ' + totalDays + '일');
+        return;
+    }
+
+    // 평균임금 계산 (퇴직 전 3개월 기준)
+    // 3개월 임금 = 기본급 × 3 + 상여금 × (3/12) + 연차수당 × (3/12)
+    const threeMonthBase = baseSalary * 3;
+    const threeMonthBonus = annualBonus * (3 / 12);
+    const threeMonthLeave = leavePay * (3 / 12);
+    const threeMonthTotal = threeMonthBase + threeMonthBonus + threeMonthLeave;
+
+    // 3개월을 91일로 환산 (법정 기준)
+    const avgDailyWage = threeMonthTotal / 91;
+
+    // 퇴직금 = 1일 평균임금 × 30 × (재직일수 / 365)
+    const severancePay = avgDailyWage * 30 * (totalDays / 365);
+
+    // 결과 표시
+    document.getElementById('resultAmount').textContent = formatWon(severancePay);
+
+    // 만 단위 부가 표시
+    const man = Math.floor(severancePay / 10000);
+    if (man >= 10000) {
+        const eok = Math.floor(man / 10000);
+        const remainMan = man % 10000;
+        document.getElementById('resultAmountSub').textContent =
+            '약 ' + eok + '억 ' + (remainMan > 0 ? remainMan.toLocaleString() + '만원' : '원');
+    } else if (man > 0) {
+        document.getElementById('resultAmountSub').textContent = '약 ' + man.toLocaleString() + '만원';
+    } else {
+        document.getElementById('resultAmountSub').textContent = '';
+    }
+
+    const duration = formatDuration(totalDays);
+    document.getElementById('detailDays').innerHTML =
+        totalDays.toLocaleString() + '일 <small>' + duration + '</small>';
+
+    document.getElementById('detailDailyWage').textContent = formatWon(avgDailyWage);
+
+    document.getElementById('detailPeriod').textContent = '퇴직 전 3개월 (91일 기준)';
+
+    document.getElementById('formulaText').innerHTML =
+        '1일 평균임금 <b>' + Math.round(avgDailyWage).toLocaleString() + '원</b>' +
+        ' × 30일 × (재직일수 ' + totalDays.toLocaleString() + '일 ÷ 365)<br>' +
+        '= <b>' + formatWon(severancePay) + '</b>';
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculate();
+});
+</script>
+
+</body>
+</html>

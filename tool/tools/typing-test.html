@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이핑 속도 테스트 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"타이핑 속도 테스트는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"타이핑 속도 테스트는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"타이핑 속도를 측정하세요. 분당 타수(WPM), 정확도를 실시간으로 확인합니다."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/typing-test.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/typing-test.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/typing-test.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/typing-test.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/typing-test.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/typing-test.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/typing-test.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/typing-test.html">
+    <link rel="canonical" href="https://mogutool.com/tools/typing-test.html">
+    <meta property="og:title" content="타이핑 속도 테스트 - MOGU Tools">
+    <meta property="og:description" content="타이핑 속도를 측정하세요. 분당 타수(WPM), 정확도를 실시간으로 확인합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/typing-test.html">
+    <meta name="description" content="타이핑 속도를 측정하세요. 분당 타수(WPM), 정확도를 실시간으로 확인합니다.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 700px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 700px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+
+        .stats-bar { display: flex; gap: 12px; margin-bottom: 20px; }
+        .stat { flex: 1; background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 14px; text-align: center; }
+        .stat .val { font-size: 28px; font-weight: 700; color: #4a90d9; }
+        .stat .label { font-size: 11px; color: #999; margin-top: 2px; }
+
+        .text-display { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; font-size: 18px; line-height: 1.8; margin-bottom: 16px; min-height: 120px; user-select: none; }
+        .text-display .char { color: #ccc; }
+        .text-display .char.correct { color: #27ae60; }
+        .text-display .char.wrong { color: #e74c3c; text-decoration: underline; }
+        .text-display .char.current { background: #4a90d9; color: #fff; border-radius: 2px; padding: 0 1px; }
+
+        .input-area { margin-bottom: 20px; }
+        .input-area textarea { width: 100%; padding: 16px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; resize: none; height: 80px; outline: none; font-family: inherit; }
+        .input-area textarea:focus { border-color: #4a90d9; }
+        .input-area textarea:disabled { background: #f8f8f8; }
+
+        .controls { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .ctrl-btn { padding: 10px 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff; font-size: 13px; cursor: pointer; transition: all 0.15s; }
+        .ctrl-btn:hover { border-color: #4a90d9; color: #4a90d9; }
+        .ctrl-btn.active { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+
+        .result { display: none; background: #fff; border: 2px solid #4a90d9; border-radius: 16px; padding: 30px; text-align: center; margin-bottom: 20px; }
+        .result .big { font-size: 48px; font-weight: 700; color: #4a90d9; }
+        .result .sub { font-size: 14px; color: #888; margin-top: 4px; }
+        .result .detail { display: flex; justify-content: center; gap: 30px; margin-top: 16px; font-size: 14px; color: #666; }
+
+        .info-section { margin-top: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; }
+        .info-section h2 { font-size: 16px; margin-bottom: 12px; color: #555; }
+        .info-section p { font-size: 14px; color: #666; line-height: 1.7; }
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 도구 &gt; 타이핑 속도 테스트
+</div>
+
+<div class="container">
+    <h1>타이핑 속도 테스트</h1>
+    <p class="subtitle">얼마나 빨리 타이핑할 수 있는지 측정해보세요.</p>
+
+    <div class="controls">
+        <button class="ctrl-btn active" onclick="setTime(30)">30초</button>
+        <button class="ctrl-btn" onclick="setTime(60)">1분</button>
+        <button class="ctrl-btn" onclick="setTime(120)">2분</button>
+        <button class="ctrl-btn" onclick="resetTest()" style="margin-left:auto;">🔄 다시하기</button>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat"><div class="val" id="wpmVal">0</div><div class="label">타수 (WPM)</div></div>
+        <div class="stat"><div class="val" id="accVal">100%</div><div class="label">정확도</div></div>
+        <div class="stat"><div class="val" id="timeVal">30</div><div class="label">남은 시간(초)</div></div>
+    </div>
+
+    <div class="text-display" id="textDisplay"></div>
+
+    <div class="input-area">
+        <textarea id="typingInput" placeholder="위 텍스트를 보고 여기에 타이핑하세요..." oninput="onType()" autofocus></textarea>
+    </div>
+
+    <div class="result" id="result">
+        <div class="big" id="finalWpm">0</div>
+        <div class="sub">WPM (분당 글자 수)</div>
+        <div class="detail">
+            <span>정확도: <strong id="finalAcc">0%</strong></span>
+            <span>맞은 글자: <strong id="finalCorrect">0</strong></span>
+            <span>틀린 글자: <strong id="finalWrong">0</strong></span>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>타이핑 속도 기준</h2>
+        <p>
+            <strong>WPM</strong>은 분당 타이핑한 글자 수입니다 (영어 기준 단어 수, 한글 기준 타수).<br><br>
+            <strong>초보:</strong> ~100 타/분<br>
+            <strong>보통:</strong> 200~300 타/분<br>
+            <strong>빠름:</strong> 400~500 타/분<br>
+            <strong>전문가:</strong> 600+ 타/분<br><br>
+            정확도도 중요합니다. 빠르지만 틀리면 의미가 없어요!
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>타이핑 속도 테스트</h2><p>타이핑 속도(WPM)와 정확도를 측정합니다. 영문/한글 모두 지원합니다.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>WPM이란?</summary><p>Words Per Minute의 약자로, 분당 타이핑한 단어 수입니다. 일반인 평균 40~60 WPM, 전문 타이피스트 80~100 WPM입니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="stopwatch.html">스톱워치</a><a href="char-count.html">글자수 세기</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+const TEXTS = [
+    '빠른 갈색 여우가 게으른 개를 뛰어넘었습니다. 오늘 날씨가 정말 좋습니다. 프로그래밍은 재미있는 활동입니다. 커피 한 잔의 여유가 필요한 오후입니다. 음악을 들으며 일하면 집중이 잘 됩니다.',
+    '인공지능이 우리의 일상을 바꾸고 있습니다. 스마트폰은 현대인의 필수품이 되었습니다. 독서는 마음의 양식입니다. 운동을 하면 건강해집니다. 매일 조금씩 성장하는 것이 중요합니다.',
+    '봄이 오면 꽃이 피고 새가 노래합니다. 여름에는 바다에서 수영을 즐깁니다. 가을에는 단풍이 아름답습니다. 겨울에는 눈이 내려 세상이 하얗게 변합니다. 사계절이 뚜렷한 것은 축복입니다.',
+    '좋은 습관이 좋은 인생을 만듭니다. 작은 것에 감사하면 큰 행복이 찾아옵니다. 실패는 성공의 어머니입니다. 포기하지 않는 사람에게 기회가 옵니다. 오늘 하루도 최선을 다합시다.',
+];
+
+let testTime = 30;
+let timer = null;
+let timeLeft = 30;
+let started = false;
+let finished = false;
+let currentText = '';
+let correctCount = 0;
+let wrongCount = 0;
+
+function setTime(t) {
+    testTime = t;
+    document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    resetTest();
+}
+
+function resetTest() {
+    if (timer) clearInterval(timer);
+    timer = null;
+    started = false;
+    finished = false;
+    timeLeft = testTime;
+    correctCount = 0;
+    wrongCount = 0;
+    currentText = TEXTS[Math.floor(Math.random() * TEXTS.length)];
+    document.getElementById('typingInput').value = '';
+    document.getElementById('typingInput').disabled = false;
+    document.getElementById('typingInput').focus();
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('timeVal').textContent = timeLeft;
+    document.getElementById('wpmVal').textContent = '0';
+    document.getElementById('accVal').textContent = '100%';
+    renderText('');
+}
+
+function renderText(typed) {
+    let html = '';
+    for (let i = 0; i < currentText.length; i++) {
+        let cls = 'char';
+        if (i < typed.length) {
+            cls += typed[i] === currentText[i] ? ' correct' : ' wrong';
+        } else if (i === typed.length) {
+            cls += ' current';
+        }
+        html += `<span class="${cls}">${currentText[i]}</span>`;
+    }
+    document.getElementById('textDisplay').innerHTML = html;
+}
+
+function onType() {
+    if (finished) return;
+    const typed = document.getElementById('typingInput').value;
+
+    if (!started) {
+        started = true;
+        timer = setInterval(tick, 1000);
+    }
+
+    // Count correct/wrong
+    correctCount = 0;
+    wrongCount = 0;
+    for (let i = 0; i < typed.length; i++) {
+        if (i < currentText.length && typed[i] === currentText[i]) correctCount++;
+        else wrongCount++;
+    }
+
+    const total = correctCount + wrongCount;
+    const elapsed = testTime - timeLeft || 1;
+    const wpm = Math.round(correctCount / elapsed * 60);
+    const acc = total > 0 ? Math.round(correctCount / total * 100) : 100;
+
+    document.getElementById('wpmVal').textContent = wpm;
+    document.getElementById('accVal').textContent = acc + '%';
+    renderText(typed);
+
+    if (typed.length >= currentText.length) {
+        finishTest();
+    }
+}
+
+function tick() {
+    timeLeft--;
+    document.getElementById('timeVal').textContent = timeLeft;
+    if (timeLeft <= 0) finishTest();
+
+    // Update WPM in real time
+    const typed = document.getElementById('typingInput').value;
+    const elapsed = testTime - timeLeft || 1;
+    const wpm = Math.round(correctCount / elapsed * 60);
+    document.getElementById('wpmVal').textContent = wpm;
+}
+
+function finishTest() {
+    finished = true;
+    if (timer) clearInterval(timer);
+    document.getElementById('typingInput').disabled = true;
+
+    const elapsed = testTime - timeLeft || 1;
+    const wpm = Math.round(correctCount / elapsed * 60);
+    const total = correctCount + wrongCount;
+    const acc = total > 0 ? Math.round(correctCount / total * 100) : 100;
+
+    document.getElementById('finalWpm').textContent = wpm;
+    document.getElementById('finalAcc').textContent = acc + '%';
+    document.getElementById('finalCorrect').textContent = correctCount;
+    document.getElementById('finalWrong').textContent = wrongCount;
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+
+resetTest();
+</script>
+
+</body>
+</html>

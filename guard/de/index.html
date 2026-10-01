@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOGU Guard — Kostenlose Sicherheitstools Online | Passwort Generator & Datenschutz</title>
+    <meta name="description" content="Kostenlose Online-Sicherheitstools: Passwort Generator, PIN Generator, EXIF Entfernen, Email Verschleierung, Fake Identitaet. 100% im Browser, kein Server-Upload.">
+    <link rel="canonical" href="https://moguguard.com/de/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/">
+    <meta property="og:title" content="MOGU Guard — Kostenlose Sicherheitstools Online">
+    <meta property="og:description" content="Passwort Generator, PIN Generator, EXIF Entfernen, Datenschutz-Maskierung. Kein Server-Upload. 100% kostenlos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/de/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MOGU Guard — Kostenlose Sicherheitstools">
+    <meta name="twitter:description" content="Passwort Generator, Datenschutz-Maskierung. Kein Server-Upload.">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"MOGU Guard","url":"https://moguguard.com/de/","description":"Kostenlose Online-Sicherheitstools fuer alle."}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Ist es kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja, alle Sicherheitstools sind 100% kostenlos."}},
+    {"@type":"Question","name":"Werden persoenliche Daten gesammelt?","acceptedAnswer":{"@type":"Answer","text":"Nein. Alle Verarbeitung geschieht nur in Ihrem Browser. Keine Daten werden an Server gesendet."}},
+    {"@type":"Question","name":"Wie sicher ist der Passwort Generator?","acceptedAnswer":{"@type":"Answer","text":"Der Generator nutzt die kryptographische Web Crypto API Ihres Browsers. Passwoerter werden nie uebertragen oder gespeichert."}}
+    ]}
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Fira Code','Courier New',monospace;background:#0a0a0a;color:#00ff41;min-height:100vh;position:relative;overflow-x:hidden}
+        #matrixBg{position:fixed;top:0;left:0;right:0;bottom:0;z-index:0;opacity:0.06}
+        .content{position:relative;z-index:1}
+        .terminal-header{background:#111;border-bottom:1px solid #1a3a1a;padding:12px 20px;display:flex;align-items:center;gap:8px}
+        .terminal-dot{width:12px;height:12px;border-radius:50%}.dot-red{background:#ff5f56}.dot-yellow{background:#ffbd2e}.dot-green{background:#27c93f}
+        .terminal-title{color:#666;font-size:13px;margin-left:12px}
+        .hero{text-align:center;padding:50px 20px 30px}
+        .hero-icon{font-size:48px;margin-bottom:12px}
+        h1{font-size:28px;color:#00ff41;letter-spacing:4px;margin-bottom:8px;text-shadow:0 0 20px rgba(0,255,65,0.3)}
+        .hero .prompt{color:#0a0;font-size:14px;margin-bottom:6px}
+        .hero .desc{color:#888;font-size:13px;max-width:550px;margin:0 auto;line-height:1.8;font-family:-apple-system,sans-serif}
+        .cursor-blink::after{content:'_';animation:blink 1s step-end infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        .lang-switch{margin-top:16px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+        .lang-switch a{color:#00ff41;text-decoration:none;font-size:12px;padding:3px 10px;border:1px solid #1a3a1a;border-radius:4px;transition:all .2s}
+        .lang-switch a:hover,.lang-switch a.active{background:#00ff41;color:#0a0a0a}
+        .container{max-width:860px;margin:30px auto 40px;padding:0 20px}
+        .section-title{font-size:14px;color:#00ff41;margin-bottom:16px;padding-left:4px;font-family:'Fira Code',monospace}
+        .section-title::before{content:'> '}
+        .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:30px}
+        .tool-card{background:#111;border:1px solid #00ff4125;border-radius:10px;padding:24px 18px;text-decoration:none;color:inherit;transition:all .3s;cursor:pointer;text-align:center;position:relative;overflow:hidden}
+        .tool-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#00ff41,transparent);transform:scaleX(0);transition:transform .3s}
+        .tool-card:hover::before{transform:scaleX(1)}
+        .tool-card:hover{border-color:#00ff41;box-shadow:0 0 30px rgba(0,255,65,0.12);transform:translateY(-3px)}
+        .tool-card .emoji{font-size:36px;margin-bottom:10px;display:block}
+        .tool-card .name{font-size:14px;color:#00ff41;font-weight:700;margin-bottom:6px;font-family:-apple-system,sans-serif}
+        .tool-card .desc{font-size:11px;color:#666;font-family:-apple-system,sans-serif;line-height:1.5}
+        .tool-card .tag{display:inline-block;margin-top:8px;font-size:9px;padding:2px 8px;border-radius:3px;font-family:'Fira Code',monospace}
+        .tag-hot{background:#ff5252;color:#fff}
+        
+        
+        
+        
+        
+        
+        .terminal-box .output{color:#0a0}
+        
+        
+        
+        .bottom-links{text-align:center;padding:20px;margin-top:10px}
+        .bottom-links a{display:inline-block;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;margin:4px;font-family:-apple-system,sans-serif}
+        
+        footer{text-align:center;padding:20px;color:#888;font-size:11px}
+        @media(max-width:600px){.tool-grid{grid-template-columns:1fr 1fr}h1{font-size:22px}}
+        @media(max-width:400px){.tool-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<canvas id="matrixBg"></canvas>
+<div class="content">
+<div class="terminal-header">
+    <div class="terminal-dot dot-red"></div>
+    <div class="terminal-dot dot-yellow"></div>
+    <div class="terminal-dot dot-green"></div>
+    <span class="terminal-title">mogu@guard:~$ security-tools --list</span>
+</div>
+<div class="hero">
+    <div class="hero-icon">🛡️</div>
+    <h1>MOGU Guard</h1>
+    <div class="prompt">> <span class="cursor-blink">Kostenlose Sicherheitstools fuer alle</span></div>
+    <div class="lang-switch">
+        <a href="/">KR</a>
+        <a href="/en/">EN</a>
+        <a href="/jp/">JP</a>
+        <a href="/es/">ES</a>
+        <a href="/de/" class="active">DE</a>
+        <a href="/fr/">FR</a>
+        <a href="/pt/">PT</a>
+    </div>
+</div>
+<div class="container">
+    <div class="section-title">Passwort & Sicherheit</div>
+    <div class="tool-grid">
+        <a href="passwort-generator/" class="tool-card">
+            <span class="emoji">🎲</span>
+            <div class="name">Passwort Generator</div>
+                    <span class="tag tag-hot">BELIEBT</span>
+        </a>
+        <a href="satz-passwort/" class="tool-card">
+            <span class="emoji">🔑</span>
+            <div class="name">Satz zu Passwort</div>
+                </a>
+        <a href="pin-generator/" class="tool-card">
+            <span class="emoji">🔢</span>
+            <div class="name">PIN Generator</div>
+                </a>
+    </div>
+    <div class="section-title">Datenschutz & Privatspheare</div>
+    <div class="tool-grid">
+        <a href="datenschutz-maskierung/" class="tool-card">
+            <span class="emoji">🙈</span>
+            <div class="name">Datenschutz-Maskierung</div>
+                </a>
+        <a href="email-verschleierung/" class="tool-card">
+            <span class="emoji">📧</span>
+            <div class="name">Email Verschleierung</div>
+                </a>
+        <a href="exif-entfernen/" class="tool-card">
+            <span class="emoji">📸</span>
+            <div class="name">EXIF Entfernen</div>
+                </a>
+    </div>
+    <div class="section-title">Identitaet & Verschluesselung</div>
+    <div class="tool-grid">
+        <a href="fake-identitaet/" class="tool-card">
+            <span class="emoji">🎭</span>
+            <div class="name">Fake Identitaet</div>
+                </a>
+        <a href="benutzername-generator/" class="tool-card">
+            <span class="emoji">👤</span>
+            <div class="name">Benutzername Generator</div>
+                </a>
+        <a href="text-verschluesselung/" class="tool-card">
+            <span class="emoji">🔐</span>
+            <div class="name">Text Verschluesselung</div>
+                </a>
+    </div>
+</div>
+
+
+<div class="bottom-links">
+    <a href="https://mogutool.com" target="_blank" style="background:#111;border:1px solid #1a2a3a;color:#4fc3f7;">🛠️ MOGU Tools — 100+ Kostenlose Online-Tools →</a>
+    <a href="https://mogumoon.com" target="_blank" style="background:#111;border:1px solid #3a2a1a;color:#c9a84c;">🔮 MOGU Moon — Kostenloses Tarot · Astrologie →</a>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:13px;color:#888;margin-right:8px;">Teilen:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#666;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL kopieren</a></div>
+<footer>&copy; 2025 MOGU Guard<br><a href="privacy/" style="color:#888;font-size:11px;text-decoration:none;">Datenschutz</a></footer>
+</div>
+<script>
+const canvas=document.getElementById('matrixBg');const ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+const chars='アイウエオカキクケコ0123456789ABCDEF';const fontSize=14;const columns=Math.floor(canvas.width/fontSize);const drops=Array(columns).fill(1);
+function drawMatrix(){ctx.fillStyle='rgba(10,10,10,0.05)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#00ff41';ctx.font=fontSize+'px monospace';for(let i=0;i<drops.length;i++){const text=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(text,i*fontSize,drops[i]*fontSize);if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;drops[i]++;}}
+setInterval(drawMatrix,50);window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+</script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>진법 변환기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"진법 변환기는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"진법 변환기는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"2진법, 8진법, 10진법, 16진법을 실시간으로 변환합니다. 숫자를 입력하면 모든 진법으로 즉시 변환됩니다."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/base-convert.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/base-convert.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/base-convert.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/base-convert.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/base-convert.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/base-convert.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/base-convert.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/base-convert.html">
+    <link rel="canonical" href="https://mogutool.com/tools/base-convert.html">
+    <meta property="og:title" content="진법 변환기 - MOGU Tools">
+    <meta property="og:description" content="2진법, 8진법, 10진법, 16진법을 실시간으로 변환합니다. 숫자를 입력하면 모든 진법으로 즉시 변환됩니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/base-convert.html">
+    <meta name="description" content="2진법, 8진법, 10진법, 16진법을 실시간으로 변환합니다. 숫자를 입력하면 모든 진법으로 즉시 변환됩니다.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row input.invalid {
+            border-color: #d9534f;
+            background: #fff8f8;
+        }
+
+        .error-msg {
+            font-size: 12px;
+            color: #d9534f;
+            margin-top: 6px;
+            min-height: 16px;
+        }
+
+        .base-select-group {
+            margin-bottom: 24px;
+        }
+
+        .base-select-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .base-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .base-btn {
+            flex: 1;
+            min-width: 80px;
+            padding: 10px 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .base-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .base-btn.active {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .results-area {
+            margin-top: 8px;
+        }
+
+        .result-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .result-card {
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 16px 18px;
+            background: #fafafa;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .result-card.source {
+            border-color: #4a90d9;
+            background: #eef4fb;
+        }
+
+        .result-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .result-card-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            letter-spacing: 0.3px;
+        }
+
+        .result-card.source .result-card-label {
+            color: #4a90d9;
+        }
+
+        .source-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+            background: #4a90d9;
+            border-radius: 4px;
+            padding: 2px 7px;
+            margin-left: 8px;
+        }
+
+        .copy-btn {
+            padding: 5px 12px;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            background: #fff;
+            font-size: 12px;
+            color: #777;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .copy-btn.copied {
+            border-color: #5cb85c;
+            color: #5cb85c;
+        }
+
+        .result-value {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+
+        .result-card.source .result-value {
+            color: #2c6fad;
+        }
+
+        .result-value.empty {
+            font-size: 15px;
+            font-weight: 400;
+            color: #ccc;
+            font-family: inherit;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+            font-size: 13px;
+        }
+
+        .info-table th, .info-table td {
+            padding: 9px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-table th {
+            color: #888;
+            font-weight: 500;
+        }
+
+        .info-table td:last-child {
+            font-family: 'Courier New', Courier, monospace;
+            color: #4a90d9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 변환기 &gt; 진법 변환기
+</div>
+
+<div class="container">
+    <h1>진법 변환기</h1>
+    <p class="subtitle">숫자를 입력하면 2진법, 8진법, 10진법, 16진법으로 실시간 변환합니다.</p>
+
+    <div class="calc-box">
+        <div class="base-select-group">
+            <label>입력 진법 선택</label>
+            <div class="base-buttons">
+                <button class="base-btn" data-base="2" onclick="selectBase(2)">2진법</button>
+                <button class="base-btn" data-base="8" onclick="selectBase(8)">8진법</button>
+                <button class="base-btn active" data-base="10" onclick="selectBase(10)">10진법</button>
+                <button class="base-btn" data-base="16" onclick="selectBase(16)">16진법</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label id="input-label">숫자 입력 (10진법)</label>
+            <div class="input-row">
+                <input type="text" id="numInput" placeholder="변환할 숫자를 입력하세요" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="error-msg" id="errorMsg"></div>
+        </div>
+
+        <div class="results-area">
+            <div class="result-cards" id="resultCards">
+                <div class="result-card" id="card-2">
+                    <div class="result-card-header">
+                        <div class="result-card-label">2진법 (Binary)</div>
+                        <button class="copy-btn" onclick="copyResult(2)">복사</button>
+                    </div>
+                    <div class="result-value empty" id="val-2">숫자를 입력하세요</div>
+                </div>
+                <div class="result-card" id="card-8">
+                    <div class="result-card-header">
+                        <div class="result-card-label">8진법 (Octal)</div>
+                        <button class="copy-btn" onclick="copyResult(8)">복사</button>
+                    </div>
+                    <div class="result-value empty" id="val-8">숫자를 입력하세요</div>
+                </div>
+                <div class="result-card source" id="card-10">
+                    <div class="result-card-header">
+                        <div class="result-card-label">10진법 (Decimal) <span class="source-badge">입력</span></div>
+                        <button class="copy-btn" onclick="copyResult(10)">복사</button>
+                    </div>
+                    <div class="result-value empty" id="val-10">숫자를 입력하세요</div>
+                </div>
+                <div class="result-card" id="card-16">
+                    <div class="result-card-header">
+                        <div class="result-card-label">16진법 (Hexadecimal)</div>
+                        <button class="copy-btn" onclick="copyResult(16)">복사</button>
+                    </div>
+                    <div class="result-value empty" id="val-16">숫자를 입력하세요</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>진법이란?</h2>
+        <p>
+            진법(기수법)은 수를 표현하는 방식으로, 몇 개의 기호를 사용하는지에 따라 구분됩니다.
+            컴퓨터는 내부적으로 2진법을 사용하며, 16진법은 이를 간결하게 표현하는 데 쓰입니다.
+        </p>
+        <table class="info-table">
+            <tr>
+                <th>진법</th>
+                <th>사용 기호</th>
+                <th>10 표현</th>
+                <th>255 표현</th>
+            </tr>
+            <tr>
+                <td>2진법</td>
+                <td>0, 1</td>
+                <td>1010</td>
+                <td>11111111</td>
+            </tr>
+            <tr>
+                <td>8진법</td>
+                <td>0 ~ 7</td>
+                <td>12</td>
+                <td>377</td>
+            </tr>
+            <tr>
+                <td>10진법</td>
+                <td>0 ~ 9</td>
+                <td>10</td>
+                <td>255</td>
+            </tr>
+            <tr>
+                <td>16진법</td>
+                <td>0 ~ 9, A ~ F</td>
+                <td>A</td>
+                <td>FF</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>진법 변환기</h2><p>2진수, 8진수, 10진수, 16진수 사이의 진법 변환을 수행합니다. 프로그래밍과 컴퓨터 과학에 필수적인 도구입니다.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>16진수는 어디에 쓰이나요?</summary><p>색상 코드(#FF5733), 메모리 주소, MAC 주소 등 컴퓨터 과학 전반에서 사용됩니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="encoding.html">인코딩/디코딩</a><a href="hash-gen.html">해시 생성기</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const BASES = [2, 8, 10, 16];
+    const BASE_NAMES = {
+        2:  '2진법 (Binary)',
+        8:  '8진법 (Octal)',
+        10: '10진법 (Decimal)',
+        16: '16진법 (Hexadecimal)'
+    };
+    const BASE_LABELS = {
+        2:  '숫자 입력 (2진법) — 0과 1만 사용',
+        8:  '숫자 입력 (8진법) — 0~7만 사용',
+        10: '숫자 입력 (10진법)',
+        16: '숫자 입력 (16진법) — 0~9, A~F 사용'
+    };
+    const VALID_CHARS = {
+        2:  /^[01]+$/,
+        8:  /^[0-7]+$/,
+        10: /^[0-9]+$/,
+        16: /^[0-9a-fA-F]+$/
+    };
+
+    let currentBase = 10;
+    let convertedValues = { 2: null, 8: null, 10: null, 16: null };
+
+    function selectBase(base) {
+        currentBase = base;
+
+        document.querySelectorAll('.base-btn').forEach(btn => {
+            btn.classList.toggle('active', parseInt(btn.dataset.base) === base);
+        });
+
+        document.getElementById('input-label').textContent = BASE_LABELS[base];
+
+        // Update card highlight and badge
+        BASES.forEach(b => {
+            const card = document.getElementById('card-' + b);
+            const labelEl = card.querySelector('.result-card-label');
+            const existingBadge = labelEl.querySelector('.source-badge');
+
+            if (b === base) {
+                card.classList.add('source');
+                if (!existingBadge) {
+                    const badge = document.createElement('span');
+                    badge.className = 'source-badge';
+                    badge.textContent = '입력';
+                    labelEl.appendChild(badge);
+                }
+            } else {
+                card.classList.remove('source');
+                if (existingBadge) existingBadge.remove();
+            }
+
+            labelEl.childNodes[0].textContent = BASE_NAMES[b] + ' ';
+        });
+
+        // Clear and re-convert
+        const input = document.getElementById('numInput');
+        input.value = '';
+        clearResults();
+        document.getElementById('errorMsg').textContent = '';
+        input.focus();
+    }
+
+    function clearResults() {
+        BASES.forEach(b => {
+            const el = document.getElementById('val-' + b);
+            el.textContent = '숫자를 입력하세요';
+            el.classList.add('empty');
+        });
+        convertedValues = { 2: null, 8: null, 10: null, 16: null };
+    }
+
+    function convert(raw) {
+        const errorEl = document.getElementById('errorMsg');
+
+        if (!raw || raw === '') {
+            clearResults();
+            errorEl.textContent = '';
+            return;
+        }
+
+        // Validate
+        if (!VALID_CHARS[currentBase].test(raw)) {
+            const allowed = {
+                2: '0과 1',
+                8: '0~7',
+                10: '0~9',
+                16: '0~9, A~F'
+            };
+            errorEl.textContent = `${currentBase}진법에서는 ${allowed[currentBase]}만 입력 가능합니다.`;
+            document.getElementById('numInput').classList.add('invalid');
+            clearResults();
+            return;
+        }
+
+        errorEl.textContent = '';
+        document.getElementById('numInput').classList.remove('invalid');
+
+        // Parse to BigInt for large number support
+        let decimalValue;
+        try {
+            decimalValue = parseBigInt(raw, currentBase);
+        } catch (e) {
+            errorEl.textContent = '너무 큰 숫자입니다.';
+            clearResults();
+            return;
+        }
+
+        // Convert to all bases
+        convertedValues[10] = bigIntToBase(decimalValue, 10);
+        convertedValues[2]  = bigIntToBase(decimalValue, 2);
+        convertedValues[8]  = bigIntToBase(decimalValue, 8);
+        convertedValues[16] = bigIntToBase(decimalValue, 16).toUpperCase();
+
+        // Display
+        BASES.forEach(b => {
+            const el = document.getElementById('val-' + b);
+            el.textContent = convertedValues[b];
+            el.classList.remove('empty');
+        });
+    }
+
+    // BigInt-based parser for arbitrary base
+    function parseBigInt(str, base) {
+        const bigBase = BigInt(base);
+        let result = 0n;
+        for (const ch of str.toUpperCase()) {
+            const digit = '0123456789ABCDEF'.indexOf(ch);
+            if (digit < 0 || digit >= base) throw new Error('Invalid digit');
+            result = result * bigBase + BigInt(digit);
+        }
+        return result;
+    }
+
+    // Convert BigInt to string in any base
+    function bigIntToBase(value, radix) {
+        if (radix === 10) return value.toString();
+        const digits = '0123456789abcdef';
+        let n = value < 0n ? -value : value;
+        if (n === 0n) return '0';
+        let result = '';
+        const r = BigInt(radix);
+        while (n > 0n) {
+            result = digits[Number(n % r)] + result;
+            n = n / r;
+        }
+        return (value < 0n ? '-' : '') + result;
+    }
+
+    function copyResult(base) {
+        const val = convertedValues[base];
+        if (!val) return;
+
+        navigator.clipboard.writeText(val).then(() => {
+            const btn = document.querySelector(`#card-${base} .copy-btn`);
+            btn.textContent = '복사됨!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = '복사';
+                btn.classList.remove('copied');
+            }, 1500);
+        }).catch(() => {
+            // Fallback
+            const ta = document.createElement('textarea');
+            ta.value = val;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+
+            const btn = document.querySelector(`#card-${base} .copy-btn`);
+            btn.textContent = '복사됨!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = '복사';
+                btn.classList.remove('copied');
+            }, 1500);
+        });
+    }
+
+    document.getElementById('numInput').addEventListener('input', function() {
+        convert(this.value.trim());
+    });
+</script>
+
+</body>
+</html>

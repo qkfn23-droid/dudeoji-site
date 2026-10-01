@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXIF 제거기 - 사진 위치정보/메타데이터 삭제 | MOGU Guard</title>
+    <meta name="description" content="사진에서 GPS 위치정보, 카메라 정보 등 EXIF 메타데이터를 삭제합니다. SNS 업로드 전에 개인정보를 보호하세요.">
+    <link rel="canonical" href="https://moguguard.com/exif-remover/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/exif-remover/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/exif-remover/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/exif-remover/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/eliminar-exif/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/exif-entfernen/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/supprimer-exif/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/remover-exif/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/exif-remover/">
+    <meta property="og:title" content="EXIF 제거기 - 사진 메타데이터 삭제 | MOGU Guard">
+    <meta property="og:description" content="사진에서 GPS 위치정보를 삭제하세요!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/exif-remover/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+        header{background:#111;border-bottom:1px solid #1a3a1a;padding:16px 20px;text-align:center}header a{text-decoration:none;font-size:20px;color:#00ff41;letter-spacing:2px;font-weight:700;font-family:'Fira Code',monospace}
+        .container{max-width:700px;margin:20px auto 40px;padding:0 20px}
+        .page-title{text-align:center;margin-bottom:30px}.page-title h2{font-size:28px;color:#00ff41;margin-bottom:8px}.page-title p{color:#666;font-size:14px}
+        .privacy-badge{display:inline-block;background:rgba(0,255,65,0.1);border:1px solid rgba(0,230,118,0.3);color:#00ff41;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:20px}
+        .drop-zone{background:#111;border:2px dashed #00ff4140;border-radius:12px;padding:60px 20px;text-align:center;cursor:pointer;transition:all .3s;margin-bottom:20px}
+        .drop-zone:hover,.drop-zone.dragover{border-color:#00ff41;background:rgba(0,255,65,0.05)}
+        .drop-zone .icon{font-size:48px;margin-bottom:12px}
+        .drop-zone .text{color:#888;font-size:14px}
+        .drop-zone .text strong{color:#00ff41}
+        .drop-zone input{display:none}
+        .preview{display:none;background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px;margin-bottom:20px}
+        .preview-img{max-width:100%;max-height:300px;border-radius:6px;margin-bottom:16px}
+        .file-info{font-size:13px;color:#888;margin-bottom:16px}
+        .file-info span{color:#00ff41}
+        .exif-list{background:#0a0a0a;border-radius:6px;padding:16px;margin-bottom:16px}
+        .exif-title{font-size:14px;color:#00ff41;font-weight:600;margin-bottom:10px}
+        .exif-item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1a1a1a;font-size:13px}
+        .exif-item:last-child{border-bottom:none}
+        .exif-key{color:#666}
+        .exif-val{color:#e0e0e0;font-family:'Fira Code',monospace;text-align:right;max-width:60%;word-break:break-all}
+        .exif-val.danger{color:#ff5252}
+        .no-exif{color:#888;font-size:13px;text-align:center;padding:12px}
+        .action-btn{width:100%;padding:16px;background:#00ff41;color:#0a0a0a;border:none;border-radius:8px;font-size:18px;font-weight:700;cursor:pointer;font-family:'Fira Code',monospace;margin-bottom:20px}
+        .action-btn:hover{background:#00cc33}
+        .action-btn:disabled{background:#333;color:#666;cursor:not-allowed}
+        .success-msg{display:none;background:rgba(0,255,65,0.08);border:1px solid #00ff4130;border-radius:8px;padding:16px;text-align:center;margin-bottom:20px}
+        .success-msg .check{font-size:36px;margin-bottom:8px}
+        .success-msg .msg{color:#00ff41;font-size:14px;font-weight:600}
+        .info{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px;margin-top:20px}
+        .info-title{font-size:16px;color:#00ff41;font-weight:600;margin-bottom:10px}
+        .info-text{font-size:14px;color:#888;line-height:1.8}.info-text strong{color:#00ff41}
+        footer{text-align:center;padding:30px;color:#333;font-size:11px}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"EXIF 제거기","url":"https://moguguard.com/exif-remover/","description":"사진에서 GPS 위치정보, 카메라 정보 등 EXIF 메타데이터를 삭제합니다.","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript"}
+    </script>
+</head>
+<body>
+<header><a href="/">MOGU <span style="color:#00ff41;">Guard</span></a></header>
+<div class="container">
+    <div class="page-title">
+        <h2>📸 EXIF 제거기</h2>
+        <p>사진에서 위치정보와 메타데이터를 삭제합니다</p>
+        <div class="privacy-badge">🔒 모든 처리는 브라우저에서만 — 서버 업로드 없음</div>
+    </div>
+    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon">📁</div>
+        <div class="text"><strong>클릭</strong>하거나 이미지를 <strong>드래그</strong>하세요<br>JPG, PNG, WebP 지원</div>
+        <input type="file" id="fileInput" accept="image/*">
+    </div>
+    <div class="preview" id="preview">
+        <img class="preview-img" id="previewImg">
+        <div class="file-info">
+            파일명: <span id="fileName">-</span> | 크기: <span id="fileSize">-</span>
+        </div>
+        <div class="exif-list" id="exifList">
+            <div class="exif-title">📋 감지된 메타데이터</div>
+            <div id="exifItems"></div>
+        </div>
+    </div>
+    <button class="action-btn" id="removeBtn" onclick="removeExif()" disabled>📸 EXIF 제거 & 다운로드</button>
+    <div class="success-msg" id="successMsg">
+        <div class="check">✅</div>
+        <div class="msg">EXIF 제거 완료! 깨끗한 이미지가 다운로드됩니다.</div>
+    </div>
+    <div class="info">
+        <div class="info-title">💡 왜 EXIF를 제거해야 하나요?</div>
+        <div class="info-text">
+            &bull; <strong>GPS 위치 노출</strong> — 사진에 촬영 장소의 정확한 GPS 좌표가 저장됨<br>
+            &bull; <strong>카메라 정보</strong> — 어떤 기기로 찍었는지 알 수 있음<br>
+            &bull; <strong>촬영 시간</strong> — 정확한 촬영 날짜와 시간이 기록됨<br>
+            &bull; <strong>SNS 업로드 전</strong> — 인스타, 트위터에 올리기 전에 꼭 제거하세요
+        </div>
+    </div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:12px;color:#333;margin-right:8px;">공유:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1da1f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1877f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Facebook</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:5px 10px;background:#333;color:#0f0;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;font-family:monospace;">URL 복사</a></div>
+<footer>&copy; 2025 MOGU Guard</footer>
+<script>
+let currentFile = null;
+
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+
+['dragenter','dragover'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.add('dragover'); }));
+['dragleave','drop'].forEach(e => dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.remove('dragover'); }));
+dropZone.addEventListener('drop', ev => { if (ev.dataTransfer.files.length) handleFile(ev.dataTransfer.files[0]); });
+fileInput.addEventListener('change', ev => { if (ev.target.files.length) handleFile(ev.target.files[0]); });
+
+function handleFile(file) {
+    if (!file.type.startsWith('image/')) return;
+    currentFile = file;
+    document.getElementById('fileName').textContent = file.name;
+    document.getElementById('fileSize').textContent = (file.size / 1024).toFixed(1) + ' KB';
+
+    const reader = new FileReader();
+    reader.onload = e => {
+        document.getElementById('previewImg').src = e.target.result;
+        document.getElementById('preview').style.display = 'block';
+        document.getElementById('removeBtn').disabled = false;
+        document.getElementById('successMsg').style.display = 'none';
+        parseExif(new Uint8Array(e.target.result.length > 0 ? [] : []));
+        parseExifFromArrayBuffer(file);
+    };
+    reader.readAsDataURL(file);
+}
+
+function parseExifFromArrayBuffer(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+        const view = new DataView(e.target.result);
+        const exifData = extractExif(view);
+        displayExif(exifData);
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+function extractExif(view) {
+    const data = {};
+    if (view.byteLength < 2) return data;
+
+    // Check for JPEG
+    if (view.getUint8(0) !== 0xFF || view.getUint8(1) !== 0xD8) {
+        return data; // Not JPEG
+    }
+
+    let offset = 2;
+    while (offset < view.byteLength - 1) {
+        if (view.getUint8(offset) !== 0xFF) break;
+        const marker = view.getUint8(offset + 1);
+        if (marker === 0xE1) { // APP1 = EXIF
+            const length = view.getUint16(offset + 2);
+            // Check for "Exif"
+            if (view.getUint32(offset + 4) === 0x45786966) {
+                data['EXIF'] = '검출됨';
+                parseIFD(view, offset + 10, data);
+            }
+            offset += 2 + length;
+        } else if (marker === 0xE0) { // APP0 = JFIF
+            const length = view.getUint16(offset + 2);
+            offset += 2 + length;
+        } else if (marker >= 0xE0 && marker <= 0xEF) {
+            const length = view.getUint16(offset + 2);
+            offset += 2 + length;
+        } else {
+            break;
+        }
+    }
+    return data;
+}
+
+function parseIFD(view, tiffOffset, data) {
+    try {
+        const byteOrder = view.getUint16(tiffOffset);
+        const littleEndian = byteOrder === 0x4949;
+        const ifdOffset = view.getUint32(tiffOffset + 4, littleEndian);
+        const numEntries = view.getUint16(tiffOffset + ifdOffset, littleEndian);
+
+        const tags = {
+            0x010F: '카메라 제조사',
+            0x0110: '카메라 모델',
+            0x0112: '방향',
+            0x011A: 'X 해상도',
+            0x011B: 'Y 해상도',
+            0x0131: '소프트웨어',
+            0x0132: '수정 날짜',
+            0x8769: 'EXIF IFD',
+            0x8825: 'GPS IFD',
+        };
+
+        for (let i = 0; i < Math.min(numEntries, 50); i++) {
+            const entryOffset = tiffOffset + ifdOffset + 2 + i * 12;
+            if (entryOffset + 12 > view.byteLength) break;
+            const tag = view.getUint16(entryOffset, littleEndian);
+            const type = view.getUint16(entryOffset + 2, littleEndian);
+            const count = view.getUint32(entryOffset + 4, littleEndian);
+
+            if (tag === 0x8825) {
+                data['GPS 위치정보'] = '⚠️ 포함됨';
+            } else if (tags[tag] && type === 2 && tag !== 0x8769) {
+                // ASCII string
+                let str = '';
+                const valOffset = count > 4 ? view.getUint32(entryOffset + 8, littleEndian) + tiffOffset : entryOffset + 8;
+                for (let j = 0; j < Math.min(count - 1, 64); j++) {
+                    if (valOffset + j >= view.byteLength) break;
+                    str += String.fromCharCode(view.getUint8(valOffset + j));
+                }
+                if (str.trim()) data[tags[tag]] = str.trim();
+            }
+        }
+    } catch (e) {
+        // Parsing error, skip
+    }
+}
+
+function displayExif(data) {
+    const container = document.getElementById('exifItems');
+    const keys = Object.keys(data);
+    if (keys.length === 0) {
+        container.innerHTML = '<div class="no-exif">메타데이터가 감지되지 않았습니다 (PNG/WebP이거나 이미 제거됨)</div>';
+        return;
+    }
+    container.innerHTML = keys.map(k => {
+        const isDanger = k.includes('GPS') || k.includes('위치');
+        return `<div class="exif-item"><span class="exif-key">${k}</span><span class="exif-val${isDanger ? ' danger' : ''}">${data[k]}</span></div>`;
+    }).join('');
+}
+
+function parseExif() {} // placeholder, actual parsing in parseExifFromArrayBuffer
+
+function removeExif() {
+    if (!currentFile) return;
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.onload = () => {
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        ctx.drawImage(img, 0, 0);
+        canvas.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            const ext = currentFile.name.replace(/.*\./, '');
+            a.download = currentFile.name.replace(/\.[^.]+$/, '') + '_clean.' + ext;
+            a.click();
+            URL.revokeObjectURL(url);
+            document.getElementById('successMsg').style.display = 'block';
+        }, currentFile.type, 0.95);
+    };
+    img.src = document.getElementById('previewImg').src;
+}
+</script>
+</body>
+</html>

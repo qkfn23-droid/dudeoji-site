@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur de dates - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Convertisseur de dates est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, 100% gratuit. Aucune inscription requise. Tout le traitement se fait dans votre navigateur, aucune donnee personnelle n est envoyee a un serveur."}},
+    {"@type":"Question","name":"Comment utiliser Convertisseur de dates ?","acceptedAnswer":{"@type":"Answer","text":"Convertissez les dates en différents formats. Consultez en un coup d'oeil les formats ISO, français, américain, européen, horodatage Unix, jour de la semaine, jour de l'année, etc."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/date-convert.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/date-convert.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/date-convert.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/date-convert.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/date-convert.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/date-convert.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/date-convert.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/date-convert.html">
+    <link rel="canonical" href="https://mogutool.com/fr/tools/date-convert.html">
+    <meta property="og:title" content="Convertisseur de dates - MOGU Tools">
+    <meta property="og:description" content="Convertissez les dates en différents formats. Consultez en un coup d'oeil les formats ISO, français, américain, européen, horodatage Unix, jour de la semaine, jour de l'année, etc.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/fr/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/fr/tools/date-convert.html">
+    <meta name="description" content="Convertissez les dates en différents formats. Consultez en un coup d'oeil les formats ISO, français, américain, européen, horodatage Unix, jour de la semaine, jour de l'année, etc.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .date-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #333;
+            background: #fff;
+        }
+
+        .date-input:focus {
+            border-color: #4a90d9;
+        }
+
+        .today-btn {
+            margin-top: 8px;
+            padding: 6px 14px;
+            background: #f0f6ff;
+            color: #4a90d9;
+            border: 1px solid #c5daf6;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .today-btn:hover {
+            background: #daeaf9;
+        }
+
+        .results {
+            display: none;
+            margin-top: 4px;
+        }
+
+        .results-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .result-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .result-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .result-label {
+            font-size: 11px;
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        .result-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            flex-shrink: 0;
+            padding: 5px 12px;
+            background: #fff;
+            color: #4a90d9;
+            border: 1px solid #c5daf6;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+            color: #fff;
+            border-color: #5cb85c;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 16px 0;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Outils</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Outils en Ligne Gratuits</a> &gt; Date/Heure &gt; Convertisseur de dates
+</div>
+
+<div class="container">
+    <h1>Convertisseur de dates</h1>
+    <p class="subtitle">Sélectionnez une date pour la convertir automatiquement en différents formats.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label for="dateInput">Sélectionner une date</label>
+            <input type="date" id="dateInput" class="date-input">
+            <button class="today-btn" onclick="setToday()">Aujourd'hui</button>
+        </div>
+
+        <div class="results" id="results">
+            <div class="divider"></div>
+            <div class="results-title">Résultats de conversion</div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Format ISO</span>
+                    <span class="result-value" id="fmt-iso">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-iso', this)">Copier</button>
+            </div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Format français</span>
+                    <span class="result-value" id="fmt-kr">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-kr', this)">Copier</button>
+            </div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Américain (MM/DD/YYYY)</span>
+                    <span class="result-value" id="fmt-us">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-us', this)">Copier</button>
+            </div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Européen (DD/MM/YYYY)</span>
+                    <span class="result-value" id="fmt-eu">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-eu', this)">Copier</button>
+            </div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Horodatage Unix (secondes)</span>
+                    <span class="result-value" id="fmt-unix">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-unix', this)">Copier</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Jour de la semaine</span>
+                    <span class="result-value" id="fmt-dow">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-dow', this)">Copier</button>
+            </div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Nième jour de l'année</span>
+                    <span class="result-value" id="fmt-doy">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-doy', this)">Copier</button>
+            </div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Nième semaine du mois</span>
+                    <span class="result-value" id="fmt-wom">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-wom', this)">Copier</button>
+            </div>
+
+            <div class="result-row">
+                <div class="result-left">
+                    <span class="result-label">Nième semaine de l'année (ISO)</span>
+                    <span class="result-value" id="fmt-woy">-</span>
+                </div>
+                <button class="copy-btn" onclick="copyValue('fmt-woy', this)">Copier</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Guide des formats</h2>
+        <p>
+            Le format ISO est la norme internationale (AAAA-MM-JJ) principalement utilisée en programmation et pour le stockage de données.
+            L'horodatage Unix représente le nombre de secondes écoulées depuis le 1er janvier 1970 à 00:00:00 UTC.
+            La semaine ISO suit la norme internationale (ISO 8601) qui considère le lundi comme le premier jour de la semaine.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Convertisseur de dates</h2><p>Convertissez les dates en différents formats. Consultez en un coup d'oeil les formats ISO, français, américain, européen, horodatage Unix, jour de la semaine, jour de l'année, etc.</p></div>
+<div class="seo-section"><h2>Questions fréquentes</h2><details class="seo-faq"><summary>Cet outil est-il gratuit ?</summary><p>Oui, 100% gratuit. Pas d'inscription. Tout est traité dans votre navigateur — aucune donnée n'est envoyée.</p></details><details class="seo-faq"><summary>Ça marche sur mobile ?</summary><p>Oui, tous les outils sont responsifs et fonctionnent sur smartphones, tablettes et ordinateurs.</p></details></div>
+<div class="seo-section"><h2>Outils associés</h2><div class="seo-related"><a href="timestamp.html">Convertisseur d'Horodatage</a><a href="dday-calc.html">Calculateur de compte à rebours</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    function pad(n) {
+        return String(n).padStart(2, '0');
+    }
+
+    function getDayOfYear(date) {
+        const start = new Date(date.getFullYear(), 0, 0);
+        const diff = date - start;
+        const oneDay = 1000 * 60 * 60 * 24;
+        return Math.floor(diff / oneDay);
+    }
+
+    function getWeekOfMonth(date) {
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        const firstDayOfWeek = (firstDay.getDay() + 6) % 7;
+        const dayOfMonth = date.getDate();
+        return Math.ceil((dayOfMonth + firstDayOfWeek) / 7);
+    }
+
+    function getISOWeek(date) {
+        const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+        const dayNum = d.getUTCDay() || 7;
+        d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+        const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+        return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+    }
+
+    function convertDate(val) {
+        if (!val) return;
+
+        const parts = val.split('-');
+        const year = parseInt(parts[0]);
+        const month = parseInt(parts[1]);
+        const day = parseInt(parts[2]);
+
+        const date = new Date(year, month - 1, day);
+
+        const y = date.getFullYear();
+        const m = pad(date.getMonth() + 1);
+        const d = pad(date.getDate());
+
+        const daysFr = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+        const monthsFr = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+        const dow = daysFr[date.getDay()];
+
+        const doy = getDayOfYear(date);
+        const wom = getWeekOfMonth(date);
+        const woy = getISOWeek(date);
+
+        // Unix timestamp: UTC midnight
+        const unix = Math.floor(Date.UTC(y, date.getMonth(), date.getDate()) / 1000);
+
+        document.getElementById('fmt-iso').textContent = `${y}-${m}-${d}`;
+        document.getElementById('fmt-kr').textContent = `${parseInt(d)} ${monthsFr[date.getMonth()]} ${y}`;
+        document.getElementById('fmt-us').textContent = `${m}/${d}/${y}`;
+        document.getElementById('fmt-eu').textContent = `${d}/${m}/${y}`;
+        document.getElementById('fmt-unix').textContent = unix;
+        document.getElementById('fmt-dow').textContent = dow;
+        document.getElementById('fmt-doy').textContent = `${doy}e jour (sur ${isLeapYear(y) ? 366 : 365} jours)`;
+        document.getElementById('fmt-wom').textContent = `${wom}e semaine`;
+        document.getElementById('fmt-woy').textContent = `${woy}e semaine`;
+
+        document.getElementById('results').style.display = 'block';
+    }
+
+    function isLeapYear(y) {
+        return (y % 4 === 0 && y % 100 !== 0) || (y % 400 === 0);
+    }
+
+    function setToday() {
+        const today = new Date();
+        const y = today.getFullYear();
+        const m = pad(today.getMonth() + 1);
+        const d = pad(today.getDate());
+        const input = document.getElementById('dateInput');
+        input.value = `${y}-${m}-${d}`;
+        convertDate(input.value);
+    }
+
+    function copyValue(id, btn) {
+        const text = document.getElementById(id).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copié!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copier';
+                btn.classList.remove('copied');
+            }, 1500);
+        }).catch(() => {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            btn.textContent = 'Copié!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copier';
+                btn.classList.remove('copied');
+            }, 1500);
+        });
+    }
+
+    document.getElementById('dateInput').addEventListener('change', function() {
+        convertDate(this.value);
+    });
+
+    // Initialiser avec la date du jour
+    setToday();
+</script>
+
+</body>
+</html>

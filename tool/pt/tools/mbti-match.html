@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compatibilidade MBTI - MOGU Ferramentas</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Compatibilidade MBTI e gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sim, 100% gratuito. Sem cadastro necessario. Todo o processamento acontece no seu navegador, sem enviar dados pessoais a nenhum servidor."}},
+    {"@type":"Question","name":"Como usar Compatibilidade MBTI?","acceptedAnswer":{"@type":"Answer","text":"Verifique a compatibilidade MBTI entre dois tipos de personalidade. Analise a compatibilidade para relacionamentos, amizades e trabalho."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/mbti-match.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/mbti-match.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/mbti-match.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/mbti-match.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/mbti-match.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/mbti-match.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/mbti-match.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/mbti-match.html">
+    <link rel="canonical" href="https://mogutool.com/pt/tools/mbti-match.html">
+    <meta property="og:title" content="Compatibilidade MBTI - MOGU Ferramentas">
+    <meta property="og:description" content="Verifique a compatibilidade MBTI entre dois tipos de personalidade. Analise a compatibilidade para relacionamentos, amizades e trabalho.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/pt/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/pt/tools/mbti-match.html">
+    <meta name="description" content="Verifique a compatibilidade MBTI entre dois tipos de personalidade. Analise a compatibilidade para relacionamentos, amizades e trabalho.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .selector-group {
+            margin-bottom: 28px;
+        }
+
+        .selector-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .mbti-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .mbti-btn {
+            padding: 10px 4px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .mbti-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+            background: #f0f6fd;
+        }
+
+        .mbti-btn.selected {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin-bottom: 28px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .calc-btn:disabled {
+            background: #b0c8e8;
+            cursor: not-allowed;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-header {
+            text-align: center;
+            padding: 28px 24px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .result-types {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4a90d9;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .result-types span {
+            color: #999;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 0 6px;
+        }
+
+        .stars {
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .star-filled { color: #f5a623; }
+        .star-empty { color: #ddd; }
+
+        .result-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .result-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .result-detail {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .detail-row {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a90d9;
+            margin-bottom: 6px;
+        }
+
+        .detail-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .reset-btn {
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: #fff;
+            color: #4a90d9;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: #f0f6fd;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 400px) {
+            .mbti-btn {
+                font-size: 12px;
+                padding: 9px 2px;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Ferramentas</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Ferramentas Online Grátis</a> &gt; Diversao &gt; Compatibilidade MBTI
+</div>
+
+<div class="container">
+    <h1>Compatibilidade MBTI</h1>
+    <p class="subtitle">Selecione dois tipos MBTI para verificar a compatibilidade.</p>
+
+    <div class="calc-box">
+        <div class="selector-group">
+            <label>Meu MBTI</label>
+            <div class="mbti-grid" id="grid-a">
+                <button class="mbti-btn" data-type="A" data-mbti="ISTJ" onclick="selectMbti('A','ISTJ',this)">ISTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISFJ" onclick="selectMbti('A','ISFJ',this)">ISFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INFJ" onclick="selectMbti('A','INFJ',this)">INFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INTJ" onclick="selectMbti('A','INTJ',this)">INTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISTP" onclick="selectMbti('A','ISTP',this)">ISTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISFP" onclick="selectMbti('A','ISFP',this)">ISFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INFP" onclick="selectMbti('A','INFP',this)">INFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INTP" onclick="selectMbti('A','INTP',this)">INTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESTP" onclick="selectMbti('A','ESTP',this)">ESTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESFP" onclick="selectMbti('A','ESFP',this)">ESFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENFP" onclick="selectMbti('A','ENFP',this)">ENFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENTP" onclick="selectMbti('A','ENTP',this)">ENTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESTJ" onclick="selectMbti('A','ESTJ',this)">ESTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESFJ" onclick="selectMbti('A','ESFJ',this)">ESFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENFJ" onclick="selectMbti('A','ENFJ',this)">ENFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENTJ" onclick="selectMbti('A','ENTJ',this)">ENTJ</button>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="selector-group">
+            <label>MBTI do Parceiro</label>
+            <div class="mbti-grid" id="grid-b">
+                <button class="mbti-btn" data-type="B" data-mbti="ISTJ" onclick="selectMbti('B','ISTJ',this)">ISTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISFJ" onclick="selectMbti('B','ISFJ',this)">ISFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INFJ" onclick="selectMbti('B','INFJ',this)">INFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INTJ" onclick="selectMbti('B','INTJ',this)">INTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISTP" onclick="selectMbti('B','ISTP',this)">ISTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISFP" onclick="selectMbti('B','ISFP',this)">ISFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INFP" onclick="selectMbti('B','INFP',this)">INFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INTP" onclick="selectMbti('B','INTP',this)">INTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESTP" onclick="selectMbti('B','ESTP',this)">ESTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESFP" onclick="selectMbti('B','ESFP',this)">ESFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENFP" onclick="selectMbti('B','ENFP',this)">ENFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENTP" onclick="selectMbti('B','ENTP',this)">ENTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESTJ" onclick="selectMbti('B','ESTJ',this)">ESTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESFJ" onclick="selectMbti('B','ESFJ',this)">ESFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENFJ" onclick="selectMbti('B','ENFJ',this)">ENFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENTJ" onclick="selectMbti('B','ENTJ',this)">ENTJ</button>
+            </div>
+        </div>
+
+        <button class="calc-btn" id="checkBtn" onclick="checkCompatibility()" disabled>Verificar Compatibilidade</button>
+
+        <div class="result" id="result">
+            <div class="result-header">
+                <div class="result-types" id="resultTypes"></div>
+                <div class="stars" id="resultStars"></div>
+                <div class="result-title" id="resultTitle"></div>
+                <div class="result-desc" id="resultDesc"></div>
+            </div>
+
+            <div class="result-detail">
+                <div class="detail-row">
+                    <div class="detail-label">Pontos Fortes</div>
+                    <div class="detail-text" id="resultPros"></div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Cuidados</div>
+                    <div class="detail-text" id="resultCons"></div>
+                </div>
+            </div>
+
+            <button class="reset-btn" onclick="resetAll()">Tentar Novamente</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>O que e Compatibilidade MBTI?</h2>
+        <p>
+            A compatibilidade MBTI analisa como diferentes tipos de personalidade interagem entre si.
+            Alguns tipos se complementam naturalmente, enquanto outros podem precisar de mais esforco para se entenderem.
+            O resultado depende da disposicao de ambos os tipos para se comunicar e crescer juntos.
+            Selecione dois tipos MBTI acima para verificar a compatibilidade!
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Compatibilidade MBTI</h2><p>Verifique a compatibilidade MBTI entre dois tipos de personalidade. Analise a compatibilidade para relacionamentos, amizades e trabalho.</p></div>
+<div class="seo-section"><h2>Perguntas frequentes</h2><details class="seo-faq"><summary>Esta ferramenta é gratuita?</summary><p>Sim, 100% gratuita. Sem cadastro. Tudo é processado no seu navegador — nenhum dado é enviado a servidores.</p></details><details class="seo-faq"><summary>Funciona no celular?</summary><p>Sim, todas as ferramentas são responsivas e funcionam em smartphones, tablets e desktops.</p></details></div>
+<div class="seo-section"><h2>Ferramentas relacionadas</h2><div class="seo-related"><a href="blood-match.html">Compatibilidade por Tipo Sanguineo</a><a href="korean-love-calc.html">Calculadora de Amor Coreana</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const selected = { A: null, B: null };
+
+    function selectMbti(type, mbti, btn) {
+        document.querySelectorAll(`#grid-${type.toLowerCase()} .mbti-btn`).forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selected[type] = mbti;
+        document.getElementById('checkBtn').disabled = !(selected.A && selected.B);
+        document.getElementById('result').style.display = 'none';
+    }
+
+    const compatData = {
+        // Compatibilidade Perfeita (5)
+        "INFJ-ENTP": { score: 5, title: "Compatibilidade Perfeita!", desc: "A percepcao profunda do INFJ e a imaginacao ampla do ENTP se encaixam perfeitamente. Suas diferencas criam estimulacao infinita em vez de tedio. Quanto mais tempo passam juntos, mais conduzem um ao outro a novos mundos.", pros: "Conexao intelectual profunda, complementam naturalmente as fraquezas um do outro, forte vinculo emocional", cons: "INFJ pode se cansar dos habitos argumentativos do ENTP; ENTP deve estar atento as necessidades emocionais do INFJ" },
+        "INTJ-ENFP": { score: 5, title: "Compatibilidade Perfeita!", desc: "A profundidade estrategica do INTJ e a energia criativa do ENFP criam uma atracao poderosa. Eles preenchem as lacunas um do outro e crescem juntos. Uma das parcerias mais aclamadas na teoria MBTI.", pros: "Forte curiosidade intelectual compartilhada, ENFP conecta INTJ ao mundo, INTJ da direcao ao ENFP", cons: "A natureza reservada do INTJ pode chocar com a abertura do ENFP; planejamento vs espontaneidade precisa de equilibrio" },
+        "INTP-ENTJ": { score: 5, title: "Compatibilidade Perfeita!", desc: "O pensamento analitico do INTP encontra o poder de execucao do ENTJ, criando uma sinergia poderosa. Uma combinacao excelente para transformar ideias em realidade. Um relacionamento construido sobre respeito mutuo profundo.", pros: "Forte estimulacao intelectual, ENTJ realiza as ideias do INTP, respeito mutuo profundo", cons: "As tendencias dominantes do ENTJ podem pressionar o INTP; INTP precisa se esforcar mais na expressao emocional" },
+        "ISFJ-ESTP": { score: 5, title: "Compatibilidade Perfeita!", desc: "A estabilidade calorosa do ISFJ e a energia vibrante do ESTP se harmonizam lindamente. ISFJ se torna um refugio confortavel para o ESTP, enquanto ESTP expande o mundo do ISFJ. Eles preenchem perfeitamente as pecas que faltam um no outro.", pros: "Forte complementaridade, enriquecem a vida um do outro, equilibrio de confianca e vitalidade", cons: "ISFJ pode se sentir ansioso com o comportamento impulsivo do ESTP; atencao as diferencas no planejamento de longo prazo" },
+        "ISTJ-ESFP": { score: 5, title: "Compatibilidade Perfeita!", desc: "A responsabilidade do ISTJ e a energia livre do ESFP se completam. ISTJ e um pilar confiavel para o ESFP, enquanto ESFP traz vida ao mundo do ISTJ. Diferentes, mas mais fortes juntos.", pros: "Equilibrio perfeito de estabilidade e vitalidade, cobrem as fraquezas um do outro, confianca profunda possivel", cons: "Diferencas de estilo de vida (planejado vs espontaneo) podem causar atrito; aceitar o ritmo um do outro e fundamental" },
+        "INFP-ENFJ": { score: 5, title: "Compatibilidade Perfeita!", desc: "O mundo interior profundo do INFP e a lideranca calorosa do ENFJ se combinam lindamente. ENFJ ajuda os valores do INFP a florescerem, enquanto INFP oferece ao ENFJ conexao autentica. Um relacionamento ideal que ajuda ambos a crescerem.", pros: "Compreensao emocional profunda, ENFJ conecta INFP ao mundo, valores compartilhados", cons: "ENFJ pode sobrecarregar INFP se for muito dominante; respeitar o tempo sozinho do INFP e essencial" },
+        "ISFP-ENFJ": { score: 5, title: "Compatibilidade Perfeita!", desc: "O calor silencioso do ISFP e o cuidado apaixonado do ENFJ envolvem um ao outro confortavelmente. ENFJ ajuda ISFP a brilhar, enquanto ISFP da ao ENFJ estabilidade sincera. Uma combinacao ideal de aceitacao mutua.", pros: "Estabilidade emocional profunda, relacionamento atencioso e cuidadoso, valores compartilhados", cons: "ISFP pode se sentir pressionado se ENFJ planejar demais; tendencias de evitar conflitos podem atrasar a resolucao de problemas" },
+        "ISTP-ESTJ": { score: 5, title: "Compatibilidade Perfeita!", desc: "A resolucao pratica de problemas do ISTP e o impulso sistematico do ESTJ se encaixam poderosamente. Ambos sao realistas e valorizam a eficiencia — juntos podem realizar qualquer coisa. Uma parceria solida construida sobre confianca.", pros: "Forte base pragmatica comum, apreciacao profunda das habilidades um do outro, excelente trabalho em equipe", cons: "Ambos tem dificuldade com expressao emocional; tendencias de controle do ESTJ podem chocar com a necessidade de liberdade do ISTP" },
+
+        // Boa Compatibilidade (4)
+        "INFJ-INTJ": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos compartilham pensamento profundo e visao orientada para o futuro. Ha uma solidariedade silenciosa de compreensao sem palavras. Conversas serias e significativas fluem naturalmente quando estao juntos.", pros: "Forte afinidade intelectual, respeito pelo mundo interior um do outro, objetivos de longo prazo compartilhados", cons: "Falta de expressao emocional pode causar mal-entendidos; ambos podem ser teimosos tornando o compromisso dificil" },
+        "ENFP-ENTP": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos sao apaixonados por novas ideias e possibilidades. Juntos, tudo no mundo se torna uma exploracao emocionante. Um relacionamento vibrante repleto de energia e criatividade.", pros: "Troca infinita de ideias, alta energia e paixao compartilhadas, nunca entediam um ao outro", cons: "Ambos fracos em execucao — planos podem fracassar; risco de negligenciar conexao emocional seria" },
+        "ISFJ-INFJ": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos se preocupam profundamente com os outros e valorizam a harmonia. Eles entendem a sensibilidade um do outro e sao cuidadosos para nao causar magoa. Uma compatibilidade calorosa e pacifica.", pros: "Compreensao emocional profunda e empatia, cuidado atencioso um com o outro, estavel e confiavel", cons: "Evitacao de conflitos sobreposta pode impedir a resolucao de problemas; sentimentos reprimidos por ceder demais" },
+        "ENTJ-ENFJ": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos tem forte lideranca e orientacao para objetivos. Juntos criam uma equipe poderosa que transforma grandes visoes em realidade. Um relacionamento dinamico de respeito e estimulacao mutuos.", pros: "Objetivos e impulso compartilhados fortes, respeito profundo pelas habilidades um do outro, parceria de crescimento", cons: "Ambos querem liderar, causando lutas de poder; foco emocional do ENFJ vs foco logico do ENTJ podem chocar" },
+        "INTP-INFP": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos tem mundos interiores profundos e perspectivas originais. Eles acham o pensamento e a sensibilidade um do outro fascinantes. Uma conexao silenciosa mas profundamente significativa.", pros: "Respeito pela originalidade um do outro, atmosfera confortavel e sem julgamentos, mundo interior compartilhado", cons: "Ambos fracos em questoes praticas; expressao deficiente pode impedir a comunicacao de emocoes" },
+        "ESTJ-ESFJ": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos sao altamente responsaveis, realistas e profundamente cuidadosos. Juntos constroem uma base solida de confianca mutua. Um relacionamento estavel e confiavel.", pros: "Forte responsabilidade e confianca, valores compartilhados (familia, ordem, estabilidade), compatibilidade pratica", cons: "Ambos desconfortaveis com mudancas, causando estagnacao; natureza dominante do ESTJ pode suprimir ESFJ" },
+        "ESTP-ENTP": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos sao cheios de energia e adoram desafios. Juntos podem ter momentos emocionantes e vibrantes. Uma combinacao dinamica que nunca entedia um ao outro.", pros: "Alta energia compartilhada e espirito aventureiro, adaptabilidade rapida, estimulacao constante", cons: "Pode faltar conexao emocional seria; ambos fracos em responsabilidade e estabilidade de longo prazo" },
+        "ESFP-ENFP": { score: 4, title: "Boa Compatibilidade", desc: "Ambos os tipos adoram pessoas, sao emocionalmente autenticos e aproveitam o presente. Juntos criam um relacionamento brilhante e caloroso cheio de risadas. Eles se entendem e simpatizam bem um com o outro.", pros: "Alta empatia emocional, atmosfera sempre divertida juntos, aceitam um ao outro como sao", cons: "Ambos fracos em planejamento pratico — problemas de vida podem surgir; reacoes emocionais exageradas podem amplificar conflitos" },
+
+        // Compatibilidade Media (3)
+        "ISTJ-ISFJ": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos sao diligentes, responsaveis e valorizam a estabilidade. Eles se entendem profundamente mas o relacionamento pode fluir pacificamente sem muita emocao. Estavel, mas precisa de esforco para crescer.", pros: "Forte confianca e estabilidade, valores alinhados, relacionamento pacifico com pouco conflito", cons: "Falta de estimulacao nova pode causar estagnacao; expressao emocional deficiente precisa de esforco consciente" },
+        "INTJ-INTP": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos apreciam logica e analise, capazes de conversas profundas. Eles se estimulam intelectualmente mas a conexao emocional pode faltar. As mentes combinam bem mas os coracoes precisam de trabalho.", pros: "Forte afinidade intelectual, respeito pela independencia, sem drama emocional desnecessario", cons: "Conexao emocional fraca pode parecer fria; desafios na gestao da vida pratica" },
+        "ENFJ-ENTJ": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos tem visao clara e lideranca. Eles se estimulam e ajudam um ao outro a crescer, mas lutas de poder podem surgir. Definir papeis claramente pode torna-los parceiros poderosos.", pros: "Impulso e consciencia de objetivos compartilhados, relacionamento mutuamente estimulante", cons: "Ambos tem fortes instintos de lideranca causando choques; foco emocional do ENFJ vs foco em eficiencia do ENTJ" },
+        "ESFJ-ENFJ": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos cuidam dos outros e valorizam a harmonia. Eles se entendem bem e se sentem confortaveis, mas compartilham fraquezas semelhantes. Podem criar um relacionamento caloroso e estavel.", pros: "Empatia emocional profunda, compreensao da natureza cuidadosa um do outro, caloroso e pacifico", cons: "Ambos evitam conflitos, atrasando a resolucao de problemas; fraquezas semelhantes podem ser amplificadas" },
+        "INFP-ISFP": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos sao profundamente sensiveis e valorizam a liberdade pessoal. Eles se entendem sem julgamento — um relacionamento confortavel. Conexoes silenciosas mas significativas sao possiveis.", pros: "Respeito pela sensibilidade e individualidade um do outro, aceitacao sem julgamentos", cons: "Ambos carecem de decisao, adiando decisoes importantes; fracos no tratamento pratico de problemas" },
+        "ESTP-ISTP": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos sao realistas, diretos e orientados para a acao. Eles se entendem e se sentem confortaveis, mas a profundidade leva tempo para se desenvolver. Um relacionamento pratico e livre.", pros: "Atmosfera livre com independencia mutua, bom trabalho em equipe na resolucao pratica de problemas", cons: "Conexao emocional superficial pode manter as coisas na superficie; ambos podem ter dificuldade com compromisso de longo prazo" },
+        "ISTJ-INTJ": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos sao sistematicos, logicos e responsaveis. Podem construir um relacionamento estavel baseado em confianca e respeito. Uma boa combinacao se estabilidade for preferida a emocao.", pros: "Forte confianca e responsabilidade, comunicacao logica, base de relacionamento estavel", cons: "Falta de conexao emocional pode parecer rigida; ambos conservadores sobre mudancas e novas experiencias" },
+        "ESFP-ESFJ": { score: 3, title: "Compatibilidade Media", desc: "Ambos os tipos adoram pessoas, aproveitam o presente e valorizam emocoes. Juntos podem ter momentos calorosos e animados. Um relacionamento confortavel entendendo as sensibilidades um do outro.", pros: "Alta empatia emocional, atmosfera divertida mantida, cuidado mutuo caloroso", cons: "Pode faltar estimulacao intelectual profunda; emocoes podem escalar durante conflitos" },
+
+        // Compatibilidade Dificil (2)
+        "INFJ-ISFJ": { score: 2, title: "Compatibilidade Dificil", desc: "Ambos sao profundamente cuidadosos mas tem visoes de mundo fundamentalmente diferentes. O idealismo abstrato do INFJ e o realismo pratico do ISFJ frequentemente colidem. Este relacionamento requer esforco especialmente significativo para se entenderem.", pros: "Natureza cuidadosa compartilhada e consideracao pelos outros, preferencia pela harmonia sobre o conflito", cons: "O pensamento abstrato do INFJ pode parecer irrealista para ISFJ; o tradicionalismo do ISFJ pode frustrar INFJ" },
+        "ENTJ-ISFP": { score: 2, title: "Compatibilidade Dificil", desc: "O forte impulso do ENTJ e a sensibilidade livre do ISFP frequentemente colidem. ENTJ acha ISFP muito lento e emocional; ISFP acha ENTJ muito controlador. Esforco significativo necessario para aceitar suas diferencas.", pros: "ENTJ fornece direcao para ISFP; ISFP ensina sensibilidade ao ENTJ", cons: "O controle do ENTJ pode infringir seriamente a liberdade do ISFP; diferencas extremas em ritmo e prioridades" },
+        "ESTJ-INFP": { score: 2, title: "Compatibilidade Dificil", desc: "A abordagem sistematica e realista do ESTJ choca com o mundo livre e emocional do INFP. ESTJ ve INFP como ineficiente; INFP ve ESTJ como inflexivel. Um relacionamento desafiador com muitas diferencas a superar.", pros: "Potencial para complementar fraquezas; a execucao do ESTJ pode realizar as ideias do INFP", cons: "Diferencas fundamentais em valores e estilo de vida; as criticas do ESTJ podem magoar profundamente INFP" },
+        "ESTP-INFJ": { score: 2, title: "Compatibilidade Dificil", desc: "A natureza espontanea e focada na realidade do ESTP frequentemente choca com o mundo interior profundo e o pensamento voltado para o futuro do INFJ. A atracao inicial e possivel mas manter o relacionamento requer muito esforco.", pros: "Forte atracao inicial; ESTP da praticidade ao INFJ, INFJ da profundidade ao ESTP", cons: "A lacuna na profundidade das conversas cresce a longo prazo; busca por emocao do ESTP vs busca por significado do INFJ colidem" },
+        "ESFJ-ISTP": { score: 2, title: "Compatibilidade Dificil", desc: "A natureza emocional e social do ESFJ difere muito da natureza logica e independente do ISTP. ESFJ acha ISTP frio; ISTP acha ESFJ sufocante. Muito esforco necessario para entender as necessidades um do outro.", pros: "Potencial para aprender o que falta a cada um", cons: "Diferencas extremas em necessidades emocionais; ESFJ pode se sentir ignorado pelo ISTP" },
+        "INTP-ESFP": { score: 2, title: "Compatibilidade Dificil", desc: "O mundo abstrato e introvertido do INTP contrasta com o mundo pratico e extrovertido do ESFP. As diferencas iniciais podem parecer refrescantes, mas as lacunas persistentes tornam o relacionamento dificil.", pros: "Diferencas podem ser estimulantes no inicio; potencial para ampliar os mundos um do outro", cons: "Lacuna extrema em interesses intelectuais e necessidades sociais; tempo sozinho do INTP vs necessidades sociais do ESFP colidem" },
+
+        // Compatibilidade Muito Dificil (1)
+        "ESTJ-ISFP": { score: 1, title: "Compatibilidade Muito Dificil", desc: "As fortes tendencias de controle do ESTJ e o espirito livre do ISFP fundamentalmente colidem. Seus estilos de vida e valores sao tao diferentes que o conflito persistente e provavel. Requer enorme esforco para aceitar um ao outro como sao.", pros: "Potencial para aprender com perspectivas completamente diferentes", cons: "As regras e o controle do ESTJ sufocam ISFP; incompatibilidade fundamental em valores e estilo de vida; conflitos frequentes e dificeis de resolver" },
+        "ENTJ-INFP": { score: 1, title: "Compatibilidade Muito Dificil", desc: "O pensamento focado em eficiencia do ENTJ choca severamente com a vida centrada em emocoes e valores do INFP. ENTJ ve INFP como ineficiente; INFP se sente desrespeitado pelo ENTJ. Uma das combinacoes mais desafiadoras.", pros: "Potencial teorico para a execucao do ENTJ se combinar com a criatividade do INFP", cons: "Choque fundamental de valores (eficiencia vs valores); as criticas do ENTJ ferem profundamente INFP; esforco extremo necessario para relacionamento de longo prazo" },
+        "ESTP-INFP": { score: 1, title: "Compatibilidade Muito Dificil", desc: "A abordagem espontanea e focada na realidade do ESTP choca com a vida emocional profunda e centrada em valores do INFP. O que eles buscam e tao diferente que encontrar pontos em comum e dificil. Manter este relacionamento requer imensa compreensao mutua.", pros: "Podem mostrar mundos completamente novos um ao outro", cons: "Diferencas fundamentais no ritmo e estilo de vida; a franqueza do ESTP magoa INFP; choque extremo entre necessidades emocionais e busca por emocao" },
+    };
+
+    function getKey(a, b) {
+        return [a, b].sort().join('-');
+    }
+
+    function getCompatibility(a, b) {
+        const key = getKey(a, b);
+        if (compatData[key]) return compatData[key];
+        return estimateCompatibility(a, b);
+    }
+
+    function estimateCompatibility(a, b) {
+        let score = 3;
+        let pros = "Ha potencial para aprender com as diferencas um do outro.";
+        let cons = "E necessario esforco para entender e se adaptar aos aspectos diferentes um do outro.";
+
+        if (a === b) {
+            return {
+                score: 3,
+                title: "Compatibilidade Media",
+                desc: "Tipos MBTI iguais se entendem bem mas compartilham as mesmas fraquezas. Um relacionamento confortavel e natural, mas pode ser dificil complementar os defeitos um do outro. Esforco para superar fraquezas compartilhadas juntos e necessario para crescer.",
+                pros: "Compreensao mutua profunda, comunicam na mesma linguagem, muitos interesses compartilhados",
+                cons: "Mesmas fraquezas podem ser amplificadas; pode faltar estimulacao para crescimento mutuo"
+            };
+        }
+
+        const sharedCount = countShared(a, b);
+
+        if (sharedCount === 3) {
+            score = 4;
+            return { score, title: "Boa Compatibilidade", desc: "Dois tipos compartilhando tres preferencias se entendem bem, com uma diferenca proporcionando estimulacao fresca. Um relacionamento equilibrado que e confortavel e promove crescimento gradual.", pros: "Alta compreensao mutua, comunicacao natural, relacionamento confortavel", cons: "Conflitos menores da unica diferenca podem surgir" };
+        } else if (sharedCount === 2) {
+            score = 3;
+            return { score, title: "Compatibilidade Media", desc: "Tipos compartilhando duas preferencias tem areas de compreensao e diferenca coexistindo. Podem aprender e crescer um com o outro, mas muitos aspectos precisam de ajuste.", pros: "Podem aprender com as diferencas, algum terreno comum existe", cons: "Diferencas no estilo de comunicacao podem causar mal-entendidos; muitas areas precisam de ajuste" };
+        } else if (sharedCount === 1) {
+            score = 2;
+            return { score, title: "Compatibilidade Dificil", desc: "Dois tipos compartilhando apenas uma preferencia precisam de muito esforco para se entenderem. As diferencas podem ser estimulantes mas tambem podem causar conflitos persistentes.", pros: "Podem oferecer perspectivas completamente novas um ao outro", cons: "Grandes lacunas no estilo de comunicacao e valores; esforco significativo necessario para compreensao" };
+        } else {
+            score = 2;
+            return { score, title: "Compatibilidade Dificil", desc: "Dois tipos com todas as quatro preferencias diferentes podem sentir forte curiosidade um pelo outro, mas manter um relacionamento duradouro requer muito esforco.", pros: "Perspectivas completamente diferentes podem ser estimulantes", cons: "Diferencas em cada aspecto criam potencial para choques persistentes; muita paciencia necessaria para entender os modos um do outro" };
+        }
+    }
+
+    function countShared(a, b) {
+        let count = 0;
+        for (let i = 0; i < 4; i++) {
+            if (a[i] === b[i]) count++;
+        }
+        return count;
+    }
+
+    function checkCompatibility() {
+        const a = selected.A;
+        const b = selected.B;
+        if (!a || !b) return;
+
+        const compat = getCompatibility(a, b);
+
+        document.getElementById('resultTypes').innerHTML =
+            `${a} <span>&times;</span> ${b}`;
+
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            stars += `<span class="${i <= compat.score ? 'star-filled' : 'star-empty'}">&#9733;</span>`;
+        }
+        document.getElementById('resultStars').innerHTML = stars;
+        document.getElementById('resultTitle').textContent = compat.title;
+        document.getElementById('resultDesc').textContent = compat.desc;
+        document.getElementById('resultPros').textContent = compat.pros;
+        document.getElementById('resultCons').textContent = compat.cons;
+
+        const resultEl = document.getElementById('result');
+        resultEl.style.display = 'block';
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetAll() {
+        selected.A = null;
+        selected.B = null;
+        document.querySelectorAll('.mbti-btn').forEach(b => b.classList.remove('selected'));
+        document.getElementById('checkBtn').disabled = true;
+        document.getElementById('result').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

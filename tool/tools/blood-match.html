@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혈액형 궁합 테스트 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"혈액형 궁합 테스트는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"혈액형 궁합 테스트는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"혈액형으로 알아보는 궁합 테스트. 두 혈액형의 성격과 궁합을 확인해보세요."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/blood-match.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/blood-match.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/blood-match.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/blood-match.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/blood-match.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/blood-match.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/blood-match.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/blood-match.html">
+    <link rel="canonical" href="https://mogutool.com/tools/blood-match.html">
+    <meta property="og:title" content="혈액형 궁합 테스트 - MOGU Tools">
+    <meta property="og:description" content="혈액형으로 알아보는 궁합 테스트. 두 혈액형의 성격과 궁합을 확인해보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/blood-match.html">
+    <meta name="description" content="혈액형으로 알아보는 궁합 테스트. 두 혈액형의 성격과 궁합을 확인해보세요.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .selector-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .blood-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .blood-btn {
+            padding: 18px 8px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.18s;
+            color: #fff;
+            text-align: center;
+            user-select: none;
+            background: #ccc;
+        }
+
+        .blood-btn.type-A  { background: #4a90d9; }
+        .blood-btn.type-B  { background: #4caf7d; }
+        .blood-btn.type-O  { background: #e05c5c; }
+        .blood-btn.type-AB { background: #9b6fd4; font-size: 15px; }
+
+        .blood-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .blood-btn.selected {
+            border-color: #2c2c2c;
+            box-shadow: 0 0 0 3px rgba(44,44,44,0.15);
+            transform: translateY(-2px);
+        }
+
+        .blood-btn .type-sub {
+            font-size: 11px;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #f0f0f0;
+            margin: 4px 0 24px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Result */
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .result-pair {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .pair-badge {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .pair-heart {
+            font-size: 22px;
+            color: #e05c5c;
+        }
+
+        .result-stars {
+            font-size: 26px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .result-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        /* Meter bar */
+        .meter-wrap {
+            background: #e8e8e8;
+            border-radius: 20px;
+            height: 12px;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            max-width: 320px;
+        }
+
+        .meter-bar {
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.6s ease;
+            background: linear-gradient(90deg, #f0ad4e, #e05c5c);
+        }
+
+        /* Personality cards */
+        .personality-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .personality-card {
+            border-radius: 8px;
+            padding: 14px;
+            color: #fff;
+        }
+
+        .personality-card .p-type {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .personality-card .p-tags {
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Pros / Cons */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .detail-box {
+            background: #fff;
+            border-radius: 8px;
+            padding: 14px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .detail-box .d-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .detail-box .d-title.pros { color: #4caf7d; }
+        .detail-box .d-title.cons { color: #e05c5c; }
+
+        .detail-box p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 12px;
+            background: #fff;
+            color: #555;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        /* Color helpers */
+        .bg-A  { background: #4a90d9; }
+        .bg-B  { background: #4caf7d; }
+        .bg-O  { background: #e05c5c; }
+        .bg-AB { background: #9b6fd4; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 재미 &gt; 혈액형 궁합
+</div>
+
+<div class="container">
+    <h1>혈액형 궁합 테스트</h1>
+    <p class="subtitle">두 혈액형을 선택하면 궁합을 알려드립니다.</p>
+
+    <div class="calc-box">
+
+        <!-- My type -->
+        <div class="selector-label">나의 혈액형</div>
+        <div class="blood-buttons" id="myButtons">
+            <button class="blood-btn type-A"  onclick="selectType('my','A')">
+                A형<div class="type-sub">꼼꼼·배려</div>
+            </button>
+            <button class="blood-btn type-B"  onclick="selectType('my','B')">
+                B형<div class="type-sub">자유·창의</div>
+            </button>
+            <button class="blood-btn type-O"  onclick="selectType('my','O')">
+                O형<div class="type-sub">리더·열정</div>
+            </button>
+            <button class="blood-btn type-AB" onclick="selectType('my','AB')">
+                AB형<div class="type-sub">이성·독특</div>
+            </button>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Partner type -->
+        <div class="selector-label">상대의 혈액형</div>
+        <div class="blood-buttons" id="partnerButtons">
+            <button class="blood-btn type-A"  onclick="selectType('partner','A')">
+                A형<div class="type-sub">꼼꼼·배려</div>
+            </button>
+            <button class="blood-btn type-B"  onclick="selectType('partner','B')">
+                B형<div class="type-sub">자유·창의</div>
+            </button>
+            <button class="blood-btn type-O"  onclick="selectType('partner','O')">
+                O형<div class="type-sub">리더·열정</div>
+            </button>
+            <button class="blood-btn type-AB" onclick="selectType('partner','AB')">
+                AB형<div class="type-sub">이성·독특</div>
+            </button>
+        </div>
+
+        <button class="calc-btn" onclick="checkMatch()">궁합 보기</button>
+
+        <!-- Result -->
+        <div class="result" id="result">
+            <div class="result-card">
+                <div class="result-pair">
+                    <div class="pair-badge" id="badgeMe"></div>
+                    <div class="pair-heart">♥</div>
+                    <div class="pair-badge" id="badgePartner"></div>
+                </div>
+                <div class="result-stars" id="resultStars"></div>
+                <div class="result-title" id="resultTitle"></div>
+
+                <div class="meter-wrap">
+                    <div class="meter-bar" id="meterBar" style="width:0%"></div>
+                </div>
+
+                <div class="personality-row">
+                    <div class="personality-card" id="cardMe">
+                        <div class="p-type" id="cardMeType"></div>
+                        <div class="p-tags" id="cardMeTags"></div>
+                    </div>
+                    <div class="personality-card" id="cardPartner">
+                        <div class="p-type" id="cardPartnerType"></div>
+                        <div class="p-tags" id="cardPartnerTags"></div>
+                    </div>
+                </div>
+
+                <div class="detail-grid">
+                    <div class="detail-box">
+                        <div class="d-title pros">장점</div>
+                        <p id="resultPros"></p>
+                    </div>
+                    <div class="detail-box">
+                        <div class="d-title cons">주의점</div>
+                        <p id="resultCons"></p>
+                    </div>
+                </div>
+
+                <button class="reset-btn" onclick="resetAll()">다시 하기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>혈액형 성격론이란?</h2>
+        <p>
+            혈액형 성격론은 ABO식 혈액형과 성격·궁합을 연결 짓는 한국·일본의 대중 문화입니다.
+            과학적 근거는 없지만 재미로 즐기는 콘텐츠입니다.
+            결과는 가볍게 참고하시고, 실제 관계는 상호 이해와 배려로 만들어 가세요.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>혈액형 궁합</h2><p>두 사람의 혈액형을 선택하면 연애 궁합, 우정 궁합, 성격 분석을 확인할 수 있습니다.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>혈액형 궁합은 과학적인가요?</summary><p>혈액형 궁합은 과학적 근거가 없지만, 재미로 즐기는 성격 분석 도구입니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="mbti-match.html">MBTI 궁합</a><a href="zodiac.html">별자리 운세</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const selected = { my: null, partner: null };
+
+    const personality = {
+        A:  { label: 'A형', tags: '꼼꼼함 · 배려심 · 소심함 · 완벽주의', bgClass: 'bg-A' },
+        B:  { label: 'B형', tags: '자유로움 · 창의성 · 마이페이스 · 솔직함', bgClass: 'bg-B' },
+        O:  { label: 'O형', tags: '리더십 · 열정 · 질투심 · 대범함', bgClass: 'bg-O' },
+        AB: { label: 'AB형', tags: '이성적 · 다재다능 · 냉철함 · 독특함', bgClass: 'bg-AB' },
+    };
+
+    // Key: sorted pair string e.g. "A+O"
+    const compatibility = {
+        'A+O':  { stars: 5, title: '배려하는 A와 리더십 O의 완벽 조합', meter: 96, pros: '서로의 부족함을 채워주는 환상의 팀', cons: 'O형의 직설적 말투가 A형에게 상처를 줄 수 있어요' },
+        'AB+B': { stars: 5, title: '자유로운 B와 다재다능한 AB의 환상 궁합', meter: 94, pros: '서로를 구속하지 않아 편안한 관계', cons: '두 사람 모두 마이페이스라 계획이 엇나가기 쉬워요' },
+        'A+A':  { stars: 4, title: '서로를 이해하는 안정적 관계', meter: 80, pros: '세심하게 배려하며 갈등이 적어요', cons: '서로 눈치만 보다 솔직한 대화가 부족해질 수 있어요' },
+        'O+O':  { stars: 4, title: '열정적이고 활기찬 커플', meter: 82, pros: '에너지가 넘쳐 함께하면 뭐든 즐거워요', cons: '둘 다 지기 싫어해 주도권 싸움이 생길 수 있어요' },
+        'A+AB': { stars: 4, title: '섬세한 A와 이성적인 AB', meter: 78, pros: 'A형의 배려와 AB형의 분석력이 잘 맞아요', cons: 'AB형의 냉철한 말이 A형을 불안하게 할 수 있어요' },
+        'B+O':  { stars: 4, title: '활발한 O와 자유로운 B', meter: 76, pros: '둘 다 활동적이라 함께 있으면 활기차요', cons: 'B형의 자유분방함이 O형의 질투심을 자극할 수 있어요' },
+        'B+B':  { stars: 3, title: '자유로운 영혼들의 만남', meter: 60, pros: '서로 간섭 없이 자유롭고 솔직한 관계', cons: '책임감이 분산되어 관계가 흐지부지될 수 있어요' },
+        'AB+AB':{ stars: 3, title: '지적인 대화가 끝없는 커플', meter: 62, pros: '깊이 있는 대화와 공감대가 풍부해요', cons: '감정 표현이 적어 서로 외로움을 느낄 수 있어요' },
+        'AB+O': { stars: 3, title: '리더십 O와 분석적 AB', meter: 58, pros: 'O형의 추진력과 AB형의 아이디어가 만나면 강력해요', cons: 'AB형이 O형의 강한 주도권에 지칠 수 있어요' },
+        'A+B':  { stars: 2, title: '꼼꼼한 A와 자유로운 B의 충돌', meter: 38, pros: '서로 다른 매력으로 처음엔 끌릴 수 있어요', cons: 'A형의 규칙과 B형의 자유가 정면 충돌하기 쉬워요' },
+    };
+
+    function getKey(t1, t2) {
+        // Canonical ordering
+        const order = ['A', 'B', 'O', 'AB'];
+        const i1 = order.indexOf(t1), i2 = order.indexOf(t2);
+        return i1 <= i2 ? t1 + '+' + t2 : t2 + '+' + t1;
+    }
+
+    function selectType(who, type) {
+        selected[who] = type;
+        const containerId = who === 'my' ? 'myButtons' : 'partnerButtons';
+        const container = document.getElementById(containerId);
+        container.querySelectorAll('.blood-btn').forEach(btn => btn.classList.remove('selected'));
+        const idx = ['A','B','O','AB'].indexOf(type);
+        container.querySelectorAll('.blood-btn')[idx].classList.add('selected');
+    }
+
+    function checkMatch() {
+        if (!selected.my || !selected.partner) {
+            alert('나의 혈액형과 상대의 혈액형을 모두 선택해주세요.');
+            return;
+        }
+
+        const key = getKey(selected.my, selected.partner);
+        const data = compatibility[key];
+
+        if (!data) {
+            alert('궁합 데이터를 찾을 수 없습니다.');
+            return;
+        }
+
+        // Badges
+        const me = personality[selected.my];
+        const partner = personality[selected.partner];
+
+        const badgeMe = document.getElementById('badgeMe');
+        badgeMe.textContent = selected.my + '형';
+        badgeMe.className = 'pair-badge ' + me.bgClass;
+
+        const badgePartner = document.getElementById('badgePartner');
+        badgePartner.textContent = selected.partner + '형';
+        badgePartner.className = 'pair-badge ' + partner.bgClass;
+
+        // Stars
+        document.getElementById('resultStars').textContent = '★'.repeat(data.stars) + '☆'.repeat(5 - data.stars);
+
+        // Title
+        document.getElementById('resultTitle').textContent = data.title;
+
+        // Meter (animate after slight delay)
+        const bar = document.getElementById('meterBar');
+        bar.style.width = '0%';
+        setTimeout(() => { bar.style.width = data.meter + '%'; }, 80);
+
+        // Personality cards
+        const cardMe = document.getElementById('cardMe');
+        cardMe.className = 'personality-card ' + me.bgClass;
+        document.getElementById('cardMeType').textContent = me.label;
+        document.getElementById('cardMeTags').textContent = me.tags;
+
+        const cardPartner = document.getElementById('cardPartner');
+        cardPartner.className = 'personality-card ' + partner.bgClass;
+        document.getElementById('cardPartnerType').textContent = partner.label;
+        document.getElementById('cardPartnerTags').textContent = partner.tags;
+
+        // Pros / cons
+        document.getElementById('resultPros').textContent = data.pros;
+        document.getElementById('resultCons').textContent = data.cons;
+
+        // Show
+        const resultEl = document.getElementById('result');
+        resultEl.style.display = 'block';
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetAll() {
+        selected.my = null;
+        selected.partner = null;
+        document.querySelectorAll('.blood-btn').forEach(btn => btn.classList.remove('selected'));
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('meterBar').style.width = '0%';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

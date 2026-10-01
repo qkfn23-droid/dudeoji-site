@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3846518968014998" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0RRT1HNM5M');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RRT1HNM5M"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><circle cx=%2260%22 cy=%2260%22 r=%2250%22 fill=%22%23FFD93D%22/><ellipse cx=%2243%22 cy=%2268%22 rx=%227%22 ry=%224%22 fill=%22rgba(245,150,150,0.6)%22/><ellipse cx=%2277%22 cy=%2268%22 rx=%227%22 ry=%224%22 fill=%22rgba(245,150,150,0.6)%22/><circle cx=%2248%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><circle cx=%2272%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><path d=%22M56,75 Q60,79 64,75%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%221.5%22 stroke-linecap=%22round%22/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>베딕 점성술 차트 - 고대 문명 점성술</title>
+<meta name="description" content="무료 베딕 점성술 차트. 라그나, 낙샤트라, 다샤, 행성 배치 계산. 성격, 직업, 관계 완전 분석.">
+    <link rel="alternate" hreflang="ko" href="https://mogumoon.com/vedic/">
+    <link rel="alternate" hreflang="en" href="https://mogumoon.com/en/vedic/">
+    <link rel="alternate" hreflang="ja" href="https://mogumoon.com/jp/vedic/">
+    <link rel="alternate" hreflang="es" href="https://mogumoon.com/es/vedic/">
+    <link rel="alternate" hreflang="de" href="https://mogumoon.com/de/vedic/">
+    <link rel="alternate" hreflang="fr" href="https://mogumoon.com/fr/vedic/">
+    <link rel="alternate" hreflang="pt" href="https://mogumoon.com/pt/vedic/">
+    <link rel="alternate" hreflang="x-default" href="https://mogumoon.com/vedic/">
+    <link rel="canonical" href="https://mogumoon.com/vedic/">
+    <meta property="og:title" content="베딕 점성술 차트 - MOGU Moon">
+    <meta property="og:description" content="무료 베딕 점성술. 나크샤트라, 다샤, D1 차트, 행성 해석.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogumoon.com/og-image.png">
+    <meta property="og:url" content="https://mogumoon.com/vedic/">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"베딕 점성술이란?","acceptedAnswer":{"@type":"Answer","text":"인도 고대 점성술(Jyotish)로, 나크샤트라(27개 별자리), 다샤(행성 주기), 행성 위치를 분석합니다."}},
+    {"@type":"Question","name":"서양 점성술과 뭐가 다른가요?","acceptedAnswer":{"@type":"Answer","text":"베딕은 항성 기준(사이드리얼), 서양은 춘분점 기준(트로피컬)입니다. 약 24도 차이가 있습니다."}}
+    ]}
+</script>
+    <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a1a;color:#e0d8cc;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,0.4),transparent),radial-gradient(1px 1px at 50% 10%,rgba(255,255,255,0.5),transparent),radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,0.3),transparent),radial-gradient(2px 2px at 45% 45%,rgba(201,168,76,0.3),transparent);z-index:-1;}
+
+/* Nav */
+.nav{background:rgba(10,10,26,0.95);backdrop-filter:blur(12px);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1a1a3e;position:sticky;top:0;z-index:100;}
+.nav-logo{font-size:20px;font-weight:700;color:#c9a84c;text-decoration:none;letter-spacing:2px;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.nav-logo svg{width:26px;height:26px;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 14px;border-radius:20px;color:#888;font-weight:500;transition:all .2s;}
+.nav-links a:hover{background:rgba(201,168,76,0.1);color:#c9a84c;}
+.nav-links a.active{background:rgba(201,168,76,0.2);color:#c9a84c;}
+.nav-lang{padding:6px 10px;border-radius:12px;border:1px solid #2a2a5a;font-size:11px;color:#888;background:#12122a;cursor:pointer;outline:none;}
+
+/* Input bar (가로) */
+.input-bar{margin:12px 0 0;padding:0 40px;}
+.input-bar-inner{background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:14px;padding:14px 20px;display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;}
+.ib-group{display:flex;flex-direction:column;gap:4px;}
+.ib-group label{font-size:11px;color:#c9a84c;font-weight:600;}
+.ib-row{display:flex;gap:6px;}
+.ib-group select,.ib-group input{padding:10px 12px;background:#161630;border:1px solid #4a4a7a;border-radius:8px;color:#e0d8cc;font-size:13px;outline:none;min-width:70px;transition:all .2s;}
+.ib-group select:focus,.ib-group input:focus{border-color:#c9a84c;box-shadow:0 0 8px rgba(201,168,76,0.25);background:#1a1a3e;}
+.optional-tag{font-size:10px;color:#666;font-weight:400;}
+.calc-btn{padding:10px 28px;background:linear-gradient(135deg,#c9a84c,#a8872a);color:#0a0a1a;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;letter-spacing:1px;}
+.calc-btn:hover{background:linear-gradient(135deg,#dbb85c,#c9a84c);transform:translateY(-1px);}
+#customLatLng{margin-top:6px;}
+#customLatLng .input-row{display:flex;gap:6px;}
+#customLatLng input{padding:10px 12px;background:#0a0a1a;border:1px solid #3a3a6a;border-radius:8px;color:#e0d8cc;font-size:13px;outline:none;flex:1;}
+
+/* 2-column page layout */
+.page-layout{padding:16px 40px;display:grid;grid-template-columns:1fr 280px;gap:24px;}
+.content{display:flex;flex-direction:column;gap:16px;min-width:0;}
+
+/* Result section */
+.result-section{display:none;}
+
+/* Section title */
+.section-title{font-size:16px;color:#c9a84c;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #2a2a5a;}
+
+/* Mode toggle */
+.mode-bar{display:flex;gap:6px;margin-bottom:8px;}
+.mode-bar button{padding:8px 18px;border:1px solid #c9a84c;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;}
+
+/* Category accordion */
+.category-group{margin-bottom:8px;}
+.category-header{cursor:pointer;padding:14px 16px;background:linear-gradient(135deg,#1a1a3e,#12122a);border:1px solid #2a2a5a;border-radius:10px;display:flex;align-items:center;justify-content:space-between;transition:all .2s;}
+.category-header:hover{border-color:rgba(201,168,76,0.3);}
+.cat-arrow{color:#666;font-size:14px;}
+
+/* Chart */
+.chart-container{background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:14px;padding:16px;margin-bottom:16px;}
+.chart-label{text-align:center;font-size:12px;color:#8b7ec8;margin-bottom:8px;font-weight:600;}
+.chart-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:0;aspect-ratio:1;border:2px solid #c9a84c;max-width:400px;margin:0 auto;}
+.chart-cell{border:1px solid #3a3a6a;padding:6px;font-size:11px;color:#aaa;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55px;position:relative;}
+.chart-cell.empty{background:#0d0d20;}
+.chart-cell .house-num{position:absolute;top:2px;left:4px;font-size:9px;color:#555;}
+.chart-cell .planet{font-size:12px;font-weight:600;color:#c9a84c;margin:1px 0;}
+.chart-cell .planet.benefic{color:#5cb85c;}
+.chart-cell .planet.malefic{color:#d9534f;}
+
+/* Planet table */
+.planet-table{width:100%;border-collapse:collapse;font-size:13px;background:#12122a;border-radius:12px;overflow:hidden;border:1px solid #2a2a5a;}
+.planet-table th{background:#1a1a3e;color:#c9a84c;padding:10px 12px;text-align:left;font-weight:600;font-size:12px;}
+.planet-table td{padding:10px 12px;border-bottom:1px solid #1a1a3e;color:#ccc;}
+.planet-table tr:last-child td{border-bottom:none;}
+.planet-table tr:hover{background:#1a1a30;}
+
+/* Nakshatra */
+.nakshatra-card{background:linear-gradient(135deg,#1a1a3e,#12122a);border:1px solid #2a2a5a;border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;}
+.nakshatra-name{font-size:22px;color:#c9a84c;font-weight:700;margin-bottom:4px;}
+.nakshatra-meaning{font-size:14px;color:#8b7ec8;margin-bottom:10px;}
+.nakshatra-detail{font-size:13px;color:#999;line-height:1.6;}
+
+/* Dasha */
+.dasha-timeline{background:#12122a;border:1px solid #2a2a5a;border-radius:12px;overflow:hidden;}
+.dasha-item{display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid #1a1a3e;font-size:13px;}
+.dasha-item:last-child{border-bottom:none;}
+.dasha-item.current{background:#1a2a1a;border-left:3px solid #c9a84c;}
+.dasha-planet{min-width:60px;font-weight:700;color:#c9a84c;}
+.dasha-period{flex:1;color:#999;}
+.dasha-years{color:#666;font-size:12px;}
+.dasha-badge{font-size:10px;background:#c9a84c;color:#0a0a1a;padding:2px 8px;border-radius:10px;font-weight:700;margin-left:8px;}
+
+/* Interp cards */
+.interp-card{background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:12px;padding:18px;margin-bottom:10px;}
+.interp-title{font-size:14px;color:#c9a84c;font-weight:600;margin-bottom:6px;}
+.interp-text{font-size:13px;color:#999;line-height:1.7;}
+
+/* Sidebar */
+.sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:60px;align-self:start;max-height:calc(100vh - 80px);overflow-y:auto;}
+.side-card{background:linear-gradient(135deg,#0e0e22,#14142e);border:1px solid #1e1e3e;border-radius:14px;padding:16px;position:relative;overflow:hidden;}
+.side-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.15),transparent);}
+.side-title{font-size:12px;font-weight:700;color:#c9a84c;margin-bottom:10px;letter-spacing:1px;}
+.rel-item{display:flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;color:#777;font-size:12px;transition:all .2s;}
+.rel-item:hover{background:rgba(201,168,76,0.06);color:#c9a84c;}
+
+/* Ad slot */
+
+/* Footer */
+.app-footer{text-align:center;padding:20px;font-size:11px;color:#444;border-top:1px solid #1a1a3e;margin-top:10px;}
+.app-footer a{color:#555;text-decoration:none;}
+
+/* SEO */
+.seo-content{margin:20px 0;padding:0 40px;}
+.seo-section{background:rgba(255,255,255,0.03);border:1px solid rgba(212,168,83,0.15);border-radius:12px;padding:20px;margin-bottom:12px;}
+.seo-section h2{font-size:16px;font-weight:700;margin-bottom:8px;color:#d4a853;}
+.seo-section p,.seo-section li{font-size:13px;color:#aaa;line-height:1.8;}
+.seo-faq summary{font-size:14px;font-weight:600;color:#d4a853;cursor:pointer;padding:8px 0;}
+.seo-faq p{margin-top:8px;}
+.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.seo-related a{display:inline-block;padding:6px 14px;background:rgba(212,168,83,0.1);border:1px solid rgba(212,168,83,0.2);border-radius:8px;color:#d4a853;text-decoration:none;font-size:13px;}
+
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23c9a84c' d='M5 6L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;cursor:pointer;}
+select:disabled{opacity:0.4;cursor:not-allowed;}
+optgroup{color:#c9a84c;font-weight:600;}
+
+/* Easy mode */
+.easy-mode .chart-container{display:none !important;}
+.easy-mode .planet-table{display:none !important;}
+.easy-mode .chart-grid{display:none !important;}
+.easy-mode .chart-label{display:none !important;}
+.easy-mode .easy-hide{display:none !important;}
+
+/* Tab bar */
+.tab-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.mode-toggle{display:flex;gap:4px;margin-right:8px;}
+.tab-btn{padding:8px 14px;border:1px solid #2a2a5a;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;color:#777;background:transparent;transition:all .2s;white-space:nowrap;}
+.tab-btn:hover{border-color:rgba(201,168,76,0.3);color:#c9a84c;}
+.tab-btn.active{background:rgba(201,168,76,0.15);border-color:#c9a84c;color:#c9a84c;}
+.tab-panel{min-height:200px;}
+
+/* Chart: centered, reasonable size */
+.chart-container{max-width:450px;margin:0 auto 16px;}
+
+/* Dasha: horizontal card timeline */
+.dasha-row{display:flex;gap:10px;overflow-x:auto;padding:8px 0;}
+.dasha-card{flex-shrink:0;min-width:150px;background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:12px;padding:14px;text-align:center;}
+.dasha-card.current{border-color:#c9a84c;background:linear-gradient(135deg,#1a2a1a,#12301a);}
+.dasha-card .dp{font-size:15px;font-weight:700;color:#c9a84c;margin-bottom:4px;}
+.dasha-card .dd{font-size:11px;color:#888;}
+.dasha-card .db{font-size:9px;background:#c9a84c;color:#0a0a1a;padding:2px 8px;border-radius:8px;font-weight:700;display:inline-block;margin-top:6px;}
+
+/* Responsive */
+@media(max-width:768px){
+.nav-links a{font-size:11px;padding:6px 8px;white-space:nowrap;}
+.nav-lang{font-size:10px;padding:4px 6px;}
+.page-layout{grid-template-columns:1fr;}
+.sidebar{position:static;display:grid;grid-template-columns:1fr;gap:12px;}
+.input-bar-inner{flex-direction:column;align-items:stretch;}
+.ib-group{width:100%;}
+.ib-row{flex-wrap:wrap;}
+.ib-row select,.ib-row input{min-width:0;flex:1 1 calc(33.3% - 4px);box-sizing:border-box;}
+#birthTimeUnknown{flex:1 1 100%;}
+.calc-btn{width:100%;}
+.dasha-row{flex-wrap:wrap;}
+.dasha-item{flex-direction:column;align-items:flex-start;gap:4px;}
+.dasha-planet{min-width:unset;}
+.dasha-period{white-space:normal;word-break:keep-all;}
+}
+@media(max-width:480px){
+.chart-cell{min-height:45px;font-size:10px;}
+.chart-cell .planet{font-size:10px;}
+.chart-grid{max-width:100%;}
+}
+
+/* Light mode */
+.light-mode{background:#f5f5f5 !important;color:#333 !important}
+.light-mode .nav{background:rgba(255,255,255,0.95) !important;border-color:#eee !important}
+.light-mode .input-bar-inner,.light-mode .chart-container,.light-mode .interp-card,.light-mode .category-header,.light-mode .side-card{background:linear-gradient(135deg,#fff,#fafafa) !important;border-color:#e0e0e0 !important;color:#333 !important}
+.light-mode .section-title{color:#e84393 !important;border-color:#eee !important}
+.light-mode select,.light-mode input{background:#fff !important;color:#333 !important;border-color:#ddd !important}
+.light-mode .interp-text{color:#555 !important}
+.light-mode .app-footer{color:#999 !important}
+.light-mode .page-layout,.light-mode .seo-section p{color:#666 !important}
+    </style>
+</head>
+<body class="easy-mode">
+<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+
+<!-- Nav -->
+<nav class="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+        MOGU Moon
+    </a>
+    <div class="nav-links">
+        <a href="/">홈</a>
+        <a href="/about/">소개</a>
+        <a href="/blog/">블로그</a>
+        <select class="nav-lang" onchange="if(this.value)location.href=this.value">
+            <option value="" selected>KR</option>
+            <option value="/en/vedic/">EN</option>
+            <option value="/jp/vedic/">JP</option>
+            <option value="/es/vedic/">ES</option>
+            <option value="/de/vedic/">DE</option>
+            <option value="/fr/vedic/">FR</option>
+            <option value="/pt/vedic/">PT</option>
+        </select>
+    </div>
+</nav>
+
+<!-- Page title + Input bar -->
+<div class="input-bar">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <span style="font-size:20px;">🕉️</span>
+        <div>
+            <div style="font-size:18px;font-weight:700;color:#c9a84c;">베딕 점성술 (Jyotish)</div>
+            <div style="font-size:11px;color:#666;">고대 인도 천문점성술로 당신의 운명을 읽습니다</div>
+        </div>
+    </div>
+    <div class="input-bar-inner">
+        <div class="ib-group">
+            <label>생년월일</label>
+            <div class="ib-row">
+                <select id="birthYear"></select>
+                <select id="birthMonth"></select>
+                <select id="birthDay"></select>
+            </div>
+        </div>
+        <div class="ib-group">
+            <label>출생시간 <span class="optional-tag">(모르면 '모름')</span></label>
+            <div class="ib-row">
+                <select id="birthAmpm"><option value="am">오전</option><option value="pm">오후</option></select>
+                <select id="birthHour"></select>
+                <select id="birthMinute"></select>
+                <select id="birthTimeUnknown" onchange="toggleTimeUnknown()"><option value="known">시간 입력</option><option value="unknown">모름</option></select>
+            </div>
+        </div>
+        <div class="ib-group">
+            <label>출생지</label>
+            <select id="birthCity" onchange="onCityChange()">
+                <optgroup label="🇰🇷 한국">
+                    <option value="37.57,126.98,9" selected>서울</option>
+                    <option value="35.18,129.08,9">부산</option>
+                    <option value="35.87,128.60,9">대구</option>
+                    <option value="37.46,126.71,9">인천</option>
+                    <option value="35.16,126.85,9">광주</option>
+                    <option value="36.35,127.38,9">대전</option>
+                    <option value="35.54,129.31,9">울산</option>
+                    <option value="33.50,126.53,9">제주</option>
+                </optgroup>
+                <optgroup label="🇯🇵 일본">
+                    <option value="35.68,139.69,9">도쿄</option>
+                    <option value="34.69,135.50,9">오사카</option>
+                </optgroup>
+                <optgroup label="🇨🇳 중국/동아시아">
+                    <option value="39.90,116.40,8">베이징</option>
+                    <option value="31.23,121.47,8">상하이</option>
+                    <option value="22.32,114.17,8">홍콩</option>
+                    <option value="25.03,121.57,8">타이베이</option>
+                    <option value="1.35,103.82,8">싱가포르</option>
+                    <option value="13.76,100.50,7">방콕</option>
+                </optgroup>
+                <optgroup label="🇮🇳 인도">
+                    <option value="28.61,77.23,5.5">뉴델리</option>
+                    <option value="19.08,72.88,5.5">뭄바이</option>
+                    <option value="13.08,80.27,5.5">첸나이</option>
+                    <option value="22.57,88.36,5.5">콜카타</option>
+                </optgroup>
+                <optgroup label="🇺🇸 미주">
+                    <option value="40.71,-74.01,-5">뉴욕 (EST)</option>
+                    <option value="34.05,-118.24,-8">LA (PST)</option>
+                    <option value="41.88,-87.63,-6">시카고 (CST)</option>
+                    <option value="37.77,-122.42,-8">샌프란시스코 (PST)</option>
+                    <option value="49.28,-123.12,-8">밴쿠버 (PST)</option>
+                    <option value="43.65,-79.38,-5">토론토 (EST)</option>
+                </optgroup>
+                <optgroup label="🇪🇺 유럽">
+                    <option value="51.51,-0.13,0">런던 (GMT)</option>
+                    <option value="48.86,2.35,1">파리 (CET)</option>
+                    <option value="52.52,13.41,1">베를린 (CET)</option>
+                    <option value="40.42,-3.70,1">마드리드 (CET)</option>
+                    <option value="41.90,12.50,1">로마 (CET)</option>
+                </optgroup>
+                <optgroup label="🌏 기타">
+                    <option value="-33.87,151.21,10">시드니 (AEST)</option>
+                    <option value="-23.55,-46.63,-3">상파울루 (BRT)</option>
+                    <option value="55.76,37.62,3">모스크바 (MSK)</option>
+                    <option value="25.20,55.27,4">두바이 (GST)</option>
+                </optgroup>
+                <optgroup label="✏️ 직접 입력">
+                    <option value="custom">위도/경도/시차 직접 입력</option>
+                </optgroup>
+            </select>
+            <div id="customLatLng" style="display:none;">
+                <div class="input-row">
+                    <input type="number" id="birthLat" placeholder="위도 (예: 37.57)" step="0.01">
+                    <input type="number" id="birthLng" placeholder="경도 (예: 126.98)" step="0.01">
+                </div>
+            </div>
+        </div>
+        <button class="calc-btn" onclick="_loadAstro(calculateChart)">🔮 명반 생성</button>
+    </div>
+</div>
+
+<div class="page-layout">
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content">
+
+    <!-- Results -->
+    <div class="result-section" id="resultSection">
+
+        <!-- Mode + Tab bar -->
+        <div class="tab-bar">
+            <div class="mode-toggle">
+                <button id="modeEasy" onclick="window.vedicMode='easy';document.getElementById('modeEasy').style.background='#c9a84c';document.getElementById('modeEasy').style.color='#0a0a1a';document.getElementById('modePro').style.background='#1a1a3e';document.getElementById('modePro').style.color='#c9a84c';if(typeof recalcMode==='function')recalcMode();if(typeof updateCatHeaders==='function')updateCatHeaders();document.body.classList.add('easy-mode');switchTab('dasha')" style="padding:8px 16px;background:#c9a84c;color:#0a0a1a;border:1px solid #c9a84c;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;">쉬운</button>
+                <button id="modePro" onclick="window.vedicMode='pro';document.getElementById('modePro').style.background='#c9a84c';document.getElementById('modePro').style.color='#0a0a1a';document.getElementById('modeEasy').style.background='#1a1a3e';document.getElementById('modeEasy').style.color='#c9a84c';if(typeof recalcMode==='function')recalcMode();if(typeof updateCatHeaders==='function')updateCatHeaders();document.body.classList.remove('easy-mode');switchTab('dasha')" style="padding:8px 16px;background:#1a1a3e;color:#c9a84c;border:1px solid #c9a84c;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;">전문가</button>
+            </div>
+            <button class="tab-btn easy-hide" data-tab="guide" onclick="switchTab('guide')">📚 가이드</button>
+            <button class="tab-btn easy-hide" data-tab="basic" onclick="switchTab('basic')">🪐 차트</button>
+            <button class="tab-btn active" data-tab="dasha" onclick="switchTab('dasha')"><span id="catDasha">⏳ 대운</span></button>
+            <button class="tab-btn" data-tab="interp" onclick="switchTab('interp')"><span id="catInterp">📖 종합</span></button>
+            <button class="tab-btn" data-tab="marriage" onclick="switchTab('marriage')"><span id="catMarriage">💍 결혼</span></button>
+            <button class="tab-btn" data-tab="career" onclick="switchTab('career')"><span id="catCareer">💼 직업</span></button>
+            <button class="tab-btn" data-tab="family" onclick="switchTab('family')"><span id="catFamily">👨‍👩‍👧 가족</span></button>
+            <button class="tab-btn" data-tab="spirit" onclick="switchTab('spirit')"><span id="catSpirit">🙏 영성</span></button>
+            <button class="tab-btn" data-tab="warn" onclick="switchTab('warn')"><span id="catWarn">⚠️ 주의</span></button>
+            <button class="tab-btn" data-tab="karma" onclick="switchTab('karma')"><span id="catKarma">🔮 카르마</span></button>
+        </div>
+
+        <!-- 📚 가이드 -->
+        <div class="tab-panel" id="tab-guide" style="display:none;">
+            <div style="font-size:15px;font-weight:700;color:#c9a84c;margin-bottom:10px;">🪐 9개 행성</div>
+            <table class="planet-table" style="margin-bottom:20px;"><tr><th>기호</th><th>행성</th><th>의미</th></tr>
+            <tr><td>☉</td><td>태양</td><td>자아, 리더십, 아버지</td></tr>
+            <tr><td>☽</td><td>달</td><td>감정, 마음, 어머니</td></tr>
+            <tr><td>♂</td><td>화성</td><td>에너지, 행동, 용기</td></tr>
+            <tr><td>☿</td><td>수성</td><td>지능, 소통, 사업</td></tr>
+            <tr><td>♃</td><td>목성</td><td>행운, 지혜, 확장</td></tr>
+            <tr><td>♀</td><td>금성</td><td>사랑, 아름다움, 재물</td></tr>
+            <tr><td>♄</td><td>토성</td><td>시련, 인내, 책임</td></tr>
+            <tr><td>☊</td><td>라후</td><td>욕망, 집착, 변화</td></tr>
+            <tr><td>☋</td><td>케투</td><td>해탈, 영성, 전생</td></tr></table>
+            <div style="font-size:15px;font-weight:700;color:#c9a84c;margin-bottom:10px;">🏛️ 12궁</div>
+            <table class="planet-table" style="margin-bottom:20px;"><tr><th>궁</th><th>영역</th><th>궁</th><th>영역</th></tr>
+            <tr><td>1궁</td><td>나 (자아)</td><td>7궁</td><td>배우자</td></tr>
+            <tr><td>2궁</td><td>돈 (재물)</td><td>8궁</td><td>변혁</td></tr>
+            <tr><td>3궁</td><td>소통</td><td>9궁</td><td>행운</td></tr>
+            <tr><td>4궁</td><td>가정</td><td>10궁</td><td>직업</td></tr>
+            <tr><td>5궁</td><td>자녀</td><td>11궁</td><td>수입</td></tr>
+            <tr><td>6궁</td><td>건강</td><td>12궁</td><td>영성</td></tr></table>
+            <div class="interp-card"><div class="interp-text" style="font-size:14px;line-height:1.8;"><strong>⬆ 라그나</strong> = 태어난 순간 떠오르던 별자리 (가장 중요!)<br><strong>🌙 나크샤트라</strong> = 27개 달의 별자리 구간</div></div>
+        </div>
+
+        <!-- 🪐 기본 차트 -->
+        <div class="tab-panel" id="tab-basic" style="display:none;">
+            <div id="planetTableWrap" style="margin-bottom:16px;"></div>
+            <div class="chart-container"><div class="chart-label">남인도식 차트 (D1 라시)</div><div class="chart-grid" id="d1Chart"></div></div><div id="nakshatraWrap"></div>
+        </div>
+
+        <!-- ⏳ 대운 -->
+        <div class="tab-panel" id="tab-dasha">
+            <div id="dashaWrap"></div>
+        </div>
+
+        <!-- 📖 종합 해석 -->
+        <div class="tab-panel" id="tab-interp" style="display:none;">
+            <div id="interpWrap"></div>
+            <h3 class="section-title" id="secPlanetHouse">🪐 행성별 상세 해석</h3>
+            <div id="planetHouseWrap"></div>
+            <h3 class="section-title" id="secDignity">⚖️ 행성 품위</h3>
+            <div id="dignityWrap"></div>
+            <h3 class="section-title" id="secLucky">🍀 행운의 정보</h3>
+            <div id="luckyWrap"></div>
+            <h3 class="section-title" id="secRemedy">💎 치유 & 강화 방법</h3>
+            <div id="remedyWrap"></div>
+        </div>
+
+        <!-- 💍 결혼/배우자 -->
+        <div class="tab-panel" id="tab-marriage" style="display:none;">
+            
+                <div class="chart-container"><div class="chart-label">나바암샤 — 결혼운, 배우자 성격</div><div class="chart-grid" id="d9Chart"></div></div>
+                <div id="d9InterpWrap"></div>
+            <div id="spouseProfileWrap"></div>
+        </div>
+
+        <!-- 💼 직업/재물 -->
+        <div class="tab-panel" id="tab-career" style="display:none;">
+            <h3 class="section-title" id="secD10">💼 D10 다샴샤</h3>
+            <div class="chart-container"><div class="chart-label">다샴샤 — 직업</div><div class="chart-grid" id="d10Chart"></div></div><div id="d10InterpWrap"></div>
+            <h3 class="section-title" id="secD2">💰 D2 호라</h3>
+            <div class="chart-container"><div class="chart-label">호라 — 재물운</div><div class="chart-grid" id="d2Chart"></div></div><div id="d2InterpWrap"></div>
+            <h3 class="section-title" id="secD4">🏠 D4 차투르탐샤</h3>
+            <div class="chart-container"><div class="chart-label">차투르탐샤 — 재산</div><div class="chart-grid" id="d4Chart"></div></div><div id="d4InterpWrap"></div>
+        </div>
+
+        <!-- 👨‍👩‍👧 가족 -->
+        <div class="tab-panel" id="tab-family" style="display:none;">
+            <h3 class="section-title" id="secD7">👶 D7 삽탐샤</h3>
+            <div class="chart-container"><div class="chart-label">삽탐샤 — 자녀운</div><div class="chart-grid" id="d7Chart"></div></div><div id="d7InterpWrap"></div><div id="childrenWrap"></div>
+            <h3 class="section-title" id="secD3">👫 D3 드레카나</h3>
+            <div class="chart-container"><div class="chart-label">드레카나 — 형제자매</div><div class="chart-grid" id="d3Chart"></div></div><div id="d3InterpWrap"></div>
+            <h3 class="section-title" id="secD12">👨‍👩‍👧 D12 드와다샴샤</h3>
+            <div class="chart-container"><div class="chart-label">드와다샴샤 — 부모</div><div class="chart-grid" id="d12Chart"></div></div><div id="d12InterpWrap"></div>
+            <h3 class="section-title" id="secD40">👩 D40 카베담샤</h3>
+            <div class="chart-container"><div class="chart-label">카베담샤 — 모계</div><div class="chart-grid" id="d40Chart"></div></div><div id="d40InterpWrap"></div>
+            <h3 class="section-title" id="secD45">👨 D45 악샤베담샤</h3>
+            <div class="chart-container"><div class="chart-label">악샤베담샤 — 부계</div><div class="chart-grid" id="d45Chart"></div></div><div id="d45InterpWrap"></div>
+        </div>
+
+        <!-- 🙏 영성/교육/건강 -->
+        <div class="tab-panel" id="tab-spirit" style="display:none;">
+            <h3 class="section-title" id="secD24">📚 D24 교육</h3>
+            <div class="chart-container"><div class="chart-label">차투르빔샴샤 — 교육</div><div class="chart-grid" id="d24Chart"></div></div><div id="d24InterpWrap"></div><div id="educationWrap"></div>
+            <h3 class="section-title" id="secD20">🙏 D20 영성</h3>
+            <div class="chart-container"><div class="chart-label">빔샴샤 — 영적 수행</div><div class="chart-grid" id="d20Chart"></div></div><div id="d20InterpWrap"></div>
+            <h3 class="section-title" id="secD27">💪 D27 체력</h3>
+            <div class="chart-container"><div class="chart-label">삽타빔샴샤 — 체력</div><div class="chart-grid" id="d27Chart"></div></div><div id="d27InterpWrap"></div>
+            <h3 class="section-title" id="secD16">🚗 D16 편의</h3>
+            <div class="chart-container"><div class="chart-label">쇼다샴샤 — 물질적 편의</div><div class="chart-grid" id="d16Chart"></div></div><div id="d16InterpWrap"></div>
+        </div>
+
+        <!-- ⚠️ 주의사항 -->
+        <div class="tab-panel" id="tab-warn" style="display:none;">
+            <h3 class="section-title" id="secD30">⚠️ D30 트림샴샤</h3>
+            <div class="chart-container"><div class="chart-label">트림샴샤 — 질병, 장애</div><div class="chart-grid" id="d30Chart"></div></div><div id="d30InterpWrap"></div>
+            <h3 class="section-title" id="secForeign">✈️ 해외운 & 이주</h3>
+            <div id="foreignWrap"></div>
+        </div>
+
+        <!-- 🔮 카르마 -->
+        <div class="tab-panel" id="tab-karma" style="display:none;">
+            <div class="chart-container"><div class="chart-label">D60 샤슈티암샤 — 전생 카르마</div><div class="chart-grid" id="d60Chart"></div></div><div id="d60InterpWrap"></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+    <div class="side-card">
+        <div class="side-title">🔗 관련 도구</div>
+        <a href="../saju/" class="rel-item">☯️ 사주팔자</a>
+        <a href="../ziwei/" class="rel-item">💜 자미두수</a>
+        <a href="../hellenistic/" class="rel-item">🏛️ 헬레니즘 점성술</a>
+        <a href="../maya/" class="rel-item">🌀 마야 점성술</a>
+        <a href="../egypt/" class="rel-item">𓂀 이집트 데칸</a>
+        <a href="../birthday-compat/" class="rel-item">💑 사주 궁합</a>
+    </div>
+    <div class="side-card">
+        <div class="side-title">🔥 인기</div>
+        <a href="../tarot/" class="rel-item">🃏 타로 카드</a>
+        <a href="../daily/" class="rel-item">✨ 오늘의 운세</a>
+        <a href="../past-life/" class="rel-item">🏛️ 전생 테스트</a>
+        <a href="../dream/" class="rel-item">🌿 꿈 해몽</a>
+    </div>
+</div>
+
+</div>
+
+<!-- SEO Content -->
+<div class="seo-content">
+<div class="seo-section"><h2>베딕 점성술이란?</h2><p>베딕 점성술(조티시)은 약 5000년 전 고대 인도에서 시작된 천문학적 체계라고 한다. 산스크리트어로 "빛의 과학"이라는 뜻이다. 서양 점성술과 달리 항성 기준(사이드리얼)을 사용하며, 나크샤트라(27개 별자리 구간), 다샤(행성 주기), 디비저널 차트 등 정밀한 분석 체계를 갖추고 있다.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>베딕 점성술은 서양 점성술과 다른가요?</summary><p>네, 베딕은 항성 기준(사이드리얼), 서양은 춘분점 기준(트로피컬)을 사용합니다. 약 23도의 차이가 있습니다.</p></details><details class="seo-faq"><summary>출생시간을 모르면 어떻게 하나요?</summary><p>출생시간 없이도 기본적인 차트는 생성됩니다. 다만 정확한 하우스 배치와 라그나는 출생시간이 있어야 정확합니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="../saju/">사주팔자</a><a href="../hellenistic/">헬레니스틱 점성술</a></div></div>
+</div>
+
+<footer class="app-footer">
+    &copy; 2025 MOGU Moon<br>
+    <a href="../privacy/">개인정보처리방침</a>
+</footer>
+
+<script>
+var _astroLoaded = false;
+function _loadAstro(cb) {
+    if (_astroLoaded) { cb(); return; }
+    var s = document.createElement('script');
+    s.src = '../astronomy.browser.min.js';
+    s.onload = function() { _astroLoaded = true; cb(); };
+    document.head.appendChild(s);
+}
+var _origCalc;
+document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+function switchTab(name) {
+    document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+    var panel = document.getElementById('tab-'+name);
+    if(panel) panel.style.display='';
+    var btn = document.querySelector('[data-tab="'+name+'"]');
+    if(btn) btn.classList.add('active');
+}
+</script>
+
+<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
+<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+<script src="vedic-chart.js" defer></script>
+<script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("selectstart",function(e){e.preventDefault()});document.addEventListener("copy",function(e){e.preventDefault()});document.addEventListener("keydown",function(e){if(e.ctrlKey&&"uUsSiIcCaA".includes(e.key)){e.preventDefault()}if(e.key==="F12"){e.preventDefault()}if(e.ctrlKey&&e.shiftKey&&"iIjJ".includes(e.key)){e.preventDefault()}});</script>
+</body>
+</html>

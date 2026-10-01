@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消費税計算機 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"消費税計算機は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要ですぐに使えます。すべての処理はブラウザ内で行われ、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"消費税計算機の使い方は？","acceptedAnswer":{"@type":"Answer","text":"税抜価格と消費税（10%）を素早く計算します。税抜→税込、税込→税抜の双方向計算に対応しています。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/vat-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/vat-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/vat-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/vat-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/vat-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/vat-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/vat-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/vat-calc.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/vat-calc.html">
+    <meta property="og:title" content="消費税計算機 - MOGU Tools">
+    <meta property="og:description" content="税抜価格と消費税（10%）を素早く計算します。税抜→税込、税込→税抜の双方向計算に対応しています。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/vat-calc.html">
+    <meta name="description" content="税抜価格と消費税（10%）を素早く計算します。税抜→税込、税込→税抜の双方向計算に対応しています。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 8px;
+            background: #f0f0f0;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .tab-btn.active {
+            background: #eef4fb;
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 20px;
+        }
+
+        .quick-label {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .quick-amounts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .quick-btn {
+            padding: 6px 12px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-btn:hover {
+            background: #eef4fb;
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .result-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row.total {
+            background: #eef4fb;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .result-label .badge {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 6px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .result-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .result-row.total .result-value {
+            font-size: 26px;
+            color: #4a90d9;
+        }
+
+        .result-row.total .result-label {
+            font-size: 15px;
+            color: #4a90d9;
+            font-weight: 700;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-formula {
+            background: #f8f9fa;
+            border-left: 3px solid #4a90d9;
+            padding: 12px 16px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../../jp/index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../../jp/index.html">MOGU Tools — 無料オンラインツール集</a> &gt; 計算機 &gt; 消費税計算機
+</div>
+
+<div class="container">
+    <h1>消費税計算機</h1>
+    <p class="subtitle">税抜価格と消費税（10%）を素早く計算します。</p>
+
+    <div class="calc-box">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" id="tab1" onclick="switchTab(1)">
+                税抜 → 税込<br><small style="font-weight:400;font-size:11px;">消費税を加算</small>
+            </button>
+            <button class="tab-btn" id="tab2" onclick="switchTab(2)">
+                税込 → 税抜<br><small style="font-weight:400;font-size:11px;">消費税を逆算</small>
+            </button>
+        </div>
+
+        <!-- Input -->
+        <div class="input-group">
+            <label id="inputLabel">税抜価格（円）</label>
+            <div class="input-row">
+                <input type="number" id="amountInput" placeholder="10000" min="0" step="1">
+                <span class="unit">円</span>
+            </div>
+        </div>
+
+        <!-- Quick amounts -->
+        <p class="quick-label">クイック入力</p>
+        <div class="quick-amounts">
+            <button class="quick-btn" onclick="setAmount(1000)">1,000円</button>
+            <button class="quick-btn" onclick="setAmount(5000)">5,000円</button>
+            <button class="quick-btn" onclick="setAmount(10000)">1万円</button>
+            <button class="quick-btn" onclick="setAmount(50000)">5万円</button>
+            <button class="quick-btn" onclick="setAmount(100000)">10万円</button>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">計算する</button>
+
+        <!-- Result -->
+        <div class="result" id="result">
+            <div class="result-row" id="rowSupply">
+                <span class="result-label">税抜価格</span>
+                <span class="result-value" id="valSupply">-</span>
+            </div>
+            <div class="result-row" id="rowVat">
+                <span class="result-label">消費税 <span class="badge">10%</span></span>
+                <span class="result-value" id="valVat">-</span>
+            </div>
+            <div class="result-row total" id="rowTotal">
+                <span class="result-label">税込合計</span>
+                <span class="result-value" id="valTotal">-</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>消費税とは？</h2>
+        <p>
+            消費税は商品やサービスの取引に課せられる間接税です。
+            日本の消費税率は標準税率<strong>10%</strong>（食料品などの軽減税率は8%）です。
+            この計算機では標準税率10%を使用しています。
+        </p>
+        <p>
+            事業者は消費者から税込価格を受け取り、請求書や領収書には税抜価格と消費税額を分けて記載します。
+        </p>
+        <div class="info-formula">
+            税抜に消費税を加算：税込 = 税抜 &times; 1.1<br>
+            税込から税抜を逆算：税抜 = 税込 &divide; 1.1<br>
+            消費税額 = 税抜 &times; 0.1
+        </div>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>消費税計算機</h2><p>税抜価格と消費税（10%）を素早く計算します。税抜→税込、税込→税抜の双方向計算に対応しています。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="discount-calc.html">割引計算機</a><a href="percent-calc.html">パーセント計算機</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">シェア：</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='コピー完了!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URLをコピー</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    let currentTab = 1;
+
+    function switchTab(tab) {
+        currentTab = tab;
+        document.getElementById("tab1").classList.toggle("active", tab === 1);
+        document.getElementById("tab2").classList.toggle("active", tab === 2);
+        document.getElementById("inputLabel").textContent =
+            tab === 1 ? "税抜価格（円）" : "税込金額（円）";
+        document.getElementById("amountInput").value = "";
+        document.getElementById("result").style.display = "none";
+    }
+
+    function setAmount(val) {
+        document.getElementById("amountInput").value = val;
+        calculate();
+    }
+
+    function fmt(n) {
+        return Math.round(n).toLocaleString("ja-JP") + "円";
+    }
+
+    function calculate() {
+        const raw = parseFloat(document.getElementById("amountInput").value);
+        if (!raw || raw <= 0) {
+            alert("金額を正しく入力してください。");
+            return;
+        }
+
+        let supply, vat, total;
+
+        if (currentTab === 1) {
+            // 税抜 → 税込
+            supply = raw;
+            vat = supply * 0.1;
+            total = supply + vat;
+        } else {
+            // 税込 → 税抜
+            total = raw;
+            supply = total / 1.1;
+            vat = total - supply;
+        }
+
+        document.getElementById("valSupply").textContent = fmt(supply);
+        document.getElementById("valVat").textContent = fmt(vat);
+        document.getElementById("valTotal").textContent = fmt(total);
+
+        document.getElementById("result").style.display = "block";
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") calculate();
+    });
+</script>
+
+</body>
+</html>

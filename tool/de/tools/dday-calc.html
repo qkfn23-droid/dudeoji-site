@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-Day-Rechner - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Ist D-Day-Rechner kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100% kostenlos. Keine Anmeldung erforderlich. Alle Verarbeitung erfolgt im Browser, keine persoenlichen Daten werden an Server gesendet."}},
+    {"@type":"Question","name":"Wie benutze ich D-Day-Rechner?","acceptedAnswer":{"@type":"Answer","text":"Berechnen Sie die Differenz zwischen zwei Daten oder ermitteln Sie den D-Day bis zu einem bestimmten Datum."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/dday-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/dday-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/dday-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/dday-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/dday-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/dday-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/dday-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/dday-calc.html">
+    <link rel="canonical" href="https://mogutool.com/de/tools/dday-calc.html">
+    <meta property="og:title" content="D-Day-Rechner - MOGU Tools">
+    <meta property="og:description" content="Berechnen Sie die Differenz zwischen zwei Daten oder ermitteln Sie den D-Day bis zu einem bestimmten Datum.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/de/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/de/tools/dday-calc.html">
+    <meta name="description" content="Berechnen Sie die Differenz zwischen zwei Daten oder ermitteln Sie den D-Day bis zu einem bestimmten Datum.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Mode tabs */
+        .mode-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .mode-tab {
+            flex: 1;
+            padding: 11px 10px;
+            background: #fff;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #999;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .mode-tab:first-child {
+            border-right: 2px solid #e0e0e0;
+        }
+
+        .mode-tab.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .mode-tab:hover:not(.active) {
+            background: #f0f6ff;
+            color: #4a90d9;
+        }
+
+        /* Input groups */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input[type="date"] {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .input-row input[type="date"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Result area */
+        .result {
+            display: none;
+            margin-top: 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 28px 24px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-dday {
+            font-size: 44px;
+            font-weight: 700;
+            color: #4a90d9;
+            letter-spacing: -1px;
+        }
+
+        .result-dday.past {
+            color: #888;
+        }
+
+        .result-dday.today {
+            color: #5cb85c;
+        }
+
+        .result-sub {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 6px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .result-item {
+            padding: 18px 20px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+
+        .result-item:nth-child(2n) {
+            border-right: none;
+        }
+
+        .result-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .result-item.full {
+            grid-column: 1 / -1;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .result-item .item-label {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 4px;
+        }
+
+        .result-item .item-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-item .item-value span {
+            font-size: 13px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Werkzeuge</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Kostenlose Online-Tools</a> &gt; Rechner &gt; D-Day-Rechner
+</div>
+
+<div class="container">
+    <h1>D-Day-Rechner</h1>
+    <p class="subtitle">Berechnen Sie die Differenz zwischen zwei Daten oder ermitteln Sie den D-Day bis zu einem bestimmten Datum.</p>
+
+    <div class="calc-box">
+        <!-- Mode tabs -->
+        <div class="mode-tabs">
+            <button class="mode-tab active" id="tab-diff" onclick="switchMode('diff')">Datumsunterschied</button>
+            <button class="mode-tab" id="tab-dday" onclick="switchMode('dday')">D-Day-Berechnung</button>
+        </div>
+
+        <!-- Modus: Datumsunterschied -->
+        <div id="panel-diff">
+            <div class="input-group">
+                <label>Startdatum</label>
+                <div class="input-row">
+                    <input type="date" id="startDate">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Enddatum</label>
+                <div class="input-row">
+                    <input type="date" id="endDate">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modus: D-Day-Berechnung -->
+        <div id="panel-dday" style="display:none;">
+            <div class="input-group">
+                <label>Zieldatum</label>
+                <div class="input-row">
+                    <input type="date" id="targetDate">
+                </div>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">Berechnen</button>
+
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="result-dday" id="resultMain">-</div>
+                <div class="result-sub" id="resultSub"></div>
+            </div>
+            <div class="result-grid" id="resultGrid"></div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Anleitung zum D-Day-Rechner</h2>
+        <p>
+            <b>Datumsunterschied</b>: Waehlen Sie ein Start- und Enddatum, um die Differenz in Tagen, Wochen, Monaten und Jahren anzuzeigen.<br><br>
+            <b>D-Day-Berechnung</b>: Waehlen Sie ein Zieldatum, um den D-Day ab heute zu berechnen. Heute = D-DAY, Zukunft = D-Zahl, Vergangenheit = D+Zahl.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>D-Day-Rechner</h2><p>Berechnen Sie die Differenz zwischen zwei Daten oder ermitteln Sie den D-Day bis zu einem bestimmten Datum.</p></div>
+<div class="seo-section"><h2>Häufige Fragen</h2><details class="seo-faq"><summary>Ist dieses Tool kostenlos?</summary><p>Ja, 100% kostenlos. Keine Anmeldung nötig. Alles wird im Browser verarbeitet — keine Daten werden an Server gesendet.</p></details><details class="seo-faq"><summary>Funktioniert es auf dem Handy?</summary><p>Ja, alle Tools sind responsiv und funktionieren auf Smartphones, Tablets und Desktops.</p></details></div>
+<div class="seo-section"><h2>Verwandte Tools</h2><div class="seo-related"><a href="age-calc.html">Altersrechner</a><a href="date-convert.html">Datumsumrechner</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    let currentMode = 'diff';
+
+    // Set default dates
+    const today = new Date();
+    const todayStr = formatDateStr(today);
+
+    document.getElementById('startDate').value = todayStr;
+    document.getElementById('endDate').value = todayStr;
+    document.getElementById('targetDate').value = todayStr;
+
+    function formatDateStr(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + dd;
+    }
+
+    function switchMode(mode) {
+        currentMode = mode;
+        document.getElementById('panel-diff').style.display = mode === 'diff' ? 'block' : 'none';
+        document.getElementById('panel-dday').style.display = mode === 'dday' ? 'block' : 'none';
+        document.getElementById('tab-diff').classList.toggle('active', mode === 'diff');
+        document.getElementById('tab-dday').classList.toggle('active', mode === 'dday');
+        document.getElementById('result').style.display = 'none';
+    }
+
+    function parseLocalDate(str) {
+        const [y, m, d] = str.split('-').map(Number);
+        return new Date(y, m - 1, d);
+    }
+
+    function diffCalendar(from, to) {
+        let y = to.getFullYear() - from.getFullYear();
+        let m = to.getMonth() - from.getMonth();
+        let d = to.getDate() - from.getDate();
+
+        if (d < 0) {
+            m--;
+            const prevMonth = new Date(to.getFullYear(), to.getMonth(), 0);
+            d += prevMonth.getDate();
+        }
+        if (m < 0) {
+            y--;
+            m += 12;
+        }
+        return { years: y, months: m, days: d };
+    }
+
+    function calculate() {
+        const resultEl = document.getElementById('result');
+        const mainEl = document.getElementById('resultMain');
+        const subEl = document.getElementById('resultSub');
+        const gridEl = document.getElementById('resultGrid');
+
+        if (currentMode === 'diff') {
+            const startVal = document.getElementById('startDate').value;
+            const endVal = document.getElementById('endDate').value;
+
+            if (!startVal || !endVal) {
+                alert('Bitte waehlen Sie sowohl ein Start- als auch ein Enddatum aus.');
+                return;
+            }
+
+            let from = parseLocalDate(startVal);
+            let to = parseLocalDate(endVal);
+
+            let swapped = false;
+            if (to < from) {
+                [from, to] = [to, from];
+                swapped = true;
+            }
+
+            const msPerDay = 86400000;
+            const totalDays = Math.round((to - from) / msPerDay);
+            const totalWeeks = Math.floor(totalDays / 7);
+            const remDaysAfterWeeks = totalDays % 7;
+
+            const cal = diffCalendar(from, to);
+            const totalMonths = cal.years * 12 + cal.months;
+
+            mainEl.className = 'result-dday';
+            mainEl.textContent = totalDays.toLocaleString() + ' Tage';
+            subEl.textContent = swapped
+                ? formatDateStr(to) + ' ~ ' + formatDateStr(from)
+                : formatDateStr(from) + ' ~ ' + formatDateStr(to);
+
+            gridEl.innerHTML =
+                '<div class="result-item">' +
+                    '<div class="item-label">In Wochen</div>' +
+                    '<div class="item-value">' + totalWeeks + '<span> Wo.</span> ' + remDaysAfterWeeks + '<span> T.</span></div>' +
+                '</div>' +
+                '<div class="result-item">' +
+                    '<div class="item-label">In Monaten</div>' +
+                    '<div class="item-value">' + totalMonths + '<span> Mon.</span> ' + cal.days + '<span> T.</span></div>' +
+                '</div>' +
+                '<div class="result-item full">' +
+                    '<div class="item-label">In Jahren</div>' +
+                    '<div class="item-value">' + cal.years + '<span> J.</span> ' + cal.months + '<span> Mon.</span> ' + cal.days + '<span> T.</span></div>' +
+                '</div>';
+
+        } else {
+            const targetVal = document.getElementById('targetDate').value;
+
+            if (!targetVal) {
+                alert('Bitte waehlen Sie ein Zieldatum aus.');
+                return;
+            }
+
+            const target = parseLocalDate(targetVal);
+            const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+            const msPerDay = 86400000;
+            const diff = Math.round((target - todayDate) / msPerDay);
+
+            let ddayText, ddayClass, subText;
+
+            if (diff === 0) {
+                ddayText = 'D-DAY';
+                ddayClass = 'result-dday today';
+                subText = 'Heute ist der Tag!';
+            } else if (diff > 0) {
+                ddayText = 'D-' + diff;
+                ddayClass = 'result-dday';
+                subText = 'Noch ' + diff + ' Tage bis zum ' + targetVal.replace(/-/g, '. ') + '.';
+            } else {
+                ddayText = 'D+' + Math.abs(diff);
+                ddayClass = 'result-dday past';
+                subText = Math.abs(diff) + ' Tage seit dem ' + targetVal.replace(/-/g, '. ') + ' vergangen.';
+            }
+
+            const absDiff = Math.abs(diff);
+            const totalWeeks = Math.floor(absDiff / 7);
+            const remDaysAfterWeeks = absDiff % 7;
+
+            const from = diff >= 0 ? todayDate : target;
+            const to   = diff >= 0 ? target : todayDate;
+            const cal = diffCalendar(from, to);
+            const totalMonths = cal.years * 12 + cal.months;
+
+            mainEl.className = ddayClass;
+            mainEl.textContent = ddayText;
+            subEl.textContent = subText;
+
+            gridEl.innerHTML =
+                '<div class="result-item">' +
+                    '<div class="item-label">In Tagen</div>' +
+                    '<div class="item-value">' + absDiff.toLocaleString() + '<span> Tage</span></div>' +
+                '</div>' +
+                '<div class="result-item">' +
+                    '<div class="item-label">In Wochen</div>' +
+                    '<div class="item-value">' + totalWeeks + '<span> Wo.</span> ' + remDaysAfterWeeks + '<span> T.</span></div>' +
+                '</div>' +
+                '<div class="result-item">' +
+                    '<div class="item-label">In Monaten</div>' +
+                    '<div class="item-value">' + totalMonths + '<span> Mon.</span> ' + cal.days + '<span> T.</span></div>' +
+                '</div>' +
+                '<div class="result-item">' +
+                    '<div class="item-label">In Jahren</div>' +
+                    '<div class="item-value">' + cal.years + '<span> J.</span> ' + cal.months + '<span> Mon.</span> ' + cal.days + '<span> T.</span></div>' +
+                '</div>';
+        }
+
+        resultEl.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

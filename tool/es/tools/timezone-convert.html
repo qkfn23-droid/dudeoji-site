@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Zona Horaria - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es Convertidor de Zona Horaria gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar Convertidor de Zona Horaria?","acceptedAnswer":{"@type":"Answer","text":"Convierte zonas horarias. Convierte fácilmente las horas de las principales ciudades de Corea, EE.UU., Europa, Australia y más."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/timezone-convert.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/timezone-convert.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/timezone-convert.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/timezone-convert.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/timezone-convert.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/timezone-convert.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/timezone-convert.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/timezone-convert.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/timezone-convert.html">
+    <meta property="og:title" content="Convertidor de Zona Horaria - MOGU Tools">
+    <meta property="og:description" content="Convierte zonas horarias. Convierte fácilmente las horas de las principales ciudades de Corea, EE.UU., Europa, Australia y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/timezone-convert.html">
+    <meta name="description" content="Convierte zonas horarias. Convierte fácilmente las horas de las principales ciudades de Corea, EE.UU., Europa, Australia y más.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #4a90d9;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input[type="time"],
+        .input-row input[type="date"] {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #fff;
+            color: #333;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        select:focus {
+            border-color: #4a90d9;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 22px 0;
+        }
+
+        /* Preset buttons */
+        .preset-label {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .preset-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .preset-btn {
+            padding: 6px 12px;
+            background: #f0f6ff;
+            border: 1px solid #c8dff8;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #4a90d9;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            white-space: nowrap;
+        }
+
+        .preset-btn:hover {
+            background: #deedfb;
+            border-color: #4a90d9;
+        }
+
+        .preset-btn.active {
+            background: #4a90d9;
+            border-color: #4a90d9;
+            color: #fff;
+        }
+
+        /* Convert button */
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 6px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Result */
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 22px 24px;
+            margin-bottom: 12px;
+        }
+
+        .result-card .tz-name {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .result-card .tz-time {
+            font-size: 40px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .result-card .tz-date {
+            font-size: 15px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        .result-card .tz-current {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+        .diff-badge {
+            text-align: center;
+            padding: 12px;
+            background: #fff7e6;
+            border: 1px solid #ffe0a0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #e08800;
+        }
+
+        .arrow-icon {
+            text-align: center;
+            font-size: 20px;
+            color: #ccc;
+            margin: 4px 0;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .result-card .tz-time {
+                font-size: 32px;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Herramientas</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; Convertidores &gt; Convertidor de Zona Horaria
+</div>
+
+<div class="container">
+    <h1>Convertidor de Zona Horaria</h1>
+    <p class="subtitle">Seleccione la hora y la región deseadas para convertirlas a otra zona horaria.</p>
+
+    <div class="calc-box">
+
+        <!-- FROM -->
+        <div class="section-label">Hora a convertir</div>
+
+        <div class="input-group">
+            <label>Hora</label>
+            <div class="input-row">
+                <input type="time" id="fromTime">
+                <input type="date" id="fromDate">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Región (Desde)</label>
+            <p class="preset-label">Selección rápida</p>
+            <div class="preset-buttons" id="fromPresets">
+                <button class="preset-btn" onclick="setPreset('from', 9, this)">Corea KST +9</button>
+                <button class="preset-btn" onclick="setPreset('from', 9, this)">Japón JST +9</button>
+                <button class="preset-btn" onclick="setPreset('from', -5, this)">EE.UU. Este EST -5</button>
+                <button class="preset-btn" onclick="setPreset('from', -8, this)">EE.UU. Oeste PST -8</button>
+                <button class="preset-btn" onclick="setPreset('from', 0, this)">Reino Unido GMT 0</button>
+                <button class="preset-btn" onclick="setPreset('from', 1, this)">Alemania CET +1</button>
+                <button class="preset-btn" onclick="setPreset('from', 1, this)">España CET +1</button>
+                <button class="preset-btn" onclick="setPreset('from', 10, this)">Australia AEST +10</button>
+            </div>
+            <select id="fromTz" onchange="clearPresetActive('from')">
+                <option value="9">Corea (KST, UTC+9)</option>
+                <option value="9">Japón (JST, UTC+9)</option>
+                <option value="8">China (CST, UTC+8)</option>
+                <option value="5.5">India (IST, UTC+5:30)</option>
+                <option value="3">Arabia Saudita (AST, UTC+3)</option>
+                <option value="2">Sudáfrica (SAST, UTC+2)</option>
+                <option value="1">Alemania / España (CET, UTC+1)</option>
+                <option value="0">Reino Unido (GMT, UTC+0)</option>
+                <option value="-3">Brasil (BRT, UTC-3)</option>
+                <option value="-4">Canadá Este (AST, UTC-4)</option>
+                <option value="-5">EE.UU. Este (EST, UTC-5)</option>
+                <option value="-6">EE.UU. Centro (CST, UTC-6)</option>
+                <option value="-7">EE.UU. Montaña (MST, UTC-7)</option>
+                <option value="-8">EE.UU. Oeste (PST, UTC-8)</option>
+                <option value="-10">Hawái (HST, UTC-10)</option>
+                <option value="10">Australia Este (AEST, UTC+10)</option>
+                <option value="12">Nueva Zelanda (NZST, UTC+12)</option>
+            </select>
+        </div>
+
+        <hr class="divider">
+
+        <!-- TO -->
+        <div class="section-label">Región de destino</div>
+
+        <div class="input-group">
+            <label>Región (Hasta)</label>
+            <p class="preset-label">Selección rápida</p>
+            <div class="preset-buttons" id="toPresets">
+                <button class="preset-btn" onclick="setPreset('to', 9, this)">Corea KST +9</button>
+                <button class="preset-btn" onclick="setPreset('to', 9, this)">Japón JST +9</button>
+                <button class="preset-btn" onclick="setPreset('to', -5, this)">EE.UU. Este EST -5</button>
+                <button class="preset-btn" onclick="setPreset('to', -8, this)">EE.UU. Oeste PST -8</button>
+                <button class="preset-btn" onclick="setPreset('to', 0, this)">Reino Unido GMT 0</button>
+                <button class="preset-btn" onclick="setPreset('to', 1, this)">Alemania CET +1</button>
+                <button class="preset-btn" onclick="setPreset('to', 1, this)">España CET +1</button>
+                <button class="preset-btn" onclick="setPreset('to', 10, this)">Australia AEST +10</button>
+            </div>
+            <select id="toTz" onchange="clearPresetActive('to')">
+                <option value="9">Corea (KST, UTC+9)</option>
+                <option value="9">Japón (JST, UTC+9)</option>
+                <option value="8">China (CST, UTC+8)</option>
+                <option value="5.5">India (IST, UTC+5:30)</option>
+                <option value="3">Arabia Saudita (AST, UTC+3)</option>
+                <option value="2">Sudáfrica (SAST, UTC+2)</option>
+                <option value="1">Alemania / España (CET, UTC+1)</option>
+                <option value="0">Reino Unido (GMT, UTC+0)</option>
+                <option value="-3">Brasil (BRT, UTC-3)</option>
+                <option value="-4">Canadá Este (AST, UTC-4)</option>
+                <option value="-5">EE.UU. Este (EST, UTC-5)</option>
+                <option value="-6">EE.UU. Centro (CST, UTC-6)</option>
+                <option value="-7">EE.UU. Montaña (MST, UTC-7)</option>
+                <option value="-8">EE.UU. Oeste (PST, UTC-8)</option>
+                <option value="-10">Hawái (HST, UTC-10)</option>
+                <option value="10">Australia Este (AEST, UTC+10)</option>
+                <option value="12">Nueva Zelanda (NZST, UTC+12)</option>
+            </select>
+        </div>
+
+        <button class="calc-btn" onclick="convert()">Convertir</button>
+
+        <!-- Result -->
+        <div class="result" id="result">
+            <div class="result-card">
+                <div class="tz-name" id="fromTzName">-</div>
+                <div class="tz-time" id="fromResultTime">-</div>
+                <div class="tz-date" id="fromResultDate">-</div>
+                <div class="tz-current" id="fromCurrentTime">-</div>
+            </div>
+
+            <div class="arrow-icon">&#8595;</div>
+
+            <div class="result-card">
+                <div class="tz-name" id="toTzName">-</div>
+                <div class="tz-time" id="toResultTime" style="color:#4a90d9">-</div>
+                <div class="tz-date" id="toResultDate">-</div>
+                <div class="tz-current" id="toCurrentTime">-</div>
+            </div>
+
+            <div class="diff-badge" id="diffBadge">-</div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Información sobre la conversión de zona horaria</h2>
+        <p>
+            La hora se calcula aplicando el desfase de cada región con respecto a UTC (Tiempo Universal Coordinado).
+            Esta herramienta utiliza desfases fijos y no refleja el horario de verano.
+            Si necesita una conversión precisa para uso profesional, consulte las normativas horarias locales por separado.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Convertidor de Zona Horaria</h2><p>Convierte zonas horarias. Convierte fácilmente las horas de las principales ciudades de Corea, EE.UU., Europa, Australia y más.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="world-clock.html">Reloj Mundial</a><a href="timestamp.html">Conversor de Marca de Tiempo</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const WEEKDAYS = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
+
+    // Set today's date and current time on load
+    window.addEventListener('DOMContentLoaded', function () {
+        const now = new Date();
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('fromTime').value = hh + ':' + mm;
+
+        const yyyy = now.getFullYear();
+        const mo = String(now.getMonth() + 1).padStart(2, '0');
+        const dd = String(now.getDate()).padStart(2, '0');
+        document.getElementById('fromDate').value = yyyy + '-' + mo + '-' + dd;
+
+        // Default: from KST, to EST
+        document.getElementById('fromTz').value = '9';
+        document.getElementById('toTz').value = '-5';
+        markPresetActive('from', 9);
+        markPresetActive('to', -5);
+    });
+
+    function getSelectLabel(selectId) {
+        const sel = document.getElementById(selectId);
+        return sel.options[sel.selectedIndex].text;
+    }
+
+    function formatDate(date) {
+        const y = date.getFullYear();
+        const m = date.getMonth() + 1;
+        const d = date.getDate();
+        const w = WEEKDAYS[date.getDay()];
+        return d + '/' + m + '/' + y + ' (' + w + ')';
+    }
+
+    function formatTime(date) {
+        const hh = String(date.getHours()).padStart(2, '0');
+        const mm = String(date.getMinutes()).padStart(2, '0');
+        return hh + ':' + mm;
+    }
+
+    function getCurrentInTz(offsetHours) {
+        const now = new Date();
+        // Get UTC ms, then add target offset
+        const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
+        const tzMs = utcMs + offsetHours * 3600000;
+        return new Date(tzMs);
+    }
+
+    function setPreset(side, offset, btn) {
+        const selectId = side === 'from' ? 'fromTz' : 'toTz';
+        const sel = document.getElementById(selectId);
+        // Find matching option value (offset may appear multiple times — pick first match)
+        for (let i = 0; i < sel.options.length; i++) {
+            if (parseFloat(sel.options[i].value) === offset) {
+                sel.selectedIndex = i;
+                break;
+            }
+        }
+        // Update active state in the button group
+        const groupId = side === 'from' ? 'fromPresets' : 'toPresets';
+        document.querySelectorAll('#' + groupId + ' .preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    function markPresetActive(side, offset) {
+        const groupId = side === 'from' ? 'fromPresets' : 'toPresets';
+        const btns = document.querySelectorAll('#' + groupId + ' .preset-btn');
+        btns.forEach(b => {
+            // Extract offset from button text — last token
+            const parts = b.textContent.trim().split(' ');
+            const rawOff = parts[parts.length - 1]; // e.g. "+9", "-5", "0"
+            const btnOffset = parseFloat(rawOff);
+            if (btnOffset === offset) {
+                b.classList.add('active');
+            }
+        });
+    }
+
+    function clearPresetActive(side) {
+        const groupId = side === 'from' ? 'fromPresets' : 'toPresets';
+        document.querySelectorAll('#' + groupId + ' .preset-btn').forEach(b => b.classList.remove('active'));
+    }
+
+    function convert() {
+        const timeVal = document.getElementById('fromTime').value;
+        const dateVal = document.getElementById('fromDate').value;
+        const fromOffset = parseFloat(document.getElementById('fromTz').value);
+        const toOffset = parseFloat(document.getElementById('toTz').value);
+
+        if (!timeVal || !dateVal) {
+            alert('Por favor, ingrese tanto la hora como la fecha.');
+            return;
+        }
+
+        // Parse the input date/time as if it exists in the "from" timezone
+        // Convert to UTC first, then to target timezone
+        const [yyyy, mo, dd] = dateVal.split('-').map(Number);
+        const [hh, mm] = timeVal.split(':').map(Number);
+
+        // Create a UTC timestamp representing this local time in fromOffset zone
+        const fromLocalMs = Date.UTC(yyyy, mo - 1, dd, hh, mm, 0);
+        const utcMs = fromLocalMs - fromOffset * 3600000;
+        const toLocalMs = utcMs + toOffset * 3600000;
+
+        const fromDate = new Date(fromLocalMs);
+        const toDate = new Date(toLocalMs);
+
+        // Current time in each zone
+        const fromCurrent = getCurrentInTz(fromOffset);
+        const toCurrent = getCurrentInTz(toOffset);
+
+        // Labels
+        const fromLabel = getSelectLabel('fromTz');
+        const toLabel = getSelectLabel('toTz');
+
+        document.getElementById('fromTzName').textContent = fromLabel;
+        document.getElementById('fromResultTime').textContent = formatTime(fromDate);
+        document.getElementById('fromResultDate').textContent = formatDate(fromDate);
+        document.getElementById('fromCurrentTime').textContent =
+            'Hora actual: ' + formatTime(fromCurrent) + ' (' + formatDate(fromCurrent) + ')';
+
+        document.getElementById('toTzName').textContent = toLabel;
+        document.getElementById('toResultTime').textContent = formatTime(toDate);
+        document.getElementById('toResultDate').textContent = formatDate(toDate);
+        document.getElementById('toCurrentTime').textContent =
+            'Hora actual: ' + formatTime(toCurrent) + ' (' + formatDate(toCurrent) + ')';
+
+        // Time difference
+        const diffHours = toOffset - fromOffset;
+        const absDiff = Math.abs(diffHours);
+        const diffH = Math.floor(absDiff);
+        const diffM = Math.round((absDiff - diffH) * 60);
+
+        let diffText;
+        if (diffHours === 0) {
+            diffText = 'Ambas regiones están en la misma zona horaria';
+        } else {
+            let diffStr = diffH > 0 ? diffH + 'h' : '';
+            if (diffM > 0) diffStr += ' ' + diffM + 'min';
+            const direction = diffHours > 0 ? 'adelante' : 'atrás';
+            diffText = toLabel.split(' ')[0] + ' está ' + diffStr.trim() + ' ' + direction + ' respecto a ' + fromLabel.split(' ')[0];
+        }
+
+        document.getElementById('diffBadge').textContent = diffText;
+        document.getElementById('result').style.display = 'block';
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') convert();
+    });
+</script>
+
+</body>
+</html>

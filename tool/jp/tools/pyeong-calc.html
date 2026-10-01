@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>坪計算機（韓国の面積単位） - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"坪計算機は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要ですぐに使えます。すべての処理はブラウザ内で行われ、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"坪計算機の使い方は？","acceptedAnswer":{"@type":"Answer","text":"坪と平方メートル（m²）を即座に変換します。坪は韓国の住宅面積に使われる伝統的な単位です。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/pyeong-calc.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/pyeong-calc.html">
+    <meta property="og:title" content="坪計算機（韓国の面積単位） - MOGU Tools">
+    <meta property="og:description" content="坪と平方メートル（m²）を即座に変換します。韓国のマンション・住宅面積計算ツール。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/pyeong-calc.html">
+    <meta name="description" content="坪と平方メートル（m²）を即座に変換します。韓国のマンション・住宅面積計算ツール。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 11px 0;
+            background: #fff;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .tab-btn:first-child {
+            border-right: 2px solid #e0e0e0;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 18px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 15px;
+            color: #999;
+            min-width: 36px;
+        }
+
+        .result-area {
+            margin-top: 8px;
+            text-align: center;
+            padding: 22px 20px;
+            border-radius: 10px;
+            background: #f0f6ff;
+            border: 1px solid #d4e6f7;
+        }
+
+        .result-label {
+            font-size: 13px;
+            color: #88a8c8;
+            margin-bottom: 6px;
+        }
+
+        .result-number {
+            font-size: 52px;
+            font-weight: 700;
+            color: #4a90d9;
+            line-height: 1.1;
+        }
+
+        .result-unit {
+            font-size: 18px;
+            color: #4a90d9;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .result-empty {
+            font-size: 36px;
+            font-weight: 700;
+            color: #c8d8e8;
+        }
+
+        .ref-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            margin: 24px 0 10px;
+        }
+
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ref-table th, .ref-table td {
+            padding: 9px 12px;
+            text-align: left;
+            font-size: 13px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ref-table th {
+            color: #888;
+            font-weight: 500;
+            background: #fafafa;
+        }
+
+        .ref-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .ref-table tr:hover td {
+            background: #f0f6ff;
+            cursor: pointer;
+        }
+
+        .ref-table .tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 7px;
+            border-radius: 20px;
+            background: #eef4fb;
+            color: #4a90d9;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section strong {
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../../jp/index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../../jp/index.html">MOGU Tools — 無料オンラインツール集</a> &gt; 不動産 &gt; 坪計算機
+</div>
+
+<div class="container">
+    <h1>坪計算機（韓国の面積単位）</h1>
+    <p class="subtitle">坪と平方メートル（m²）を即座に変換します。1坪 = 3.3058m²</p>
+
+    <div class="calc-box">
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-pyeong" onclick="switchTab('pyeong')">坪 → m²</button>
+            <button class="tab-btn" id="tab-sqm" onclick="switchTab('sqm')">m² → 坪</button>
+        </div>
+
+        <!-- 坪 → m² -->
+        <div id="panel-pyeong">
+            <div class="input-group">
+                <label>坪数を入力</label>
+                <div class="input-row">
+                    <input type="number" id="input-pyeong" placeholder="例：32" min="0" step="0.1" oninput="calcFromPyeong()">
+                    <span class="unit">坪</span>
+                </div>
+            </div>
+            <div class="result-area" id="result-pyeong">
+                <div class="result-label">平方メートル（m²）</div>
+                <div class="result-empty" id="out-sqm">—</div>
+            </div>
+        </div>
+
+        <!-- m² → 坪 -->
+        <div id="panel-sqm" style="display:none;">
+            <div class="input-group">
+                <label>平方メートルを入力</label>
+                <div class="input-row">
+                    <input type="number" id="input-sqm" placeholder="例：84" min="0" step="0.1" oninput="calcFromSqm()">
+                    <span class="unit">m²</span>
+                </div>
+            </div>
+            <div class="result-area" id="result-sqm">
+                <div class="result-label">坪数</div>
+                <div class="result-empty" id="out-pyeong">—</div>
+            </div>
+        </div>
+
+        <!-- Reference table -->
+        <div class="ref-title">主な坪数参考表</div>
+        <table class="ref-table">
+            <tr>
+                <th>坪数</th>
+                <th>m²</th>
+                <th>タイプ</th>
+            </tr>
+            <tr onclick="fillRef(10, 33.1)">
+                <td>10坪</td>
+                <td>33.1 m²</td>
+                <td><span class="tag">ワンルーム</span></td>
+            </tr>
+            <tr onclick="fillRef(18, 59.5)">
+                <td>18坪</td>
+                <td>59.5 m²</td>
+                <td><span class="tag">小型</span></td>
+            </tr>
+            <tr onclick="fillRef(24, 79.3)">
+                <td>24坪</td>
+                <td>79.3 m²</td>
+                <td><span class="tag">中小型</span></td>
+            </tr>
+            <tr onclick="fillRef(32, 105.8)">
+                <td>32坪</td>
+                <td>105.8 m²</td>
+                <td><span class="tag">中型</span></td>
+            </tr>
+            <tr onclick="fillRef(40, 132.2)">
+                <td>40坪</td>
+                <td>132.2 m²</td>
+                <td><span class="tag">大型</span></td>
+            </tr>
+            <tr onclick="fillRef(50, 165.3)">
+                <td>50坪</td>
+                <td>165.3 m²</td>
+                <td><span class="tag">超大型</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="info-section">
+        <h2>坪とは？</h2>
+        <p>
+            <strong>坪（평）</strong>は韓国の伝統的な面積単位で、1坪は約<strong>3.3058m²</strong>です。
+            韓国ではマンションや住宅の広さを表す際に、今も日常的に広く使われています。
+            法定単位は平方メートル（m²）のため、分譲広告など公式書類ではm²が記載されます。
+        </p>
+        <p>
+            <strong>専用面積</strong>はその住戸だけが単独で使用する実際の居住面積（部屋・リビング・キッチン・浴室など）を指し、
+            <strong>供給面積</strong>は専用面積に階段・廊下・エレベーターなどの共用部分を加えた面積です。
+            よく言われる「32坪のマンション」は供給面積基準の場合が多いため、
+            実際の生活空間（専用面積）はこれより小さくなります。
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>坪計算機（韓国の面積単位）</h2><p>坪と平方メートル（m²）を即座に変換します。韓国のマンション・住宅面積計算ツール。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="area-calc.html">面積計算機</a><a href="unit-convert.html">単位変換</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">シェア：</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='コピー完了!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URLをコピー</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const RATIO = 3.3058; // 1坪 = 3.3058m²
+    let currentTab = "pyeong";
+
+    function switchTab(tab) {
+        currentTab = tab;
+        document.getElementById("tab-pyeong").classList.toggle("active", tab === "pyeong");
+        document.getElementById("tab-sqm").classList.toggle("active", tab === "sqm");
+        document.getElementById("panel-pyeong").style.display = tab === "pyeong" ? "" : "none";
+        document.getElementById("panel-sqm").style.display = tab === "sqm" ? "" : "none";
+    }
+
+    function setResult(el, value, unit) {
+        if (value === null) {
+            el.className = "result-empty";
+            el.textContent = "—";
+            return;
+        }
+        el.className = "result-number";
+        el.innerHTML = value + "<div class=\"result-unit\">" + unit + "</div>";
+    }
+
+    function calcFromPyeong() {
+        const val = parseFloat(document.getElementById("input-pyeong").value);
+        const el = document.getElementById("out-sqm");
+        if (isNaN(val) || val < 0) { setResult(el, null); return; }
+        const sqm = (val * RATIO).toFixed(2);
+        setResult(el, sqm, "m²");
+    }
+
+    function calcFromSqm() {
+        const val = parseFloat(document.getElementById("input-sqm").value);
+        const el = document.getElementById("out-pyeong");
+        if (isNaN(val) || val < 0) { setResult(el, null); return; }
+        const pyeong = (val / RATIO).toFixed(2);
+        setResult(el, pyeong, "坪");
+    }
+
+    function fillRef(pyeong, sqm) {
+        if (currentTab === "pyeong") {
+            document.getElementById("input-pyeong").value = pyeong;
+            calcFromPyeong();
+        } else {
+            document.getElementById("input-sqm").value = sqm;
+            calcFromSqm();
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de réduction - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Calculateur de réduction est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, 100% gratuit. Aucune inscription requise. Tout le traitement se fait dans votre navigateur, aucune donnee personnelle n est envoyee a un serveur."}},
+    {"@type":"Question","name":"Comment utiliser Calculateur de réduction ?","acceptedAnswer":{"@type":"Answer","text":"Calculez rapidement le prix réduit et le taux de réduction. Entrez le prix d'origine et le taux de réduction ou le prix de vente."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/discount-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/discount-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/discount-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/discount-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/discount-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/discount-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/discount-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/discount-calc.html">
+    <link rel="canonical" href="https://mogutool.com/fr/tools/discount-calc.html">
+    <meta property="og:title" content="Calculateur de réduction - MOGU Tools">
+    <meta property="og:description" content="Calculez rapidement le prix réduit et le taux de réduction. Entrez le prix d'origine et le taux de réduction ou le prix de vente.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/fr/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/fr/tools/discount-calc.html">
+    <meta name="description" content="Calculez rapidement le prix réduit et le taux de réduction. Entrez le prix d'origine et le taux de réduction ou le prix de vente.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 28px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 11px 0;
+            background: #fff;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #999;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .tab-btn:not(.active):hover {
+            background: #f0f6fd;
+            color: #4a90d9;
+        }
+
+        /* Panels */
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+            text-align: center;
+            padding: 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .result .main-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #4a90d9;
+        }
+
+        .result .main-label {
+            font-size: 14px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .result .divider {
+            border: none;
+            border-top: 1px solid #e8e8e8;
+            margin: 18px 0;
+        }
+
+        .result .savings-row {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .result .savings-label {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .result .savings-amount {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e05c5c;
+        }
+
+        .result .savings-unit {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Outils</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Outils en Ligne Gratuits</a> &gt; Calculateurs &gt; Calculateur de réduction
+</div>
+
+<div class="container">
+    <h1>Calculateur de réduction</h1>
+    <p class="subtitle">Calculez rapidement le prix réduit et le taux de réduction.</p>
+
+    <div class="calc-box">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('price')">Calculer le prix réduit</button>
+            <button class="tab-btn" onclick="switchTab('rate')">Calculer le taux de réduction</button>
+        </div>
+
+        <!-- Tab 1: Discounted price -->
+        <div class="tab-panel active" id="panel-price">
+            <div class="input-group">
+                <label>Prix d'origine</label>
+                <div class="input-row">
+                    <input type="number" id="original-price" placeholder="100" min="0">
+                    <span class="unit">&euro;</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Taux de réduction</label>
+                <div class="input-row">
+                    <input type="number" id="discount-rate" placeholder="30" min="0" max="100" step="0.1">
+                    <span class="unit">%</span>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcDiscountedPrice()">Calculer</button>
+
+            <div class="result" id="result-price">
+                <div class="main-number" id="discounted-price-num">-</div>
+                <div class="main-label">Prix réduit</div>
+                <hr class="divider">
+                <div class="savings-row">
+                    <span class="savings-label">Économie</span>
+                    <span class="savings-amount" id="savings-price-num">-</span>
+                    <span class="savings-unit">&euro;</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Discount rate -->
+        <div class="tab-panel" id="panel-rate">
+            <div class="input-group">
+                <label>Prix d'origine</label>
+                <div class="input-row">
+                    <input type="number" id="original-price2" placeholder="100" min="0">
+                    <span class="unit">&euro;</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Prix de vente</label>
+                <div class="input-row">
+                    <input type="number" id="sale-price" placeholder="70" min="0">
+                    <span class="unit">&euro;</span>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcDiscountRate()">Calculer</button>
+
+            <div class="result" id="result-rate">
+                <div class="main-number" id="discount-rate-num">-</div>
+                <div class="main-label">Taux de réduction</div>
+                <hr class="divider">
+                <div class="savings-row">
+                    <span class="savings-label">Économie</span>
+                    <span class="savings-amount" id="savings-rate-num">-</span>
+                    <span class="savings-unit">&euro;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Méthode de calcul</h2>
+        <p>
+            Prix réduit = Prix d'origine × (1 - Taux de réduction ÷ 100)<br>
+            Taux de réduction = (Prix d'origine - Prix de vente) ÷ Prix d'origine × 100
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Calculateur de réduction</h2><p>Calculez rapidement le prix réduit et le taux de réduction. Entrez le prix d'origine et le taux de réduction ou le prix de vente.</p></div>
+<div class="seo-section"><h2>Questions fréquentes</h2><details class="seo-faq"><summary>Cet outil est-il gratuit ?</summary><p>Oui, 100% gratuit. Pas d'inscription. Tout est traité dans votre navigateur — aucune donnée n'est envoyée.</p></details><details class="seo-faq"><summary>Ça marche sur mobile ?</summary><p>Oui, tous les outils sont responsifs et fonctionnent sur smartphones, tablettes et ordinateurs.</p></details></div>
+<div class="seo-section"><h2>Outils associés</h2><div class="seo-related"><a href="percent-calc.html">Calculateur de pourcentage</a><a href="vat-calc.html">부가세 계산기</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    let currentTab = 'price';
+
+    function switchTab(tab) {
+        currentTab = tab;
+        document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+            btn.classList.toggle('active', (tab === 'price' && i === 0) || (tab === 'rate' && i === 1));
+        });
+        document.getElementById('panel-price').classList.toggle('active', tab === 'price');
+        document.getElementById('panel-rate').classList.toggle('active', tab === 'rate');
+    }
+
+    function formatNum(n) {
+        return Math.round(n).toLocaleString('fr-FR');
+    }
+
+    function calcDiscountedPrice() {
+        const original = parseFloat(document.getElementById('original-price').value);
+        const rate = parseFloat(document.getElementById('discount-rate').value);
+
+        if (!original || original <= 0 || isNaN(rate) || rate < 0 || rate > 100) {
+            alert('Veuillez entrer correctement le prix et le taux de réduction.');
+            return;
+        }
+
+        const discounted = original * (1 - rate / 100);
+        const savings = original - discounted;
+
+        document.getElementById('discounted-price-num').textContent = formatNum(discounted) + ' \u20AC';
+        document.getElementById('savings-price-num').textContent = formatNum(savings);
+        document.getElementById('result-price').style.display = 'block';
+    }
+
+    function calcDiscountRate() {
+        const original = parseFloat(document.getElementById('original-price2').value);
+        const sale = parseFloat(document.getElementById('sale-price').value);
+
+        if (!original || original <= 0 || !sale || sale < 0) {
+            alert('Veuillez entrer correctement le prix d\'origine et le prix de vente.');
+            return;
+        }
+
+        if (sale >= original) {
+            alert('Le prix de vente doit être inférieur au prix d\'origine.');
+            return;
+        }
+
+        const rate = (original - sale) / original * 100;
+        const savings = original - sale;
+
+        document.getElementById('discount-rate-num').textContent = Math.round(rate * 10) / 10 + '%';
+        document.getElementById('savings-rate-num').textContent = formatNum(savings);
+        document.getElementById('result-rate').style.display = 'block';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            if (currentTab === 'price') calcDiscountedPrice();
+            else calcDiscountRate();
+        }
+    });
+</script>
+
+</body>
+</html>

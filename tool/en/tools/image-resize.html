@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resize - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is Image Resize free?","acceptedAnswer":{"@type":"Answer","text":"Yes, 100% free. No sign-up required. All processing happens in your browser, so no personal data is sent to any server."}},
+    {"@type":"Question","name":"How do I use Image Resize?","acceptedAnswer":{"@type":"Answer","text":"Resize images to any dimension. All processing happens in your browser — no server upload."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/image-resize.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/image-resize.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/image-resize.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/image-resize.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/image-resize.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/image-resize.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/image-resize.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/image-resize.html">
+    <link rel="canonical" href="https://mogutool.com/en/tools/image-resize.html">
+    <meta property="og:title" content="Image Resize - MOGU Tools">
+    <meta property="og:description" content="Resize images to any dimension. All processing happens in your browser — no server upload.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/en/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/en/tools/image-resize.html">
+    <meta name="description" content="Resize images to any dimension. All processing happens in your browser — no server upload.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 700px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 700px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+
+        .drop-zone { background: #fff; border: 2px dashed #ccc; border-radius: 16px; padding: 60px 20px; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 20px; }
+        .drop-zone:hover, .drop-zone.dragover { border-color: #4a90d9; background: #f0f6fd; }
+        .drop-zone .icon { font-size: 48px; margin-bottom: 12px; }
+        .drop-zone .text { font-size: 15px; color: #666; }
+
+        .controls { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; margin-bottom: 20px; display: none; }
+        .control-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .control-row:last-child { margin-bottom: 0; }
+        .control-row label { font-size: 14px; font-weight: 500; color: #555; min-width: 60px; }
+        .control-row input[type="number"] { width: 90px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; text-align: center; }
+        .control-row select { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+        .lock-btn { padding: 6px 10px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; font-size: 16px; background: #fff; }
+        .lock-btn.locked { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+
+        .presets { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+        .preset { padding: 6px 14px; border: 1px solid #ddd; border-radius: 20px; font-size: 12px; cursor: pointer; background: #fff; transition: all 0.15s; }
+        .preset:hover { border-color: #4a90d9; color: #4a90d9; }
+        .preset.active { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+
+        .preview-area { display: none; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: center; }
+        .preview-area img { max-width: 100%; max-height: 300px; border-radius: 8px; }
+        .preview-info { font-size: 13px; color: #888; margin-top: 10px; }
+
+        .btn { display: inline-block; padding: 12px 28px; background: #4a90d9; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
+        .btn:hover { background: #3a7bc8; }
+        .btn-group { text-align: center; margin-bottom: 20px; display: none; }
+
+        .privacy { background: #f0f9f0; border: 1px solid #c3e6c3; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #2d7a2d; margin-bottom: 20px; text-align: center; }
+        .info-section { margin-top: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; }
+        .info-section h2 { font-size: 16px; margin-bottom: 12px; color: #555; }
+        .info-section p { font-size: 14px; color: #666; line-height: 1.7; }
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Free Online Tools Collection</a> &gt; Tools &gt; Image Resize
+</div>
+
+<div class="container">
+    <h1>Image Resize</h1>
+    <p class="subtitle">Resize images to any dimension you need.</p>
+
+    <div class="privacy">🔒 Privacy: Your images are not uploaded to any server. All processing happens in your browser.</div>
+
+    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon">📐</div>
+        <div class="text">Drag & drop an image here, or click to select</div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleFile(this.files[0])">
+    </div>
+
+    <div class="controls" id="controls">
+        <div class="presets" id="presets">
+            <span class="preset" onclick="applyPreset(1920,1080)">1920×1080</span>
+            <span class="preset" onclick="applyPreset(1280,720)">1280×720</span>
+            <span class="preset" onclick="applyPreset(800,600)">800×600</span>
+            <span class="preset" onclick="applyPreset(400,400)">400×400</span>
+            <span class="preset" onclick="applyPreset(150,150)">150×150</span>
+            <span class="preset" onclick="applyPreset(64,64)">64×64</span>
+        </div>
+        <div class="control-row">
+            <label>Width</label>
+            <input type="number" id="targetW" min="1" max="10000" oninput="onSizeChange('w')"> px
+            <button class="lock-btn locked" id="lockBtn" onclick="toggleLock()">🔗</button>
+            <label>Height</label>
+            <input type="number" id="targetH" min="1" max="10000" oninput="onSizeChange('h')"> px
+        </div>
+        <div class="control-row">
+            <label>Format</label>
+            <select id="outputFormat">
+                <option value="image/jpeg">JPG</option>
+                <option value="image/png">PNG</option>
+                <option value="image/webp">WebP</option>
+            </select>
+            <label>Quality</label>
+            <input type="number" id="quality" value="90" min="10" max="100" style="width:60px;"> %
+        </div>
+    </div>
+
+    <div class="preview-area" id="previewArea">
+        <img id="previewImg">
+        <div class="preview-info" id="previewInfo">-</div>
+    </div>
+
+    <div class="btn-group" id="btnGroup">
+        <button class="btn" onclick="doResize()">📐 Resize &amp; Download</button>
+    </div>
+
+    <div class="info-section">
+        <h2>What is Image Resizing?</h2>
+        <p>
+            Resizing changes the pixel dimensions (width × height) of an image. Useful for social media profiles, thumbnails, website assets, and more.<br><br>
+            <strong>Aspect Ratio Lock 🔗</strong> keeps the original proportions when enabled.<br>
+            <strong>WebP format</strong> produces smaller file sizes compared to JPG or PNG.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Image Resize</h2><p>Resize images to any dimension. All processing happens in your browser — no server upload.</p></div>
+<div class="seo-section"><h2>Frequently Asked Questions</h2><details class="seo-faq"><summary>Is this tool free?</summary><p>Yes, 100% free. No signup required. All processing happens in your browser — no data is sent to any server.</p></details><details class="seo-faq"><summary>Can I use it on mobile?</summary><p>Yes, all tools are fully responsive and work on smartphones, tablets, and desktops.</p></details></div>
+<div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="image-compress.html">Image Compress</a><a href="aspect-ratio.html">Aspect Ratio Calculator</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+let origImg = null;
+let origW = 0, origH = 0;
+let locked = true;
+
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('dragover'); handleFile(e.dataTransfer.files[0]); });
+
+function handleFile(file) {
+    if (!file || !file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+        origImg = new Image();
+        origImg.onload = () => {
+            origW = origImg.width; origH = origImg.height;
+            document.getElementById('targetW').value = origW;
+            document.getElementById('targetH').value = origH;
+            document.getElementById('previewImg').src = e.target.result;
+            document.getElementById('previewInfo').textContent = `Original: ${origW}×${origH}px`;
+            document.getElementById('controls').style.display = 'block';
+            document.getElementById('previewArea').style.display = 'block';
+            document.getElementById('btnGroup').style.display = 'block';
+        };
+        origImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function toggleLock() {
+    locked = !locked;
+    const btn = document.getElementById('lockBtn');
+    btn.textContent = locked ? '🔗' : '🔓';
+    btn.className = locked ? 'lock-btn locked' : 'lock-btn';
+}
+
+function onSizeChange(axis) {
+    if (!locked || !origW || !origH) return;
+    const w = parseInt(document.getElementById('targetW').value) || 1;
+    const h = parseInt(document.getElementById('targetH').value) || 1;
+    if (axis === 'w') {
+        document.getElementById('targetH').value = Math.round(w * origH / origW);
+    } else {
+        document.getElementById('targetW').value = Math.round(h * origW / origH);
+    }
+}
+
+function applyPreset(w, h) {
+    document.getElementById('targetW').value = w;
+    document.getElementById('targetH').value = h;
+    locked = false;
+    document.getElementById('lockBtn').textContent = '🔓';
+    document.getElementById('lockBtn').className = 'lock-btn';
+    document.querySelectorAll('.preset').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+}
+
+function doResize() {
+    if (!origImg) return;
+    const w = parseInt(document.getElementById('targetW').value) || 100;
+    const h = parseInt(document.getElementById('targetH').value) || 100;
+    const format = document.getElementById('outputFormat').value;
+    const quality = parseInt(document.getElementById('quality').value) / 100;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(origImg, 0, 0, w, h);
+
+    canvas.toBlob(blob => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        const ext = { 'image/jpeg': '.jpg', 'image/png': '.png', 'image/webp': '.webp' };
+        a.download = `resized_${w}x${h}${ext[format] || '.jpg'}`;
+        a.click();
+        document.getElementById('previewInfo').textContent = `Resize complete: ${w}×${h}px (${(blob.size/1024).toFixed(1)} KB)`;
+    }, format, quality);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキスト暗号化/復号化 - AESメッセージ暗号化 | MOGU Guard</title>
+    <meta name="description" content="AES-GCMでテキストを暗号化/復号化します。秘密のメッセージを安全に送信。すべての処理はブラウザ内のみ。">
+    <link rel="canonical" href="https://moguguard.com/jp/text-encrypt/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/text-encrypt/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/text-encrypt/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/text-encrypt/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/cifrar-texto/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/text-verschluesselung/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/chiffrer-texte/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/criptografar-texto/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/text-encrypt/">
+    <meta property="og:title" content="テキスト暗号化/復号化 | MOGU Guard">
+    <meta property="og:description" content="AES暗号化で秘密のメッセージを安全に！">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/jp/text-encrypt/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+        header{background:#111;border-bottom:1px solid #1a3a1a;padding:16px 20px;text-align:center}header a{text-decoration:none;font-size:20px;color:#00ff41;letter-spacing:2px;font-weight:700;font-family:'Fira Code',monospace}
+        .container{max-width:700px;margin:20px auto 40px;padding:0 20px}
+        .page-title{text-align:center;margin-bottom:30px}.page-title h2{font-size:28px;color:#00ff41;margin-bottom:8px}.page-title p{color:#666;font-size:14px}
+        .privacy-badge{display:inline-block;background:rgba(0,255,65,0.1);border:1px solid rgba(0,230,118,0.3);color:#00ff41;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:20px}
+        .tabs{display:flex;gap:4px;margin-bottom:20px}
+        .tab{flex:1;padding:14px;background:#111;border:1px solid #00ff4130;border-radius:8px;color:#888;font-size:15px;font-weight:700;cursor:pointer;text-align:center;transition:all .2s}
+        .tab.active{border-color:#00ff41;color:#00ff41;background:rgba(0,255,65,0.08)}
+        .tab:hover{border-color:#00ff41;color:#00ff41}
+        .input-box{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:24px;margin-bottom:16px}
+        .input-box label{display:block;font-size:14px;color:#00ff41;margin-bottom:8px;font-weight:600}
+        .input-box textarea{width:100%;padding:14px;background:#0a0a0a;border:2px solid #00ff4130;border-radius:8px;color:#e0e0e0;font-size:15px;outline:none;resize:vertical;height:120px;font-family:'Fira Code',monospace}
+        .input-box textarea:focus{border-color:#00ff41}.input-box textarea::placeholder{color:#444}
+        .input-box input[type=password]{width:100%;padding:14px;background:#0a0a0a;border:2px solid #00ff4130;border-radius:8px;color:#e0e0e0;font-size:15px;outline:none;font-family:'Fira Code',monospace}
+        .input-box input:focus{border-color:#00ff41}.input-box input::placeholder{color:#444}
+        .action-btn{width:100%;padding:16px;background:#00ff41;color:#0a0a0a;border:none;border-radius:8px;font-size:18px;font-weight:700;cursor:pointer;font-family:'Fira Code',monospace;margin-bottom:20px}
+        .action-btn:hover{background:#00cc33}
+        .result-box{display:none;background:#111;border:2px solid #00ff4140;border-radius:8px;padding:24px;margin-bottom:20px}
+        .result-label{font-size:12px;color:#888;margin-bottom:8px}
+        .result-text{font-size:14px;font-family:'Fira Code',monospace;color:#00ff41;word-break:break-all;background:#0a0a0a;padding:16px;border-radius:6px;max-height:200px;overflow-y:auto;white-space:pre-wrap}
+        .result-copy{margin-top:12px;padding:10px 20px;background:#00ff41;color:#0a0a0a;border:none;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Fira Code',monospace}
+        .error-msg{color:#ff5252;font-size:13px;margin-top:8px;display:none}
+        .info{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px;margin-top:20px}
+        .info-title{font-size:16px;color:#00ff41;font-weight:600;margin-bottom:10px}
+        .info-text{font-size:14px;color:#888;line-height:1.8}.info-text strong{color:#00ff41}
+        footer{text-align:center;padding:30px;color:#333;font-size:11px}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"テキスト暗号化/復号化","url":"https://moguguard.com/jp/text-encrypt/","description":"AES-GCMでテキストを暗号化/復号化します。","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript"}
+    </script>
+</head>
+<body>
+<header><a href="/jp/">MOGU <span style="color:#00ff41;">Guard</span></a></header>
+<div class="container">
+    <div class="page-title">
+        <h2>🔐 テキスト暗号化/復号化</h2>
+        <p>AES-256暗号化で秘密のメッセージを安全に</p>
+        <div class="privacy-badge">🔒 すべての処理はブラウザ内のみ — サーバー送信なし</div>
+    </div>
+    <div class="tabs">
+        <div class="tab active" id="tabEnc" onclick="switchTab('encrypt')">🔒 暗号化</div>
+        <div class="tab" id="tabDec" onclick="switchTab('decrypt')">🔓 復号化</div>
+    </div>
+    <div id="encryptPanel">
+        <div class="input-box">
+            <label>暗号化するテキスト</label>
+            <textarea id="encText" placeholder="秘密のメッセージを入力..."></textarea>
+        </div>
+        <div class="input-box">
+            <label>パスワード（復号化に必要）</label>
+            <input type="password" id="encPass" placeholder="強力なパスワードを入力">
+        </div>
+        <button class="action-btn" onclick="doEncrypt()">🔒 暗号化する</button>
+    </div>
+    <div id="decryptPanel" style="display:none">
+        <div class="input-box">
+            <label>暗号化されたテキスト</label>
+            <textarea id="decText" placeholder="暗号化されたテキストを貼り付け..."></textarea>
+        </div>
+        <div class="input-box">
+            <label>パスワード</label>
+            <input type="password" id="decPass" placeholder="暗号化時に使用したパスワード">
+        </div>
+        <button class="action-btn" onclick="doDecrypt()">🔓 復号化する</button>
+    </div>
+    <div class="error-msg" id="errorMsg"></div>
+    <div class="result-box" id="resultBox">
+        <div class="result-label" id="resultLabel"></div>
+        <div class="result-text" id="resultText"></div>
+        <button class="result-copy" onclick="copyResult()">📋 コピー</button>
+    </div>
+    <div class="info">
+        <div class="info-title">💡 こんな時に使ってください</div>
+        <div class="info-text">
+            &bull; <strong>秘密メッセージ送信</strong> — チャット/メールで暗号化されたメッセージを送信<br>
+            &bull; <strong>メモ保護</strong> — パスワードや個人メモを暗号化して保存<br>
+            &bull; <strong>ファイル共有</strong> — 機密テキストを暗号化して共有<br>
+            &bull; <strong>AES-256-GCM</strong> — 軍事レベルの暗号化アルゴリズム使用
+        </div>
+    </div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:12px;color:#333;margin-right:8px;">共有:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1da1f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1877f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Facebook</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:5px 10px;background:#333;color:#0f0;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;font-family:monospace;">URLコピー</a></div>
+<footer>&copy; 2025 MOGU Guard</footer>
+<script>
+function switchTab(mode) {
+    document.getElementById('encryptPanel').style.display = mode === 'encrypt' ? '' : 'none';
+    document.getElementById('decryptPanel').style.display = mode === 'decrypt' ? '' : 'none';
+    document.getElementById('tabEnc').classList.toggle('active', mode === 'encrypt');
+    document.getElementById('tabDec').classList.toggle('active', mode === 'decrypt');
+    document.getElementById('resultBox').style.display = 'none';
+    document.getElementById('errorMsg').style.display = 'none';
+}
+async function getKey(password, salt) {
+    const enc = new TextEncoder();
+    const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256'}, keyMaterial, {name: 'AES-GCM', length: 256}, false, ['encrypt', 'decrypt']);
+}
+function buf2b64(buf) { return btoa(String.fromCharCode(...new Uint8Array(buf))); }
+function b642buf(b64) { return Uint8Array.from(atob(b64), c => c.charCodeAt(0)); }
+async function doEncrypt() {
+    const text = document.getElementById('encText').value.trim();
+    const pass = document.getElementById('encPass').value;
+    const err = document.getElementById('errorMsg');
+    if (!text) { err.textContent = 'テキストを入力してください。'; err.style.display = 'block'; return; }
+    if (!pass) { err.textContent = 'パスワードを入力してください。'; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    try {
+        const salt = crypto.getRandomValues(new Uint8Array(16));
+        const iv = crypto.getRandomValues(new Uint8Array(12));
+        const key = await getKey(pass, salt);
+        const encrypted = await crypto.subtle.encrypt({name: 'AES-GCM', iv}, key, new TextEncoder().encode(text));
+        const result = buf2b64(salt) + '.' + buf2b64(iv) + '.' + buf2b64(encrypted);
+        document.getElementById('resultLabel').textContent = '暗号化されたテキスト';
+        document.getElementById('resultText').textContent = result;
+        document.getElementById('resultBox').style.display = 'block';
+    } catch (e) {
+        err.textContent = '暗号化失敗：' + e.message; err.style.display = 'block';
+    }
+}
+async function doDecrypt() {
+    const text = document.getElementById('decText').value.trim();
+    const pass = document.getElementById('decPass').value;
+    const err = document.getElementById('errorMsg');
+    if (!text) { err.textContent = '暗号化されたテキストを入力してください。'; err.style.display = 'block'; return; }
+    if (!pass) { err.textContent = 'パスワードを入力してください。'; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    try {
+        const parts = text.split('.');
+        if (parts.length !== 3) throw new Error('無効な形式');
+        const salt = b642buf(parts[0]);
+        const iv = b642buf(parts[1]);
+        const data = b642buf(parts[2]);
+        const key = await getKey(pass, salt);
+        const decrypted = await crypto.subtle.decrypt({name: 'AES-GCM', iv}, key, data);
+        document.getElementById('resultLabel').textContent = '復号化されたテキスト';
+        document.getElementById('resultText').textContent = new TextDecoder().decode(decrypted);
+        document.getElementById('resultBox').style.display = 'block';
+    } catch (e) {
+        err.textContent = '復号化失敗 — パスワードが間違っているかテキストが破損しています。'; err.style.display = 'block';
+    }
+}
+function copyResult() {
+    navigator.clipboard.writeText(document.getElementById('resultText').textContent);
+    const btn = document.querySelector('.result-copy');
+    btn.textContent = '✅ コピー済';
+    setTimeout(() => btn.textContent = '📋 コピー', 2000);
+}
+</script>
+</body>
+</html>

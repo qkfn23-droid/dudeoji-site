@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Temperature Converter - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is Temperature Converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, 100% free. No sign-up required. All processing happens in your browser, so no personal data is sent to any server."}},
+    {"@type":"Question","name":"How do I use Temperature Converter?","acceptedAnswer":{"@type":"Answer","text":"Celsius, Faenheit, Kelvin temperature between formats."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/temp-convert.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/temp-convert.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/temp-convert.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/temp-convert.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/temp-convert.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/temp-convert.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/temp-convert.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/temp-convert.html">
+    <link rel="canonical" href="https://mogutool.com/en/tools/temp-convert.html">
+    <meta property="og:title" content="Temperature Converter - MOGU Tools">
+    <meta property="og:description" content="Celsius, Faenheit, Kelvin temperature between formats.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/en/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/en/tools/temp-convert.html">
+ <meta name="description" content="Celsius, Faenheit, Kelvin temperature between formats.">
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ body {
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+ background: #f5f5f5;
+ color: #333;
+ }
+
+ header {
+ background: #fff;
+ border-bottom: 2px solid #eee;
+ padding: 16px 20px;
+ }
+
+ header a {
+ text-decoration: none;
+ color: #2c2c2c;
+ font-size: 18px;
+ font-weight: 700;
+ }
+
+ header a span {
+ color: #4a90d9;
+ }
+
+ .breadcrumb {
+ max-width: 600px;
+ margin: 16px auto;
+ padding: 0 20px;
+ font-size: 13px;
+ color: #999;
+ }
+
+ .breadcrumb a {
+ color: #4a90d9;
+ text-decoration: none;
+ }
+
+ .container {
+ max-width: 600px;
+ margin: 10px auto 40px;
+ padding: 0 20px;
+ }
+
+ h1 {
+ font-size: 24px;
+ font-weight: 700;
+ margin-bottom: 8px;
+ }
+
+ .subtitle {
+ color: #888;
+ font-size: 14px;
+ margin-bottom: 24px;
+ }
+
+ .calc-box {
+ background: #fff;
+ border: 1px solid #e8e8e8;
+ border-radius: 12px;
+ padding: 28px;
+ }
+
+ /* Unit selector tabs */
+ .unit-tabs {
+ display: flex;
+ gap: 0;
+ margin-bottom: 20px;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ overflow: hidden;
+ }
+
+ .unit-tabs label {
+ flex: 1;
+ text-align: center;
+ padding: 10px 8px;
+ font-size: 14px;
+ font-weight: 500;
+ color: #888;
+ cursor: pointer;
+ background: #fff;
+ transition: background 0.15s, color 0.15s;
+ user-select: none;
+ }
+
+ .unit-tabs label:not(:last-child) {
+ border-right: 2px solid #e0e0e0;
+ }
+
+ .unit-tabs input[type="radio"] {
+ display: none;
+ }
+
+ .unit-tabs input[type="radio"]:checked + label {
+ background: #4a90d9;
+ color: #fff;
+ }
+
+ /* input */
+ .input-group {
+ margin-bottom: 20px;
+ }
+
+ .input-group label.field-label {
+ display: block;
+ font-size: 14px;
+ font-weight: 500;
+ margin-bottom: 6px;
+ color: #555;
+ }
+
+ .input-row {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+
+ .input-row input {
+ flex: 1;
+ padding: 12px 14px;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ font-size: 16px;
+ outline: none;
+ transition: border-color 0.2s;
+ }
+
+ .input-row input:focus {
+ border-color: #4a90d9;
+ }
+
+ .input-row .unit {
+ font-size: 14px;
+ color: #999;
+ min-width: 30px;
+ }
+
+ /* Result cards */
+ .result-cards {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ gap: 12px;
+ margin-top: 24px;
+ }
+
+ .result-card {
+ background: #f8f9fa;
+ border: 1px solid #e8e8e8;
+ border-radius: 10px;
+ padding: 16px 12px;
+ text-align: center;
+ transition: border-color 0.2s, background 0.2s;
+ }
+
+ .result-card.active {
+ background: #eef4fb;
+ border-color: #4a90d9;
+ }
+
+ .result-card .card-unit {
+ font-size: 12px;
+ color: #999;
+ margin-bottom: 6px;
+ font-weight: 500;
+ letter-spacing: 0.3px;
+ }
+
+ .result-card .card-value {
+ font-size: 26px;
+ font-weight: 700;
+ color: #333;
+ line-height: 1.1;
+ word-break: break-all;
+ }
+
+ .result-card.active .card-value {
+ color: #4a90d9;
+ }
+
+ .result-card .card-symbol {
+ font-size: 13px;
+ color: #aaa;
+ margin-top: 4px;
+ }
+
+ /* Formula section */
+ .formula-section {
+ margin-top: 24px;
+ background: #f8f9fa;
+ border-radius: 8px;
+ padding: 16px 18px;
+ }
+
+ .formula-section h3 {
+ font-size: 13px;
+ font-weight: 600;
+ color: #777;
+ margin-bottom: 10px;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+
+ .formula-list {
+ display: flex;
+ flex-direction: column;
+ gap: 6px;
+ }
+
+ .formula-item {
+ font-size: 13px;
+ color: #666;
+ line-height: 1.5;
+ font-family: 'Courier New', Courier, monospace;
+ background: #fff;
+ border: 1px solid #e8e8e8;
+ border-radius: 6px;
+ padding: 6px 10px;
+ }
+
+ .info-section {
+ margin-top: 30px;
+ background: #fff;
+ border: 1px solid #e8e8e8;
+ border-radius: 12px;
+ padding: 24px;
+ }
+
+ .info-section h2 {
+ font-size: 16px;
+ margin-bottom: 12px;
+ color: #555;
+ }
+
+ .info-section p {
+ font-size: 14px;
+ color: #666;
+ line-height: 1.7;
+ }
+
+ footer {
+ text-align: center;
+ padding: 30px;
+ color: #bbb;
+ font-size: 13px;
+ }
+
+ @media (max-width: 400px) {
+ .result-cards {
+ grid-template-columns: 1fr;
+ }
+ .result-card .card-value {
+ font-size: 22px;
+ }
+ }
+ </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+ <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+ <a href="../index.html">MOGU Tools — Free Online Tools Collection</a> &gt; Converters &gt; Temperature Converter
+</div>
+
+<div class="container">
+ <h1>Temperature Converter</h1>
+ <p class="subtitle">Enter a value and select units to convert between Celsius, Fahrenheit, and Kelvin.</p>
+
+ <div class="calc-box">
+
+ <!-- Unit selector -->
+ <div class="unit-tabs">
+ <input type="radio" name="unit" id="unit-c" value="C" checked>
+ <label for="unit-c">Celsius (°C)</label>
+ <input type="radio" name="unit" id="unit-f" value="F">
+ <label for="unit-f">Faenheit (°F)</label>
+ <input type="radio" name="unit" id="unit-k" value="K">
+ <label for="unit-k">Kelvin (K)</label>
+ </div>
+
+ <!-- Value input -->
+ <div class="input-group">
+ <label class="field-label" for="tempinput"> input</label>
+ <div class="input-row">
+ <input type="number" id="tempinput" placeholder="0" step="any">
+ <span class="unit" id="unitLabel">°C</span>
+ </div>
+ </div>
+
+ <!-- Result cards -->
+ <div class="result-cards">
+ <div class="result-card active" id="card-C">
+ <div class="card-unit">Celsius</div>
+ <div class="card-value" id="val-C">0</div>
+ <div class="card-symbol">°C</div>
+ </div>
+ <div class="result-card" id="card-F">
+ <div class="card-unit">Faenheit</div>
+ <div class="card-value" id="val-F">32</div>
+ <div class="card-symbol">°F</div>
+ </div>
+ <div class="result-card" id="card-K">
+ <div class="card-unit">Kelvin</div>
+ <div class="card-value" id="val-K">273.15</div>
+ <div class="card-symbol">K</div>
+ </div>
+ </div>
+
+ <!-- Formulas -->
+ <div class="formula-section">
+ <h3>Convert </h3>
+ <div class="formula-list">
+ <div class="formula-item">°F = °C × 9/5 + 32</div>
+ <div class="formula-item">°C = (°F − 32) × 5/9</div>
+ <div class="formula-item">K = °C + 273.15</div>
+ <div class="formula-item">°C = K − 273.15</div>
+ </div>
+ </div>
+
+ </div>
+
+ <div class="info-section">
+ <h2> Top?</h2>
+ <p>
+ <strong>Celsius(°C)</strong> water freezing point 0°C, boiling point 100°C defined Top.
+ <strong>Faenheit(°F)</strong> water freezing point 32°F, boiling point 212°F and USfrom use.
+ <strong>Kelvin(K)</strong> absolute Top, mostcharacters absolutezero(−273.15°C) standard 0to .
+ </p>
+ </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Temperature Converter</h2><p>Celsius, Faenheit, Kelvin temperature between formats.</p></div>
+<div class="seo-section"><h2>Frequently Asked Questions</h2><details class="seo-faq"><summary>Is this tool free?</summary><p>Yes, 100% free. No signup required. All processing happens in your browser — no data is sent to any server.</p></details><details class="seo-faq"><summary>Can I use it on mobile?</summary><p>Yes, all tools are fully responsive and work on smartphones, tablets, and desktops.</p></details></div>
+<div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="unit-convert.html">Unit Converter</a><a href="speed-calc.html">Speed / Distance / Time Calculator</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+ &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+ const input = document.getElementById('tempinput');
+ const unitLabel = document.getElementById('unitLabel');
+ const radios = document.querySelectorAll('input[name="unit"]');
+
+ const unitSymbols = { C: '°C', F: '°F', K: 'K' };
+
+ function round(val, decimals = 2) {
+ return Math.round(val * Math.pow(10, decimals)) / Math.pow(10, decimals);
+ }
+
+ function toCelsius(val, unit) {
+ if (unit === 'C') return val;
+ if (unit === 'F') return (val - 32) * 5 / 9;
+ if (unit === 'K') return val - 273.15;
+ }
+
+ function convert() {
+ const raw = input.value;
+ const unit = document.querySelector('input[name="unit"]:checked').value;
+
+ unitLabel.textContent = unitSymbols[unit];
+
+ // Highlight active card
+ document.querySelectorAll('.result-card').forEach(c => c.classList.remove('active'));
+ document.getElementById('card-' + unit).classList.add('active');
+
+ if (raw === '' || raw === null) {
+ document.getElementById('val-C').textContent = '—';
+ document.getElementById('val-F').textContent = '—';
+ document.getElementById('val-K').textContent = '—';
+ return;
+ }
+
+ const val = parseFloat(raw);
+ if (isNaN(val)) return;
+
+ const celsius = toCelsius(val, unit);
+ const faenheit = celsius * 9 / 5 + 32;
+ const kelvin = celsius + 273.15;
+
+ document.getElementById('val-C').textContent = round(celsius, 2);
+ document.getElementById('val-F').textContent = round(faenheit, 2);
+ document.getElementById('val-K').textContent = round(kelvin, 2);
+ }
+
+ input.addEventListener('input', convert);
+ radios.forEach(r => r.addEventListener('change', convert));
+
+ // Init with default 0°C
+ input.value = 0;
+ convert();
+</script>
+
+</body>
+</html>

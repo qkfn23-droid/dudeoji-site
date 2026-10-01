@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI相性診断 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"MBTI相性診断は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"MBTI相性診断の使い方は？","acceptedAnswer":{"@type":"Answer","text":"2つのMBTIタイプの相性をチェック。恋愛、友情、仕事の相性を分析します。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/mbti-match.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/mbti-match.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/mbti-match.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/mbti-match.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/mbti-match.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/mbti-match.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/mbti-match.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/mbti-match.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/mbti-match.html">
+    <meta property="og:title" content="MBTI相性診断 - MOGU Tools">
+    <meta property="og:description" content="2つのMBTIタイプの相性をチェック。恋愛、友情、仕事の相性を分析します。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/mbti-match.html">
+    <meta name="description" content="2つのMBTIタイプの相性をチェック。恋愛、友情、仕事の相性を分析します。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .selector-group {
+            margin-bottom: 28px;
+        }
+
+        .selector-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .mbti-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .mbti-btn {
+            padding: 10px 4px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .mbti-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+            background: #f0f6fd;
+        }
+
+        .mbti-btn.selected {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin-bottom: 28px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .calc-btn:disabled {
+            background: #b0c8e8;
+            cursor: not-allowed;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-header {
+            text-align: center;
+            padding: 28px 24px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .result-types {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4a90d9;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .result-types span {
+            color: #999;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 0 6px;
+        }
+
+        .stars {
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .star-filled { color: #f5a623; }
+        .star-empty { color: #ddd; }
+
+        .result-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .result-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .result-detail {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .detail-row {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a90d9;
+            margin-bottom: 6px;
+        }
+
+        .detail-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .reset-btn {
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: #fff;
+            color: #4a90d9;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: #f0f6fd;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 400px) {
+            .mbti-btn {
+                font-size: 12px;
+                padding: 9px 2px;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>ツール</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — 無料オンラインツール集</a> &gt; お楽しみ &gt; MBTI相性診断
+</div>
+
+<div class="container">
+    <h1>MBTI相性診断</h1>
+    <p class="subtitle">2つのMBTIタイプを選んで相性をチェックしましょう。</p>
+
+    <div class="calc-box">
+        <div class="selector-group">
+            <label>自分のMBTI</label>
+            <div class="mbti-grid" id="grid-a">
+                <button class="mbti-btn" data-type="A" data-mbti="ISTJ" onclick="selectMbti('A','ISTJ',this)">ISTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISFJ" onclick="selectMbti('A','ISFJ',this)">ISFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INFJ" onclick="selectMbti('A','INFJ',this)">INFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INTJ" onclick="selectMbti('A','INTJ',this)">INTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISTP" onclick="selectMbti('A','ISTP',this)">ISTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISFP" onclick="selectMbti('A','ISFP',this)">ISFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INFP" onclick="selectMbti('A','INFP',this)">INFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INTP" onclick="selectMbti('A','INTP',this)">INTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESTP" onclick="selectMbti('A','ESTP',this)">ESTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESFP" onclick="selectMbti('A','ESFP',this)">ESFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENFP" onclick="selectMbti('A','ENFP',this)">ENFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENTP" onclick="selectMbti('A','ENTP',this)">ENTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESTJ" onclick="selectMbti('A','ESTJ',this)">ESTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESFJ" onclick="selectMbti('A','ESFJ',this)">ESFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENFJ" onclick="selectMbti('A','ENFJ',this)">ENFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENTJ" onclick="selectMbti('A','ENTJ',this)">ENTJ</button>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="selector-group">
+            <label>相手のMBTI</label>
+            <div class="mbti-grid" id="grid-b">
+                <button class="mbti-btn" data-type="B" data-mbti="ISTJ" onclick="selectMbti('B','ISTJ',this)">ISTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISFJ" onclick="selectMbti('B','ISFJ',this)">ISFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INFJ" onclick="selectMbti('B','INFJ',this)">INFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INTJ" onclick="selectMbti('B','INTJ',this)">INTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISTP" onclick="selectMbti('B','ISTP',this)">ISTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISFP" onclick="selectMbti('B','ISFP',this)">ISFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INFP" onclick="selectMbti('B','INFP',this)">INFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INTP" onclick="selectMbti('B','INTP',this)">INTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESTP" onclick="selectMbti('B','ESTP',this)">ESTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESFP" onclick="selectMbti('B','ESFP',this)">ESFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENFP" onclick="selectMbti('B','ENFP',this)">ENFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENTP" onclick="selectMbti('B','ENTP',this)">ENTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESTJ" onclick="selectMbti('B','ESTJ',this)">ESTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESFJ" onclick="selectMbti('B','ESFJ',this)">ESFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENFJ" onclick="selectMbti('B','ENFJ',this)">ENFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENTJ" onclick="selectMbti('B','ENTJ',this)">ENTJ</button>
+            </div>
+        </div>
+
+        <button class="calc-btn" id="checkBtn" onclick="checkCompatibility()" disabled>相性チェック</button>
+
+        <div class="result" id="result">
+            <div class="result-header">
+                <div class="result-types" id="resultTypes"></div>
+                <div class="stars" id="resultStars"></div>
+                <div class="result-title" id="resultTitle"></div>
+                <div class="result-desc" id="resultDesc"></div>
+            </div>
+
+            <div class="result-detail">
+                <div class="detail-row">
+                    <div class="detail-label">強み</div>
+                    <div class="detail-text" id="resultPros"></div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">注意点</div>
+                    <div class="detail-text" id="resultCons"></div>
+                </div>
+            </div>
+
+            <button class="reset-btn" onclick="resetAll()">もう一度</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>MBTI相性診断とは？</h2>
+        <p>
+            MBTI相性診断は、異なる性格タイプ同士がどのように関わるかを分析します。
+            自然に補い合うタイプもあれば、理解し合うためにより多くの努力が必要なタイプもあります。
+            結果は両方のタイプのコミュニケーションと成長の意欲次第です。
+            上の2つのMBTIタイプを選んで相性をチェックしましょう！
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>MBTI相性診断</h2><p>2つのMBTIタイプの相性をチェック。恋愛、友情、仕事の相性を分析します。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="blood-match.html">血液型相性診断</a><a href="korean-love-calc.html">韓国式 愛の相性計算</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const selected = { A: null, B: null };
+
+    function selectMbti(type, mbti, btn) {
+        // 같은 그룹의 기존 선택 해제
+        document.querySelectorAll(`#grid-${type.toLowerCase()} .mbti-btn`).forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selected[type] = mbti;
+
+        // 둘 다 선택됐으면 버튼 활성화
+        document.getElementById('checkBtn').disabled = !(selected.A && selected.B);
+
+        // 결과가 표시 중이면 숨기기
+        document.getElementById('result').style.display = 'none';
+    }
+
+    // -----------------------------------------------------------------------
+    // 궁합 데이터
+    // key: "TYPE1-TYPE2" (알파벳 순 정렬)
+    // score: 1~5
+    // -----------------------------------------------------------------------
+    const compatData = {
+        // ★★★★★ 最高の相性 (5)
+        "INFJ-ENTP": { score: 5, title: "最高の相性！", desc: "INFJの深い洞察とENTPの広い想像力が完璧に噛み合います。お互いの違いが退屈ではなく、終わりない刺激になります。一緒にいるほど、お互いをより広い世界へ導く理想的な組み合わせです。", pros: "深い知的交流、自然にお互いの弱点を補完、強い感情的絆", cons: "INFJがENTPの議論好きに疲れる可能性、ENTPはINFJの感情的ニーズを見逃さないよう注意" },
+        "INTJ-ENFP": { score: 5, title: "最高の相性！", desc: "INTJの戦略的深さとENFPの創造的エネルギーが強烈に引き合います。お互いの足りない部分を埋め合い、共に成長します。MBTI理論でも屈指のパートナーシップです。", pros: "強い知的好奇心の共有、ENFPがINTJを世界と繋ぐ、INTJがENFPに方向性を与える", cons: "INTJの閉鎖性とENFPの開放性が衝突する可能性、計画性vs即興性の調整が必要" },
+        "INTP-ENTJ": { score: 5, title: "最高の相性！", desc: "INTPの分析的思考とENTJの実行力が出会い、強力なシナジーを生みます。アイデアを現実に変える卓越した組み合わせ。深い相互尊重に基づく関係です。", pros: "強い知的刺激、ENTJがINTPのアイデアを実現、お互いへの深い尊重", cons: "ENTJの支配的傾向がINTPを圧迫する可能性、INTPは感情表現にもっと努力が必要" },
+        "ISFJ-ESTP": { score: 5, title: "最高の相性！", desc: "ISFJの温かい安定感とESTPの活気あるエネルギーが美しく調和します。ISFJはESTPの安らぎの場になり、ESTPはISFJの世界を広げます。お互いの足りない部分を完璧に埋める相性です。", pros: "強い相互補完性、お互いの人生を豊かにする、信頼と活力のバランス", cons: "ISFJがESTPの衝動的行動に不安を感じる可能性、長期計画の意見差に注意" },
+        "ISTJ-ESFP": { score: 5, title: "最高の相性！", desc: "ISTJの責任感とESFPの自由奔放なエネルギーがお互いを完成させます。ISTJはESFPの頼もしい柱になり、ESFPはISTJの人生に活気を吹き込みます。違うからこそ強い組み合わせです。", pros: "安定感と活力の完璧なバランス、お互いの弱点をカバー、深い信頼形成が可能", cons: "生活スタイルの違い（計画vs即興）で摩擦が起こる可能性、お互いのペースを認めることが鍵" },
+        "INFP-ENFJ": { score: 5, title: "最高の相性！", desc: "INFPの深い内面とENFJの温かいリーダーシップが美しく調和します。ENFJはINFPの価値観を花開かせ、INFPはENFJに本物の交流を与えます。お互いを成長させる理想的な関係です。", pros: "深い感情的理解と交流、ENFJがINFPを世界と繋ぐ橋渡し、共通の価値観", cons: "ENFJが主導しすぎるとINFPが萎縮する可能性、INFPの一人の時間を尊重することが必須" },
+        "ISFP-ENFJ": { score: 5, title: "最高の相性！", desc: "ISFPの静かな温かさとENFJの情熱的な思いやりがお互いを心地よく包みます。ENFJはISFPを輝かせ、ISFPはENFJに心からの安定感を与えます。ありのままを受け入れ合う理想的な組み合わせです。", pros: "深い感情的安定感、お互いを大切にし思いやる関係、価値観の共有", cons: "ENFJが計画を立てすぎるとISFPが負担を感じる可能性、衝突回避傾向が重なり問題を先延ばしにする可能性" },
+        "ISTP-ESTJ": { score: 5, title: "最高の相性！", desc: "ISTPの実用的問題解決力とESTJの体系的推進力が強力に噛み合います。どちらも現実的で効率を重視し、一緒なら何でも成し遂げられます。信頼に基づく頼もしいパートナーシップです。", pros: "強い実用主義的共感、お互いの能力を深く認め合う、目標達成に優れたチームワーク", cons: "感情表現が苦手な二人なので情緒的交流に努力が必要、ESTJの統制傾向とISTPの自由追求が衝突する可能性" },
+
+        // ★★★★ 良い相性 (4)
+        "INFJ-INTJ": { score: 4, title: "良い相性", desc: "両タイプとも深い思考と未来志向のビジョンを共有します。言葉なくてもお互いを理解する静かな連帯感があります。一緒にいると真剣で意味のある会話が自然に続きます。", pros: "深い知的共感、お互いの内面世界の尊重、長期目標の共有", cons: "感情表現の不足でお互いの気持ちを誤解する可能性、両方とも頑固で妥協が難しい場合がある" },
+        "ENFP-ENTP": { score: 4, title: "良い相性", desc: "両タイプとも新しいアイデアと可能性に熱狂します。一緒なら世界の全てが面白い探検になります。エネルギーと創造性が爆発する活気ある関係です。", pros: "尽きないアイデア交換、高いエネルギーと情熱の共有、お互いを退屈させない", cons: "実行力と仕上げが弱い二人で計画が立ち消えになる可能性、真剣な感情的交流を疎かにするリスク" },
+        "ISFJ-INFJ": { score: 4, title: "良い相性", desc: "両タイプとも他者を深く思いやり、調和を重視します。お互いの感受性を理解し、傷つけないよう慎重に接します。温かく平和な関係を築ける相性です。", pros: "深い感情的理解と共感、お互いを傷つけない細やかさ、安定的で信頼できる関係", cons: "衝突回避傾向が重なり問題に直面できない可能性、譲り合いすぎて感情が溜まるリスク" },
+        "ENTJ-ENFJ": { score: 4, title: "良い相性", desc: "両タイプとも強いリーダーシップと目標志向性を持ちます。一緒なら大きなビジョンを描き、それを現実にする強力なチームになります。お互いの能力を認め合い刺激し合うダイナミックな関係です。", pros: "強い目標共有と推進力、お互いの能力への深い尊重、共に成長するパートナーシップ", cons: "両方とも主導権を望み、権力争いが生じる可能性、ENFJの感情重視とENTJの論理重視が衝突する可能性" },
+        "INTP-INFP": { score: 4, title: "良い相性", desc: "両タイプとも内面世界が深く、独創的な視点を持ちます。お互いの思考方法と感受性を興味深く見つめます。静かだが深みのある繋がりを作る相性です。", pros: "お互いの独創性と個性の尊重、快適で非批判的な雰囲気、深い内面世界の共有", cons: "両方とも現実適応に弱く実生活の管理が難しい場合がある、表現が下手で感情が伝わらない可能性" },
+        "ESTJ-ESFJ": { score: 4, title: "良い相性", desc: "両タイプとも責任感が強く現実的で、人を大切にする心が大きいです。一緒ならお互いが信頼し頼れる堅固な基盤を作れます。安定的で信頼できる関係です。", pros: "強い責任感と信頼、共通の価値観（家族、秩序、安定）、実生活でよく合う", cons: "変化と新しい試みに両方とも不快感を感じ関係が停滞する可能性、ESTJの支配的傾向がESFJを抑圧する可能性" },
+        "ESTP-ENTP": { score: 4, title: "良い相性", desc: "両タイプともエネルギーに溢れ、挑戦を楽しみます。一緒なら刺激的で活気ある時間を過ごせます。お互いを退屈させないダイナミックな組み合わせです。", pros: "高いエネルギーと冒険心の共有、素早い状況適応力、お互いへの尽きない刺激", cons: "真剣な感情的繋がりが不足する可能性、長期的な責任と安定性に両方とも弱い" },
+        "ESFP-ENFP": { score: 4, title: "良い相性", desc: "両タイプとも人が好きで感情に忠実、今を楽しみます。一緒なら笑いが絶えない明るく温かい関係になります。お互いの感情をよく理解し共感する相性です。", pros: "高い感情的共感、一緒ならいつも楽しい雰囲気、ありのままを受け入れ合う", cons: "両方とも現実的な計画と責任に弱く実生活の問題が生じる可能性、感情的な過剰反応が重なると衝突が大きくなる可能性" },
+
+        // ★★★ 普通の相性 (3)
+        "ISTJ-ISFJ": { score: 3, title: "普通の相性", desc: "両タイプとも勤勉で責任感が強く、安定を重視します。お互いを深く理解しますが、刺激なく平穏に流れる可能性があります。安定的ですが変化と成長への努力が必要です。", pros: "強い信頼と安定感、価値観の一致、衝突の少ない平和な関係", cons: "新しい刺激がなく関係が停滞する可能性、感情表現が下手で深い交流に努力が必要" },
+        "INTJ-INTP": { score: 3, title: "普通の相性", desc: "両タイプとも論理と分析を楽しみ、深い会話ができます。知的に刺激し合いますが、感情的な交流が不足する可能性があります。頭では合いますが、心の繋がりには努力が必要です。", pros: "強い知的交流、お互いの独立性の尊重、不必要な感情的消耗がない", cons: "感情的な繋がりが弱く関係が冷たく感じる可能性、現実的な生活管理の問題" },
+        "ENFJ-ENTJ": { score: 3, title: "普通の相性", desc: "両タイプとも明確なビジョンとリーダーシップを持ちます。お互いを刺激し成長させる面がありますが、主導権争いが生じる可能性があります。役割を明確にすれば強力なパートナーになれます。", pros: "強い推進力と目標意識の共有、お互いを刺激する関係", cons: "両方とも強い主導権意識で衝突する可能性、ENFJの感情優先とENTJの効率優先の価値観の衝突" },
+        "ESFJ-ENFJ": { score: 3, title: "普通の相性", desc: "両タイプとも人を思いやり、調和を重視します。お互いをよく理解し快適に感じますが、似た弱点も共有します。温かく安定した関係を作れます。", pros: "深い感情的共感、お互いの思いやりの理解、温かく平和な雰囲気", cons: "両方とも衝突を回避する傾向で問題解決が遅れる可能性、似た弱点が増幅される可能性" },
+        "INFP-ISFP": { score: 3, title: "普通の相性", desc: "両タイプとも感受性が豊かで個人の価値と自由を重視します。お互いを判断せず深く理解する快適な関係です。静かですが意味のある繋がりを共有できます。", pros: "お互いの感受性と個性の尊重、批判なくありのままを受け入れる雰囲気", cons: "両方とも決断力が弱く重要な決定を先延ばしにする傾向、現実的な問題処理に脆弱" },
+        "ESTP-ISTP": { score: 3, title: "普通の相性", desc: "両タイプとも現実的で直接的、行動を楽しみます。お互いを理解し快適に感じますが、関係の深みが形成されるまで時間がかかります。実用的で自由な関係を作る相性です。", pros: "自由な雰囲気とお互いの独立性の尊重、実用的な問題解決で息が合う", cons: "感情的な繋がりが不足し関係が表面的にとどまる可能性、長期的な献身に両方とも困難を感じる可能性" },
+        "ISTJ-INTJ": { score: 3, title: "普通の相性", desc: "両タイプとも体系的で論理的、責任感が強いです。信頼と尊重に基づく安定した関係を築けます。刺激より安定を望むなら良い組み合わせです。", pros: "強い信頼と責任感、論理的な意思疎通が可能、安定した関係構築", cons: "感情的な交流が不足し関係が堅く感じる可能性、変化と新しい経験に両方とも保守的" },
+        "ESFP-ESFJ": { score: 3, title: "普通の相性", desc: "両タイプとも人が好きで今を楽しみ、感情を重視します。一緒なら温かく活気ある時間を過ごせます。お互いの感受性を理解する快適な関係です。", pros: "高い感情的共感、一緒なら楽しい雰囲気を維持、お互いへの温かい思いやり", cons: "深い知的刺激が不足する可能性、衝突時に感情が過度になり解決が難しい可能性" },
+
+        // ★★ 難しい相性 (2)
+        "INFJ-ISFJ": { score: 2, title: "難しい相性", desc: "両方とも思いやりが深いですが、世界の見方に根本的な違いがあります。INFJの抽象的理想主義とISFJの現実的実用主義がしばしば衝突します。お互いを理解するための努力が特に多く必要な関係です。", pros: "共通の思いやりと他者を思う心、衝突より調和を望む性向", cons: "INFJの抽象的思考がISFJに非現実的に感じられる可能性、ISFJの伝統重視がINFJに窮屈に感じられる可能性" },
+        "ENTJ-ISFP": { score: 2, title: "難しい相性", desc: "ENTJの強い推進力とISFPの自由な感性が頻繁にぶつかります。ENTJはISFPが遅く感情的だと感じ、ISFPはENTJが統制的だと感じます。違いを認めるのにかなりの努力が必要です。", pros: "ENTJがISFPに方向性を提供、ISFPがENTJに感受性を教える", cons: "ENTJの統制傾向がISFPの自由を深刻に侵害する可能性、速度と優先順位の極端な差" },
+        "ESTJ-INFP": { score: 2, title: "難しい相性", desc: "ESTJの体系的で現実的な方法がINFPの自由で感性的な世界と衝突します。ESTJはINFPを非効率だと感じ、INFPはESTJを融通が利かないと感じます。多くの違いを克服すべき挑戦的な関係です。", pros: "弱点を補完する潜在力、ESTJの実行力がINFPのアイデアを現実化できる", cons: "価値観と生き方の根本的差異、ESTJの批判がINFPに大きな傷を与える可能性" },
+        "ESTP-INFJ": { score: 2, title: "難しい相性", desc: "ESTPの即興的で現実中心的な性向がINFJの深い内面と未来志向的思考としばしばぶつかります。最初はお互いに魅力を感じられますが、持続的な関係維持に多くの努力が必要です。", pros: "初期の強い引力、ESTPがINFJに現実感覚を、INFJがESTPに深みを与える", cons: "長期的に会話の深さの差が大きくなる、ESTPの刺激追求とINFJの意味追求が衝突" },
+        "ESFJ-ISTP": { score: 2, title: "難しい相性", desc: "ESFJの感情的で社交的な性向がISTPの論理的で独立的な性向と大きく異なります。ESFJはISTPを冷たいと感じ、ISTPはESFJを過度だと感じます。お互いのニーズを理解するのに多くの努力が必要です。", pros: "お互いにないものを学べる可能性", cons: "感情的ニーズの極端な差、ESFJがISTPに無視されていると感じる可能性" },
+        "INTP-ESFP": { score: 2, title: "難しい相性", desc: "INTPの抽象的で内向的な世界とESFPの現実的で外向的な世界が対照的です。最初はお互いの違いが新鮮に感じられますが、持続的な差が関係を困難にします。", pros: "違いが最初は刺激になる、お互いの世界を広げる潜在力", cons: "知的関心と社交的ニーズの極端な差、INTPの一人の時間とESFPの社交的欲求が衝突" },
+
+        // ★ 厳しい相性 (1)
+        "ESTJ-ISFP": { score: 1, title: "厳しい相性", desc: "ESTJの強い統制傾向とISFPの自由な魂が根本的に衝突します。生き方と価値観があまりにも違い、持続的な葛藤が生じやすいです。ありのままを受け入れるのに膨大な努力が必要な関係です。", pros: "全く異なる視点から学べる可能性", cons: "ESTJの規則と統制がISFPを息苦しくさせる、価値観と生き方の根本的不一致、衝突が頻繁で解決が困難" },
+        "ENTJ-INFP": { score: 1, title: "厳しい相性", desc: "ENTJの効率と目標中心的思考がINFPの感性と価値中心的な生き方と激しく衝突します。ENTJはINFPを非効率だと感じ、INFPはENTJに尊重されていないと感じます。最も挑戦的な組み合わせの一つです。", pros: "ENTJの実行力とINFPの創造性が結合できる理論的潜在力", cons: "根本的な価値観の衝突（効率vs価値）、ENTJの批判がINFPに深刻な傷を与える、長期関係維持に膨大な努力が必要" },
+        "ESTP-INFP": { score: 1, title: "厳しい相性", desc: "ESTPの即興的で現実中心的な行動方式がINFPの深い感性と価値観中心の生き方と衝突します。お互いが求めるものがあまりにも違い、共通点を見つけるのが困難です。関係を維持するには膨大な相互理解と努力が必要です。", pros: "お互いに全く新しい世界を見せることができる", cons: "生き方の速度と方式の根本的差異、ESTPの直接的方式がINFPを傷つける、感情的ニーズと刺激追求の極端な衝突" },
+    };
+
+    function getKey(a, b) {
+        // 알파벳 순으로 정렬하여 양방향 조회 가능하게
+        return [a, b].sort().join('-');
+    }
+
+    function getCompatibility(a, b) {
+        const key = getKey(a, b);
+        if (compatData[key]) return compatData[key];
+
+        // 데이터가 없는 쌍에 대한 기본 점수 산출 (인지 기능 기반)
+        return estimateCompatibility(a, b);
+    }
+
+    function estimateCompatibility(a, b) {
+        let score = 3;
+        let pros = "お互いの違いから学べる可能性があります。";
+        let cons = "お互いの異なる部分を理解し合わせる努力が必要です。";
+
+        if (a === b) {
+            return {
+                score: 3,
+                title: "普通の相性",
+                desc: "同じMBTIタイプ同士はお互いをよく理解しますが、同じ弱点も共有します。快適で自然な関係ですが、お互いの欠点を補完するのが難しい場合があります。共に弱点を克服する努力が成長に必要です。",
+                pros: "深い相互理解、同じ言語で疎通、共通の関心事が多い",
+                cons: "同じ弱点が増幅される可能性、お互いを成長させる刺激が不足する可能性"
+            };
+        }
+
+        const sharedCount = countShared(a, b);
+
+        if (sharedCount === 3) {
+            score = 4;
+            return { score, title: "良い相性", desc: "3つの好みを共有する二人はお互いをよく理解しつつ、1つの違いが新鮮な刺激を与えます。快適でありながら少しずつ成長させてくれるバランスの取れた関係です。", pros: "高い相互理解度、自然な疎通、快適な関係", cons: "違いから生じる些細な葛藤がある可能性" };
+        } else if (sharedCount === 2) {
+            score = 3;
+            return { score, title: "普通の相性", desc: "2つの好みを共有するタイプ同士は理解できる部分と異なる部分が共存します。お互いから学び成長できますが、調整が必要な部分も多いです。", pros: "お互いの違いから学べる点がある、ある程度の共通基盤が存在", cons: "コミュニケーション方式の違いが誤解を生む可能性、調整が必要な部分が多い" };
+        } else if (sharedCount === 1) {
+            score = 2;
+            return { score, title: "難しい相性", desc: "1つの好みだけを共有する二人はお互いを理解するのに多くの努力が必要です。違いが刺激になることもありますが、持続的な葛藤の原因になることもあります。", pros: "お互いに全く新しい視点を提供できる", cons: "コミュニケーション方式と価値観の差が大きく、お互いを理解するのにかなりの努力が必要" };
+        } else {
+            score = 2;
+            return { score, title: "難しい相性", desc: "4つの好みが全て異なる二人はお互いに強い好奇心を感じることがありますが、持続的な関係を維持するのに多くの努力が必要です。", pros: "全く異なる視点が刺激になる可能性", cons: "全ての面で差があり持続的な衝突の可能性、お互いの方式を理解するのに多くの忍耐が必要" };
+        }
+    }
+
+    function countShared(a, b) {
+        let count = 0;
+        for (let i = 0; i < 4; i++) {
+            if (a[i] === b[i]) count++;
+        }
+        return count;
+    }
+
+    function checkCompatibility() {
+        const a = selected.A;
+        const b = selected.B;
+        if (!a || !b) return;
+
+        const compat = getCompatibility(a, b);
+
+        document.getElementById('resultTypes').innerHTML =
+            `${a} <span>×</span> ${b}`;
+
+        // 별 렌더링
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            stars += `<span class="${i <= compat.score ? 'star-filled' : 'star-empty'}">★</span>`;
+        }
+        document.getElementById('resultStars').innerHTML = stars;
+        document.getElementById('resultTitle').textContent = compat.title;
+        document.getElementById('resultDesc').textContent = compat.desc;
+        document.getElementById('resultPros').textContent = compat.pros;
+        document.getElementById('resultCons').textContent = compat.cons;
+
+        const resultEl = document.getElementById('result');
+        resultEl.style.display = 'block';
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetAll() {
+        selected.A = null;
+        selected.B = null;
+        document.querySelectorAll('.mbti-btn').forEach(b => b.classList.remove('selected'));
+        document.getElementById('checkBtn').disabled = true;
+        document.getElementById('result').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

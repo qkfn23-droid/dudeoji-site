@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그라디언트 생성 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"그라디언트 생성는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"그라디언트 생성는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"CSS 그라디언트를 쉽게 만들고 코드를 복사하세요. 색상 선택, 방향 설정, 프리셋 제공."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/gradient-gen.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/gradient-gen.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/gradient-gen.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/gradient-gen.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/gradient-gen.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/gradient-gen.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/gradient-gen.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/gradient-gen.html">
+    <link rel="canonical" href="https://mogutool.com/tools/gradient-gen.html">
+    <meta property="og:title" content="그라디언트 생성 - MOGU Tools">
+    <meta property="og:description" content="CSS 그라디언트를 쉽게 만들고 코드를 복사하세요. 색상 선택, 방향 설정, 프리셋 제공.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/gradient-gen.html">
+    <meta name="description" content="CSS 그라디언트를 쉽게 만들고 코드를 복사하세요. 색상 선택, 방향 설정, 프리셋 제공.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 660px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 660px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* ── 메인 박스 ── */
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* ── 미리보기 ── */
+        .preview-box {
+            width: 100%;
+            height: 220px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            transition: background 0.3s;
+            border: 1px solid #e8e8e8;
+        }
+
+        /* ── 색상 행 ── */
+        .color-stops {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .color-stop-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .color-stop-row label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            min-width: 70px;
+        }
+
+        .color-stop-row input[type="color"] {
+            width: 48px;
+            height: 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 2px;
+            background: #fff;
+        }
+
+        .color-stop-row input[type="color"]:hover {
+            border-color: #4a90d9;
+        }
+
+        .color-hex {
+            flex: 1;
+            padding: 10px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            outline: none;
+            transition: border-color 0.2s;
+            text-transform: uppercase;
+        }
+
+        .color-hex:focus {
+            border-color: #4a90d9;
+        }
+
+        .remove-btn {
+            padding: 8px 12px;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #999;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+
+        .remove-btn:hover {
+            border-color: #d9534f;
+            color: #d9534f;
+        }
+
+        /* ── 색상 추가 버튼 ── */
+        .add-color-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 16px;
+            background: #fff;
+            border: 2px dashed #c8d8ec;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #4a90d9;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .add-color-btn:hover {
+            border-color: #4a90d9;
+            background: #f0f6ff;
+        }
+
+        .add-color-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* ── 방향 선택 ── */
+        .section-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .direction-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .dir-btn {
+            padding: 10px 6px;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+
+        .dir-btn:hover {
+            border-color: #4a90d9;
+            background: #f0f6ff;
+        }
+
+        .dir-btn.active {
+            border-color: #4a90d9;
+            background: #eef4fb;
+            color: #4a90d9;
+        }
+
+        /* 원형 버튼은 span 텍스트 */
+        .dir-btn[data-type="radial"] {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ── CSS 코드 출력 ── */
+        .code-section {
+            margin-top: 8px;
+        }
+
+        .code-box {
+            position: relative;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px 16px;
+            padding-right: 80px;
+        }
+
+        .code-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #333;
+            word-break: break-all;
+            line-height: 1.6;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            padding: 6px 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+        }
+
+        /* ── 프리셋 ── */
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: #555;
+        }
+
+        .preset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .preset-item {
+            border-radius: 8px;
+            height: 64px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .preset-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+        }
+
+        .preset-item .preset-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.35);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            padding: 4px 2px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .direction-grid { grid-template-columns: repeat(5, 1fr); }
+            .preset-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 디자인 &gt; 그라디언트 생성
+</div>
+
+<div class="container">
+    <h1>그라디언트 생성</h1>
+    <p class="subtitle">색상과 방향을 선택하면 CSS 그라디언트 코드를 바로 생성합니다.</p>
+
+    <div class="calc-box">
+
+        <!-- 미리보기 -->
+        <div class="preview-box" id="previewBox"></div>
+
+        <!-- 색상 스탑들 -->
+        <div class="color-stops" id="colorStops"></div>
+
+        <!-- 색상 추가 버튼 -->
+        <button class="add-color-btn" id="addColorBtn" onclick="addColorStop()">
+            <span>＋</span> 색상 추가
+        </button>
+
+        <!-- 방향 -->
+        <div class="section-label">방향</div>
+        <div class="direction-grid" id="directionGrid">
+            <button class="dir-btn" data-angle="90"  data-type="linear" title="오른쪽 →">→</button>
+            <button class="dir-btn" data-angle="270" data-type="linear" title="왼쪽 ←">←</button>
+            <button class="dir-btn" data-angle="180" data-type="linear" title="아래 ↓">↓</button>
+            <button class="dir-btn" data-angle="0"   data-type="linear" title="위 ↑">↑</button>
+            <button class="dir-btn" data-angle="135" data-type="linear" title="우하 ↘">↘</button>
+            <button class="dir-btn" data-angle="225" data-type="linear" title="좌하 ↙">↙</button>
+            <button class="dir-btn" data-angle="45"  data-type="linear" title="우상 ↗">↗</button>
+            <button class="dir-btn" data-angle="315" data-type="linear" title="좌상 ↖">↖</button>
+            <button class="dir-btn" data-type="radial" title="원형">원형</button>
+        </div>
+
+        <!-- CSS 코드 -->
+        <div class="code-section">
+            <div class="section-label">CSS 코드</div>
+            <div class="code-box">
+                <code id="cssCode">background: linear-gradient(90deg, #FF6B6B, #4ECDC4);</code>
+                <button class="copy-btn" id="copyBtn" onclick="copyCode()">복사</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 프리셋 -->
+    <div class="info-section">
+        <h2>프리셋 그라디언트</h2>
+        <div class="preset-grid" id="presetGrid"></div>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>그라디언트 생성기</h2><p>CSS 그라디언트를 쉽게 만들고 코드를 복사할 수 있습니다. 색상, 방향, 각도를 자유롭게 설정하세요.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>그라디언트 종류는?</summary><p>Linear(직선), Radial(원형), Conic(원뿔) 세 가지가 있습니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="color-palette.html">색상 팔레트</a><a href="color-picker.html">색상 피커</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// ── 상태 ──
+const state = {
+    type: 'linear',
+    angle: 90,
+    stops: [
+        { color: '#FF6B6B' },
+        { color: '#4ECDC4' }
+    ]
+};
+
+// ── 프리셋 데이터 ──
+const PRESETS = [
+    { name: '석양',      type: 'linear', angle: 135, stops: ['#FF6B6B', '#FFE66D'] },
+    { name: '바다',      type: 'linear', angle: 180, stops: ['#2193b0', '#6dd5ed'] },
+    { name: '라벤더',    type: 'linear', angle: 135, stops: ['#a18cd1', '#fbc2eb'] },
+    { name: '민트',      type: 'linear', angle: 90,  stops: ['#11998e', '#38ef7d'] },
+    { name: '불꽃',      type: 'linear', angle: 45,  stops: ['#f7971e', '#ffd200'] },
+    { name: '퍼플',      type: 'linear', angle: 135, stops: ['#6a3093', '#a044ff'] },
+    { name: '분홍',      type: 'linear', angle: 180, stops: ['#f953c6', '#b91d73'] },
+    { name: '새벽',      type: 'radial', angle: 90,  stops: ['#1a1a2e', '#16213e', '#0f3460'] },
+    { name: '오로라',    type: 'linear', angle: 90,  stops: ['#00c6ff', '#0072ff'] },
+    { name: '복숭아',    type: 'linear', angle: 135, stops: ['#ffecd2', '#fcb69f'] },
+];
+
+// ── 초기화 ──
+function init() {
+    renderColorStops();
+    renderDirectionButtons();
+    renderPresets();
+    update();
+}
+
+// ── 색상 스탑 렌더 ──
+function renderColorStops() {
+    const container = document.getElementById('colorStops');
+    container.innerHTML = '';
+
+    state.stops.forEach((stop, i) => {
+        const labels = ['시작 색상', '중간 색상', '세 번째 색상', '끝 색상'];
+        const label = i === 0 ? '시작 색상'
+                    : i === state.stops.length - 1 ? '끝 색상'
+                    : labels[i];
+
+        const row = document.createElement('div');
+        row.className = 'color-stop-row';
+        row.innerHTML = `
+            <label>${label}</label>
+            <input type="color" value="${stop.color}" data-index="${i}" onchange="onColorChange(this)">
+            <input type="text" class="color-hex" value="${stop.color.toUpperCase()}" maxlength="7"
+                   data-index="${i}" oninput="onHexInput(this)" onblur="onHexBlur(this)">
+            ${state.stops.length > 2 ? `<button class="remove-btn" onclick="removeColorStop(${i})" title="삭제">×</button>` : ''}
+        `;
+        container.appendChild(row);
+    });
+
+    document.getElementById('addColorBtn').disabled = state.stops.length >= 4;
+}
+
+// ── 색상 변경 (color picker) ──
+function onColorChange(el) {
+    const i = parseInt(el.dataset.index);
+    state.stops[i].color = el.value;
+    // hex input도 동기화
+    const hexInput = el.nextElementSibling;
+    hexInput.value = el.value.toUpperCase();
+    update();
+}
+
+// ── hex 텍스트 입력 ──
+function onHexInput(el) {
+    const i = parseInt(el.dataset.index);
+    let val = el.value;
+    if (!val.startsWith('#')) val = '#' + val.replace(/#/g, '');
+    el.value = val;
+    if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+        state.stops[i].color = val;
+        el.previousElementSibling.value = val;
+        update();
+    }
+}
+
+function onHexBlur(el) {
+    const i = parseInt(el.dataset.index);
+    el.value = state.stops[i].color.toUpperCase();
+}
+
+// ── 색상 추가/삭제 ──
+function addColorStop() {
+    if (state.stops.length >= 4) return;
+    // 마지막 색상과 비슷한 새 색상 삽입
+    state.stops.splice(state.stops.length - 1, 0, { color: '#FFFFFF' });
+    renderColorStops();
+    update();
+}
+
+function removeColorStop(index) {
+    if (state.stops.length <= 2) return;
+    state.stops.splice(index, 1);
+    renderColorStops();
+    update();
+}
+
+// ── 방향 버튼 렌더 ──
+function renderDirectionButtons() {
+    document.querySelectorAll('.dir-btn').forEach(btn => {
+        btn.classList.remove('active');
+        const isRadial = btn.dataset.type === 'radial';
+        const angleMatch = parseInt(btn.dataset.angle) === state.angle;
+        if (state.type === 'radial' && isRadial) btn.classList.add('active');
+        if (state.type === 'linear' && !isRadial && angleMatch) btn.classList.add('active');
+
+        btn.onclick = function() {
+            if (isRadial) {
+                state.type = 'radial';
+            } else {
+                state.type = 'linear';
+                state.angle = parseInt(btn.dataset.angle);
+            }
+            renderDirectionButtons();
+            update();
+        };
+    });
+}
+
+// ── 프리셋 렌더 ──
+function renderPresets() {
+    const grid = document.getElementById('presetGrid');
+    PRESETS.forEach(preset => {
+        const item = document.createElement('div');
+        item.className = 'preset-item';
+        const bgCss = preset.type === 'radial'
+            ? `radial-gradient(circle, ${preset.stops.join(', ')})`
+            : `linear-gradient(${preset.angle}deg, ${preset.stops.join(', ')})`;
+        item.style.background = bgCss;
+        item.innerHTML = `<div class="preset-name">${preset.name}</div>`;
+        item.onclick = () => loadPreset(preset);
+        grid.appendChild(item);
+    });
+}
+
+function loadPreset(preset) {
+    state.type = preset.type;
+    state.angle = preset.angle;
+    state.stops = preset.stops.map(c => ({ color: c }));
+    renderColorStops();
+    renderDirectionButtons();
+    update();
+}
+
+// ── CSS 생성 ──
+function buildCSS() {
+    const colors = state.stops.map(s => s.color).join(', ');
+    if (state.type === 'radial') {
+        return `background: radial-gradient(circle, ${colors});`;
+    }
+    return `background: linear-gradient(${state.angle}deg, ${colors});`;
+}
+
+// ── 미리보기 + 코드 업데이트 ──
+function update() {
+    const css = buildCSS();
+    const colors = state.stops.map(s => s.color).join(', ');
+    let bgValue;
+    if (state.type === 'radial') {
+        bgValue = `radial-gradient(circle, ${colors})`;
+    } else {
+        bgValue = `linear-gradient(${state.angle}deg, ${colors})`;
+    }
+    document.getElementById('previewBox').style.background = bgValue;
+    document.getElementById('cssCode').textContent = css;
+}
+
+// ── 복사 ──
+function copyCode() {
+    const css = document.getElementById('cssCode').textContent;
+    navigator.clipboard.writeText(css).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = '복사됨!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = '복사';
+            btn.classList.remove('copied');
+        }, 1800);
+    }).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = css;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = '복사됨!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = '복사';
+            btn.classList.remove('copied');
+        }, 1800);
+    });
+}
+
+init();
+</script>
+
+</body>
+</html>

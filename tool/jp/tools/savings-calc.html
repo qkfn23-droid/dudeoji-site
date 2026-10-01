@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定期預金利息計算機 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"定期預金利息計算機は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要ですぐに使えます。すべての処理はブラウザ内で行われ、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"定期預金利息計算機の使い方は？","acceptedAnswer":{"@type":"Answer","text":"定期預金と積立預金の税引前・税引後の利息を計算します。単利・複利、課税・非課税・軽減税率を選択できます。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/savings-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/savings-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/savings-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/savings-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/savings-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/savings-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/savings-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/savings-calc.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/savings-calc.html">
+    <meta property="og:title" content="定期預金利息計算機 - MOGU Tools">
+    <meta property="og:description" content="定期預金と積立預金の税引前・税引後の利息を計算します。単利・複利、課税・非課税・軽減税率を選択できます。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/savings-calc.html">
+    <meta name="description" content="定期預金と積立預金の税引前・税引後の利息を計算します。単利・複利、課税・非課税・軽減税率を選択できます。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 11px;
+            background: #fff;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a90d9;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .tab-btn:not(.active):hover {
+            background: #eef4fb;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input[type="number"] {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input[type="number"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #444;
+            cursor: pointer;
+            padding: 8px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: border-color 0.2s, background 0.2s;
+            margin-bottom: 0;
+        }
+
+        .radio-group input[type="radio"] {
+            accent-color: #4a90d9;
+            width: 15px;
+            height: 15px;
+        }
+
+        .radio-group label:has(input:checked) {
+            border-color: #4a90d9;
+            background: #eef4fb;
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 22px 0;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 24px 20px 20px;
+            background: #eef4fb;
+        }
+
+        .result-main .label {
+            font-size: 13px;
+            color: #6a8fc0;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .result-main .big-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2c6fad;
+            letter-spacing: -1px;
+        }
+
+        .result-main .big-unit {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4a90d9;
+            margin-left: 2px;
+        }
+
+        .result-rows {
+            padding: 16px 20px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row .r-label {
+            color: #666;
+        }
+
+        .result-row .r-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-row .r-value.minus {
+            color: #d9534f;
+        }
+
+        .result-row .r-value.plus {
+            color: #4a90d9;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section strong {
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../../jp/index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../../jp/index.html">MOGU Tools — 無料オンラインツール集</a> &gt; 投資・金融 &gt; 定期預金利息計算機
+</div>
+
+<div class="container">
+    <h1>定期預金利息計算機</h1>
+    <p class="subtitle">税引前・税引後の利息を単利・複利で計算します。</p>
+
+    <div class="calc-box">
+
+        <!-- Mode tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-deposit" onclick="switchTab('deposit')">定期預金</button>
+            <button class="tab-btn" id="tab-savings" onclick="switchTab('savings')">積立預金</button>
+        </div>
+
+        <!-- Deposit: principal -->
+        <div class="input-group" id="group-principal">
+            <label id="label-principal">預入金額</label>
+            <div class="input-row">
+                <input type="number" id="principal" placeholder="1000000" min="0" step="1">
+                <span class="unit">円</span>
+            </div>
+        </div>
+
+        <!-- Savings: monthly -->
+        <div class="input-group" id="group-monthly" style="display:none;">
+            <label>月々の積立額</label>
+            <div class="input-row">
+                <input type="number" id="monthly" placeholder="30000" min="0" step="1">
+                <span class="unit">円</span>
+            </div>
+        </div>
+
+        <!-- Annual rate -->
+        <div class="input-group">
+            <label>年利率</label>
+            <div class="input-row">
+                <input type="number" id="rate" placeholder="0.5" min="0" step="0.01">
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <!-- Term -->
+        <div class="input-group">
+            <label>預入期間</label>
+            <div class="input-row">
+                <input type="number" id="months" placeholder="12" min="1" step="1">
+                <span class="unit">ヶ月</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Interest method -->
+        <div class="input-group">
+            <label>利息の計算方式</label>
+            <div class="radio-group">
+                <label><input type="radio" name="method" value="simple" checked> 単利</label>
+                <label><input type="radio" name="method" value="compound"> 複利</label>
+            </div>
+        </div>
+
+        <!-- Tax options -->
+        <div class="input-group">
+            <label>課税区分</label>
+            <div class="radio-group">
+                <label><input type="radio" name="tax" value="normal" checked> 通常課税（20.315%）</label>
+                <label><input type="radio" name="tax" value="none"> 非課税（0%）</label>
+                <label><input type="radio" name="tax" value="preferred"> 軽減税率（10%）</label>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">計算する</button>
+
+        <!-- Result -->
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="label">税引後の受取額</div>
+                <div class="big-number" id="res-total">-</div>
+                <div style="font-size:13px; color:#6a8fc0; margin-top:4px;" id="res-mode-label">-</div>
+            </div>
+            <div class="result-rows">
+                <div class="result-row">
+                    <span class="r-label">元本合計</span>
+                    <span class="r-value" id="res-principal">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">税引前利息</span>
+                    <span class="r-value plus" id="res-interest-before">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">源泉徴収税額</span>
+                    <span class="r-value minus" id="res-tax">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">税引後利息</span>
+                    <span class="r-value plus" id="res-interest-after">-</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="info-section">
+        <h2>定期預金 vs 積立預金</h2>
+        <p>
+            <strong>定期預金</strong>はまとまった資金を一括で預け入れ、満期時に利息を受け取る商品です。
+            預入期間中は金額が固定されるため、利息の計算が単純です。
+        </p>
+        <p>
+            <strong>積立預金</strong>は毎月一定額を積み立てる商品です。
+            最初の月の積立額は全期間にわたって利息が付き、最後の月の積立額には1ヶ月分の利息しか付きません。
+            同じ金利でも定期預金より実質的な利息が少なくなる場合があります。
+        </p>
+        <h2 style="margin-top:16px;">単利 vs 複利</h2>
+        <p>
+            <strong>単利</strong>は元本にのみ利息を計算します。計算がシンプルで、多くの預金商品で採用されています。
+        </p>
+        <p>
+            <strong>複利</strong>は利息にさらに利息が付く方式です。預入期間が長いほど単利より収益が高くなります。
+            この計算機では月複利を基準に計算します。
+        </p>
+        <h2 style="margin-top:16px;">課税区分の説明</h2>
+        <p>
+            <strong>通常課税（20.315%）</strong>は所得税15.315%＋住民税5%で、日本の一般的な利子所得に適用されます。
+            <strong>非課税（0%）</strong>はNISAなど特定の非課税口座に適用されます。
+            <strong>軽減税率（10%）</strong>は一部の制度や特別口座に適用される場合があります。
+        </p>
+        <p style="color:#999; font-size:13px; margin-top:8px;">
+            （※税率は変更される場合があります。正確な税率は金融機関にご確認ください。）
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>定期預金利息計算機</h2><p>定期預金と積立預金の税引前・税引後の利息を計算します。単利・複利、課税・非課税・軽減税率を選択できます。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="compound-calc.html">複利計算機</a><a href="loan-calc.html">ローン計算機</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">シェア：</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='コピー完了!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URLをコピー</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    var currentMode = "deposit";
+
+    function switchTab(mode) {
+        currentMode = mode;
+        document.getElementById("tab-deposit").classList.toggle("active", mode === "deposit");
+        document.getElementById("tab-savings").classList.toggle("active", mode === "savings");
+        document.getElementById("group-principal").style.display = mode === "deposit" ? "" : "none";
+        document.getElementById("group-monthly").style.display = mode === "savings" ? "" : "none";
+        document.getElementById("result").style.display = "none";
+    }
+
+    function fmt(n) {
+        return Math.round(n).toLocaleString("ja-JP") + "円";
+    }
+
+    function getTaxRate() {
+        var tax = document.querySelector("input[name=\"tax\"]:checked").value;
+        if (tax === "normal") return 0.20315;
+        if (tax === "preferred") return 0.10;
+        return 0;
+    }
+
+    function getMethod() {
+        return document.querySelector("input[name=\"method\"]:checked").value;
+    }
+
+    function calculate() {
+        var rate = parseFloat(document.getElementById("rate").value);
+        var months = parseInt(document.getElementById("months").value);
+        var method = getMethod();
+        var taxRate = getTaxRate();
+
+        if (isNaN(rate) || rate < 0) { alert("年利率を正しく入力してください。"); return; }
+        if (isNaN(months) || months < 1) { alert("預入期間を正しく入力してください。"); return; }
+
+        var principalSum = 0;
+        var interestBefore = 0;
+        var monthlyRate = rate / 100 / 12;
+
+        if (currentMode === "deposit") {
+            var p = parseFloat(document.getElementById("principal").value);
+            if (isNaN(p) || p <= 0) { alert("預入金額を正しく入力してください。"); return; }
+            principalSum = p;
+
+            if (method === "simple") {
+                interestBefore = p * (rate / 100) * (months / 12);
+            } else {
+                interestBefore = p * Math.pow(1 + monthlyRate, months) - p;
+            }
+
+        } else {
+            var m = parseFloat(document.getElementById("monthly").value);
+            if (isNaN(m) || m <= 0) { alert("月々の積立額を正しく入力してください。"); return; }
+            principalSum = m * months;
+
+            if (method === "simple") {
+                interestBefore = m * monthlyRate * (months * (months + 1) / 2);
+            } else {
+                var total = 0;
+                for (var i = 1; i <= months; i++) {
+                    total += m * Math.pow(1 + monthlyRate, months - i + 1);
+                }
+                interestBefore = total - principalSum;
+            }
+        }
+
+        var taxAmount = interestBefore * taxRate;
+        var interestAfter = interestBefore - taxAmount;
+        var totalAfter = principalSum + interestAfter;
+
+        var taxLabel = document.querySelector("input[name=\"tax\"]:checked").value;
+        var taxLabelText = taxLabel === "normal" ? "通常課税 20.315%" : taxLabel === "none" ? "非課税" : "軽減税率 10%";
+        var methodLabel = method === "simple" ? "単利" : "月複利";
+        var modeLabel = currentMode === "deposit" ? "定期預金" : "積立預金";
+
+        document.getElementById("res-total").textContent = Math.round(totalAfter).toLocaleString("ja-JP");
+        document.getElementById("res-mode-label").textContent =
+            modeLabel + " · " + methodLabel + " · " + taxLabelText;
+        document.getElementById("res-principal").textContent = fmt(principalSum);
+        document.getElementById("res-interest-before").textContent = "+" + fmt(interestBefore);
+        document.getElementById("res-tax").textContent = taxRate === 0 ? "0円" : "-" + fmt(taxAmount);
+        document.getElementById("res-interest-after").textContent = "+" + fmt(interestAfter);
+
+        document.getElementById("result").style.display = "block";
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") calculate();
+    });
+</script>
+
+</body>
+</html>

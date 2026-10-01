@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハッシュ生成 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"ハッシュ生成は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"ハッシュ生成の使い方は？","acceptedAnswer":{"@type":"Answer","text":"テキストを入力するとMD5、SHA-1、SHA-256、SHA-512ハッシュ値を即座に生成します。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/hash-gen.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/hash-gen.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/hash-gen.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/hash-gen.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/hash-gen.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/hash-gen.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/hash-gen.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/hash-gen.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/hash-gen.html">
+    <meta property="og:title" content="ハッシュ生成 - MOGU Tools">
+    <meta property="og:description" content="テキストを入力するとMD5、SHA-1、SHA-256、SHA-512ハッシュ値を即座に生成します。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/hash-gen.html">
+    <meta name="description" content="テキストを入力するとMD5、SHA-1、SHA-256、SHA-512ハッシュ値を即座に生成します。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 700px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            resize: vertical;
+            min-height: 110px;
+            transition: border-color 0.2s;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            border-color: #4a90d9;
+        }
+
+        .options-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .toggle-wrap {
+            display: flex;
+            background: #f0f0f0;
+            border-radius: 8px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .toggle-wrap button {
+            padding: 6px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+            color: #888;
+            transition: all 0.15s;
+        }
+
+        .toggle-wrap button.active {
+            background: #fff;
+            color: #4a90d9;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+        }
+
+        .hash-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .hash-item {
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hash-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .hash-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #4a90d9;
+            letter-spacing: 0.03em;
+        }
+
+        .copy-btn {
+            padding: 5px 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+        }
+
+        .hash-value {
+            padding: 12px 14px;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 13px;
+            color: #444;
+            word-break: break-all;
+            line-height: 1.6;
+            min-height: 44px;
+            background: #fff;
+        }
+
+        .hash-value.empty {
+            color: #ccc;
+            font-style: italic;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>ツール</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — 無料オンラインツール集</a> &gt; ツール &gt; ハッシュ生成
+</div>
+
+<div class="container">
+    <h1>ハッシュ生成</h1>
+    <p class="subtitle">テキストを入力するとMD5、SHA-1、SHA-256、SHA-512ハッシュ値を即座に生成します。</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>テキスト入力</label>
+            <textarea id="inputText" placeholder="ハッシュに変換するテキストを入力..." oninput="onInput()"></textarea>
+        </div>
+
+        <div class="options-row">
+            <span class="toggle-label">出力形式</span>
+            <div class="toggle-wrap">
+                <button id="btn-lower" class="active" onclick="setCase('lower')">小文字</button>
+                <button id="btn-upper" onclick="setCase('upper')">大文字</button>
+            </div>
+        </div>
+
+        <div class="hash-list">
+            <div class="hash-item">
+                <div class="hash-item-header">
+                    <span class="hash-name">MD5</span>
+                    <button class="copy-btn" onclick="copyHash('md5')">コピー</button>
+                </div>
+                <div class="hash-value empty" id="hash-md5">テキストを入力するとハッシュが生成されます</div>
+            </div>
+            <div class="hash-item">
+                <div class="hash-item-header">
+                    <span class="hash-name">SHA-1</span>
+                    <button class="copy-btn" onclick="copyHash('sha1')">コピー</button>
+                </div>
+                <div class="hash-value empty" id="hash-sha1">テキストを入力するとハッシュが生成されます</div>
+            </div>
+            <div class="hash-item">
+                <div class="hash-item-header">
+                    <span class="hash-name">SHA-256</span>
+                    <button class="copy-btn" onclick="copyHash('sha256')">コピー</button>
+                </div>
+                <div class="hash-value empty" id="hash-sha256">テキストを入力するとハッシュが生成されます</div>
+            </div>
+            <div class="hash-item">
+                <div class="hash-item-header">
+                    <span class="hash-name">SHA-512</span>
+                    <button class="copy-btn" onclick="copyHash('sha512')">コピー</button>
+                </div>
+                <div class="hash-value empty" id="hash-sha512">テキストを入力するとハッシュが生成されます</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>ハッシュとは？</h2>
+        <p>
+            ハッシュ関数は任意のデータを固定長の文字列に変換します。
+            同じ入力は常に同じハッシュ値を生成し、ハッシュから元のデータを復元することは不可能です。
+            MD5とSHA-1は高速ですが衝突脆弱性が知られており、セキュリティ目的にはSHA-256以上を推奨します。
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>ハッシュ生成</h2><p>テキストを入力するとMD5、SHA-1、SHA-256、SHA-512ハッシュ値を即座に生成します。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="encoding.html">エンコード変換</a><a href="uuid-gen.html">UUID生成</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// ── 상태 ──────────────────────────────────────────
+let caseMode = 'lower';
+const hashValues = { md5: '', sha1: '', sha256: '', sha512: '' };
+
+// ── 대소문자 토글 ──────────────────────────────────
+function setCase(mode) {
+    caseMode = mode;
+    document.getElementById('btn-lower').classList.toggle('active', mode === 'lower');
+    document.getElementById('btn-upper').classList.toggle('active', mode === 'upper');
+    renderAll();
+}
+
+// ── 입력 이벤트 ────────────────────────────────────
+function onInput() {
+    const text = document.getElementById('inputText').value;
+    if (!text) {
+        clearAll();
+        return;
+    }
+    const bytes = new TextEncoder().encode(text);
+    hashValues.md5 = md5(bytes);
+    Promise.all([
+        digest('SHA-1',   bytes),
+        digest('SHA-256', bytes),
+        digest('SHA-512', bytes),
+    ]).then(([s1, s256, s512]) => {
+        hashValues.sha1   = s1;
+        hashValues.sha256 = s256;
+        hashValues.sha512 = s512;
+        renderAll();
+    });
+}
+
+function clearAll() {
+    const placeholder = 'テキストを入力するとハッシュが生成されます';
+    ['md5','sha1','sha256','sha512'].forEach(k => {
+        hashValues[k] = '';
+        const el = document.getElementById('hash-' + k);
+        el.textContent = placeholder;
+        el.className = 'hash-value empty';
+    });
+}
+
+function renderAll() {
+    const ids = { md5: 'hash-md5', sha1: 'hash-sha1', sha256: 'hash-sha256', sha512: 'hash-sha512' };
+    for (const [k, id] of Object.entries(ids)) {
+        const el = document.getElementById(id);
+        const val = caseMode === 'upper' ? hashValues[k].toUpperCase() : hashValues[k];
+        el.textContent = val;
+        el.className = 'hash-value';
+    }
+}
+
+// ── Web Crypto ─────────────────────────────────────
+async function digest(algo, bytes) {
+    const buf = await crypto.subtle.digest(algo, bytes);
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// ── 복사 ──────────────────────────────────────────
+function copyHash(key) {
+    const val = caseMode === 'upper' ? hashValues[key].toUpperCase() : hashValues[key];
+    if (!val) return;
+    navigator.clipboard.writeText(val).then(() => {
+        const btns = document.querySelectorAll('.copy-btn');
+        const keyMap = { md5: 0, sha1: 1, sha256: 2, sha512: 3 };
+        const btn = btns[keyMap[key]];
+        const orig = btn.textContent;
+        btn.textContent = 'コピー済み！';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = orig;
+            btn.classList.remove('copied');
+        }, 1500);
+    });
+}
+
+// ── MD5 (순수 JS) ──────────────────────────────────
+function md5(bytes) {
+    function safeAdd(x, y) {
+        const lsw = (x & 0xffff) + (y & 0xffff);
+        return (((x >> 16) + (y >> 16) + (lsw >> 16)) << 16) | (lsw & 0xffff);
+    }
+    function bitRotL(x, n) { return (x << n) | (x >>> (32 - n)); }
+    function md5cmn(q, a, b, x, s, t) { return safeAdd(bitRotL(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b); }
+    function md5ff(a,b,c,d,x,s,t){ return md5cmn((b&c)|((~b)&d),a,b,x,s,t); }
+    function md5gg(a,b,c,d,x,s,t){ return md5cmn((b&d)|(c&(~d)),a,b,x,s,t); }
+    function md5hh(a,b,c,d,x,s,t){ return md5cmn(b^c^d,a,b,x,s,t); }
+    function md5ii(a,b,c,d,x,s,t){ return md5cmn(c^(b|(~d)),a,b,x,s,t); }
+
+    // 패딩
+    const len8 = bytes.length;
+    const bitLen = len8 * 8;
+    const padLen = ((len8 % 64) < 56 ? 56 - (len8 % 64) : 120 - (len8 % 64));
+    const total = len8 + padLen + 8;
+    const buf = new Uint8Array(total);
+    buf.set(bytes);
+    buf[len8] = 0x80;
+    // 길이 (little-endian 64bit, 하위 32bit만 사용)
+    const dv = new DataView(buf.buffer);
+    dv.setUint32(total - 8, bitLen >>> 0, true);
+    dv.setUint32(total - 4, Math.floor(bitLen / 0x100000000) >>> 0, true);
+
+    // 32bit words (little-endian)
+    const words = new Uint32Array(total / 4);
+    for (let i = 0; i < total; i += 4)
+        words[i >> 2] = dv.getUint32(i, true);
+
+    let a0 = 0x67452301, b0 = 0xefcdab89, c0 = 0x98badcfe, d0 = 0x10325476;
+
+    for (let i = 0; i < words.length; i += 16) {
+        const M = words.slice(i, i + 16);
+        let a=a0,b=b0,c=c0,d=d0;
+
+        a=md5ff(a,b,c,d,M[ 0], 7,-680876936);  d=md5ff(d,a,b,c,M[ 1],12,-389564586);
+        c=md5ff(c,d,a,b,M[ 2],17, 606105819);  b=md5ff(b,c,d,a,M[ 3],22,-1044525330);
+        a=md5ff(a,b,c,d,M[ 4], 7,-176418897);  d=md5ff(d,a,b,c,M[ 5],12, 1200080426);
+        c=md5ff(c,d,a,b,M[ 6],17,-1473231341); b=md5ff(b,c,d,a,M[ 7],22,-45705983);
+        a=md5ff(a,b,c,d,M[ 8], 7, 1770035416); d=md5ff(d,a,b,c,M[ 9],12,-1958414417);
+        c=md5ff(c,d,a,b,M[10],17,-42063);       b=md5ff(b,c,d,a,M[11],22,-1990404162);
+        a=md5ff(a,b,c,d,M[12], 7, 1804603682); d=md5ff(d,a,b,c,M[13],12,-40341101);
+        c=md5ff(c,d,a,b,M[14],17,-1502002290); b=md5ff(b,c,d,a,M[15],22, 1236535329);
+
+        a=md5gg(a,b,c,d,M[ 1], 5,-165796510);  d=md5gg(d,a,b,c,M[ 6], 9,-1069501632);
+        c=md5gg(c,d,a,b,M[11],14, 643717713);  b=md5gg(b,c,d,a,M[ 0],20,-373897302);
+        a=md5gg(a,b,c,d,M[ 5], 5,-701558691);  d=md5gg(d,a,b,c,M[10], 9, 38016083);
+        c=md5gg(c,d,a,b,M[15],14,-660478335);  b=md5gg(b,c,d,a,M[ 4],20,-405537848);
+        a=md5gg(a,b,c,d,M[ 9], 5, 568446438);  d=md5gg(d,a,b,c,M[14], 9,-1019803690);
+        c=md5gg(c,d,a,b,M[ 3],14,-187363961);  b=md5gg(b,c,d,a,M[ 8],20, 1163531501);
+        a=md5gg(a,b,c,d,M[13], 5,-1444681467); d=md5gg(d,a,b,c,M[ 2], 9,-51403784);
+        c=md5gg(c,d,a,b,M[ 7],14, 1735328473); b=md5gg(b,c,d,a,M[12],20,-1926607734);
+
+        a=md5hh(a,b,c,d,M[ 5], 4,-378558);     d=md5hh(d,a,b,c,M[ 8],11,-2022574463);
+        c=md5hh(c,d,a,b,M[11],16, 1839030562); b=md5hh(b,c,d,a,M[14],23,-35309556);
+        a=md5hh(a,b,c,d,M[ 1], 4,-1530992060); d=md5hh(d,a,b,c,M[ 4],11, 1272893353);
+        c=md5hh(c,d,a,b,M[ 7],16,-155497632);  b=md5hh(b,c,d,a,M[10],23,-1094730640);
+        a=md5hh(a,b,c,d,M[13], 4, 681279174);  d=md5hh(d,a,b,c,M[ 0],11,-358537222);
+        c=md5hh(c,d,a,b,M[ 3],16,-722521979);  b=md5hh(b,c,d,a,M[ 6],23, 76029189);
+        a=md5hh(a,b,c,d,M[ 9], 4,-640364487);  d=md5hh(d,a,b,c,M[12],11,-421815835);
+        c=md5hh(c,d,a,b,M[15],16, 530742520);  b=md5hh(b,c,d,a,M[ 2],23,-995338651);
+
+        a=md5ii(a,b,c,d,M[ 0], 6,-198630844);  d=md5ii(d,a,b,c,M[ 7],10, 1126891415);
+        c=md5ii(c,d,a,b,M[14],15,-1416354905); b=md5ii(b,c,d,a,M[ 5],21,-57434055);
+        a=md5ii(a,b,c,d,M[12], 6, 1700485571); d=md5ii(d,a,b,c,M[ 3],10,-1894986606);
+        c=md5ii(c,d,a,b,M[10],15,-1051523);    b=md5ii(b,c,d,a,M[ 1],21,-2054922799);
+        a=md5ii(a,b,c,d,M[ 8], 6, 1873313359); d=md5ii(d,a,b,c,M[15],10,-30611744);
+        c=md5ii(c,d,a,b,M[ 6],15,-1560198380); b=md5ii(b,c,d,a,M[13],21, 1309151649);
+        a=md5ii(a,b,c,d,M[ 4], 6,-145523070);  d=md5ii(d,a,b,c,M[11],10,-1120210379);
+        c=md5ii(c,d,a,b,M[ 2],15, 718787259);  b=md5ii(b,c,d,a,M[ 9],21,-343485551);
+
+        a0=safeAdd(a0,a); b0=safeAdd(b0,b); c0=safeAdd(c0,c); d0=safeAdd(d0,d);
+    }
+
+    // little-endian 출력
+    function le32hex(n) {
+        return [n & 0xff, (n >>> 8) & 0xff, (n >>> 16) & 0xff, (n >>> 24) & 0xff]
+            .map(b => b.toString(16).padStart(2,'0')).join('');
+    }
+    return le32hex(a0) + le32hex(b0) + le32hex(c0) + le32hex(d0);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가짜 개인정보 생성기 - 테스트용 더미 데이터 | MOGU Guard</title>
+    <meta name="description" content="회원가입 테스트, 폼 테스트용 가짜 개인정보를 생성합니다. 이름, 이메일, 전화번호, 주소 등 더미 데이터.">
+    <link rel="canonical" href="https://moguguard.com/fake-identity/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/fake-identity/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/fake-identity/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/fake-identity/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/identidad-falsa/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/fake-identitaet/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/fausse-identite/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/identidade-falsa/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/fake-identity/">
+    <meta property="og:title" content="가짜 개인정보 생성기 | MOGU Guard">
+    <meta property="og:description" content="테스트용 가짜 개인정보 자동 생성!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/fake-identity/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+        header{background:#111;border-bottom:1px solid #1a3a1a;padding:16px 20px;text-align:center}header a{text-decoration:none;font-size:20px;color:#00ff41;letter-spacing:2px;font-weight:700;font-family:'Fira Code',monospace}
+        .container{max-width:700px;margin:20px auto 40px;padding:0 20px}
+        .page-title{text-align:center;margin-bottom:30px}.page-title h2{font-size:28px;color:#00ff41;margin-bottom:8px}.page-title p{color:#666;font-size:14px}
+        .gen-btn{width:100%;padding:16px;background:#00ff41;color:#0a0a0a;border:none;border-radius:8px;font-size:18px;font-weight:700;cursor:pointer;font-family:'Fira Code',monospace;margin-bottom:24px}
+        .gen-btn:hover{background:#00cc33}
+        .card{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:24px;margin-bottom:16px}
+        .card-title{font-size:14px;color:#00ff41;font-weight:600;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #1a3a1a}
+        .field{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #0f0f0f}
+        .field:last-child{border-bottom:none}
+        .field-label{font-size:13px;color:#666}
+        .field-value{font-size:14px;color:#e0e0e0;font-family:'Fira Code',monospace;cursor:pointer;transition:color .2s}
+        .field-value:hover{color:#00ff41}
+        .field-value::after{content:' 📋';font-size:10px;opacity:0.3}
+        .copy-all{width:100%;padding:12px;background:#111;border:1px solid #00ff4130;border-radius:8px;color:#00ff41;font-size:14px;cursor:pointer;font-family:'Fira Code',monospace;margin-bottom:20px;text-align:center}
+        .copy-all:hover{background:rgba(0,255,65,0.08)}
+        .warning{background:rgba(255,152,0,0.08);border:1px solid rgba(255,152,0,0.3);border-radius:8px;padding:16px;margin-bottom:20px;font-size:13px;color:#ff9800;line-height:1.6}
+        .info{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px}
+        .info-title{font-size:16px;color:#00ff41;font-weight:600;margin-bottom:10px}
+        .info-text{font-size:14px;color:#888;line-height:1.8}.info-text strong{color:#00ff41}
+        footer{text-align:center;padding:30px;color:#333;font-size:11px}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"가짜 개인정보 생성기","url":"https://moguguard.com/fake-identity/","description":"회원가입 테스트용 가짜 개인정보를 생성합니다.","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript"}
+    </script>
+</head>
+<body>
+<header><a href="/">MOGU <span style="color:#00ff41;">Guard</span></a></header>
+<div class="container">
+    <div class="page-title">
+        <h2>🎭 가짜 개인정보 생성기</h2>
+        <p>회원가입 테스트, 폼 테스트용 더미 데이터</p>
+    </div>
+
+    <div class="warning">⚠️ 이 정보는 100% 가짜입니다. 실제 사람과 일치하지 않으며, 테스트 및 프라이버시 보호 목적으로만 사용하세요. 사기나 불법 목적으로 사용하지 마세요.</div>
+
+    <button class="gen-btn" onclick="generate()">🎭 새 정보 생성</button>
+
+    <div id="result">
+        <div class="card">
+            <div class="card-title">👤 기본 정보</div>
+            <div class="field"><span class="field-label">이름</span><span class="field-value" id="fName" onclick="copy(this)">-</span></div>
+            <div class="field"><span class="field-label">영문 이름</span><span class="field-value" id="fNameEn" onclick="copy(this)">-</span></div>
+            <div class="field"><span class="field-label">성별</span><span class="field-value" id="fGender" onclick="copy(this)">-</span></div>
+            <div class="field"><span class="field-label">생년월일</span><span class="field-value" id="fBirth" onclick="copy(this)">-</span></div>
+            <div class="field"><span class="field-label">나이</span><span class="field-value" id="fAge" onclick="copy(this)">-</span></div>
+        </div>
+        <div class="card">
+            <div class="card-title">📱 연락처</div>
+            <div class="field"><span class="field-label">전화번호</span><span class="field-value" id="fPhone" onclick="copy(this)">-</span></div>
+            <div class="field"><span class="field-label">이메일</span><span class="field-value" id="fEmail" onclick="copy(this)">-</span></div>
+        </div>
+        <div class="card">
+            <div class="card-title">🏠 주소</div>
+            <div class="field"><span class="field-label">주소</span><span class="field-value" id="fAddr" onclick="copy(this)">-</span></div>
+            <div class="field"><span class="field-label">우편번호</span><span class="field-value" id="fZip" onclick="copy(this)">-</span></div>
+        </div>
+        <div class="card">
+            <div class="card-title">🔐 계정</div>
+            <div class="field"><span class="field-label">아이디</span><span class="field-value" id="fId" onclick="copy(this)">-</span></div>
+            <div class="field"><span class="field-label">비밀번호</span><span class="field-value" id="fPw" onclick="copy(this)">-</span></div>
+        </div>
+    </div>
+
+    <button class="copy-all" onclick="copyAll()">📋 전체 복사</button>
+
+    <div class="info">
+        <div class="info-title">💡 이런 상황에 사용하세요</div>
+        <div class="info-text">
+            • <strong>회원가입 테스트</strong> — 실제 정보 대신 가짜 정보로 테스트<br>
+            • <strong>프라이버시 보호</strong> — 불필요한 사이트에 진짜 정보 노출 방지<br>
+            • <strong>개발/QA 테스트</strong> — 폼 테스트용 더미 데이터<br>
+            • <strong>교육 목적</strong> — 개인정보 보호 교육 예시
+        </div>
+    </div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:12px;color:#333;margin-right:8px;">공유:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1da1f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1877f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Facebook</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:5px 10px;background:#333;color:#0f0;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;font-family:monospace;">URL 복사</a></div>
+<footer>© 2025 MOGU Guard</footer>
+<script>
+const lastNames=['김','이','박','최','정','강','조','윤','장','임','한','오','서','신','권','황','안','송','류','홍'];
+const firstNamesM=['민준','서준','도윤','예준','시우','하준','주원','지호','지후','준서','현우','도현','건우','우진','선우'];
+const firstNamesF=['서연','서윤','지우','서현','민서','하은','하윤','윤서','지유','채원','수아','지아','지윤','은서','다은'];
+const lastNamesEn=['Kim','Lee','Park','Choi','Jung','Kang','Cho','Yoon','Jang','Lim'];
+const firstNamesEnM=['Minjun','Seojun','Doyun','Yejun','Siwoo','Hajun','Juwon','Jiho'];
+const firstNamesEnF=['Seoyeon','Seoyun','Jiwoo','Seohyun','Minseo','Haeun','Hayun','Yunseo'];
+const domains=['gmail.com','naver.com','daum.net','kakao.com','outlook.com','yahoo.com'];
+const cities=['서울특별시 강남구','서울특별시 마포구','부산광역시 해운대구','대구광역시 수성구','인천광역시 남동구','광주광역시 서구','대전광역시 유성구','경기도 성남시','경기도 수원시','제주특별자치도 제주시'];
+const streets=['테헤란로','강남대로','올림픽로','세종대로','판교역로','해운대로','동성로','인하로','광안리해변로','중앙로'];
+
+function r(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function rn(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
+
+function generate(){
+    const isMale=Math.random()>0.5;
+    const last=r(lastNames);
+    const first=isMale?r(firstNamesM):r(firstNamesF);
+    const lastEn=r(lastNamesEn);
+    const firstEn=isMale?r(firstNamesEnM):r(firstNamesEnF);
+    const name=last+first;
+    const nameEn=firstEn+' '+lastEn;
+    const gender=isMale?'남성':'여성';
+    const year=rn(1970,2005);const month=rn(1,12);const day=rn(1,28);
+    const birth=`${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const age=new Date().getFullYear()-year;
+    const phone=`010-${rn(1000,9999)}-${rn(1000,9999)}`;
+    const emailId=firstEn.toLowerCase()+rn(1,999);
+    const email=emailId+'@'+r(domains);
+    const addr=r(cities)+' '+r(streets)+' '+rn(1,300)+'번길 '+rn(1,50);
+    const zip=String(rn(10000,99999));
+    const userId=firstEn.toLowerCase()+rn(10,999);
+    const pwChars='abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789!@#$%';
+    let pw='';for(let i=0;i<12;i++)pw+=pwChars[Math.floor(Math.random()*pwChars.length)];
+
+    document.getElementById('fName').textContent=name;
+    document.getElementById('fNameEn').textContent=nameEn;
+    document.getElementById('fGender').textContent=gender;
+    document.getElementById('fBirth').textContent=birth;
+    document.getElementById('fAge').textContent=age+'세';
+    document.getElementById('fPhone').textContent=phone;
+    document.getElementById('fEmail').textContent=email;
+    document.getElementById('fAddr').textContent=addr;
+    document.getElementById('fZip').textContent=zip;
+    document.getElementById('fId').textContent=userId;
+    document.getElementById('fPw').textContent=pw;
+}
+
+function copy(el){
+    const text=el.textContent;
+    navigator.clipboard.writeText(text);
+    const orig=el.textContent;
+    el.textContent='✅ 복사됨';el.style.color='#00ff41';
+    setTimeout(()=>{el.textContent=orig;el.style.color='';},1500);
+}
+
+function copyAll(){
+    const fields=['fName','fNameEn','fGender','fBirth','fAge','fPhone','fEmail','fAddr','fZip','fId','fPw'];
+    const labels=['이름','영문이름','성별','생년월일','나이','전화번호','이메일','주소','우편번호','아이디','비밀번호'];
+    const text=fields.map((f,i)=>labels[i]+': '+document.getElementById(f).textContent).join('\n');
+    navigator.clipboard.writeText(text);
+    const btn=document.querySelector('.copy-all');btn.textContent='✅ 전체 복사됨';
+    setTimeout(()=>btn.textContent='📋 전체 복사',2000);
+}
+
+generate();
+</script>
+</body>
+</html>

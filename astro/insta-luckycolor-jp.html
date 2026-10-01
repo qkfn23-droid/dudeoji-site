@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Instagram - 10月 星座別ラッキーカラー</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #333; display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; justify-content: center; }
+
+.slide {
+    width: 1080px;
+    height: 1350px;
+    background: #0a0a1a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', 'Georgia', serif;
+    page-break-after: always;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1.5px 1.5px at 40% 10%, rgba(201,168,76,0.4), transparent),
+        radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 85% 60%, rgba(201,168,76,0.3), transparent),
+        radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 90% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(201,168,76,0.2), transparent),
+        radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.3), transparent);
+    z-index: 0;
+}
+
+.slide > * { position: relative; z-index: 1; }
+
+.border-frame {
+    position: absolute;
+    top: 30px; left: 30px; right: 30px; bottom: 30px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    z-index: 1;
+}
+.border-frame::before {
+    content: '✦';
+    position: absolute;
+    top: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(201,168,76,0.5);
+    font-size: 14px;
+    background: #0a0a1a;
+    padding: 0 10px;
+}
+.border-frame::after {
+    content: '✦';
+    position: absolute;
+    bottom: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(201,168,76,0.5);
+    font-size: 14px;
+    background: #0a0a1a;
+    padding: 0 10px;
+}
+
+.cover-moon { margin-bottom: 30px; }
+.cover-title { font-size: 72px; color: #c9a84c; font-weight: 700; letter-spacing: 6px; margin-bottom: 10px; }
+.cover-sub { font-size: 36px; color: rgba(201,168,76,0.6); letter-spacing: 12px; margin-bottom: 50px; }
+.cover-line { width: 200px; height: 1px; background: linear-gradient(90deg, transparent, #c9a84c, transparent); margin: 20px 0; }
+.cover-year { font-size: 28px; color: rgba(201,168,76,0.4); letter-spacing: 8px; }
+.cover-brand { position: absolute; bottom: 60px; font-size: 22px; color: rgba(201,168,76,0.3); letter-spacing: 4px; }
+
+.zodiac-symbol { font-size: 160px; margin-bottom: 20px; color: #c9a84c; text-shadow: 0 0 40px rgba(201,168,76,0.3); font-family: 'Segoe UI Symbol', 'Apple Symbols', sans-serif; }
+.zodiac-name { font-size: 52px; color: #c9a84c; font-weight: 700; letter-spacing: 8px; margin-bottom: 6px; }
+.zodiac-date { font-size: 28px; color: rgba(201,168,76,0.45); letter-spacing: 3px; margin-bottom: 40px; }
+.zodiac-divider { width: 160px; height: 1px; background: linear-gradient(90deg, transparent, #c9a84c, transparent); margin-bottom: 40px; }
+.zodiac-text { font-size: 38px; color: #e0d8cc; line-height: 1.9; text-align: center; max-width: 1000px; padding: 0 60px; }
+.slide-brand { position: absolute; bottom: 50px; font-size: 18px; color: rgba(201,168,76,0.25); letter-spacing: 3px; }
+.slide-num { position: absolute; top: 50px; right: 55px; font-size: 16px; color: rgba(201,168,76,0.25); letter-spacing: 2px; }
+
+.color-dot { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 20px; }
+.color-name { font-size: 56px; font-weight: 700; letter-spacing: 4px; margin-bottom: 14px; }
+</style>
+</head>
+<body>
+
+<!-- 1. 表紙 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="cover-moon"><svg viewBox="0 0 120 120" width="180" height="180" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="cover-title">ラッキーカラー</div>
+    <div class="cover-sub">10月</div>
+    <div class="cover-line"></div>
+    <div class="cover-year">星座別 · 支配星の色</div>
+    <div class="cover-brand">MOGU MOON</div>
+</div>
+
+<!-- 2. 牡羊座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♈</div>
+    <div class="zodiac-name">牡羊座</div>
+    <div class="zodiac-date">3月21日 — 4月19日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#e74c3c;"></div>
+    <div class="color-name" style="color:#e74c3c;">レッド</div>
+    <div class="zodiac-text">やりたいことがあるなら、今月が動き時。<br>迷う前に一歩踏み出そう。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 3. 牡牛座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♉</div>
+    <div class="zodiac-name">牡牛座</div>
+    <div class="zodiac-date">4月20日 — 5月20日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#27ae60;"></div>
+    <div class="color-name" style="color:#27ae60;">グリーン</div>
+    <div class="zodiac-text">頑張ってきたことが報われる月。<br>もう要らないものは手放していこう。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 4. 双子座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♊</div>
+    <div class="zodiac-name">双子座</div>
+    <div class="zodiac-date">5月21日 — 6月20日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#f1c40f;"></div>
+    <div class="color-name" style="color:#f1c40f;">イエロー</div>
+    <div class="zodiac-text">あなたの言葉が人を動かす月。<br>大事なことは、ちゃんと伝えよう。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 5. 蟹座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♋</div>
+    <div class="zodiac-name">蟹座</div>
+    <div class="zodiac-date">6月21日 — 7月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#bdc3c7;"></div>
+    <div class="color-name" style="color:#bdc3c7;">シルバー</div>
+    <div class="zodiac-text">家族や大切な人との時間が運気を上げる。<br>心を開ける相手を大事にしよう。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 6. 獅子座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♌</div>
+    <div class="zodiac-name">獅子座</div>
+    <div class="zodiac-date">7月23日 — 8月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#c9a84c;"></div>
+    <div class="color-name" style="color:#c9a84c;">ゴールド</div>
+    <div class="zodiac-text">一人で抱え込まないで。<br>周りに頼ることで、もっとうまくいく月。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 7. 乙女座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♍</div>
+    <div class="zodiac-name">乙女座</div>
+    <div class="zodiac-date">8月23日 — 9月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#f1c40f;"></div>
+    <div class="color-name" style="color:#f1c40f;">イエロー</div>
+    <div class="zodiac-text">コツコツ続けてきたことが実る月。<br>体調管理も忘れずに。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 8. 天秤座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♎</div>
+    <div class="zodiac-name">天秤座</div>
+    <div class="zodiac-date">9月23日 — 10月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#555;"></div>
+    <div class="color-name" style="color:#888;">ブラック</div>
+    <div class="zodiac-text">人間関係が深まる月。<br>今月出会う人は、長い付き合いになるかも。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 9. 蠍座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♏</div>
+    <div class="zodiac-name">蠍座</div>
+    <div class="zodiac-date">10月23日 — 11月21日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#e74c3c;"></div>
+    <div class="color-name" style="color:#e74c3c;">レッド</div>
+    <div class="zodiac-text">一人の時間が大切な月。<br>自分を見つめ直すと、次のステップが見えてくる。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 10. 射手座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♐</div>
+    <div class="zodiac-name">射手座</div>
+    <div class="zodiac-date">11月22日 — 12月21日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#3498db;"></div>
+    <div class="color-name" style="color:#3498db;">ブルー</div>
+    <div class="zodiac-text">新しい出会いやチャンスが来る月。<br>直感を信じて動こう。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 11. 山羊座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♑</div>
+    <div class="zodiac-name">山羊座</div>
+    <div class="zodiac-date">12月22日 — 1月19日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#555;"></div>
+    <div class="color-name" style="color:#888;">ブラック</div>
+    <div class="zodiac-text">焦らなくて大丈夫。<br>今の努力は、必ず形になる。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 12. 水瓶座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♒</div>
+    <div class="zodiac-name">水瓶座</div>
+    <div class="zodiac-date">1月20日 — 2月18日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#555;"></div>
+    <div class="color-name" style="color:#888;">ブラック</div>
+    <div class="zodiac-text">誰かのために動くと、自分にも返ってくる月。<br>学んだことをシェアしよう。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 13. 魚座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月</div>
+    <div class="zodiac-symbol">♓</div>
+    <div class="zodiac-name">魚座</div>
+    <div class="zodiac-date">2月19日 — 3月20日</div>
+    <div class="zodiac-divider"></div>
+    <div class="color-dot" style="background:#3498db;"></div>
+    <div class="color-name" style="color:#3498db;">ブルー</div>
+    <div class="zodiac-text">直感が冴える月。<br>気になる夢を見たら、メモしておこう。</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+</body>
+</html>

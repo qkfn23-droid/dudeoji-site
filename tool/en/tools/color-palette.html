@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Color Palette Generator - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is Color Palette Generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, 100% free. No sign-up required. All processing happens in your browser, so no personal data is sent to any server."}},
+    {"@type":"Question","name":"How do I use Color Palette Generator?","acceptedAnswer":{"@type":"Answer","text":"Select a base color to generate complementary, analogous, triadic, and tetradic color schemes."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/color-palette.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/color-palette.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/color-palette.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/color-palette.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/color-palette.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/color-palette.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/color-palette.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/color-palette.html">
+    <link rel="canonical" href="https://mogutool.com/en/tools/color-palette.html">
+    <meta property="og:title" content="Color Palette Generator - MOGU Tools">
+    <meta property="og:description" content="Select a base color to generate complementary, analogous, triadic, and tetradic color schemes.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/en/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/en/tools/color-palette.html">
+ <meta name="description" content="Select a base color to generate complementary, analogous, triadic, and tetradic color schemes.">
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ body {
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+ background: #f5f5f5;
+ color: #333;
+ }
+
+ header {
+ background: #fff;
+ border-bottom: 2px solid #eee;
+ padding: 16px 20px;
+ }
+
+ header a {
+ text-decoration: none;
+ color: #2c2c2c;
+ font-size: 18px;
+ font-weight: 700;
+ }
+
+ header a span {
+ color: #4a90d9;
+ }
+
+ .breadcrumb {
+ max-width: 700px;
+ margin: 16px auto;
+ padding: 0 20px;
+ font-size: 13px;
+ color: #999;
+ }
+
+ .breadcrumb a {
+ color: #4a90d9;
+ text-decoration: none;
+ }
+
+ .container {
+ max-width: 700px;
+ margin: 10px auto 40px;
+ padding: 0 20px;
+ }
+
+ h1 {
+ font-size: 24px;
+ font-weight: 700;
+ margin-bottom: 8px;
+ }
+
+ .subtitle {
+ color: #888;
+ font-size: 14px;
+ margin-bottom: 24px;
+ }
+
+ .calc-box {
+ background: #fff;
+ border: 1px solid #e8e8e8;
+ border-radius: 12px;
+ padding: 28px;
+ }
+
+ /* Color picker row */
+ .picker-row {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ margin-bottom: 20px;
+ }
+
+ .picker-row label {
+ font-size: 14px;
+ font-weight: 500;
+ color: #555;
+ white-space: nowrap;
+ }
+
+ #baseColor {
+ width: 52px;
+ height: 44px;
+ padding: 2px;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ cursor: pointer;
+ background: none;
+ transition: border-color 0.2s;
+ }
+
+ #baseColor:hover {
+ border-color: #4a90d9;
+ }
+
+ #hexinput {
+ flex: 1;
+ padding: 12px 14px;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ font-size: 15px;
+ font-family: 'Courier New', monospace;
+ outline: none;
+ transition: border-color 0.2s;
+ text-transform: uppercase;
+ }
+
+ #hexinput:focus {
+ border-color: #4a90d9;
+ }
+
+ .random-btn {
+ padding: 12px 18px;
+ background: #f0f0f0;
+ color: #555;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ font-size: 14px;
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.2s;
+ white-space: nowrap;
+ }
+
+ .random-btn:hover {
+ background: #e5e5e5;
+ border-color: #ccc;
+ }
+
+ /* Palette type buttons */
+ .type-label {
+ font-size: 14px;
+ font-weight: 500;
+ color: #555;
+ margin-bottom: 10px;
+ }
+
+ .type-buttons {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin-bottom: 24px;
+ }
+
+ .type-btn {
+ padding: 9px 18px;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ background: #fff;
+ color: #555;
+ font-size: 14px;
+ font-weight: 500;
+ cursor: pointer;
+ transition: all 0.2s;
+ }
+
+ .type-btn:hover {
+ border-color: #4a90d9;
+ color: #4a90d9;
+ }
+
+ .type-btn.active {
+ background: #4a90d9;
+ border-color: #4a90d9;
+ color: #fff;
+ }
+
+ /* Palette display */
+ .palette-area {
+ display: none;
+ }
+
+ .palette-area.visible {
+ display: block;
+ }
+
+ .palette-row {
+ display: flex;
+ gap: 10px;
+ flex-wrap: wrap;
+ }
+
+ .swatch {
+ flex: 1;
+ min-width: 100px;
+ border-radius: 10px;
+ overflow: hidden;
+ border: 1px solid #e0e0e0;
+ cursor: pointer;
+ transition: transform 0.15s, box-shadow 0.15s;
+ position: relative;
+ }
+
+ .swatch:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+ }
+
+ .swatch-color {
+ height: 90px;
+ }
+
+ .swatch-info {
+ background: #fff;
+ padding: 10px 10px 12px;
+ }
+
+ .swatch-hex {
+ font-size: 13px;
+ font-weight: 700;
+ font-family: 'Courier New', monospace;
+ color: #333;
+ margin-bottom: 3px;
+ }
+
+ .swatch-rgb {
+ font-size: 11px;
+ color: #999;
+ font-family: 'Courier New', monospace;
+ }
+
+ .copy-feedback {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ background: rgba(0,0,0,0.72);
+ color: #fff;
+ font-size: 13px;
+ font-weight: 600;
+ padding: 7px 14px;
+ border-radius: 20px;
+ pointer-events: none;
+ opacity: 0;
+ transition: opacity 0.2s;
+ white-space: nowrap;
+ }
+
+ .copy-feedback.show {
+ opacity: 1;
+ }
+
+ /* Info section */
+ .info-section {
+ margin-top: 30px;
+ background: #fff;
+ border: 1px solid #e8e8e8;
+ border-radius: 12px;
+ padding: 24px;
+ }
+
+ .info-section h2 {
+ font-size: 16px;
+ margin-bottom: 12px;
+ color: #555;
+ }
+
+ .info-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 10px;
+ }
+
+ .info-item {
+ font-size: 13px;
+ color: #666;
+ line-height: 1.6;
+ }
+
+ .info-item strong {
+ color: #444;
+ }
+
+ footer {
+ text-align: center;
+ padding: 30px;
+ color: #bbb;
+ font-size: 13px;
+ }
+ </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+ <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+ <a href="../index.html">MOGU Tools — Free Online Tools Collection</a> &gt; Tools &gt; Color Palette
+</div>
+
+<div class="container">
+ <h1>Color Palette</h1>
+ <p class="subtitle">Select a base color to generate harmonious color schemes. Click to copy HEX codes.</p>
+
+ <div class="calc-box">
+ <div class="picker-row">
+ <label>Base color</label>
+ <input type="color" id="baseColor" value="#4a90d9">
+ <input type="text" id="hexinput" value="#4A90D9" maxlength="7" placeholder="#000000">
+ <button class="random-btn" onclick="randomColor()">Random</button>
+ </div>
+
+ <div class="type-label">Color Scheme</div>
+ <div class="type-buttons">
+ <button class="type-btn active" data-type="complementary" onclick="selectType(this)">Complementary (2)</button>
+ <button class="type-btn" data-type="analogous" onclick="selectType(this)">Analogous (5)</button>
+ <button class="type-btn" data-type="triadic" onclick="selectType(this)">Triadic (3)</button>
+ <button class="type-btn" data-type="tetradic" onclick="selectType(this)">Tetradic (4)</button>
+ <button class="type-btn" data-type="monocomatic" onclick="selectType(this)">Monochromatic (5)</button>
+ </div>
+
+ <div class="palette-area visible" id="paletteArea">
+ <div class="palette-row" id="paletteRow"></div>
+ </div>
+ </div>
+
+ <div class="info-section">
+ <h2>Color Schemes</h2>
+ <div class="info-grid">
+ <div class="info-item"><strong>Complementary</strong> — Opposite color on the wheel. High contrast and bold.</div>
+ <div class="info-item"><strong>Analogous</strong> — Colors adjacent on the wheel. Subtle and harmonious.</div>
+ <div class="info-item"><strong>Triadic</strong> — Three colors evenly spaced at 120° on the color wheel. Vibrant and balanced.</div>
+ <div class="info-item"><strong>Tetradic</strong> — Four colors at 90° intervals. Rich and diverse color scheme.</div>
+ <div class="info-item"><strong>Split-Complementary</strong> — A variation of complementary using two adjacent colors. Balanced yet dynamic.</div>
+ </div>
+ </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Color Palette Generator</h2><p>Select a base color to generate complementary, analogous, triadic, and tetradic color schemes.</p></div>
+<div class="seo-section"><h2>Frequently Asked Questions</h2><details class="seo-faq"><summary>Is this tool free?</summary><p>Yes, 100% free. No signup required. All processing happens in your browser — no data is sent to any server.</p></details><details class="seo-faq"><summary>Can I use it on mobile?</summary><p>Yes, all tools are fully responsive and work on smartphones, tablets, and desktops.</p></details></div>
+<div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="color-convert.html">HEX/RGB Converter</a><a href="color-picker.html">Image Color Picker</a><a href="gradient-gen.html">CSS Gradient Generator</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+ &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+ // ── Colour math helpers ──────────────────────────────────────────────────
+
+ function hexToRgb(hex) {
+ hex = hex.replace('#', '');
+ if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+ return {
+ r: parseInt(hex.slice(0, 2), 16),
+ g: parseInt(hex.slice(2, 4), 16),
+ b: parseInt(hex.slice(4, 6), 16)
+ };
+ }
+
+ function rgbToHex(r, g, b) {
+ return '#' + [r, g, b].map(v => {
+ v = Math.max(0, Math.min(255, Math.round(v)));
+ return v.toString(16).padStart(2, '0');
+ }).join('').toUpperCase();
+ }
+
+ function rgbToHsl(r, g, b) {
+ r /= 255; g /= 255; b /= 255;
+ const max = Math.max(r, g, b), min = Math.min(r, g, b);
+ let h, s, l = (max + min) / 2;
+ if (max === min) {
+ h = s = 0;
+ } else {
+ const d = max - min;
+ s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+ switch (max) {
+ case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+ case g: h = ((b - r) / d + 2) / 6; break;
+ case b: h = ((r - g) / d + 4) / 6; break;
+ }
+ }
+ return { h: h * 360, s: s * 100, l: l * 100 };
+ }
+
+ function hslToRgb(h, s, l) {
+ h /= 360; s /= 100; l /= 100;
+ let r, g, b;
+ if (s === 0) {
+ r = g = b = l;
+ } else {
+ const hue2rgb = (p, q, t) => {
+ if (t < 0) t += 1;
+ if (t > 1) t -= 1;
+ if (t < 1/6) return p + (q - p) * 6 * t;
+ if (t < 1/2) return q;
+ if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+ return p;
+ };
+ const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+ const p = 2 * l - q;
+ r = hue2rgb(p, q, h + 1/3);
+ g = hue2rgb(p, q, h);
+ b = hue2rgb(p, q, h - 1/3);
+ }
+ return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
+ }
+
+ function shiftHue(h, s, l, degrees) {
+ const newH = ((h + degrees) % 360 + 360) % 360;
+ return hslToRgb(newH, s, l);
+ }
+
+ // ── Palette generators ───────────────────────────────────────────────────
+
+ function generatePalette(hex, type) {
+ const { r, g, b } = hexToRgb(hex);
+ const { h, s, l } = rgbToHsl(r, g, b);
+ const colors = [];
+
+ switch (type) {
+ case 'complementary': {
+ colors.push({ r, g, b });
+ const c = shiftHue(h, s, l, 180);
+ colors.push(c);
+ break;
+ }
+ case 'analogous': {
+ [-40, -20, 0, 20, 40].forEach(deg => {
+ colors.push(deg === 0 ? { r, g, b } : shiftHue(h, s, l, deg));
+ });
+ break;
+ }
+ case 'triadic': {
+ [0, 120, 240].forEach(deg => {
+ colors.push(deg === 0 ? { r, g, b } : shiftHue(h, s, l, deg));
+ });
+ break;
+ }
+ case 'tetradic': {
+ [0, 90, 180, 270].forEach(deg => {
+ colors.push(deg === 0 ? { r, g, b } : shiftHue(h, s, l, deg));
+ });
+ break;
+ }
+ case 'monocomatic': {
+ // 5 lightness steps: darker → base → lighter
+ const steps = [
+ Math.max(15, l - 30),
+ Math.max(15, l - 15),
+ l,
+ Math.min(85, l + 15),
+ Math.min(85, l + 30)
+ ];
+ steps.forEach(lt => {
+ const rgb = hslToRgb(h, s, lt);
+ colors.push(rgb);
+ });
+ break;
+ }
+ }
+ return colors;
+ }
+
+ // ── Render ───────────────────────────────────────────────────────────────
+
+ function renderPalette(hex, type) {
+ const colors = generatePalette(hex, type);
+ const row = document.getElementById('paletteRow');
+ row.innerHTML = '';
+
+ colors.forEach(({ r, g, b }) => {
+ const hexCode = rgbToHex(r, g, b);
+ const swatch = document.createElement('div');
+ swatch.className = 'swatch';
+ swatch.title = hexCode + ' — click Copy';
+ swatch.innerHTML = `
+ <div class="swatch-color" style="background:${hexCode}"></div>
+ <div class="swatch-info">
+ <div class="swatch-hex">${hexCode}</div>
+ <div class="swatch-rgb">rgb(${r}, ${g}, ${b})</div>
+ </div>
+ <div class="copy-feedback" id="fb-${hexCode.replace('#','')}">Copy!</div>
+ `;
+ swatch.addEventListener('click', () => copyHex(hexCode));
+ row.appendChild(swatch);
+ });
+ }
+
+ function copyHex(hex) {
+ navigator.clipboard.writeText(hex).then(() => {
+ const fb = document.getElementById('fb-' + hex.replace('#', ''));
+ if (!fb) return;
+ fb.classList.add('show');
+ setTimeout(() => fb.classList.remove('show'), 1200);
+ }).catch(() => {
+ // fallback
+ const ta = document.createElement('textarea');
+ ta.value = hex;
+ document.body.appendChild(ta);
+ ta.select();
+ document.execCommand('copy');
+ document.body.removeChild(ta);
+ const fb = document.getElementById('fb-' + hex.replace('#', ''));
+ if (fb) {
+ fb.classList.add('show');
+ setTimeout(() => fb.classList.remove('show'), 1200);
+ }
+ });
+ }
+
+ // ── State ────────────────────────────────────────────────────────────────
+
+ let currentType = 'complementary';
+
+ function selectType(btn) {
+ document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+ currentType = btn.dataset.type;
+ update();
+ }
+
+ function getCurrentHex() {
+ return document.getElementById('baseColor').value.toUpperCase();
+ }
+
+ function update() {
+ const hex = getCurrentHex();
+ renderPalette(hex, currentType);
+ document.getElementById('paletteArea').classList.add('visible');
+ }
+
+ function randomColor() {
+ const r = Math.floor(Math.random() * 256);
+ const g = Math.floor(Math.random() * 256);
+ const b = Math.floor(Math.random() * 256);
+ const hex = rgbToHex(r, g, b);
+ document.getElementById('baseColor').value = hex;
+ document.getElementById('hexinput').value = hex;
+ update();
+ }
+
+ // ── Event wiring ─────────────────────────────────────────────────────────
+
+ document.getElementById('baseColor').addEventListener('input', function () {
+ document.getElementById('hexinput').value = this.value.toUpperCase();
+ update();
+ });
+
+ document.getElementById('hexinput').addEventListener('input', function () {
+ let val = this.value.trim();
+ if (!val.startsWith('#')) val = '#' + val;
+ if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+ document.getElementById('baseColor').value = val;
+ update();
+ }
+ });
+
+ document.getElementById('hexinput').addEventListener('blur', function () {
+ // Normalise display on blur
+ this.value = getCurrentHex();
+ });
+
+ // ── Init ─────────────────────────────────────────────────────────────────
+ update();
+</script>
+
+</body>
+</html>

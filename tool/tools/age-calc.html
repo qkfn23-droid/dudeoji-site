@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"나이 계산기는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"나이 계산기는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"생년월일을 입력하면 만 나이, 한국 나이, 띠, 별자리 등을 계산합니다."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/age-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/age-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/age-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/age-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/age-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/age-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/age-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/age-calc.html">
+    <link rel="canonical" href="https://mogutool.com/tools/age-calc.html">
+    <meta property="og:title" content="나이 계산기 - MOGU Tools">
+    <meta property="og:description" content="생년월일을 입력하면 만 나이, 한국 나이, 띠, 별자리 등을 계산합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/age-calc.html">
+    <meta name="description" content="생년월일을 입력하면 만 나이, 한국 나이, 띠, 별자리 등을 계산합니다.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group input[type="date"] {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #333;
+            background: #fff;
+        }
+
+        .input-group input[type="date"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+
+        .result-card.full {
+            grid-column: 1 / -1;
+        }
+
+        .result-card .card-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .result-card .card-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+
+        .result-card .card-value.highlight {
+            color: #4a90d9;
+        }
+
+        .result-card .card-value.small {
+            font-size: 17px;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 계산기 &gt; 나이 계산기
+</div>
+
+<div class="container">
+    <h1>나이 계산기</h1>
+    <p class="subtitle">생년월일을 입력하면 만 나이, 한국 나이, 띠, 별자리를 계산합니다.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>생년월일</label>
+            <input type="date" id="birthday" max="">
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">계산하기</button>
+
+        <div class="result" id="result">
+            <div class="result-grid">
+                <div class="result-card">
+                    <div class="card-label">만 나이</div>
+                    <div class="card-value highlight" id="manAge">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">한국 나이</div>
+                    <div class="card-value" id="koreanAge">-</div>
+                </div>
+                <div class="result-card full">
+                    <div class="card-label">태어난 지</div>
+                    <div class="card-value small" id="elapsed">-</div>
+                </div>
+                <div class="result-card full">
+                    <div class="card-label">다음 생일까지</div>
+                    <div class="card-value small" id="nextBirthday">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">태어난 요일</div>
+                    <div class="card-value small" id="birthDay">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">띠</div>
+                    <div class="card-value small" id="zodiacAnimal">-</div>
+                </div>
+                <div class="result-card full">
+                    <div class="card-label">별자리</div>
+                    <div class="card-value small" id="zodiacSign">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>만 나이 vs 한국 나이</h2>
+        <p>
+            <strong>만 나이</strong>는 태어난 날을 0세로 시작해 생일이 지날 때마다 한 살씩 더하는 국제 표준 나이입니다.
+            2023년 6월부터 한국도 법적·공식적으로 만 나이를 사용합니다.
+        </p>
+        <p>
+            <strong>한국 나이</strong>(세는 나이)는 태어난 해를 1세로 보고, 매년 1월 1일에 한 살씩 더하는 방식입니다.
+            일상 대화에서 여전히 많이 사용됩니다.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>나이 계산기</h2><p>생년월일을 입력하면 만 나이, 한국 나이, 일수, 다음 생일까지 남은 일수를 자동 계산합니다.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>만 나이와 한국 나이의 차이는?</summary><p>만 나이는 생일 기준, 한국 나이는 태어난 해 기준으로 1살부터 시작합니다. 2023년부터 한국도 만 나이가 공식 기준입니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="dday-calc.html">D-day 계산기</a><a href="date-convert.html">날짜 변환</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// 날짜 입력 최대값 = 오늘
+document.getElementById('birthday').max = new Date().toISOString().split('T')[0];
+
+const ANIMALS = ['쥐', '소', '호랑이', '토끼', '용', '뱀', '말', '양', '원숭이', '닭', '개', '돼지'];
+
+function getAnimal(year) {
+    // 1900 = 쥐(index 0)
+    return ANIMALS[((year - 1900) % 12 + 12) % 12];
+}
+
+function getZodiac(month, day) {
+    const signs = [
+        { name: '염소자리', end: [1, 19] },
+        { name: '물병자리', end: [2, 18] },
+        { name: '물고기자리', end: [3, 20] },
+        { name: '양자리',   end: [4, 19] },
+        { name: '황소자리', end: [5, 20] },
+        { name: '쌍둥이자리', end: [6, 20] },
+        { name: '게자리',   end: [7, 22] },
+        { name: '사자자리', end: [8, 22] },
+        { name: '처녀자리', end: [9, 22] },
+        { name: '천칭자리', end: [10, 22] },
+        { name: '전갈자리', end: [11, 21] },
+        { name: '사수자리', end: [12, 21] },
+    ];
+    for (const s of signs) {
+        if (month < s.end[0] || (month === s.end[0] && day <= s.end[1])) {
+            return s.name;
+        }
+    }
+    return '염소자리';
+}
+
+function calculate() {
+    const val = document.getElementById('birthday').value;
+    if (!val) {
+        alert('생년월일을 선택해주세요.');
+        return;
+    }
+
+    const birth = new Date(val);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (birth > today) {
+        alert('생년월일이 오늘보다 늦을 수 없습니다.');
+        return;
+    }
+
+    const birthYear  = birth.getFullYear();
+    const birthMonth = birth.getMonth() + 1; // 1-based
+    const birthDate  = birth.getDate();
+    const todayYear  = today.getFullYear();
+    const todayMonth = today.getMonth() + 1;
+    const todayDate  = today.getDate();
+
+    // 만 나이
+    let manAge = todayYear - birthYear;
+    if (todayMonth < birthMonth || (todayMonth === birthMonth && todayDate < birthDate)) {
+        manAge--;
+    }
+
+    // 한국 나이
+    const koreanAge = todayYear - birthYear + 1;
+
+    // 태어난 지 (년, 월, 일)
+    let eYears  = todayYear  - birthYear;
+    let eMonths = todayMonth - birthMonth;
+    let eDays   = todayDate  - birthDate;
+
+    if (eDays < 0) {
+        eMonths--;
+        const prevMonth = new Date(todayYear, today.getMonth(), 0); // last day of prev month
+        eDays += prevMonth.getDate();
+    }
+    if (eMonths < 0) {
+        eYears--;
+        eMonths += 12;
+    }
+
+    // 다음 생일까지
+    let nextBirth = new Date(todayYear, birthMonth - 1, birthDate);
+    if (nextBirth <= today) {
+        nextBirth = new Date(todayYear + 1, birthMonth - 1, birthDate);
+    }
+    const diffMs   = nextBirth - today;
+    const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+
+    // 태어난 요일
+    const DAYS = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+    const birthWeekday = DAYS[birth.getDay()];
+
+    // 띠
+    const animal = getAnimal(birthYear);
+
+    // 별자리
+    const zodiac = getZodiac(birthMonth, birthDate);
+
+    // 표시
+    document.getElementById('manAge').textContent    = manAge + '세';
+    document.getElementById('koreanAge').textContent = koreanAge + '세';
+    document.getElementById('elapsed').textContent   = eYears + '년 ' + eMonths + '개월 ' + eDays + '일';
+    document.getElementById('nextBirthday').textContent =
+        diffDays === 0 ? '오늘이 생일입니다!' : diffDays + '일 남음';
+    document.getElementById('birthDay').textContent  = birthWeekday;
+    document.getElementById('zodiacAnimal').textContent = animal + '띠';
+    document.getElementById('zodiacSign').textContent   = zodiac;
+
+    document.getElementById('result').style.display = 'block';
+}
+
+document.getElementById('birthday').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculate();
+});
+</script>
+
+</body>
+</html>

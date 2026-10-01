@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Severance Pay Calculator - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is the Severance Pay Calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is 100% free. No sign-up required. All processing happens in your browser and no personal data is sent to any server."}},
+    {"@type":"Question","name":"How do I use the Severance Pay Calculator?","acceptedAnswer":{"@type":"Answer","text":"Enter your start date, end date, and monthly base salary to get an estimated severance pay amount based on Korean labor law."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/severance-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/severance-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/severance-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/severance-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/severance-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/severance-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/severance-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/severance-calc.html">
+    <link rel="canonical" href="https://mogutool.com/en/tools/severance-calc.html">
+    <meta property="og:title" content="Severance Pay Calculator - MOGU Tools">
+    <meta property="og:description" content="Enter your start date, end date, and monthly base salary to get an estimated severance pay amount based on Korean labor law.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/en/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/en/tools/severance-calc.html">
+    <meta name="description" content="Enter your start date, end date, and monthly base salary to get an estimated severance pay amount based on Korean labor law.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group .label-hint {
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 28px 24px 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .result-amount {
+            font-size: 42px;
+            font-weight: 700;
+            color: #4a90d9;
+            letter-spacing: -1px;
+        }
+
+        .result-amount-sub {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+        .result-details {
+            margin-top: 16px;
+            border-radius: 10px;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 13px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row .detail-key {
+            color: #777;
+        }
+
+        .detail-row .detail-val {
+            font-weight: 600;
+            color: #333;
+            text-align: right;
+        }
+
+        .detail-row .detail-val small {
+            display: block;
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .formula-box {
+            margin-top: 16px;
+            background: #eef4fb;
+            border-radius: 10px;
+            padding: 16px 18px;
+            font-size: 13px;
+            color: #4a78a8;
+            line-height: 1.8;
+        }
+
+        .formula-box strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #3a6a9a;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section ul {
+            padding-left: 18px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../../en/index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../../en/index.html">MOGU Tools — Free Online Tools Collection</a> &gt; Calculator &gt; Severance Pay Calculator
+</div>
+
+<div class="container">
+    <h1>Severance Pay Calculator</h1>
+    <p class="subtitle">Enter your start date, end date, and salary information to estimate your severance pay.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>Start Date (Date of Hire)</label>
+            <div class="input-row">
+                <input type="date" id="startDate">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>End Date (Last Day of Work)</label>
+            <div class="input-row">
+                <input type="date" id="endDate">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Monthly Base Salary</label>
+            <div class="input-row">
+                <input type="number" id="baseSalary" placeholder="3000000" min="0" step="10000">
+                <span class="unit">KRW</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Annual Bonus <span class="label-hint">(optional)</span></label>
+            <div class="input-row">
+                <input type="number" id="annualBonus" placeholder="0" min="0" step="10000">
+                <span class="unit">KRW</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Unused Leave Pay <span class="label-hint">(optional · total unpaid annual leave)</span></label>
+            <div class="input-row">
+                <input type="number" id="leavePay" placeholder="0" min="0" step="10000">
+                <span class="unit">KRW</span>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">Calculate</button>
+
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="result-label">Estimated Severance Pay</div>
+                <div class="result-amount" id="resultAmount">0</div>
+                <div class="result-amount-sub" id="resultAmountSub"></div>
+            </div>
+
+            <div class="result-details">
+                <div class="detail-row">
+                    <span class="detail-key">Days Employed</span>
+                    <span class="detail-val" id="detailDays"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">Average Daily Wage</span>
+                    <span class="detail-val" id="detailDailyWage"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">Average Wage Calculation Period</span>
+                    <span class="detail-val" id="detailPeriod"></span>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                <strong>Severance Pay Formula</strong>
+                <span id="formulaText"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>What is Severance Pay? (Korean Labor Law)</h2>
+        <p>
+            Severance pay is a legally mandated payment under the Act on the Guarantee of Workers' Retirement Benefits in Korea.
+            Employers must pay severance to any employee who has worked <strong>1 year or more</strong>.
+        </p>
+        <ul>
+            <li>Eligibility: Continuous employment of 1+ year, working 15+ hours per week</li>
+            <li>Formula: Avg. daily wage (last 3 months) &times; 30 days &times; (days employed &divide; 365)</li>
+            <li>Avg. daily wage includes: base salary + 3/12 of annual bonus + 3/12 of unused leave pay</li>
+            <li>Payment deadline: Within 14 days of the last working day</li>
+        </ul>
+        <p style="margin-top:10px;">
+            This calculator provides an estimate for reference only. Actual severance pay may differ based on the terms of your employment contract.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Severance Pay Calculator</h2><p>Enter your start date, end date, and monthly base salary to get an estimated severance pay amount based on Korean labor law.</p></div>
+<div class="seo-section"><h2>Frequently Asked Questions</h2><details class="seo-faq"><summary>Is this tool free?</summary><p>Yes, 100% free. No signup required. All processing happens in your browser — no data is sent to any server.</p></details><details class="seo-faq"><summary>Can I use it on mobile?</summary><p>Yes, all tools are fully responsive and work on smartphones, tablets, and desktops.</p></details></div>
+<div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="savings-calc.html">Savings Calculator</a><a href="percent-calc.html">Percentage Calculator</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+function formatMoney(n) {
+    return Math.round(n).toLocaleString("en-US") + " KRW";
+}
+
+function getDaysBetween(start, end) {
+    const msPerDay = 1000 * 60 * 60 * 24;
+    return Math.floor((end - start) / msPerDay);
+}
+
+function formatDuration(totalDays) {
+    const years = Math.floor(totalDays / 365);
+    const remaining = totalDays - years * 365;
+    const months = Math.floor(remaining / 30);
+    const days = remaining - months * 30;
+    let parts = [];
+    if (years > 0) parts.push(years + " yr" + (years > 1 ? "s" : ""));
+    if (months > 0) parts.push(months + " mo" + (months > 1 ? "s" : ""));
+    if (days > 0) parts.push(days + " day" + (days > 1 ? "s" : ""));
+    return parts.join(" ");
+}
+
+function calculate() {
+    const startVal = document.getElementById("startDate").value;
+    const endVal = document.getElementById("endDate").value;
+    const baseSalary = parseFloat(document.getElementById("baseSalary").value) || 0;
+    const annualBonus = parseFloat(document.getElementById("annualBonus").value) || 0;
+    const leavePay = parseFloat(document.getElementById("leavePay").value) || 0;
+
+    if (!startVal || !endVal) {
+        alert("Please enter both the start date and end date.");
+        return;
+    }
+
+    const startDate = new Date(startVal);
+    const endDate = new Date(endVal);
+
+    if (endDate <= startDate) {
+        alert("The end date must be after the start date.");
+        return;
+    }
+
+    if (baseSalary <= 0) {
+        alert("Please enter a valid monthly base salary.");
+        return;
+    }
+
+    const totalDays = getDaysBetween(startDate, endDate);
+
+    if (totalDays < 365) {
+        alert("Severance pay is not applicable if employment is less than 1 year (365 days).\nCurrent days employed: " + totalDays);
+        return;
+    }
+
+    // Average wage calculation (based on last 3 months)
+    const threeMonthBase = baseSalary * 3;
+    const threeMonthBonus = annualBonus * (3 / 12);
+    const threeMonthLeave = leavePay * (3 / 12);
+    const threeMonthTotal = threeMonthBase + threeMonthBonus + threeMonthLeave;
+
+    // 3 months = 91 days (statutory standard)
+    const avgDailyWage = threeMonthTotal / 91;
+
+    // Severance = avg daily wage × 30 × (days employed / 365)
+    const severancePay = avgDailyWage * 30 * (totalDays / 365);
+
+    document.getElementById("resultAmount").textContent = Math.round(severancePay).toLocaleString("en-US") + " KRW";
+
+    const millions = Math.floor(severancePay / 1000000);
+    if (millions >= 1000) {
+        const billions = Math.floor(millions / 1000);
+        const remainM = millions % 1000;
+        document.getElementById("resultAmountSub").textContent =
+            "approx. " + billions + "B " + (remainM > 0 ? remainM.toLocaleString() + "M KRW" : "KRW");
+    } else if (millions > 0) {
+        document.getElementById("resultAmountSub").textContent = "approx. " + millions.toLocaleString() + "M KRW";
+    } else {
+        document.getElementById("resultAmountSub").textContent = "";
+    }
+
+    const duration = formatDuration(totalDays);
+    document.getElementById("detailDays").innerHTML =
+        totalDays.toLocaleString() + " days <small>" + duration + "</small>";
+
+    document.getElementById("detailDailyWage").textContent = formatMoney(avgDailyWage);
+
+    document.getElementById("detailPeriod").textContent = "Last 3 months before separation (91 days)";
+
+    document.getElementById("formulaText").innerHTML =
+        "Avg. daily wage <b>" + Math.round(avgDailyWage).toLocaleString("en-US") + " KRW</b>" +
+        " &times; 30 days &times; (" + totalDays.toLocaleString() + " days &divide; 365)<br>" +
+        "= <b>" + formatMoney(severancePay) + "</b>";
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") calculate();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字数カウント - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"文字数カウントは無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"文字数カウントの使い方は？","acceptedAnswer":{"@type":"Answer","text":"テキストを入力すると文字数、単語数、文数、行数、バイト数をリアルタイムで計算します。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/char-count.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/char-count.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/char-count.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/char-count.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/char-count.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/char-count.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/char-count.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/char-count.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/char-count.html">
+    <meta property="og:title" content="文字数カウント - MOGU Tools">
+    <meta property="og:description" content="テキストを入力すると文字数、単語数、文数、行数、バイト数をリアルタイムで計算します。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/char-count.html">
+    <meta name="description" content="テキストを入力すると文字数、単語数、文数、行数、バイト数をリアルタイムで計算します。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 660px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 660px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        textarea:focus {
+            border-color: #4a90d9;
+        }
+
+        textarea::placeholder {
+            color: #ccc;
+        }
+
+        .clear-btn {
+            margin-top: 8px;
+            padding: 7px 16px;
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .clear-btn:hover {
+            border-color: #bbb;
+            color: #666;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 16px 14px;
+            text-align: center;
+        }
+
+        .stat-card .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4a90d9;
+            line-height: 1;
+        }
+
+        .stat-card .stat-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 14px;
+            color: #555;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .info-list li {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            padding-left: 0;
+        }
+
+        .info-list li strong {
+            color: #444;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>ツール</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">ホーム</a> &gt; テキスト &gt; 文字数カウント
+</div>
+
+<div class="container">
+    <h1>文字数カウント</h1>
+    <p class="subtitle">テキストを入力すると文字数、単語数、文数などをリアルタイムで計算します。</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>テキスト入力</label>
+            <textarea id="inputText" placeholder="ここにテキストを入力または貼り付けてください..."></textarea>
+            <button class="clear-btn" onclick="clearText()">クリア</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="countWithSpaces">0</div>
+                <div class="stat-label">文字数<br>（空白含む）</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="countWithoutSpaces">0</div>
+                <div class="stat-label">文字数<br>（空白除く）</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="wordCount">0</div>
+                <div class="stat-label">単語数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="sentenceCount">0</div>
+                <div class="stat-label">文数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="lineCount">0</div>
+                <div class="stat-label">行数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="byteCount">0</div>
+                <div class="stat-label">バイト数<br>（UTF-8）</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>各項目の説明</h2>
+        <ul class="info-list">
+            <li><strong>文字数（空白含む）</strong> — スペースと改行を含む全文字数です。</li>
+            <li><strong>文字数（空白除く）</strong> — スペース、タブ、改行など全ての空白を除いた文字数です。</li>
+            <li><strong>単語数</strong> — 空白を基準に分けた単語の数です。</li>
+            <li><strong>文数</strong> — ピリオド(.)、感嘆符(!)、疑問符(?)で終わる文の数です。</li>
+            <li><strong>行数</strong> — 改行（Enter）を基準に分けた行の数です。</li>
+            <li><strong>バイト数（UTF-8）</strong> — UTF-8エンコーディング基準のバイト数です。英数字は1バイト、日本語は3バイトで計算されます。</li>
+        </ul>
+    </div>
+</div>
+
+<div class="seo-content"><div class="seo-section"><h2>文字数カウンターとは？</h2><p>テキストの<strong>文字数、単語数、文数、行数、バイト数</strong>をリアルタイムで計算します。SNS投稿、レポート、SEO最適化、文字数制限のあるコンテンツに必須のツールです。</p></div><div class="seo-section"><h2>よくある文字数制限</h2><ul><li><strong>Twitter/X</strong> — 280文字</li><li><strong>Instagramキャプション</strong> — 2,200文字</li><li><strong>メタディスクリプション(SEO)</strong> — 155〜160文字</li></ul></div><div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>スペースも文字数に含まれますか？</summary><p>はい、デフォルトではスペースを含む文字数が表示されます。スペースを除いた文字数も表示されます。</p></details></div><div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="word-freq.html">単語頻度分析</a><a href="case-convert.html">大文字小文字変換</a></div></div></div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const inputText = document.getElementById('inputText');
+
+    function updateCounts() {
+        const text = inputText.value;
+
+        // 글자수 (공백 포함)
+        document.getElementById('countWithSpaces').textContent = text.length;
+
+        // 글자수 (공백 제외)
+        document.getElementById('countWithoutSpaces').textContent = text.replace(/\s/g, '').length;
+
+        // 단어수
+        const trimmed = text.trim();
+        const words = trimmed === '' ? 0 : trimmed.split(/\s+/).length;
+        document.getElementById('wordCount').textContent = words;
+
+        // 문장수
+        const sentences = trimmed === '' ? 0 : (trimmed.match(/[^.!?]*[.!?]+/g) || []).length;
+        document.getElementById('sentenceCount').textContent = sentences;
+
+        // 줄수
+        const lines = text === '' ? 0 : text.split('\n').length;
+        document.getElementById('lineCount').textContent = lines;
+
+        // 바이트수 (UTF-8)
+        let bytes = 0;
+        for (let i = 0; i < text.length; i++) {
+            const code = text.charCodeAt(i);
+            if (code <= 0x7F) {
+                bytes += 1;
+            } else if (code <= 0x7FF) {
+                bytes += 2;
+            } else if (code >= 0xD800 && code <= 0xDBFF) {
+                // surrogate pair (emoji etc.) = 4 bytes
+                bytes += 4;
+                i++;
+            } else {
+                bytes += 3;
+            }
+        }
+        document.getElementById('byteCount').textContent = bytes;
+    }
+
+    function clearText() {
+        inputText.value = '';
+        updateCounts();
+        inputText.focus();
+    }
+
+    inputText.addEventListener('input', updateCounts);
+
+    // 초기 실행
+    updateCounts();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絵文字検索 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"絵文字検索は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"絵文字検索の使い方は？","acceptedAnswer":{"@type":"Answer","text":"絵文字を検索してクリックでコピーします。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/emoji-search.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/emoji-search.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/emoji-search.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/emoji-search.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/emoji-search.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/emoji-search.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/emoji-search.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/emoji-search.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/emoji-search.html">
+    <meta property="og:title" content="絵文字検索 - MOGU Tools">
+    <meta property="og:description" content="絵文字を検索してクリックでコピーします。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/emoji-search.html">
+    <meta name="description" content="絵文字を検索してクリックでコピーします。">
+    <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;color:#333}header{background:#fff;border-bottom:2px solid #eee;padding:16px 20px}header a{text-decoration:none;color:#2c2c2c;font-size:18px;font-weight:700}header a span{color:#4a90d9}.container{max-width:700px;margin:10px auto 40px;padding:0 20px}h1{font-size:24px;font-weight:700;margin-bottom:8px}.subtitle{color:#888;font-size:14px;margin-bottom:16px}input[type=text]{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:8px;font-size:16px;outline:none;margin-bottom:16px}input:focus{border-color:#4a90d9}.copied{font-size:13px;color:#27ae60;min-height:20px;margin-bottom:8px}.grid{display:flex;flex-wrap:wrap;gap:4px}.emoji-btn{width:44px;height:44px;border:none;background:#fff;border-radius:8px;font-size:24px;cursor:pointer;transition:transform 0.1s}.emoji-btn:hover{transform:scale(1.3);background:#f0f6fd}footer{text-align:center;padding:30px;color:#bbb;font-size:13px}</style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+<header><a href="../index.html">MOGU <span>Tools</span></a></header>
+<div class="container">
+    <h1>😀 絵文字検索</h1>
+    <p class="subtitle">クリックするとコピーされます。検索で探してみてください。</p>
+    <input type="text" id="search" placeholder="検索: smile, heart, star, animal..." oninput="filter()">
+    <div class="copied" id="copied"></div>
+    <div class="grid" id="grid"></div>
+</div>
+<div class="seo-content">
+<div class="seo-section"><h2>絵文字検索</h2><p>絵文字を検索してクリックでコピーします。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="char-count.html">文字数カウント</a><a href="unicode-search.html">Unicode Search</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+<script>
+const EMOJIS=[
+{e:'😀',k:'smile grin happy 笑顔'},{e:'😂',k:'laugh cry tears 泣き笑い'},{e:'🥹',k:'touched 感動'},{e:'😍',k:'love heart eyes 大好き'},{e:'😎',k:'cool sunglasses かっこいい'},{e:'🤔',k:'think 考え中'},{e:'😢',k:'sad cry 悲しい'},{e:'😡',k:'angry 怒り'},{e:'🥺',k:'please cute かわいい'},{e:'😱',k:'shock scream 驚き'},{e:'🤣',k:'rofl 大爆笑'},{e:'😴',k:'sleep 眠い'},{e:'🤮',k:'vomit sick 気持ち悪い'},{e:'🤯',k:'explode mind blown すごい'},
+{e:'❤️',k:'heart love red ハート 愛'},{e:'💔',k:'broken heart 失恋'},{e:'💕',k:'hearts love 愛'},{e:'🔥',k:'fire hot 炎 熱い'},{e:'⭐',k:'star 星'},{e:'✨',k:'sparkle shine キラキラ'},{e:'🌈',k:'rainbow 虹'},{e:'☀️',k:'sun 太陽'},{e:'🌙',k:'moon 月'},{e:'❄️',k:'snow 雪'},{e:'🌸',k:'cherry blossom 桜'},{e:'🌹',k:'rose バラ'},
+{e:'👍',k:'thumbs up good いいね'},{e:'👎',k:'thumbs down bad よくない'},{e:'👏',k:'clap 拍手'},{e:'🙏',k:'pray please thanks ありがとう'},{e:'💪',k:'muscle strong 力'},{e:'✌️',k:'peace victory ピース'},{e:'🤝',k:'handshake deal 握手'},{e:'👋',k:'wave hello bye こんにちは'},
+{e:'🐶',k:'dog 犬 いぬ'},{e:'🐱',k:'cat 猫 ねこ'},{e:'🐻',k:'bear 熊'},{e:'🐼',k:'panda パンダ'},{e:'🦊',k:'fox キツネ'},{e:'🐵',k:'monkey サル'},{e:'🐷',k:'pig ブタ'},{e:'🐸',k:'frog カエル'},{e:'🦋',k:'butterfly チョウ'},{e:'🐍',k:'snake ヘビ'},
+{e:'🍎',k:'apple リンゴ'},{e:'🍕',k:'pizza ピザ'},{e:'🍔',k:'burger hamburger ハンバーガー'},{e:'🍟',k:'fries フライドポテト'},{e:'🍜',k:'noodle ramen ラーメン'},{e:'🍣',k:'sushi 寿司'},{e:'🍺',k:'beer ビール'},{e:'☕',k:'coffee コーヒー'},{e:'🎂',k:'cake birthday ケーキ 誕生日'},
+{e:'🎉',k:'party celebrate パーティー お祝い'},{e:'🎊',k:'confetti お祝い'},{e:'🎁',k:'gift present プレゼント'},{e:'🏆',k:'trophy winner トロフィー 優勝'},{e:'🎵',k:'music note 音楽'},{e:'🎮',k:'game controller ゲーム'},{e:'📱',k:'phone mobile スマホ'},{e:'💻',k:'laptop computer パソコン'},{e:'📧',k:'email mail メール'},{e:'📷',k:'camera photo カメラ 写真'},
+{e:'✅',k:'check done 完了'},{e:'❌',k:'x wrong no ダメ 違う'},{e:'⚠️',k:'warning 警告'},{e:'💡',k:'idea bulb アイデア 電球'},{e:'🔑',k:'key 鍵'},{e:'🔒',k:'lock 鍵 ロック'},{e:'⏰',k:'alarm clock 目覚まし 時計'},{e:'📌',k:'pin ピン 固定'},{e:'🗑️',k:'trash delete 削除 ゴミ箱'},{e:'💯',k:'100 perfect 満点 完璧'}
+];
+function render(list){document.getElementById('grid').innerHTML=list.map(e=>`<button class="emoji-btn" onclick="copy('${e.e}')">${e.e}</button>`).join('');}
+function filter(){const q=document.getElementById('search').value.toLowerCase();const filtered=q?EMOJIS.filter(e=>e.k.includes(q)):EMOJIS;render(filtered);}
+function copy(e){navigator.clipboard.writeText(e);document.getElementById('copied').textContent=`${e} コピーしました！`;setTimeout(()=>document.getElementById('copied').textContent='',1500);}
+render(EMOJIS);
+</script>
+</body>
+</html>

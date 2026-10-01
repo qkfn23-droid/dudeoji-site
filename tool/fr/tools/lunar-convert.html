@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur Calendrier Solaire-Lunaire - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Convertisseur Calendrier Solaire-Lunaire est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, 100% gratuit. Aucune inscription requise. Tout le traitement se fait dans votre navigateur, aucune donnee personnelle n est envoyee a un serveur."}},
+    {"@type":"Question","name":"Comment utiliser Convertisseur Calendrier Solaire-Lunaire ?","acceptedAnswer":{"@type":"Answer","text":"Convertissez instantanement les dates du calendrier solaire en lunaire et inversement. 1900-2025."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/lunar-convert.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/lunar-convert.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/lunar-convert.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/lunar-convert.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/lunar-convert.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/lunar-convert.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/lunar-convert.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/lunar-convert.html">
+    <link rel="canonical" href="https://mogutool.com/fr/tools/lunar-convert.html">
+    <meta property="og:title" content="Convertisseur Calendrier Solaire-Lunaire - MOGU Tools">
+    <meta property="og:description" content="Convertissez instantanement les dates du calendrier solaire en lunaire et inversement. 1900-2025.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/fr/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/fr/tools/lunar-convert.html">
+    <meta name="description" content="Convertissez instantanement les dates du calendrier solaire en lunaire et inversement. 1900-2025.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 600px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 600px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+        .calc-box { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; }
+        .tabs { display: flex; gap: 0; margin-bottom: 24px; border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+        .tab-btn { flex: 1; padding: 11px 0; background: #fff; border: none; font-size: 14px; font-weight: 500; color: #999; cursor: pointer; transition: all 0.15s; }
+        .tab-btn.active { background: #4a90d9; color: #fff; font-weight: 600; }
+        .tab-btn:not(.active):hover { background: #f0f6fd; color: #4a90d9; }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #555; }
+        .input-row { display: flex; gap: 8px; }
+        .input-row select { flex: 1; padding: 12px 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; outline: none; transition: border-color 0.2s; background: #fff; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 30px; }
+        .input-row select:focus { border-color: #4a90d9; }
+        .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+        .checkbox-row input { width: 18px; height: 18px; accent-color: #4a90d9; }
+        .checkbox-row label { font-size: 14px; color: #555; cursor: pointer; }
+        .calc-btn { width: 100%; padding: 14px; background: #4a90d9; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .calc-btn:hover { background: #3a7bc8; }
+        .result { display: none; margin-top: 24px; text-align: center; padding: 28px; border-radius: 10px; background: #f8f9fa; }
+        .result-main { font-size: 36px; font-weight: 700; color: #4a90d9; margin-bottom: 8px; }
+        .result-sub { font-size: 15px; color: #666; margin-bottom: 4px; }
+        .result-detail { font-size: 13px; color: #999; margin-top: 12px; line-height: 1.8; }
+        .info-section { margin-top: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; }
+        .info-section h2 { font-size: 16px; margin-bottom: 12px; color: #555; }
+        .info-section p { font-size: 14px; color: #666; line-height: 1.7; }
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Outils en Ligne Gratuits</a> &gt; Convertisseur &gt; Calendrier Solaire-Lunaire
+</div>
+
+<div class="container">
+    <h1>Convertisseur Calendrier Solaire-Lunaire</h1>
+    <p class="subtitle">Convertissez instantanement entre les dates solaires et lunaires.</p>
+
+    <div class="calc-box">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('s2l')">Solaire &rarr; Lunaire</button>
+            <button class="tab-btn" onclick="switchTab('l2s')">Lunaire &rarr; Solaire</button>
+        </div>
+
+        <div class="tab-panel active" id="panel-s2l">
+            <div class="input-group">
+                <label>Date solaire</label>
+                <div class="input-row">
+                    <select id="s2l-year"></select>
+                    <select id="s2l-month"></select>
+                    <select id="s2l-day"></select>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="convertS2L()">Convertir</button>
+        </div>
+
+        <div class="tab-panel" id="panel-l2s">
+            <div class="input-group">
+                <label>Date lunaire</label>
+                <div class="input-row">
+                    <select id="l2s-year"></select>
+                    <select id="l2s-month"></select>
+                    <select id="l2s-day"></select>
+                </div>
+            </div>
+            <div class="checkbox-row">
+                <input type="checkbox" id="l2s-leap">
+                <label for="l2s-leap">Mois intercalaire</label>
+            </div>
+            <button class="calc-btn" onclick="convertL2S()">Convertir</button>
+        </div>
+
+        <div class="result" id="result">
+            <div class="result-main" id="resultMain">-</div>
+            <div class="result-sub" id="resultSub">-</div>
+            <div class="result-detail" id="resultDetail"></div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Calendriers solaire et lunaire</h2>
+        <p>
+            Le <strong>calendrier solaire (gregorien)</strong> est base sur l'orbite de la Terre autour du Soleil (365,25 jours) et est utilise dans le monde entier.<br><br>
+            Le <strong>calendrier lunaire (lunisolaire)</strong> est base sur les phases de la Lune (29,5 jours) et est traditionnellement utilise en Asie de l'Est (Coree, Chine, Japon) pour les fetes et anniversaires.<br><br>
+            Le calendrier lunaire ajoute un mois intercalaire environ tous les 3 ans pour rester aligne avec le calendrier solaire. Cet outil prend en charge les conversions de 1900 a 2025.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Convertisseur Calendrier Solaire-Lunaire</h2><p>Convertissez instantanement les dates du calendrier solaire en lunaire et inversement. 1900-2025.</p></div>
+<div class="seo-section"><h2>Questions fréquentes</h2><details class="seo-faq"><summary>Cet outil est-il gratuit ?</summary><p>Oui, 100% gratuit. Pas d'inscription. Tout est traité dans votre navigateur — aucune donnée n'est envoyée.</p></details><details class="seo-faq"><summary>Ça marche sur mobile ?</summary><p>Oui, tous les outils sont responsifs et fonctionnent sur smartphones, tablettes et ordinateurs.</p></details></div>
+<div class="seo-section"><h2>Outils associés</h2><div class="seo-related"><a href="date-convert.html">Convertisseur de dates</a><a href="zodiac-animal.html">Signe astrologique chinois</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+const LUNAR_DATA = [
+    0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+    0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
+    0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,
+    0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,
+    0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,
+    0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,
+    0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,
+    0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,
+    0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,
+    0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x05ac0,0x0ab60,0x096d5,0x092e0,
+    0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,
+    0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,
+    0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6
+];
+const LUNAR_START = 1900;
+
+function lunarMonthDays(y, m) { return (LUNAR_DATA[y - LUNAR_START] & (0x10000 >> m)) ? 30 : 29; }
+function lunarLeapMonth(y) { return LUNAR_DATA[y - LUNAR_START] & 0xf; }
+function lunarLeapDays(y) { if (lunarLeapMonth(y)) return (LUNAR_DATA[y - LUNAR_START] & 0x10000) ? 30 : 29; return 0; }
+function lunarYearDays(y) {
+    let sum = 348;
+    for (let i = 0x8000; i > 0x8; i >>= 1) sum += (LUNAR_DATA[y - LUNAR_START] & i) ? 1 : 0;
+    return sum + lunarLeapDays(y);
+}
+
+const LUNAR_BASE = new Date(1900, 0, 31);
+const TIANGAN = ['Jia','Yi','Bing','Ding','Wu','Ji','Geng','Xin','Ren','Gui'];
+const DIZHI = ['Zi','Chou','Yin','Mao','Chen','Si','Wu','Wei','Shen','You','Xu','Hai'];
+const ANIMALS = ['Rat','Boeuf','Tigre','Lapin','Dragon','Serpent','Cheval','Chevre','Singe','Coq','Chien','Cochon'];
+
+function getGanZhi(year) {
+    const tg = TIANGAN[(year - 4) % 10];
+    const dz = DIZHI[(year - 4) % 12];
+    const animal = ANIMALS[(year - 4) % 12];
+    return { ganZhi: tg + ' ' + dz, animal };
+}
+
+function solarToLunar(sY, sM, sD) {
+    const target = new Date(sY, sM - 1, sD);
+    let offset = Math.round((target - LUNAR_BASE) / 86400000);
+    if (offset < 0) return null;
+    let lunarY = LUNAR_START, lunarM = 1, lunarD = 1, isLeap = false;
+    for (let i = LUNAR_START; i <= 2025 && offset > 0; i++) {
+        const yDays = lunarYearDays(i);
+        if (offset < yDays) { lunarY = i; break; }
+        offset -= yDays; lunarY = i + 1;
+    }
+    const leapM = lunarLeapMonth(lunarY);
+    for (let i = 1; i <= 12; i++) {
+        const mDays = lunarMonthDays(lunarY, i);
+        if (offset < mDays) { lunarM = i; lunarD = offset + 1; break; }
+        offset -= mDays;
+        if (i === leapM) {
+            const lDays = lunarLeapDays(lunarY);
+            if (offset < lDays) { lunarM = i; lunarD = offset + 1; isLeap = true; break; }
+            offset -= lDays;
+        }
+    }
+    return { year: lunarY, month: lunarM, day: lunarD, leap: isLeap };
+}
+
+function lunarToSolar(lY, lM, lD, isLeap) {
+    if (lY < LUNAR_START || lY > 2025) return null;
+    let offset = 0;
+    for (let i = LUNAR_START; i < lY; i++) offset += lunarYearDays(i);
+    const leapM = lunarLeapMonth(lY);
+    for (let i = 1; i < lM; i++) {
+        offset += lunarMonthDays(lY, i);
+        if (i === leapM) offset += lunarLeapDays(lY);
+    }
+    if (isLeap && lM === leapM) offset += lunarMonthDays(lY, lM);
+    offset += lD - 1;
+    const result = new Date(LUNAR_BASE);
+    result.setDate(result.getDate() + offset);
+    return { year: result.getFullYear(), month: result.getMonth() + 1, day: result.getDate() };
+}
+
+const WEEKDAYS = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+let currentTab = 's2l';
+
+function switchTab(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', (tab === 's2l' && i === 0) || (tab === 'l2s' && i === 1)));
+    document.getElementById('panel-s2l').classList.toggle('active', tab === 's2l');
+    document.getElementById('panel-l2s').classList.toggle('active', tab === 'l2s');
+    document.getElementById('result').style.display = 'none';
+}
+
+function convertS2L() {
+    const y = parseInt(document.getElementById('s2l-year').value);
+    const m = parseInt(document.getElementById('s2l-month').value);
+    const d = parseInt(document.getElementById('s2l-day').value);
+    const lunar = solarToLunar(y, m, d);
+    if (!lunar) { alert('Date hors limites (1900-2025).'); return; }
+    const gz = getGanZhi(lunar.year);
+    const dow = WEEKDAYS[new Date(y, m-1, d).getDay()];
+    document.getElementById('resultMain').textContent = `Lunaire: ${lunar.year}/${lunar.leap ? 'Int.' : ''}${lunar.month}/${lunar.day}`;
+    document.getElementById('resultSub').textContent = `Solaire: ${y}/${m}/${d} (${dow})`;
+    document.getElementById('resultDetail').innerHTML =
+        `<strong>Tronc-Branche:</strong> ${gz.ganZhi} (${gz.animal})<br>` +
+        `<strong>Mois intercalaire:</strong> ${lunar.leap ? 'Oui (mois ' + lunar.month + ')' : 'Non'}<br>` +
+        `<strong>Duree du mois:</strong> ${lunarMonthDays(lunar.year, lunar.month) === 30 ? 'Long (30 jours)' : 'Court (29 jours)'}`;
+    document.getElementById('result').style.display = 'block';
+}
+
+function convertL2S() {
+    const y = parseInt(document.getElementById('l2s-year').value);
+    const m = parseInt(document.getElementById('l2s-month').value);
+    const d = parseInt(document.getElementById('l2s-day').value);
+    const isLeap = document.getElementById('l2s-leap').checked;
+    const solar = lunarToSolar(y, m, d, isLeap);
+    if (!solar) { alert('Date hors limites (1900-2025).'); return; }
+    const gz = getGanZhi(y);
+    const dow = WEEKDAYS[new Date(solar.year, solar.month-1, solar.day).getDay()];
+    document.getElementById('resultMain').textContent = `Solaire: ${solar.year}/${solar.month}/${solar.day}`;
+    document.getElementById('resultSub').textContent = `Lunaire: ${y}/${isLeap ? 'Int.' : ''}${m}/${d} (${dow})`;
+    document.getElementById('resultDetail').innerHTML =
+        `<strong>Tronc-Branche:</strong> ${gz.ganZhi} (${gz.animal})<br>` +
+        `<strong>Mois intercalaire:</strong> ${isLeap ? 'Oui' : 'Non'}`;
+    document.getElementById('result').style.display = 'block';
+}
+
+function initForm() {
+    ['s2l','l2s'].forEach(prefix => {
+        const y = document.getElementById(prefix + '-year');
+        const m = document.getElementById(prefix + '-month');
+        const d = document.getElementById(prefix + '-day');
+        for (let i = 2025; i >= LUNAR_START; i--) { const o = document.createElement('option'); o.value = i; o.textContent = i; if (i === 1995) o.selected = true; y.appendChild(o); }
+        for (let i = 1; i <= 12; i++) { const o = document.createElement('option'); o.value = i; o.textContent = i; if (i === 3) o.selected = true; m.appendChild(o); }
+        for (let i = 1; i <= 30; i++) { const o = document.createElement('option'); o.value = i; o.textContent = i; if (i === 15) o.selected = true; d.appendChild(o); }
+    });
+}
+
+initForm();
+document.addEventListener('keydown', e => { if (e.key === 'Enter') currentTab === 's2l' ? convertS2L() : convertL2S(); });
+</script>
+
+</body>
+</html>

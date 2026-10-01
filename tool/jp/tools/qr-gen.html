@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRコード生成 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"QRコード生成は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"QRコード生成の使い方は？","acceptedAnswer":{"@type":"Answer","text":"URLやテキストを入力するとQRコードを即座に生成。オフラインでも使用可能。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/qr-gen.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/qr-gen.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/qr-gen.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/qr-gen.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/qr-gen.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/qr-gen.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/qr-gen.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/qr-gen.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/qr-gen.html">
+    <meta property="og:title" content="QRコード生成 - MOGU Tools">
+    <meta property="og:description" content="URLやテキストを入力するとQRコードを即座に生成。オフラインでも使用可能。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/qr-gen.html">
+    <meta name="description" content="URLやテキストを入力するとQRコードを即座に生成。オフラインでも使用可能。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.2s;
+            color: #333;
+        }
+
+        .input-group textarea:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-group textarea::placeholder {
+            color: #bbb;
+        }
+
+        .size-group {
+            margin-bottom: 20px;
+        }
+
+        .size-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .size-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-btn {
+            flex: 1;
+            padding: 10px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .size-btn.active {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .qr-wrapper {
+            display: inline-block;
+            padding: 16px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+        }
+
+        .qr-wrapper canvas {
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: #fff;
+            color: #4a90d9;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>ツール</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — 無料オンラインツール集</a> &gt; ユーティリティ &gt; QRコード生成
+</div>
+
+<div class="container">
+    <h1>QRコード生成</h1>
+    <p class="subtitle">URLやテキストを入力するとQRコードを即座に生成します。</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>URLまたはテキスト</label>
+            <textarea id="qrInput" placeholder="https://example.com またはテキストを入力"></textarea>
+        </div>
+
+        <div class="size-group">
+            <label>サイズ</label>
+            <div class="size-btns">
+                <button class="size-btn" data-size="128" onclick="selectSize(this)">小<br><small>128px</small></button>
+                <button class="size-btn active" data-size="256" onclick="selectSize(this)">中<br><small>256px</small></button>
+                <button class="size-btn" data-size="512" onclick="selectSize(this)">大<br><small>512px</small></button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="generateQR()">生成する</button>
+
+        <div class="result" id="result">
+            <div class="qr-wrapper">
+                <canvas id="qrCanvas"></canvas>
+            </div>
+            <button class="download-btn" onclick="downloadQR()">ダウンロード</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>QRコードとは？</h2>
+        <p>
+            QRコード（Quick Response Code）は白黒の格子模様で情報を格納する2次元バーコードです。
+            スマートフォンのカメラでスキャンするとURL、テキストなどの情報を素早く確認できます。
+            このツールはインターネット接続なしでもQRコードを生成できます。
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>QRコード生成</h2><p>URLやテキストを入力するとQRコードを即座に生成。オフラインでも使用可能。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="encoding.html">エンコード変換</a><a href="url-encode.html">URLエンコーダー/デコーダー</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// ─────────────────────────────────────────────
+// Minimal QR Code Generator (self-contained)
+// Supports Byte mode, error correction level M
+// Based on the ISO/IEC 18004 QR Code standard
+// ─────────────────────────────────────────────
+
+var QRCode = (function () {
+
+    // GF(256) arithmetic
+    var EXP = new Array(256);
+    var LOG = new Array(256);
+    (function () {
+        var x = 1;
+        for (var i = 0; i < 256; i++) {
+            EXP[i] = x;
+            LOG[x] = i;
+            x = x << 1;
+            if (x & 0x100) x ^= 0x11d;
+        }
+    })();
+
+    function gfMul(a, b) {
+        if (a === 0 || b === 0) return 0;
+        return EXP[(LOG[a] + LOG[b]) % 255];
+    }
+
+    function gfPoly(e) {
+        // Generator polynomial for e error correction codewords
+        var p = [1];
+        for (var i = 0; i < e; i++) {
+            var q = [1, EXP[i]];
+            var r = new Array(p.length + 1).fill(0);
+            for (var j = 0; j < p.length; j++)
+                for (var k = 0; k < q.length; k++)
+                    r[j + k] ^= gfMul(p[j], q[k]);
+            p = r;
+        }
+        return p;
+    }
+
+    function rsEncode(data, nec) {
+        var gen = gfPoly(nec);
+        var msg = data.slice();
+        for (var i = 0; i < nec; i++) msg.push(0);
+        for (var i = 0; i < data.length; i++) {
+            var c = msg[i];
+            if (c !== 0) {
+                for (var j = 0; j < gen.length; j++) {
+                    msg[i + j] ^= gfMul(gen[j], c);
+                }
+            }
+        }
+        return msg.slice(data.length);
+    }
+
+    // QR version capacity tables (version 1–10, error level M)
+    // [version]: { ec_codewords, blocks, data_codewords }
+    var VERSION_CAP = [
+        null,
+        { dcw: 16,  ecw: 10, bl: [[1,16,10]]  },  // v1
+        { dcw: 28,  ecw: 16, bl: [[1,28,16]]  },  // v2
+        { dcw: 44,  ecw: 26, bl: [[1,44,26]]  },  // v3
+        { dcw: 64,  ecw: 36, bl: [[2,32,18]]  },  // v4
+        { dcw: 86,  ecw: 46, bl: [[2,43,24]]  },  // v5
+        { dcw: 108, ecw: 60, bl: [[4,27,15]]  },  // v6
+        { dcw: 124, ecw: 66, bl: [[4,31,19]]  },  // v7
+        { dcw: 154, ecw: 86, bl: [[2,38,14],[4,18,14]] },  // v8
+        { dcw: 182, ecw: 100,bl: [[3,36,12],[3,36,12]]},  // v9 — simplified
+        { dcw: 216, ecw: 86, bl: [[4,43,15],[1,43,15]]},  // v10
+    ];
+
+    // Alignment pattern positions per version
+    var ALIGN_POS = [
+        [], [], [6,18], [6,22], [6,26], [6,30], [6,34],
+        [6,22,38], [6,24,42], [6,26,46], [6,28,50]
+    ];
+
+    function getVersion(byteLen) {
+        // Data capacity for byte mode, error level M
+        // (data codewords = floor((dcw * 8 - 4 - 8) / 8) simplified)
+        var caps = [0,16,19,24,28,35,40,51,60,72,80]; // rough per-version caps in chars
+        for (var v = 1; v <= 10; v++) {
+            if (byteLen <= caps[v]) return v;
+        }
+        return -1; // too long
+    }
+
+    function getBitStream(text, version) {
+        var bytes = [];
+        // UTF-8 encode
+        for (var i = 0; i < text.length; i++) {
+            var c = text.charCodeAt(i);
+            if (c < 0x80) {
+                bytes.push(c);
+            } else if (c < 0x800) {
+                bytes.push(0xC0 | (c >> 6));
+                bytes.push(0x80 | (c & 0x3F));
+            } else {
+                bytes.push(0xE0 | (c >> 12));
+                bytes.push(0x80 | ((c >> 6) & 0x3F));
+                bytes.push(0x80 | (c & 0x3F));
+            }
+        }
+
+        var bits = [];
+        function addBits(val, len) {
+            for (var i = len - 1; i >= 0; i--)
+                bits.push((val >> i) & 1);
+        }
+
+        // Mode indicator: byte = 0100
+        addBits(4, 4);
+        // Character count: version 1–9 uses 8 bits for byte mode
+        var ccBits = version < 10 ? 8 : 16;
+        addBits(bytes.length, ccBits);
+        // Data
+        for (var i = 0; i < bytes.length; i++) addBits(bytes[i], 8);
+        // Terminator
+        addBits(0, 4);
+        // Pad to byte boundary
+        while (bits.length % 8 !== 0) bits.push(0);
+
+        return { bits: bits, bytes: bytes };
+    }
+
+    function bitsToCodewords(bits, totalCW) {
+        var cw = [];
+        for (var i = 0; i < bits.length; i += 8) {
+            var byte_ = 0;
+            for (var j = 0; j < 8; j++) byte_ = (byte_ << 1) | (bits[i + j] || 0);
+            cw.push(byte_);
+        }
+        var pad = [0xEC, 0x11];
+        var pi = 0;
+        while (cw.length < totalCW) { cw.push(pad[pi++ % 2]); }
+        return cw;
+    }
+
+    function interleaveBlocks(blocks) {
+        var result = [];
+        var maxLen = 0;
+        blocks.forEach(function (b) { if (b.data.length > maxLen) maxLen = b.data.length; });
+        for (var i = 0; i < maxLen; i++)
+            blocks.forEach(function (b) { if (i < b.data.length) result.push(b.data[i]); });
+        maxLen = 0;
+        blocks.forEach(function (b) { if (b.ec.length > maxLen) maxLen = b.ec.length; });
+        for (var i = 0; i < maxLen; i++)
+            blocks.forEach(function (b) { if (i < b.ec.length) result.push(b.ec[i]); });
+        return result;
+    }
+
+    function allCodewords(version, dataCW) {
+        var vc = VERSION_CAP[version];
+        var blocks = [];
+        var cwIdx = 0;
+
+        for (var gi = 0; gi < vc.bl.length; gi++) {
+            var group = vc.bl[gi]; // [count, total_per_block, data_per_block]
+            var count = group[0];
+            var dataPer = group[2];
+            var ecPer = group[1] - group[2];
+            for (var bi = 0; bi < count; bi++) {
+                var slice = dataCW.slice(cwIdx, cwIdx + dataPer);
+                cwIdx += dataPer;
+                blocks.push({ data: slice, ec: rsEncode(slice, ecPer) });
+            }
+        }
+        return interleaveBlocks(blocks);
+    }
+
+    // ─── Matrix building ───
+
+    function makeMatrix(size) {
+        var m = [];
+        for (var r = 0; r < size; r++) {
+            m.push(new Int8Array(size).fill(-1));
+        }
+        return m;
+    }
+
+    function setRect(m, r, c, rows, cols, val) {
+        for (var i = r; i < r + rows; i++)
+            for (var j = c; j < c + cols; j++)
+                m[i][j] = val;
+    }
+
+    function drawFinderPattern(m, row, col) {
+        // 7x7 finder
+        setRect(m, row, col, 7, 7, 1);
+        setRect(m, row+1, col+1, 5, 5, 0);
+        setRect(m, row+2, col+2, 3, 3, 1);
+    }
+
+    function drawAlignmentPattern(m, row, col) {
+        for (var r = row - 2; r <= row + 2; r++)
+            for (var c = col - 2; c <= col + 2; c++) {
+                if (m[r][c] !== -1) continue; // skip reserved
+                var onEdge = r === row - 2 || r === row + 2 || c === col - 2 || c === col + 2;
+                var center = r === row && c === col;
+                m[r][c] = (onEdge || center) ? 1 : 0;
+            }
+    }
+
+    function isReserved(m, r, c) {
+        return m[r][c] !== -1;
+    }
+
+    function placeModules(m, codewords, size, mask) {
+        var cw = codewords;
+        var cwIdx = 0, bitIdx = 7;
+        var col = size - 1;
+
+        while (col > 0) {
+            if (col === 6) col--; // skip timing column
+            for (var row = 0; row < size; row++) {
+                var actualRow = (Math.floor((size - 1 - col) / 2) % 2 === 0) ? (size - 1 - row) : row;
+                for (var dc = 0; dc < 2; dc++) {
+                    var c = col - dc;
+                    if (m[actualRow][c] !== -1) continue;
+                    var bit = 0;
+                    if (cwIdx < cw.length) {
+                        bit = (cw[cwIdx] >> bitIdx) & 1;
+                        bitIdx--;
+                        if (bitIdx < 0) { bitIdx = 7; cwIdx++; }
+                    }
+                    // Apply mask
+                    var masked = bit ^ applyMask(mask, actualRow, c);
+                    m[actualRow][c] = masked;
+                }
+            }
+            col -= 2;
+        }
+    }
+
+    function applyMask(mask, r, c) {
+        switch (mask) {
+            case 0: return ((r + c) % 2 === 0) ? 1 : 0;
+            case 1: return (r % 2 === 0) ? 1 : 0;
+            case 2: return (c % 3 === 0) ? 1 : 0;
+            case 3: return ((r + c) % 3 === 0) ? 1 : 0;
+            case 4: return ((Math.floor(r/2) + Math.floor(c/3)) % 2 === 0) ? 1 : 0;
+            case 5: return ((r*c)%2 + (r*c)%3 === 0) ? 1 : 0;
+            case 6: return (((r*c)%2 + (r*c)%3) % 2 === 0) ? 1 : 0;
+            case 7: return (((r+c)%2 + (r*c)%3) % 2 === 0) ? 1 : 0;
+        }
+        return 0;
+    }
+
+    // Format info bits for error level M and mask pattern
+    var FORMAT_INFO = [
+        0x5412, 0x5125, 0x5E7C, 0x5B4B,
+        0x45F9, 0x40CE, 0x4F97, 0x4AA0
+    ];
+
+    function placeFormatInfo(m, size, mask) {
+        var fmt = FORMAT_INFO[mask];
+        var bits = [];
+        for (var i = 14; i >= 0; i--) bits.push((fmt >> i) & 1);
+
+        // Horizontal (top-left)
+        var hIdx = 0;
+        for (var c = 0; c <= 8; c++) {
+            if (c === 6) continue;
+            m[8][c] = bits[hIdx++];
+        }
+        m[8][7] = bits[hIdx++]; // skip 6
+        m[8][8] = bits[hIdx++];
+        // Vertical (top-left)
+        var vIdx = 14;
+        for (var r = 0; r <= 8; r++) {
+            if (r === 6) continue;
+            m[r][8] = bits[vIdx--];
+        }
+        // Bottom-left and top-right copies
+        hIdx = 0;
+        for (var r = size - 7; r < size; r++) m[r][8] = bits[14 - hIdx++];
+        vIdx = 7;
+        for (var c = size - 8; c < size; c++) m[8][c] = bits[vIdx++];
+    }
+
+    function buildMatrix(version, codewords, mask) {
+        var size = version * 4 + 17;
+        var m = makeMatrix(size);
+
+        // Finder patterns
+        drawFinderPattern(m, 0, 0);
+        drawFinderPattern(m, 0, size - 7);
+        drawFinderPattern(m, size - 7, 0);
+
+        // Separators (already covered by finder fill but mark them)
+        // Timing patterns
+        for (var i = 8; i < size - 8; i++) {
+            m[6][i] = i % 2 === 0 ? 1 : 0;
+            m[i][6] = i % 2 === 0 ? 1 : 0;
+        }
+
+        // Dark module
+        m[size - 8][8] = 1;
+
+        // Alignment patterns
+        var ap = ALIGN_POS[version];
+        for (var ai = 0; ai < ap.length; ai++)
+            for (var aj = 0; aj < ap.length; aj++) {
+                var ar = ap[ai], ac = ap[aj];
+                if (m[ar][ac] !== -1) continue;
+                drawAlignmentPattern(m, ar, ac);
+            }
+
+        // Reserve format info area
+        for (var i = 0; i <= 8; i++) {
+            if (m[i][8] === -1) m[i][8] = 0;
+            if (m[8][i] === -1) m[8][i] = 0;
+        }
+        for (var i = size - 8; i < size; i++) {
+            if (m[i][8] === -1) m[i][8] = 0;
+            if (m[8][i] === -1) m[8][i] = 0;
+        }
+
+        // Data placement
+        placeModules(m, codewords, size, mask);
+
+        // Format info
+        placeFormatInfo(m, size, mask);
+
+        return m;
+    }
+
+    function penaltyScore(m) {
+        var size = m.length;
+        var score = 0;
+
+        // Rule 1: 5+ consecutive same-color
+        for (var r = 0; r < size; r++) {
+            var run = 1;
+            for (var c = 1; c < size; c++) {
+                if (m[r][c] === m[r][c-1]) { run++; if (run === 5) score += 3; else if (run > 5) score++; }
+                else run = 1;
+            }
+        }
+        for (var c = 0; c < size; c++) {
+            var run = 1;
+            for (var r = 1; r < size; r++) {
+                if (m[r][c] === m[r-1][c]) { run++; if (run === 5) score += 3; else if (run > 5) score++; }
+                else run = 1;
+            }
+        }
+
+        // Rule 2: 2x2 blocks
+        for (var r = 0; r < size - 1; r++)
+            for (var c = 0; c < size - 1; c++)
+                if (m[r][c] === m[r][c+1] && m[r][c] === m[r+1][c] && m[r][c] === m[r+1][c+1])
+                    score += 3;
+
+        return score;
+    }
+
+    function generate(text) {
+        // Encode to UTF-8 bytes to get length
+        var utf8Len = 0;
+        for (var i = 0; i < text.length; i++) {
+            var c = text.charCodeAt(i);
+            if (c < 0x80) utf8Len++;
+            else if (c < 0x800) utf8Len += 2;
+            else utf8Len += 3;
+        }
+
+        var version = getVersion(utf8Len);
+        if (version < 1) return null;
+
+        var vc = VERSION_CAP[version];
+        var bsResult = getBitStream(text, version);
+        var dataCW = bitsToCodewords(bsResult.bits, vc.dcw);
+        var allCW = allCodewords(version, dataCW);
+
+        // Try masks 0–3, pick best
+        var bestMask = 0, bestScore = Infinity, bestMatrix = null;
+        for (var mask = 0; mask < 4; mask++) {
+            var mat = buildMatrix(version, allCW.slice(), mask);
+            var score = penaltyScore(mat);
+            if (score < bestScore) { bestScore = score; bestMask = mask; bestMatrix = mat; }
+        }
+
+        return bestMatrix;
+    }
+
+    return { generate: generate };
+})();
+
+// ─── UI Logic ───
+
+var selectedSize = 256;
+
+function selectSize(btn) {
+    document.querySelectorAll('.size-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    selectedSize = parseInt(btn.dataset.size);
+}
+
+function generateQR() {
+    var text = document.getElementById('qrInput').value.trim();
+    if (!text) {
+        alert('URLまたはテキストを入力してください。');
+        return;
+    }
+
+    var matrix = QRCode.generate(text);
+    if (!matrix) {
+        alert('テキストが長すぎます。短くしてください。（最大約80文字）');
+        return;
+    }
+
+    var canvas = document.getElementById('qrCanvas');
+    var moduleCount = matrix.length;
+    var quiet = 4; // quiet zone modules
+    var total = moduleCount + quiet * 2;
+    var cellSize = Math.max(1, Math.floor(selectedSize / total));
+    var canvasSize = total * cellSize;
+
+    canvas.width = canvasSize;
+    canvas.height = canvasSize;
+    canvas.style.width = canvasSize + 'px';
+    canvas.style.height = canvasSize + 'px';
+
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvasSize, canvasSize);
+    ctx.fillStyle = '#000000';
+
+    for (var r = 0; r < moduleCount; r++) {
+        for (var c = 0; c < moduleCount; c++) {
+            if (matrix[r][c] === 1) {
+                ctx.fillRect(
+                    (c + quiet) * cellSize,
+                    (r + quiet) * cellSize,
+                    cellSize,
+                    cellSize
+                );
+            }
+        }
+    }
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function downloadQR() {
+    var canvas = document.getElementById('qrCanvas');
+
+    // Create a higher-res version for download
+    var text = document.getElementById('qrInput').value.trim();
+    var matrix = QRCode.generate(text);
+    if (!matrix) return;
+
+    var dlCanvas = document.createElement('canvas');
+    var moduleCount = matrix.length;
+    var quiet = 4;
+    var total = moduleCount + quiet * 2;
+    var cellSize = Math.max(1, Math.floor(512 / total));
+    var size = total * cellSize;
+
+    dlCanvas.width = size;
+    dlCanvas.height = size;
+    var ctx = dlCanvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = '#000000';
+
+    for (var r = 0; r < moduleCount; r++) {
+        for (var c = 0; c < moduleCount; c++) {
+            if (matrix[r][c] === 1) {
+                ctx.fillRect((c + quiet) * cellSize, (r + quiet) * cellSize, cellSize, cellSize);
+            }
+        }
+    }
+
+    var link = document.createElement('a');
+    link.download = 'qrcode.png';
+    link.href = dlCanvas.toDataURL('image/png');
+    link.click();
+}
+
+document.getElementById('qrInput').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        generateQR();
+    }
+});
+</script>
+
+</body>
+</html>

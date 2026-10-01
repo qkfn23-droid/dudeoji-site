@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de frase em senha - Senhas fortes memoráveis | MOGU Guard</title>
+    <meta name="description" content="Converta frases fáceis de lembrar em senhas fortes. Sua frase pessoal se torna uma senha impossível de hackear.">
+    <link rel="canonical" href="https://moguguard.com/pt/frase-senha/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/sentence-password/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/sentence-password/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/sentence-password/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/frase-contrasena/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/satz-passwort/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/phrase-mot-de-passe/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/frase-senha/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/sentence-password/">
+    <meta property="og:title" content="Frase → Senha | MOGU Guard">
+    <meta property="og:description" content="Converta frases em senhas fortes!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/pt/frase-senha/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+        header{background:#111;border-bottom:1px solid #1a3a1a;padding:16px 20px;text-align:center}header a{text-decoration:none;font-size:20px;color:#00ff41;letter-spacing:2px;font-weight:700;font-family:'Fira Code',monospace}
+        .container{max-width:700px;margin:20px auto 40px;padding:0 20px}
+        .page-title{text-align:center;margin-bottom:30px}.page-title h2{font-size:28px;color:#00ff41;margin-bottom:8px}.page-title p{color:#666;font-size:14px}
+        .privacy-badge{display:inline-block;background:rgba(0,255,65,0.1);border:1px solid rgba(0,230,118,0.3);color:#00ff41;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:20px}
+        .input-box{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:24px;margin-bottom:20px}
+        .input-box label{display:block;font-size:14px;color:#00ff41;margin-bottom:8px;font-weight:600}
+        .input-box textarea{width:100%;padding:14px;background:#0a0a0a;border:2px solid #00ff4130;border-radius:8px;color:#e0e0e0;font-size:16px;outline:none;resize:none;height:80px}
+        .input-box textarea:focus{border-color:#00ff41}
+        .input-box textarea::placeholder{color:#444}
+        .method-select{display:flex;gap:8px;margin-bottom:16px}
+        .method-btn{flex:1;padding:10px;background:#111;border:1px solid #00ff4130;border-radius:6px;color:#888;font-size:13px;cursor:pointer;text-align:center;transition:all .2s}
+        .method-btn.active{border-color:#00ff41;color:#00ff41;background:rgba(0,255,65,0.08)}
+        .method-btn:hover{border-color:#00ff41;color:#00ff41}
+        .result-box{display:none;background:#111;border:2px solid #00ff4140;border-radius:8px;padding:24px;margin-bottom:20px}
+        .result-label{font-size:12px;color:#888;margin-bottom:8px}
+        .result-pw{font-size:24px;font-family:'Fira Code',monospace;color:#00ff41;word-break:break-all;letter-spacing:2px;text-shadow:0 0 10px rgba(0,255,65,0.3);margin-bottom:12px}
+        .result-copy{padding:8px 20px;background:#00ff41;color:#0a0a0a;border:none;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Fira Code',monospace}
+        .result-info{margin-top:16px;padding-top:16px;border-top:1px solid #1a3a1a}
+        .result-info .ri-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px}
+        .ri-label{color:#666}.ri-value{color:#00ff41;font-family:'Fira Code',monospace}
+        .how-it-works{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px;margin-bottom:20px}
+        .how-title{font-size:16px;color:#00ff41;font-weight:600;margin-bottom:12px}
+        .how-text{font-size:14px;color:#888;line-height:1.8}.how-text strong{color:#00ff41}
+        .examples{background:#0f0f0f;border-radius:6px;padding:14px;margin-top:12px;font-family:'Fira Code',monospace;font-size:13px;color:#666;line-height:2}
+        .examples .arrow{color:#00ff41}
+        footer{text-align:center;padding:30px;color:#333;font-size:11px}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Conversor de frase em senha","url":"https://moguguard.com/pt/frase-senha/","description":"Converta frases em senhas fortes.","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript"}
+    </script>
+</head>
+<body>
+<header><a href="/pt/">MOGU <span style="color:#00ff41;">Guard</span></a></header>
+<div class="container">
+    <div class="page-title">
+        <h2>🔑 Frase → Senha</h2>
+        <p>Sua frase fácil de lembrar se torna uma senha impossível de hackear</p>
+        <div class="privacy-badge">🔒 Sua frase nunca é enviada a nenhum servidor</div>
+    </div>
+    <div class="input-box">
+        <label>Digite uma frase que só você conhece</label>
+        <textarea id="sentenceInput" placeholder="Ex.: Meu cachorro se chama Choco e nasceu em 2018" oninput="convert()"></textarea>
+        <div style="font-size:12px;color:#444;margin-top:6px;">Funciona com qualquer idioma</div>
+    </div>
+    <div style="margin-bottom:16px;">
+        <div style="font-size:13px;color:#888;margin-bottom:8px;">Método de conversão</div>
+        <div class="method-select">
+            <div class="method-btn active" onclick="setMethod('initial')" id="m1">Primeiras letras</div>
+            <div class="method-btn" onclick="setMethod('mix')" id="m2">Misto</div>
+            <div class="method-btn" onclick="setMethod('leet')" id="m3">Leet</div>
+        </div>
+    </div>
+    <div class="result-box" id="resultBox">
+        <div class="result-label">Senha gerada</div>
+        <div class="result-pw" id="resultPw"></div>
+        <button class="result-copy" onclick="copyPw()">Copiar</button>
+        <div class="result-info">
+            <div class="ri-row"><span class="ri-label">Comprimento</span><span class="ri-value" id="riLen">-</span></div>
+            <div class="ri-row"><span class="ri-label">Força</span><span class="ri-value" id="riStr">-</span></div>
+            <div class="ri-row"><span class="ri-label">Tempo de hack (GPU)</span><span class="ri-value" id="riTime">-</span></div>
+        </div>
+    </div>
+    <div class="how-it-works">
+        <div class="how-title">💡 Como funciona?</div>
+        <div class="how-text">
+            <strong>Primeiras letras:</strong> Primeira letra de cada palavra + números + caracteres especiais<br>
+            <strong>Misto:</strong> Comprime a frase misturando maiúsculas/números/especiais<br>
+            <strong>Leet:</strong> Substitui letras por números/símbolos (a→@, e→3, s→$)
+        </div>
+        <div class="examples">
+            "I was born in Lisbon in 1995 and love pastéis"<br>
+            <span class="arrow">→ Primeiras letras:</span> N2e$eSs!<br>
+            <span class="arrow">→ Misto:</span> Na24$eUl#sG<br>
+            <span class="arrow">→ Leet:</span> n@2024$30uL!
+        </div>
+    </div>
+    <div class="how-it-works">
+        <div class="how-title">🧠 Por que senhas de frase são boas?</div>
+        <div class="how-text">
+            &bull; <strong>Fácil de lembrar</strong> — Frases são mais memoráveis que strings aleatórias<br>
+            &bull; <strong>Longa e complexa</strong> — Extrair de frases cria comprimento naturalmente<br>
+            &bull; <strong>Só você sabe</strong> — Frases pessoais resistem a ataques de dicionário<br>
+            &bull; <strong>Diferente por site</strong> — Adicione o nome do site à frase para senhas únicas
+        </div>
+    </div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:12px;color:#333;margin-right:8px;">Compartilhar:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1da1f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1877f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Facebook</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:5px 10px;background:#333;color:#0f0;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;font-family:monospace;">Copiar URL</a></div>
+<footer>&copy; 2025 MOGU Guard</footer>
+<script>
+let method = 'initial';
+const specials = '!@#$%^&*';
+const leet = {a:'@',e:'3',i:'!',o:'0',s:'$',t:'7',l:'1',b:'8',g:'9'};
+function setMethod(m) {
+    method = m;
+    document.querySelectorAll('.method-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(m === 'initial' ? 'm1' : m === 'mix' ? 'm2' : 'm3').classList.add('active');
+    convert();
+}
+function convert() {
+    const sentence = document.getElementById('sentenceInput').value.trim();
+    if (!sentence) { document.getElementById('resultBox').style.display = 'none'; return; }
+    let pw = '';
+    const words = sentence.split(/\s+/);
+    if (method === 'initial') {
+        pw = words.map((w, i) => {
+            const c = w[0] || '';
+            if (/[0-9]/.test(c)) return c;
+            return i % 2 === 0 ? c.toUpperCase() : c.toLowerCase();
+        }).join('');
+        pw += specials[sentence.length % specials.length];
+        pw += sentence.length;
+        if (!/[!@#$%^&*]/.test(pw)) pw += '!';
+    } else if (method === 'mix') {
+        pw = words.map((w, i) => {
+            if (w.length <= 2) return w;
+            const first = i % 2 === 0 ? w[0].toUpperCase() : w[0].toLowerCase();
+            const last = w[w.length - 1];
+            return first + (/[0-9]/.test(last) ? last : w.length);
+        }).join('');
+        pw += specials[(sentence.length * 3) % specials.length];
+        if (pw.length < 8) pw += '!' + sentence.length;
+    } else {
+        pw = sentence.replace(/\s+/g, '').split('').map((c, i) => {
+            const lower = c.toLowerCase();
+            if (leet[lower]) return leet[lower];
+            if (i % 3 === 0) return c.toUpperCase();
+            return c.toLowerCase();
+        }).join('');
+        if (pw.length > 20) pw = pw.substring(0, 20);
+        if (!/[0-9]/.test(pw)) pw += '1';
+        if (!/[!@#$%^&*]/.test(pw)) pw += '!';
+    }
+    document.getElementById('resultPw').textContent = pw;
+    document.getElementById('riLen').textContent = pw.length + ' car.';
+    let charsetSize = 0;
+    if (/[a-z]/.test(pw)) charsetSize += 26;
+    if (/[A-Z]/.test(pw)) charsetSize += 26;
+    if (/[0-9]/.test(pw)) charsetSize += 10;
+    if (/[^a-zA-Z0-9]/.test(pw)) charsetSize += 33;
+    const combinations = Math.pow(charsetSize || 26, pw.length);
+    const seconds = combinations / 1e9;
+    let strength, sColor;
+    if (seconds > 86400 * 365 * 1e6) { strength = 'Muito forte 🟢'; sColor = '#00ff41'; }
+    else if (seconds > 86400 * 365 * 100) { strength = 'Forte 🟡'; sColor = '#ffeb3b'; }
+    else if (seconds > 86400 * 365) { strength = 'Média 🟠'; sColor = '#ff9800'; }
+    else { strength = 'Fraca 🔴'; sColor = '#ff5252'; }
+    document.getElementById('riStr').textContent = strength;
+    document.getElementById('riStr').style.color = sColor;
+    document.getElementById('riTime').textContent = formatTime(seconds);
+    document.getElementById('resultBox').style.display = 'block';
+}
+function copyPw() {
+    navigator.clipboard.writeText(document.getElementById('resultPw').textContent);
+    const btn = document.querySelector('.result-copy');
+    btn.textContent = '✅ Copiado';
+    setTimeout(() => btn.textContent = 'Copiar', 2000);
+}
+function formatTime(s) {
+    if (s < 1) return 'Instantâneo';
+    if (s < 60) return Math.round(s) + ' seg';
+    if (s < 3600) return Math.round(s/60) + ' min';
+    if (s < 86400) return Math.round(s/3600) + ' h';
+    if (s < 86400*365) return Math.round(s/86400) + ' dias';
+    if (s < 86400*365*1000) return Math.round(s/(86400*365)).toLocaleString() + ' anos';
+    if (s < 86400*365*1e6) return Math.round(s/(86400*365*1000)).toLocaleString() + ' mil anos';
+    if (s < 86400*365*1e9) return Math.round(s/(86400*365*1e6)).toLocaleString() + ' milhões de anos';
+    return 'Mais que a idade do universo ♾️';
+}
+</script>
+</body>
+</html>

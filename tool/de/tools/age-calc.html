@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altersrechner - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Ist Altersrechner kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100% kostenlos. Keine Anmeldung erforderlich. Alle Verarbeitung erfolgt im Browser, keine persoenlichen Daten werden an Server gesendet."}},
+    {"@type":"Question","name":"Wie benutze ich Altersrechner?","acceptedAnswer":{"@type":"Answer","text":"Geben Sie Ihr Geburtsdatum ein, um Ihr Alter, Sternzeichen, chinesisches Tierkreiszeichen und mehr zu berechnen."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/age-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/age-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/age-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/age-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/age-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/age-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/age-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/age-calc.html">
+    <link rel="canonical" href="https://mogutool.com/de/tools/age-calc.html">
+    <meta property="og:title" content="Altersrechner - MOGU Tools">
+    <meta property="og:description" content="Geben Sie Ihr Geburtsdatum ein, um Ihr Alter, Sternzeichen, chinesisches Tierkreiszeichen und mehr zu berechnen.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/de/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/de/tools/age-calc.html">
+    <meta name="description" content="Geben Sie Ihr Geburtsdatum ein, um Ihr Alter, Sternzeichen, chinesisches Tierkreiszeichen und mehr zu berechnen.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group input[type="date"] {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #333;
+            background: #fff;
+        }
+
+        .input-group input[type="date"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+
+        .result-card.full {
+            grid-column: 1 / -1;
+        }
+
+        .result-card .card-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .result-card .card-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+
+        .result-card .card-value.highlight {
+            color: #4a90d9;
+        }
+
+        .result-card .card-value.small {
+            font-size: 17px;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Werkzeuge</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Kostenlose Online-Tools</a> &gt; Rechner &gt; Altersrechner
+</div>
+
+<div class="container">
+    <h1>Altersrechner</h1>
+    <p class="subtitle">Geben Sie Ihr Geburtsdatum ein, um Ihr Alter, Sternzeichen und Tierkreiszeichen zu berechnen.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>Geburtsdatum</label>
+            <input type="date" id="birthday" max="">
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">Berechnen</button>
+
+        <div class="result" id="result">
+            <div class="result-grid">
+                <div class="result-card">
+                    <div class="card-label">Alter</div>
+                    <div class="card-value highlight" id="manAge">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">Geburtsjahr</div>
+                    <div class="card-value" id="koreanAge">-</div>
+                </div>
+                <div class="result-card full">
+                    <div class="card-label">Lebenszeit</div>
+                    <div class="card-value small" id="elapsed">-</div>
+                </div>
+                <div class="result-card full">
+                    <div class="card-label">Naechster Geburtstag in</div>
+                    <div class="card-value small" id="nextBirthday">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">Wochentag der Geburt</div>
+                    <div class="card-value small" id="birthDay">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">Chinesisches Tierkreiszeichen</div>
+                    <div class="card-value small" id="zodiacAnimal">-</div>
+                </div>
+                <div class="result-card full">
+                    <div class="card-label">Sternzeichen</div>
+                    <div class="card-value small" id="zodiacSign">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Wie wird das Alter berechnet?</h2>
+        <p>
+            Das <strong>Alter</strong> wird ab dem Geburtsdatum berechnet: Man beginnt bei 0 und erhaelt bei jedem Geburtstag ein weiteres Lebensjahr.
+            Dies ist der internationale Standard.
+        </p>
+        <p>
+            Das <strong>chinesische Tierkreiszeichen</strong> basiert auf einem 12-Jahres-Zyklus mit verschiedenen Tieren.
+            Jedes Geburtsjahr ist einem bestimmten Tier zugeordnet.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Altersrechner</h2><p>Geben Sie Ihr Geburtsdatum ein, um Ihr Alter, Sternzeichen, chinesisches Tierkreiszeichen und mehr zu berechnen.</p></div>
+<div class="seo-section"><h2>Häufige Fragen</h2><details class="seo-faq"><summary>Ist dieses Tool kostenlos?</summary><p>Ja, 100% kostenlos. Keine Anmeldung nötig. Alles wird im Browser verarbeitet — keine Daten werden an Server gesendet.</p></details><details class="seo-faq"><summary>Funktioniert es auf dem Handy?</summary><p>Ja, alle Tools sind responsiv und funktionieren auf Smartphones, Tablets und Desktops.</p></details></div>
+<div class="seo-section"><h2>Verwandte Tools</h2><div class="seo-related"><a href="dday-calc.html">D-Day-Rechner</a><a href="date-convert.html">Datumsumrechner</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// Maximaldatum = heute
+document.getElementById('birthday').max = new Date().toISOString().split('T')[0];
+
+const ANIMALS = ['Ratte', 'Bueffel', 'Tiger', 'Hase', 'Drache', 'Schlange', 'Pferd', 'Ziege', 'Affe', 'Hahn', 'Hund', 'Schwein'];
+
+function getAnimal(year) {
+    return ANIMALS[((year - 1900) % 12 + 12) % 12];
+}
+
+function getZodiac(month, day) {
+    const signs = [
+        { name: 'Steinbock', end: [1, 19] },
+        { name: 'Wassermann', end: [2, 18] },
+        { name: 'Fische', end: [3, 20] },
+        { name: 'Widder', end: [4, 19] },
+        { name: 'Stier', end: [5, 20] },
+        { name: 'Zwillinge', end: [6, 20] },
+        { name: 'Krebs', end: [7, 22] },
+        { name: 'Loewe', end: [8, 22] },
+        { name: 'Jungfrau', end: [9, 22] },
+        { name: 'Waage', end: [10, 22] },
+        { name: 'Skorpion', end: [11, 21] },
+        { name: 'Schuetze', end: [12, 21] },
+    ];
+    for (const s of signs) {
+        if (month < s.end[0] || (month === s.end[0] && day <= s.end[1])) {
+            return s.name;
+        }
+    }
+    return 'Steinbock';
+}
+
+function calculate() {
+    const val = document.getElementById('birthday').value;
+    if (!val) {
+        alert('Bitte waehlen Sie ein Geburtsdatum aus.');
+        return;
+    }
+
+    const birth = new Date(val);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (birth > today) {
+        alert('Das Geburtsdatum darf nicht in der Zukunft liegen.');
+        return;
+    }
+
+    const birthYear  = birth.getFullYear();
+    const birthMonth = birth.getMonth() + 1;
+    const birthDate  = birth.getDate();
+    const todayYear  = today.getFullYear();
+    const todayMonth = today.getMonth() + 1;
+    const todayDate  = today.getDate();
+
+    // Alter
+    let manAge = todayYear - birthYear;
+    if (todayMonth < birthMonth || (todayMonth === birthMonth && todayDate < birthDate)) {
+        manAge--;
+    }
+
+    // Lebenszeit (Jahre, Monate, Tage)
+    let eYears  = todayYear  - birthYear;
+    let eMonths = todayMonth - birthMonth;
+    let eDays   = todayDate  - birthDate;
+
+    if (eDays < 0) {
+        eMonths--;
+        const prevMonth = new Date(todayYear, today.getMonth(), 0);
+        eDays += prevMonth.getDate();
+    }
+    if (eMonths < 0) {
+        eYears--;
+        eMonths += 12;
+    }
+
+    // Naechster Geburtstag
+    let nextBirth = new Date(todayYear, birthMonth - 1, birthDate);
+    if (nextBirth <= today) {
+        nextBirth = new Date(todayYear + 1, birthMonth - 1, birthDate);
+    }
+    const diffMs   = nextBirth - today;
+    const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+
+    // Wochentag der Geburt
+    const DAYS = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+    const birthWeekday = DAYS[birth.getDay()];
+
+    // Tierkreiszeichen
+    const animal = getAnimal(birthYear);
+
+    // Sternzeichen
+    const zodiac = getZodiac(birthMonth, birthDate);
+
+    // Anzeige
+    document.getElementById('manAge').textContent    = manAge + ' Jahre';
+    document.getElementById('koreanAge').textContent = birthYear;
+    document.getElementById('elapsed').textContent   = eYears + ' Jahre ' + eMonths + ' Monate ' + eDays + ' Tage';
+    document.getElementById('nextBirthday').textContent =
+        diffDays === 0 ? 'Heute ist Ihr Geburtstag!' : diffDays + ' Tage verbleibend';
+    document.getElementById('birthDay').textContent  = birthWeekday;
+    document.getElementById('zodiacAnimal').textContent = animal;
+    document.getElementById('zodiacSign').textContent   = zodiac;
+
+    document.getElementById('result').style.display = 'block';
+}
+
+document.getElementById('birthday').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculate();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像圧縮 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"画像圧縮は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"画像圧縮の使い方は？","acceptedAnswer":{"@type":"Answer","text":"画像のファイルサイズを縮小します。JPG、PNG、WebP対応。サーバーに送信せずブラウザで直接処理。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/image-compress.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/image-compress.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/image-compress.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/image-compress.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/image-compress.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/image-compress.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/image-compress.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/image-compress.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/image-compress.html">
+    <meta property="og:title" content="画像圧縮 - MOGU Tools">
+    <meta property="og:description" content="画像のファイルサイズを縮小します。JPG、PNG、WebP対応。サーバーに送信せずブラウザで直接処理。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/image-compress.html">
+    <meta name="description" content="画像のファイルサイズを縮小します。JPG、PNG、WebP対応。サーバーに送信せずブラウザで直接処理。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 700px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 700px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+
+        .drop-zone { background: #fff; border: 2px dashed #ccc; border-radius: 16px; padding: 60px 20px; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 20px; }
+        .drop-zone:hover, .drop-zone.dragover { border-color: #4a90d9; background: #f0f6fd; }
+        .drop-zone .icon { font-size: 48px; margin-bottom: 12px; }
+        .drop-zone .text { font-size: 15px; color: #666; }
+        .drop-zone .hint { font-size: 12px; color: #aaa; margin-top: 8px; }
+
+        .controls { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; margin-bottom: 20px; display: none; }
+        .control-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .control-row label { font-size: 14px; font-weight: 500; color: #555; min-width: 80px; }
+        .control-row input[type="range"] { flex: 1; accent-color: #4a90d9; }
+        .control-row select { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+        .quality-val { font-size: 14px; font-weight: 600; color: #4a90d9; min-width: 40px; }
+        .control-row input[type="number"] { width: 80px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+
+        .preview-area { display: none; }
+        .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        @media (max-width: 500px) { .preview-grid { grid-template-columns: 1fr; } }
+        .preview-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; overflow: hidden; }
+        .preview-card .label { padding: 10px 14px; font-size: 13px; font-weight: 600; color: #555; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+        .preview-card .label .size { color: #4a90d9; }
+        .preview-card img { width: 100%; display: block; }
+
+        .result-bar { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 16px; }
+        .result-bar .savings { font-size: 28px; font-weight: 700; color: #27ae60; }
+        .result-bar .detail { font-size: 13px; color: #888; margin-top: 4px; }
+
+        .btn { display: inline-block; padding: 12px 28px; background: #4a90d9; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .btn:hover { background: #3a7bc8; }
+        .btn-group { text-align: center; margin-bottom: 20px; }
+
+        .batch-list { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; overflow: hidden; display: none; margin-bottom: 16px; }
+        .batch-item { display: flex; align-items: center; padding: 10px 14px; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+        .batch-item:last-child { border-bottom: none; }
+        .batch-item .name { flex: 1; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .batch-item .info { color: #888; margin-left: 8px; }
+        .batch-item .saved { color: #27ae60; font-weight: 600; margin-left: 8px; min-width: 50px; text-align: right; }
+
+        .info-section { margin-top: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; }
+        .info-section h2 { font-size: 16px; margin-bottom: 12px; color: #555; }
+        .info-section p { font-size: 14px; color: #666; line-height: 1.7; }
+        .privacy { background: #f0f9f0; border: 1px solid #c3e6c3; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #2d7a2d; margin-bottom: 20px; text-align: center; }
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — 無料オンラインツール集</a> &gt; ツール &gt; 画像圧縮
+</div>
+
+<div class="container">
+    <h1>画像圧縮</h1>
+    <p class="subtitle">画像のファイルサイズを縮小します。サーバーに送信せずブラウザで直接処理されます。</p>
+
+    <div class="privacy">🔒 プライバシー保護: 画像はサーバーに送信されません。すべての処理はブラウザ内で行われます。</div>
+
+    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <div class="icon">🖼️</div>
+        <div class="text">画像をドラッグするかクリックして選択</div>
+        <div class="hint">JPG、PNG、WebP · 複数枚同時対応</div>
+        <input type="file" id="fileInput" accept="image/*" multiple style="display:none" onchange="handleFiles(this.files)">
+    </div>
+
+    <div class="controls" id="controls">
+        <div class="control-row">
+            <label>品質</label>
+            <input type="range" id="quality" min="10" max="100" value="75" oninput="document.getElementById('qualityVal').textContent=this.value+'%'; processAll()">
+            <span class="quality-val" id="qualityVal">75%</span>
+        </div>
+        <div class="control-row">
+            <label>フォーマット</label>
+            <select id="outputFormat" onchange="processAll()">
+                <option value="image/jpeg">JPG</option>
+                <option value="image/webp">WebP (より小さい)</option>
+                <option value="image/png">PNG</option>
+            </select>
+        </div>
+        <div class="control-row">
+            <label>最大幅</label>
+            <input type="number" id="maxWidth" value="1920" min="100" max="10000" onchange="processAll()"> px
+        </div>
+    </div>
+
+    <div class="preview-area" id="previewArea">
+        <div class="preview-grid" id="previewGrid">
+            <div class="preview-card">
+                <div class="label">元画像 <span class="size" id="origSize">-</span></div>
+                <img id="origImg">
+            </div>
+            <div class="preview-card">
+                <div class="label">圧縮後 <span class="size" id="compSize">-</span></div>
+                <img id="compImg">
+            </div>
+        </div>
+        <div class="result-bar" id="resultBar">
+            <div class="savings" id="savings">-</div>
+            <div class="detail" id="resultDetail">-</div>
+        </div>
+    </div>
+
+    <div class="batch-list" id="batchList"></div>
+
+    <div class="btn-group" id="btnGroup" style="display:none">
+        <button class="btn" onclick="downloadAll()">📥 すべてダウンロード</button>
+    </div>
+
+    <div class="info-section">
+        <h2>画像圧縮とは？</h2>
+        <p>
+            画像圧縮とは、画質をできるだけ維持しながらファイルサイズを小さくする技術です。<br><br>
+            <strong>JPG</strong>: 写真に最適。品質75%で元画像比60〜80%のサイズ削減。<br>
+            <strong>WebP</strong>: Googleが開発したフォーマット。JPGより25〜35%小さい。<br>
+            <strong>PNG</strong>: 透明背景が必要な場合。圧縮率は低いが画質劣化なし。<br><br>
+            このツールはブラウザのCanvas APIを使用して画像を処理します。画像が外部サーバーに送信されないため、プライベートな写真も安全に圧縮できます。
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>画像圧縮</h2><p>画像のファイルサイズを縮小します。JPG、PNG、WebP対応。サーバーに送信せずブラウザで直接処理。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="image-resize.html">画像リサイズ</a><a href="file-size.html">ファイルサイズ変換器</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+let files = [];
+let results = [];
+
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+
+function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+}
+
+function handleFiles(fileList) {
+    files = Array.from(fileList).filter(f => f.type.startsWith('image/'));
+    if (files.length === 0) return;
+    document.getElementById('controls').style.display = 'block';
+    processAll();
+}
+
+async function compressImage(file, quality, format, maxWidth) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        const reader = new FileReader();
+        reader.onload = e => {
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let w = img.width, h = img.height;
+                if (w > maxWidth) { h = Math.round(h * maxWidth / w); w = maxWidth; }
+                canvas.width = w;
+                canvas.height = h;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, w, h);
+                canvas.toBlob(blob => {
+                    resolve({ blob, origSize: file.size, compSize: blob.size, name: file.name, url: URL.createObjectURL(blob), origUrl: e.target.result, w, h });
+                }, format, quality / 100);
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+async function processAll() {
+    const quality = parseInt(document.getElementById('quality').value);
+    const format = document.getElementById('outputFormat').value;
+    const maxWidth = parseInt(document.getElementById('maxWidth').value) || 1920;
+
+    results = [];
+    for (const f of files) {
+        const r = await compressImage(f, quality, format, maxWidth);
+        results.push(r);
+    }
+
+    // Single preview
+    if (results.length > 0) {
+        const r = results[0];
+        document.getElementById('origImg').src = r.origUrl;
+        document.getElementById('compImg').src = r.url;
+        document.getElementById('origSize').textContent = formatSize(r.origSize);
+        document.getElementById('compSize').textContent = formatSize(r.compSize);
+        const pct = Math.round((1 - r.compSize / r.origSize) * 100);
+        document.getElementById('savings').textContent = (pct > 0 ? '-' : '+') + Math.abs(pct) + '%';
+        document.getElementById('savings').style.color = pct > 0 ? '#27ae60' : '#e74c3c';
+        document.getElementById('resultDetail').textContent = `${formatSize(r.origSize)} → ${formatSize(r.compSize)} (${r.w}×${r.h}px)`;
+        document.getElementById('previewArea').style.display = 'block';
+    }
+
+    // Batch list
+    if (results.length > 1) {
+        const list = document.getElementById('batchList');
+        list.innerHTML = '';
+        let totalOrig = 0, totalComp = 0;
+        results.forEach((r, i) => {
+            totalOrig += r.origSize; totalComp += r.compSize;
+            const pct = Math.round((1 - r.compSize / r.origSize) * 100);
+            list.innerHTML += `<div class="batch-item"><span class="name">${r.name}</span><span class="info">${formatSize(r.origSize)} → ${formatSize(r.compSize)}</span><span class="saved">-${pct}%</span></div>`;
+        });
+        const totalPct = Math.round((1 - totalComp / totalOrig) * 100);
+        list.innerHTML += `<div class="batch-item" style="background:#f8f9fa;font-weight:600;"><span class="name">合計 (${results.length}枚)</span><span class="info">${formatSize(totalOrig)} → ${formatSize(totalComp)}</span><span class="saved">-${totalPct}%</span></div>`;
+        list.style.display = 'block';
+    }
+
+    document.getElementById('btnGroup').style.display = 'block';
+}
+
+function downloadAll() {
+    const ext = { 'image/jpeg': '.jpg', 'image/webp': '.webp', 'image/png': '.png' };
+    const format = document.getElementById('outputFormat').value;
+    results.forEach(r => {
+        const a = document.createElement('a');
+        a.href = r.url;
+        const baseName = r.name.replace(/\.[^.]+$/, '');
+        a.download = baseName + '_compressed' + (ext[format] || '.jpg');
+        a.click();
+    });
+}
+</script>
+
+</body>
+</html>

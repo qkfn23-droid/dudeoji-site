@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Calculator - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is the Savings Calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is 100% free. No sign-up required. All processing happens in your browser and no personal data is sent to any server."}},
+    {"@type":"Question","name":"How do I use the Savings Calculator?","acceptedAnswer":{"@type":"Answer","text":"Calculate pre-tax and after-tax interest for deposits and savings accounts. Choose simple or compound interest and applicable tax options."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/savings-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/savings-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/savings-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/savings-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/savings-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/savings-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/savings-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/savings-calc.html">
+    <link rel="canonical" href="https://mogutool.com/en/tools/savings-calc.html">
+    <meta property="og:title" content="Savings Calculator - MOGU Tools">
+    <meta property="og:description" content="Calculate pre-tax and after-tax interest for deposits and savings accounts. Choose simple or compound interest and tax options.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/en/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/en/tools/savings-calc.html">
+    <meta name="description" content="Calculate pre-tax and after-tax interest for deposits and savings accounts. Choose simple or compound interest and tax options.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 11px;
+            background: #fff;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a90d9;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .tab-btn:not(.active):hover {
+            background: #eef4fb;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input[type="number"] {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input[type="number"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #444;
+            cursor: pointer;
+            padding: 8px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: border-color 0.2s, background 0.2s;
+            margin-bottom: 0;
+        }
+
+        .radio-group input[type="radio"] {
+            accent-color: #4a90d9;
+            width: 15px;
+            height: 15px;
+        }
+
+        .radio-group label:has(input:checked) {
+            border-color: #4a90d9;
+            background: #eef4fb;
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 22px 0;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 24px 20px 20px;
+            background: #eef4fb;
+        }
+
+        .result-main .label {
+            font-size: 13px;
+            color: #6a8fc0;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .result-main .big-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2c6fad;
+            letter-spacing: -1px;
+        }
+
+        .result-main .big-unit {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4a90d9;
+            margin-left: 2px;
+        }
+
+        .result-rows {
+            padding: 16px 20px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row .r-label {
+            color: #666;
+        }
+
+        .result-row .r-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-row .r-value.minus {
+            color: #d9534f;
+        }
+
+        .result-row .r-value.plus {
+            color: #4a90d9;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section strong {
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../../en/index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../../en/index.html">MOGU Tools — Free Online Tools Collection</a> &gt; Investment / Finance &gt; Savings Calculator
+</div>
+
+<div class="container">
+    <h1>Savings Calculator</h1>
+    <p class="subtitle">Calculate pre-tax and after-tax interest using simple or compound interest.</p>
+
+    <div class="calc-box">
+
+        <!-- Mode tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-deposit" onclick="switchTab('deposit')">Fixed Deposit</button>
+            <button class="tab-btn" id="tab-savings" onclick="switchTab('savings')">Recurring Savings</button>
+        </div>
+
+        <!-- Deposit: principal -->
+        <div class="input-group" id="group-principal">
+            <label id="label-principal">Deposit Amount</label>
+            <div class="input-row">
+                <input type="number" id="principal" placeholder="10000" min="0" step="1">
+                <span class="unit">$</span>
+            </div>
+        </div>
+
+        <!-- Savings: monthly -->
+        <div class="input-group" id="group-monthly" style="display:none;">
+            <label>Monthly Contribution</label>
+            <div class="input-row">
+                <input type="number" id="monthly" placeholder="300" min="0" step="1">
+                <span class="unit">$</span>
+            </div>
+        </div>
+
+        <!-- Annual rate -->
+        <div class="input-group">
+            <label>Annual Interest Rate</label>
+            <div class="input-row">
+                <input type="number" id="rate" placeholder="3.5" min="0" step="0.01">
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <!-- Term -->
+        <div class="input-group">
+            <label>Term</label>
+            <div class="input-row">
+                <input type="number" id="months" placeholder="12" min="1" step="1">
+                <span class="unit">months</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Interest method -->
+        <div class="input-group">
+            <label>Interest Method</label>
+            <div class="radio-group">
+                <label><input type="radio" name="method" value="simple" checked> Simple Interest</label>
+                <label><input type="radio" name="method" value="compound"> Compound Interest</label>
+            </div>
+        </div>
+
+        <!-- Tax options -->
+        <div class="input-group">
+            <label>Tax Type</label>
+            <div class="radio-group">
+                <label><input type="radio" name="tax" value="normal" checked> Standard (20%)</label>
+                <label><input type="radio" name="tax" value="none"> Tax-Free (0%)</label>
+                <label><input type="radio" name="tax" value="preferred"> Reduced (10%)</label>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">Calculate</button>
+
+        <!-- Result -->
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="label">After-Tax Total</div>
+                <div><span class="big-unit">$</span><span class="big-number" id="res-total">-</span></div>
+                <div style="font-size:13px; color:#6a8fc0; margin-top:4px;" id="res-mode-label">-</div>
+            </div>
+            <div class="result-rows">
+                <div class="result-row">
+                    <span class="r-label">Principal</span>
+                    <span class="r-value" id="res-principal">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">Pre-Tax Interest</span>
+                    <span class="r-value plus" id="res-interest-before">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">Tax Withheld</span>
+                    <span class="r-value minus" id="res-tax">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">After-Tax Interest</span>
+                    <span class="r-value plus" id="res-interest-after">-</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="info-section">
+        <h2>Fixed Deposit vs. Recurring Savings</h2>
+        <p>
+            A <strong>fixed deposit</strong> is a lump-sum amount placed in an account for a set term, earning interest until maturity.
+            Because the principal stays constant, interest calculation is straightforward.
+        </p>
+        <p>
+            A <strong>recurring savings account</strong> accepts regular monthly contributions.
+            The first month's contribution earns interest for the full term, while the last month's contribution earns only one month of interest.
+            At the same rate, the effective yield is lower than a fixed deposit.
+        </p>
+        <h2 style="margin-top:16px;">Simple vs. Compound Interest</h2>
+        <p>
+            <strong>Simple interest</strong> is calculated only on the principal. It is straightforward and used by most standard deposit products.
+        </p>
+        <p>
+            <strong>Compound interest</strong> adds interest back to the principal so that subsequent interest is earned on a growing balance. The longer the term, the greater the advantage over simple interest.
+            This calculator uses monthly compounding.
+        </p>
+        <h2 style="margin-top:16px;">Tax Type Guide</h2>
+        <p>
+            <strong>Standard (20%)</strong> is a typical withholding tax rate applied to interest income in many countries.
+            <strong>Tax-Free (0%)</strong> applies to certain government-backed or incentive savings schemes where interest is exempt from tax.
+            <strong>Reduced (10%)</strong> represents a lower rate that may apply to certain accounts or account holders.
+        </p>
+        <p style="color:#999; font-size:13px; margin-top:8px;">
+            (Note: Tax rates vary by country and may change. Please verify the applicable rate with your financial institution.)
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Savings Calculator</h2><p>Calculate pre-tax and after-tax interest for deposits and savings accounts. Choose simple or compound interest and tax options.</p></div>
+<div class="seo-section"><h2>Frequently Asked Questions</h2><details class="seo-faq"><summary>Is this tool free?</summary><p>Yes, 100% free. No signup required. All processing happens in your browser — no data is sent to any server.</p></details><details class="seo-faq"><summary>Can I use it on mobile?</summary><p>Yes, all tools are fully responsive and work on smartphones, tablets, and desktops.</p></details></div>
+<div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="compound-calc.html">Compound Interest Calculator</a><a href="loan-calc.html">Loan Calculator</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    var currentMode = "deposit";
+
+    function switchTab(mode) {
+        currentMode = mode;
+        document.getElementById("tab-deposit").classList.toggle("active", mode === "deposit");
+        document.getElementById("tab-savings").classList.toggle("active", mode === "savings");
+        document.getElementById("group-principal").style.display = mode === "deposit" ? "" : "none";
+        document.getElementById("group-monthly").style.display = mode === "savings" ? "" : "none";
+        document.getElementById("result").style.display = "none";
+    }
+
+    function fmt(n) {
+        return "$" + Math.round(n).toLocaleString("en-US");
+    }
+
+    function getTaxRate() {
+        var tax = document.querySelector("input[name=\"tax\"]:checked").value;
+        if (tax === "normal") return 0.20;
+        if (tax === "preferred") return 0.10;
+        return 0;
+    }
+
+    function getMethod() {
+        return document.querySelector("input[name=\"method\"]:checked").value;
+    }
+
+    function calculate() {
+        var rate = parseFloat(document.getElementById("rate").value);
+        var months = parseInt(document.getElementById("months").value);
+        var method = getMethod();
+        var taxRate = getTaxRate();
+
+        if (isNaN(rate) || rate < 0) { alert("Please enter a valid annual interest rate."); return; }
+        if (isNaN(months) || months < 1) { alert("Please enter a valid term."); return; }
+
+        var principalSum = 0;
+        var interestBefore = 0;
+        var monthlyRate = rate / 100 / 12;
+
+        if (currentMode === "deposit") {
+            var p = parseFloat(document.getElementById("principal").value);
+            if (isNaN(p) || p <= 0) { alert("Please enter a valid deposit amount."); return; }
+            principalSum = p;
+
+            if (method === "simple") {
+                interestBefore = p * (rate / 100) * (months / 12);
+            } else {
+                interestBefore = p * Math.pow(1 + monthlyRate, months) - p;
+            }
+
+        } else {
+            var m = parseFloat(document.getElementById("monthly").value);
+            if (isNaN(m) || m <= 0) { alert("Please enter a valid monthly contribution."); return; }
+            principalSum = m * months;
+
+            if (method === "simple") {
+                interestBefore = m * monthlyRate * (months * (months + 1) / 2);
+            } else {
+                var total = 0;
+                for (var i = 1; i <= months; i++) {
+                    total += m * Math.pow(1 + monthlyRate, months - i + 1);
+                }
+                interestBefore = total - principalSum;
+            }
+        }
+
+        var taxAmount = interestBefore * taxRate;
+        var interestAfter = interestBefore - taxAmount;
+        var totalAfter = principalSum + interestAfter;
+
+        var taxLabel = document.querySelector("input[name=\"tax\"]:checked").value;
+        var taxLabelText = taxLabel === "normal" ? "Standard 20%" : taxLabel === "none" ? "Tax-Free" : "Reduced 10%";
+        var methodLabel = method === "simple" ? "Simple Interest" : "Monthly Compound";
+        var modeLabel = currentMode === "deposit" ? "Fixed Deposit" : "Recurring Savings";
+
+        document.getElementById("res-total").textContent = Math.round(totalAfter).toLocaleString("en-US");
+        document.getElementById("res-mode-label").textContent =
+            modeLabel + " · " + methodLabel + " · " + taxLabelText;
+        document.getElementById("res-principal").textContent = fmt(principalSum);
+        document.getElementById("res-interest-before").textContent = "+" + fmt(interestBefore);
+        document.getElementById("res-tax").textContent = taxRate === 0 ? "$0" : "-" + fmt(taxAmount);
+        document.getElementById("res-interest-after").textContent = "+" + fmt(interestAfter);
+
+        document.getElementById("result").style.display = "block";
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") calculate();
+    });
+</script>
+
+</body>
+</html>

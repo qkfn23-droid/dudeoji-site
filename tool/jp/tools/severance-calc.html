@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退職金計算機 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"退職金計算機は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要ですぐに使えます。すべての処理はブラウザ内で行われ、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"退職金計算機の使い方は？","acceptedAnswer":{"@type":"Answer","text":"入社日、退職日、月の基本給を入力すると、韓国労働法に基づく退職金の目安額を計算します。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/severance-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/severance-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/severance-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/severance-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/severance-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/severance-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/severance-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/severance-calc.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/severance-calc.html">
+    <meta property="og:title" content="退職金計算機 - MOGU Tools">
+    <meta property="og:description" content="入社日、退職日、月の基本給を入力すると韓国労働法に基づく退職金の目安額を計算します。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/severance-calc.html">
+    <meta name="description" content="入社日、退職日、月の基本給を入力すると韓国労働法に基づく退職金の目安額を計算します。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group .label-hint {
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 28px 24px 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .result-amount {
+            font-size: 42px;
+            font-weight: 700;
+            color: #4a90d9;
+            letter-spacing: -1px;
+        }
+
+        .result-amount-sub {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+        .result-details {
+            margin-top: 16px;
+            border-radius: 10px;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 13px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row .detail-key {
+            color: #777;
+        }
+
+        .detail-row .detail-val {
+            font-weight: 600;
+            color: #333;
+            text-align: right;
+        }
+
+        .detail-row .detail-val small {
+            display: block;
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .formula-box {
+            margin-top: 16px;
+            background: #eef4fb;
+            border-radius: 10px;
+            padding: 16px 18px;
+            font-size: 13px;
+            color: #4a78a8;
+            line-height: 1.8;
+        }
+
+        .formula-box strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #3a6a9a;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section ul {
+            padding-left: 18px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../../jp/index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../../jp/index.html">MOGU Tools — 無料オンラインツール集</a> &gt; 計算機 &gt; 退職金計算機
+</div>
+
+<div class="container">
+    <h1>退職金計算機</h1>
+    <p class="subtitle">入社日・退職日・給与情報を入力すると退職金の目安額を計算します。</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>入社日</label>
+            <div class="input-row">
+                <input type="date" id="startDate">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>退職日</label>
+            <div class="input-row">
+                <input type="date" id="endDate">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>月の基本給</label>
+            <div class="input-row">
+                <input type="number" id="baseSalary" placeholder="3000000" min="0" step="10000">
+                <span class="unit">ウォン</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>年間賞与 <span class="label-hint">（任意）</span></label>
+            <div class="input-row">
+                <input type="number" id="annualBonus" placeholder="0" min="0" step="10000">
+                <span class="unit">ウォン</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>年次有給休暇手当 <span class="label-hint">（任意・未消化分の合計額）</span></label>
+            <div class="input-row">
+                <input type="number" id="leavePay" placeholder="0" min="0" step="10000">
+                <span class="unit">ウォン</span>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">計算する</button>
+
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="result-label">退職金の目安額</div>
+                <div class="result-amount" id="resultAmount">0ウォン</div>
+                <div class="result-amount-sub" id="resultAmountSub"></div>
+            </div>
+
+            <div class="result-details">
+                <div class="detail-row">
+                    <span class="detail-key">在職日数</span>
+                    <span class="detail-val" id="detailDays"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">1日の平均賃金</span>
+                    <span class="detail-val" id="detailDailyWage"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">平均賃金の算定期間</span>
+                    <span class="detail-val" id="detailPeriod"></span>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                <strong>退職金の計算式</strong>
+                <span id="formulaText"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>退職金とは？（韓国労働法）</h2>
+        <p>
+            退職金は韓国の「勤労者退職給与保障法」に基づく法定給与です。
+            <strong>1年以上勤務</strong>した労働者が退職する際に、使用者は必ず支払わなければなりません。
+        </p>
+        <ul>
+            <li>支給条件：継続勤務期間1年以上、週15時間以上勤務</li>
+            <li>計算基準：退職前3ヶ月の平均賃金 × 30日 × （在職日数 ÷ 365）</li>
+            <li>平均賃金：基本給＋賞与（3ヶ月分）＋年次手当（3ヶ月分）を含む</li>
+            <li>支払期限：退職日から14日以内</li>
+        </ul>
+        <p style="margin-top:10px;">
+            本計算機は目安額の参考用です。実際の退職金は雇用契約の内容により異なる場合があります。
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>退職金計算機</h2><p>入社日、退職日、月の基本給を入力すると韓国労働法に基づく退職金の目安額を計算します。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="savings-calc.html">定期預金利息計算機</a><a href="percent-calc.html">パーセント計算機</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">シェア：</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='コピー完了!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URLをコピー</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+function formatMoney(n) {
+    return Math.round(n).toLocaleString("ja-JP") + "ウォン";
+}
+
+function getDaysBetween(start, end) {
+    const msPerDay = 1000 * 60 * 60 * 24;
+    return Math.floor((end - start) / msPerDay);
+}
+
+function formatDuration(totalDays) {
+    const years = Math.floor(totalDays / 365);
+    const remaining = totalDays - years * 365;
+    const months = Math.floor(remaining / 30);
+    const days = remaining - months * 30;
+    let parts = [];
+    if (years > 0) parts.push(years + "年");
+    if (months > 0) parts.push(months + "ヶ月");
+    if (days > 0) parts.push(days + "日");
+    return parts.join(" ");
+}
+
+function calculate() {
+    const startVal = document.getElementById("startDate").value;
+    const endVal = document.getElementById("endDate").value;
+    const baseSalary = parseFloat(document.getElementById("baseSalary").value) || 0;
+    const annualBonus = parseFloat(document.getElementById("annualBonus").value) || 0;
+    const leavePay = parseFloat(document.getElementById("leavePay").value) || 0;
+
+    if (!startVal || !endVal) {
+        alert("入社日と退職日を入力してください。");
+        return;
+    }
+
+    const startDate = new Date(startVal);
+    const endDate = new Date(endVal);
+
+    if (endDate <= startDate) {
+        alert("退職日は入社日より後の日付を入力してください。");
+        return;
+    }
+
+    if (baseSalary <= 0) {
+        alert("月の基本給を正しく入力してください。");
+        return;
+    }
+
+    const totalDays = getDaysBetween(startDate, endDate);
+
+    if (totalDays < 365) {
+        alert("在職日数が1年（365日）未満の場合、退職金は発生しません。\n現在の在職日数：" + totalDays + "日");
+        return;
+    }
+
+    // 平均賃金の計算（退職前3ヶ月基準）
+    const threeMonthBase = baseSalary * 3;
+    const threeMonthBonus = annualBonus * (3 / 12);
+    const threeMonthLeave = leavePay * (3 / 12);
+    const threeMonthTotal = threeMonthBase + threeMonthBonus + threeMonthLeave;
+
+    // 3ヶ月を91日に換算（法定基準）
+    const avgDailyWage = threeMonthTotal / 91;
+
+    // 退職金 = 1日平均賃金 × 30 × (在職日数 / 365)
+    const severancePay = avgDailyWage * 30 * (totalDays / 365);
+
+    document.getElementById("resultAmount").textContent = Math.round(severancePay).toLocaleString("ja-JP") + "ウォン";
+
+    const man = Math.floor(severancePay / 10000);
+    if (man >= 10000) {
+        const eok = Math.floor(man / 10000);
+        const remainMan = man % 10000;
+        document.getElementById("resultAmountSub").textContent =
+            "約 " + eok + "億 " + (remainMan > 0 ? remainMan.toLocaleString() + "万ウォン" : "ウォン");
+    } else if (man > 0) {
+        document.getElementById("resultAmountSub").textContent = "約 " + man.toLocaleString() + "万ウォン";
+    } else {
+        document.getElementById("resultAmountSub").textContent = "";
+    }
+
+    const duration = formatDuration(totalDays);
+    document.getElementById("detailDays").innerHTML =
+        totalDays.toLocaleString() + "日 <small>" + duration + "</small>";
+
+    document.getElementById("detailDailyWage").textContent = formatMoney(avgDailyWage);
+
+    document.getElementById("detailPeriod").textContent = "退職前3ヶ月（91日基準）";
+
+    document.getElementById("formulaText").innerHTML =
+        "1日の平均賃金 <b>" + Math.round(avgDailyWage).toLocaleString("ja-JP") + "ウォン</b>" +
+        " × 30日 × (在職日数 " + totalDays.toLocaleString() + "日 ÷ 365)<br>" +
+        "= <b>" + formatMoney(severancePay) + "</b>";
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") calculate();
+});
+</script>
+
+</body>
+</html>

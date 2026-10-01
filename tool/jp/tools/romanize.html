@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ローマ字変換 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"ローマ字変換は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"ローマ字変換の使い方は？","acceptedAnswer":{"@type":"Answer","text":"ハングルを韓国語のローマ字表記法（Revised Romanization of Korean）でローマ字に変換します。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/romanize.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/romanize.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/romanize.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/romanize.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/romanize.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/romanize.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/romanize.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/romanize.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/romanize.html">
+    <meta property="og:title" content="ローマ字変換 - MOGU Tools">
+    <meta property="og:description" content="ハングルを韓国語のローマ字表記法（Revised Romanization of Korean）でローマ字に変換します。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/romanize.html">
+    <meta name="description" content="ハングルを韓国語のローマ字表記法（Revised Romanization of Korean）でローマ字に変換します。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+
+        .input-group textarea:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-group textarea::placeholder {
+            color: #bbb;
+        }
+
+        .options-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .options-row label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .options-row input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #4a90d9;
+            cursor: pointer;
+        }
+
+        .result-block {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .result-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            word-break: break-all;
+            line-height: 1.4;
+            min-height: 40px;
+        }
+
+        .result-text.placeholder {
+            font-size: 18px;
+            color: #ccc;
+            font-weight: 400;
+        }
+
+        .copy-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 18px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+        }
+
+        .name-result-block {
+            background: #eef4fb;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .name-result-block .result-label {
+            color: #4a90d9;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+            font-size: 13px;
+        }
+
+        .info-table th {
+            text-align: left;
+            color: #888;
+            font-weight: 500;
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-table td {
+            padding: 6px 10px;
+            color: #555;
+            border-bottom: 1px solid #f3f3f3;
+        }
+
+        .info-table td:first-child {
+            font-weight: 600;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>ツール</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — 無料オンラインツール集</a> &gt; 変換ツール &gt; ローマ字変換
+</div>
+
+<div class="container">
+    <h1>ローマ字変換</h1>
+    <p class="subtitle">ハングルを韓国語のローマ字表記法（Revised Romanization of Korean）で変換します。</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label for="korInput">ハングル入力</label>
+            <textarea id="korInput" placeholder="ハングルを入力（例: 한국어, 김민수）" oninput="doConvert()"></textarea>
+        </div>
+
+        <div class="options-row">
+            <label>
+                <input type="checkbox" id="nameMode" onchange="doConvert()">
+                名前形式（先頭大文字、姓/名分離）
+            </label>
+        </div>
+
+        <div class="result-block">
+            <div class="result-label">ローマ字表記</div>
+            <div class="result-text placeholder" id="resultText">変換結果がここに表示されます</div>
+            <button class="copy-btn" id="copyBtn" onclick="copyResult('resultText','copyBtn')" style="display:none">コピー</button>
+        </div>
+
+        <div class="name-result-block" id="nameBlock" style="display:none">
+            <div class="result-label">名前形式</div>
+            <div class="result-text" id="nameText" style="font-size:24px"></div>
+            <button class="copy-btn" id="copyBtnName" onclick="copyResult('nameText','copyBtnName')" style="display:none">コピー</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>韓国語のローマ字表記法とは？</h2>
+        <p>
+            韓国語のローマ字表記法（Revised Romanization of Korean）は2000年に文化観光部が告示した公式ハングルローマ字表記方式です。
+            パスポート、道路標識、公文書などに使用されます。
+        </p>
+        <p>
+            パッチム（終声）が母音で始まる次の音節の前に来ると、そのパッチムが次の音節の初声として連音されます。
+            二重パッチムは子音の前では一つだけ発音され、母音の前では右側が連音されます。
+        </p>
+        <table class="info-table">
+            <tr><th>区分</th><th>ハングル</th><th>ローマ字</th></tr>
+            <tr><td>一般</td><td>한국어</td><td>hangugeo</td></tr>
+            <tr><td>連音</td><td>서울역</td><td>seoullok → seoullyeok</td></tr>
+            <tr><td>名前</td><td>김민수</td><td>Kim Minsu</td></tr>
+            <tr><td>二重パッチム</td><td>닭이</td><td>dalgi</td></tr>
+            <tr><td>겹받침</td><td>읽다</td><td>ikda</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>ローマ字変換</h2><p>ハングルを韓国語のローマ字表記法（Revised Romanization of Korean）でローマ字に変換します。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="encoding.html">エンコード変換</a><a href="morse.html">モールス信号変換器</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// ── Revised Romanization of Korean (국어의 로마자 표기법) ──────────────────────
+
+// 초성 (19개)
+const CHO = ['g','kk','n','d','tt','r','m','b','pp','s','ss','','j','jj','ch','k','t','p','h'];
+
+// 중성 (21개)
+const JUNG = ['a','ae','ya','yae','eo','e','yeo','ye','o','wa','wae','oe','yo','u','wo','we','wi','yu','eu','ui','i'];
+
+// 종성 (28개, 0=없음)
+// 자음 앞 또는 어말에서의 발음
+const JONG_CONS = [
+    '',   // 0  없음
+    'k',  // 1  ㄱ
+    'k',  // 2  ㄲ
+    'k',  // 3  ㄳ (ㄱ만 발음)
+    'n',  // 4  ㄴ
+    'n',  // 5  ㄵ (ㄴ만 발음)
+    'n',  // 6  ㄶ (ㄴ만 발음)
+    't',  // 7  ㄷ
+    'l',  // 8  ㄹ
+    'k',  // 9  ㄺ (ㄱ만 발음, 일부 예외 있으나 기본)
+    'm',  // 10 ㄻ (ㅁ만 발음)
+    'p',  // 11 ㄼ (ㅂ만 발음)
+    'l',  // 12 ㄽ (ㄹ만 발음)
+    'l',  // 13 ㄾ (ㄹ만 발음)
+    'p',  // 14 ㄿ (ㅍ→p)
+    'l',  // 15 ㅀ (ㄹ만 발음)
+    'm',  // 16 ㅁ
+    'p',  // 17 ㅂ
+    'p',  // 18 ㅄ (ㅂ만 발음)
+    't',  // 19 ㅅ
+    'ng', // 20 ㅇ
+    't',  // 21 ㅈ
+    't',  // 22 ㅊ
+    'k',  // 23 ㅋ
+    't',  // 24 ㅌ
+    'p',  // 25 ㅍ
+    'h',  // 26 ㅎ (어말에서 h, 자음 앞에서 변화 — 기본 h)
+];
+
+// 겹받침: 모음 앞에서 연음될 때
+// { left: 남는 종성 인덱스, right: 넘어가는 초성 인덱스(CHO 기준) }
+const DOUBLE_JONG = {
+    3:  { left: 1,  right: 9  },  // ㄳ → ㄱ + ㅅ(초성9)
+    5:  { left: 4,  right: 12 },  // ㄵ → ㄴ + ㅈ(초성12)
+    6:  { left: 4,  right: 18 },  // ㄶ → ㄴ + ㅎ(초성18)
+    9:  { left: 8,  right: 0  },  // ㄺ → ㄹ + ㄱ(초성0)
+    10: { left: 8,  right: 6  },  // ㄻ → ㄹ + ㅁ(초성6)
+    11: { left: 8,  right: 7  },  // ㄼ → ㄹ + ㅂ(초성7)
+    12: { left: 8,  right: 9  },  // ㄽ → ㄹ + ㅅ(초성9)
+    13: { left: 8,  right: 16 },  // ㄾ → ㄹ + ㅌ(초성16)
+    14: { left: 8,  right: 17 },  // ㄿ → ㄹ + ㅍ(초성17)
+    15: { left: 8,  right: 18 },  // ㅀ → ㄹ + ㅎ(초성18)
+    18: { left: 17, right: 9  },  // ㅄ → ㅂ + ㅅ(초성9)
+};
+
+// 단순 종성 → 연음 시 초성 인덱스
+const JONG_TO_CHO = {
+    1:  0,   // ㄱ → g (초성0)
+    2:  1,   // ㄲ → kk
+    4:  2,   // ㄴ → n
+    7:  3,   // ㄷ → d
+    8:  5,   // ㄹ → r
+    16: 6,   // ㅁ → m
+    17: 7,   // ㅂ → b
+    19: 9,   // ㅅ → s
+    20: 11,  // ㅇ → (무음, 초성 ㅇ=11)
+    21: 12,  // ㅈ → j
+    22: 14,  // ㅊ → ch
+    23: 15,  // ㅋ → k
+    24: 16,  // ㅌ → t
+    25: 17,  // ㅍ → p
+    26: 18,  // ㅎ → h
+};
+
+function decompose(code) {
+    if (code < 0xAC00 || code > 0xD7A3) return null;
+    const off  = code - 0xAC00;
+    const jong = off % 28;
+    const jung = Math.floor(off / 28) % 21;
+    const cho  = Math.floor(off / 28 / 21);
+    return { cho, jung, jong };
+}
+
+// 음절 배열을 받아 로마자 문자열 반환
+// 각 원소: { type:'syl', cho, jung, jong } | { type:'raw', ch }
+function syllablesToRoman(syls) {
+    let out = '';
+    for (let i = 0; i < syls.length; i++) {
+        const s = syls[i];
+        if (s.type === 'raw') { out += s.ch; continue; }
+
+        const next = (i + 1 < syls.length && syls[i+1].type === 'syl') ? syls[i+1] : null;
+
+        // 초성
+        out += CHO[s.cho];
+        // 중성
+        out += JUNG[s.jung];
+
+        // 종성
+        if (s.jong === 0) {
+            // 받침 없음
+        } else if (DOUBLE_JONG[s.jong]) {
+            const df = DOUBLE_JONG[s.jong];
+            if (next && next.cho === 11) {
+                // 다음 초성이 ㅇ → 연음: 오른쪽 겹받침이 다음 초성으로
+                out += JONG_CONS[df.left];
+                // 다음 음절의 초성을 오버라이드
+                i++;
+                const n = syls[i];
+                out += CHO[df.right] + JUNG[n.jung];
+                // 다음 음절의 종성은 그대로 재귀 처리를 위해 syls[i].jong을 그대로 사용
+                // (다음 이터레이션에서 처리하지 않으므로 여기서 직접 처리)
+                if (n.jong !== 0) {
+                    // 다음다음 확인
+                    const nn = (i + 1 < syls.length && syls[i+1].type === 'syl') ? syls[i+1] : null;
+                    out += getJongRoman(n.jong, nn);
+                }
+            } else {
+                // 자음 앞 or 어말 → 왼쪽 받침만 발음
+                out += JONG_CONS[df.left];
+            }
+        } else {
+            // 단순 받침
+            if (next && next.cho === 11 && JONG_TO_CHO[s.jong] !== undefined) {
+                // 연음: 받침이 다음 초성으로
+                i++;
+                const n = syls[i];
+                out += CHO[JONG_TO_CHO[s.jong]] + JUNG[n.jung];
+                if (n.jong !== 0) {
+                    const nn = (i + 1 < syls.length && syls[i+1].type === 'syl') ? syls[i+1] : null;
+                    out += getJongRoman(n.jong, nn);
+                }
+            } else {
+                out += JONG_CONS[s.jong];
+            }
+        }
+    }
+    return out;
+}
+
+// 종성의 로마자를 결정 (다음 음절 정보 필요)
+function getJongRoman(jong, nextSyl) {
+    if (jong === 0) return '';
+    if (DOUBLE_JONG[jong]) {
+        const df = DOUBLE_JONG[jong];
+        if (nextSyl && nextSyl.cho === 11) {
+            // 연음 — 하지만 이 함수는 "종성 자체"만 반환하므로 여기선 left만
+            return JONG_CONS[df.left];
+        }
+        return JONG_CONS[df.left];
+    }
+    if (nextSyl && nextSyl.cho === 11 && JONG_TO_CHO[jong] !== undefined) {
+        return ''; // 연음으로 넘어감
+    }
+    return JONG_CONS[jong];
+}
+
+function romanizeText(text) {
+    // 문자열을 음절 토큰 배열로 분해
+    const syls = [];
+    for (const ch of text) {
+        const code = ch.codePointAt(0);
+        const d = decompose(code);
+        if (d) {
+            syls.push({ type: 'syl', ...d });
+        } else {
+            syls.push({ type: 'raw', ch });
+        }
+    }
+    return syllablesToRoman(syls);
+}
+
+function toNameFormat(korText, romanized) {
+    const korWords = korText.trim().split(/\s+/);
+    if (korWords.length === 1) {
+        const syllables = [...korWords[0]];
+        if (syllables.length >= 2) {
+            // 첫 음절 = 성
+            const family = romanizeText(syllables[0]);
+            const given  = romanizeText(syllables.slice(1).join(''));
+            return cap(family) + ' ' + cap(given);
+        }
+    }
+    // 공백 있는 경우 각 단어 capitalize
+    return romanized.split(/\s+/).map(cap).join(' ');
+}
+
+function cap(s) {
+    if (!s) return '';
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function doConvert() {
+    const input     = document.getElementById('korInput').value;
+    const nameMode  = document.getElementById('nameMode').checked;
+    const resText   = document.getElementById('resultText');
+    const copyBtn   = document.getElementById('copyBtn');
+    const nameBlock = document.getElementById('nameBlock');
+    const nameText  = document.getElementById('nameText');
+    const copyBtnN  = document.getElementById('copyBtnName');
+
+    if (!input.trim()) {
+        resText.textContent = '변환 결과가 여기에 표시됩니다';
+        resText.classList.add('placeholder');
+        copyBtn.style.display = 'none';
+        nameBlock.style.display = 'none';
+        return;
+    }
+
+    const romanized = romanizeText(input);
+    resText.textContent = romanized;
+    resText.classList.remove('placeholder');
+    copyBtn.style.display = 'inline-block';
+
+    if (nameMode) {
+        nameText.textContent = toNameFormat(input, romanized);
+        nameBlock.style.display = 'block';
+        copyBtnN.style.display = 'inline-block';
+    } else {
+        nameBlock.style.display = 'none';
+    }
+}
+
+function copyResult(textId, btnId) {
+    const text = document.getElementById(textId).textContent;
+    const btn  = document.getElementById(btnId);
+
+    const doCopied = () => {
+        btn.textContent = 'コピー済み！';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'コピー';
+            btn.classList.remove('copied');
+        }, 1800);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(doCopied).catch(() => fallbackCopy(text, doCopied));
+    } else {
+        fallbackCopy(text, doCopied);
+    }
+}
+
+function fallbackCopy(text, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    cb();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>베딕 점성술 v2 레이아웃 샘플</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><circle cx=%2260%22 cy=%2260%22 r=%2250%22 fill=%22%23FFD93D%22/><circle cx=%2248%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><circle cx=%2272%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><path d=%22M56,75 Q60,79 64,75%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%221.5%22 stroke-linecap=%22round%22/></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a1a;color:#e0d8cc;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,0.4),transparent),radial-gradient(1px 1px at 50% 10%,rgba(255,255,255,0.5),transparent),radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,0.3),transparent),radial-gradient(2px 2px at 45% 45%,rgba(201,168,76,0.3),transparent);z-index:-1;}
+
+/* Nav */
+.nav{background:rgba(10,10,26,0.95);backdrop-filter:blur(12px);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1a1a3e;position:sticky;top:0;z-index:100;}
+.nav-logo{font-size:20px;font-weight:700;color:#c9a84c;text-decoration:none;letter-spacing:2px;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.nav-logo svg{width:26px;height:26px;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 14px;border-radius:20px;color:#888;font-weight:500;transition:all .2s;}
+.nav-links a:hover{background:rgba(201,168,76,0.1);color:#c9a84c;}
+.nav-links a.active{background:rgba(201,168,76,0.2);color:#c9a84c;}
+
+/* ===== INPUT BAR (가로 1줄) ===== */
+.input-bar{max-width:1200px;margin:16px auto;padding:0 24px;}
+.input-bar-inner{background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:14px;padding:16px 20px;display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;}
+.ib-group{display:flex;flex-direction:column;gap:4px;}
+.ib-group label{font-size:11px;color:#c9a84c;font-weight:600;}
+.ib-group select,.ib-group input{padding:10px 12px;background:#0a0a1a;border:1px solid #3a3a6a;border-radius:8px;color:#e0d8cc;font-size:13px;outline:none;min-width:80px;}
+.ib-group select:focus,.ib-group input:focus{border-color:#c9a84c;}
+.ib-row{display:flex;gap:6px;}
+.calc-btn{padding:10px 28px;background:linear-gradient(135deg,#c9a84c,#a8872a);color:#0a0a1a;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;align-self:flex-end;}
+.calc-btn:hover{background:linear-gradient(135deg,#dbb85c,#c9a84c);transform:translateY(-1px);}
+
+/* ===== 2-COLUMN LAYOUT ===== */
+.page-layout{max-width:1200px;margin:0 auto;padding:16px 24px;display:grid;grid-template-columns:1fr 300px;gap:24px;}
+.content{display:flex;flex-direction:column;gap:16px;}
+
+/* Mode + Tab bar */
+.tab-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.mode-toggle{display:flex;gap:4px;margin-right:auto;}
+.mode-btn{padding:8px 16px;border:1px solid #c9a84c;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;}
+.mode-btn.active{background:#c9a84c;color:#0a0a1a;}
+.mode-btn.inactive{background:transparent;color:#c9a84c;}
+.tab-btn{padding:8px 16px;border:1px solid #2a2a5a;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;color:#777;background:transparent;transition:all .2s;}
+.tab-btn:hover{border-color:rgba(201,168,76,0.3);color:#c9a84c;}
+.tab-btn.active{background:rgba(201,168,76,0.15);border-color:#c9a84c;color:#c9a84c;}
+
+/* ===== RESULT: 차트+해석 가로 2컬럼 ===== */
+.result-2col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+/* Chart */
+.chart-box{background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:14px;padding:16px;}
+.chart-label{text-align:center;font-size:12px;color:#8b7ec8;margin-bottom:8px;font-weight:600;}
+.chart-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:0;aspect-ratio:1;border:2px solid #c9a84c;}
+.chart-cell{border:1px solid #3a3a6a;padding:6px;font-size:10px;color:#666;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50px;position:relative;}
+.chart-cell.empty{background:#0d0d20;}
+.chart-cell .h{position:absolute;top:2px;left:4px;font-size:8px;color:#444;}
+.chart-cell .p{color:#c9a84c;font-weight:700;font-size:11px;}
+
+/* Interp cards */
+.interp-area{display:flex;flex-direction:column;gap:10px;}
+.interp-card{background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:12px;padding:16px;}
+.interp-title{font-size:13px;color:#c9a84c;font-weight:600;margin-bottom:6px;}
+.interp-text{font-size:12px;color:#999;line-height:1.7;}
+
+/* Dasha timeline (가로) */
+.dasha-row{display:flex;gap:8px;overflow-x:auto;padding:4px 0;}
+.dasha-card{flex-shrink:0;width:140px;background:linear-gradient(135deg,#12122a,#1a1a3e);border:1px solid #2a2a5a;border-radius:10px;padding:12px;text-align:center;}
+.dasha-card.current{border-color:#c9a84c;background:linear-gradient(135deg,#1a2a1a,#12301a);}
+.dasha-planet{font-size:14px;font-weight:700;color:#c9a84c;margin-bottom:4px;}
+.dasha-period{font-size:10px;color:#888;}
+.dasha-badge{font-size:9px;background:#c9a84c;color:#0a0a1a;padding:2px 6px;border-radius:8px;font-weight:700;display:inline-block;margin-top:4px;}
+
+/* Ad slots */
+.ad-slot{background:linear-gradient(135deg,#0e0e22,#14142e);border:2px dashed rgba(201,168,76,0.2);border-radius:12px;padding:16px;text-align:center;color:#555;font-size:11px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;}
+.ad-label{font-size:9px;color:#c9a84c;font-weight:600;letter-spacing:1px;}
+.ad-h{min-height:90px;}
+.ad-s{min-height:250px;}
+.ad-st{min-height:600px;}
+
+/* Sidebar */
+.sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:70px;align-self:start;}
+.side-card{background:linear-gradient(135deg,#0e0e22,#14142e);border:1px solid #1e1e3e;border-radius:14px;padding:16px;position:relative;overflow:hidden;}
+.side-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.15),transparent);}
+.side-title{font-size:12px;font-weight:700;color:#c9a84c;margin-bottom:10px;letter-spacing:1px;}
+.rel-item{display:flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;color:#777;font-size:11px;transition:all .2s;}
+.rel-item:hover{background:rgba(201,168,76,0.06);color:#c9a84c;}
+
+/* Footer */
+.app-footer{text-align:center;padding:20px;font-size:11px;color:#444;border-top:1px solid #1a1a3e;margin-top:10px;}
+
+/* Responsive */
+.nav-lang{padding:6px 10px;border-radius:12px;border:1px solid #2a2a5a;font-size:11px;color:#888;background:#12122a;cursor:pointer;outline:none;}
+@media(max-width:1024px){
+.page-layout{grid-template-columns:1fr;}
+.sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+}
+@media(max-width:768px){
+.nav-links a{font-size:11px;padding:6px 8px;white-space:nowrap;}
+.nav-lang{font-size:10px;padding:4px 6px;}
+.input-bar-inner{flex-direction:column;align-items:stretch;}
+.result-2col{grid-template-columns:1fr;}
+.dasha-card{width:120px;}
+.tab-bar{gap:4px;}
+.tab-btn{padding:6px 10px;font-size:11px;}
+.sidebar{grid-template-columns:1fr;}
+}
+
+.light-mode{background:#f5f5f5 !important;color:#333 !important}
+.light-mode .nav{background:rgba(255,255,255,0.95) !important;border-color:#eee !important}
+.light-mode .nav-links a{color:#666 !important}
+.light-mode .nav-links a.active{background:rgba(201,168,76,0.15) !important;color:#c9a84c !important}
+.light-mode .nav-lang{background:#fff !important;color:#666 !important;border-color:#ddd !important}
+.light-mode .side-card{background:linear-gradient(135deg,#fff,#fafafa) !important;border-color:#e0e0e0 !important}
+.light-mode .section-title,.light-mode h2{color:#b8860b !important}
+.light-mode p,.light-mode li,.light-mode td,.light-mode .content{color:#555 !important}
+.light-mode .page-layout,.light-mode .seo-section,.light-mode .seo-section p{color:#666 !important}
+.light-mode footer,.light-mode .app-footer{color:#999 !important}
+.light-mode .rel-item{color:#666 !important}
+.light-mode article,.light-mode .about-section,.light-mode .privacy-section{color:#555 !important}
+.light-mode .interp-card,.light-mode .category-header,.light-mode .input-bar-inner{background:linear-gradient(135deg,#fff,#fafafa) !important;border-color:#e0e0e0 !important;color:#333 !important}
+.light-mode select,.light-mode input{background:#fff !important;color:#333 !important;border-color:#ddd !important}
+</style>
+</head>
+<body>
+<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+
+<!-- Nav -->
+<nav class="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+        MOGU Moon
+    </a>
+    <div class="nav-links">
+        <a href="/">홈</a>
+        <a href="#" class="active">베딕 점성술</a>
+        <a href="/about/">소개</a>
+    </div>
+</nav>
+
+<!-- ===== INPUT BAR (가로 1줄) ===== -->
+<div class="input-bar">
+    <div class="input-bar-inner">
+        <div class="ib-group">
+            <label>생년월일</label>
+            <div class="ib-row">
+                <select><option>1993</option></select>
+                <select><option>7월</option></select>
+                <select><option>25일</option></select>
+            </div>
+        </div>
+        <div class="ib-group">
+            <label>출생시간</label>
+            <div class="ib-row">
+                <select><option>오전</option></select>
+                <select><option>6시</option></select>
+                <select><option>57분</option></select>
+            </div>
+        </div>
+        <div class="ib-group">
+            <label>출생지</label>
+            <select><option>서울</option><option>부산</option><option>뉴욕</option><option>런던</option></select>
+        </div>
+        <button class="calc-btn">🔮 명반 생성</button>
+    </div>
+</div>
+
+<div class="page-layout">
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content">
+
+    <!-- Mode + Category Tabs -->
+    <div class="tab-bar">
+        <div class="mode-toggle">
+            <button class="mode-btn active">쉬운</button>
+            <button class="mode-btn inactive">전문가</button>
+        </div>
+        <button class="tab-btn active">⏳ 대운</button>
+        <button class="tab-btn">📖 종합</button>
+        <button class="tab-btn">💍 결혼</button>
+        <button class="tab-btn">💼 직업</button>
+        <button class="tab-btn">👨‍👩‍👧 가족</button>
+        <button class="tab-btn">🙏 영성</button>
+        <button class="tab-btn">🔮 카르마</button>
+    </div>
+
+    <!-- ⏳ 대운 (가로 타임라인) -->
+    <div>
+        <div style="font-size:14px;color:#c9a84c;font-weight:700;margin-bottom:8px;">⏳ 대운 타임라인</div>
+        <div class="dasha-row">
+            <div class="dasha-card">
+                <div class="dasha-planet">☉ 태양</div>
+                <div class="dasha-period">2018 ~ 2024</div>
+            </div>
+            <div class="dasha-card current">
+                <div class="dasha-planet">☽ 달</div>
+                <div class="dasha-period">2024 ~ 2034</div>
+                <div class="dasha-badge">현재</div>
+            </div>
+            <div class="dasha-card">
+                <div class="dasha-planet">♂ 화성</div>
+                <div class="dasha-period">2034 ~ 2041</div>
+            </div>
+            <div class="dasha-card">
+                <div class="dasha-planet">☊ 라후</div>
+                <div class="dasha-period">2041 ~ 2059</div>
+            </div>
+            <div class="dasha-card">
+                <div class="dasha-planet">♃ 목성</div>
+                <div class="dasha-period">2059 ~ 2075</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 현재 대운 해석 -->
+    <div class="interp-card" style="border-left:3px solid #c9a84c;">
+        <div class="interp-title">현재: 달 대운 — 달/토성 소운 (2024~2026)</div>
+        <div class="interp-text">감정적 안정을 찾는 시기입니다. 토성의 영향으로 인내와 책임감이 요구되지만, 달의 에너지가 내면의 성장을 도와줍니다. 결혼이나 중요한 관계의 변화가 예상됩니다.</div>
+    </div>
+
+    <!-- 차트 + 해석 (가로 2컬럼) -->
+    <div style="font-size:14px;color:#c9a84c;font-weight:700;margin-bottom:4px;">🏛️ 출생 차트 (D1 라시) + 해석</div>
+    <div class="result-2col">
+        <!-- 왼쪽: 차트 -->
+        <div class="chart-box">
+            <div class="chart-label">남인도식 차트</div>
+            <div class="chart-grid">
+                <div class="chart-cell"><span class="h">12</span><span class="p">♀</span></div>
+                <div class="chart-cell"><span class="h">1</span><span class="p">☉ ☿</span></div>
+                <div class="chart-cell"><span class="h">2</span></div>
+                <div class="chart-cell"><span class="h">3</span></div>
+                <div class="chart-cell"><span class="h">11</span><span class="p">♄</span></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell"><span class="h">4</span><span class="p">♂</span></div>
+                <div class="chart-cell"><span class="h">10</span></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell"><span class="h">5</span></div>
+                <div class="chart-cell"><span class="h">9</span><span class="p">☊</span></div>
+                <div class="chart-cell"><span class="h">8</span><span class="p">♃</span></div>
+                <div class="chart-cell"><span class="h">7</span><span class="p">☽</span></div>
+                <div class="chart-cell"><span class="h">6</span><span class="p">☋</span></div>
+            </div>
+        </div>
+        <!-- 오른쪽: 핵심 해석 -->
+        <div class="interp-area">
+            <div class="interp-card">
+                <div class="interp-title">⬆ 라그나: 게자리 (Cancer)</div>
+                <div class="interp-text">감성적이고 직관적인 성격. 가정과 안정을 중시하며, 다른 사람의 감정에 민감합니다. 보호본능이 강하고 돌봄에 뛰어납니다.</div>
+            </div>
+            <div class="interp-card">
+                <div class="interp-title">☉ 태양: 1궁 (자아)</div>
+                <div class="interp-text">강한 자아와 리더십. 자기표현이 분명하고, 타인에게 존재감을 드러냅니다.</div>
+            </div>
+            <div class="interp-card">
+                <div class="interp-title">☽ 달: 7궁 (배우자)</div>
+                <div class="interp-text">감정적으로 파트너에게 깊이 투자합니다. 배우자가 감성적이거나 돌봄 성향일 수 있습니다.</div>
+            </div>
+            <div class="interp-card">
+                <div class="interp-title">🌙 나크샤트라: 푸나르바수</div>
+                <div class="interp-text">"다시 돌아오는 빛" — 회복력이 강하고 낙관적. 방랑 후 귀환하는 에너지.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D9 차트 + 배우자 해석 (가로) -->
+    <div style="font-size:14px;color:#c9a84c;font-weight:700;margin-bottom:4px;">💍 나바암샤 (D9) + 배우자 분석</div>
+    <div class="result-2col">
+        <div class="chart-box">
+            <div class="chart-label">D9 나바암샤 — 결혼 · 배우자</div>
+            <div class="chart-grid">
+                <div class="chart-cell"><span class="h">12</span></div>
+                <div class="chart-cell"><span class="h">1</span><span class="p">♃</span></div>
+                <div class="chart-cell"><span class="h">2</span></div>
+                <div class="chart-cell"><span class="h">3</span><span class="p">♄</span></div>
+                <div class="chart-cell"><span class="h">11</span><span class="p">☊</span></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell"><span class="h">4</span></div>
+                <div class="chart-cell"><span class="h">10</span><span class="p">☉ ☿</span></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell empty"></div>
+                <div class="chart-cell"><span class="h">5</span><span class="p">☋</span></div>
+                <div class="chart-cell"><span class="h">9</span></div>
+                <div class="chart-cell"><span class="h">8</span><span class="p">♀</span></div>
+                <div class="chart-cell"><span class="h">7</span><span class="p">♂ ☽</span></div>
+                <div class="chart-cell"><span class="h">6</span></div>
+            </div>
+        </div>
+        <div class="interp-area">
+            <div class="interp-card" style="border-left:3px solid #e84393;">
+                <div class="interp-title">💍 배우자 프로필</div>
+                <div class="interp-text">
+                    <strong>외모:</strong> 강인하면서도 매력적. 날카로운 이목구비.<br>
+                    <strong>성격:</strong> 열정적이고 보호적. 소유욕이 강하지만 진심으로 사랑함.<br>
+                    <strong>직업:</strong> 리더십을 발휘하는 분야. 군/정부/관리직 가능성.<br>
+                    <strong>만남 시기:</strong> 달/목성 소운 (2027~2028)
+                </div>
+            </div>
+            <div class="interp-card">
+                <div class="interp-title">💑 결혼운 요약</div>
+                <div class="interp-text">금성이 8궁에 위치하여 깊고 변혁적인 관계. 표면적으론 조용하지만 내면에서 강렬한 유대감을 형성합니다.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 행운 + 치유 (가로 2컬럼) -->
+    <div style="font-size:14px;color:#c9a84c;font-weight:700;margin-bottom:4px;">🍀 행운 & 💎 치유</div>
+    <div class="result-2col">
+        <div class="interp-card">
+            <div class="interp-title">🍀 행운의 정보</div>
+            <div class="interp-text">
+                <strong>행운 색:</strong> 은색, 흰색, 연두<br>
+                <strong>행운 숫자:</strong> 2, 7, 11<br>
+                <strong>행운 방향:</strong> 북서쪽<br>
+                <strong>행운 보석:</strong> 진주 (Pearl)<br>
+                <strong>행운 요일:</strong> 월요일
+            </div>
+        </div>
+        <div class="interp-card">
+            <div class="interp-title">💎 치유 & 강화</div>
+            <div class="interp-text">
+                <strong>만트라:</strong> Om Chandraya Namaha (108회)<br>
+                <strong>보석:</strong> 진주 반지 (약지, 월요일 착용)<br>
+                <strong>음식:</strong> 흰색 음식 (우유, 쌀, 코코넛)<br>
+                <strong>기부:</strong> 월요일 쌀/우유 기부
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+    <div class="ad-slot ad-s">
+        <div class="ad-label">AD</div>300x250
+    </div>
+    <div class="side-card">
+        <div class="side-title">🔗 관련 도구</div>
+        <a href="#" class="rel-item">☯️ 사주팔자</a>
+        <a href="#" class="rel-item">💜 자미두수</a>
+        <a href="#" class="rel-item">🏛️ 헬레니즘</a>
+        <a href="#" class="rel-item">🌀 마야 점성술</a>
+        <a href="#" class="rel-item">💑 사주 궁합</a>
+    </div>
+    <div class="ad-slot ad-st">
+        <div class="ad-label">AD</div>300x600 세로형
+    </div>
+    <div class="side-card">
+        <div class="side-title">🔥 인기</div>
+        <a href="#" class="rel-item">🃏 타로 카드</a>
+        <a href="#" class="rel-item">✨ 오늘의 운세</a>
+        <a href="#" class="rel-item">🏛️ 전생 테스트</a>
+    </div>
+    <div class="ad-slot ad-s">
+        <div class="ad-label">AD</div>300x250
+    </div>
+</div>
+
+</div>
+
+<footer class="app-footer">&copy; 2025 MOGU Moon</footer>
+
+<!-- 레이아웃 노트 -->
+<div style="max-width:1200px;margin:20px auto;padding:20px 24px;background:#1a1a2e;border:1px solid #c9a84c;border-radius:12px;">
+    <h3 style="color:#c9a84c;margin-bottom:12px;">📐 v2 변경점</h3>
+    <div style="font-size:13px;color:#999;line-height:2;">
+        <strong style="color:#c9a84c;">1. 입력폼:</strong> 세로 폼박스 → 가로 1줄 바 (네비 바로 아래, 항상 보임)<br>
+        <strong style="color:#c9a84c;">2. 결과:</strong> 차트(왼) + 해석(오른) 가로 2컬럼 나란히<br>
+        <strong style="color:#c9a84c;">3. 대운:</strong> 세로 리스트 → 가로 카드 타임라인 (스크롤)<br>
+        <strong style="color:#c9a84c;">4. 카테고리:</strong> 아코디언 접기 → 탭 버튼 (한 화면에 전환)<br>
+        <strong style="color:#c9a84c;">5. 행운+치유:</strong> 가로 2컬럼으로 나란히<br>
+        <strong style="color:#c9a84c;">6. 광고:</strong> 사이드바 3개 + 본문 가로 3개 = 총 6슬롯<br>
+        <strong style="color:#c9a84c;">7. 전체:</strong> 1200px 2컬럼, 세로 스크롤 대폭 감소
+    </div>
+</div>
+
+<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
+</body>
+</html>

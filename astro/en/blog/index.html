@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3846518968014998" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - MOGU Moon</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><circle cx=%2260%22 cy=%2260%22 r=%2250%22 fill=%22%23FFD93D%22/><ellipse cx=%2243%22 cy=%2268%22 rx=%227%22 ry=%224%22 fill=%22rgba(245,150,150,0.6)%22/><ellipse cx=%2277%22 cy=%2268%22 rx=%227%22 ry=%224%22 fill=%22rgba(245,150,150,0.6)%22/><circle cx=%2248%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><circle cx=%2272%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><path d=%22M56,75 Q60,79 64,75%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%221.5%22 stroke-linecap=%22round%22/></svg>">
+
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0c0c1e;color:#ddd;min-height:100vh;line-height:1.7;}
+
+/* Nav */
+.nav{background:rgba(10,10,26,0.95);backdrop-filter:blur(12px);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1a1a3e;position:sticky;top:0;z-index:100;}
+.nav-logo{font-size:20px;font-weight:700;color:#c9a84c;text-decoration:none;letter-spacing:2px;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.nav-logo svg{width:26px;height:26px;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 14px;border-radius:20px;color:#888;font-weight:500;transition:all .2s;}
+.nav-links a:hover{background:rgba(201,168,76,0.1);color:#c9a84c;}
+.nav-links a.active{background:rgba(201,168,76,0.2);color:#c9a84c;}
+.nav-lang{padding:6px 10px;border-radius:12px;border:1px solid #2a2a5a;font-size:11px;color:#888;background:#12122a;cursor:pointer;outline:none;}
+
+/* Hero */
+.hero{max-width:1200px;margin:0 auto;padding:48px 40px 0;}
+.hero-greeting{font-size:14px;color:#888;margin-bottom:4px;}
+.hero h1{font-size:32px;font-weight:800;color:#e8e0d0;margin-bottom:8px;letter-spacing:-0.5px;}
+.hero h1 span{color:#c9a84c;}
+.hero-sub{font-size:15px;color:#777;margin-bottom:36px;line-height:1.7;}
+
+/* Featured */
+.featured{max-width:1200px;margin:0 auto;padding:0 40px;}
+.featured-card{display:block;text-decoration:none;background:linear-gradient(135deg,#161630,#1e1e40);border:1px solid #2a2a5a;border-radius:16px;padding:36px 40px;margin-bottom:36px;transition:all .25s;position:relative;overflow:hidden;}
+.featured-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c9a84c,#e8c56d,#c9a84c);border-radius:16px 16px 0 0;}
+.featured-card:hover{transform:translateY(-2px);border-color:rgba(201,168,76,0.3);box-shadow:0 12px 32px rgba(0,0,0,0.3);}
+.featured-label{display:inline-block;font-size:11px;color:#c9a84c;font-weight:700;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;}
+.featured-title{font-size:24px;font-weight:800;color:#e8e0d0;margin-bottom:10px;line-height:1.35;}
+.featured-desc{font-size:14px;color:#999;line-height:1.8;margin-bottom:14px;}
+.featured-meta{font-size:12px;color:#555;}
+
+/* Divider */
+.section-label{max-width:1200px;margin:0 auto;padding:0 40px 16px;font-size:12px;color:#555;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #1a1a3e;}
+
+/* Post grid */
+.post-list{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;}
+.post-item{display:flex;gap:16px;padding:24px 20px;border-bottom:1px solid #151530;border-right:1px solid #151530;text-decoration:none;transition:all .15s;}
+.post-item:hover{background:rgba(201,168,76,0.03);}
+.post-item:nth-child(2n){border-right:none;}
+.post-num{font-size:28px;font-weight:800;color:#1e1e40;min-width:40px;line-height:1;}
+.post-item:hover .post-num{color:#c9a84c;}
+.post-body{flex:1;}
+.post-date{font-size:11px;color:#555;margin-bottom:4px;}
+.post-title{font-size:16px;font-weight:700;color:#ddd;margin-bottom:6px;line-height:1.4;transition:color .15s;}
+.post-item:hover .post-title{color:#c9a84c;}
+.post-desc{font-size:13px;color:#777;line-height:1.6;}
+.post-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+.post-tag{display:inline-block;padding:2px 10px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.1);border-radius:12px;font-size:10px;color:#888;}
+
+/* Footer */
+.app-footer{text-align:center;padding:40px 20px 20px;font-size:11px;color:#333;border-top:1px solid #151530;margin-top:40px;}
+.app-footer a{color:#555;text-decoration:none;}
+
+/* Responsive */
+@media(max-width:900px){
+.nav-links a{font-size:11px;padding:6px 8px;white-space:nowrap;}
+.nav-lang{font-size:10px;padding:4px 6px;}
+.post-list{grid-template-columns:1fr;}
+.post-item{border-right:none !important;}
+}
+@media(max-width:600px){
+.hero{padding:28px 16px 0;}
+.hero h1{font-size:24px;}
+.featured{padding:0 16px;}
+.featured-card{padding:24px;}
+.featured-title{font-size:20px;}
+.post-list{padding:12px 16px 0;}
+.section-label{padding:0 16px 12px;}
+.post-num{display:none;}
+}
+
+/* Light mode */
+.light-mode{background:#fafaf8 !important;color:#333 !important}
+.light-mode .nav{background:rgba(255,255,255,0.95) !important;border-color:#eee !important}
+.light-mode .hero h1{color:#333 !important}
+.light-mode .featured-card{background:linear-gradient(135deg,#fff,#faf8f2) !important;border-color:#e8e0d0 !important}
+.light-mode .featured-title{color:#333 !important}
+.light-mode .post-title{color:#333 !important}
+.light-mode .post-item{border-color:#eee !important}
+.light-mode .post-item:hover .post-title{color:#b8860b !important}
+.light-mode .section-label{border-color:#eee !important}
+.light-mode .app-footer{color:#bbb !important;border-color:#eee !important}
+</style>
+</head>
+<body>
+<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+
+<nav class="nav">
+    <a href="/en/" class="nav-logo">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+        MOGU Moon
+    </a>
+    <div class="nav-links">
+        <a href="/en/">Home</a>
+        <a href="/en/about/">About</a>
+        <a href="/en/blog/" class="active">Blog</a>
+        <select class="nav-lang" onchange="if(this.value)location.href=this.value">
+            <option value="/blog/">KR</option>
+            <option value="/en/blog/" selected>EN</option>
+            <option value="/jp/blog/">JP</option>
+            <option value="/es/blog/">ES</option>
+            <option value="/de/blog/">DE</option>
+            <option value="/fr/blog/">FR</option>
+            <option value="/pt/blog/">PT</option>
+        </select>
+    </div>
+</nav>
+
+
+<div class="hero">
+    <div class="hero-greeting">MOGU Moon Blog</div>
+    <h1>The world is <span>fascinating</span></h1>
+    <p class="hero-sub">Astrology, space, ancient civilizations — the more you know, the more mysterious it becomes.</p>
+</div>
+
+<div class="featured">
+    <a href="what-is-blackhole/" class="featured-card">
+        <div class="featured-label">Latest</div>
+        <div class="featured-title">What is a Black Hole?</div>
+        <div class="featured-desc">They swallow even light. Nobody knows what's inside. White holes, universe inside?</div>
+        <div class="featured-meta">2026.09.24 · black hole, white hole, universe</div>
+    </a>
+</div>
+
+<div class="section-label">All Posts</div>
+
+<div class="post-list">
+    <a href="why-these-12/" class="post-item">
+        <div class="post-num">01</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.24</div>
+            <div class="post-title">Why These 12 Zodiac Signs?</div>
+            <div class="post-desc">Why only 12 out of 88? Babylonian names were Furrow, Hired Man, Grain Goddess.</div>
+            <div class="post-tags"><span class="post-tag">zodiac</span><span class="post-tag">Babylonia</span><span class="post-tag">farming</span></div>
+        </div>
+    </a>
+    <a href="why-planet-meanings/" class="post-item">
+        <div class="post-num">02</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.19</div>
+            <div class="post-title">Why Does Each Planet Have a Meaning?</div>
+            <div class="post-desc">Venus is love, Mars is war. Civilizations far apart gave the same meanings.</div>
+            <div class="post-tags"><span class="post-tag">planets</span><span class="post-tag">astrology</span><span class="post-tag">civilization</span></div>
+        </div>
+    </a>
+    <a href="is-space-black/" class="post-item">
+        <div class="post-num">03</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.19</div>
+            <div class="post-title">Is Space Really Black?</div>
+            <div class="post-desc">95% is unknown. Black holes, dark matter, dark energy. Maybe human eyes can't see it?</div>
+            <div class="post-tags"><span class="post-tag">space</span><span class="post-tag">dark</span><span class="post-tag">human eyes</span></div>
+        </div>
+    </a>
+    <a href="same-team/" class="post-item">
+        <div class="post-num">04</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.18</div>
+            <div class="post-title">Maybe We Are All on the Same Team?</div>
+            <div class="post-desc">Stars nurture planets, planets nurture life, life sustains planets.</div>
+            <div class="post-tags"><span class="post-tag">stars</span><span class="post-tag">cycle</span><span class="post-tag">life</span></div>
+        </div>
+    </a>
+    <a href="change-reads-change/" class="post-item">
+        <div class="post-num">05</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.18</div>
+            <div class="post-title">They Read Change with Change</div>
+            <div class="post-desc">Babylonian barley receipts had planets written on them. Cuneiform and astrology. Sumerian pictograph mystery.</div>
+            <div class="post-tags"><span class="post-tag">cuneiform</span><span class="post-tag">astrology</span><span class="post-tag">Sumer</span></div>
+        </div>
+    </a>
+    <a href="gold-mystery/" class="post-item">
+        <div class="post-num">06</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.17</div>
+            <div class="post-title">Is Gold Special?</div>
+            <div class="post-desc">Born from neutron star collisions. Doesn't rust, doesn't break, never changes.</div>
+            <div class="post-tags"><span class="post-tag">gold</span><span class="post-tag">space</span><span class="post-tag">ancient</span></div>
+        </div>
+    </a>
+    <a href="3-earth-3/" class="post-item">
+        <div class="post-num">07</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.17</div>
+            <div class="post-title">3 — Earth — 3</div>
+            <div class="post-desc">Earth sits exactly in the middle. Vedic astrology, Rahu and Ketu, werewolves, vampires, Saturn.</div>
+            <div class="post-tags"><span class="post-tag">vedic</span><span class="post-tag">solar system</span><span class="post-tag">mystery</span></div>
+        </div>
+    </a>
+    <a href="vedic-planets/" class="post-item">
+        <div class="post-num">08</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.17</div>
+            <div class="post-title">The Planets of Vedic Astrology</div>
+            <div class="post-desc">Why only 9 planets out of billions? Shadow planets, frequency, electricity, karma.</div>
+            <div class="post-tags"><span class="post-tag">vedic</span><span class="post-tag">planets</span><span class="post-tag">frequency</span></div>
+        </div>
+    </a>
+    <a href="mythical-creatures/" class="post-item">
+        <div class="post-num">09</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.16</div>
+            <div class="post-title">Are Mythical Creatures Really Imaginary?</div>
+            <div class="post-desc">Dragons, unicorns, griffins — really imaginary? Ancient murals, Egypt's precise planetary angles.</div>
+            <div class="post-tags"><span class="post-tag">ancient</span><span class="post-tag">mystery</span><span class="post-tag">space</span></div>
+        </div>
+    </a>
+    <a href="ocean-secrets/" class="post-item">
+        <div class="post-num">10</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.16</div>
+            <div class="post-title">The Ocean is Fascinating</div>
+            <div class="post-desc">What's at the bottom of the ocean? Why do deep sea creatures look alien? Aliens, probability, math.</div>
+            <div class="post-tags"><span class="post-tag">ocean</span><span class="post-tag">space</span><span class="post-tag">probability</span></div>
+        </div>
+    </a>
+    <a href="is-astrology-a-scam/" class="post-item">
+        <div class="post-num">11</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.16</div>
+            <div class="post-title">Is Astrology a Scam?</div>
+            <div class="post-desc">Why is the demand for scientific proof only applied to astrology? Thousands of years of data, probability, and a reference map.</div>
+            <div class="post-tags"><span class="post-tag">astrology</span><span class="post-tag">data</span><span class="post-tag">probability</span></div>
+        </div>
+    </a>
+    <a href="human-emotions/" class="post-item">
+        <div class="post-num">12</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">What are Human Emotions</div>
+            <div class="post-desc">Jealousy, loneliness, solitude — what's the point? Can't we keep just the pretty ones?</div>
+            <div class="post-tags"><span class="post-tag">Emotions</span><span class="post-tag">Jealousy</span><span class="post-tag">Love</span></div>
+        </div>
+    </a>
+    <a href="emotions-and-astrology/" class="post-item">
+        <div class="post-num">13</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">Emotions and Astrology</div>
+            <div class="post-desc">If astrology is math, are emotions math too? Love is inside numbers.</div>
+            <div class="post-tags"><span class="post-tag">Emotions</span><span class="post-tag">Love</span><span class="post-tag">Astrology</span></div>
+        </div>
+    </a>
+    <a href="math-is-language/" class="post-item">
+        <div class="post-num">14</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">Math is a Language to See the World</div>
+            <div class="post-desc">Math is not a school subject. NASA hearing space sounds, AI talking — it's all math.</div>
+            <div class="post-tags"><span class="post-tag">Math</span><span class="post-tag">Language</span><span class="post-tag">NASA</span></div>
+        </div>
+    </a>
+    <a href="why-astrology-is-math/" class="post-item">
+        <div class="post-num">15</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">Why is Astrology Math?</div>
+            <div class="post-desc">When you're born, numbers are attached. No one chose them. Why can they be read?</div>
+            <div class="post-tags"><span class="post-tag">Astrology</span><span class="post-tag">Math</span><span class="post-tag">Ancient History</span></div>
+        </div>
+    </a>
+</div>
+
+<footer class="app-footer">
+    &copy; 2025 MOGU Moon<br>
+    <a href="/en/privacy/">Privacy Policy</a>
+</footer>
+
+<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
+<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script></body>
+</html>

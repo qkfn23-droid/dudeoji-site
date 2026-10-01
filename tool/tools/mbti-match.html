@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 궁합 테스트 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"MBTI 궁합 테스트는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"MBTI 궁합 테스트는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"두 MBTI 유형의 궁합을 확인해보세요. 연애, 우정, 직장 관계의 호환성을 분석합니다."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/mbti-match.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/mbti-match.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/mbti-match.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/mbti-match.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/mbti-match.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/mbti-match.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/mbti-match.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/mbti-match.html">
+    <link rel="canonical" href="https://mogutool.com/tools/mbti-match.html">
+    <meta property="og:title" content="MBTI 궁합 테스트 - MOGU Tools">
+    <meta property="og:description" content="두 MBTI 유형의 궁합을 확인해보세요. 연애, 우정, 직장 관계의 호환성을 분석합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/mbti-match.html">
+    <meta name="description" content="두 MBTI 유형의 궁합을 확인해보세요. 연애, 우정, 직장 관계의 호환성을 분석합니다.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .selector-group {
+            margin-bottom: 28px;
+        }
+
+        .selector-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .mbti-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .mbti-btn {
+            padding: 10px 4px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .mbti-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+            background: #f0f6fd;
+        }
+
+        .mbti-btn.selected {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin-bottom: 28px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .calc-btn:disabled {
+            background: #b0c8e8;
+            cursor: not-allowed;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-header {
+            text-align: center;
+            padding: 28px 24px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .result-types {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4a90d9;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .result-types span {
+            color: #999;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 0 6px;
+        }
+
+        .stars {
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .star-filled { color: #f5a623; }
+        .star-empty { color: #ddd; }
+
+        .result-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .result-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .result-detail {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .detail-row {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a90d9;
+            margin-bottom: 6px;
+        }
+
+        .detail-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .reset-btn {
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: #fff;
+            color: #4a90d9;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: #f0f6fd;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 400px) {
+            .mbti-btn {
+                font-size: 12px;
+                padding: 9px 2px;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 재미 &gt; MBTI 궁합
+</div>
+
+<div class="container">
+    <h1>MBTI 궁합 테스트</h1>
+    <p class="subtitle">두 MBTI 유형을 선택하고 궁합을 확인해보세요.</p>
+
+    <div class="calc-box">
+        <div class="selector-group">
+            <label>나의 MBTI</label>
+            <div class="mbti-grid" id="grid-a">
+                <button class="mbti-btn" data-type="A" data-mbti="ISTJ" onclick="selectMbti('A','ISTJ',this)">ISTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISFJ" onclick="selectMbti('A','ISFJ',this)">ISFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INFJ" onclick="selectMbti('A','INFJ',this)">INFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INTJ" onclick="selectMbti('A','INTJ',this)">INTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISTP" onclick="selectMbti('A','ISTP',this)">ISTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ISFP" onclick="selectMbti('A','ISFP',this)">ISFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INFP" onclick="selectMbti('A','INFP',this)">INFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="INTP" onclick="selectMbti('A','INTP',this)">INTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESTP" onclick="selectMbti('A','ESTP',this)">ESTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESFP" onclick="selectMbti('A','ESFP',this)">ESFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENFP" onclick="selectMbti('A','ENFP',this)">ENFP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENTP" onclick="selectMbti('A','ENTP',this)">ENTP</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESTJ" onclick="selectMbti('A','ESTJ',this)">ESTJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ESFJ" onclick="selectMbti('A','ESFJ',this)">ESFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENFJ" onclick="selectMbti('A','ENFJ',this)">ENFJ</button>
+                <button class="mbti-btn" data-type="A" data-mbti="ENTJ" onclick="selectMbti('A','ENTJ',this)">ENTJ</button>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="selector-group">
+            <label>상대의 MBTI</label>
+            <div class="mbti-grid" id="grid-b">
+                <button class="mbti-btn" data-type="B" data-mbti="ISTJ" onclick="selectMbti('B','ISTJ',this)">ISTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISFJ" onclick="selectMbti('B','ISFJ',this)">ISFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INFJ" onclick="selectMbti('B','INFJ',this)">INFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INTJ" onclick="selectMbti('B','INTJ',this)">INTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISTP" onclick="selectMbti('B','ISTP',this)">ISTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ISFP" onclick="selectMbti('B','ISFP',this)">ISFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INFP" onclick="selectMbti('B','INFP',this)">INFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="INTP" onclick="selectMbti('B','INTP',this)">INTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESTP" onclick="selectMbti('B','ESTP',this)">ESTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESFP" onclick="selectMbti('B','ESFP',this)">ESFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENFP" onclick="selectMbti('B','ENFP',this)">ENFP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENTP" onclick="selectMbti('B','ENTP',this)">ENTP</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESTJ" onclick="selectMbti('B','ESTJ',this)">ESTJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ESFJ" onclick="selectMbti('B','ESFJ',this)">ESFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENFJ" onclick="selectMbti('B','ENFJ',this)">ENFJ</button>
+                <button class="mbti-btn" data-type="B" data-mbti="ENTJ" onclick="selectMbti('B','ENTJ',this)">ENTJ</button>
+            </div>
+        </div>
+
+        <button class="calc-btn" id="checkBtn" onclick="checkCompatibility()" disabled>궁합 보기</button>
+
+        <div class="result" id="result">
+            <div class="result-header">
+                <div class="result-types" id="resultTypes"></div>
+                <div class="stars" id="resultStars"></div>
+                <div class="result-title" id="resultTitle"></div>
+                <div class="result-desc" id="resultDesc"></div>
+            </div>
+
+            <div class="result-detail">
+                <div class="detail-row">
+                    <div class="detail-label">장점</div>
+                    <div class="detail-text" id="resultPros"></div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">주의점</div>
+                    <div class="detail-text" id="resultCons"></div>
+                </div>
+            </div>
+
+            <button class="reset-btn" onclick="resetAll()">다시 하기</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>MBTI 궁합이란?</h2>
+        <p>
+            MBTI 유형 간의 궁합은 인지 기능의 상호보완성을 기반으로 합니다.
+            서로 다른 기능이 균형을 이루는 조합은 강한 끌림과 성장을 만들고,
+            비슷한 기능을 공유하는 조합은 편안함과 이해를 줍니다.
+            이 결과는 참고용이며, 실제 관계는 개인의 성숙도와 노력에 따라 달라집니다.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>MBTI 궁합 테스트</h2><p>두 MBTI 유형을 선택하면 연애, 우정, 직장에서의 궁합을 분석합니다. 16가지 성격 유형의 호환성을 확인하세요.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>MBTI 궁합이 안 좋으면 안 맞는 건가요?</summary><p>MBTI는 성격 경향을 나타낼 뿐, 관계의 성공은 서로의 노력에 달려 있습니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="blood-match.html">혈액형 궁합</a><a href="korean-love-calc.html">이름 궁합</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const selected = { A: null, B: null };
+
+    function selectMbti(type, mbti, btn) {
+        // 같은 그룹의 기존 선택 해제
+        document.querySelectorAll(`#grid-${type.toLowerCase()} .mbti-btn`).forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selected[type] = mbti;
+
+        // 둘 다 선택됐으면 버튼 활성화
+        document.getElementById('checkBtn').disabled = !(selected.A && selected.B);
+
+        // 결과가 표시 중이면 숨기기
+        document.getElementById('result').style.display = 'none';
+    }
+
+    // -----------------------------------------------------------------------
+    // 궁합 데이터
+    // key: "TYPE1-TYPE2" (알파벳 순 정렬)
+    // score: 1~5
+    // -----------------------------------------------------------------------
+    const compatData = {
+        // ★★★★★ 최고 궁합 (5점)
+        "INFJ-ENTP": { score: 5, title: "최고의 궁합!", desc: "INFJ의 깊은 통찰과 ENTP의 넓은 상상력이 완벽하게 맞물립니다. 서로의 다름이 지루함이 아닌 끝없는 자극이 됩니다. 함께할수록 서로를 더 넓은 세계로 이끄는 이상적인 조합입니다.", pros: "깊은 지적 교감, 서로의 단점을 자연스럽게 보완, 강한 정서적 연결", cons: "INFJ가 ENTP의 논쟁 습관에 지칠 수 있음, ENTP는 INFJ의 감정적 요구를 간과하지 않도록 주의" },
+        "INTJ-ENFP": { score: 5, title: "최고의 궁합!", desc: "INTJ의 전략적 깊이와 ENFP의 창의적 에너지가 강렬하게 끌어당깁니다. 서로의 부족한 면을 채워주며 함께 성장합니다. 많은 MBTI 이론에서 손꼽히는 최상의 파트너십입니다.", pros: "강한 지적 호기심 공유, ENFP가 INTJ를 세상과 연결, INTJ가 ENFP에게 방향성을 제공", cons: "INTJ의 폐쇄성과 ENFP의 개방성이 충돌할 수 있음, 계획성 vs 즉흥성의 조율 필요" },
+        "INTP-ENTJ": { score: 5, title: "최고의 궁합!", desc: "INTP의 분석적 사고와 ENTJ의 실행력이 만나 강력한 시너지를 냅니다. 아이디어를 현실로 바꾸는 탁월한 조합입니다. 서로의 능력을 깊이 존중하는 관계가 됩니다.", pros: "강한 지적 자극, ENTJ가 INTP의 아이디어를 실현, 서로에 대한 깊은 존중", cons: "ENTJ의 지배적 성향이 INTP를 압박할 수 있음, INTP는 감정 표현을 더 노력해야 함" },
+        "ISFJ-ESTP": { score: 5, title: "최고의 궁합!", desc: "ISFJ의 따뜻한 안정감과 ESTP의 활기찬 에너지가 조화를 이룹니다. ISFJ는 ESTP에게 편안한 안식처가 되고, ESTP는 ISFJ의 세계를 넓혀줍니다. 서로가 서로의 부족한 부분을 채워주는 든든한 궁합입니다.", pros: "강한 상호보완성, 서로의 삶을 풍요롭게 만듦, 신뢰와 활력의 균형", cons: "ISFJ가 ESTP의 충동적 행동에 불안감을 느낄 수 있음, 장기 계획에 대한 의견 차이 주의" },
+        "ISTJ-ESFP": { score: 5, title: "최고의 궁합!", desc: "ISTJ의 책임감과 ESFP의 자유로운 활기가 서로를 완성시킵니다. ISTJ는 ESFP에게 믿음직한 기둥이 되고, ESFP는 ISTJ의 삶에 생기를 불어넣습니다. 다르기에 더 강한 조합입니다.", pros: "안정감과 활력의 완벽한 균형, 서로의 약점을 커버, 깊은 신뢰 형성 가능", cons: "생활 방식의 차이(계획 vs 즉흥)로 갈등 가능, 서로의 페이스를 인정하는 것이 핵심" },
+        "INFP-ENFJ": { score: 5, title: "최고의 궁합!", desc: "INFP의 깊은 내면과 ENFJ의 따뜻한 리더십이 아름답게 어우러집니다. ENFJ는 INFP가 자신의 가치를 꽃피우도록 이끌고, INFP는 ENFJ에게 진정성 있는 교감을 줍니다. 서로를 성장시키는 이상적인 관계입니다.", pros: "깊은 감정적 이해와 교감, ENFJ가 INFP에게 세상과의 연결고리 역할, 공동의 가치관 공유", cons: "ENFJ가 지나치게 주도하면 INFP가 위축될 수 있음, INFP의 혼자만의 시간 필요성 존중 필수" },
+        "ISFP-ENFJ": { score: 5, title: "최고의 궁합!", desc: "ISFP의 조용한 따뜻함과 ENFJ의 열정적인 배려가 서로를 포근하게 감쌉니다. ENFJ는 ISFP를 빛나게 해주고, ISFP는 ENFJ에게 진심 어린 안정감을 줍니다. 서로를 있는 그대로 받아들이는 이상적인 조합입니다.", pros: "깊은 감정적 안정감, 서로를 아끼고 배려하는 관계, 가치관의 공유", cons: "ENFJ가 과도하게 계획을 세우면 ISFP가 부담을 느낄 수 있음, 갈등 회피 성향이 겹쳐 문제를 미룰 수 있음" },
+        "ISTP-ESTJ": { score: 5, title: "최고의 궁합!", desc: "ISTP의 실용적 문제 해결 능력과 ESTJ의 체계적 추진력이 강력하게 맞물립니다. 둘 다 현실적이고 효율을 중시해 함께하면 무엇이든 해냅니다. 신뢰를 바탕으로 한 든든한 파트너십입니다.", pros: "강한 실용주의적 공감대, 서로의 능력을 깊이 인정, 목표 달성에 탁월한 팀워크", cons: "감정 표현이 서툰 두 유형이라 정서적 교감에 노력 필요, ESTJ의 통제 성향과 ISTP의 자유 추구 충돌 가능" },
+
+        // ★★★★ 좋은 궁합 (4점)
+        "INFJ-INTJ": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 깊이 있는 사고와 미래 지향적 비전을 공유합니다. 말하지 않아도 서로를 이해하는 조용한 연대감이 있습니다. 함께 있을 때 진지하고 의미 있는 대화가 자연스럽게 이어집니다.", pros: "깊은 지적 공감대, 서로의 내면 세계 존중, 장기적 목표 공유", cons: "감정 표현이 부족해 서로의 마음을 오해할 수 있음, 두 유형 모두 고집이 강해 타협이 어려울 수 있음" },
+        "ENFP-ENTP": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 새로운 아이디어와 가능성에 열광합니다. 함께라면 세상 모든 것이 흥미로운 탐험이 됩니다. 에너지와 창의성이 폭발하는 활기찬 관계입니다.", pros: "끊임없는 아이디어 교환, 높은 에너지와 열정 공유, 서로를 지루하게 만들지 않음", cons: "실행력과 마무리가 약한 두 유형이 만나 계획이 흐지부지될 수 있음, 진지한 감정적 교감을 소홀히 할 위험" },
+        "ISFJ-INFJ": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 타인을 깊이 배려하고 조화를 중시합니다. 서로의 감수성을 이해하고 상처받지 않도록 조심스럽게 대합니다. 따뜻하고 평화로운 관계를 만들어가는 궁합입니다.", pros: "깊은 감정적 이해와 공감, 서로를 상처 주지 않으려는 세심함, 안정적이고 신뢰할 수 있는 관계", cons: "갈등 회피 성향이 겹쳐 문제를 직면하지 못할 수 있음, 서로 양보만 하다가 감정이 쌓일 위험" },
+        "ENTJ-ENFJ": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 강한 리더십과 목표 지향성을 가집니다. 함께하면 큰 그림을 그리고 이를 현실로 만드는 강력한 팀이 됩니다. 서로의 능력을 인정하고 자극을 주고받는 역동적인 관계입니다.", pros: "강한 목표 공유와 추진력, 서로의 능력에 대한 깊은 존중, 함께 성장하는 파트너십", cons: "둘 다 주도권을 원해 주도권 경쟁이 생길 수 있음, ENFJ의 감정 중심과 ENTJ의 논리 중심 충돌 가능" },
+        "INTP-INFP": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 내면의 세계가 깊고 독창적인 시각을 가집니다. 서로의 사고방식과 감수성을 흥미롭게 바라봅니다. 조용하지만 깊이 있는 연결을 만드는 궁합입니다.", pros: "서로의 독창성과 개성 존중, 편안하고 비판적이지 않은 분위기, 깊은 내면 세계 공유", cons: "둘 다 현실 적응에 약해 실생활 관리가 어려울 수 있음, 표현이 서툴러 감정이 전달되지 않을 수 있음" },
+        "ESTJ-ESFJ": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 책임감이 강하고 현실적이며 사람들을 아끼는 마음이 큽니다. 함께라면 서로가 믿고 기댈 수 있는 든든한 기반을 만들 수 있습니다. 안정적이고 신뢰할 수 있는 관계입니다.", pros: "강한 책임감과 신뢰, 공동의 가치관(가족, 질서, 안정), 실생활에서 잘 맞는 궁합", cons: "변화와 새로운 시도를 두 유형 모두 불편해해 관계가 정체될 수 있음, ESTJ의 지배 성향이 ESFJ를 억압할 수 있음" },
+        "ESTP-ENTP": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 에너지가 넘치고 도전을 즐깁니다. 함께라면 자극적이고 활기찬 시간을 보낼 수 있습니다. 서로를 지루하게 하지 않는 역동적인 조합입니다.", pros: "높은 에너지와 모험심 공유, 빠른 상황 적응력, 서로에게 끊임없는 자극", cons: "진지한 감정적 연결이 부족할 수 있음, 장기적 책임과 안정성 부분에서 둘 다 약함" },
+        "ESFP-ENFP": { score: 4, title: "좋은 궁합", desc: "두 유형 모두 사람을 좋아하고 감정에 충실하며 현재를 즐깁니다. 함께라면 웃음이 끊이지 않는 밝고 따뜻한 관계가 됩니다. 서로의 감정을 잘 이해하고 공감하는 궁합입니다.", pros: "높은 감정적 공감, 함께라면 언제나 즐거운 분위기, 서로를 있는 그대로 받아들임", cons: "둘 다 현실적 계획과 책임에 약해 실생활 문제가 생길 수 있음, 감정적 과잉 반응이 겹칠 때 갈등이 커질 수 있음" },
+
+        // ★★★ 보통 궁합 (3점)
+        "ISTJ-ISFJ": { score: 3, title: "보통 궁합", desc: "두 유형 모두 성실하고 책임감이 강하며 안정을 중시합니다. 서로를 깊이 이해하지만 관계가 자극 없이 평온하게 흘러갈 수 있습니다. 안정적이지만 변화와 성장을 위한 노력이 필요합니다.", pros: "강한 신뢰와 안정감, 서로의 가치관 일치, 갈등이 적은 평화로운 관계", cons: "새로운 자극이 없어 관계가 정체될 수 있음, 감정 표현이 서툴러 깊은 교감에 노력 필요" },
+        "INTJ-INTP": { score: 3, title: "보통 궁합", desc: "두 유형 모두 논리와 분석을 즐기며 깊이 있는 대화를 나눌 수 있습니다. 서로를 지적으로 자극하지만 감정적 교감이 부족할 수 있습니다. 머리로는 잘 맞지만 마음으로의 연결에는 노력이 필요합니다.", pros: "강한 지적 교감, 서로의 독립성 존중, 불필요한 감정 소모 없음", cons: "감정적 연결이 약해 관계가 차갑게 느껴질 수 있음, 현실적인 생활 관리 문제" },
+        "ENFJ-ENTJ": { score: 3, title: "보통 궁합", desc: "두 유형 모두 뚜렷한 비전과 리더십을 가집니다. 서로를 자극하고 성장시키는 면이 있지만, 주도권 경쟁이 생길 수 있습니다. 서로의 역할을 명확히 정하면 강력한 파트너가 될 수 있습니다.", pros: "강한 추진력과 목표 의식 공유, 서로를 자극하는 관계", cons: "둘 다 강한 주도권 의식으로 충돌 가능, ENFJ의 감정 우선과 ENTJ의 효율 우선의 가치 충돌" },
+        "ESFJ-ENFJ": { score: 3, title: "보통 궁합", desc: "두 유형 모두 사람을 배려하고 조화를 중시합니다. 서로를 잘 이해하고 편안하게 느끼지만 비슷한 약점도 공유합니다. 따뜻하고 안정적인 관계를 만들 수 있습니다.", pros: "깊은 감정적 공감, 서로의 배려심 이해, 따뜻하고 평화로운 분위기", cons: "둘 다 갈등을 회피하는 성향으로 문제 해결이 늦어질 수 있음, 비슷한 약점이 증폭될 수 있음" },
+        "INFP-ISFP": { score: 3, title: "보통 궁합", desc: "두 유형 모두 감수성이 풍부하고 개인의 가치와 자유를 중시합니다. 서로를 깊이 이해하고 판단하지 않는 편안한 관계입니다. 조용하지만 의미 있는 연결을 나눌 수 있습니다.", pros: "서로의 감수성과 개성 존중, 비판 없이 있는 그대로 받아들이는 분위기", cons: "둘 다 결단력이 약해 중요한 결정을 미루는 경향, 현실적인 문제 처리에 취약" },
+        "ESTP-ISTP": { score: 3, title: "보통 궁합", desc: "두 유형 모두 현실적이고 직접적이며 행동을 즐깁니다. 서로를 이해하고 편안하게 느끼지만 관계의 깊이가 형성되기까지 시간이 걸립니다. 실용적이고 자유로운 관계를 만드는 궁합입니다.", pros: "자유로운 분위기와 서로의 독립성 존중, 실용적 문제 해결에서 호흡이 맞음", cons: "감정적 연결이 부족해 관계가 표면적으로 머물 수 있음, 장기적 헌신에 둘 다 어려움을 느낄 수 있음" },
+        "ISTJ-INTJ": { score: 3, title: "보통 궁합", desc: "두 유형 모두 체계적이고 논리적이며 책임감이 강합니다. 서로를 신뢰하고 존중하는 안정적인 관계를 만들 수 있습니다. 자극보다는 안정을 원한다면 잘 맞는 조합입니다.", pros: "강한 신뢰와 책임감, 논리적 의사소통 가능, 안정적인 관계 구축", cons: "감정적 교감이 부족해 관계가 딱딱하게 느껴질 수 있음, 변화와 새로운 경험에 둘 다 보수적" },
+        "ESFP-ESFJ": { score: 3, title: "보통 궁합", desc: "두 유형 모두 사람을 좋아하고 현재를 즐기며 감정을 중시합니다. 함께라면 따뜻하고 활기찬 시간을 보낼 수 있습니다. 서로의 감수성을 이해하는 편안한 관계입니다.", pros: "높은 감정적 공감, 함께라면 즐거운 분위기 유지, 서로에 대한 따뜻한 배려", cons: "깊이 있는 지적 자극이 부족할 수 있음, 갈등 시 감정이 과해져 해결이 어려울 수 있음" },
+
+        // ★★ 어려운 궁합 (2점)
+        "INFJ-ISFJ": { score: 2, title: "어려운 궁합", desc: "두 유형 모두 배려심이 깊지만 세상을 바라보는 방식에 근본적인 차이가 있습니다. INFJ의 추상적 이상주의와 ISFJ의 현실적 실용주의가 종종 충돌합니다. 서로를 이해하려는 노력이 특히 많이 필요한 관계입니다.", pros: "공통된 배려심과 타인을 위하는 마음, 갈등보다 조화를 원하는 성향", cons: "INFJ의 추상적 사고가 ISFJ에게 비현실적으로 느껴질 수 있음, ISFJ의 전통 중시가 INFJ에게 답답할 수 있음" },
+        "ENTJ-ISFP": { score: 2, title: "어려운 궁합", desc: "ENTJ의 강한 추진력과 ISFP의 자유로운 감성이 자주 부딪힙니다. ENTJ는 ISFP가 너무 느리고 감정적이라 느끼고, ISFP는 ENTJ가 너무 통제적이라 느낍니다. 서로의 다름을 인정하는 데 상당한 노력이 필요합니다.", pros: "ENTJ가 ISFP에게 방향성을 제공, ISFP가 ENTJ에게 감수성 가르침", cons: "ENTJ의 통제 성향이 ISFP의 자유를 심각하게 침해할 수 있음, 속도와 우선순위에서 극심한 차이" },
+        "ESTJ-INFP": { score: 2, title: "어려운 궁합", desc: "ESTJ의 체계적이고 현실적인 방식이 INFP의 자유롭고 감성적인 세계와 충돌합니다. ESTJ는 INFP를 비효율적으로, INFP는 ESTJ를 융통성 없다고 느낍니다. 많은 차이를 극복해야 하는 도전적인 관계입니다.", pros: "서로의 약점을 보완할 잠재력, ESTJ의 실행력이 INFP의 아이디어를 현실화할 수 있음", cons: "가치관과 삶의 방식에서 근본적 차이, ESTJ의 비판이 INFP에게 큰 상처를 줄 수 있음" },
+        "ESTP-INFJ": { score: 2, title: "어려운 궁합", desc: "ESTP의 즉흥적이고 현실 중심적인 성향이 INFJ의 깊은 내면과 미래 지향적 사고와 자주 부딪힙니다. 서로에게 처음엔 매력을 느낄 수 있지만 지속적인 관계 유지에 많은 노력이 필요합니다.", pros: "초반의 강한 끌림, ESTP가 INFJ에게 현실 감각을, INFJ가 ESTP에게 깊이를 줌", cons: "장기적으로 대화의 깊이에서 차이가 커짐, ESTP의 자극 추구와 INFJ의 의미 추구가 충돌" },
+        "ESFJ-ISTP": { score: 2, title: "어려운 궁합", desc: "ESFJ의 감정적이고 사회적인 성향이 ISTP의 논리적이고 독립적인 성향과 크게 다릅니다. ESFJ는 ISTP를 차갑다고 느끼고, ISTP는 ESFJ를 과하다고 느낍니다. 서로의 필요를 이해하는 데 많은 노력이 필요합니다.", pros: "서로에게 없는 것을 배울 수 있는 가능성", cons: "감정적 필요의 극심한 차이, ESFJ는 ISTP에게 무시당한다고 느낄 수 있음" },
+        "INTP-ESFP": { score: 2, title: "어려운 궁합", desc: "INTP의 추상적이고 내성적인 세계와 ESFP의 현실적이고 외향적인 세계가 대조적입니다. 초반엔 서로의 다름이 신선하게 느껴질 수 있지만 지속적인 차이가 관계를 힘들게 합니다.", pros: "서로의 다름이 초반엔 자극이 됨, 서로의 세계를 넓힐 잠재력", cons: "지적 관심사와 사회적 필요의 극심한 차이, INTP의 혼자만의 시간과 ESFP의 사회적 욕구 충돌" },
+
+        // ★ 힘든 궁합 (1점)
+        "ESTJ-ISFP": { score: 1, title: "힘든 궁합", desc: "ESTJ의 강한 통제 성향과 ISFP의 자유로운 영혼이 근본적으로 충돌합니다. 서로의 삶의 방식과 가치관이 너무 달라 지속적인 갈등이 생기기 쉽습니다. 서로를 있는 그대로 받아들이는 데 엄청난 노력이 필요한 관계입니다.", pros: "서로의 완전히 다른 관점을 통해 배울 수 있는 가능성", cons: "ESTJ의 규칙과 통제가 ISFP를 숨막히게 함, 가치관과 삶의 방식에서 근본적 불일치, 갈등이 잦고 해결이 어려움" },
+        "ENTJ-INFP": { score: 1, title: "힘든 궁합", desc: "ENTJ의 효율과 목표 중심적 사고가 INFP의 감성과 가치 중심적 삶과 심하게 충돌합니다. ENTJ는 INFP를 비효율적이라 느끼고, INFP는 ENTJ에게 자신이 존중받지 못한다고 느낍니다. 가장 도전적인 조합 중 하나입니다.", pros: "ENTJ의 실행력과 INFP의 창의성이 결합될 수 있는 이론적 잠재력", cons: "근본적인 가치관 충돌(효율 vs 가치), ENTJ의 비판이 INFP에게 심각한 상처를 줌, 장기 관계 유지에 극심한 노력 필요" },
+        "ESTP-INFP": { score: 1, title: "힘든 궁합", desc: "ESTP의 즉흥적이고 현실 중심적인 행동 방식이 INFP의 깊은 감성과 가치관 중심 삶과 충돌합니다. 서로가 추구하는 것이 너무 달라 공통점을 찾기가 어렵습니다. 관계를 유지하려면 엄청난 상호 이해와 노력이 필요합니다.", pros: "서로에게 완전히 새로운 세계를 보여줄 수 있음", cons: "삶의 속도와 방식에서 근본적 차이, ESTP의 직접적 방식이 INFP에게 상처를 줌, 감정적 필요와 자극 추구의 극심한 충돌" },
+    };
+
+    function getKey(a, b) {
+        // 알파벳 순으로 정렬하여 양방향 조회 가능하게
+        return [a, b].sort().join('-');
+    }
+
+    function getCompatibility(a, b) {
+        const key = getKey(a, b);
+        if (compatData[key]) return compatData[key];
+
+        // 데이터가 없는 쌍에 대한 기본 점수 산출 (인지 기능 기반)
+        return estimateCompatibility(a, b);
+    }
+
+    function estimateCompatibility(a, b) {
+        let score = 3;
+        let pros = "서로의 다른 점에서 배울 수 있는 가능성이 있습니다.";
+        let cons = "서로 다른 부분을 이해하고 맞춰가는 노력이 필요합니다.";
+
+        // 같은 유형
+        if (a === b) {
+            return {
+                score: 3,
+                title: "보통 궁합",
+                desc: "같은 MBTI 유형끼리는 서로를 잘 이해하지만, 같은 약점도 공유합니다. 편안하고 자연스러운 관계이지만 서로의 단점을 보완하기 어려울 수 있습니다. 성장을 위해 서로의 약점을 함께 극복하려는 노력이 필요합니다.",
+                pros: "깊은 상호 이해, 같은 언어로 소통, 공통 관심사 다수",
+                cons: "같은 약점이 증폭될 수 있음, 서로를 성장시키는 자극이 부족할 수 있음"
+            };
+        }
+
+        const sharedCount = countShared(a, b);
+
+        if (sharedCount === 3) {
+            score = 4;
+            return { score, title: "좋은 궁합", desc: "세 가지 선호 기능을 공유하는 두 유형은 서로를 잘 이해하면서도 하나의 차이점이 신선한 자극을 줍니다. 편안하면서도 조금씩 성장하게 해주는 균형 잡힌 관계입니다.", pros: "높은 상호 이해도, 자연스러운 소통, 편안한 관계", cons: "차이점에서 오는 사소한 갈등이 있을 수 있음" };
+        } else if (sharedCount === 2) {
+            score = 3;
+            return { score, title: "보통 궁합", desc: "두 가지 선호를 공유하는 유형끼리는 이해할 수 있는 부분과 다른 부분이 공존합니다. 서로를 배우며 성장할 수 있지만 조율이 필요한 부분도 많습니다.", pros: "서로의 다름에서 배울 점이 있음, 어느 정도의 공통 기반 존재", cons: "소통 방식의 차이가 오해를 만들 수 있음, 조율이 필요한 부분이 많음" };
+        } else if (sharedCount === 1) {
+            score = 2;
+            return { score, title: "어려운 궁합", desc: "하나의 선호만 공유하는 두 유형은 서로를 이해하는 데 많은 노력이 필요합니다. 다름이 자극이 될 수도 있지만 지속적인 갈등의 원인이 되기도 합니다.", pros: "서로에게 완전히 새로운 시각을 제공할 수 있음", cons: "소통 방식과 가치관의 차이가 크고, 서로를 이해하는 데 상당한 노력 필요" };
+        } else {
+            score = 2;
+            return { score, title: "어려운 궁합", desc: "네 가지 선호가 모두 다른 두 유형은 서로에게 강한 호기심을 느낄 수 있지만, 지속적인 관계를 유지하는 데 많은 노력이 필요합니다.", pros: "서로의 완전히 다른 관점이 자극이 될 수 있음", cons: "모든 면에서 차이가 있어 지속적인 충돌 가능성, 서로의 방식을 이해하는 데 많은 인내 필요" };
+        }
+    }
+
+    function countShared(a, b) {
+        let count = 0;
+        for (let i = 0; i < 4; i++) {
+            if (a[i] === b[i]) count++;
+        }
+        return count;
+    }
+
+    function checkCompatibility() {
+        const a = selected.A;
+        const b = selected.B;
+        if (!a || !b) return;
+
+        const compat = getCompatibility(a, b);
+
+        document.getElementById('resultTypes').innerHTML =
+            `${a} <span>×</span> ${b}`;
+
+        // 별 렌더링
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            stars += `<span class="${i <= compat.score ? 'star-filled' : 'star-empty'}">★</span>`;
+        }
+        document.getElementById('resultStars').innerHTML = stars;
+        document.getElementById('resultTitle').textContent = compat.title;
+        document.getElementById('resultDesc').textContent = compat.desc;
+        document.getElementById('resultPros').textContent = compat.pros;
+        document.getElementById('resultCons').textContent = compat.cons;
+
+        const resultEl = document.getElementById('result');
+        resultEl.style.display = 'block';
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetAll() {
+        selected.A = null;
+        selected.B = null;
+        document.querySelectorAll('.mbti-btn').forEach(b => b.classList.remove('selected'));
+        document.getElementById('checkBtn').disabled = true;
+        document.getElementById('result').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

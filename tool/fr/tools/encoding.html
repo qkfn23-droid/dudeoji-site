@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion d'encodage - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Conversion d'encodage est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, 100% gratuit. Aucune inscription requise. Tout le traitement se fait dans votre navigateur, aucune donnee personnelle n est envoyee a un serveur."}},
+    {"@type":"Question","name":"Comment utiliser Conversion d'encodage ?","acceptedAnswer":{"@type":"Answer","text":"Convertissez facilement entre Base64, URL, entités HTML et Unicode (encodage/décodage)."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/encoding.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/encoding.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/encoding.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/encoding.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/encoding.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/encoding.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/encoding.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/encoding.html">
+    <link rel="canonical" href="https://mogutool.com/fr/tools/encoding.html">
+    <meta property="og:title" content="Conversion d'encodage - MOGU Tools">
+    <meta property="og:description" content="Convertissez facilement entre Base64, URL, entités HTML et Unicode (encodage/décodage).">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/fr/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/fr/tools/encoding.html">
+    <meta name="description" content="Convertissez facilement entre Base64, URL, entités HTML et Unicode (encodage/décodage).">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 700px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .section-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Menlo', 'Consolas', monospace;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        textarea:focus {
+            border-color: #4a90d9;
+        }
+
+        textarea[readonly] {
+            background: #f8f9fa;
+            color: #444;
+            cursor: default;
+        }
+
+        /* Button grid for encoding operations */
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 18px 0;
+        }
+
+        .enc-btn {
+            padding: 11px 10px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .enc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .enc-btn.decode {
+            background: #6c757d;
+        }
+
+        .enc-btn.decode:hover {
+            background: #5a6268;
+        }
+
+        /* Dividers between groups */
+        .btn-group {
+            margin-bottom: 10px;
+        }
+
+        .btn-group-label {
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 500;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-group .btn-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        /* Result area row */
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 7px 16px;
+            border: none;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .copy-btn {
+            background: #e8f0fb;
+            color: #4a90d9;
+        }
+
+        .copy-btn:hover {
+            background: #d0e3f7;
+        }
+
+        .copy-btn.copied {
+            background: #e6f4ea;
+            color: #34a853;
+        }
+
+        .swap-btn {
+            background: #f0f0f0;
+            color: #555;
+        }
+
+        .swap-btn:hover {
+            background: #e2e2e2;
+        }
+
+        .error-msg {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: #fff3f3;
+            border: 1px solid #f5c6c6;
+            border-radius: 8px;
+            color: #c0392b;
+            font-size: 13px;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section dl {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6px 16px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .info-section dt {
+            font-weight: 600;
+            color: #4a90d9;
+            white-space: nowrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Outils</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Outils en Ligne Gratuits</a> &gt; Texte &gt; Conversion d'encodage
+</div>
+
+<div class="container">
+    <h1>Conversion d'encodage</h1>
+    <p class="subtitle">Convertissez ou restaurez du texte avec différentes méthodes d'encodage.</p>
+
+    <div class="calc-box">
+
+        <label class="section-label" for="inputText">Entrée</label>
+        <textarea id="inputText" rows="6" placeholder="Saisissez le texte à convertir..."></textarea>
+
+        <!-- Base64 -->
+        <div class="btn-group">
+            <div class="btn-group-label">Base64</div>
+            <div class="btn-row">
+                <button class="enc-btn" onclick="doEncode('base64')">Encoder Base64</button>
+                <button class="enc-btn decode" onclick="doDecode('base64')">Décoder Base64</button>
+            </div>
+        </div>
+
+        <!-- URL -->
+        <div class="btn-group">
+            <div class="btn-group-label">URL</div>
+            <div class="btn-row">
+                <button class="enc-btn" onclick="doEncode('url')">Encoder URL</button>
+                <button class="enc-btn decode" onclick="doDecode('url')">Décoder URL</button>
+            </div>
+        </div>
+
+        <!-- HTML Entity -->
+        <div class="btn-group">
+            <div class="btn-group-label">Entités HTML</div>
+            <div class="btn-row">
+                <button class="enc-btn" onclick="doEncode('html')">Encoder entités HTML</button>
+                <button class="enc-btn decode" onclick="doDecode('html')">Décoder entités HTML</button>
+            </div>
+        </div>
+
+        <!-- Unicode -->
+        <div class="btn-group">
+            <div class="btn-group-label">Unicode</div>
+            <div class="btn-row">
+                <button class="enc-btn" onclick="doEncode('unicode')">Échapper Unicode</button>
+                <button class="enc-btn decode" onclick="doDecode('unicode')">Désechapper Unicode</button>
+            </div>
+        </div>
+
+        <!-- Error message -->
+        <div class="error-msg" id="errorMsg"></div>
+
+        <!-- Result -->
+        <div class="result-header">
+            <label class="section-label" for="outputText" style="margin:0;">Résultat</label>
+            <div class="result-actions">
+                <button class="action-btn swap-btn" onclick="swapTexts()" title="Intervertir entrée et résultat">Entrée&#8596;Résultat</button>
+                <button class="action-btn copy-btn" id="copyBtn" onclick="copyResult()">Copier</button>
+            </div>
+        </div>
+        <textarea id="outputText" rows="6" readonly placeholder="Le résultat de la conversion s'affichera ici..."></textarea>
+
+    </div>
+
+    <div class="info-section">
+        <h2>Guide des méthodes d'encodage</h2>
+        <dl>
+            <dt>Base64</dt>
+            <dd>Convertit les données binaires en caractères ASCII. Utilisé pour les pièces jointes d'e-mails, les URI de données, etc.</dd>
+            <dt>URL</dt>
+            <dd>Convertit les caractères spéciaux inutilisables dans les URL au format %XX.</dd>
+            <dt>Entités HTML</dt>
+            <dd>Convertit les caractères spéciaux HTML comme &lt;, &gt;, &amp; en codes d'entités. Utilisé pour la prévention XSS.</dd>
+            <dt>Unicode</dt>
+            <dd>Convertit les caractères en séquences d'échappement Unicode au format \uXXXX ou les restaure.</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Conversion d'encodage</h2><p>Convertissez facilement entre Base64, URL, entités HTML et Unicode (encodage/décodage).</p></div>
+<div class="seo-section"><h2>Questions fréquentes</h2><details class="seo-faq"><summary>Cet outil est-il gratuit ?</summary><p>Oui, 100% gratuit. Pas d'inscription. Tout est traité dans votre navigateur — aucune donnée n'est envoyée.</p></details><details class="seo-faq"><summary>Ça marche sur mobile ?</summary><p>Oui, tous les outils sont responsifs et fonctionnent sur smartphones, tablettes et ordinateurs.</p></details></div>
+<div class="seo-section"><h2>Outils associés</h2><div class="seo-related"><a href="url-encode.html">Encodeur / Décodeur URL</a><a href="hash-gen.html">Générateur de hash</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.style.display = 'block';
+}
+
+function clearError() {
+    const el = document.getElementById('errorMsg');
+    el.textContent = '';
+    el.style.display = 'none';
+}
+
+function setOutput(text) {
+    document.getElementById('outputText').value = text;
+}
+
+function getInput() {
+    return document.getElementById('inputText').value;
+}
+
+function doEncode(type) {
+    clearError();
+    const input = getInput();
+    if (input === '') {
+        showError('Veuillez d\'abord saisir du texte.');
+        return;
+    }
+    try {
+        let result = '';
+        if (type === 'base64') {
+            result = btoa(unescape(encodeURIComponent(input)));
+        } else if (type === 'url') {
+            result = encodeURIComponent(input);
+        } else if (type === 'html') {
+            result = input
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        } else if (type === 'unicode') {
+            result = Array.from(input)
+                .map(ch => {
+                    const code = ch.codePointAt(0);
+                    if (code > 127) {
+                        if (code > 0xFFFF) {
+                            return '\\u' + code.toString(16).toUpperCase().padStart(8, '0');
+                        }
+                        return '\\u' + code.toString(16).toUpperCase().padStart(4, '0');
+                    }
+                    return ch;
+                })
+                .join('');
+        }
+        setOutput(result);
+    } catch (e) {
+        showError('Une erreur est survenue lors de l\'encodage : ' + e.message);
+    }
+}
+
+function doDecode(type) {
+    clearError();
+    const input = getInput();
+    if (input === '') {
+        showError('Veuillez d\'abord saisir du texte.');
+        return;
+    }
+    try {
+        let result = '';
+        if (type === 'base64') {
+            result = decodeURIComponent(escape(atob(input)));
+        } else if (type === 'url') {
+            result = decodeURIComponent(input);
+        } else if (type === 'html') {
+            const el = document.createElement('textarea');
+            el.innerHTML = input;
+            result = el.value;
+        } else if (type === 'unicode') {
+            result = input.replace(/\\u([0-9A-Fa-f]{4,8})/g, (_, hex) => {
+                return String.fromCodePoint(parseInt(hex, 16));
+            });
+        }
+        setOutput(result);
+    } catch (e) {
+        showError('Le décodage a échoué. Veuillez vérifier que le format d\'entrée est correct.');
+    }
+}
+
+function copyResult() {
+    const output = document.getElementById('outputText').value;
+    if (!output) {
+        showError('Aucun résultat à copier.');
+        return;
+    }
+    clearError();
+    navigator.clipboard.writeText(output).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copié!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copier';
+            btn.classList.remove('copied');
+        }, 1800);
+    }).catch(() => {
+        // Fallback for environments without clipboard API
+        const textarea = document.getElementById('outputText');
+        textarea.select();
+        document.execCommand('copy');
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copié!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copier';
+            btn.classList.remove('copied');
+        }, 1800);
+    });
+}
+
+function swapTexts() {
+    clearError();
+    const input = document.getElementById('inputText');
+    const output = document.getElementById('outputText');
+    const temp = input.value;
+    input.value = output.value;
+    output.value = temp;
+}
+</script>
+
+</body>
+</html>

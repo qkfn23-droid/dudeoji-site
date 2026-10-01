@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Instagram - 10月の星座占い (日本語)</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #333; display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; justify-content: center; }
+
+.slide {
+    width: 1080px;
+    height: 1350px;
+    background: #0a0a1a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+    page-break-after: always;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1.5px 1.5px at 40% 10%, rgba(201,168,76,0.4), transparent),
+        radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 85% 60%, rgba(201,168,76,0.3), transparent),
+        radial-gradient(1px 1px at 15% 70%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 90% 15%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(201,168,76,0.2), transparent),
+        radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.3), transparent);
+    z-index: 0;
+}
+
+.slide > * { position: relative; z-index: 1; }
+
+.border-frame {
+    position: absolute;
+    top: 30px; left: 30px; right: 30px; bottom: 30px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    z-index: 1;
+}
+.border-frame::before {
+    content: '✦';
+    position: absolute;
+    top: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(201,168,76,0.5);
+    font-size: 14px;
+    background: #0a0a1a;
+    padding: 0 10px;
+}
+.border-frame::after {
+    content: '✦';
+    position: absolute;
+    bottom: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(201,168,76,0.5);
+    font-size: 14px;
+    background: #0a0a1a;
+    padding: 0 10px;
+}
+
+/* 表紙 */
+.cover-moon { margin-bottom: 30px; }
+.cover-title {
+    font-size: 68px;
+    color: #c9a84c;
+    font-weight: 700;
+    letter-spacing: 12px;
+    margin-bottom: 10px;
+}
+.cover-sub {
+    font-size: 32px;
+    color: rgba(201,168,76,0.6);
+    letter-spacing: 8px;
+    margin-bottom: 50px;
+}
+.cover-line {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+    margin: 20px 0;
+}
+.cover-year {
+    font-size: 28px;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: 8px;
+}
+.cover-brand {
+    position: absolute;
+    bottom: 60px;
+    font-size: 22px;
+    color: rgba(201,168,76,0.3);
+    letter-spacing: 4px;
+    font-family: 'Georgia', serif;
+}
+
+/* 星座スライド */
+.zodiac-symbol {
+    font-size: 140px;
+    margin-bottom: 16px;
+    color: #c9a84c;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+}
+.zodiac-name-jp {
+    font-size: 52px;
+    color: #c9a84c;
+    font-weight: 700;
+    letter-spacing: 12px;
+    margin-bottom: 4px;
+}
+.zodiac-name-en {
+    font-size: 20px;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: 6px;
+    margin-bottom: 6px;
+    font-family: 'Georgia', serif;
+}
+.zodiac-date {
+    font-size: 20px;
+    color: rgba(201,168,76,0.35);
+    letter-spacing: 3px;
+    margin-bottom: 36px;
+}
+.zodiac-divider {
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+    margin-bottom: 36px;
+}
+.zodiac-text {
+    font-size: 28px;
+    color: #e0d8cc;
+    line-height: 2.0;
+    text-align: center;
+    max-width: 780px;
+    padding: 0 60px;
+    word-break: keep-all;
+}
+.lucky-box {
+    margin-top: 44px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.lucky-item {
+    text-align: center;
+}
+.lucky-label {
+    font-size: 16px;
+    color: rgba(201,168,76,0.5);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+}
+.lucky-value {
+    font-size: 24px;
+    color: #c9a84c;
+    font-weight: 700;
+}
+.zodiac-ruling {
+    margin-top: 20px;
+    font-size: 16px;
+    color: rgba(201,168,76,0.3);
+    letter-spacing: 2px;
+}
+.slide-brand {
+    position: absolute;
+    bottom: 50px;
+    font-size: 18px;
+    color: rgba(201,168,76,0.25);
+    letter-spacing: 3px;
+    font-family: 'Georgia', serif;
+}
+.slide-num {
+    position: absolute;
+    top: 50px;
+    right: 55px;
+    font-size: 16px;
+    color: rgba(201,168,76,0.25);
+    letter-spacing: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- 1. 表紙 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="cover-moon"><svg viewBox="0 0 120 120" width="180" height="180" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="cover-title">10月の星座占い</div>
+    <div class="cover-sub">ラッキーカラー & 運勢</div>
+    <div class="cover-line"></div>
+    <div class="cover-year">2 0 2 6</div>
+    <div class="cover-brand">MOGU MOON</div>
+</div>
+
+<!-- 2. 牡羊座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♈</div>
+    <div class="zodiac-name-jp">牡羊座</div>
+    <div class="zodiac-name-en">ARIES</div>
+    <div class="zodiac-date">3月21日 — 4月19日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        支配星・火星が威厳の座に入る。<br><br>
+        凶星の熱は助言なき行動を駆り立てる。<br>
+        鉄は折れる前に鍛えよ —— <br>
+        今の忍耐が後の支配権を生む。<br>
+        旧き負債は新月までに清算せよ。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🔴 深紅</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">14:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">9</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：火星 · 高揚：太陽</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 3. 牡牛座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♉</div>
+    <div class="zodiac-name-jp">牡牛座</div>
+    <div class="zodiac-name-en">TAURUS</div>
+    <div class="zodiac-date">4月20日 — 5月20日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        金星が糧の宮を巡る。<br><br>
+        春に蒔いた種が今、実を結ぶ。<br>
+        財を守れ —— されど不動の本性に囚われず、<br>
+        もはや養いとならぬものは手放すべし。<br>
+        星がそれを求めている。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🟢 翡翠</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">10:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">6</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：金星 · 高揚：月</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 4. 双子座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♊</div>
+    <div class="zodiac-name-jp">双子座</div>
+    <div class="zodiac-name-en">GEMINI</div>
+    <div class="zodiac-date">5月21日 — 6月20日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        主星・水星が夜のサインに留まる。<br><br>
+        言葉は今月、二倍の重みを持つ。<br>
+        双子の本性は二つの道を求めるが ——<br>
+        一つを選び、身を委ねよ。<br>
+        契約と書面は15日以降に吉。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🟡 山吹</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">15:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">5</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：水星 · 夜のトリプリシティ：土星</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 5. 蟹座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♋</div>
+    <div class="zodiac-name-jp">蟹座</div>
+    <div class="zodiac-name-en">CANCER</div>
+    <div class="zodiac-date">6月21日 — 7月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        月が祖先と根の宮で満ちてゆく。<br><br>
+        家と血筋の事柄が注意を要する。<br>
+        汝を守る甲羅は、また汝を閉じ込める ——<br>
+        信頼を得た者にのみ、<br>
+        その扉を開けよ。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">⚪ 銀白</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">21:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">2</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：月 · 高揚：木星</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 6. 獅子座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♌</div>
+    <div class="zodiac-name-jp">獅子座</div>
+    <div class="zodiac-name-en">LEO</div>
+    <div class="zodiac-date">7月23日 — 8月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        太陽が天秤座に入る —— 陥落の地。<br><br>
+        誇りは外交に道を譲らねばならぬ。<br>
+        玉座は安泰なれど、同盟者が要る。<br>
+        土星の星座に生まれし者に<br>
+        助言を求めよ。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🟠 琥珀</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">12:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">1</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：太陽 · 天秤座にて陥落</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 7. 乙女座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♍</div>
+    <div class="zodiac-name-jp">乙女座</div>
+    <div class="zodiac-name-en">VIRGO</div>
+    <div class="zodiac-date">8月23日 — 9月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        水星が支配と高揚の両方を司る。<br><br>
+        精緻さが味方となる —— 帳簿、健康、<br>
+        日々の儀式、すべてが秩序に応える。<br>
+        穀物の女神は閃きでなく<br>
+        律儀さに報いる。身体を整えよ。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🟤 栗色</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">08:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">3</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：水星 · 高揚：水星</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 8. 天秤座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♎</div>
+    <div class="zodiac-name-jp">天秤座</div>
+    <div class="zodiac-name-en">LIBRA</div>
+    <div class="zodiac-date">9月23日 — 10月22日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        汝の季節。金星が第一の宮を照らす ——<br>
+        本来の主が力を取り戻す。<br><br>
+        この座で高揚する土星は、<br>
+        美を構造の上に築けと命じる。<br>
+        今結ばれし盟約は永き絆の重みを持つ。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🩷 薔薇</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">16:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">7</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：金星 · 高揚：土星</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 9. 蠍座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♏</div>
+    <div class="zodiac-name-jp">蠍座</div>
+    <div class="zodiac-name-en">SCORPIO</div>
+    <div class="zodiac-date">10月23日 — 11月21日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        伝統的支配星・火星が<br>
+        第十二の宮 —— 隠れた敵の家を揺るがす。<br><br>
+        闇に膿むものは断たねばならぬ。<br>
+        蠍は冬の前に脱皮する。<br>
+        孤独は追放にあらず、準備なり。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🟣 紫黒</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">23:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">8</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：火星（伝統） · 月の陥落</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 10. 射手座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♐</div>
+    <div class="zodiac-name-jp">射手座</div>
+    <div class="zodiac-name-en">SAGITTARIUS</div>
+    <div class="zodiac-date">11月22日 — 12月21日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        大吉星・木星が<br>
+        第十一の宮 —— 善き幸運の家を照らす。<br><br>
+        異国の地、遠き場所より同志が現れる。<br>
+        矢は衝動でなく哲学で放つとき、<br>
+        真に的を射る。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🔵 瑠璃</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">17:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">3</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：木星 · 昼のトリプリシティ：太陽</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 11. 山羊座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♑</div>
+    <div class="zodiac-name-jp">山羊座</div>
+    <div class="zodiac-name-en">CAPRICORN</div>
+    <div class="zodiac-date">12月22日 — 1月19日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        支配星・土星が冷たき眼差しで<br>
+        第十の宮 —— 地位の家を見据える。<br><br>
+        昇進は忍耐により来たる、急ぎによらず。<br>
+        この座で高揚する火星が<br>
+        登る力を与える —— 緩やかに、倒れることなく。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">⚫ 墨黒</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">06:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">4</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：土星 · 高揚：火星</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 12. 水瓶座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♒</div>
+    <div class="zodiac-name-jp">水瓶座</div>
+    <div class="zodiac-name-en">AQUARIUS</div>
+    <div class="zodiac-date">1月20日 — 2月18日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        伝統的支配星・土星が<br>
+        旅と異国の教えの場所に座す。<br><br>
+        海外で求めし知識が実を結ぶ。<br>
+        水瓶は己のためにあらず、<br>
+        共同体のために注ぐ ——<br>
+        学びしことを教えよ。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🩵 水色</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">11:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">4</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：土星（伝統） · 太陽の障害</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+<!-- 13. 魚座 -->
+<div class="slide">
+    <div class="border-frame"></div>
+    <div class="slide-num">10月 2026</div>
+    <div class="zodiac-symbol">♓</div>
+    <div class="zodiac-name-jp">魚座</div>
+    <div class="zodiac-name-en">PISCES</div>
+    <div class="zodiac-date">2月19日 — 3月20日</div>
+    <div class="zodiac-divider"></div>
+    <div class="zodiac-text">
+        伝統的支配星・木星と、<br>
+        この座で高揚する金星が今月整列する。<br><br>
+        二つの吉星が心と魂の事柄に<br>
+        恩寵を授ける。<br>
+        夢は伝言を運ぶ —— 夜明け前に記せ。
+    </div>
+    <div class="lucky-box">
+        <div class="lucky-item"><div class="lucky-label">ラッキーカラー</div><div class="lucky-value">🟢 海緑</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキータイム</div><div class="lucky-value">20:00</div></div>
+        <div class="lucky-item"><div class="lucky-label">ラッキーナンバー</div><div class="lucky-value">7</div></div>
+    </div>
+    <div class="zodiac-ruling">支配星：木星（伝統） · 高揚：金星</div>
+    <div class="slide-brand">MOGU MOON</div>
+</div>
+
+</body>
+</html>

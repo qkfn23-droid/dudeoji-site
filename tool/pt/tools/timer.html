@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador/Cronometro - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Temporizador/Cronometro e gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sim, 100% gratuito. Sem cadastro necessario. Todo o processamento acontece no seu navegador, sem enviar dados pessoais a nenhum servidor."}},
+    {"@type":"Question","name":"Como usar Temporizador/Cronometro?","acceptedAnswer":{"@type":"Answer","text":"Use o temporizador de contagem regressiva e o cronometro. Suporta voltas e alarme."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/timer.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/timer.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/timer.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/timer.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/timer.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/timer.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/timer.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/timer.html">
+    <link rel="canonical" href="https://mogutool.com/pt/tools/timer.html">
+    <meta property="og:title" content="Temporizador/Cronometro - MOGU Tools">
+    <meta property="og:description" content="Use o temporizador de contagem regressiva e o cronometro. Suporta voltas e alarme.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/pt/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/pt/tools/timer.html">
+    <meta name="description" content="Use o temporizador de contagem regressiva e o cronometro. Suporta voltas e alarme.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .tab-bar {
+            display: flex;
+            gap: 0;
+            margin-bottom: 16px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+            font-weight: 600;
+            color: #aaa;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .time-display {
+            text-align: center;
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #2c2c2c;
+            font-variant-numeric: tabular-nums;
+            padding: 20px 0 16px;
+            transition: color 0.3s;
+            font-feature-settings: "tnum";
+        }
+
+        .time-display.done {
+            color: #d9534f;
+            animation: flash 0.6s ease-in-out infinite alternate;
+        }
+
+        .time-display .ms {
+            font-size: 36px;
+            color: #888;
+        }
+
+        @keyframes flash {
+            from { opacity: 1; }
+            to   { opacity: 0.3; }
+        }
+
+        .progress-wrap {
+            background: #f0f0f0;
+            border-radius: 6px;
+            height: 10px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #4a90d9;
+            border-radius: 6px;
+            width: 100%;
+            transition: width 0.5s linear, background 0.3s;
+        }
+
+        .progress-bar.done {
+            background: #d9534f;
+        }
+
+        .time-input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .time-input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .time-input-group label {
+            font-size: 12px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .time-input-group input {
+            width: 74px;
+            padding: 10px 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #2c2c2c;
+        }
+
+        .time-input-group input:focus {
+            border-color: #4a90d9;
+        }
+
+        .time-sep {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ccc;
+            padding-bottom: 8px;
+        }
+
+        .preset-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .preset-btn {
+            padding: 7px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            background: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .preset-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .preset-btn.selected {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 4px;
+        }
+
+        .ctrl-btn {
+            flex: 1;
+            max-width: 160px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-start {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .btn-start:hover {
+            background: #3a7bc8;
+        }
+
+        .btn-start.running {
+            background: #f0ad4e;
+        }
+
+        .btn-start.running:hover {
+            background: #e09a30;
+        }
+
+        .btn-reset {
+            background: #f5f5f5;
+            color: #666;
+            border: 1px solid #e0e0e0;
+        }
+
+        .btn-reset:hover {
+            background: #ebebeb;
+        }
+
+        .btn-lap {
+            background: #f5f5f5;
+            color: #666;
+            border: 1px solid #e0e0e0;
+        }
+
+        .btn-lap:hover {
+            background: #ebebeb;
+        }
+
+        .btn-lap:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .kbd-hint {
+            text-align: center;
+            font-size: 12px;
+            color: #bbb;
+            margin-top: 14px;
+        }
+
+        .kbd-hint kbd {
+            display: inline-block;
+            padding: 1px 6px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 11px;
+            color: #888;
+            font-family: inherit;
+        }
+
+        .lap-list-wrap {
+            margin-top: 24px;
+        }
+
+        .lap-list-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .lap-list {
+            max-height: 240px;
+            overflow-y: auto;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .lap-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+
+        .lap-item:last-child {
+            border-bottom: none;
+        }
+
+        .lap-item.best {
+            background: #eef8ee;
+        }
+
+        .lap-item.worst {
+            background: #fdf0ef;
+        }
+
+        .lap-num {
+            color: #aaa;
+            font-size: 12px;
+            min-width: 40px;
+        }
+
+        .lap-time {
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            font-feature-settings: "tnum";
+        }
+
+        .lap-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .badge-best {
+            background: #dff0d8;
+            color: #3c763d;
+        }
+
+        .badge-worst {
+            background: #f2dede;
+            color: #a94442;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 420px) {
+            .time-display {
+                font-size: 48px;
+            }
+
+            .time-display .ms {
+                font-size: 28px;
+            }
+
+            .time-input-group input {
+                width: 60px;
+                font-size: 18px;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Ferramentas</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Ferramentas Online Grátis</a> &gt; Ferramentas &gt; Temporizador/Cronometro
+</div>
+
+<div class="container">
+    <h1>Temporizador/Cronometro</h1>
+    <p class="subtitle">Use o temporizador de contagem regressiva e o cronometro.</p>
+
+    <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('timer')">Temporizador</button>
+        <button class="tab-btn" onclick="switchTab('stopwatch')">Cronometro</button>
+    </div>
+
+    <div class="tab-panel active" id="panel-timer">
+        <div class="calc-box">
+
+            <div class="time-input-row">
+                <div class="time-input-group">
+                    <label>Horas</label>
+                    <input type="number" id="t-hours" value="0" min="0" max="23" oninput="clampInput(this,0,23)">
+                </div>
+                <div class="time-sep">:</div>
+                <div class="time-input-group">
+                    <label>Min</label>
+                    <input type="number" id="t-minutes" value="0" min="0" max="59" oninput="clampInput(this,0,59)">
+                </div>
+                <div class="time-sep">:</div>
+                <div class="time-input-group">
+                    <label>Seg</label>
+                    <input type="number" id="t-seconds" value="0" min="0" max="59" oninput="clampInput(this,0,59)">
+                </div>
+            </div>
+
+            <div class="preset-row">
+                <button class="preset-btn" onclick="setPreset(0,1,0)">1 min</button>
+                <button class="preset-btn" onclick="setPreset(0,3,0)">3 min</button>
+                <button class="preset-btn" onclick="setPreset(0,5,0)">5 min</button>
+                <button class="preset-btn" onclick="setPreset(0,10,0)">10 min</button>
+                <button class="preset-btn" onclick="setPreset(0,15,0)">15 min</button>
+                <button class="preset-btn" onclick="setPreset(0,30,0)">30 min</button>
+                <button class="preset-btn" onclick="setPreset(1,0,0)">1 hora</button>
+            </div>
+
+            <div class="time-display" id="timer-display">00:00:00</div>
+
+            <div class="progress-wrap">
+                <div class="progress-bar" id="timer-progress"></div>
+            </div>
+
+            <div class="btn-row">
+                <button class="ctrl-btn btn-start" id="timer-start-btn" onclick="timerToggle()">Iniciar</button>
+                <button class="ctrl-btn btn-reset" onclick="timerReset()">Reiniciar</button>
+            </div>
+
+            <div class="kbd-hint">
+                <kbd>Space</kbd> Iniciar/Pausar &nbsp; <kbd>R</kbd> Reiniciar
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-panel" id="panel-stopwatch">
+        <div class="calc-box">
+
+            <div class="time-display" id="sw-display">
+                00:00<span class="ms">.00</span>
+            </div>
+
+            <div class="btn-row">
+                <button class="ctrl-btn btn-start" id="sw-start-btn" onclick="swToggle()">Iniciar</button>
+                <button class="ctrl-btn btn-lap" id="sw-lap-btn" onclick="swLap()" disabled>Volta</button>
+                <button class="ctrl-btn btn-reset" onclick="swReset()">Reiniciar</button>
+            </div>
+
+            <div class="kbd-hint">
+                <kbd>Space</kbd> Iniciar/Pausar &nbsp; <kbd>L</kbd> Volta &nbsp; <kbd>R</kbd> Reiniciar
+            </div>
+
+            <div class="lap-list-wrap" id="lap-wrap" style="display:none;">
+                <div class="lap-list-title">Voltas</div>
+                <div class="lap-list" id="lap-list"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Como usar</h2>
+        <p>
+            <strong>Temporizador</strong>: Defina o tempo manualmente ou use os botoes de acesso rapido. Um alarme tocara quando o tempo acabar.<br>
+            <strong>Cronometro</strong>: Apos iniciar, use o botao Volta para registrar tempos parciais. Os melhores e piores tempos sao destacados com cores.<br>
+            Atalhos de teclado: <strong>Space</strong> (Iniciar/Pausar), <strong>R</strong> (Reiniciar), <strong>L</strong> (Volta)
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Temporizador/Cronometro</h2><p>Use o temporizador de contagem regressiva e o cronometro. Suporta voltas e alarme.</p></div>
+<div class="seo-section"><h2>Perguntas frequentes</h2><details class="seo-faq"><summary>Esta ferramenta é gratuita?</summary><p>Sim, 100% gratuita. Sem cadastro. Tudo é processado no seu navegador — nenhum dado é enviado a servidores.</p></details><details class="seo-faq"><summary>Funciona no celular?</summary><p>Sim, todas as ferramentas são responsivas e funcionam em smartphones, tablets e desktops.</p></details></div>
+<div class="seo-section"><h2>Ferramentas relacionadas</h2><div class="seo-related"><a href="stopwatch.html">Cronômetro</a><a href="pomodoro.html">Temporizador Pomodoro</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+function pad2(n) { return String(Math.floor(n)).padStart(2, '0'); }
+
+function clampInput(el, min, max) {
+    let v = parseInt(el.value, 10);
+    if (isNaN(v)) return;
+    if (v < min) el.value = min;
+    if (v > max) el.value = max;
+}
+
+let currentTab = 'timer';
+
+function switchTab(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach((b, i) => {
+        b.classList.toggle('active', (i === 0 && tab === 'timer') || (i === 1 && tab === 'stopwatch'));
+    });
+    document.getElementById('panel-timer').classList.toggle('active', tab === 'timer');
+    document.getElementById('panel-stopwatch').classList.toggle('active', tab === 'stopwatch');
+}
+
+function playBeep() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        function beep(freq, start, duration, vol) {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(vol, ctx.currentTime + start);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + duration);
+            osc.start(ctx.currentTime + start);
+            osc.stop(ctx.currentTime + start + duration + 0.05);
+        }
+        beep(880, 0,    0.18, 0.5);
+        beep(880, 0.22, 0.18, 0.5);
+        beep(1100, 0.44, 0.35, 0.6);
+    } catch(e) {}
+}
+
+let timerInterval  = null;
+let timerRunning   = false;
+let timerRemaining = 0;
+let timerTotal     = 0;
+
+function getTimerInput() {
+    const h = parseInt(document.getElementById('t-hours').value)   || 0;
+    const m = parseInt(document.getElementById('t-minutes').value) || 0;
+    const s = parseInt(document.getElementById('t-seconds').value) || 0;
+    return h * 3600 + m * 60 + s;
+}
+
+function setTimerDisplay(secs) {
+    const h = Math.floor(secs / 3600);
+    const m = Math.floor((secs % 3600) / 60);
+    const s = secs % 60;
+    document.getElementById('timer-display').textContent = pad2(h) + ':' + pad2(m) + ':' + pad2(s);
+}
+
+function setProgressBar(remaining, total) {
+    const pct = total > 0 ? (remaining / total) * 100 : 100;
+    const bar = document.getElementById('timer-progress');
+    bar.style.width = pct + '%';
+}
+
+function setPreset(h, m, s) {
+    if (timerRunning) timerReset();
+    document.getElementById('t-hours').value   = h;
+    document.getElementById('t-minutes').value = m;
+    document.getElementById('t-seconds').value = s;
+    const total = h * 3600 + m * 60 + s;
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    timerRemaining = total;
+    timerTotal = total;
+    setTimerDisplay(total);
+    setProgressBar(total, total);
+    document.getElementById('timer-display').classList.remove('done');
+    document.getElementById('timer-progress').classList.remove('done');
+}
+
+function timerToggle() {
+    if (timerRunning) {
+        timerPause();
+    } else {
+        timerStart();
+    }
+}
+
+function timerStart() {
+    if (timerRunning) return;
+
+    if (timerRemaining === 0) {
+        timerTotal = getTimerInput();
+        timerRemaining = timerTotal;
+    }
+
+    if (timerRemaining <= 0 || timerTotal <= 0) {
+        alert('Defina o tempo.');
+        return;
+    }
+
+    setInputsDisabled(true);
+
+    timerRunning = true;
+    const startBtn = document.getElementById('timer-start-btn');
+    startBtn.textContent = 'Pausar';
+    startBtn.classList.add('running');
+
+    document.getElementById('timer-display').classList.remove('done');
+    document.getElementById('timer-progress').classList.remove('done');
+
+    const tick = Date.now();
+    let lastTick = tick;
+
+    timerInterval = setInterval(function() {
+        const now = Date.now();
+        const elapsed = Math.round((now - lastTick) / 1000);
+        if (elapsed >= 1) {
+            lastTick = now - ((now - lastTick) % 1000);
+            timerRemaining -= elapsed;
+        }
+
+        if (timerRemaining <= 0) {
+            timerRemaining = 0;
+            setTimerDisplay(0);
+            setProgressBar(0, timerTotal);
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerRunning = false;
+            timerDone();
+            return;
+        }
+
+        setTimerDisplay(timerRemaining);
+        setProgressBar(timerRemaining, timerTotal);
+    }, 200);
+}
+
+function timerPause() {
+    if (!timerRunning) return;
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timerRunning = false;
+    const startBtn = document.getElementById('timer-start-btn');
+    startBtn.textContent = 'Continuar';
+    startBtn.classList.remove('running');
+}
+
+function timerReset() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timerRunning = false;
+    timerRemaining = 0;
+    timerTotal = 0;
+    setTimerDisplay(0);
+    setProgressBar(1, 1);
+    setInputsDisabled(false);
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
+    const startBtn = document.getElementById('timer-start-btn');
+    startBtn.textContent = 'Iniciar';
+    startBtn.classList.remove('running');
+    document.getElementById('timer-display').classList.remove('done');
+    document.getElementById('timer-progress').classList.remove('done');
+}
+
+function timerDone() {
+    setInputsDisabled(false);
+    document.getElementById('timer-display').classList.add('done');
+    document.getElementById('timer-progress').classList.add('done');
+    const startBtn = document.getElementById('timer-start-btn');
+    startBtn.textContent = 'Iniciar';
+    startBtn.classList.remove('running');
+    playBeep();
+}
+
+function setInputsDisabled(disabled) {
+    ['t-hours','t-minutes','t-seconds'].forEach(id => {
+        document.getElementById(id).disabled = disabled;
+    });
+    document.querySelectorAll('.preset-btn').forEach(b => b.disabled = disabled);
+}
+
+let swRunning   = false;
+let swInterval  = null;
+let swElapsed   = 0;
+let swStartTime = 0;
+let swLapStart  = 0;
+let swLaps      = [];
+
+function swFormatMain(ms) {
+    const totalSec = Math.floor(ms / 1000);
+    const m = Math.floor(totalSec / 60);
+    const s = totalSec % 60;
+    const cs = Math.floor((ms % 1000) / 10);
+    return pad2(m) + ':' + pad2(s) + '<span class="ms">.' + pad2(cs) + '</span>';
+}
+
+function swFormatLap(ms) {
+    const totalSec = Math.floor(ms / 1000);
+    const m = Math.floor(totalSec / 60);
+    const s = totalSec % 60;
+    const cs = Math.floor((ms % 1000) / 10);
+    return pad2(m) + ':' + pad2(s) + '.' + pad2(cs);
+}
+
+function swUpdateDisplay() {
+    document.getElementById('sw-display').innerHTML = swFormatMain(swElapsed);
+}
+
+function swToggle() {
+    if (swRunning) {
+        swPause();
+    } else {
+        swStart();
+    }
+}
+
+function swStart() {
+    if (swRunning) return;
+    swRunning = true;
+    swStartTime = Date.now() - swElapsed;
+    if (swLapStart === 0) swLapStart = swStartTime;
+
+    document.getElementById('sw-start-btn').textContent = 'Pausar';
+    document.getElementById('sw-start-btn').classList.add('running');
+    document.getElementById('sw-lap-btn').disabled = false;
+
+    swInterval = setInterval(function() {
+        swElapsed = Date.now() - swStartTime;
+        swUpdateDisplay();
+    }, 30);
+}
+
+function swPause() {
+    if (!swRunning) return;
+    clearInterval(swInterval);
+    swInterval = null;
+    swRunning = false;
+    swElapsed = Date.now() - swStartTime;
+    swUpdateDisplay();
+
+    document.getElementById('sw-start-btn').textContent = 'Continuar';
+    document.getElementById('sw-start-btn').classList.remove('running');
+}
+
+function swReset() {
+    clearInterval(swInterval);
+    swInterval = null;
+    swRunning = false;
+    swElapsed = 0;
+    swStartTime = 0;
+    swLapStart = 0;
+    swLaps = [];
+    document.getElementById('sw-display').innerHTML = '00:00<span class="ms">.00</span>';
+    document.getElementById('sw-start-btn').textContent = 'Iniciar';
+    document.getElementById('sw-start-btn').classList.remove('running');
+    document.getElementById('sw-lap-btn').disabled = true;
+    document.getElementById('lap-wrap').style.display = 'none';
+    document.getElementById('lap-list').innerHTML = '';
+}
+
+function swLap() {
+    if (!swRunning && swElapsed === 0) return;
+    const now = Date.now();
+    const lapMs = swRunning
+        ? (now - (swLapStart === 0 ? swStartTime : swLapStart + (swStartTime - swStartTime)))
+        : swElapsed - (swLaps.reduce((a, l) => a + l.ms, 0));
+
+    const currentElapsed = swRunning ? (Date.now() - swStartTime) : swElapsed;
+    const prevTotal = swLaps.reduce((a, l) => a + l.ms, 0);
+    const thisLap = currentElapsed - prevTotal;
+
+    swLaps.push({ ms: thisLap, elapsed: currentElapsed });
+    renderLaps();
+    document.getElementById('lap-wrap').style.display = 'block';
+}
+
+function renderLaps() {
+    const list = document.getElementById('lap-list');
+    list.innerHTML = '';
+    if (swLaps.length === 0) return;
+
+    const times = swLaps.map(l => l.ms);
+    const bestMs  = Math.min(...times);
+    const worstMs = Math.max(...times);
+
+    for (let i = swLaps.length - 1; i >= 0; i--) {
+        const lap = swLaps[i];
+        const isBest  = swLaps.length >= 2 && lap.ms === bestMs;
+        const isWorst = swLaps.length >= 2 && lap.ms === worstMs;
+
+        const div = document.createElement('div');
+        div.className = 'lap-item' + (isBest ? ' best' : isWorst ? ' worst' : '');
+
+        let badge = '';
+        if (isBest)  badge = '<span class="lap-badge badge-best">Melhor</span>';
+        if (isWorst) badge = '<span class="lap-badge badge-worst">Pior</span>';
+
+        div.innerHTML =
+            '<span class="lap-num">Volta ' + (i + 1) + '</span>' +
+            '<span class="lap-time">' + swFormatLap(lap.ms) + '</span>' +
+            (badge || '<span></span>');
+
+        list.appendChild(div);
+    }
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+
+    if (e.code === 'Space') {
+        e.preventDefault();
+        if (currentTab === 'timer')     timerToggle();
+        else                            swToggle();
+    } else if (e.key === 'r' || e.key === 'R') {
+        if (currentTab === 'timer')     timerReset();
+        else                            swReset();
+    } else if (e.key === 'l' || e.key === 'L') {
+        if (currentTab === 'stopwatch' && swRunning) swLap();
+    }
+});
+
+setTimerDisplay(0);
+setProgressBar(1, 1);
+</script>
+
+</body>
+</html>

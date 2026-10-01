@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음주 운전 계산기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"음주 운전 계산기는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"음주 운전 계산기는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"혈중알코올농도(BAC)를 계산하고 운전 가능 시간을 예측합니다. 위드마크 공식 기반."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/drink-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/drink-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/drink-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/drink-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/drink-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/drink-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/drink-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/drink-calc.html">
+    <link rel="canonical" href="https://mogutool.com/tools/drink-calc.html">
+    <meta property="og:title" content="음주 운전 계산기 - MOGU Tools">
+    <meta property="og:description" content="혈중알코올농도(BAC)를 계산하고 운전 가능 시간을 예측합니다. 위드마크 공식 기반.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/drink-calc.html">
+    <meta name="description" content="혈중알코올농도(BAC)를 계산하고 운전 가능 시간을 예측합니다. 위드마크 공식 기반.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 600px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 600px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+
+        .calc-box { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #555; }
+        .input-row { display: flex; gap: 8px; }
+        .input-row select, .input-row input { flex: 1; padding: 12px 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; outline: none; }
+        .input-row select:focus, .input-row input:focus { border-color: #4a90d9; }
+
+        .drink-list { margin-bottom: 16px; }
+        .drink-item { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .drink-item select { flex: 2; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+        .drink-item input { width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; text-align: center; }
+        .drink-item .unit { font-size: 12px; color: #888; }
+        .drink-item .remove { background: none; border: none; font-size: 18px; cursor: pointer; color: #e74c3c; padding: 4px; }
+        .add-drink { background: none; border: 1px dashed #ccc; border-radius: 8px; padding: 10px; width: 100%; cursor: pointer; color: #888; font-size: 14px; }
+        .add-drink:hover { border-color: #4a90d9; color: #4a90d9; }
+
+        .calc-btn { width: 100%; padding: 14px; background: #4a90d9; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+        .calc-btn:hover { background: #3a7bc8; }
+
+        .result { display: none; margin-top: 24px; }
+        .bac-display { text-align: center; padding: 30px; border-radius: 12px; margin-bottom: 16px; }
+        .bac-display .bac-value { font-size: 48px; font-weight: 700; }
+        .bac-display .bac-label { font-size: 14px; margin-top: 4px; }
+        .bac-display .bac-status { font-size: 18px; font-weight: 600; margin-top: 8px; }
+        .bac-safe { background: #f0f9f0; }
+        .bac-safe .bac-value { color: #27ae60; }
+        .bac-warn { background: #fef9e7; }
+        .bac-warn .bac-value { color: #f39c12; }
+        .bac-danger { background: #fdf0f0; }
+        .bac-danger .bac-value { color: #e74c3c; }
+
+        .time-info { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; }
+        .time-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .time-row:last-child { border-bottom: none; }
+        .time-row .label { color: #666; }
+        .time-row .value { font-weight: 600; color: #333; }
+
+        .warning { background: #fdf0f0; border: 1px solid #f5c6cb; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #c0392b; margin-top: 16px; }
+        .info-section { margin-top: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; }
+        .info-section h2 { font-size: 16px; margin-bottom: 12px; color: #555; }
+        .info-section p { font-size: 14px; color: #666; line-height: 1.7; }
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 계산기 &gt; 음주 운전 계산기
+</div>
+
+<div class="container">
+    <h1>음주 운전 계산기</h1>
+    <p class="subtitle">혈중알코올농도(BAC)와 운전 가능 예상 시간을 계산합니다.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>체중 (kg)</label>
+            <div class="input-row">
+                <input type="number" id="weight" value="70" min="30" max="200">
+            </div>
+        </div>
+        <div class="input-group">
+            <label>성별</label>
+            <div class="input-row">
+                <select id="gender">
+                    <option value="m">남성</option>
+                    <option value="f">여성</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-group">
+            <label>음주 시작 후 경과 시간</label>
+            <div class="input-row">
+                <input type="number" id="hours" value="1" min="0" max="48" step="0.5"> 시간
+            </div>
+        </div>
+        <div class="input-group">
+            <label>마신 술</label>
+            <div class="drink-list" id="drinkList">
+                <div class="drink-item">
+                    <select>
+                        <option value="soju">소주 (16.5%)</option>
+                        <option value="beer">맥주 (5%)</option>
+                        <option value="wine">와인 (13%)</option>
+                        <option value="makgeolli">막걸리 (6%)</option>
+                        <option value="whiskey">위스키 (40%)</option>
+                        <option value="highball">하이볼 (8%)</option>
+                    </select>
+                    <input type="number" value="2" min="0.5" max="30" step="0.5">
+                    <span class="unit">잔</span>
+                    <button class="remove" onclick="this.parentElement.remove()">×</button>
+                </div>
+            </div>
+            <button class="add-drink" onclick="addDrink()">+ 술 추가</button>
+        </div>
+        <button class="calc-btn" onclick="calculate()">🍺 계산하기</button>
+    </div>
+
+    <div class="result" id="result">
+        <div class="bac-display" id="bacDisplay">
+            <div class="bac-value" id="bacValue">-</div>
+            <div class="bac-label">혈중알코올농도 (%)</div>
+            <div class="bac-status" id="bacStatus">-</div>
+        </div>
+        <div class="time-info" id="timeInfo"></div>
+        <div class="warning">
+            ⚠️ <strong>주의:</strong> 이 계산기는 위드마크(Widmark) 공식에 기반한 <strong>추정치</strong>입니다. 개인차(체질, 음식 섭취, 간 기능 등)에 따라 실제 BAC는 다를 수 있습니다. <strong>음주 후에는 절대 운전하지 마세요.</strong> 한국 음주운전 처벌 기준: 0.03% 이상.
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>위드마크(Widmark) 공식</h2>
+        <p>
+            <strong>BAC = (섭취 알코올량 / 체중 × 체내수분비율) - (경과시간 × 시간당 분해량)</strong><br><br>
+            <strong>체내수분비율:</strong> 남성 0.68, 여성 0.55<br>
+            <strong>시간당 분해량:</strong> 약 0.015% (평균)<br>
+            <strong>잔당 용량:</strong> 소주 50ml, 맥주 355ml, 와인 150ml, 막걸리 300ml, 위스키 30ml, 하이볼 250ml<br><br>
+            <strong>한국 음주운전 처벌 기준:</strong><br>
+            • 0.03% ~ 0.08%: 면허정지 + 벌금<br>
+            • 0.08% 이상: 면허취소 + 형사처벌<br>
+            • 0.2% 이상: 가중처벌
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>음주 운전 계산기</h2><p>마신 술의 종류와 양을 입력하면 혈중 알코올 농도(BAC)와 운전 가능 예상 시간을 계산합니다. 위드마크 공식 기반.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>혈중알코올농도 0.03%는 어느 정도?</summary><p>맥주 1~2잔 정도에 해당합니다. 한국 기준 0.03% 이상이면 음주운전입니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="bmi.html">BMI 계산기</a><a href="tip-calc.html">팁 계산기</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+const DRINKS = {
+    soju: { abv: 0.165, ml: 50, name: '소주' },
+    beer: { abv: 0.05, ml: 355, name: '맥주' },
+    wine: { abv: 0.13, ml: 150, name: '와인' },
+    makgeolli: { abv: 0.06, ml: 300, name: '막걸리' },
+    whiskey: { abv: 0.40, ml: 30, name: '위스키' },
+    highball: { abv: 0.08, ml: 250, name: '하이볼' }
+};
+
+function addDrink() {
+    const list = document.getElementById('drinkList');
+    const item = document.createElement('div');
+    item.className = 'drink-item';
+    item.innerHTML = `
+        <select>
+            <option value="soju">소주 (16.5%)</option>
+            <option value="beer">맥주 (5%)</option>
+            <option value="wine">와인 (13%)</option>
+            <option value="makgeolli">막걸리 (6%)</option>
+            <option value="whiskey">위스키 (40%)</option>
+            <option value="highball">하이볼 (8%)</option>
+        </select>
+        <input type="number" value="1" min="0.5" max="30" step="0.5">
+        <span class="unit">잔</span>
+        <button class="remove" onclick="this.parentElement.remove()">×</button>
+    `;
+    list.appendChild(item);
+}
+
+function calculate() {
+    const weight = parseFloat(document.getElementById('weight').value) || 70;
+    const gender = document.getElementById('gender').value;
+    const hours = parseFloat(document.getElementById('hours').value) || 0;
+    const waterRatio = gender === 'm' ? 0.68 : 0.55;
+    const elimination = 0.015;
+
+    // 총 알코올 섭취량 (그램)
+    let totalAlcohol = 0;
+    document.querySelectorAll('.drink-item').forEach(item => {
+        const type = item.querySelector('select').value;
+        const cups = parseFloat(item.querySelector('input').value) || 0;
+        const drink = DRINKS[type];
+        totalAlcohol += drink.ml * cups * drink.abv * 0.789; // 0.789 = 알코올 밀도(g/ml)
+    });
+
+    // BAC 계산 (위드마크 공식)
+    let bac = (totalAlcohol / (weight * 1000 * waterRatio)) * 100;
+    bac = Math.max(0, bac - (hours * elimination));
+    bac = Math.round(bac * 1000) / 1000;
+
+    // 0.03% 이하까지 걸리는 시간
+    const bacNow = bac;
+    const hoursToSafe = bacNow > 0.03 ? ((bacNow - 0.03) / elimination) : 0;
+    const hoursToZero = bacNow > 0 ? (bacNow / elimination) : 0;
+
+    // 표시
+    const bacDisplay = document.getElementById('bacDisplay');
+    document.getElementById('bacValue').textContent = bac.toFixed(3) + '%';
+
+    if (bac < 0.03) {
+        bacDisplay.className = 'bac-display bac-safe';
+        document.getElementById('bacStatus').textContent = '✅ 법적 기준 이하';
+    } else if (bac < 0.08) {
+        bacDisplay.className = 'bac-display bac-warn';
+        document.getElementById('bacStatus').textContent = '⚠️ 면허정지 수준';
+    } else {
+        bacDisplay.className = 'bac-display bac-danger';
+        document.getElementById('bacStatus').textContent = '🚨 면허취소 수준';
+    }
+
+    // 시간 정보
+    const now = new Date();
+    const safeTime = new Date(now.getTime() + hoursToSafe * 3600000);
+    const zeroTime = new Date(now.getTime() + hoursToZero * 3600000);
+
+    function fmt(d) { return `${d.getHours()}시 ${String(d.getMinutes()).padStart(2,'0')}분`; }
+    function fmtH(h) {
+        const hrs = Math.floor(h);
+        const mins = Math.round((h - hrs) * 60);
+        return hrs > 0 ? `${hrs}시간 ${mins}분` : `${mins}분`;
+    }
+
+    document.getElementById('timeInfo').innerHTML = `
+        <div class="time-row"><span class="label">현재 BAC</span><span class="value">${bac.toFixed(3)}%</span></div>
+        <div class="time-row"><span class="label">총 섭취 알코올</span><span class="value">${totalAlcohol.toFixed(1)}g</span></div>
+        <div class="time-row"><span class="label">0.03% 이하 예상</span><span class="value">${bac >= 0.03 ? fmt(safeTime) + ' (' + fmtH(hoursToSafe) + ' 후)' : '현재 기준 이하'}</span></div>
+        <div class="time-row"><span class="label">완전 분해 예상</span><span class="value">${bac > 0 ? fmt(zeroTime) + ' (' + fmtH(hoursToZero) + ' 후)' : '이미 분해됨'}</span></div>
+        <div class="time-row"><span class="label">시간당 분해량</span><span class="value">약 0.015%</span></div>
+    `;
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복리 계산기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"복리 계산기는 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"네, 100% 무료입니다. 회원가입 없이 바로 사용할 수 있으며, 모든 처리는 브라우저에서 이루어져 개인정보가 서버로 전송되지 않습니다."}},
+    {"@type":"Question","name":"복리 계산기는 어떻게 사용하나요?","acceptedAnswer":{"@type":"Answer","text":"초기 투자금, 연 수익률, 투자 기간을 입력하면 복리로 불어나는 최종 금액을 계산합니다."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/compound-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/compound-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/compound-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/compound-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/compound-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/compound-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/compound-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/compound-calc.html">
+    <link rel="canonical" href="https://mogutool.com/tools/compound-calc.html">
+    <meta property="og:title" content="복리 계산기 - MOGU Tools">
+    <meta property="og:description" content="초기 투자금, 연 수익률, 투자 기간을 입력하면 복리로 불어나는 최종 금액을 계산합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/tools/compound-calc.html">
+    <meta name="description" content="초기 투자금, 연 수익률, 투자 기간을 입력하면 복리로 불어나는 최종 금액을 계산합니다.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 640px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-group label .optional {
+            font-weight: 400;
+            color: #bbb;
+            font-size: 12px;
+            margin-left: 4px;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #555;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+            margin-bottom: 0;
+        }
+
+        .radio-group input[type="radio"] {
+            display: none;
+        }
+
+        .radio-group input[type="radio"]:checked + span {
+            /* handled via JS class toggle on label */
+        }
+
+        .radio-group label.selected {
+            border-color: #4a90d9;
+            background: #eef4fb;
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Result */
+        .result {
+            display: none;
+            margin-top: 28px;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 28px 20px;
+            border-radius: 10px;
+            background: #f0f6ff;
+            border: 1px solid #d0e4f7;
+            margin-bottom: 16px;
+        }
+
+        .result-main .label {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .result-main .final-amount {
+            font-size: 42px;
+            font-weight: 700;
+            color: #4a90d9;
+            letter-spacing: -1px;
+        }
+
+        .result-main .final-unit {
+            font-size: 18px;
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .result-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+
+        .result-card .card-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 6px;
+        }
+
+        .result-card .card-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .result-card .card-value.green {
+            color: #4caf50;
+        }
+
+        .result-card .card-value.blue {
+            color: #4a90d9;
+        }
+
+        /* Year table */
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .year-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 24px;
+        }
+
+        .year-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .year-table th {
+            padding: 10px 12px;
+            text-align: right;
+            color: #888;
+            font-weight: 500;
+            border-bottom: 2px solid #eee;
+            background: #fafafa;
+        }
+
+        .year-table th:first-child {
+            text-align: center;
+        }
+
+        .year-table td {
+            padding: 9px 12px;
+            text-align: right;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+        }
+
+        .year-table td:first-child {
+            text-align: center;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .year-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 700;
+            color: #333;
+            background: #f0f6ff;
+        }
+
+        .year-table td.interest-col {
+            color: #4caf50;
+        }
+
+        /* Bar chart */
+        .chart-wrap {
+            margin-bottom: 8px;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 120px;
+            padding: 0 2px;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+        }
+
+        .bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 20px;
+            height: 100%;
+            justify-content: flex-end;
+        }
+
+        .bar-inner {
+            width: 100%;
+            border-radius: 3px 3px 0 0;
+            transition: height 0.3s;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .bar-principal {
+            background: #b3d4f5;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .bar-interest {
+            background: #4a90d9;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .bar-label {
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+
+        /* Info section */
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-highlight {
+            background: #f0f6ff;
+            border-left: 3px solid #4a90d9;
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .result-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+            .result-main .final-amount {
+                font-size: 32px;
+            }
+            .radio-group label {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">홈</a> &gt; 투자/금융 &gt; 복리 계산기
+</div>
+
+<div class="container">
+    <h1>복리 계산기</h1>
+    <p class="subtitle">초기 투자금과 수익률을 입력하면 복리로 성장하는 금액을 계산합니다.</p>
+
+    <div class="calc-box">
+
+        <div class="input-group">
+            <label>초기 투자금</label>
+            <div class="input-row">
+                <input type="number" id="principal" placeholder="10000000" min="0" step="10000">
+                <span class="unit">원</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>연 수익률</label>
+            <div class="input-row">
+                <input type="number" id="rate" placeholder="7" step="0.1" min="0" max="100">
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>투자 기간</label>
+            <div class="input-row">
+                <input type="number" id="years" placeholder="20" min="1" max="100" step="1">
+                <span class="unit">년</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>매월 추가 투자금 <span class="optional">(선택, 없으면 0)</span></label>
+            <div class="input-row">
+                <input type="number" id="monthly" placeholder="0" min="0" step="10000">
+                <span class="unit">원</span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>복리 주기</label>
+            <div class="radio-group" id="compoundRadio">
+                <label class="selected">
+                    <input type="radio" name="compound" value="12" checked>
+                    <span>월복리</span>
+                </label>
+                <label>
+                    <input type="radio" name="compound" value="4">
+                    <span>분기복리</span>
+                </label>
+                <label>
+                    <input type="radio" name="compound" value="2">
+                    <span>반기복리</span>
+                </label>
+                <label>
+                    <input type="radio" name="compound" value="1">
+                    <span>연복리</span>
+                </label>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">계산하기</button>
+
+        <div class="result" id="result">
+
+            <div class="result-main">
+                <div class="label">최종 금액</div>
+                <div>
+                    <span class="final-amount" id="finalAmount">0</span>
+                    <span class="final-unit">원</span>
+                </div>
+            </div>
+
+            <div class="result-cards">
+                <div class="result-card">
+                    <div class="card-label">총 투자 원금</div>
+                    <div class="card-value" id="totalPrincipal">0원</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">총 수익금 (이자)</div>
+                    <div class="card-value green" id="totalInterest">0원</div>
+                </div>
+                <div class="result-card">
+                    <div class="card-label">수익률</div>
+                    <div class="card-value blue" id="returnRate">0%</div>
+                </div>
+            </div>
+
+            <div class="section-title">연도별 성장 차트</div>
+            <div class="chart-wrap">
+                <div class="chart-bars" id="chartBars"></div>
+                <div class="chart-legend">
+                    <span><span class="legend-dot" style="background:#b3d4f5"></span>원금</span>
+                    <span><span class="legend-dot" style="background:#4a90d9"></span>이자</span>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top:20px;">년도별 성장 표</div>
+            <div class="year-table-wrap">
+                <table class="year-table">
+                    <thead>
+                        <tr>
+                            <th>년도</th>
+                            <th>납입 원금</th>
+                            <th>이자</th>
+                            <th>총액</th>
+                        </tr>
+                    </thead>
+                    <tbody id="yearTableBody"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>복리의 마법이란?</h2>
+        <p>
+            복리(複利)란 원금에 발생한 이자가 다시 원금에 합산되어 그 다음 기간에도 이자를 만들어내는 방식입니다.
+            단순히 원금에만 이자가 붙는 단리(單利)와 달리, 복리는 시간이 지날수록 눈덩이처럼 불어나는 효과를 냅니다.
+        </p>
+        <p>
+            아인슈타인은 복리를 "세계 8대 불가사의"라고 불렀다고 전해질 만큼, 장기 투자에서 복리의 위력은 상상을 초월합니다.
+        </p>
+        <div class="info-highlight">
+            <strong>72의 법칙</strong>: 원금이 두 배가 되는 기간(년) = 72 ÷ 연 수익률(%)<br>
+            예) 연 수익률 8% → 72 ÷ 8 = <strong>9년</strong>이면 원금이 2배
+        </div>
+        <p style="margin-top:12px;">
+            복리 주기가 짧을수록(월복리 &gt; 분기복리 &gt; 반기복리 &gt; 연복리) 최종 금액은 더 커집니다.
+            같은 연 수익률이라도 복리 횟수가 많을수록 실질 수익률이 높아지기 때문입니다.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>복리 계산기</h2><p>원금, 이자율, 기간을 입력하면 복리 이자와 최종 금액을 계산합니다. 적금, 투자, 대출 이자 계산에 활용하세요.</p></div>
+<div class="seo-section"><h2>자주 묻는 질문</h2><details class="seo-faq"><summary>단리와 복리의 차이는?</summary><p>단리는 원금에만 이자가 붙고, 복리는 이자에도 이자가 붙습니다. 장기 투자에서 복리 효과가 큽니다.</p></details></div>
+<div class="seo-section"><h2>관련 도구</h2><div class="seo-related"><a href="loan-calc.html">대출 계산기</a><a href="savings-calc.html">적금 계산기</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">공유하기:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URL 복사</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    // Radio button visual toggle
+    document.querySelectorAll('#compoundRadio label').forEach(lbl => {
+        lbl.addEventListener('click', function () {
+            document.querySelectorAll('#compoundRadio label').forEach(l => l.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    function fmt(n) {
+        return Math.round(n).toLocaleString('ko-KR');
+    }
+
+    function calculate() {
+        const principal = parseFloat(document.getElementById('principal').value) || 0;
+        const rate      = parseFloat(document.getElementById('rate').value);
+        const years     = parseInt(document.getElementById('years').value);
+        const monthly   = parseFloat(document.getElementById('monthly').value) || 0;
+        const n         = parseInt(document.querySelector('input[name="compound"]:checked').value);
+
+        if (!rate || rate <= 0) { alert('연 수익률을 올바르게 입력해주세요.'); return; }
+        if (!years || years <= 0) { alert('투자 기간을 올바르게 입력해주세요.'); return; }
+        if (principal <= 0 && monthly <= 0) { alert('초기 투자금 또는 매월 추가 투자금을 입력해주세요.'); return; }
+
+        const r = rate / 100 / n; // rate per compounding period
+
+        // Build year-by-year data
+        const yearData = [];
+        let balance = principal;
+        let totalPrincipalSoFar = principal;
+
+        for (let y = 1; y <= years; y++) {
+            const periodsInYear = n;
+            for (let p = 0; p < periodsInYear; p++) {
+                balance = balance * (1 + r) + monthly * (12 / n);
+            }
+            totalPrincipalSoFar = principal + monthly * 12 * y;
+            yearData.push({
+                year: y,
+                principal: totalPrincipalSoFar,
+                total: balance,
+                interest: balance - totalPrincipalSoFar
+            });
+        }
+
+        const finalTotal    = yearData[years - 1].total;
+        const finalPrincipal = yearData[years - 1].principal;
+        const finalInterest = finalTotal - finalPrincipal;
+        const returnPct     = finalPrincipal > 0 ? (finalInterest / finalPrincipal * 100) : 0;
+
+        // Display main result
+        document.getElementById('finalAmount').textContent    = fmt(finalTotal);
+        document.getElementById('totalPrincipal').textContent = fmt(finalPrincipal) + '원';
+        document.getElementById('totalInterest').textContent  = fmt(finalInterest) + '원';
+        document.getElementById('returnRate').textContent     = returnPct.toFixed(1) + '%';
+
+        // Year table
+        const tbody = document.getElementById('yearTableBody');
+        tbody.innerHTML = '';
+        yearData.forEach(d => {
+            const tr = document.createElement('tr');
+            tr.innerHTML =
+                '<td>' + d.year + '년</td>' +
+                '<td>' + fmt(d.principal) + '원</td>' +
+                '<td class="interest-col">+' + fmt(Math.max(0, d.interest)) + '원</td>' +
+                '<td>' + fmt(d.total) + '원</td>';
+            tbody.appendChild(tr);
+        });
+
+        // Bar chart
+        const chartEl = document.getElementById('chartBars');
+        chartEl.innerHTML = '';
+        const maxTotal = finalTotal;
+
+        // Show every year if <= 30, else step
+        const step = years > 50 ? Math.ceil(years / 30) : 1;
+        const displayData = yearData.filter((d, i) => (i + 1) % step === 0 || i === years - 1);
+
+        displayData.forEach(d => {
+            const principalRatio = Math.max(0, d.principal) / maxTotal;
+            const interestRatio  = Math.max(0, d.interest) / maxTotal;
+
+            const item = document.createElement('div');
+            item.className = 'bar-item';
+
+            const inner = document.createElement('div');
+            inner.className = 'bar-inner';
+            inner.style.height = '100%';
+            inner.style.display = 'flex';
+            inner.style.flexDirection = 'column';
+            inner.style.justifyContent = 'flex-end';
+
+            const interestBar = document.createElement('div');
+            interestBar.className = 'bar-interest';
+            interestBar.style.height = (interestRatio * 100) + '%';
+            interestBar.style.minHeight = interestRatio > 0 ? '2px' : '0';
+
+            const principalBar = document.createElement('div');
+            principalBar.className = 'bar-principal';
+            principalBar.style.height = (principalRatio * 100) + '%';
+            principalBar.style.minHeight = principalRatio > 0 ? '2px' : '0';
+            principalBar.style.borderRadius = interestRatio > 0 ? '0' : '3px 3px 0 0';
+
+            inner.appendChild(interestBar);
+            inner.appendChild(principalBar);
+
+            const lbl = document.createElement('div');
+            lbl.className = 'bar-label';
+            lbl.textContent = d.year + '년';
+
+            item.appendChild(inner);
+            item.appendChild(lbl);
+            chartEl.appendChild(item);
+        });
+
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') calculate();
+    });
+</script>
+
+</body>
+</html>

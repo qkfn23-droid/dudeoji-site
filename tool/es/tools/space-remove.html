@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminador de Espacios - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es Eliminador de Espacios gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar Eliminador de Espacios?","acceptedAnswer":{"@type":"Answer","text":"Elimina o reorganiza los espacios del texto de diversas formas. Soporta espacios iniciales/finales, espacios consecutivos, líneas vacías, conversión de tabulaciones y más."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/space-remove.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/space-remove.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/space-remove.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/space-remove.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/space-remove.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/space-remove.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/space-remove.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/space-remove.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/space-remove.html">
+    <meta property="og:title" content="Eliminador de Espacios - MOGU Tools">
+    <meta property="og:description" content="Elimina o reorganiza los espacios del texto de diversas formas. Soporta espacios iniciales/finales, espacios consecutivos, líneas vacías, conversión de tabulaciones y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/space-remove.html">
+    <meta name="description" content="Elimina o reorganiza los espacios del texto de diversas formas. Soporta espacios iniciales/finales, espacios consecutivos, líneas vacías, conversión de tabulaciones y más.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 700px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            border-color: #4a90d9;
+        }
+
+        textarea[readonly] {
+            background: #f8f9fa;
+            color: #444;
+            cursor: default;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .op-btn {
+            padding: 11px 10px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .op-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 22px 0;
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .result-header label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .copy-btn {
+            padding: 6px 16px;
+            background: #fff;
+            color: #4a90d9;
+            border: 2px solid #4a90d9;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+            border-color: #5cb85c;
+            color: #fff;
+        }
+
+        .char-count {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .char-count span strong {
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .char-count .after strong {
+            color: #5cb85c;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: #4a90d9;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .btn-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Herramientas</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; Texto &gt; Eliminador de Espacios
+</div>
+
+<div class="container">
+    <h1>Eliminador de Espacios</h1>
+    <p class="subtitle">Elimina o reorganiza los espacios del texto de diversas formas.</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>Texto de entrada</label>
+            <textarea id="inputText" rows="7" placeholder="Pega tu texto aquí..."></textarea>
+        </div>
+
+        <div class="btn-grid">
+            <button class="op-btn" onclick="applyOp('removeAll')">Eliminar todos los espacios</button>
+            <button class="op-btn" onclick="applyOp('trim')">Eliminar espacios iniciales/finales</button>
+            <button class="op-btn" onclick="applyOp('collapse')">Reducir espacios consecutivos</button>
+            <button class="op-btn" onclick="applyOp('removeEmptyLines')">Eliminar líneas vacías</button>
+            <button class="op-btn" onclick="applyOp('tabToSpace')">Tab → Espacio</button>
+            <button class="op-btn" onclick="applyOp('spaceToTab')">Espacio → Tab</button>
+        </div>
+
+        <hr class="divider">
+
+        <div class="result-header">
+            <label>Resultado</label>
+            <button class="copy-btn" id="copyBtn" onclick="copyResult()">Copiar</button>
+        </div>
+        <textarea id="outputText" rows="7" readonly placeholder="El resultado se mostrará aquí."></textarea>
+
+        <div class="char-count">
+            <span class="before">Entrada: <strong id="beforeCount">0</strong> car.</span>
+            <span class="after">Resultado: <strong id="afterCount">0</strong> car.</span>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Guía de funciones</h2>
+        <ul class="info-list">
+            <li><strong>Eliminar todos los espacios</strong> — Elimina todos los caracteres de espacio, tabulaciones, etc.</li>
+            <li><strong>Eliminar espacios iniciales/finales</strong> — Elimina los espacios al inicio y al final de cada línea.</li>
+            <li><strong>Reducir espacios consecutivos</strong> — Reduce múltiples espacios consecutivos a un solo espacio.</li>
+            <li><strong>Eliminar líneas vacías</strong> — Elimina todas las líneas que no tienen contenido.</li>
+            <li><strong>Tab → Espacio</strong> — Convierte las tabulaciones en 4 espacios.</li>
+            <li><strong>Espacio → Tab</strong> — Convierte 4 espacios en una tabulación.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Eliminador de Espacios</h2><p>Elimina o reorganiza los espacios del texto de diversas formas. Soporta espacios iniciales/finales, espacios consecutivos, líneas vacías, conversión de tabulaciones y más.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="dedup.html">Eliminador de Duplicados</a><a href="char-count.html">Contador de Caracteres</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+const inputText = document.getElementById('inputText');
+const outputText = document.getElementById('outputText');
+const beforeCount = document.getElementById('beforeCount');
+const afterCount = document.getElementById('afterCount');
+const copyBtn = document.getElementById('copyBtn');
+
+inputText.addEventListener('input', function () {
+    beforeCount.textContent = inputText.value.length;
+});
+
+function applyOp(op) {
+    const input = inputText.value;
+    let result = input;
+
+    switch (op) {
+        case 'removeAll':
+            result = input.replace(/[ \t]/g, '');
+            break;
+        case 'trim':
+            result = input.split('\n').map(line => line.trim()).join('\n');
+            break;
+        case 'collapse':
+            result = input.replace(/[ \t]+/g, ' ');
+            break;
+        case 'removeEmptyLines':
+            result = input.split('\n').filter(line => line.trim() !== '').join('\n');
+            break;
+        case 'tabToSpace':
+            result = input.replace(/\t/g, '    ');
+            break;
+        case 'spaceToTab':
+            result = input.replace(/ {4}/g, '\t');
+            break;
+    }
+
+    outputText.value = result;
+    beforeCount.textContent = input.length;
+    afterCount.textContent = result.length;
+}
+
+function copyResult() {
+    const text = outputText.value;
+    if (!text) return;
+
+    navigator.clipboard.writeText(text).then(() => {
+        copyBtn.textContent = '¡Copiado!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+            copyBtn.textContent = 'Copiar';
+            copyBtn.classList.remove('copied');
+        }, 1800);
+    }).catch(() => {
+        outputText.select();
+        document.execCommand('copy');
+        copyBtn.textContent = '¡Copiado!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+            copyBtn.textContent = 'Copiar';
+            copyBtn.classList.remove('copied');
+        }, 1800);
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重複除去 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"重複除去は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"重複除去の使い方は？","acceptedAnswer":{"@type":"Answer","text":"テキストの重複行を除去します。1行ずつ入力すると重複を削除して結果を表示します。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/dedup.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/dedup.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/dedup.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/dedup.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/dedup.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/dedup.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/dedup.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/dedup.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/dedup.html">
+    <meta property="og:title" content="重複除去 - MOGU Tools">
+    <meta property="og:description" content="テキストの重複行を除去します。1行ずつ入力すると重複を削除して結果を表示します。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/dedup.html">
+    <meta name="description" content="テキストの重複行を除去します。1行ずつ入力すると重複を削除して結果を表示します。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            resize: vertical;
+            transition: border-color 0.2s;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            border-color: #4a90d9;
+        }
+
+        textarea[readonly] {
+            background: #f8f9fa;
+            color: #444;
+            cursor: default;
+        }
+
+        textarea[readonly]:focus {
+            border-color: #e0e0e0;
+        }
+
+        .options-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .option-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #4a90d9;
+            cursor: pointer;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result-area {
+            display: none;
+        }
+
+        .stats {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .stats strong {
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .copy-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .copy-row label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .copy-btn {
+            padding: 6px 16px;
+            background: #fff;
+            color: #4a90d9;
+            border: 2px solid #4a90d9;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+            border-color: #5cb85c;
+            color: #fff;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>ツール</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — 無料オンラインツール集</a> &gt; テキスト &gt; 重複除去
+</div>
+
+<div class="container">
+    <h1>重複除去</h1>
+    <p class="subtitle">1行ずつ入力すると重複行を除去します。</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>入力（1行に1つ）</label>
+            <textarea id="inputText" rows="10" placeholder="テキストを貼り付けてください。&#10;重複行が除去されます。"></textarea>
+        </div>
+
+        <div class="options-row">
+            <label class="option-item">
+                <input type="checkbox" id="caseSensitive" checked>
+                大小文字区別
+            </label>
+            <label class="option-item">
+                <input type="checkbox" id="removeEmpty" checked>
+                空行除去
+            </label>
+            <label class="option-item">
+                <input type="checkbox" id="sortResult">
+                ソート
+            </label>
+        </div>
+
+        <button class="calc-btn" onclick="deduplicate()">重複除去</button>
+
+        <div class="result-area" id="resultArea">
+            <p class="stats" id="stats"></p>
+            <div class="copy-row">
+                <label>結果</label>
+                <button class="copy-btn" id="copyBtn" onclick="copyResult()">コピー</button>
+            </div>
+            <textarea id="outputText" rows="10" readonly></textarea>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>使い方</h2>
+        <p>
+            テキストを入力欄に貼り付けて「重複除去」ボタンを押してください。
+            行単位で重複を検出し、大小文字の区別や空行処理、ソートオプションを選択できます。
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>重複除去</h2><p>テキストの重複行を除去します。1行ずつ入力すると重複を削除して結果を表示します。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="sort-lines.html">行の並び替えツール</a><a href="space-remove.html">空白除去</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+function deduplicate() {
+    const raw = document.getElementById('inputText').value;
+    const caseSensitive = document.getElementById('caseSensitive').checked;
+    const removeEmpty = document.getElementById('removeEmpty').checked;
+    const sortResult = document.getElementById('sortResult').checked;
+
+    let lines = raw.split('\n');
+
+    if (removeEmpty) {
+        lines = lines.filter(line => line.trim() !== '');
+    }
+
+    const inputCount = lines.length;
+
+    const seen = new Set();
+    const result = [];
+
+    for (const line of lines) {
+        const key = caseSensitive ? line : line.toLowerCase();
+        if (!seen.has(key)) {
+            seen.add(key);
+            result.push(line);
+        }
+    }
+
+    if (sortResult) {
+        result.sort((a, b) => {
+            const ka = caseSensitive ? a : a.toLowerCase();
+            const kb = caseSensitive ? b : b.toLowerCase();
+            return ka.localeCompare(kb, 'ko');
+        });
+    }
+
+    const outputCount = result.length;
+    const removedCount = inputCount - outputCount;
+
+    document.getElementById('outputText').value = result.join('\n');
+    document.getElementById('stats').innerHTML =
+        '入力: <strong>' + inputCount + '行</strong> &rarr; 結果: <strong>' + outputCount + '行</strong> (<strong>' + removedCount + '件</strong> 除去)';
+
+    document.getElementById('resultArea').style.display = 'block';
+
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.textContent = 'コピー';
+    copyBtn.classList.remove('copied');
+}
+
+function copyResult() {
+    const text = document.getElementById('outputText').value;
+    if (!text) return;
+
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'コピー済み！';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'コピー';
+            btn.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>

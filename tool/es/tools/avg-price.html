@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>평단가 계산기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es 평단가 계산기 gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar 평단가 계산기?","acceptedAnswer":{"@type":"Answer","text":"여러 번 매수한 주식의 평균 매수 단가를 계산합니다. 목표가 입력 시 예상 수익/손실도 확인할 수 있습니다."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/avg-price.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/avg-price.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/avg-price.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/avg-price.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/avg-price.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/avg-price.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/avg-price.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/avg-price.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/avg-price.html">
+    <meta property="og:title" content="평단가 계산기 - MOGU Tools">
+    <meta property="og:description" content="여러 번 매수한 주식의 평균 매수 단가를 계산합니다. 목표가 입력 시 예상 수익/손실도 확인할 수 있습니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/avg-price.html">
+    <meta name="description" content="여러 번 매수한 주식의 평균 매수 단가를 계산합니다. 목표가 입력 시 예상 수익/손실도 확인할 수 있습니다.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .entries-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 80px;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .entries-header span {
+            font-size: 13px;
+            font-weight: 500;
+            color: #888;
+            padding: 0 2px;
+        }
+
+        .entry-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 80px;
+            gap: 8px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .entry-row input {
+            width: 100%;
+            padding: 11px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .entry-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .entry-row input::placeholder {
+            color: #ccc;
+        }
+
+        .delete-btn {
+            padding: 11px 10px;
+            background: #fff;
+            color: #ccc;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .delete-btn:hover {
+            background: #fff0f0;
+            border-color: #e57373;
+            color: #e57373;
+        }
+
+        .delete-btn.hidden {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 11px;
+            background: #f8f9fa;
+            color: #4a90d9;
+            border: 2px dashed #c8d9ee;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 4px;
+            margin-bottom: 20px;
+        }
+
+        .add-btn:hover {
+            background: #eef4fb;
+            border-color: #4a90d9;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            margin-bottom: 12px;
+        }
+
+        .result-main .label {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 6px;
+        }
+
+        .result-main .avg-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #4a90d9;
+            letter-spacing: -1px;
+        }
+
+        .result-main .avg-unit {
+            font-size: 18px;
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .result-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-card .stat-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 6px;
+        }
+
+        .stat-card .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .stat-card .stat-unit {
+            font-size: 13px;
+            color: #888;
+            margin-left: 2px;
+        }
+
+        .target-section {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .target-section .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .target-input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .target-input-row input {
+            flex: 1;
+            padding: 11px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .target-input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .target-input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 20px;
+        }
+
+        .target-calc-btn {
+            padding: 11px 20px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .target-calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        .profit-result {
+            display: none;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .profit-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .profit-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .profit-row .p-label {
+            color: #888;
+        }
+
+        .profit-row .p-value {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .profit-row .p-value.positive {
+            color: #e53935;
+        }
+
+        .profit-row .p-value.negative {
+            color: #1976d2;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; 투자/금융 &gt; 평단가 계산기
+</div>
+
+<div class="container">
+    <h1>평단가 계산기</h1>
+    <p class="subtitle">여러 번 매수한 주식의 평균 단가를 계산합니다.</p>
+
+    <div class="calc-box">
+        <div class="entries-header">
+            <span>매수가격 (원)</span>
+            <span>매수수량 (주)</span>
+            <span></span>
+        </div>
+
+        <div id="entries">
+            <div class="entry-row" data-index="0">
+                <input type="number" class="price-input" placeholder="10000" min="0" step="1">
+                <input type="number" class="qty-input" placeholder="10" min="0" step="1">
+                <button class="delete-btn hidden" onclick="deleteRow(this)">삭제</button>
+            </div>
+            <div class="entry-row" data-index="1">
+                <input type="number" class="price-input" placeholder="9500" min="0" step="1">
+                <input type="number" class="qty-input" placeholder="20" min="0" step="1">
+                <button class="delete-btn hidden" onclick="deleteRow(this)">삭제</button>
+            </div>
+        </div>
+
+        <button class="add-btn" id="addBtn" onclick="addRow()">+ 추가</button>
+
+        <button class="calc-btn" onclick="calculate()">계산하기</button>
+
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="label">평균 매수 단가</div>
+                <div>
+                    <span class="avg-number" id="avgPrice">-</span>
+                    <span class="avg-unit">원</span>
+                </div>
+            </div>
+            <div class="result-stats">
+                <div class="stat-card">
+                    <div class="stat-label">총 매수금액</div>
+                    <div class="stat-value" id="totalAmount">-<span class="stat-unit">원</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">총 매수수량</div>
+                    <div class="stat-value" id="totalQty">-<span class="stat-unit">주</span></div>
+                </div>
+            </div>
+
+            <div class="target-section" id="targetSection">
+                <div class="section-title">목표가 수익/손실 계산</div>
+                <div class="target-input-row">
+                    <input type="number" id="targetPrice" placeholder="목표가 입력" min="0" step="1">
+                    <span class="unit">원</span>
+                    <button class="target-calc-btn" onclick="calcProfit()">계산</button>
+                </div>
+                <div class="profit-result" id="profitResult">
+                    <div class="profit-row">
+                        <span class="p-label">목표가</span>
+                        <span class="p-value" id="pTargetPrice">-</span>
+                    </div>
+                    <div class="profit-row">
+                        <span class="p-label">예상 수익금</span>
+                        <span class="p-value" id="pProfit">-</span>
+                    </div>
+                    <div class="profit-row">
+                        <span class="p-label">수익률</span>
+                        <span class="p-value" id="pRate">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>평단가란?</h2>
+        <p>
+            평단가(평균 매수 단가)란 동일한 종목을 여러 번에 걸쳐 매수했을 때, 주당 평균적으로 얼마에 샀는지를 나타내는 값입니다.
+            계산 방법은 <strong>총 매수금액 ÷ 총 매수수량</strong>입니다.
+        </p>
+        <p>
+            주가가 하락했을 때 추가 매수(물타기)를 하면 평단가가 낮아지고, 주가가 상승했을 때 추가 매수(불타기)를 하면 평단가가 높아집니다.
+            평단가를 알면 현재 주가와 비교해 수익/손실 여부를 쉽게 파악할 수 있습니다.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>평단가 계산기</h2><p>여러 번 매수한 주식의 평균 매수 단가를 계산합니다. 목표가 입력 시 예상 수익/손실도 확인할 수 있습니다.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="percent-calc.html">Calculadora de Porcentajes</a><a href="compound-calc.html">Calculadora de Interés Compuesto</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const MAX_ROWS = 10;
+    let rowCount = 2;
+
+    function updateDeleteButtons() {
+        const rows = document.querySelectorAll('.entry-row');
+        rows.forEach((row, idx) => {
+            const btn = row.querySelector('.delete-btn');
+            if (idx < 2) {
+                btn.classList.add('hidden');
+            } else {
+                btn.classList.remove('hidden');
+            }
+        });
+    }
+
+    function addRow() {
+        if (rowCount >= MAX_ROWS) {
+            alert('최대 10개까지 추가할 수 있습니다.');
+            return;
+        }
+        const entries = document.getElementById('entries');
+        const row = document.createElement('div');
+        row.className = 'entry-row';
+        row.dataset.index = rowCount;
+        row.innerHTML = `
+            <input type="number" class="price-input" placeholder="가격 입력" min="0" step="1">
+            <input type="number" class="qty-input" placeholder="수량 입력" min="0" step="1">
+            <button class="delete-btn" onclick="deleteRow(this)">삭제</button>
+        `;
+        entries.appendChild(row);
+        rowCount++;
+        if (rowCount >= MAX_ROWS) {
+            document.getElementById('addBtn').style.display = 'none';
+        }
+        updateDeleteButtons();
+    }
+
+    function deleteRow(btn) {
+        const row = btn.closest('.entry-row');
+        row.remove();
+        rowCount--;
+        document.getElementById('addBtn').style.display = '';
+        updateDeleteButtons();
+    }
+
+    function calculate() {
+        const priceInputs = document.querySelectorAll('.price-input');
+        const qtyInputs = document.querySelectorAll('.qty-input');
+
+        let totalAmount = 0;
+        let totalQty = 0;
+        let hasData = false;
+
+        for (let i = 0; i < priceInputs.length; i++) {
+            const price = parseFloat(priceInputs[i].value);
+            const qty = parseFloat(qtyInputs[i].value);
+
+            if (!price && !qty) continue;
+
+            if (!price || !qty || price <= 0 || qty <= 0) {
+                alert('모든 입력 행의 매수가격과 매수수량을 올바르게 입력해주세요.\n비워두려면 행을 삭제해 주세요.');
+                return;
+            }
+
+            totalAmount += price * qty;
+            totalQty += qty;
+            hasData = true;
+        }
+
+        if (!hasData) {
+            alert('매수가격과 수량을 하나 이상 입력해주세요.');
+            return;
+        }
+
+        const avgPrice = totalAmount / totalQty;
+
+        document.getElementById('avgPrice').textContent = Math.round(avgPrice).toLocaleString('ko-KR');
+        document.getElementById('totalAmount').innerHTML = Math.round(totalAmount).toLocaleString('ko-KR') + '<span class="stat-unit">원</span>';
+        document.getElementById('totalQty').innerHTML = Math.round(totalQty).toLocaleString('ko-KR') + '<span class="stat-unit">주</span>';
+
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('targetSection').style.display = 'block';
+        document.getElementById('profitResult').style.display = 'none';
+        document.getElementById('targetPrice').value = '';
+    }
+
+    function calcProfit() {
+        const targetInput = document.getElementById('targetPrice').value;
+        const target = parseFloat(targetInput);
+
+        if (!target || target <= 0) {
+            alert('목표가를 올바르게 입력해주세요.');
+            return;
+        }
+
+        const avgPriceText = document.getElementById('avgPrice').textContent.replace(/,/g, '');
+        const avgPrice = parseFloat(avgPriceText);
+
+        const totalQtyText = document.getElementById('totalQty').textContent.replace(/[^0-9.]/g, '');
+        const totalQty = parseFloat(totalQtyText);
+
+        const totalAmount = avgPrice * totalQty;
+        const targetAmount = target * totalQty;
+        const profit = targetAmount - totalAmount;
+        const rate = (profit / totalAmount) * 100;
+
+        const isPositive = profit >= 0;
+        const sign = isPositive ? '+' : '';
+        const cls = isPositive ? 'positive' : 'negative';
+
+        document.getElementById('pTargetPrice').textContent = Math.round(target).toLocaleString('ko-KR') + '원';
+        document.getElementById('pTargetPrice').className = 'p-value';
+
+        document.getElementById('pProfit').textContent = sign + Math.round(profit).toLocaleString('ko-KR') + '원';
+        document.getElementById('pProfit').className = 'p-value ' + cls;
+
+        document.getElementById('pRate').textContent = sign + rate.toFixed(2) + '%';
+        document.getElementById('pRate').className = 'p-value ' + cls;
+
+        document.getElementById('profitResult').style.display = 'block';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const active = document.activeElement;
+            if (active && active.id === 'targetPrice') {
+                calcProfit();
+            } else {
+                calculate();
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

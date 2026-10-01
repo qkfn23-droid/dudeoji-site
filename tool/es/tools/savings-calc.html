@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>적금/예금 이자 계산기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es 적금/예금 이자 계산기 gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar 적금/예금 이자 계산기?","acceptedAnswer":{"@type":"Answer","text":"예금과 적금의 세전/세후 이자를 계산합니다. 단리/복리, 일반과세/비과세/세금우대 선택 가능."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/savings-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/savings-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/savings-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/savings-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/savings-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/savings-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/savings-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/savings-calc.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/savings-calc.html">
+    <meta property="og:title" content="적금/예금 이자 계산기 - MOGU Tools">
+    <meta property="og:description" content="예금과 적금의 세전/세후 이자를 계산합니다. 단리/복리, 일반과세/비과세/세금우대 선택 가능.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/savings-calc.html">
+    <meta name="description" content="예금과 적금의 세전/세후 이자를 계산합니다. 단리/복리, 일반과세/비과세/세금우대 선택 가능.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 11px;
+            background: #fff;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a90d9;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .tab-btn:not(.active):hover {
+            background: #eef4fb;
+        }
+
+        /* Input groups */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input[type="number"] {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input[type="number"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        /* Radio group */
+        .radio-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #444;
+            cursor: pointer;
+            padding: 8px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: border-color 0.2s, background 0.2s;
+            margin-bottom: 0;
+        }
+
+        .radio-group input[type="radio"] {
+            accent-color: #4a90d9;
+            width: 15px;
+            height: 15px;
+        }
+
+        .radio-group label:has(input:checked) {
+            border-color: #4a90d9;
+            background: #eef4fb;
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 22px 0;
+        }
+
+        /* Calc button */
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Result */
+        .result {
+            display: none;
+            margin-top: 24px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .result-main {
+            text-align: center;
+            padding: 24px 20px 20px;
+            background: #eef4fb;
+        }
+
+        .result-main .label {
+            font-size: 13px;
+            color: #6a8fc0;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .result-main .big-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2c6fad;
+            letter-spacing: -1px;
+        }
+
+        .result-main .big-unit {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4a90d9;
+            margin-left: 2px;
+        }
+
+        .result-rows {
+            padding: 16px 20px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row .r-label {
+            color: #666;
+        }
+
+        .result-row .r-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-row .r-value.minus {
+            color: #d9534f;
+        }
+
+        .result-row .r-value.plus {
+            color: #4a90d9;
+        }
+
+        /* Info section */
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section strong {
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; 투자/금융 &gt; 적금/예금 이자 계산기
+</div>
+
+<div class="container">
+    <h1>적금/예금 이자 계산기</h1>
+    <p class="subtitle">세전/세후 이자를 단리·복리로 계산합니다.</p>
+
+    <div class="calc-box">
+
+        <!-- Mode tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-deposit" onclick="switchTab('deposit')">예금</button>
+            <button class="tab-btn" id="tab-savings" onclick="switchTab('savings')">적금</button>
+        </div>
+
+        <!-- 예금: principal -->
+        <div class="input-group" id="group-principal">
+            <label id="label-principal">예치금액</label>
+            <div class="input-row">
+                <input type="number" id="principal" placeholder="10000000" min="0" step="1">
+                <span class="unit">원</span>
+            </div>
+        </div>
+
+        <!-- 적금: monthly -->
+        <div class="input-group" id="group-monthly" style="display:none;">
+            <label>월 납입액</label>
+            <div class="input-row">
+                <input type="number" id="monthly" placeholder="300000" min="0" step="1">
+                <span class="unit">원</span>
+            </div>
+        </div>
+
+        <!-- 연이율 -->
+        <div class="input-group">
+            <label>연이율</label>
+            <div class="input-row">
+                <input type="number" id="rate" placeholder="3.5" min="0" step="0.01">
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <!-- 기간 -->
+        <div class="input-group">
+            <label>기간</label>
+            <div class="input-row">
+                <input type="number" id="months" placeholder="12" min="1" step="1">
+                <span class="unit">개월</span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- 이자 계산 방식 -->
+        <div class="input-group">
+            <label>이자 계산 방식</label>
+            <div class="radio-group">
+                <label><input type="radio" name="method" value="simple" checked> 단리</label>
+                <label><input type="radio" name="method" value="compound"> 복리</label>
+            </div>
+        </div>
+
+        <!-- 세금 옵션 -->
+        <div class="input-group">
+            <label>과세 유형</label>
+            <div class="radio-group">
+                <label><input type="radio" name="tax" value="normal" checked> 일반과세 (15.4%)</label>
+                <label><input type="radio" name="tax" value="none"> 비과세 (0%)</label>
+                <label><input type="radio" name="tax" value="preferred"> 세금우대 (9.5%)</label>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">계산하기</button>
+
+        <!-- Result -->
+        <div class="result" id="result">
+            <div class="result-main">
+                <div class="label">세후 수령액</div>
+                <div class="big-number" id="res-total">-</div>
+                <div style="font-size:13px; color:#6a8fc0; margin-top:4px;" id="res-mode-label">-</div>
+            </div>
+            <div class="result-rows">
+                <div class="result-row">
+                    <span class="r-label">원금 합계</span>
+                    <span class="r-value" id="res-principal">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">세전 이자</span>
+                    <span class="r-value plus" id="res-interest-before">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">이자 과세</span>
+                    <span class="r-value minus" id="res-tax">-</span>
+                </div>
+                <div class="result-row">
+                    <span class="r-label">세후 이자</span>
+                    <span class="r-value plus" id="res-interest-after">-</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="info-section">
+        <h2>예금 vs 적금</h2>
+        <p>
+            <strong>예금(정기예금)</strong>은 목돈을 한 번에 맡기고 만기에 이자를 받는 상품입니다.
+            만기까지 금액이 고정되므로 이자 계산이 단순합니다.
+        </p>
+        <p>
+            <strong>적금(정기적금)</strong>은 매월 일정 금액을 납입하는 상품입니다.
+            첫 달 납입액은 전체 기간 동안 이자가 붙고, 마지막 달 납입액은 1개월치만 이자가 붙습니다.
+            같은 이율이라도 예금보다 실질 이자가 적을 수 있습니다.
+        </p>
+        <h2 style="margin-top:16px;">단리 vs 복리</h2>
+        <p>
+            <strong>단리</strong>는 원금에만 이자를 계산합니다. 계산이 간단하고 대부분의 예금·적금 상품이 단리 방식을 사용합니다.
+        </p>
+        <p>
+            <strong>복리</strong>는 이자에 다시 이자가 붙는 방식입니다. 기간이 길수록 단리보다 수익이 높아집니다.
+            이 계산기에서 복리는 월복리를 기준으로 계산합니다.
+        </p>
+        <h2 style="margin-top:16px;">과세 유형 안내</h2>
+        <p>
+            <strong>일반과세(15.4%)</strong>는 이자소득세 14% + 지방소득세 1.4%로, 대부분의 금융상품에 적용됩니다.
+            <strong>비과세</strong>는 세금이 없어 이자를 전액 수령하며, 청년·장병내일준비적금 등 특정 상품에 해당합니다.
+            <strong>세금우대(9.5%)</strong>는 이자소득세 9% + 지방소득세 0.5%로, 새마을금고·신협 등 일부 상품에 적용됩니다.
+        </p>
+        <p style="color:#999; font-size:13px; margin-top:8px;">
+            (※ 위 세율은 변동될 수 있으며, 정확한 세율은 해당 금융기관에 확인하시기 바랍니다.)
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>적금/예금 이자 계산기</h2><p>예금과 적금의 세전/세후 이자를 계산합니다. 단리/복리, 일반과세/비과세/세금우대 선택 가능.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="compound-calc.html">Calculadora de Interés Compuesto</a><a href="loan-calc.html">Calculadora de Préstamos</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    var currentMode = 'deposit';
+
+    function switchTab(mode) {
+        currentMode = mode;
+        document.getElementById('tab-deposit').classList.toggle('active', mode === 'deposit');
+        document.getElementById('tab-savings').classList.toggle('active', mode === 'savings');
+        document.getElementById('group-principal').style.display = mode === 'deposit' ? '' : 'none';
+        document.getElementById('group-monthly').style.display = mode === 'savings' ? '' : 'none';
+        document.getElementById('result').style.display = 'none';
+    }
+
+    function fmt(n) {
+        return Math.round(n).toLocaleString('ko-KR') + '원';
+    }
+
+    function getTaxRate() {
+        var tax = document.querySelector('input[name="tax"]:checked').value;
+        if (tax === 'normal') return 0.154;
+        if (tax === 'preferred') return 0.095;
+        return 0;
+    }
+
+    function getMethod() {
+        return document.querySelector('input[name="method"]:checked').value;
+    }
+
+    function calculate() {
+        var rate = parseFloat(document.getElementById('rate').value);
+        var months = parseInt(document.getElementById('months').value);
+        var method = getMethod();
+        var taxRate = getTaxRate();
+
+        if (isNaN(rate) || rate < 0) { alert('연이율을 올바르게 입력해주세요.'); return; }
+        if (isNaN(months) || months < 1) { alert('기간을 올바르게 입력해주세요.'); return; }
+
+        var principalSum = 0;
+        var interestBefore = 0;
+        var monthlyRate = rate / 100 / 12;
+
+        if (currentMode === 'deposit') {
+            var p = parseFloat(document.getElementById('principal').value);
+            if (isNaN(p) || p <= 0) { alert('예치금액을 올바르게 입력해주세요.'); return; }
+            principalSum = p;
+
+            if (method === 'simple') {
+                // 단리: P * r * (months/12)
+                interestBefore = p * (rate / 100) * (months / 12);
+            } else {
+                // 월복리: P * (1 + r/12)^months - P
+                interestBefore = p * Math.pow(1 + monthlyRate, months) - p;
+            }
+
+        } else {
+            // 적금
+            var m = parseFloat(document.getElementById('monthly').value);
+            if (isNaN(m) || m <= 0) { alert('월 납입액을 올바르게 입력해주세요.'); return; }
+            principalSum = m * months;
+
+            if (method === 'simple') {
+                // 단리 적금: 각 월 납입액에 남은 기간만큼 이자
+                // i번째 납입(1-indexed): m * r/12 * (months - i + 1)
+                // 합산: m * r/12 * (months*(months+1)/2)
+                interestBefore = m * monthlyRate * (months * (months + 1) / 2);
+            } else {
+                // 월복리 적금: 각 월 납입액이 (months - i + 1)개월 복리
+                var total = 0;
+                for (var i = 1; i <= months; i++) {
+                    total += m * Math.pow(1 + monthlyRate, months - i + 1);
+                }
+                interestBefore = total - principalSum;
+            }
+        }
+
+        var taxAmount = interestBefore * taxRate;
+        var interestAfter = interestBefore - taxAmount;
+        var totalAfter = principalSum + interestAfter;
+
+        // Tax type label
+        var taxLabel = document.querySelector('input[name="tax"]:checked').value;
+        var taxLabelText = taxLabel === 'normal' ? '일반과세 15.4%' : taxLabel === 'none' ? '비과세' : '세금우대 9.5%';
+        var methodLabel = method === 'simple' ? '단리' : '월복리';
+        var modeLabel = currentMode === 'deposit' ? '예금' : '적금';
+
+        document.getElementById('res-total').textContent = Math.round(totalAfter).toLocaleString('ko-KR');
+        document.getElementById('res-mode-label').textContent =
+            modeLabel + ' · ' + methodLabel + ' · ' + taxLabelText;
+        document.getElementById('res-principal').textContent = fmt(principalSum);
+        document.getElementById('res-interest-before').textContent = '+' + fmt(interestBefore);
+        document.getElementById('res-tax').textContent = taxRate === 0 ? '0원' : '-' + fmt(taxAmount);
+        document.getElementById('res-interest-after').textContent = '+' + fmt(interestAfter);
+
+        document.getElementById('result').style.display = 'block';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') calculate();
+    });
+</script>
+
+</body>
+</html>

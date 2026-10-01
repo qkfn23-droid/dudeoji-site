@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>GPA Calculator - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is GPA Calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, 100% free. No sign-up required. All processing happens in your browser, so no personal data is sent to any server."}},
+    {"@type":"Question","name":"How do I use GPA Calculator?","acceptedAnswer":{"@type":"Answer","text":"Enter course credits and grades to calculate your average GPA."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/gpa-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/gpa-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/gpa-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/gpa-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/gpa-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/gpa-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/gpa-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/gpa-calc.html">
+    <link rel="canonical" href="https://mogutool.com/en/tools/gpa-calc.html">
+    <meta property="og:title" content="GPA Calculator - MOGU Tools">
+    <meta property="og:description" content="Enter course credits and grades to calculate your average GPA.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/en/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/en/tools/gpa-calc.html">
+ <meta name="description" content="Enter course credits and grades to calculate your average GPA."PA) calculates. 4.5 4.0 .">
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ body {
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+ background: #f5f5f5;
+ color: #333;
+ }
+
+ header {
+ background: #fff;
+ border-bottom: 2px solid #eee;
+ padding: 16px 20px;
+ }
+
+ header a {
+ text-decoration: none;
+ color: #2c2c2c;
+ font-size: 18px;
+ font-weight: 700;
+ }
+
+ header a span {
+ color: #4a90d9;
+ }
+
+ .breadcrumb {
+ max-width: 720px;
+ margin: 16px auto;
+ padding: 0 20px;
+ font-size: 13px;
+ color: #999;
+ }
+
+ .breadcrumb a {
+ color: #4a90d9;
+ text-decoration: none;
+ }
+
+ .container {
+ max-width: 720px;
+ margin: 10px auto 40px;
+ padding: 0 20px;
+ }
+
+ h1 {
+ font-size: 24px;
+ font-weight: 700;
+ margin-bottom: 8px;
+ }
+
+ .subtitle {
+ color: #888;
+ font-size: 14px;
+ margin-bottom: 24px;
+ }
+
+ .calc-box {
+ background: #fff;
+ border: 1px solid #e8e8e8;
+ border-radius: 12px;
+ padding: 28px;
+ }
+
+ /* Scale selector */
+ .scale-group {
+ display: flex;
+ align-items: center;
+ gap: 20px;
+ margin-bottom: 24px;
+ padding: 14px 16px;
+ background: #f8f9fa;
+ border-radius: 8px;
+ }
+
+ .scale-group .scale-label {
+ font-size: 14px;
+ font-weight: 500;
+ color: #555;
+ white-space: nowrap;
+ }
+
+ .scale-options {
+ display: flex;
+ gap: 16px;
+ }
+
+ .scale-options label {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ font-size: 14px;
+ color: #444;
+ cursor: pointer;
+ }
+
+ .scale-options input[type="radio"] {
+ accent-color: #4a90d9;
+ width: 16px;
+ height: 16px;
+ cursor: pointer;
+ }
+
+ /* Table header */
+ .subject-header {
+ display: grid;
+ grid-template-columns: 1fr 90px 110px 60px;
+ gap: 8px;
+ padding: 0 0 8px 0;
+ border-bottom: 2px solid #eee;
+ margin-bottom: 4px;
+ }
+
+ .subject-header span {
+ font-size: 12px;
+ font-weight: 600;
+ color: #999;
+ text-transform: uppercase;
+ letter-spacing: 0.03em;
+ }
+
+ /* Subject rows */
+ .subject-rows {
+ display: flex;
+ flex-direction: column;
+ gap: 6px;
+ margin-bottom: 16px;
+ }
+
+ .subject-row {
+ display: grid;
+ grid-template-columns: 1fr 90px 110px 60px;
+ gap: 8px;
+ align-items: center;
+ }
+
+ .subject-row input[type="text"] {
+ width: 100%;
+ padding: 10px 12px;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ font-size: 14px;
+ outline: none;
+ transition: border-color 0.2s;
+ color: #333;
+ }
+
+ .subject-row input[type="text"]:focus {
+ border-color: #4a90d9;
+ }
+
+ .subject-row input[type="text"]::placeholder {
+ color: #bbb;
+ }
+
+ .subject-row select {
+ width: 100%;
+ padding: 10px 10px;
+ border: 2px solid #e0e0e0;
+ border-radius: 8px;
+ font-size: 14px;
+ outline: none;
+ background: #fff;
+ cursor: pointer;
+ transition: border-color 0.2s;
+ color: #333;
+ appearance: none;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+ background-repeat: no-repeat;
+ background-position: right 10px center;
+ padding-right: 28px;
+ }
+
+ .subject-row select:focus {
+ border-color: #4a90d9;
+ }
+
+ .delete-btn {
+ width: 100%;
+ padding: 10px 0;
+ background: #fff;
+ color: #d9534f;
+ border: 2px solid #f0d0cf;
+ border-radius: 8px;
+ font-size: 13px;
+ font-weight: 500;
+ cursor: pointer;
+ transition: background 0.2s, border-color 0.2s;
+ }
+
+ .delete-btn:hover {
+ background: #fdf0f0;
+ border-color: #d9534f;
+ }
+
+ /* Add row button */
+ .add-btn {
+ width: 100%;
+ padding: 11px;
+ background: #fff;
+ color: #4a90d9;
+ border: 2px dashed #c0d8f0;
+ border-radius: 8px;
+ font-size: 14px;
+ font-weight: 500;
+ cursor: pointer;
+ transition: background 0.2s, border-color 0.2s;
+ margin-bottom: 20px;
+ }
+
+ .add-btn:hover {
+ background: #f0f6fd;
+ border-color: #4a90d9;
+ }
+
+ .add-btn:disabled {
+ color: #bbb;
+ border-color: #e0e0e0;
+ cursor: not-allowed;
+ background: #fafafa;
+ }
+
+ .calc-btn {
+ width: 100%;
+ padding: 14px;
+ background: #4a90d9;
+ color: #fff;
+ border: none;
+ border-radius: 8px;
+ font-size: 16px;
+ font-weight: 600;
+ cursor: pointer;
+ transition: background 0.2s;
+ }
+
+ .calc-btn:hover {
+ background: #3a7bc8;
+ }
+
+ /* Result */
+ .result {
+ display: none;
+ margin-top: 24px;
+ }
+
+ .result-main {
+ text-align: center;
+ padding: 24px;
+ border-radius: 10px;
+ background: #f8f9fa;
+ margin-bottom: 16px;
+ }
+
+ .gpa-number {
+ font-size: 56px;
+ font-weight: 700;
+ color: #4a90d9;
+ line-height: 1;
+ }
+
+ .gpa-scale {
+ font-size: 16px;
+ color: #aaa;
+ margin-top: 4px;
+ font-weight: 400;
+ }
+
+ .result-stats {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 10px;
+ margin-bottom: 16px;
+ }
+
+ .stat-box {
+ background: #f8f9fa;
+ border-radius: 10px;
+ padding: 16px;
+ text-align: center;
+ }
+
+ .stat-box .stat-value {
+ font-size: 26px;
+ font-weight: 700;
+ color: #333;
+ }
+
+ .stat-box .stat-label {
+ font-size: 12px;
+ color: #999;
+ margin-top: 4px;
+ }
+
+ /* GPA grade bar */
+ .grade-bar-wrap {
+ background: #f8f9fa;
+ border-radius: 10px;
+ padding: 18px 20px;
+ }
+
+ .grade-bar-title {
+ font-size: 13px;
+ color: #888;
+ margin-bottom: 12px;
+ font-weight: 500;
+ }
+
+ .grade-bar-track {
+ position: relative;
+ height: 12px;
+ background: #e0e0e0;
+ border-radius: 6px;
+ margin-bottom: 8px;
+ overflow: hidden;
+ }
+
+ .grade-bar-fill {
+ height: 100%;
+ border-radius: 6px;
+ background: linear-gradient(90deg, #f0ad4e, #5cb85c, #4a90d9);
+ transition: width 0.6s ease;
+ }
+
+ .grade-bar-labels {
+ display: flex;
+ justify-content: space-between;
+ font-size: 11px;
+ color: #bbb;
+ }
+
+ .grade-badge {
+ display: inline-block;
+ margin-top: 12px;
+ padding: 4px 14px;
+ border-radius: 20px;
+ font-size: 14px;
+ font-weight: 600;
+ }
+
+ /* Info section */
+ .info-section {
+ margin-top: 30px;
+ background: #fff;
+ border: 1px solid #e8e8e8;
+ border-radius: 12px;
+ padding: 24px;
+ }
+
+ .info-section h2 {
+ font-size: 16px;
+ margin-bottom: 12px;
+ color: #555;
+ }
+
+ .info-section p {
+ font-size: 14px;
+ color: #666;
+ line-height: 1.7;
+ margin-bottom: 12px;
+ }
+
+ .info-section p:last-child {
+ margin-bottom: 0;
+ }
+
+ .grade-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 12px;
+ font-size: 13px;
+ }
+
+ .grade-table th {
+ background: #f8f9fa;
+ padding: 8px 12px;
+ text-align: center;
+ color: #777;
+ font-weight: 600;
+ border: 1px solid #eee;
+ }
+
+ .grade-table td {
+ padding: 7px 12px;
+ text-align: center;
+ border: 1px solid #eee;
+ color: #555;
+ }
+
+ .grade-table tr:nth-child(even) td {
+ background: #fafafa;
+ }
+
+ footer {
+ text-align: center;
+ padding: 30px;
+ color: #bbb;
+ font-size: 13px;
+ }
+
+ @media (max-width: 520px) {
+ .subject-header { grid-template-columns: 1fr 72px 90px 50px; }
+ .subject-row { grid-template-columns: 1fr 72px 90px 50px; }
+ .result-stats { grid-template-columns: 1fr 1fr; }
+ .gpa-number { font-size: 44px; }
+ }
+ </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+ <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+ <a href="../index.html">MOGU Tools — Free Online Tools Collection</a> &gt; Calculators &gt; GPA Calculator
+</div>
+
+<div class="container">
+ <h1>GPA Calculator</h1>
+ <p class="subtitle">Enter course credits and grades to calculate your average GPA..</p>
+
+ <div class="calc-box">
+
+ <!-- Scale selector -->
+ <div class="scale-group">
+ <span class="scale-label">Grade standard</span>
+ <div class="scale-options">
+ <label>
+ <input type="radio" name="scale" value="4.5" checked onchange="onScaleChange()">
+ 4.5
+ </label>
+ <label>
+ <input type="radio" name="scale" value="4.0" onchange="onScaleChange()">
+ 4.0
+ </label>
+ </div>
+ </div>
+
+ <!-- Column headers -->
+ <div class="subject-header">
+ <span>Course Name</span>
+ <span>Credits</span>
+ <span>Grade</span>
+ <span>Delete</span>
+ </div>
+
+ <!-- Subject rows -->
+ <div class="subject-rows" id="subjectRows"></div>
+
+ <!-- Add button -->
+ <button class="add-btn" id="addBtn" onclick="addRow()">+ Add Course</button>
+
+ <!-- Calculate -->
+ <button class="calc-btn" onclick="calculate()">Calculate</button>
+
+ <!-- Result -->
+ <div class="result" id="result">
+ <div class="result-main">
+ <div class="gpa-number" id="gpaNumber">0.00</div>
+ <div class="gpa-scale" id="gpaScale">/ 4.5</div>
+ </div>
+
+ <div class="result-stats">
+ <div class="stat-box">
+ <div class="stat-value" id="totalCredits">0</div>
+ <div class="stat-label">Total Credits Earned</div>
+ </div>
+ <div class="stat-box">
+ <div class="stat-value" id="earnedCredits">0</div>
+ <div class="stat-label"> Credits (F exclude)</div>
+ </div>
+ </div>
+
+ <div class="grade-bar-wrap">
+ <div class="grade-bar-title">Credits </div>
+ <div class="grade-bar-track">
+ <div class="grade-bar-fill" id="gradeBarFill" style="width:0%"></div>
+ </div>
+ <div class="grade-bar-labels">
+ <span>0.0</span>
+ <span id="gradeBarMid">2.25</span>
+ <span id="gradeBarMax">4.5</span>
+ </div>
+ <div>
+ <span class="grade-badge" id="gradeBadge"></span>
+ </div>
+ </div>
+ </div>
+
+ </div>
+
+ <div class="info-section">
+ <h2>Credits calculation </h2>
+ <p>
+ Average GPA(GPA) Course <strong>Credits A × Grade score</strong> ,
+ Total Credits Earned A calculates.<br>
+ F Credits GPA calculation Include Creditsto .
+ </p>
+ <p>
+ <strong>calculation:</strong> GPA = Σ(Course Credits × Grade score) ÷ Σ(Course Credits)
+ </p>
+
+ <h2 style="margin-top:18px;">Grade score grading table</h2>
+ <table class="grade-table">
+ <tr>
+ <th>Grade</th>
+ <th>4.5</th>
+ <th>4.0</th>
+ </tr>
+ <tr><td>A+</td><td>4.5</td><td>4.0</td></tr>
+ <tr><td>A0</td><td>4.0</td><td>4.0</td></tr>
+ <tr><td>B+</td><td>3.5</td><td>3.5</td></tr>
+ <tr><td>B0</td><td>3.0</td><td>3.0</td></tr>
+ <tr><td>C+</td><td>2.5</td><td>2.5</td></tr>
+ <tr><td>C0</td><td>2.0</td><td>2.0</td></tr>
+ <tr><td>D+</td><td>1.5</td><td>1.5</td></tr>
+ <tr><td>D0</td><td>1.0</td><td>1.0</td></tr>
+ <tr><td>F</td><td>0.0</td><td>0.0</td></tr>
+ </table>
+
+ <p style="margin-top:14px;">
+ Supports both 4.5 and 4.0 GPA scales.
+ your school's standard Select.
+ </p>
+ </div>
+</div>
+
+<div class="seo-content"><div class="seo-section"><h2>GPA Calculator</h2><p>Enter courses, credits, and grades to calculate your weighted GPA. Supports 4.0 and 4.5 scales.</p></div><div class="seo-section"><h2>Frequently Asked Questions</h2><details class="seo-faq"><summary>Is this tool free?</summary><p>Yes, 100% free. No signup required. All processing happens in your browser — no data is sent to any server.</p></details><details class="seo-faq"><summary>Can I use it on mobile?</summary><p>Yes, all tools are fully responsive and work on smartphones, tablets, and desktops.</p></details></div>
+<div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="percent-calc.html">Percentage Calculator</a><a href="std-dev.html">Standard Deviation Calculator</a></div></div></div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+ &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+ const MAX_ROWS = 15;
+ const INITIAL_ROWS = 5;
+
+ const GRADES_45 = {
+ 'A+': 4.5, 'A0': 4.0,
+ 'B+': 3.5, 'B0': 3.0,
+ 'C+': 2.5, 'C0': 2.0,
+ 'D+': 1.5, 'D0': 1.0,
+ 'F': 0.0
+ };
+
+ const GRADES_40 = {
+ 'A+': 4.0, 'A0': 4.0,
+ 'B+': 3.5, 'B0': 3.0,
+ 'C+': 2.5, 'C0': 2.0,
+ 'D+': 1.5, 'D0': 1.0,
+ 'F': 0.0
+ };
+
+ let rowCount = 0;
+ let rowId = 0;
+
+ function getScale() {
+ return parseFloat(document.querySelector('input[name="scale"]:checked').value);
+ }
+
+ function getGradeMap() {
+ return getScale() === 4.5 ? GRADES_45 : GRADES_40;
+ }
+
+ function buildGradeOptions() {
+ const grades = Object.keys(GRADES_45);
+ return grades.map(g => `<option value="${g}">${g}</option>`).join('');
+ }
+
+ function addRow(focusName) {
+ if (rowCount >= MAX_ROWS) return;
+
+ const rows = document.getElementById('subjectRows');
+ const id = ++rowId;
+ const div = document.createElement('div');
+ div.className = 'subject-row';
+ div.id = 'row-' + id;
+ div.innerHTML = `
+ <input type="text" placeholder="Course Name (Select)" maxlength="30">
+ <select>
+ <option value="3">3Credits</option>
+ <option value="2">2Credits</option>
+ <option value="1">1Credits</option>
+ </select>
+ <select>${buildGradeOptions()}</select>
+ <button class="delete-btn" onclick="deleteRow(${id})">Delete</button>
+ `;
+ rows.appendChild(div);
+ rowCount++;
+ updateAddBtn();
+
+ if (focusName !== false) {
+ div.querySelector('input').focus();
+ }
+ }
+
+ function deleteRow(id) {
+ const row = document.getElementById('row-' + id);
+ if (row) {
+ row.remove();
+ rowCount--;
+ updateAddBtn();
+ }
+ }
+
+ function updateAddBtn() {
+ const btn = document.getElementById('addBtn');
+ btn.disabled = rowCount >= MAX_ROWS;
+ btn.textContent = rowCount >= MAX_ROWS
+ ? `+ Add Course ( ${MAX_ROWS})`
+ : '+ Add Course';
+ }
+
+ function onScaleChange() {
+ // Result is stale; hide it so user recalculates
+ document.getElementById('result').style.display = 'none';
+ }
+
+ function getGradeLabel(gpa, scale) {
+ if (scale === 4.5) {
+ if (gpa >= 4.3) return { text: 'BA (A+)', color: '#4a90d9', bg: '#eef4fb' };
+ if (gpa >= 4.0) return { text: 'BA (A0)', color: '#5cb85c', bg: '#edf7ed' };
+ if (gpa >= 3.5) return { text: 'D (B+)', color: '#5cb85c', bg: '#edf7ed' };
+ if (gpa >= 3.0) return { text: 'Average (B0)', color: '#f0ad4e', bg: '#fdf6e3' };
+ if (gpa >= 2.5) return { text: 'Poor (C+)', color: '#f0ad4e', bg: '#fdf6e3' };
+ if (gpa >= 2.0) return { text: ' (C0)', color: '#d9534f', bg: '#fdf0f0' };
+ return { text: 'Top (D or less)', color: '#d9534f', bg: '#fdf0f0' };
+ } else {
+ if (gpa >= 3.8) return { text: 'BA (A)', color: '#4a90d9', bg: '#eef4fb' };
+ if (gpa >= 3.5) return { text: 'BA (B+)', color: '#5cb85c', bg: '#edf7ed' };
+ if (gpa >= 3.0) return { text: 'D (B0)', color: '#5cb85c', bg: '#edf7ed' };
+ if (gpa >= 2.5) return { text: 'Average (C+)', color: '#f0ad4e', bg: '#fdf6e3' };
+ if (gpa >= 2.0) return { text: 'Poor (C0)', color: '#f0ad4e', bg: '#fdf6e3' };
+ return { text: 'Top (D or less)', color: '#d9534f', bg: '#fdf0f0' };
+ }
+ }
+
+ function calculate() {
+ const rows = document.querySelectorAll('.subject-row');
+ const gradeMap = getGradeMap();
+ const scale = getScale();
+
+ if (rows.length === 0) {
+ alert('Course or more Please enter a value.');
+ return;
+ }
+
+ let totalWeighted = 0;
+ let totalCredits = 0;
+ let earnedCredits = 0;
+ let hasValidRow = false;
+
+ rows.forEach(row => {
+ const selects = row.querySelectorAll('select');
+ const credits = parseInt(selects[0].value);
+ const grade = selects[1].value;
+ const score = gradeMap[grade];
+
+ totalWeighted += credits * score;
+ totalCredits += credits;
+ if (grade !== 'F') earnedCredits += credits;
+ hasValidRow = true;
+ });
+
+ if (!hasValidRow || totalCredits === 0) {
+ alert('Course information Please enter a value.');
+ return;
+ }
+
+ const gpa = totalWeighted / totalCredits;
+ const gpaRound = Math.round(gpa * 100) / 100;
+ const pct = Math.min((gpa / scale) * 100, 100);
+
+ // Update DOM
+ document.getElementById('gpaNumber').textContent = gpaRound.toFixed(2);
+ document.getElementById('gpaScale').textContent = '/ ' + scale.toFixed(1);
+ document.getElementById('totalCredits').textContent = totalCredits;
+ document.getElementById('earnedCredits').textContent = earnedCredits;
+
+ // Bar
+ document.getElementById('gradeBarFill').style.width = pct.toFixed(1) + '%';
+ document.getElementById('gradeBarMid').textContent = (scale / 2).toFixed(2);
+ document.getElementById('gradeBarMax').textContent = scale.toFixed(1);
+
+ // Badge
+ const label = getGradeLabel(gpaRound, scale);
+ const badge = document.getElementById('gradeBadge');
+ badge.textContent = label.text;
+ badge.style.color = label.color;
+ badge.style.background = label.bg;
+
+ document.getElementById('result').style.display = 'block';
+ document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+ }
+
+ // Initialize
+ for (let i = 0; i < INITIAL_ROWS; i++) {
+ addRow(false);
+ }
+</script>
+
+</body>
+</html>

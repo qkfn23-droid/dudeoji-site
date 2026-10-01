@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>평수 계산기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es 평수 계산기 gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar 평수 계산기?","acceptedAnswer":{"@type":"Answer","text":"평수를 제곱미터(m²)로, 제곱미터를 평수로 즉시 변환합니다. 아파트·주택 면적 계산기."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/pyeong-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/pyeong-calc.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/pyeong-calc.html">
+    <meta property="og:title" content="평수 계산기 - MOGU Tools">
+    <meta property="og:description" content="평수를 제곱미터(m²)로, 제곱미터를 평수로 즉시 변환합니다. 아파트·주택 면적 계산기.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/pyeong-calc.html">
+    <meta name="description" content="평수를 제곱미터(m²)로, 제곱미터를 평수로 즉시 변환합니다. 아파트·주택 면적 계산기.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 11px 0;
+            background: #fff;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .tab-btn:first-child {
+            border-right: 2px solid #e0e0e0;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 18px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 15px;
+            color: #999;
+            min-width: 36px;
+        }
+
+        /* Result display */
+        .result-area {
+            margin-top: 8px;
+            text-align: center;
+            padding: 22px 20px;
+            border-radius: 10px;
+            background: #f0f6ff;
+            border: 1px solid #d4e6f7;
+        }
+
+        .result-label {
+            font-size: 13px;
+            color: #88a8c8;
+            margin-bottom: 6px;
+        }
+
+        .result-number {
+            font-size: 52px;
+            font-weight: 700;
+            color: #4a90d9;
+            line-height: 1.1;
+        }
+
+        .result-unit {
+            font-size: 18px;
+            color: #4a90d9;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .result-empty {
+            font-size: 36px;
+            font-weight: 700;
+            color: #c8d8e8;
+        }
+
+        /* Reference table */
+        .ref-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            margin: 24px 0 10px;
+        }
+
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ref-table th, .ref-table td {
+            padding: 9px 12px;
+            text-align: left;
+            font-size: 13px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ref-table th {
+            color: #888;
+            font-weight: 500;
+            background: #fafafa;
+        }
+
+        .ref-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .ref-table tr:hover td {
+            background: #f0f6ff;
+            cursor: pointer;
+        }
+
+        .ref-table .tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 7px;
+            border-radius: 20px;
+            background: #eef4fb;
+            color: #4a90d9;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        /* Info section */
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section strong {
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; 부동산 &gt; 평수 계산기
+</div>
+
+<div class="container">
+    <h1>평수 계산기</h1>
+    <p class="subtitle">평수와 제곱미터(m²)를 즉시 변환합니다. 1평 = 3.3058m²</p>
+
+    <div class="calc-box">
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-pyeong" onclick="switchTab('pyeong')">평 → m²</button>
+            <button class="tab-btn" id="tab-sqm" onclick="switchTab('sqm')">m² → 평</button>
+        </div>
+
+        <!-- 평 → m² -->
+        <div id="panel-pyeong">
+            <div class="input-group">
+                <label>평수 입력</label>
+                <div class="input-row">
+                    <input type="number" id="input-pyeong" placeholder="예: 32" min="0" step="0.1" oninput="calcFromPyeong()">
+                    <span class="unit">평</span>
+                </div>
+            </div>
+            <div class="result-area" id="result-pyeong">
+                <div class="result-label">제곱미터(m²)</div>
+                <div class="result-empty" id="out-sqm">—</div>
+            </div>
+        </div>
+
+        <!-- m² → 평 -->
+        <div id="panel-sqm" style="display:none;">
+            <div class="input-group">
+                <label>제곱미터 입력</label>
+                <div class="input-row">
+                    <input type="number" id="input-sqm" placeholder="예: 84" min="0" step="0.1" oninput="calcFromSqm()">
+                    <span class="unit">m²</span>
+                </div>
+            </div>
+            <div class="result-area" id="result-sqm">
+                <div class="result-label">평수</div>
+                <div class="result-empty" id="out-pyeong">—</div>
+            </div>
+        </div>
+
+        <!-- Reference table -->
+        <div class="ref-title">주요 평형 참고표</div>
+        <table class="ref-table">
+            <tr>
+                <th>평수</th>
+                <th>m²</th>
+                <th>유형</th>
+            </tr>
+            <tr onclick="fillRef(10, 33.1)">
+                <td>10평</td>
+                <td>33.1 m²</td>
+                <td><span class="tag">원룸</span></td>
+            </tr>
+            <tr onclick="fillRef(18, 59.5)">
+                <td>18평</td>
+                <td>59.5 m²</td>
+                <td><span class="tag">소형</span></td>
+            </tr>
+            <tr onclick="fillRef(24, 79.3)">
+                <td>24평</td>
+                <td>79.3 m²</td>
+                <td><span class="tag">중소형</span></td>
+            </tr>
+            <tr onclick="fillRef(32, 105.8)">
+                <td>32평</td>
+                <td>105.8 m²</td>
+                <td><span class="tag">중형</span></td>
+            </tr>
+            <tr onclick="fillRef(40, 132.2)">
+                <td>40평</td>
+                <td>132.2 m²</td>
+                <td><span class="tag">대형</span></td>
+            </tr>
+            <tr onclick="fillRef(50, 165.3)">
+                <td>50평</td>
+                <td>165.3 m²</td>
+                <td><span class="tag">초대형</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="info-section">
+        <h2>평수란?</h2>
+        <p>
+            <strong>평(坪)</strong>은 우리나라 전통 면적 단위로, 1평은 약 <strong>3.3058m²</strong>입니다.
+            아파트나 주택 면적을 표현할 때 실생활에서 여전히 널리 쓰입니다.
+            법정 단위는 제곱미터(m²)이므로 분양 광고 등 공식 문서에는 m²가 표기됩니다.
+        </p>
+        <p>
+            <strong>전용면적</strong>은 해당 세대만 단독으로 사용하는 실제 거주 면적(방·거실·주방·욕실 등)이며,
+            <strong>공급면적</strong>은 전용면적에 계단·복도·엘리베이터 등 공용 공간을 더한 면적입니다.
+            흔히 말하는 "32평 아파트"는 공급면적 기준인 경우가 많으므로,
+            실제 생활 공간(전용면적)은 이보다 작습니다.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>평수 계산기</h2><p>평수를 제곱미터(m²)로, 제곱미터를 평수로 즉시 변환합니다. 아파트·주택 면적 계산기.</p></div>
+<div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="area-calc.html">Calculadora de Área</a><a href="unit-convert.html">Convertidor de Unidades</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    const RATIO = 3.3058; // 1평 = 3.3058m²
+    let currentTab = 'pyeong';
+
+    function switchTab(tab) {
+        currentTab = tab;
+        document.getElementById('tab-pyeong').classList.toggle('active', tab === 'pyeong');
+        document.getElementById('tab-sqm').classList.toggle('active', tab === 'sqm');
+        document.getElementById('panel-pyeong').style.display = tab === 'pyeong' ? '' : 'none';
+        document.getElementById('panel-sqm').style.display = tab === 'sqm' ? '' : 'none';
+    }
+
+    function setResult(el, value, unit) {
+        if (value === null) {
+            el.className = 'result-empty';
+            el.textContent = '—';
+            return;
+        }
+        el.className = 'result-number';
+        el.innerHTML = value + '<div class="result-unit">' + unit + '</div>';
+    }
+
+    function calcFromPyeong() {
+        const val = parseFloat(document.getElementById('input-pyeong').value);
+        const el = document.getElementById('out-sqm');
+        if (isNaN(val) || val < 0) { setResult(el, null); return; }
+        const sqm = (val * RATIO).toFixed(2);
+        setResult(el, sqm, 'm²');
+    }
+
+    function calcFromSqm() {
+        const val = parseFloat(document.getElementById('input-sqm').value);
+        const el = document.getElementById('out-pyeong');
+        if (isNaN(val) || val < 0) { setResult(el, null); return; }
+        const pyeong = (val / RATIO).toFixed(2);
+        setResult(el, pyeong, '평');
+    }
+
+    function fillRef(pyeong, sqm) {
+        if (currentTab === 'pyeong') {
+            document.getElementById('input-pyeong').value = pyeong;
+            calcFromPyeong();
+        } else {
+            document.getElementById('input-sqm').value = sqm;
+            calcFromSqm();
+        }
+    }
+</script>
+
+</body>
+</html>

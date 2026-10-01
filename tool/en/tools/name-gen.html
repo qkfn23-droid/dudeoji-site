@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asian Name Generator - Japanese, Korean & Fantasy Names | MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is Name Generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, 100% free. No sign-up required. All processing happens in your browser, so no personal data is sent to any server."}},
+    {"@type":"Question","name":"How do I use Name Generator?","acceptedAnswer":{"@type":"Answer","text":"Generate random Asian names with meanings. Japanese, Korean, English, and Fantasy name generator. Perfect for characters, stories, and games."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/name-gen.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/name-gen.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/name-gen.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/name-gen.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/name-gen.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/name-gen.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/name-gen.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/name-gen.html">
+    <link rel="canonical" href="https://mogutool.com/en/tools/name-gen.html">
+    <meta property="og:title" content="Asian Name Generator - Japanese, Korean & Fantasy Names | MOGU Tools">
+    <meta property="og:description" content="Generate random Asian names with meanings. Japanese, Korean, English, and Fantasy name generator. Perfect for characters, stories, and games.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/en/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/en/tools/name-gen.html">
+    <meta name="description" content="Generate random Asian names with meanings. Japanese, Korean, English, and Fantasy name generator. Perfect for characters, stories, and games.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 700px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Category tabs */
+        .tab-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 9px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .tab-btn.active {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        /* Gender radio */
+        .speak-btn {
+            background: none;
+            border: 1px solid #e0e0e0;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            font-size: 14px;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left: 4px;
+            transition: background 0.2s;
+        }
+
+        .speak-btn:hover {
+            background: #eef4fb;
+        }
+
+        .surname-group {
+            margin-top: 16px;
+        }
+
+        .surname-toggle {
+            padding: 4px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            background: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .surname-toggle.active {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        #surnameInput:focus {
+            border-color: #4a90d9;
+        }
+
+        .gender-group {
+            margin-bottom: 24px;
+        }
+
+        .gender-group label.group-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .radio-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .radio-row label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .radio-row input[type="radio"] {
+            display: none;
+        }
+
+        .radio-row input[type="radio"]:checked + span {
+            /* handled via JS class toggle */
+        }
+
+        .radio-row label.selected {
+            border-color: #9b59b6;
+            background: #9b59b6;
+            color: #fff;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Results area */
+        .results-area {
+            display: none;
+            margin-top: 28px;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .results-header h2 {
+            font-size: 15px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .regen-btn {
+            padding: 8px 16px;
+            background: #fff;
+            border: 2px solid #4a90d9;
+            border-radius: 8px;
+            color: #4a90d9;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .regen-btn:hover {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .name-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .name-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .name-card {
+            background: #f8f9fa;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 16px;
+            position: relative;
+            transition: box-shadow 0.2s;
+        }
+
+        .name-card:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .name-main {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .name-reading {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .name-meaning {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .name-meaning .meaning-label {
+            font-weight: 600;
+            color: #4a90d9;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .copy-btn.copied {
+            border-color: #5cb85c;
+            color: #5cb85c;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Free Online Tools Collection</a> &gt; Generators &gt; Name Generator
+</div>
+
+<div class="container">
+    <h1>Name Generator</h1>
+    <p class="subtitle">Select a category and gender to generate 10 random names.</p>
+
+    <div class="calc-box">
+        <!-- Category tabs -->
+        <div class="tab-group" id="tabGroup">
+            <button class="tab-btn active" data-cat="english">English Names</button>
+            <button class="tab-btn" data-cat="japanese">Japanese Names</button>
+            <button class="tab-btn" data-cat="korean">Korean Names</button>
+            <button class="tab-btn" data-cat="fantasy">Fantasy Names</button>
+        </div>
+
+        <!-- Gender radio -->
+        <div class="gender-group">
+            <label class="group-label">Gender</label>
+            <div class="radio-row" id="genderRow">
+                <label class="selected" data-val="f">
+                    <input type="radio" name="gender" value="f" checked>
+                    <span>Female</span>
+                </label>
+                <label data-val="m">
+                    <input type="radio" name="gender" value="m">
+                    <span>Male</span>
+                </label>
+                <label data-val="any">
+                    <input type="radio" name="gender" value="any">
+                    <span>Any</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Fantasy style selector (hidden by default) -->
+        <div class="gender-group" id="fantasyStyleGroup" style="display:none;">
+            <label class="group-label">Fantasy Style</label>
+            <div class="radio-row" id="fantasyStyleRow">
+                <label class="selected" data-val="elf">
+                    <input type="radio" name="fstyle" value="elf" checked>
+                    <span>Elf</span>
+                </label>
+                <label data-val="myth">
+                    <input type="radio" name="fstyle" value="myth">
+                    <span>Mythology</span>
+                </label>
+                <label data-val="dark">
+                    <input type="radio" name="fstyle" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label data-val="oriental">
+                    <input type="radio" name="fstyle" value="oriental">
+                    <span>Oriental</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Surname toggle -->
+        <div class="surname-group" id="surnameGroup">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <label class="group-label" style="margin:0;">Add Surname</label>
+                <button type="button" id="surnameToggle" class="surname-toggle" onclick="toggleSurname()">OFF</button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="generateNames()">Generate</button>
+
+        <!-- Results -->
+        <div class="results-area" id="resultsArea">
+            <div class="results-header">
+                <h2 id="resultsTitle">Suggested Names</h2>
+                <button class="regen-btn" onclick="generateNames()">Generate Again</button>
+            </div>
+            <div class="name-grid" id="nameGrid"></div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>About Name Generator</h2>
+        <p>
+            Generate names from 4 categories: English, Japanese, Korean, and Fantasy.
+            Japanese names include kanji and hiragana readings. Korean names include hanja meanings.
+            English names show etymology and meaning. Fantasy names include lore descriptions.
+            Copy any name you like with the copy button.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Asian Name Generator</h2><p>Generate random Asian names with meanings. Japanese, Korean, English, and Fantasy name generator. Perfect for characters, stories, and games.</p></div>
+<div class="seo-section"><h2>Frequently Asked Questions</h2><details class="seo-faq"><summary>Is this tool free?</summary><p>Yes, 100% free. No signup required. All processing happens in your browser — no data is sent to any server.</p></details><details class="seo-faq"><summary>Can I use it on mobile?</summary><p>Yes, all tools are fully responsive and work on smartphones, tablets, and desktops.</p></details></div>
+<div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="nickname-gen.html">Nickname Generator</a><a href="random-pick.html">Random Picker</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// ===================== DATA =====================
+
+const names = {
+    english: {
+        f: [
+            { name: "Aria", meaning: "air, song" },
+            { name: "Luna", meaning: "moon" },
+            { name: "Stella", meaning: "star" },
+            { name: "Aurora", meaning: "goddess of dawn" },
+            { name: "Iris", meaning: "rainbow" },
+            { name: "Clara", meaning: "bright, clear" },
+            { name: "Ivy", meaning: "ivy vine" },
+            { name: "Lily", meaning: "lily flower" },
+            { name: "Ruby", meaning: "ruby gemstone" },
+            { name: "Hazel", meaning: "hazel tree, brown eyes" },
+            { name: "Chloe", meaning: "sprout, new beginning" },
+            { name: "Elara", meaning: "shining one" },
+            { name: "Serena", meaning: "calm, serene" },
+            { name: "Diana", meaning: "divine moon goddess" },
+            { name: "Flora", meaning: "flower, goddess of spring" },
+            { name: "Celeste", meaning: "heavenly, celestial" },
+            { name: "Vivienne", meaning: "alive, vivacious" },
+            { name: "Isadora", meaning: "gift of Isis" },
+            { name: "Lyra", meaning: "Lyra constellation" },
+            { name: "Nora", meaning: "light, honor" },
+            { name: "Elise", meaning: "God's promise" },
+            { name: "Vera", meaning: "truth, faithful" },
+            { name: "Rose", meaning: "rose flower" },
+            { name: "Ada", meaning: "noble, happy" },
+            { name: "Mira", meaning: "wondrous, sea gazer" },
+            { name: "Zara", meaning: "radiant as a flower" },
+            { name: "Lena", meaning: "ray of light, bright" },
+            { name: "Nina", meaning: "graceful, strong woman" },
+            { name: "Sora", meaning: "sky" },
+            { name: "Vera", meaning: "truthful" },
+            { name: "Eden", meaning: "paradise of joy" },
+            { name: "Seraphina", meaning: "fiery angel" },
+            { name: "Calista", meaning: "most beautiful" },
+            { name: "Evangeline", meaning: "bearer of good news" },
+            { name: "Isolde", meaning: "ruler of ice" },
+            { name: "Imara", meaning: "strong, resolute" },
+            { name: "Cassiel", meaning: "angel of speed" },
+            { name: "Tessa", meaning: "harvester" },
+            { name: "Wren", meaning: "wren bird" },
+            { name: "Faye", meaning: "fairy, loyalty" },
+            { name: "Gwen", meaning: "white, sacred" },
+            { name: "Freya", meaning: "goddess of love and fertility" },
+            { name: "Phoebe", meaning: "shining moon" },
+            { name: "Thea", meaning: "god, goddess" },
+            { name: "Cora", meaning: "maiden, girl" },
+            { name: "Elina", meaning: "bright light" },
+            { name: "Amara", meaning: "eternal, immortal" },
+            { name: "Isla", meaning: "island" },
+            { name: "Naia", meaning: "flowing water" },
+            { name: "Sylvie", meaning: "woman of the forest" },
+            { name: "Oriane", meaning: "golden dawn" },
+            { name: "Vesper", meaning: "evening star" },
+            { name: "Celia", meaning: "sky" },
+            { name: "Maren", meaning: "sea" },
+            { name: "Daphne", meaning: "laurel tree" }
+        ],
+        m: [
+            { name: "Leo", meaning: "lion" },
+            { name: "Felix", meaning: "lucky, happy" },
+            { name: "Hugo", meaning: "intellect, spirit" },
+            { name: "Oscar", meaning: "divine spear" },
+            { name: "Atlas", meaning: "bearer of the heavens" },
+            { name: "Orion", meaning: "hunter, constellation" },
+            { name: "Jasper", meaning: "gemstone, treasurer" },
+            { name: "Silas", meaning: "forest, wood" },
+            { name: "Dante", meaning: "enduring one" },
+            { name: "Cyrus", meaning: "sun, throne" },
+            { name: "Caden", meaning: "son of a warrior" },
+            { name: "Dorian", meaning: "gift of the sea" },
+            { name: "Emrys", meaning: "immortal" },
+            { name: "Finn", meaning: "fair, bright" },
+            { name: "Gael", meaning: "generous" },
+            { name: "Heath", meaning: "wasteland" },
+            { name: "Ivan", meaning: "God is gracious" },
+            { name: "Jude", meaning: "praised" },
+            { name: "Kael", meaning: "mighty warrior" },
+            { name: "Lior", meaning: "my light" },
+            { name: "Marcus", meaning: "god of war" },
+            { name: "Niles", meaning: "son of a champion" },
+            { name: "Otto", meaning: "wealth, prosperity" },
+            { name: "Piers", meaning: "rock, stone" },
+            { name: "Quinn", meaning: "wise" },
+            { name: "Remy", meaning: "oarsman" },
+            { name: "Seth", meaning: "the appointed one" },
+            { name: "Theo", meaning: "gift of God" },
+            { name: "Ulric", meaning: "wolf's power" },
+            { name: "Vance", meaning: "marshland" },
+            { name: "Wade", meaning: "river crosser" },
+            { name: "Xander", meaning: "defender of mankind" },
+            { name: "Yale", meaning: "from the heights" },
+            { name: "Zane", meaning: "God is gracious" },
+            { name: "Arlo", meaning: "army hill" },
+            { name: "Bram", meaning: "father of many" },
+            { name: "Cole", meaning: "dark and strong as coal" },
+            { name: "Dex", meaning: "right-handed, skillful" },
+            { name: "Elan", meaning: "tree, kind" },
+            { name: "Caius", meaning: "one who rejoices" },
+            { name: "Hadrian", meaning: "from the Adriatic" },
+            { name: "Idris", meaning: "passionate lord" },
+            { name: "Julian", meaning: "descendant of Jupiter" },
+            { name: "Kieran", meaning: "dark knight" },
+            { name: "Leif", meaning: "heir, descendant" },
+            { name: "Milo", meaning: "merciful warrior" },
+            { name: "Nolan", meaning: "of noble descent" },
+            { name: "Pax", meaning: "peace" },
+            { name: "Reid", meaning: "red-haired" },
+            { name: "Soren", meaning: "stern, strong" },
+            { name: "Tobias", meaning: "God is good" },
+            { name: "Uriah", meaning: "God is my light" },
+            { name: "Viggo", meaning: "war, battle" },
+            { name: "Wren", meaning: "free as a wren" },
+            { name: "Zephyr", meaning: "west wind" }
+        ]
+    },
+
+    japanese: {
+        f: [
+            { name: "桜", reading: "さくら", meaning: "cherry blossom" },
+            { name: "陽葵", reading: "ひまり", meaning: "sunflower facing the sun" },
+            { name: "凛", reading: "りん", meaning: "dignified, elegant" },
+            { name: "結月", reading: "ゆづき", meaning: "tied to the moon" },
+            { name: "花", reading: "はな", meaning: "flower" },
+            { name: "美月", reading: "みづき", meaning: "beautiful moon" },
+            { name: "雪", reading: "ゆき", meaning: "snow" },
+            { name: "蓮華", reading: "れんげ", meaning: "lotus flower" },
+            { name: "澪", reading: "みお", meaning: "waterway, flow" },
+            { name: "紬", reading: "つむぎ", meaning: "spinning silk threads" },
+            { name: "芽依", reading: "めい", meaning: "relying like a sprout" },
+            { name: "葵", reading: "あおい", meaning: "hollyhock, blue-green" },
+            { name: "莉子", reading: "りこ", meaning: "child of jasmine" },
+            { name: "琴音", reading: "ことね", meaning: "sound of the koto" },
+            { name: "朱音", reading: "あかね", meaning: "vermillion sound" },
+            { name: "柚希", reading: "ゆずき", meaning: "hope of citrus" },
+            { name: "詩", reading: "うた", meaning: "poem, song" },
+            { name: "和", reading: "なごみ", meaning: "peace, harmony" },
+            { name: "月乃", reading: "つきの", meaning: "of the moon" },
+            { name: "星奈", reading: "せな", meaning: "star maiden" },
+            { name: "光莉", reading: "ひかり", meaning: "shining jasmine" },
+            { name: "空", reading: "そら", meaning: "sky" },
+            { name: "風花", reading: "ふうか", meaning: "wind flower" },
+            { name: "心春", reading: "こはる", meaning: "spring of the heart" },
+            { name: "夢", reading: "ゆめ", meaning: "dream" },
+            { name: "彩葉", reading: "いろは", meaning: "colorful leaves" },
+            { name: "梨花", reading: "りか", meaning: "pear blossom" },
+            { name: "瑠璃", reading: "るり", meaning: "lapis lazuli" },
+            { name: "冬華", reading: "とうか", meaning: "winter flower" },
+            { name: "茜", reading: "あかね", meaning: "madder, red sunset" },
+            { name: "真白", reading: "ましろ", meaning: "pure white" },
+            { name: "千夏", reading: "ちなつ", meaning: "a thousand summers" },
+            { name: "蒼空", reading: "そら", meaning: "blue sky" },
+            { name: "七海", reading: "ななみ", meaning: "seven seas" },
+            { name: "美桜", reading: "みお", meaning: "beautiful cherry blossom" },
+            { name: "陽菜", reading: "ひな", meaning: "sunny garden" },
+            { name: "結愛", reading: "ゆあ", meaning: "bound by love" },
+            { name: "心愛", reading: "ここあ", meaning: "love of the heart" },
+            { name: "咲良", reading: "さくら", meaning: "splendid bloom" },
+            { name: "花音", reading: "かのん", meaning: "melody of flowers" },
+            { name: "柚乃", reading: "ゆの", meaning: "child of citrus" },
+            { name: "千桜", reading: "ちさき", meaning: "a thousand cherry blossoms" },
+            { name: "空音", reading: "そらね", meaning: "sound of the sky" },
+            { name: "日向", reading: "ひなた", meaning: "sunny place" },
+            { name: "希星", reading: "きらら", meaning: "star of hope" },
+            { name: "萌", reading: "もえ", meaning: "sprouting, budding" },
+            { name: "静", reading: "しずか", meaning: "quiet, serene" },
+            { name: "鈴", reading: "りん", meaning: "bell, clear sound" },
+            { name: "渚", reading: "なぎさ", meaning: "shore, beach" },
+            { name: "稀", reading: "まれ", meaning: "rare, precious" },
+            { name: "宙", reading: "そら", meaning: "cosmos, space" },
+            { name: "海", reading: "まりん", meaning: "sea" },
+            { name: "夕凪", reading: "ゆうなぎ", meaning: "calm evening breeze" },
+            { name: "朝陽", reading: "あさひ", meaning: "morning sun" },
+            { name: "永遠", reading: "とわ", meaning: "eternity" },
+            { name: "初花", reading: "はつか", meaning: "first flower" }
+        ],
+        m: [
+            { name: "蓮", reading: "れん", meaning: "lotus" },
+            { name: "陽翔", reading: "はると", meaning: "shining wings" },
+            { name: "樹", reading: "いつき", meaning: "tree, deep-rooted" },
+            { name: "悠", reading: "はるか", meaning: "distant, serene" },
+            { name: "暁", reading: "あきら", meaning: "dawn, brightness" },
+            { name: "蒼", reading: "あおい", meaning: "deep blue" },
+            { name: "湊", reading: "みなと", meaning: "harbor" },
+            { name: "颯", reading: "はやて", meaning: "swift wind" },
+            { name: "碧", reading: "あおい", meaning: "deep blue-green" },
+            { name: "大翔", reading: "ひろと", meaning: "soaring high" },
+            { name: "奏", reading: "かなで", meaning: "to play music" },
+            { name: "律", reading: "りつ", meaning: "discipline, melody" },
+            { name: "凛", reading: "りん", meaning: "dignified" },
+            { name: "玲", reading: "れい", meaning: "crystal-clear sound" },
+            { name: "渉", reading: "わたる", meaning: "to cross, extensive" },
+            { name: "雅", reading: "みやび", meaning: "elegant" },
+            { name: "瞬", reading: "しゅん", meaning: "moment, blink of an eye" },
+            { name: "陸", reading: "りく", meaning: "land, earth" },
+            { name: "朔", reading: "さく", meaning: "new moon, new beginning" },
+            { name: "嵐", reading: "あらし", meaning: "storm, fierce wind" },
+            { name: "龍", reading: "りゅう", meaning: "dragon" },
+            { name: "翔", reading: "かける", meaning: "to soar" },
+            { name: "光", reading: "ひかる", meaning: "to shine" },
+            { name: "星", reading: "せい", meaning: "star" },
+            { name: "晴", reading: "はる", meaning: "clear, sunny sky" },
+            { name: "海斗", reading: "かいと", meaning: "constellation of the sea" },
+            { name: "空翔", reading: "そらと", meaning: "soaring through the sky" },
+            { name: "風", reading: "かざ", meaning: "wind" },
+            { name: "和樹", reading: "かずき", meaning: "harmonious tree" },
+            { name: "大地", reading: "だいち", meaning: "great earth" },
+            { name: "司", reading: "つかさ", meaning: "to govern, oversee" },
+            { name: "誠", reading: "まこと", meaning: "sincerity, truth" },
+            { name: "勇", reading: "いさむ", meaning: "brave" },
+            { name: "徹", reading: "とおる", meaning: "to pierce through" },
+            { name: "峻", reading: "しゅん", meaning: "steep, towering" },
+            { name: "泰雅", reading: "たいが", meaning: "generous as a great river" },
+            { name: "蒼汰", reading: "そうた", meaning: "blue wave" },
+            { name: "悠真", reading: "ゆうま", meaning: "true serenity" },
+            { name: "遼", reading: "りょう", meaning: "far and wide" },
+            { name: "凌", reading: "りょう", meaning: "to surpass, overcome" },
+            { name: "輝", reading: "かがやき", meaning: "radiance, brilliance" },
+            { name: "虎太郎", reading: "こたろう", meaning: "brave tiger" },
+            { name: "銀河", reading: "ぎんが", meaning: "Milky Way" },
+            { name: "浩介", reading: "こうすけ", meaning: "vast and helpful" },
+            { name: "理玖", reading: "りく", meaning: "enlightened reason" },
+            { name: "優斗", reading: "ゆうと", meaning: "excellent one" },
+            { name: "壮馬", reading: "そうま", meaning: "strong as a horse" },
+            { name: "源", reading: "げん", meaning: "origin, source" },
+            { name: "天", reading: "てん", meaning: "heaven, sky" },
+            { name: "柊", reading: "ひいらぎ", meaning: "holly tree" },
+            { name: "桐", reading: "きり", meaning: "paulownia tree" },
+            { name: "椋", reading: "むく", meaning: "zelkova tree" },
+            { name: "楓", reading: "かえで", meaning: "maple tree" },
+            { name: "雷", reading: "らい", meaning: "thunder, lightning" },
+            { name: "燎", reading: "りょう", meaning: "blazing wildfire" },
+            { name: "弦", reading: "げん", meaning: "bowstring, chord" }
+        ]
+    },
+
+    korean: {
+        f: [
+            { name: "서윤", hanja: "瑞潤", meaning: "auspicious and radiant" },
+            { name: "하은", hanja: "河恩", meaning: "grace flowing like a river" },
+            { name: "지유", hanja: "智由", meaning: "wise and free" },
+            { name: "서아", hanja: "瑞雅", meaning: "auspicious and elegant" },
+            { name: "윤서", hanja: "潤瑞", meaning: "radiant and blessed" },
+            { name: "채원", hanja: "彩苑", meaning: "colorful garden" },
+            { name: "나연", hanja: "娜娟", meaning: "beautiful and graceful" },
+            { name: "수아", hanja: "秀雅", meaning: "outstanding and elegant" },
+            { name: "민지", hanja: "珉智", meaning: "wisdom shining like jade" },
+            { name: "유나", hanja: "柔那", meaning: "gentle and generous" },
+            { name: "예린", hanja: "藝璘", meaning: "shining like art" },
+            { name: "다은", hanja: "多恩", meaning: "full of grace" },
+            { name: "소율", hanja: "素律", meaning: "pure melody" },
+            { name: "지아", hanja: "智雅", meaning: "wise and beautiful" },
+            { name: "혜진", hanja: "惠珍", meaning: "gracious and precious" },
+            { name: "가은", hanja: "佳恩", meaning: "beautiful grace" },
+            { name: "보라", hanja: "寶羅", meaning: "precious silk" },
+            { name: "아린", hanja: "雅璘", meaning: "elegantly shining" },
+            { name: "설아", hanja: "雪雅", meaning: "pure as snow, elegant" },
+            { name: "시은", hanja: "詩恩", meaning: "grace like poetry" },
+            { name: "이나", hanja: "怡娜", meaning: "joyful and beautiful" },
+            { name: "하늘", hanja: "何訥", meaning: "vast as the sky" },
+            { name: "솔", hanja: "率", meaning: "upright like a pine" },
+            { name: "아현", hanja: "雅賢", meaning: "elegant and wise" },
+            { name: "세아", hanja: "世雅", meaning: "most elegant in the world" },
+            { name: "도화", hanja: "桃花", meaning: "radiant like peach blossoms" },
+            { name: "나리", hanja: "娜利", meaning: "beautiful and beneficial" },
+            { name: "소이", hanja: "昭怡", meaning: "bright and joyful" },
+            { name: "예슬", hanja: "藝瑟", meaning: "clear as art" },
+            { name: "유리", hanja: "有理", meaning: "having reason" },
+            { name: "수진", hanja: "秀眞", meaning: "outstandingly truthful" },
+            { name: "연우", hanja: "涓雨", meaning: "gentle spring rain" },
+            { name: "초아", hanja: "初雅", meaning: "elegant as the beginning" },
+            { name: "다빈", hanja: "多彬", meaning: "full of light" },
+            { name: "하린", hanja: "夏璘", meaning: "shining like summer" },
+            { name: "소현", hanja: "昭賢", meaning: "bright and wise" },
+            { name: "나희", hanja: "娜姬", meaning: "beautiful maiden" },
+            { name: "윤아", hanja: "潤雅", meaning: "radiant and elegant" },
+            { name: "지원", hanja: "智源", meaning: "source of wisdom" },
+            { name: "아연", hanja: "雅姸", meaning: "elegant and lovely" },
+            { name: "서현", hanja: "瑞賢", meaning: "auspicious and wise" },
+            { name: "은별", hanja: "銀星", meaning: "silver star" },
+            { name: "사랑", hanja: "思朗", meaning: "thinking with a bright heart" },
+            { name: "이슬", hanja: "怡瑟", meaning: "clear as morning dew" },
+            { name: "소담", hanja: "素淡", meaning: "simple and pure" },
+            { name: "나윤", hanja: "娜潤", meaning: "beautiful and radiant" },
+            { name: "가현", hanja: "嘉賢", meaning: "beautiful and wise" },
+            { name: "연서", hanja: "涓瑞", meaning: "clear and auspicious" },
+            { name: "지선", hanja: "智善", meaning: "wise and virtuous" },
+            { name: "예나", hanja: "藝娜", meaning: "beautiful as art" },
+            { name: "민아", hanja: "旻雅", meaning: "elegant as autumn sky" },
+            { name: "혜원", hanja: "惠苑", meaning: "garden of grace" },
+            { name: "소연", hanja: "素娟", meaning: "pure and graceful" },
+            { name: "다율", hanja: "多律", meaning: "colorful melody" },
+            { name: "시연", hanja: "詩娟", meaning: "graceful as poetry" },
+            { name: "유은", hanja: "柔恩", meaning: "gentle grace" }
+        ],
+        m: [
+            { name: "도윤", hanja: "道允", meaning: "following the way, permitted" },
+            { name: "시우", hanja: "時宇", meaning: "universe meeting its time" },
+            { name: "준서", hanja: "俊瑞", meaning: "handsome and auspicious" },
+            { name: "예준", hanja: "禮俊", meaning: "polite and handsome" },
+            { name: "민준", hanja: "敏俊", meaning: "quick and handsome" },
+            { name: "지호", hanja: "智浩", meaning: "wise and vast" },
+            { name: "현우", hanja: "賢宇", meaning: "wise universe" },
+            { name: "서준", hanja: "瑞俊", meaning: "auspicious and handsome" },
+            { name: "도현", hanja: "道賢", meaning: "sage who follows the way" },
+            { name: "한결", hanja: "漢潔", meaning: "consistently pure" },
+            { name: "재윤", hanja: "才潤", meaning: "overflowing talent" },
+            { name: "성민", hanja: "誠敏", meaning: "sincere and agile" },
+            { name: "유진", hanja: "有眞", meaning: "possessing truth" },
+            { name: "태양", hanja: "太陽", meaning: "bright and strong as the sun" },
+            { name: "선우", hanja: "善宇", meaning: "virtuous universe" },
+            { name: "정우", hanja: "政宇", meaning: "righteous universe" },
+            { name: "진혁", hanja: "眞赫", meaning: "shining with truth" },
+            { name: "승현", hanja: "承賢", meaning: "inheriting wisdom" },
+            { name: "찬열", hanja: "燦烈", meaning: "brilliantly blazing" },
+            { name: "하준", hanja: "夏俊", meaning: "handsome as summer" },
+            { name: "이안", hanja: "怡安", meaning: "joyful and peaceful" },
+            { name: "주원", hanja: "周源", meaning: "all-encompassing source" },
+            { name: "시현", hanja: "詩賢", meaning: "wise as poetry" },
+            { name: "건우", hanja: "健宇", meaning: "healthy universe" },
+            { name: "태민", hanja: "泰敏", meaning: "great and agile" },
+            { name: "경수", hanja: "景秀", meaning: "splendid scenery" },
+            { name: "민혁", hanja: "旻赫", meaning: "shining like the sky" },
+            { name: "재현", hanja: "才賢", meaning: "talented and wise" },
+            { name: "영준", hanja: "英俊", meaning: "brilliant and handsome" },
+            { name: "기태", hanja: "基泰", meaning: "strong foundation" },
+            { name: "진우", hanja: "眞宇", meaning: "truthful universe" },
+            { name: "승우", hanja: "勝宇", meaning: "victorious universe" },
+            { name: "태준", hanja: "泰俊", meaning: "great and handsome" },
+            { name: "찬호", hanja: "燦浩", meaning: "brilliantly vast" },
+            { name: "민성", hanja: "旻星", meaning: "star of the sky" },
+            { name: "주하", hanja: "珠夏", meaning: "jewel-like summer" },
+            { name: "성준", hanja: "成俊", meaning: "accomplished and handsome" },
+            { name: "연준", hanja: "涓俊", meaning: "clear and handsome" },
+            { name: "재원", hanja: "才源", meaning: "source of talent" },
+            { name: "한빛", hanja: "漢光", meaning: "Korean light" },
+            { name: "은찬", hanja: "銀燦", meaning: "brilliantly silver" },
+            { name: "우주", hanja: "宇宙", meaning: "infinite as the cosmos" },
+            { name: "인준", hanja: "仁俊", meaning: "benevolent and handsome" },
+            { name: "정현", hanja: "正賢", meaning: "righteous and wise" },
+            { name: "원준", hanja: "元俊", meaning: "foremost and handsome" },
+            { name: "수호", hanja: "守護", meaning: "guardian, protector" },
+            { name: "동현", hanja: "東賢", meaning: "wise sage from the east" },
+            { name: "찬빛", hanja: "燦光", meaning: "brilliant light" },
+            { name: "강민", hanja: "剛敏", meaning: "strong and agile" },
+            { name: "태호", hanja: "太浩", meaning: "great and vast" },
+            { name: "지안", hanja: "智安", meaning: "wise and peaceful" },
+            { name: "현준", hanja: "賢俊", meaning: "wise and handsome" },
+            { name: "민재", hanja: "敏才", meaning: "agile talent" },
+            { name: "주찬", hanja: "珠燦", meaning: "brilliant as a jewel" },
+            { name: "시원", hanja: "詩源", meaning: "source of poetry" },
+            { name: "현빛", hanja: "賢光", meaning: "wisely shining" }
+        ]
+    },
+
+    fantasy: {
+        elf: {
+            f: [
+                {name:"Lúthien",meaning:"daughter of twilight, fairest elf"},{name:"Galadriel",meaning:"queen of the shining crown"},{name:"Arwen",meaning:"noble maiden, evening star"},{name:"Tauriel",meaning:"daughter of the forest"},{name:"Eärwen",meaning:"maiden of the sea"},{name:"Nimrodel",meaning:"lady of the white cave"},{name:"Idril",meaning:"sparkling brilliance"},{name:"Celebrían",meaning:"silver queen"},{name:"Aerethil",meaning:"starfall dew"},{name:"Silivren",meaning:"shining with white light"},{name:"Elenwë",meaning:"star being"},{name:"Nerdanel",meaning:"woman of strong spirit"},{name:"Irissë",meaning:"radiant dawn"},{name:"Míriel",meaning:"jewel-like radiance"},{name:"Vanyarë",meaning:"song of the beautiful"},{name:"Tinúviel",meaning:"nightingale of twilight"},{name:"Lómelindë",meaning:"bird that sings at dusk"},{name:"Nimlothel",meaning:"spirit of white flowers"},{name:"Alatáriel",meaning:"maiden adorned with light"},{name:"Celebrindal",meaning:"silver-footed one"}
+            ],
+            m: [
+                {name:"Thranduil",meaning:"king of vigorous spring"},{name:"Legolas",meaning:"green leaf"},{name:"Elrond",meaning:"dome of stars"},{name:"Glorfindel",meaning:"golden-haired warrior"},{name:"Fëanor",meaning:"spirit of fire"},{name:"Fingolfin",meaning:"noble son of Finwë"},{name:"Ecthelion",meaning:"lord of the fountain"},{name:"Celeborn",meaning:"lord of the silver tree"},{name:"Círdan",meaning:"the shipwright"},{name:"Erestor",meaning:"the solitary one"},{name:"Haldir",meaning:"hidden hero"},{name:"Maeglin",meaning:"sharp glance"},{name:"Beleg",meaning:"great archer"},{name:"Amroth",meaning:"one who climbs high"},{name:"Thingol",meaning:"king of the grey cloak"},{name:"Finrod",meaning:"golden-haired lord"},{name:"Turgon",meaning:"commanding lord"},{name:"Oropher",meaning:"tall beech tree"},{name:"Lindir",meaning:"the singer"},{name:"Aranwë",meaning:"king's wind"}
+            ]
+        },
+        myth: {
+            f: [
+                {name:"Aetheris",meaning:"goddess who governs celestial winds"},{name:"Seraphiona",meaning:"six-winged flame angel"},{name:"Nyx'thara",meaning:"mother of night, primordial darkness"},{name:"Hekateia",meaning:"witch queen of the crossroads"},{name:"Asteria",meaning:"daughter of the titan who became a star"},{name:"Tethys'ara",meaning:"keeper of the sea's memory"},{name:"Persépheia",meaning:"dual crown of spring and death"},{name:"Circeana",meaning:"ruler of the enchanted isle"},{name:"Nemesia",meaning:"divine incarnation of vengeance"},{name:"Seléneia",meaning:"goddess who weaves moonlight"},{name:"Athénaïs",meaning:"bearer of wisdom's owl"},{name:"Cassiopeia",meaning:"vain queen turned constellation"},{name:"Mnemosyne",meaning:"one who makes the river of memory flow"},{name:"Calypsia",meaning:"the concealer, sea nymph"},{name:"Eurydeia",meaning:"lady of broad justice"},{name:"Aphroditia",meaning:"golden goddess born from sea foam"},{name:"Ariadneia",meaning:"princess holding the labyrinth's thread"},{name:"Galateïa",meaning:"milk-skinned statue"},{name:"Pandoreia",meaning:"bearer of all gifts"},{name:"Thaleia",meaning:"muse of bountiful feast"}
+            ],
+            m: [
+                {name:"Aetherius",meaning:"god who stole celestial fire"},{name:"Seraphion",meaning:"six-winged judge"},{name:"Hyperionax",meaning:"light from above, father of the sun"},{name:"Prometheus'ar",meaning:"titan who brought fire"},{name:"Thanateros",meaning:"duality of death and love"},{name:"Kroneiros",meaning:"devourer of time"},{name:"Poseidaron",meaning:"sea king who shakes the earth"},{name:"Hadesior",meaning:"lord of the unseen realm"},{name:"Apollonir",meaning:"god of light and prophecy"},{name:"Hermesian",meaning:"messenger who crosses boundaries"},{name:"Ares'thor",meaning:"igniter of war's flame"},{name:"Dionysiar",meaning:"god of the vine's madness"},{name:"Orpheion",meaning:"one whose song reaches the underworld"},{name:"Atlasion",meaning:"titan who bears the sky"},{name:"Achilleon",meaning:"warrior of immortal wrath"},{name:"Odysseiar",meaning:"wanderer of ten thousand wisdoms"},{name:"Perseidion",meaning:"hero of the starfall night"},{name:"Zeusarian",meaning:"supreme god wielding lightning"},{name:"Heracleion",meaning:"demigod bearing divine glory"},{name:"Icarionar",meaning:"wings that reached for the sun"}
+            ]
+        },
+        dark: {
+            f: [
+                {name:"Morghaine",meaning:"queen of black mist"},{name:"Vel'kathra",meaning:"soul absorber"},{name:"Ashenveil",meaning:"from beyond the veil of ash"},{name:"Nocthriel",meaning:"daughter of eternal night"},{name:"Duskara",meaning:"witch swallowed by twilight"},{name:"Ravenmere",meaning:"ruler of the raven lake"},{name:"Shadris",meaning:"shadow devourer"},{name:"Grimsylth",meaning:"listener of dead whispers"},{name:"Blightrose",meaning:"undying poison rose"},{name:"Hexenith",meaning:"cursed pinnacle of night"},{name:"Necrith",meaning:"singer of bone songs"},{name:"Abyssia",meaning:"born from the abyss"},{name:"Voidara",meaning:"queen who swallowed the void"},{name:"Corruptiel",meaning:"remnant of a fallen angel"},{name:"Maliceth",meaning:"bearer of pure malice"},{name:"Thornsylph",meaning:"thorn fairy, gardener of blood"},{name:"Wraithwyn",meaning:"rider of ghostly winds"},{name:"Eclipsara",meaning:"darkness that swallowed the sun"},{name:"Banshielle",meaning:"herald of death by scream"},{name:"Dreadfaen",meaning:"fairy queen of terror"}
+            ],
+            m: [
+                {name:"Morghul",meaning:"lord who spreads death's mist"},{name:"Vel'kath",meaning:"soul predator"},{name:"Dreadmor",meaning:"walker of terror's darkness"},{name:"Voidthorn",meaning:"thorn king of the void"},{name:"Ashbringer",meaning:"one who turns all to ash"},{name:"Nocthrax",meaning:"king of night, light devourer"},{name:"Grimhollow",meaning:"lord of the dark valley"},{name:"Ravenclaw",meaning:"raven-taloned assassin"},{name:"Blightking",meaning:"king of plague"},{name:"Shadowmere",meaning:"knight from the shadow lake"},{name:"Hexbane",meaning:"one who feeds on curses"},{name:"Duskveil",meaning:"cloaked in twilight's veil"},{name:"Corrupthor",meaning:"the corruptor"},{name:"Necromar",meaning:"commander of the dead army"},{name:"Abyssal",meaning:"one with the heart of the abyss"},{name:"Malicor",meaning:"crystal of pure evil"},{name:"Wraithborn",meaning:"knight reborn as wraith"},{name:"Doomhammer",meaning:"wielder of fate's hammer"},{name:"Boneweaver",meaning:"mage who weaves bone armor"},{name:"Fellshadow",meaning:"lord of cruel shadows"}
+            ]
+        },
+        oriental: {
+            f: [
+                {name:"설화련",meaning:"snow lotus, ice celestial maiden"},{name:"천무영",meaning:"shadow of heaven's dance"},{name:"묵현야",meaning:"ink string night, empress of the pipa"},{name:"운소희",meaning:"celestial maiden laughing above clouds"},{name:"월하선",meaning:"immortal under moonlight"},{name:"비연화",meaning:"jade lotus swordswoman"},{name:"자하령",meaning:"guardian of the purple sunset pass"},{name:"소매영",meaning:"one who hides the moon in her sleeve"},{name:"청화선",meaning:"immortal of clear blossoms"},{name:"홍련야",meaning:"night of red lotus, blood flower empress"},{name:"옥설란",meaning:"jade snowstorm orchid"},{name:"풍월영",meaning:"shadow of wind and moon"},{name:"난설매",meaning:"three graces: orchid, snow, plum"},{name:"자미선",meaning:"immortal of the purple star"},{name:"백무향",meaning:"fragrance of the white dance"},{name:"금사연",meaning:"fate woven with golden thread"},{name:"명월교",meaning:"crossing the bridge of bright moon"},{name:"태허선",meaning:"immortal of the great void"},{name:"벽라천",meaning:"sky of jade silk"},{name:"화무십",meaning:"dances like a flower but never past ten days"}
+            ],
+            m: [
+                {name:"천무극",meaning:"limitless martial arts of heaven"},{name:"묵검혼",meaning:"ink sword soul, the sword demon"},{name:"풍운도",meaning:"cultivator of wind and cloud"},{name:"천리행",meaning:"swordsman who walks a thousand leagues"},{name:"무영검",meaning:"shadowless blade, peerless swordsman"},{name:"녹림왕",meaning:"king of the green forest, righteous outlaw"},{name:"사마현",meaning:"sage of four horses"},{name:"독고진",meaning:"true master of lonely silence"},{name:"남궁세",meaning:"power of the southern palace"},{name:"제갈명",meaning:"brilliant strategist of clan Zhuge"},{name:"흑풍야",meaning:"night of black wind"},{name:"적룡천",meaning:"sky of the red dragon"},{name:"백무상",meaning:"white impermanence, death's messenger"},{name:"혈도객",meaning:"wanderer of the bloodstained blade"},{name:"철무극",meaning:"iron limitless martial arts"},{name:"현무진",meaning:"master of the black tortoise formation"},{name:"태을검",meaning:"bearer of the supreme star's sword"},{name:"난세영",meaning:"hero of a troubled world"},{name:"광야천",meaning:"sky of vast wilderness"},{name:"금강불",meaning:"one unbreakable as diamond"}
+            ]
+        }
+    }
+};
+
+// ===================== STATE =====================
+let currentCat = 'english';
+let currentGender = 'f';
+let currentFantasyStyle = 'elf';
+let surnameOn = false;
+
+const surnames = {
+    english: ['Smith','Johnson','Williams','Brown','Jones','Davis','Miller','Wilson','Moore','Taylor','Anderson','Thomas','Jackson','White','Harris','Martin','Thompson','Garcia','Martinez','Robinson','Clark','Lewis','Lee','Walker','Hall','Allen','Young','King','Wright','Scott','Adams','Baker','Carter','Mitchell','Turner','Phillips','Campbell','Parker','Evans','Edwards','Collins','Stewart','Morris','Reed','Cook','Morgan','Bell','Murphy','Bailey','Cooper','Richardson','Wood','Watson','Brooks','Bennett','Gray','Howard','Ross','Mason','Ford'],
+    japanese: [
+        {kanji:'田中',reading:'たなか'},{kanji:'佐藤',reading:'さとう'},{kanji:'鈴木',reading:'すずき'},{kanji:'高橋',reading:'たかはし'},{kanji:'渡辺',reading:'わたなべ'},{kanji:'伊藤',reading:'いとう'},{kanji:'山本',reading:'やまもと'},{kanji:'中村',reading:'なかむら'},{kanji:'小林',reading:'こばやし'},{kanji:'加藤',reading:'かとう'},{kanji:'吉田',reading:'よしだ'},{kanji:'山田',reading:'やまだ'},{kanji:'松本',reading:'まつもと'},{kanji:'井上',reading:'いのうえ'},{kanji:'木村',reading:'きむら'},{kanji:'林',reading:'はやし'},{kanji:'清水',reading:'しみず'},{kanji:'山口',reading:'やまぐち'},{kanji:'阿部',reading:'あべ'},{kanji:'池田',reading:'いけだ'},{kanji:'橋本',reading:'はしもと'},{kanji:'山崎',reading:'やまざき'},{kanji:'森',reading:'もり'},{kanji:'石川',reading:'いしかわ'},{kanji:'前田',reading:'まえだ'},{kanji:'藤田',reading:'ふじた'},{kanji:'小川',reading:'おがわ'},{kanji:'岡田',reading:'おかだ'},{kanji:'後藤',reading:'ごとう'},{kanji:'長谷川',reading:'はせがわ'},{kanji:'石井',reading:'いしい'},{kanji:'村上',reading:'むらかみ'},{kanji:'近藤',reading:'こんどう'},{kanji:'坂本',reading:'さかもと'},{kanji:'遠藤',reading:'えんどう'},{kanji:'青木',reading:'あおき'},{kanji:'藤井',reading:'ふじい'},{kanji:'西村',reading:'にしむら'},{kanji:'福田',reading:'ふくだ'},{kanji:'太田',reading:'おおた'},{kanji:'三浦',reading:'みうら'},{kanji:'松田',reading:'まつだ'},{kanji:'原田',reading:'はらだ'},{kanji:'中野',reading:'なかの'},{kanji:'小野',reading:'おの'}
+    ],
+    korean: ['김','이','박','최','정','강','조','윤','장','임','한','오','서','신','권','황','안','송','류','전','홍','고','문','양','손','배','백','허','유','남','심','노','하','곽','성','차','주','우','구','민','나','진','지','엄','채','원','천','방','공','현'],
+    fantasy: {
+        elf: ['Telcontar','Elessar','Lothlórien','Mirkwood','Silvan','Noldor','Sindar','Vanyar','Calaquendi','Teleri','Falmari','Laiquendi'],
+        myth: ['Olympiar','Titanborn','Aetherian','Celestior','Empyrean','Primordiar','Elysiar','Tartarian','Ouraniar','Chaosborn'],
+        dark: ['Nighthollow','Dreadforge','Blackthorn','Grimsoul','Voidborn','Shadowcrest','Deathweave','Blightmoor','Ashgrave','Fellmark'],
+        oriental: ['천','무','독고','남궁','제갈','사마','황보','선우','소림','무당','화산','점창','청성','곤륜','아미']
+    }
+};
+
+function toggleSurname() {
+    surnameOn = !surnameOn;
+    const btn = document.getElementById('surnameToggle');
+    if (surnameOn) {
+        btn.textContent = 'ON';
+        btn.classList.add('active');
+    } else {
+        btn.textContent = 'OFF';
+        btn.classList.remove('active');
+    }
+}
+
+// ===================== TAB / RADIO LOGIC =====================
+document.getElementById('tabGroup').addEventListener('click', function(e) {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    // Fantasy: show style selector, keep gender
+    document.getElementById('fantasyStyleGroup').style.display = (currentCat === 'fantasy') ? 'block' : 'none';
+    document.getElementById('resultsArea').style.display = 'none';
+});
+
+document.getElementById('fantasyStyleRow').addEventListener('click', function(e) {
+    const lbl = e.target.closest('label');
+    if (!lbl) return;
+    document.querySelectorAll('#fantasyStyleRow label').forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    currentFantasyStyle = lbl.dataset.val;
+});
+
+document.getElementById('genderRow').addEventListener('click', function(e) {
+    const lbl = e.target.closest('label');
+    if (!lbl) return;
+    document.querySelectorAll('#genderRow label').forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    currentGender = lbl.dataset.val;
+});
+
+// ===================== GENERATE =====================
+function getPool() {
+    if (currentCat === 'fantasy') {
+        const style = names.fantasy[currentFantasyStyle];
+        if (currentGender === 'any') return [...style.f, ...style.m];
+        return style[currentGender];
+    }
+    const cat = names[currentCat];
+    if (currentGender === 'any') {
+        return [...cat.f, ...cat.m];
+    }
+    return cat[currentGender];
+}
+
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+function getRandomSurname() {
+    if (!surnameOn) return null;
+    let pool;
+    if (currentCat === 'fantasy') {
+        pool = surnames.fantasy[currentFantasyStyle] || surnames.fantasy.elf;
+    } else {
+        pool = surnames[currentCat] || surnames.english;
+    }
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    if (currentCat === 'japanese') return pick; // {kanji, reading}
+    return pick; // string
+}
+
+function speakName(text, lang) {
+    const u = new SpeechSynthesisUtterance(text);
+    if (lang === 'english') u.lang = 'en-US';
+    else if (lang === 'japanese') u.lang = 'ja-JP';
+    else if (lang === 'korean') u.lang = 'ko-KR';
+    else u.lang = 'en-US';
+    u.rate = 0.85;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+}
+
+function buildCard(item) {
+    const card = document.createElement('div');
+    card.className = 'name-card';
+    const surname = getRandomSurname();
+
+    let html = '';
+
+    if (currentCat === 'english') {
+        const fullName = surname ? surname + ' ' + item.name : item.name;
+        const esc = fullName.replace(/'/g, "\\'");
+        html = `
+            <button class="copy-btn" onclick="copyName(this, '${esc}')">Copy</button>
+            <div class="name-main">${fullName} <button class="speak-btn" onclick="speakName('${esc}','english')">&#128264;</button></div>
+            <div class="name-meaning"><span class="meaning-label">Meaning:</span> ${item.meaning}</div>
+        `;
+    } else if (currentCat === 'japanese') {
+        const sObj = surname; // null or {kanji, reading}
+        const fullKanji = sObj ? sObj.kanji + ' ' + item.name : item.name;
+        const fullReading = sObj ? sObj.reading + ' ' + item.reading : item.reading;
+        const copyText = fullKanji + ' (' + fullReading + ')';
+        const esc = copyText.replace(/'/g, "\\'");
+        const speakText = fullReading.replace(/'/g, "\\'");
+        html = `
+            <button class="copy-btn" onclick="copyName(this, '${esc}')">Copy</button>
+            <div class="name-main">${fullKanji} <button class="speak-btn" onclick="speakName('${speakText}','japanese')">&#128264;</button></div>
+            <div class="name-reading">${fullReading}</div>
+            <div class="name-meaning"><span class="meaning-label">Meaning:</span> ${item.meaning}</div>
+        `;
+    } else if (currentCat === 'korean') {
+        const fullName = surname ? surname + item.name : item.name;
+        const esc = fullName.replace(/'/g, "\\'");
+        html = `
+            <button class="copy-btn" onclick="copyName(this, '${esc}')">Copy</button>
+            <div class="name-main">${fullName} <button class="speak-btn" onclick="speakName('${esc}','korean')">&#128264;</button></div>
+            <div class="name-reading">${item.hanja}</div>
+            <div class="name-meaning"><span class="meaning-label">Meaning:</span> ${item.meaning}</div>
+        `;
+    } else {
+        const isOriental = currentFantasyStyle === 'oriental';
+        const fullName = surname ? (isOriental ? surname + item.name : surname + ' ' + item.name) : item.name;
+        const esc = fullName.replace(/'/g, "\\'");
+        const lang = isOriental ? 'korean' : 'english';
+        html = `
+            <button class="copy-btn" onclick="copyName(this, '${esc}')">Copy</button>
+            <div class="name-main">${fullName} <button class="speak-btn" onclick="speakName('${esc}','${lang}')">&#128264;</button></div>
+            <div class="name-meaning"><span class="meaning-label">Lore:</span> ${item.meaning}</div>
+        `;
+    }
+
+    card.innerHTML = html;
+    return card;
+}
+
+function generateNames() {
+    const pool = getPool();
+    const picked = shuffle(pool).slice(0, 10);
+
+    const grid = document.getElementById('nameGrid');
+    grid.innerHTML = '';
+    picked.forEach(item => grid.appendChild(buildCard(item)));
+
+    const catLabels = { english: 'English', japanese: 'Japanese', korean: 'Korean', fantasy: 'Fantasy' };
+    const fantasyLabels = { elf: 'Elf', myth: 'Mythology', dark: 'Dark', oriental: 'Oriental' };
+    const genderLabels = { f: 'Female', m: 'Male', any: 'Any' };
+    const gLabel = ` · ${genderLabels[currentGender]}`;
+    const fLabel = currentCat === 'fantasy' ? ` (${fantasyLabels[currentFantasyStyle]})` : '';
+    document.getElementById('resultsTitle').textContent = `${catLabels[currentCat]}${fLabel} Names${gLabel}`;
+
+    document.getElementById('resultsArea').style.display = 'block';
+    document.getElementById('resultsArea').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ===================== COPY =====================
+function copyName(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+        }, 1500);
+    }).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+        }, 1500);
+    });
+}
+</script>
+
+</body>
+</html>

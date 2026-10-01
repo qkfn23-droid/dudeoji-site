@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formateur JSON - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Formateur JSON est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, 100% gratuit. Aucune inscription requise. Tout le traitement se fait dans votre navigateur, aucune donnee personnelle n est envoyee a un serveur."}},
+    {"@type":"Question","name":"Comment utiliser Formateur JSON ?","acceptedAnswer":{"@type":"Answer","text":"Formatez et validez votre JSON. Supporte aussi la minification."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/json-format.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/json-format.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/json-format.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/json-format.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/json-format.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/json-format.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/json-format.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/json-format.html">
+    <link rel="canonical" href="https://mogutool.com/fr/tools/json-format.html">
+    <meta property="og:title" content="Formateur JSON - MOGU Tools">
+    <meta property="og:description" content="Formatez et validez votre JSON. Supporte aussi la minification.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/fr/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/fr/tools/json-format.html">
+    <meta name="description" content="Formatez et validez votre JSON. Supporte aussi la minification.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 800px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 800px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+
+        .editor-box { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+        .editor-box label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-bottom: 8px; }
+        textarea { width: 100%; height: 200px; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 13px; font-family: 'Fira Code', 'Consolas', monospace; resize: vertical; outline: none; line-height: 1.5; tab-size: 2; }
+        textarea:focus { border-color: #4a90d9; }
+
+        .btn-row { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+        .btn { padding: 10px 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff; font-size: 13px; cursor: pointer; font-weight: 500; }
+        .btn:hover { border-color: #4a90d9; color: #4a90d9; }
+        .btn-primary { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+        .btn-primary:hover { background: #3a7bc8; color: #fff; }
+
+        .status { padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; display: none; }
+        .status.valid { background: #f0f9f0; color: #27ae60; border: 1px solid #c3e6c3; display: block; }
+        .status.invalid { background: #fdf0f0; color: #e74c3c; border: 1px solid #f5c6cb; display: block; }
+
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Outils en Ligne Gratuits</a> &gt; Outils &gt; Formateur JSON
+</div>
+
+<div class="container">
+    <h1>Formateur JSON &amp; Validateur</h1>
+    <p class="subtitle">Formatez votre JSON et vérifiez les erreurs de syntaxe.</p>
+
+    <div class="editor-box">
+        <label>JSON d'entrée</label>
+        <textarea id="input" placeholder='{"name":"MOGU","tools":43}'></textarea>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn btn-primary" onclick="formatJSON()">✨ Formater (Beautify)</button>
+        <button class="btn" onclick="minifyJSON()">📦 Minifier (Minify)</button>
+        <button class="btn" onclick="validateJSON()">✅ Valider</button>
+        <button class="btn" onclick="copyOutput()">📋 Copier</button>
+        <button class="btn" onclick="clearAll()">🗑️ Effacer</button>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="editor-box">
+        <label>Résultat</label>
+        <textarea id="output" readonly style="background:#f8f9fa;"></textarea>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>Formateur JSON</h2><p>Formatez et validez votre JSON. Supporte aussi la minification.</p></div>
+<div class="seo-section"><h2>Questions fréquentes</h2><details class="seo-faq"><summary>Cet outil est-il gratuit ?</summary><p>Oui, 100% gratuit. Pas d'inscription. Tout est traité dans votre navigateur — aucune donnée n'est envoyée.</p></details><details class="seo-faq"><summary>Ça marche sur mobile ?</summary><p>Oui, tous les outils sont responsifs et fonctionnent sur smartphones, tablettes et ordinateurs.</p></details></div>
+<div class="seo-section"><h2>Outils associés</h2><div class="seo-related"><a href="csv-json.html">CSV → JSON</a><a href="diff.html">Comparaison de texte (Diff)</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+function formatJSON() {
+    try {
+        const obj = JSON.parse(document.getElementById('input').value);
+        document.getElementById('output').value = JSON.stringify(obj, null, 2);
+        showStatus('valid', '✅ JSON valide.');
+    } catch (e) {
+        showStatus('invalid', '❌ Erreur JSON : ' + e.message);
+    }
+}
+
+function minifyJSON() {
+    try {
+        const obj = JSON.parse(document.getElementById('input').value);
+        document.getElementById('output').value = JSON.stringify(obj);
+        showStatus('valid', '✅ Minification terminée.');
+    } catch (e) {
+        showStatus('invalid', '❌ Erreur JSON : ' + e.message);
+    }
+}
+
+function validateJSON() {
+    try {
+        const obj = JSON.parse(document.getElementById('input').value);
+        const keys = JSON.stringify(obj, null, 2).split('\n').length;
+        showStatus('valid', `✅ JSON valide. (${keys} lignes)`);
+    } catch (e) {
+        showStatus('invalid', '❌ Erreur JSON : ' + e.message);
+    }
+}
+
+function copyOutput() {
+    const output = document.getElementById('output');
+    output.select();
+    document.execCommand('copy');
+    showStatus('valid', '📋 Copié !');
+}
+
+function clearAll() {
+    document.getElementById('input').value = '';
+    document.getElementById('output').value = '';
+    document.getElementById('status').style.display = 'none';
+}
+
+function showStatus(type, msg) {
+    const el = document.getElementById('status');
+    el.className = 'status ' + type;
+    el.textContent = msg;
+}
+</script>
+
+</body>
+</html>

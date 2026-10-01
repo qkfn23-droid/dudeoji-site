@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>닉네임 생성기 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"닉네임 생성기 e gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sim, 100% gratuito. Sem cadastro necessario. Todo o processamento acontece no seu navegador, sem enviar dados pessoais a nenhum servidor."}},
+    {"@type":"Question","name":"Como usar 닉네임 생성기?","acceptedAnswer":{"@type":"Answer","text":"한국어/영어 닉네임을 스타일별로 자동 생성합니다. 귀여운, 멋있는, 웃긴, 게임용 닉네임을 무한 생성하세요."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/nickname-gen.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/nickname-gen.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/nickname-gen.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/nickname-gen.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/nickname-gen.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/nickname-gen.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/nickname-gen.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/nickname-gen.html">
+    <link rel="canonical" href="https://mogutool.com/pt/tools/nickname-gen.html">
+    <meta property="og:title" content="닉네임 생성기 - MOGU Tools">
+    <meta property="og:description" content="한국어/영어 닉네임을 스타일별로 자동 생성합니다. 귀여운, 멋있는, 웃긴, 게임용 닉네임을 무한 생성하세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/pt/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/pt/tools/nickname-gen.html">
+    <meta name="description" content="한국어/영어 닉네임을 스타일별로 자동 생성합니다. 귀여운, 멋있는, 웃긴, 게임용 닉네임을 무한 생성하세요.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 22px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* Radio / Checkbox row */
+        .radio-row, .check-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .radio-row input[type="radio"],
+        .check-row input[type="checkbox"] {
+            display: none;
+        }
+
+        .radio-row label,
+        .check-row label {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+            margin-bottom: 0;
+        }
+
+        .radio-row input[type="radio"]:checked + label,
+        .check-row input[type="checkbox"]:checked + label {
+            border-color: #4a90d9;
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .radio-row label:hover,
+        .check-row label:hover {
+            border-color: #4a90d9;
+        }
+
+        /* Slider */
+        .slider-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .slider-wrap input[type="range"] {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: #e0e0e0;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .slider-wrap input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4a90d9;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(74,144,217,0.4);
+        }
+
+        .slider-val {
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a90d9;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .slider-hints {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #bbb;
+            margin-top: 4px;
+            padding: 0 2px;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Results */
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .result-header .result-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .regen-btn {
+            padding: 7px 16px;
+            background: #f0f0f0;
+            color: #555;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .regen-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .nickname-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nickname-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: background 0.15s;
+        }
+
+        .nickname-item:hover {
+            background: #eef4fb;
+            border-color: #c5dcf5;
+        }
+
+        .nickname-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c2c2c;
+            letter-spacing: 0.3px;
+        }
+
+        .copy-btn {
+            padding: 5px 14px;
+            background: #fff;
+            color: #4a90d9;
+            border: 1.5px solid #4a90d9;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+            border-color: #5cb85c;
+            color: #fff;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Ferramentas Online Grátis</a> &gt; 생성기 &gt; 닉네임 생성기
+</div>
+
+<div class="container">
+    <h1>닉네임 생성기</h1>
+    <p class="subtitle">스타일과 언어를 선택하면 닉네임 10개를 자동으로 만들어드립니다.</p>
+
+    <div class="calc-box">
+
+        <!-- 언어 선택 -->
+        <div class="input-group">
+            <label>언어</label>
+            <div class="radio-row">
+                <input type="radio" name="lang" id="lang-ko" value="ko" checked>
+                <label for="lang-ko">한국어</label>
+
+                <input type="radio" name="lang" id="lang-en" value="en">
+                <label for="lang-en">영어</label>
+            </div>
+        </div>
+
+        <!-- 스타일 선택 -->
+        <div class="input-group">
+            <label>스타일 <span style="font-size:12px;color:#aaa;font-weight:400;">(복수 선택 가능)</span></label>
+            <div class="check-row">
+                <input type="checkbox" id="style-cute" value="cute" checked>
+                <label for="style-cute">귀여운</label>
+
+                <input type="checkbox" id="style-cool" value="cool">
+                <label for="style-cool">멋있는</label>
+
+                <input type="checkbox" id="style-funny" value="funny">
+                <label for="style-funny">웃긴</label>
+
+                <input type="checkbox" id="style-game" value="game">
+                <label for="style-game">게임용</label>
+            </div>
+        </div>
+
+        <!-- 글자수 -->
+        <div class="input-group">
+            <label>글자수: <span id="lenDisplay" style="color:#4a90d9;">4</span>자 이하</label>
+            <div class="slider-wrap">
+                <span style="font-size:13px;color:#bbb;">2</span>
+                <input type="range" id="lenSlider" min="2" max="8" value="4" oninput="updateSlider()">
+                <span style="font-size:13px;color:#bbb;">8</span>
+            </div>
+            <div class="slider-hints">
+                <span>짧게</span>
+                <span>길게</span>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="generate()">생성하기</button>
+
+        <!-- 결과 -->
+        <div class="result" id="result">
+            <div class="result-header">
+                <span class="result-title" id="resultTitle">생성된 닉네임 10개</span>
+                <button class="regen-btn" onclick="generate()">다시 생성</button>
+            </div>
+            <div class="nickname-grid" id="nicknameGrid"></div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>닉네임 생성기란?</h2>
+        <p>
+            형용사와 명사를 무작위로 조합해 개성 있는 닉네임을 만들어줍니다.
+            언어(한국어/영어), 분위기(귀여운/멋있는/웃긴/게임용), 글자수를 설정하면
+            조건에 맞는 닉네임 10개를 한 번에 생성합니다.
+            마음에 드는 닉네임 옆의 복사 버튼을 눌러 바로 사용하세요.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content"><div class="seo-section"><h2>Gerador de Apelidos</h2><p>Gere apelidos aleatórios em vários estilos: legal, fofo, engraçado, gamer, hacker.</p></div><div class="seo-section"><h2>Perguntas frequentes</h2><details class="seo-faq"><summary>Esta ferramenta é gratuita?</summary><p>Sim, 100% gratuita. Sem cadastro. Tudo é processado no seu navegador — nenhum dado é enviado a servidores.</p></details><details class="seo-faq"><summary>Funciona no celular?</summary><p>Sim, todas as ferramentas são responsivas e funcionam em smartphones, tablets e desktops.</p></details></div>
+<div class="seo-section"><h2>Ferramentas relacionadas</h2><div class="seo-related"><a href="name-gen.html">Gerador de Nomes</a><a href="random-pick.html">Sorteio aleatorio</a></div></div></div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+// ── 한국어 데이터 ──────────────────────────────────────────────
+
+const KO = {
+    cute: {
+        adj: ['귀여운','깜찍한','사랑스런','포근한','달콤한','통통한','뽀송한','아기같은',
+              '수줍은','발랄한','몽실몽실','복실복실','폭신한','솜사탕같은','보들보들',
+              '깜찍','방글방글','해맑은','조그만','작은','하얀','복실한','풍성한'],
+        noun: ['고양이','강아지','토끼','햄스터','다람쥐','병아리','팬더','곰돌이',
+               '뽀뇨','두부','마시멜로','푸딩','솜사탕','딸기','바나나','포도','복숭아',
+               '봄날','달빛','별빛','꽃잎','나비','무지개','구름','눈송이','아이스크림']
+    },
+    cool: {
+        adj: ['날쌘','용감한','강철같은','번개같은','폭풍같은','어둠의','전설의','무적의',
+              '냉혹한','위험한','강력한','질풍같은','불꽃같은','신속한','침착한','날카로운',
+              '맹렬한','거침없는','패기넘치는','철혈의','냉정한','무자비한','압도적인'],
+        noun: ['호랑이','늑대','독수리','사자','표범','용','팬텀','블레이드','섀도우',
+               '스톰','레이더','헌터','나이트','비스트','워리어','레전드','그림자','번개',
+               '화염','강철','다크니스','피닉스','드래곤','크로우','레이브']
+    },
+    funny: {
+        adj: ['춤추는','노래하는','졸린','배고픈','엉뚱한','황당한','웃기는','이상한',
+              '멍청한','알수없는','뚱뚱한','삐뚤어진','헷갈리는','어리버리','능청스런',
+              '허당','빈틈없는척하는','멍때리는','느릿느릿','뒤죽박죽','당황한'],
+        noun: ['감자','고구마','바나나','두부','당근','양파','오이','계란','떡볶이',
+               '라면','치킨','피자','순대','만두','곱창','도넛','슬라임','주전자',
+               '냉장고','소파','의자','신발','양말','장갑','빗자루','국자']
+    },
+    game: {
+        adj: ['최강','무적','전설','극한','초월','절대','초고수','궁극','제왕',
+              '지배자','학살자','파괴자','암살','은밀한','광전사','돌격','저격','전략가',
+              '필살','혈투','불굴','강림한','선택받은','각성한','진화한'],
+        noun: ['검사','마법사','궁수','전사','암살자','성기사','드루이드','네크로','버서커',
+               '스나이퍼','레인저','파이터','위저드','나이트','가디언','세이지','메이지',
+               '헌터','워리어','탱커','힐러','딜러','로그','바드','모험가','정복자']
+    }
+};
+
+// ── 영어 데이터 ──────────────────────────────────────────────
+
+const EN = {
+    cute: {
+        adj: ['Fluffy','Tiny','Sweet','Bubbly','Cuddly','Bouncy','Cheerful','Sunny',
+              'Rosy','Fuzzy','Pudgy','Giggly','Sparky','Snuggly','Daisy','Breezy',
+              'Cotton','Honey','Peach','Velvet','Pastel','Cozy','Misty'],
+        noun: ['Bunny','Kitten','Puppy','Panda','Teddy','Mochi','Cookie','Pudding',
+               'Cupcake','Donut','Jellybean','Marshmallow','Biscuit','Sprout','Petal',
+               'Buttercup','Peaches','Noodle','Ducky','Pebble','Starlet','Dewdrop']
+    },
+    cool: {
+        adj: ['Swift','Dark','Iron','Storm','Silent','Rogue','Blaze','Frost',
+              'Savage','Crimson','Phantom','Shadow','Stealth','Lethal','Venom',
+              'Steel','Onyx','Razor','Thunder','Wild','Rebel','Neon','Inferno'],
+        noun: ['Wolf','Tiger','Eagle','Viper','Cobra','Fox','Raven','Shark',
+               'Dragon','Hawk','Panther','Specter','Ghost','Blade','Hunter',
+               'Striker','Reaper','Titan','Wraith','Phoenix','Lynx','Sentinel']
+    },
+    funny: {
+        adj: ['Sleepy','Hungry','Clumsy','Goofy','Wobbly','Grumpy','Dizzy','Silly',
+              'Chunky','Blobby','Wiggly','Derpy','Sneezy','Lazy','Wacky','Quirky',
+              'Loopy','Dozy','Bumbling','Flukey','Boggled','Reckless'],
+        noun: ['Potato','Noodle','Pickle','Waffle','Taco','Pretzel','Muffin','Donut',
+               'Spaghetti','Cabbage','Turnip','Bagel','Burrito','Dumpling','Pudding',
+               'Cracker','Biscuit','Nacho','Pretzel','Tofu','Jellyfish','Cactus']
+    },
+    game: {
+        adj: ['Ultra','Mega','Hyper','Lethal','Supreme','Elite','Brutal','Eternal',
+              'Godlike','Unstoppable','Infinite','Notorious','Apex','Zero','Stealth',
+              'Raging','Void','Fallen','Ascended','Ancient','Primal','Divine'],
+        noun: ['Slayer','Knight','Archer','Mage','Warrior','Phantom','Rogue','Titan',
+               'Berserker','Assassin','Paladin','Druid','Sniper','Guardian','Ranger',
+               'Warlord','Crusader','Specter','Reaper','Hunter','Sage','Vanguard']
+    }
+};
+
+// ── 유틸 ──────────────────────────────────────────────────────
+
+function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function updateSlider() {
+    const val = document.getElementById('lenSlider').value;
+    document.getElementById('lenDisplay').textContent = val;
+}
+
+function getSelectedStyles() {
+    const ids = ['style-cute','style-cool','style-funny','style-game'];
+    const keys = ['cute','cool','funny','game'];
+    const selected = [];
+    ids.forEach((id, i) => {
+        if (document.getElementById(id).checked) selected.push(keys[i]);
+    });
+    return selected.length ? selected : ['cute'];
+}
+
+function makeNickname(lang, styles, maxLen) {
+    const data = lang === 'ko' ? KO : EN;
+    let attempts = 0;
+    while (attempts < 50) {
+        attempts++;
+        const style = pick(styles);
+        const pool = data[style];
+        const adj = pick(pool.adj);
+        const noun = pick(pool.noun);
+        const nick = adj + noun;
+        if (nick.length <= maxLen) return nick;
+    }
+    // 글자수 제한을 못 맞추면 그냥 반환
+    const style = pick(styles);
+    const pool = data[style];
+    return pick(pool.adj) + pick(pool.noun);
+}
+
+function generate() {
+    const lang = document.querySelector('input[name="lang"]:checked').value;
+    const styles = getSelectedStyles();
+    const maxLen = parseInt(document.getElementById('lenSlider').value);
+
+    const grid = document.getElementById('nicknameGrid');
+    grid.innerHTML = '';
+
+    const seen = new Set();
+    const nicknames = [];
+
+    let tries = 0;
+    while (nicknames.length < 10 && tries < 200) {
+        tries++;
+        const nick = makeNickname(lang, styles, maxLen);
+        if (!seen.has(nick)) {
+            seen.add(nick);
+            nicknames.push(nick);
+        }
+    }
+
+    nicknames.forEach(nick => {
+        const item = document.createElement('div');
+        item.className = 'nickname-item';
+
+        const text = document.createElement('span');
+        text.className = 'nickname-text';
+        text.textContent = nick;
+
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = '복사';
+        btn.onclick = () => copyNick(nick, btn);
+
+        item.appendChild(text);
+        item.appendChild(btn);
+        grid.appendChild(item);
+    });
+
+    const result = document.getElementById('result');
+    result.style.display = 'block';
+
+    const styleNames = { cute:'귀여운', cool:'멋있는', funny:'웃긴', game:'게임용' };
+    const styleLabel = styles.map(s => styleNames[s]).join(', ');
+    document.getElementById('resultTitle').textContent =
+        `생성된 닉네임 ${nicknames.length}개 (${styleLabel})`;
+}
+
+function copyNick(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+        const prev = btn.textContent;
+        btn.textContent = '완료!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = prev;
+            btn.classList.remove('copied');
+        }, 1500);
+    }).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = '완료!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = '복사';
+            btn.classList.remove('copied');
+        }, 1500);
+    });
+}
+</script>
+
+</body>
+</html>

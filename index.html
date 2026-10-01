@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dudeoji Studio — 두더지 스튜디오</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f9fa;color:#333;min-height:100vh;overflow-x:hidden;}
+
+/* 네비게이션 */
+.nav{background:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+.nav-logo{font-size:18px;font-weight:700;color:#333;text-decoration:none;letter-spacing:1px;}
+.nav-tabs{display:flex;gap:2px;background:#f0f0f0;border-radius:10px;padding:3px;}
+.nav-tab{padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;color:#888;cursor:pointer;transition:all .2s;text-decoration:none;border:none;background:none;}
+.nav-tab:hover{color:#333;}
+.nav-tab.active{background:#fff;color:#333;font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.nav-lang{padding:5px 10px;border-radius:8px;border:1px solid #ddd;font-size:11px;color:#666;background:#fff;cursor:pointer;outline:none;}
+.nav-login{padding:6px 16px;border-radius:8px;background:#333;color:#fff;font-size:12px;font-weight:700;border:none;cursor:pointer;letter-spacing:1px;}
+
+@media(max-width:768px){
+.nav{padding:10px 14px;}
+.nav-tab{padding:6px 10px;font-size:11px;}
+.nav-logo{font-size:15px;}
+}
+
+/* 히어로 */
+.hero{max-width:1100px;margin:30px auto;padding:0 20px;text-align:center;}
+.hero-mascot{margin-bottom:16px;}
+.hero h1{font-size:28px;color:#333;margin-bottom:8px;letter-spacing:2px;}
+.hero p{font-size:14px;color:#777;line-height:1.7;margin-bottom:24px;}
+
+/* 서비스 카드 */
+.services{max-width:1100px;margin:0 auto 40px;padding:0 20px;}
+.services-title{font-size:16px;color:#333;font-weight:700;margin-bottom:16px;letter-spacing:1px;}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:768px){.service-grid{grid-template-columns:1fr;}}
+
+.service-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:24px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+.service-card:hover{border-color:#333;transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08);}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s;}
+.service-card:hover::before{opacity:1;}
+.card-icon{font-size:36px;margin-bottom:12px;}
+.card-title{font-size:18px;color:#333;font-weight:700;margin-bottom:6px;}
+.card-desc{font-size:12px;color:#777;line-height:1.7;}
+.card-badge{position:absolute;top:14px;right:14px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;}
+.badge-main{background:rgba(56,189,248,0.15);color:#0ea5e9;}
+.badge-hot{background:rgba(231,76,60,0.2);color:#e74c3c;}
+.badge-new{background:rgba(39,174,96,0.2);color:#27ae60;}
+
+/* 탭 콘텐츠 미리보기 */
+.tab-preview{max-width:1100px;margin:0 auto 40px;padding:0 20px;}
+.preview-box{background:#fff;border:1px solid #eee;border-radius:16px;padding:30px;display:none;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+.preview-box.active{display:block;}
+.preview-title{font-size:20px;color:#333;font-weight:700;margin-bottom:8px;}
+.preview-desc{font-size:13px;color:#888;line-height:1.8;margin-bottom:20px;}
+.preview-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
+.preview-item{background:#f8f9fa;border:1px solid #eee;border-radius:10px;padding:14px;text-align:center;font-size:12px;color:#666;transition:all .2s;cursor:pointer;}
+.preview-item:hover{border-color:#333;color:#333;}
+.preview-item .pi-icon{font-size:24px;margin-bottom:6px;display:block;}
+
+/* 하단 연결 배너 */
+.connect-section{max-width:1100px;margin:0 auto 40px;padding:0 20px;}
+.connect-title{font-size:14px;color:#333;margin-bottom:12px;letter-spacing:1px;}
+.connect-flow{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:20px;background:#fff;border:1px solid #eee;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+.flow-item{text-align:center;padding:12px 20px;}
+.flow-icon{font-size:28px;margin-bottom:4px;}
+.flow-name{font-size:12px;color:#333;font-weight:600;}
+.flow-arrow{color:#555;font-size:20px;}
+
+/* 푸터 */
+.footer{text-align:center;padding:30px 20px;font-size:11px;color:#999;border-top:1px solid #eee;margin-top:20px;}
+.footer a{color:#555;text-decoration:none;}
+
+/* 다크/라이트 */
+.light-mode{background:#f5f5f5 !important;color:#333 !important}
+.light-mode .nav{background:rgba(255,255,255,0.95) !important;border-color:#eee !important}
+.light-mode .nav-tab{color:#666 !important}
+.light-mode .nav-tab.active{background:rgba(201,168,76,0.15) !important;color:#c9a84c !important}
+.light-mode .service-card,.light-mode .preview-box,.light-mode .connect-flow{background:linear-gradient(135deg,#fff,#fafafa) !important;border-color:#e0e0e0 !important}
+.light-mode .card-title{color:#333 !important}
+.light-mode .card-desc,.light-mode .preview-desc{color:#666 !important}
+.light-mode .preview-item{background:rgba(0,0,0,0.02) !important;border-color:rgba(0,0,0,0.08) !important;color:#666 !important}
+.light-mode .footer{color:#999 !important;border-color:#eee !important}
+</style>
+</head>
+<body>
+<script>if(localStorage.getItem('dudeoji_light')==='true')document.body.classList.add('light-mode');</script>
+
+<!-- 네비게이션 -->
+<nav class="nav">
+    <a href="/" class="nav-logo">
+        Dudeoji Studio
+    </a>
+    <div class="nav-tabs">
+        <a class="nav-tab active" onclick="showTab('home')">홈</a>
+        <a class="nav-tab" onclick="showTab('astro')">점성술</a>
+        <a class="nav-tab" onclick="showTab('penpal')">펜팔</a>
+        <a class="nav-tab" onclick="showTab('world')">월드</a>
+        <a class="nav-tab" onclick="showTab('tool')">도구</a>
+    </div>
+    <div class="nav-right">
+        <select class="nav-lang">
+            <option selected>KR</option>
+            <option>EN</option>
+            <option>JP</option>
+            <option>DE</option>
+            <option>ES</option>
+            <option>FR</option>
+            <option>PT</option>
+        </select>
+        <button class="nav-login">로그인</button>
+    </div>
+</nav>
+
+<!-- 히어로 -->
+<div class="hero">
+    <h1>Dudeoji Studio</h1>
+    <p>별자리 기반 점성술 · 언어교환 펜팔 · 게임 월드<br>7개 언어 · 전통 고대 기법 · 무료</p>
+</div>
+
+<!-- 메인 서비스 카드 -->
+<div class="services">
+    <div class="services-title">✦ 서비스</div>
+    <div class="service-grid">
+        <div class="service-card" style="--accent:#c9a84c;" onclick="showTab('astro')">
+            <span class="card-badge badge-hot">HOT</span>
+            <div class="card-icon">🔮</div>
+            <div class="card-title">점성술</div>
+            <div class="card-desc">사주 · 타로 · 베딕 · 럭키타임 · 꿈해몽<br>13가지 전통 점술 도구 · 7개 언어</div>
+        </div>
+        <div class="service-card" style="--accent:#38bdf8;" onclick="showTab('penpal')">
+            <span class="card-badge badge-main">MAIN</span>
+            <div class="card-icon">📮</div>
+            <div class="card-title">펜팔</div>
+            <div class="card-desc">별자리 기반 언어교환 · 펜팔 편지<br>7개 언어 · 별자리 매칭</div>
+        </div>
+        <div class="service-card" style="--accent:#8b5cf6;" onclick="showTab('world')">
+            <span class="card-badge badge-new">NEW</span>
+            <div class="card-icon">🌍</div>
+            <div class="card-title">월드</div>
+            <div class="card-desc">멀티플레이 게임 · 채팅 · 상점<br>별자리 길드 · 언어교환 게임</div>
+        </div>
+    </div>
+</div>
+
+<!-- 탭별 미리보기 -->
+<div class="tab-preview">
+    <!-- 점성술 -->
+    <div class="preview-box" id="preview-astro">
+        <div class="preview-title">🔮 점성술</div>
+        <div class="preview-desc">5대 고대 문명의 수천 년 전통 기법으로 당신의 운명을 해석합니다.</div>
+        <div class="preview-items">
+            <div class="preview-item"><span class="pi-icon">🌅</span>오늘의 운세</div>
+            <div class="preview-item"><span class="pi-icon">⏰</span>럭키타임</div>
+            <div class="preview-item"><span class="pi-icon">☯️</span>사주팔자</div>
+            <div class="preview-item"><span class="pi-icon">🃏</span>타로 카드</div>
+            <div class="preview-item"><span class="pi-icon">🕉️</span>베딕 점성술</div>
+            <div class="preview-item"><span class="pi-icon">🏛️</span>헬레니즘</div>
+            <div class="preview-item"><span class="pi-icon">🌀</span>마야 점성술</div>
+            <div class="preview-item"><span class="pi-icon">𓂀</span>이집트 데칸</div>
+            <div class="preview-item"><span class="pi-icon">💜</span>자미두수</div>
+            <div class="preview-item"><span class="pi-icon">🌿</span>꿈 해몽</div>
+            <div class="preview-item"><span class="pi-icon">📖</span>주역</div>
+            <div class="preview-item"><span class="pi-icon">🔢</span>수비학</div>
+            <div class="preview-item"><span class="pi-icon">🌈</span>오라 컬러</div>
+            <div class="preview-item"><span class="pi-icon">🔮</span>수정구</div>
+            <div class="preview-item"><span class="pi-icon">🌕</span>문 페이즈</div>
+            <div class="preview-item"><span class="pi-icon">📊</span>바이오리듬</div>
+            <div class="preview-item"><span class="pi-icon">💑</span>사주 궁합</div>
+            <div class="preview-item"><span class="pi-icon">💕</span>별자리 궁합</div>
+            <div class="preview-item"><span class="pi-icon">🏛️</span>전생 테스트</div>
+            <div class="preview-item"><span class="pi-icon">🐾</span>수호 동물</div>
+        </div>
+    </div>
+
+    <!-- 펜팔 -->
+    <div class="preview-box" id="preview-penpal">
+        <div class="preview-title">📮 펜팔</div>
+        <div class="preview-desc">별자리 기반으로 전세계 펜팔을 만나보세요. 7개 언어 지원.</div>
+        <div class="preview-items">
+            <div class="preview-item"><span class="pi-icon">🔍</span>친구 찾기</div>
+            <div class="preview-item"><span class="pi-icon">✉️</span>편지 쓰기</div>
+            <div class="preview-item"><span class="pi-icon">⭐</span>별자리 매칭</div>
+            <div class="preview-item"><span class="pi-icon">👤</span>마이페이지</div>
+        </div>
+    </div>
+
+    <!-- 월드 -->
+    <div class="preview-box" id="preview-world">
+        <div class="preview-title">🌍 월드</div>
+        <div class="preview-desc">별자리 길드와 함께 게임하며 언어교환하세요.</div>
+        <div class="preview-items">
+            <div class="preview-item"><span class="pi-icon">🎮</span>게임방</div>
+            <div class="preview-item"><span class="pi-icon">💬</span>채팅방</div>
+            <div class="preview-item"><span class="pi-icon">🏪</span>상점</div>
+            <div class="preview-item"><span class="pi-icon">🪐</span>길드</div>
+        </div>
+    </div>
+
+    <!-- 도구 -->
+    <div class="preview-box" id="preview-tool">
+        <div class="preview-title">🛠️ 도구</div>
+        <div class="preview-desc">100+ 무료 온라인 도구.</div>
+        <div class="preview-items">
+            <div class="preview-item"><span class="pi-icon">🛠️</span>100+ 도구</div>
+        </div>
+    </div>
+</div>
+
+<!-- 연결 흐름 -->
+<div class="connect-section">
+    <div class="connect-title">✦ 이렇게 연결돼요</div>
+    <div class="connect-flow">
+        <div class="flow-item">
+            <div class="flow-icon">🔮</div>
+            <div class="flow-name">별자리 확인</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">
+            <div class="flow-icon">📮</div>
+            <div class="flow-name">별자리 매칭 펜팔</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">
+            <div class="flow-icon">🌍</div>
+            <div class="flow-name">같이 게임하며 언어교환</div>
+        </div>
+    </div>
+</div>
+
+<!-- 푸터 -->
+<footer class="footer">
+    &copy; 2025 Dudeoji Studio<br>
+    <a href="/about">소개</a> · <a href="/privacy">개인정보처리방침</a> · <a href="/blog">블로그</a>
+</footer>
+
+<!-- 테마 토글 -->
+<button id="themeBtn" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('dudeoji_light',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#1a1a3e;color:#c9a84c;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button>
+<script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeBtn'))document.getElementById('themeBtn').textContent='🌙';</script>
+
+<script>
+function showTab(tab) {
+    // 탭 활성화
+    document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
+    event.target.classList.add('active');
+
+    // 미리보기 표시
+    document.querySelectorAll('.preview-box').forEach(function(p) { p.classList.remove('active'); });
+    var preview = document.getElementById('preview-' + tab);
+    if (preview) {
+        preview.classList.add('active');
+        preview.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+}
+</script>
+
+</body>
+</html>

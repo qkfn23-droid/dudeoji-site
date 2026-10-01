@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seitenverhältnis Rechner - Bildverhältnis berechnen | MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Ist Seitenverhaeltnis-Rechner kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100% kostenlos. Keine Anmeldung erforderlich. Alle Verarbeitung erfolgt im Browser, keine persoenlichen Daten werden an Server gesendet."}},
+    {"@type":"Question","name":"Wie benutze ich Seitenverhaeltnis-Rechner?","acceptedAnswer":{"@type":"Answer","text":"Seitenverhältnis Rechner: Berechnen Sie das Bildverhältnis aus der Auflösung oder finden Sie passende Größen für 16:9, 4:3, 1:1 und mehr. Kostenlos online."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/aspect-ratio.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/aspect-ratio.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/aspect-ratio.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/aspect-ratio.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/aspect-ratio.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/aspect-ratio.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/aspect-ratio.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/aspect-ratio.html">
+    <link rel="canonical" href="https://mogutool.com/de/tools/aspect-ratio.html">
+    <meta property="og:title" content="Seitenverhältnis Rechner - Bildverhältnis berechnen | MOGU Tools">
+    <meta property="og:description" content="Seitenverhältnis Rechner: Berechnen Sie das Bildverhältnis aus der Auflösung oder finden Sie passende Größen für 16:9, 4:3, 1:1 und mehr. Kostenlos online.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/de/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/de/tools/aspect-ratio.html">
+    <meta name="description" content="Seitenverhältnis Rechner: Berechnen Sie das Bildverhältnis aus der Auflösung oder finden Sie passende Größen für 16:9, 4:3, 1:1 und mehr. Kostenlos online.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Mode tabs */
+        .mode-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .mode-tab {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            background: #fff;
+            color: #999;
+            border: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .mode-tab.active {
+            background: #4a90d9;
+            color: #fff;
+        }
+
+        /* Input groups */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row .unit {
+            font-size: 14px;
+            color: #999;
+            min-width: 30px;
+        }
+
+        .input-row .sep {
+            font-size: 20px;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        /* Preset buttons */
+        .preset-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .preset-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .preset-btn {
+            padding: 6px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #fff;
+            color: #555;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+
+        .preset-btn:hover {
+            border-color: #4a90d9;
+            color: #4a90d9;
+        }
+
+        .preset-btn.active {
+            background: #4a90d9;
+            border-color: #4a90d9;
+            color: #fff;
+        }
+
+        /* Section divider */
+        .section-divider {
+            display: none;
+        }
+
+        /* Calc btn */
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a90d9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #3a7bc8;
+        }
+
+        /* Result */
+        .result {
+            display: none;
+            margin-top: 24px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+
+        .result-card .r-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 6px;
+        }
+
+        .result-card .r-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4a90d9;
+            word-break: break-all;
+        }
+
+        .result-card .r-value.big {
+            font-size: 28px;
+        }
+
+        /* Visual preview */
+        .preview-area {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .preview-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .preview-frame-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+        }
+
+        .preview-frame {
+            background: #4a90d9;
+            opacity: 0.18;
+            border-radius: 4px;
+            border: 2px solid #4a90d9;
+            opacity: 1;
+            background: rgba(74, 144, 217, 0.12);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        /* Mode panels */
+        .mode-panel {
+            display: none;
+        }
+        .mode-panel.active {
+            display: block;
+        }
+
+        /* Size calc: which side input */
+        .which-side {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .which-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #fff;
+            color: #999;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+
+        .which-btn.active {
+            border-color: #4a90d9;
+            color: #4a90d9;
+            background: #eef4fb;
+        }
+
+        /* Resolution reference table */
+        .ref-table {
+            margin-top: 0;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ref-table th, .ref-table td {
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 13px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ref-table th {
+            color: #888;
+            font-weight: 500;
+        }
+
+        .ref-table td:first-child {
+            font-weight: 600;
+            color: #444;
+        }
+
+        .ref-table td:last-child {
+            color: #4a90d9;
+            font-weight: 600;
+        }
+
+        /* Info section */
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        /* Custom ratio input row */
+        .ratio-input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ratio-input-row input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            text-align: center;
+        }
+
+        .ratio-input-row input:focus {
+            border-color: #4a90d9;
+        }
+
+        .ratio-colon {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ccc;
+        }
+
+        @media (max-width: 400px) {
+            .result-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Werkzeuge</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">Startseite</a> &gt; Rechner &gt; Seitenverhaeltnis-Rechner
+</div>
+
+<div class="container">
+    <h1>Seitenverhaeltnis-Rechner</h1>
+    <p class="subtitle">Berechnen Sie das Verhaeltnis aus der Aufloesung oder ermitteln Sie die passende Groesse.</p>
+
+    <div class="calc-box">
+
+        <!-- Mode tabs -->
+        <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('ratio')">Verhaeltnis berechnen</button>
+            <button class="mode-tab" onclick="switchMode('size')">Groesse berechnen</button>
+        </div>
+
+        <!-- MODUS 1: Verhaeltnis berechnen -->
+        <div class="mode-panel active" id="panel-ratio">
+            <div class="input-group">
+                <label>Breite (Width)</label>
+                <div class="input-row">
+                    <input type="number" id="r-width" placeholder="1920" min="1" oninput="liveCalcRatio()">
+                    <span class="unit">px</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Hoehe (Height)</label>
+                <div class="input-row">
+                    <input type="number" id="r-height" placeholder="1080" min="1" oninput="liveCalcRatio()">
+                    <span class="unit">px</span>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calcRatio()">Verhaeltnis berechnen</button>
+
+            <div class="result" id="result-ratio">
+                <div class="result-grid">
+                    <div class="result-card">
+                        <div class="r-label">Verhaeltnis</div>
+                        <div class="r-value big" id="out-ratio">-</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="r-label">Dezimalverhaeltnis</div>
+                        <div class="r-value" id="out-decimal">-</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="r-label">Gesamtpixel</div>
+                        <div class="r-value" id="out-pixels">-</div>
+                    </div>
+                </div>
+                <div class="preview-area">
+                    <div class="preview-label">Vorschau</div>
+                    <div class="preview-frame-wrap">
+                        <div class="preview-frame" id="preview-ratio"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODUS 2: Groesse berechnen -->
+        <div class="mode-panel" id="panel-size">
+            <div class="input-group">
+                <div class="preset-label">Verhaeltnis waehlen</div>
+                <div class="preset-btns" id="preset-btns">
+                    <button class="preset-btn" onclick="selectPreset(this, 16, 9)">16:9</button>
+                    <button class="preset-btn" onclick="selectPreset(this, 4, 3)">4:3</button>
+                    <button class="preset-btn" onclick="selectPreset(this, 1, 1)">1:1</button>
+                    <button class="preset-btn" onclick="selectPreset(this, 9, 16)">9:16</button>
+                    <button class="preset-btn" onclick="selectPreset(this, 3, 2)">3:2</button>
+                    <button class="preset-btn" onclick="selectPreset(this, 21, 9)">21:9</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Manuell eingeben (Verhaeltnis)</label>
+                <div class="ratio-input-row">
+                    <input type="number" id="s-ratio-w" placeholder="16" min="1" oninput="clearPreset(); liveCalcSize()">
+                    <span class="ratio-colon">:</span>
+                    <input type="number" id="s-ratio-h" placeholder="9" min="1" oninput="clearPreset(); liveCalcSize()">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Berechnungsrichtung</label>
+                <div class="which-side">
+                    <button class="which-btn active" id="btn-give-w" onclick="setGive('w')">Breite eingeben &rarr; Hoehe berechnen</button>
+                    <button class="which-btn" id="btn-give-h" onclick="setGive('h')">Hoehe eingeben &rarr; Breite berechnen</button>
+                </div>
+            </div>
+
+            <div class="input-group" id="give-w-group">
+                <label>Breite (Width)</label>
+                <div class="input-row">
+                    <input type="number" id="s-width" placeholder="1920" min="1" oninput="liveCalcSize()">
+                    <span class="unit">px</span>
+                </div>
+            </div>
+
+            <div class="input-group" id="give-h-group" style="display:none;">
+                <label>Hoehe (Height)</label>
+                <div class="input-row">
+                    <input type="number" id="s-height" placeholder="1080" min="1" oninput="liveCalcSize()">
+                    <span class="unit">px</span>
+                </div>
+            </div>
+
+            <button class="calc-btn" onclick="calcSize()">Groesse berechnen</button>
+
+            <div class="result" id="result-size">
+                <div class="result-grid">
+                    <div class="result-card">
+                        <div class="r-label">Breite</div>
+                        <div class="r-value big" id="out-s-width">-</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="r-label">Hoehe</div>
+                        <div class="r-value big" id="out-s-height">-</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="r-label">Gesamtpixel</div>
+                        <div class="r-value" id="out-s-pixels">-</div>
+                    </div>
+                </div>
+                <div class="preview-area">
+                    <div class="preview-label">Vorschau</div>
+                    <div class="preview-frame-wrap">
+                        <div class="preview-frame" id="preview-size"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Resolution reference -->
+    <div class="info-section">
+        <h2>Gaengige Aufloesungen</h2>
+        <table class="ref-table">
+            <tr>
+                <th>Name</th>
+                <th>Aufloesung</th>
+                <th>Verhaeltnis</th>
+            </tr>
+            <tr>
+                <td>HD</td>
+                <td>1280 x 720</td>
+                <td>16:9</td>
+            </tr>
+            <tr>
+                <td>FHD</td>
+                <td>1920 x 1080</td>
+                <td>16:9</td>
+            </tr>
+            <tr>
+                <td>2K (QHD)</td>
+                <td>2560 x 1440</td>
+                <td>16:9</td>
+            </tr>
+            <tr>
+                <td>4K (UHD)</td>
+                <td>3840 x 2160</td>
+                <td>16:9</td>
+            </tr>
+            <tr>
+                <td>Instagram</td>
+                <td>1080 x 1080</td>
+                <td>1:1</td>
+            </tr>
+            <tr>
+                <td>Story / Reels</td>
+                <td>1080 x 1920</td>
+                <td>9:16</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="info-section">
+        <h2>Was ist ein Seitenverhaeltnis?</h2>
+        <p>
+            Das Seitenverhaeltnis (Aspect Ratio) beschreibt das Verhaeltnis von Breite zu Hoehe eines Bildes oder Videos.
+            Beispielsweise ergibt eine Aufloesung von 1920x1080, geteilt durch den groessten gemeinsamen Teiler (120), das Verhaeltnis 16:9.
+        </p>
+        <p>
+            <strong>Video:</strong> Die meisten digitalen Videos (YouTube, TV) verwenden das 16:9-Format. Kinofilme nutzen oft 21:9 (2,35:1).
+        </p>
+        <p>
+            <strong>Fotografie/Druck:</strong> DSLR-Kameras fotografieren meist im 3:2-Format. DIN-A4-Papier hat ein Verhaeltnis von ca. 1:1,414.
+        </p>
+        <p>
+            <strong>Social Media:</strong> Instagram-Feed quadratisch ist 1:1, vertikale Stories/Reels verwenden 9:16.
+        </p>
+    </div>
+</div>
+
+<div class="seo-content"><div class="seo-section"><h2>Seitenverhältnis-Rechner</h2><p>Berechnet das Seitenverhältnis aus der Auflösung oder findet passende Größen. Unterstützt 16:9, 4:3, 1:1 und mehr.</p></div><div class="seo-section"><h2>Häufige Verhältnisse</h2><ul><li><strong>16:9</strong> — YouTube, TV, Monitore</li><li><strong>4:3</strong> — Präsentationen</li><li><strong>1:1</strong> — Instagram quadratisch</li><li><strong>9:16</strong> — TikTok, Reels</li></ul></div><div class="seo-section"><h2>FAQ</h2><details class="seo-faq"><summary>Was ist das Verhältnis von 1920x1080?</summary><p>1920×1080 ist 16:9, auch als Full HD bekannt.</p></details></div><div class="seo-section"><h2>Verwandte Tools</h2><div class="seo-related"><a href="image-resize.html">Bildgröße</a><a href="screen-info.html">Bildschirminfo</a></div></div></div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    /* -- Utility -- */
+    function gcd(a, b) {
+        a = Math.round(a); b = Math.round(b);
+        while (b) { let t = b; b = a % b; a = t; }
+        return a;
+    }
+
+    function formatPixels(n) {
+        if (n >= 1000000) return (n / 1000000).toFixed(2) + 'M';
+        if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+        return n.toString();
+    }
+
+    function updatePreview(frameId, w, h) {
+        const frame = document.getElementById(frameId);
+        const maxW = 200, maxH = 100;
+        let fw, fh;
+        if (w / h > maxW / maxH) {
+            fw = maxW; fh = maxW * h / w;
+        } else {
+            fh = maxH; fw = maxH * w / h;
+        }
+        fw = Math.max(fw, 10); fh = Math.max(fh, 10);
+        frame.style.width = fw + 'px';
+        frame.style.height = fh + 'px';
+    }
+
+    /* -- Mode switch -- */
+    let currentMode = 'ratio';
+
+    function switchMode(mode) {
+        currentMode = mode;
+        document.querySelectorAll('.mode-tab').forEach((t, i) => {
+            t.classList.toggle('active', (i === 0 && mode === 'ratio') || (i === 1 && mode === 'size'));
+        });
+        document.getElementById('panel-ratio').classList.toggle('active', mode === 'ratio');
+        document.getElementById('panel-size').classList.toggle('active', mode === 'size');
+    }
+
+    /* -- Modus 1: Verhaeltnis berechnen -- */
+    function calcRatio() {
+        const w = parseFloat(document.getElementById('r-width').value);
+        const h = parseFloat(document.getElementById('r-height').value);
+        if (!w || !h || w <= 0 || h <= 0) {
+            alert('Bitte geben Sie gueltige Werte fuer Breite und Hoehe ein.');
+            return;
+        }
+        const g = gcd(Math.round(w), Math.round(h));
+        const rw = Math.round(w) / g;
+        const rh = Math.round(h) / g;
+        const decimal = (w / h).toFixed(3);
+        const pixels = Math.round(w) * Math.round(h);
+
+        document.getElementById('out-ratio').textContent = rw + ':' + rh;
+        document.getElementById('out-decimal').textContent = decimal;
+        document.getElementById('out-pixels').textContent = formatPixels(pixels);
+        updatePreview('preview-ratio', w, h);
+        document.getElementById('result-ratio').style.display = 'block';
+    }
+
+    function liveCalcRatio() {
+        const w = parseFloat(document.getElementById('r-width').value);
+        const h = parseFloat(document.getElementById('r-height').value);
+        if (w > 0 && h > 0) calcRatio();
+    }
+
+    /* -- Modus 2: Groesse berechnen -- */
+    let giveMode = 'w';
+
+    function setGive(side) {
+        giveMode = side;
+        document.getElementById('btn-give-w').classList.toggle('active', side === 'w');
+        document.getElementById('btn-give-h').classList.toggle('active', side === 'h');
+        document.getElementById('give-w-group').style.display = side === 'w' ? '' : 'none';
+        document.getElementById('give-h-group').style.display = side === 'h' ? '' : 'none';
+        liveCalcSize();
+    }
+
+    function selectPreset(btn, rw, rh) {
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('s-ratio-w').value = rw;
+        document.getElementById('s-ratio-h').value = rh;
+        liveCalcSize();
+    }
+
+    function clearPreset() {
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+    }
+
+    function calcSize() {
+        const rw = parseFloat(document.getElementById('s-ratio-w').value);
+        const rh = parseFloat(document.getElementById('s-ratio-h').value);
+        if (!rw || !rh || rw <= 0 || rh <= 0) {
+            alert('Bitte waehlen oder geben Sie zuerst ein Verhaeltnis ein.');
+            return;
+        }
+        let finalW, finalH;
+        if (giveMode === 'w') {
+            const w = parseFloat(document.getElementById('s-width').value);
+            if (!w || w <= 0) { alert('Bitte geben Sie einen Breitenwert ein.'); return; }
+            finalW = Math.round(w);
+            finalH = Math.round(w * rh / rw);
+        } else {
+            const h = parseFloat(document.getElementById('s-height').value);
+            if (!h || h <= 0) { alert('Bitte geben Sie einen Hoehenwert ein.'); return; }
+            finalH = Math.round(h);
+            finalW = Math.round(h * rw / rh);
+        }
+        const pixels = finalW * finalH;
+        document.getElementById('out-s-width').textContent = finalW + 'px';
+        document.getElementById('out-s-height').textContent = finalH + 'px';
+        document.getElementById('out-s-pixels').textContent = formatPixels(pixels);
+        updatePreview('preview-size', finalW, finalH);
+        document.getElementById('result-size').style.display = 'block';
+    }
+
+    function liveCalcSize() {
+        const rw = parseFloat(document.getElementById('s-ratio-w').value);
+        const rh = parseFloat(document.getElementById('s-ratio-h').value);
+        if (!rw || !rh || rw <= 0 || rh <= 0) return;
+        if (giveMode === 'w') {
+            const w = parseFloat(document.getElementById('s-width').value);
+            if (w > 0) calcSize();
+        } else {
+            const h = parseFloat(document.getElementById('s-height').value);
+            if (h > 0) calcSize();
+        }
+    }
+
+    /* Enter key */
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            if (currentMode === 'ratio') calcRatio();
+            else calcSize();
+        }
+    });
+</script>
+
+</body>
+</html>

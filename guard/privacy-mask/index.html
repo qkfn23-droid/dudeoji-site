@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 마스킹 도구 - 이름/전화번호/이메일 가리기 | MOGU Guard</title>
+    <meta name="description" content="이름, 전화번호, 이메일, 주민번호 등을 자동으로 마스킹(가리기)합니다. 스크린샷이나 문서 공유 전에 개인정보를 보호하세요.">
+    <link rel="canonical" href="https://moguguard.com/privacy-mask/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/privacy-mask/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/privacy-mask/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/privacy-mask/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/mascara-privacidad/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/datenschutz-maskierung/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/masquage-donnees/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/mascara-privacidade/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/privacy-mask/">
+    <meta property="og:title" content="개인정보 마스킹 도구 | MOGU Guard">
+    <meta property="og:description" content="이름/전화번호/이메일 자동 마스킹!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/privacy-mask/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+        header{background:#111;border-bottom:1px solid #1a3a1a;padding:16px 20px;text-align:center}header a{text-decoration:none;font-size:20px;color:#00ff41;letter-spacing:2px;font-weight:700;font-family:'Fira Code',monospace}
+        .container{max-width:700px;margin:20px auto 40px;padding:0 20px}
+        .page-title{text-align:center;margin-bottom:30px}.page-title h2{font-size:28px;color:#00ff41;margin-bottom:8px}.page-title p{color:#666;font-size:14px}
+        .privacy-badge{display:inline-block;background:rgba(0,255,65,0.1);border:1px solid rgba(0,230,118,0.3);color:#00ff41;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:20px}
+        .input-box{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:24px;margin-bottom:20px}
+        .input-box label{display:block;font-size:14px;color:#00ff41;margin-bottom:8px;font-weight:600}
+        .input-box textarea{width:100%;padding:14px;background:#0a0a0a;border:2px solid #00ff4130;border-radius:8px;color:#e0e0e0;font-size:15px;outline:none;resize:vertical;height:150px;font-family:'Fira Code',monospace}
+        .input-box textarea:focus{border-color:#00ff41}
+        .input-box textarea::placeholder{color:#444}
+        .options{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+        .opt-btn{padding:8px 14px;background:#111;border:1px solid #00ff4130;border-radius:6px;color:#888;font-size:13px;cursor:pointer;transition:all .2s}
+        .opt-btn.active{border-color:#00ff41;color:#00ff41;background:rgba(0,255,65,0.08)}
+        .opt-btn:hover{border-color:#00ff41;color:#00ff41}
+        .mask-btn{width:100%;padding:14px;background:#00ff41;color:#0a0a0a;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Fira Code',monospace;margin-bottom:20px}
+        .mask-btn:hover{background:#00cc33}
+        .result-box{display:none;background:#111;border:2px solid #00ff4140;border-radius:8px;padding:24px;margin-bottom:20px}
+        .result-label{font-size:12px;color:#888;margin-bottom:8px}
+        .result-text{font-size:15px;font-family:'Fira Code',monospace;color:#e0e0e0;line-height:1.8;word-break:break-all;white-space:pre-wrap}
+        .result-text .masked{color:#ff5252;background:rgba(255,82,82,0.1);padding:0 2px;border-radius:2px}
+        .result-actions{display:flex;gap:8px;margin-top:12px}
+        .result-actions button{padding:8px 16px;border:1px solid #00ff4130;border-radius:4px;background:#111;color:#00ff41;font-size:13px;cursor:pointer;font-family:'Fira Code',monospace}
+        .result-actions button:hover{background:rgba(0,255,65,0.08)}
+        .stats{display:flex;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid #1a3a1a}
+        .stat{flex:1;text-align:center}
+        .stat-num{font-size:24px;font-weight:700;color:#00ff41;font-family:'Fira Code',monospace}
+        .stat-label{font-size:11px;color:#666}
+        .how-it-works{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px}
+        .how-title{font-size:16px;color:#00ff41;font-weight:600;margin-bottom:12px}
+        .how-text{font-size:14px;color:#888;line-height:1.8}.how-text strong{color:#00ff41}
+        .examples{background:#0f0f0f;border-radius:6px;padding:14px;margin-top:12px;font-family:'Fira Code',monospace;font-size:13px;color:#666;line-height:2}
+        .examples .arrow{color:#00ff41}
+        .examples .masked-ex{color:#ff5252}
+        footer{text-align:center;padding:30px;color:#333;font-size:11px}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"개인정보 마스킹","url":"https://moguguard.com/privacy-mask/","description":"이름, 전화번호, 이메일 등을 자동으로 마스킹합니다.","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript"}
+    </script>
+</head>
+<body>
+<header><a href="/">MOGU <span style="color:#00ff41;">Guard</span></a></header>
+<div class="container">
+    <div class="page-title">
+        <h2>🙈 개인정보 마스킹</h2>
+        <p>텍스트 속 개인정보를 자동으로 가려줍니다</p>
+        <div class="privacy-badge">🔒 모든 처리는 브라우저에서만 — 서버 전송 없음</div>
+    </div>
+
+    <div class="input-box">
+        <label>텍스트를 붙여넣기 하세요</label>
+        <textarea id="textInput" placeholder="예: 안녕하세요 김철수입니다. 연락처는 010-1234-5678이고 이메일은 chulsu@gmail.com입니다."></textarea>
+    </div>
+
+    <div style="margin-bottom:16px;">
+        <div style="font-size:13px;color:#888;margin-bottom:8px;">마스킹 대상 선택</div>
+        <div class="options">
+            <div class="opt-btn active" id="opt-phone" onclick="toggleOpt('phone')">📱 전화번호</div>
+            <div class="opt-btn active" id="opt-email" onclick="toggleOpt('email')">📧 이메일</div>
+            <div class="opt-btn active" id="opt-ssn" onclick="toggleOpt('ssn')">🆔 주민번호</div>
+            <div class="opt-btn active" id="opt-card" onclick="toggleOpt('card')">💳 카드번호</div>
+            <div class="opt-btn active" id="opt-account" onclick="toggleOpt('account')">🏦 계좌번호</div>
+            <div class="opt-btn active" id="opt-ip" onclick="toggleOpt('ip')">🌐 IP주소</div>
+        </div>
+    </div>
+
+    <button class="mask-btn" onclick="maskText()">🙈 마스킹하기</button>
+
+    <div class="result-box" id="resultBox">
+        <div class="result-label">마스킹 결과</div>
+        <div class="result-text" id="resultText"></div>
+        <div class="result-actions">
+            <button onclick="copyResult()">📋 복사</button>
+            <button onclick="document.getElementById('textInput').value=document.getElementById('resultRaw').value;maskText();">🔄 다시 마스킹</button>
+        </div>
+        <input type="hidden" id="resultRaw">
+        <div class="stats">
+            <div class="stat"><div class="stat-num" id="statTotal">0</div><div class="stat-label">발견된 개인정보</div></div>
+            <div class="stat"><div class="stat-num" id="statMasked">0</div><div class="stat-label">마스킹 완료</div></div>
+        </div>
+    </div>
+
+    <div class="how-it-works">
+        <div class="how-title">💡 이런 상황에 사용하세요</div>
+        <div class="how-text">
+            • <strong>스크린샷 공유 전</strong> — 채팅/이메일 내용에서 개인정보 가리기<br>
+            • <strong>문서 공유 전</strong> — 계약서/서류에서 민감 정보 마스킹<br>
+            • <strong>SNS 포스팅 전</strong> — 실수로 개인정보 노출 방지<br>
+            • <strong>고객 데이터 처리</strong> — 테스트용 데이터 마스킹
+        </div>
+        <div class="examples">
+            <span class="arrow">원본:</span> 김철수 010-1234-5678 chulsu@gmail.com<br>
+            <span class="arrow">결과:</span> <span class="masked-ex">김**</span> <span class="masked-ex">010-****-5678</span> <span class="masked-ex">ch****@gmail.com</span>
+        </div>
+    </div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:12px;color:#333;margin-right:8px;">공유:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1da1f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1877f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Facebook</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:5px 10px;background:#333;color:#0f0;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;font-family:monospace;">URL 복사</a></div>
+<footer>© 2025 MOGU Guard</footer>
+<script>
+const opts = {phone:true, email:true, ssn:true, card:true, account:true, ip:true};
+
+function toggleOpt(key) {
+    opts[key] = !opts[key];
+    document.getElementById('opt-' + key).classList.toggle('active');
+}
+
+function maskText() {
+    let text = document.getElementById('textInput').value;
+    if (!text.trim()) return;
+
+    let count = 0;
+
+    // 전화번호: 010-1234-5678, 01012345678, 010.1234.5678
+    if (opts.phone) {
+        text = text.replace(/(\d{2,3})[-.\s]?(\d{3,4})[-.\s]?(\d{4})/g, (m, a, b, c) => {
+            count++;
+            return a + '-' + '*'.repeat(b.length) + '-' + c;
+        });
+    }
+
+    // 이메일
+    if (opts.email) {
+        text = text.replace(/([a-zA-Z0-9._%+-]{2})([a-zA-Z0-9._%+-]+)(@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, (m, first, mid, domain) => {
+            count++;
+            return first + '*'.repeat(Math.min(mid.length, 4)) + domain;
+        });
+    }
+
+    // 주민번호: 900101-1234567
+    if (opts.ssn) {
+        text = text.replace(/(\d{6})[-\s]?(\d{7})/g, (m, front, back) => {
+            count++;
+            return front + '-' + back[0] + '******';
+        });
+    }
+
+    // 카드번호: 1234-5678-1234-5678
+    if (opts.card) {
+        text = text.replace(/(\d{4})[-\s]?(\d{4})[-\s]?(\d{4})[-\s]?(\d{4})/g, (m, a, b, c, d) => {
+            count++;
+            return a + '-****-****-' + d;
+        });
+    }
+
+    // 계좌번호: 110-123-456789 (다양한 형식)
+    if (opts.account) {
+        text = text.replace(/(\d{3,4})[-\s](\d{2,3})[-\s](\d{4,8})/g, (m, a, b, c) => {
+            count++;
+            return a + '-' + '*'.repeat(b.length) + '-' + '*'.repeat(c.length - 2) + c.slice(-2);
+        });
+    }
+
+    // IP 주소
+    if (opts.ip) {
+        text = text.replace(/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/g, (m, a, b, c, d) => {
+            count++;
+            return a + '.' + b + '.***.' + '***';
+        });
+    }
+
+    document.getElementById('resultText').textContent = text;
+    document.getElementById('resultRaw').value = text;
+    document.getElementById('statTotal').textContent = count;
+    document.getElementById('statMasked').textContent = count;
+    document.getElementById('resultBox').style.display = 'block';
+    document.getElementById('resultBox').scrollIntoView({behavior:'smooth'});
+}
+
+function copyResult() {
+    navigator.clipboard.writeText(document.getElementById('resultRaw').value);
+    const btns = document.querySelectorAll('.result-actions button');
+    btns[0].textContent = '✅ 복사됨';
+    setTimeout(() => btns[0].textContent = '📋 복사', 2000);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飲酒運転計算機 - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"飲酒運転計算機は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、100%無料です。会員登録不要で、すべての処理はブラウザ内で行われるため、個人情報がサーバーに送信されることはありません。"}},
+    {"@type":"Question","name":"飲酒運転計算機の使い方は？","acceptedAnswer":{"@type":"Answer","text":"血中アルコール濃度(BAC)を計算し、運転可能時間を予測します。ウィドマーク式に基づく計算。"}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/drink-calc.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/drink-calc.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/drink-calc.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/drink-calc.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/drink-calc.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/drink-calc.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/drink-calc.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/drink-calc.html">
+    <link rel="canonical" href="https://mogutool.com/jp/tools/drink-calc.html">
+    <meta property="og:title" content="飲酒運転計算機 - MOGU Tools">
+    <meta property="og:description" content="血中アルコール濃度(BAC)を計算し、運転可能時間を予測します。ウィドマーク式に基づく計算。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/jp/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/jp/tools/drink-calc.html">
+    <meta name="description" content="血中アルコール濃度(BAC)を計算し、運転可能時間を予測します。ウィドマーク式に基づく計算。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+        header { background: #fff; border-bottom: 2px solid #eee; padding: 16px 20px; }
+        header a { text-decoration: none; color: #2c2c2c; font-size: 18px; font-weight: 700; }
+        header a span { color: #4a90d9; }
+        .breadcrumb { max-width: 600px; margin: 16px auto; padding: 0 20px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #4a90d9; text-decoration: none; }
+        .container { max-width: 600px; margin: 10px auto 40px; padding: 0 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+
+        .calc-box { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #555; }
+        .input-row { display: flex; gap: 8px; }
+        .input-row select, .input-row input { flex: 1; padding: 12px 14px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; outline: none; }
+        .input-row select:focus, .input-row input:focus { border-color: #4a90d9; }
+
+        .drink-list { margin-bottom: 16px; }
+        .drink-item { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .drink-item select { flex: 2; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+        .drink-item input { width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; text-align: center; }
+        .drink-item .unit { font-size: 12px; color: #888; }
+        .drink-item .remove { background: none; border: none; font-size: 18px; cursor: pointer; color: #e74c3c; padding: 4px; }
+        .add-drink { background: none; border: 1px dashed #ccc; border-radius: 8px; padding: 10px; width: 100%; cursor: pointer; color: #888; font-size: 14px; }
+        .add-drink:hover { border-color: #4a90d9; color: #4a90d9; }
+
+        .calc-btn { width: 100%; padding: 14px; background: #4a90d9; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+        .calc-btn:hover { background: #3a7bc8; }
+
+        .result { display: none; margin-top: 24px; }
+        .bac-display { text-align: center; padding: 30px; border-radius: 12px; margin-bottom: 16px; }
+        .bac-display .bac-value { font-size: 48px; font-weight: 700; }
+        .bac-display .bac-label { font-size: 14px; margin-top: 4px; }
+        .bac-display .bac-status { font-size: 18px; font-weight: 600; margin-top: 8px; }
+        .bac-safe { background: #f0f9f0; }
+        .bac-safe .bac-value { color: #27ae60; }
+        .bac-warn { background: #fef9e7; }
+        .bac-warn .bac-value { color: #f39c12; }
+        .bac-danger { background: #fdf0f0; }
+        .bac-danger .bac-value { color: #e74c3c; }
+
+        .time-info { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; }
+        .time-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .time-row:last-child { border-bottom: none; }
+        .time-row .label { color: #666; }
+        .time-row .value { font-weight: 600; color: #333; }
+
+        .warning { background: #fdf0f0; border: 1px solid #f5c6cb; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #c0392b; margin-top: 16px; }
+        .info-section { margin-top: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; }
+        .info-section h2 { font-size: 16px; margin-bottom: 12px; color: #555; }
+        .info-section p { font-size: 14px; color: #666; line-height: 1.7; }
+        footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Tools</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — 無料オンラインツール集</a> &gt; 計算機 &gt; 飲酒運転計算機
+</div>
+
+<div class="container">
+    <h1>飲酒運転計算機</h1>
+    <p class="subtitle">血中アルコール濃度(BAC)と運転可能な予想時間を計算します。</p>
+
+    <div class="calc-box">
+        <div class="input-group">
+            <label>体重 (kg)</label>
+            <div class="input-row">
+                <input type="number" id="weight" value="70" min="30" max="200">
+            </div>
+        </div>
+        <div class="input-group">
+            <label>性別</label>
+            <div class="input-row">
+                <select id="gender">
+                    <option value="m">男性</option>
+                    <option value="f">女性</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-group">
+            <label>飲酒開始からの経過時間</label>
+            <div class="input-row">
+                <input type="number" id="hours" value="1" min="0" max="48" step="0.5"> 時間
+            </div>
+        </div>
+        <div class="input-group">
+            <label>飲んだお酒</label>
+            <div class="drink-list" id="drinkList">
+                <div class="drink-item">
+                    <select>
+                        <option value="soju">焼酎 (16.5%)</option>
+                        <option value="beer">ビール (5%)</option>
+                        <option value="wine">ワイン (13%)</option>
+                        <option value="makgeolli">マッコリ (6%)</option>
+                        <option value="whiskey">ウイスキー (40%)</option>
+                        <option value="highball">ハイボール (8%)</option>
+                    </select>
+                    <input type="number" value="2" min="0.5" max="30" step="0.5">
+                    <span class="unit">杯</span>
+                    <button class="remove" onclick="this.parentElement.remove()">×</button>
+                </div>
+            </div>
+            <button class="add-drink" onclick="addDrink()">+ お酒を追加</button>
+        </div>
+        <button class="calc-btn" onclick="calculate()">🍺 計算する</button>
+    </div>
+
+    <div class="result" id="result">
+        <div class="bac-display" id="bacDisplay">
+            <div class="bac-value" id="bacValue">-</div>
+            <div class="bac-label">血中アルコール濃度 (%)</div>
+            <div class="bac-status" id="bacStatus">-</div>
+        </div>
+        <div class="time-info" id="timeInfo"></div>
+        <div class="warning">
+            ⚠️ <strong>注意:</strong> この計算機はウィドマーク(Widmark)式に基づく<strong>推定値</strong>です。個人差(体質、食事摂取、肝機能など)により実際のBACは異なる場合があります。<strong>飲酒後は絶対に運転しないでください。</strong> 日本の飲酒運転基準: 0.03%以上。
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>ウィドマーク(Widmark)式</h2>
+        <p>
+            <strong>BAC = (摂取アルコール量 / 体重 × 体内水分比率) - (経過時間 × 1時間あたりの分解量)</strong><br><br>
+            <strong>体内水分比率:</strong> 男性 0.68、女性 0.55<br>
+            <strong>1時間あたりの分解量:</strong> 約 0.015%（平均）<br>
+            <strong>1杯あたりの容量:</strong> 焼酎 50ml、ビール 355ml、ワイン 150ml、マッコリ 300ml、ウイスキー 30ml、ハイボール 250ml<br><br>
+            <strong>日本の飲酒運転基準:</strong><br>
+            • 0.03%以上: 酒気帯び運転（免許停止・罰金）<br>
+            • 0.05%以上: 酒酔い運転（より重い処罰）<br>
+            • 飲酒運転は重大な違反です。絶対に運転しないでください。
+        </p>
+    </div>
+</div>
+
+<div class="seo-content">
+<div class="seo-section"><h2>飲酒運転計算機</h2><p>血中アルコール濃度(BAC)を計算し、運転可能時間を予測します。ウィドマーク式に基づく計算。</p></div>
+<div class="seo-section"><h2>よくある質問</h2><details class="seo-faq"><summary>このツールは無料ですか？</summary><p>はい、100%無料です。会員登録不要。すべての処理はブラウザ内で行われ、データはサーバーに送信されません。</p></details><details class="seo-faq"><summary>スマホでも使えますか？</summary><p>はい、すべてのツールはレスポンシブ対応で、スマートフォン・タブレット・PCで利用できます。</p></details></div>
+<div class="seo-section"><h2>関連ツール</h2><div class="seo-related"><a href="bmi.html">BMI計算機</a><a href="tip-calc.html">チップ計算機</a></div></div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>&copy; 2025 MOGU Tools</footer>
+
+<script>
+const DRINKS = {
+    soju: { abv: 0.165, ml: 50, name: '焼酎' },
+    beer: { abv: 0.05, ml: 355, name: 'ビール' },
+    wine: { abv: 0.13, ml: 150, name: 'ワイン' },
+    makgeolli: { abv: 0.06, ml: 300, name: 'マッコリ' },
+    whiskey: { abv: 0.40, ml: 30, name: 'ウイスキー' },
+    highball: { abv: 0.08, ml: 250, name: 'ハイボール' }
+};
+
+function addDrink() {
+    const list = document.getElementById('drinkList');
+    const item = document.createElement('div');
+    item.className = 'drink-item';
+    item.innerHTML = `
+        <select>
+            <option value="soju">焼酎 (16.5%)</option>
+            <option value="beer">ビール (5%)</option>
+            <option value="wine">ワイン (13%)</option>
+            <option value="makgeolli">マッコリ (6%)</option>
+            <option value="whiskey">ウイスキー (40%)</option>
+            <option value="highball">ハイボール (8%)</option>
+        </select>
+        <input type="number" value="1" min="0.5" max="30" step="0.5">
+        <span class="unit">杯</span>
+        <button class="remove" onclick="this.parentElement.remove()">×</button>
+    `;
+    list.appendChild(item);
+}
+
+function calculate() {
+    const weight = parseFloat(document.getElementById('weight').value) || 70;
+    const gender = document.getElementById('gender').value;
+    const hours = parseFloat(document.getElementById('hours').value) || 0;
+    const waterRatio = gender === 'm' ? 0.68 : 0.55;
+    const elimination = 0.015;
+
+    // 総アルコール摂取量（グラム）
+    let totalAlcohol = 0;
+    document.querySelectorAll('.drink-item').forEach(item => {
+        const type = item.querySelector('select').value;
+        const cups = parseFloat(item.querySelector('input').value) || 0;
+        const drink = DRINKS[type];
+        totalAlcohol += drink.ml * cups * drink.abv * 0.789; // 0.789 = アルコール密度(g/ml)
+    });
+
+    // BAC計算（ウィドマーク式）
+    let bac = (totalAlcohol / (weight * 1000 * waterRatio)) * 100;
+    bac = Math.max(0, bac - (hours * elimination));
+    bac = Math.round(bac * 1000) / 1000;
+
+    // 0.03%以下になるまでの時間
+    const bacNow = bac;
+    const hoursToSafe = bacNow > 0.03 ? ((bacNow - 0.03) / elimination) : 0;
+    const hoursToZero = bacNow > 0 ? (bacNow / elimination) : 0;
+
+    // 表示
+    const bacDisplay = document.getElementById('bacDisplay');
+    document.getElementById('bacValue').textContent = bac.toFixed(3) + '%';
+
+    if (bac < 0.03) {
+        bacDisplay.className = 'bac-display bac-safe';
+        document.getElementById('bacStatus').textContent = '✅ 法的基準以下';
+    } else if (bac < 0.08) {
+        bacDisplay.className = 'bac-display bac-warn';
+        document.getElementById('bacStatus').textContent = '⚠️ 酒気帯び運転レベル';
+    } else {
+        bacDisplay.className = 'bac-display bac-danger';
+        document.getElementById('bacStatus').textContent = '🚨 酒酔い運転レベル';
+    }
+
+    // 時間情報
+    const now = new Date();
+    const safeTime = new Date(now.getTime() + hoursToSafe * 3600000);
+    const zeroTime = new Date(now.getTime() + hoursToZero * 3600000);
+
+    function fmt(d) { return `${d.getHours()}時${String(d.getMinutes()).padStart(2,'0')}分`; }
+    function fmtH(h) {
+        const hrs = Math.floor(h);
+        const mins = Math.round((h - hrs) * 60);
+        return hrs > 0 ? `${hrs}時間${mins}分` : `${mins}分`;
+    }
+
+    document.getElementById('timeInfo').innerHTML = `
+        <div class="time-row"><span class="label">現在のBAC</span><span class="value">${bac.toFixed(3)}%</span></div>
+        <div class="time-row"><span class="label">総摂取アルコール量</span><span class="value">${totalAlcohol.toFixed(1)}g</span></div>
+        <div class="time-row"><span class="label">0.03%以下になる予想</span><span class="value">${bac >= 0.03 ? fmt(safeTime) + ' (' + fmtH(hoursToSafe) + '後)' : '現在基準以下'}</span></div>
+        <div class="time-row"><span class="label">完全分解の予想</span><span class="value">${bac > 0 ? fmt(zeroTime) + ' (' + fmtH(hoursToZero) + '後)' : 'すでに分解済み'}</span></div>
+        <div class="time-row"><span class="label">1時間あたりの分解量</span><span class="value">約 0.015%</span></div>
+    `;
+
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

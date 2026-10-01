@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obfuscation d'email - Protection anti-spam | MOGU Guard</title>
+    <meta name="description" content="Obfusquez votre adresse email pour que les bots de spam ne puissent pas la collecter. Publiez votre email en toute sécurité.">
+    <link rel="canonical" href="https://moguguard.com/fr/masquer-email/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/email-obfuscator/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/email-obfuscator/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/email-obfuscator/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/ocultar-email/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/email-verschleierung/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/masquer-email/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/ocultar-email/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/email-obfuscator/">
+    <meta property="og:title" content="Obfuscation d'email | MOGU Guard">
+    <meta property="og:description" content="Protégez votre email des bots de spam !">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/fr/masquer-email/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+        header{background:#111;border-bottom:1px solid #1a3a1a;padding:16px 20px;text-align:center}header a{text-decoration:none;font-size:20px;color:#00ff41;letter-spacing:2px;font-weight:700;font-family:'Fira Code',monospace}
+        .container{max-width:700px;margin:20px auto 40px;padding:0 20px}
+        .page-title{text-align:center;margin-bottom:30px}.page-title h2{font-size:28px;color:#00ff41;margin-bottom:8px}.page-title p{color:#666;font-size:14px}
+        .input-box{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:24px;margin-bottom:20px}
+        .input-box label{display:block;font-size:14px;color:#00ff41;margin-bottom:8px;font-weight:600}
+        .input-box input{width:100%;padding:14px;background:#0a0a0a;border:2px solid #00ff4130;border-radius:8px;color:#e0e0e0;font-size:16px;outline:none;font-family:'Fira Code',monospace}
+        .input-box input:focus{border-color:#00ff41}
+        .input-box input::placeholder{color:#444}
+        .results{margin-top:20px}
+        .result-card{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px;margin-bottom:12px}
+        .result-label{font-size:13px;color:#00ff41;margin-bottom:8px;font-weight:600}
+        .result-desc{font-size:12px;color:#555;margin-bottom:8px}
+        .result-value{font-size:14px;font-family:'Fira Code',monospace;color:#e0e0e0;background:#0a0a0a;padding:12px;border-radius:6px;word-break:break-all;position:relative}
+        .result-value button{position:absolute;top:8px;right:8px;padding:4px 10px;background:#00ff41;color:#0a0a0a;border:none;border-radius:4px;font-size:11px;cursor:pointer;font-family:'Fira Code',monospace}
+        .info{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px;margin-top:20px}
+        .info-title{font-size:16px;color:#00ff41;font-weight:600;margin-bottom:10px}
+        .info-text{font-size:14px;color:#888;line-height:1.8}.info-text strong{color:#00ff41}
+        footer{text-align:center;padding:30px;color:#333;font-size:11px}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Obfuscation d'email","url":"https://moguguard.com/fr/masquer-email/","description":"Obfusquez votre adresse email pour que les bots ne puissent pas la collecter.","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript"}
+    </script>
+</head>
+<body>
+<header><a href="/fr/">MOGU <span style="color:#00ff41;">Guard</span></a></header>
+<div class="container">
+    <div class="page-title">
+        <h2>📧 Obfuscation d'email</h2>
+        <p>Protégez votre adresse email des bots de spam</p>
+    </div>
+    <div class="input-box">
+        <label>Entrez votre adresse email</label>
+        <input type="email" id="emailInput" placeholder="example@gmail.com" oninput="convert()">
+    </div>
+    <div class="results" id="results" style="display:none">
+        <div class="result-card">
+            <div class="result-label">1️⃣ Remplacement de texte</div>
+            <div class="result-desc">Remplace @ et . par du texte — lisible par les humains, pas par les bots</div>
+            <div class="result-value" id="r1"><button onclick="cp('r1')">Copier</button></div>
+        </div>
+        <div class="result-card">
+            <div class="result-label">2️⃣ Entités HTML</div>
+            <div class="result-desc">Convertit les caractères en codes HTML. Les navigateurs les affichent normalement</div>
+            <div class="result-value" id="r2"><button onclick="cp('r2')">Copier</button></div>
+        </div>
+        <div class="result-card">
+            <div class="result-label">3️⃣ Méthode JavaScript</div>
+            <div class="result-desc">Assemble l'email via JS. L'email n'apparaît pas directement dans le code source</div>
+            <div class="result-value" id="r3"><button onclick="cp('r3')">Copier</button></div>
+        </div>
+        <div class="result-card">
+            <div class="result-label">4️⃣ Inversé + CSS</div>
+            <div class="result-desc">Inversion CSS direction. Apparence normale à l'écran, inversé dans le code</div>
+            <div class="result-value" id="r4"><button onclick="cp('r4')">Copier</button></div>
+        </div>
+        <div class="result-card">
+            <div class="result-label">5️⃣ Remplacement de symboles</div>
+            <div class="result-desc">Utilise des symboles spéciaux — non copiable par les bots</div>
+            <div class="result-value" id="r5"><button onclick="cp('r5')">Copier</button></div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="info-title">💡 Pourquoi obfusquer votre email ?</div>
+        <div class="info-text">
+            &bull; Publier votre email sur un site web permet aux <strong>bots de le collecter automatiquement</strong><br>
+            &bull; Les emails collectés reçoivent un flot de <strong>spam/phishing</strong><br>
+            &bull; L'obfuscation permet aux humains de le lire mais <strong>les bots ne peuvent pas le collecter</strong><br>
+            &bull; Indispensable pour les blogs, portfolios et CV !
+        </div>
+    </div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:12px;color:#333;margin-right:8px;">Partager:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1da1f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1877f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Facebook</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:5px 10px;background:#333;color:#0f0;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;font-family:monospace;">Copier URL</a></div>
+<footer>&copy; 2025 MOGU Guard</footer>
+<script>
+function convert(){
+    const email=document.getElementById('emailInput').value.trim();
+    if(!email||!email.includes('@')){document.getElementById('results').style.display='none';return;}
+    document.getElementById('results').style.display='block';
+    const[user,domain]=email.split('@');
+    const[domName,ext]=domain.split('.');
+    document.getElementById('r1').innerHTML=`${user} [at] ${domName} [dot] ${ext}<button onclick="cp('r1')">Copier</button>`;
+    const entities=email.split('').map(c=>'&#'+c.charCodeAt(0)+';').join('');
+    document.getElementById('r2').innerHTML=`${entities}<button onclick="cp('r2')">Copier</button>`;
+    const js=`&lt;script&gt;document.write('${user}'+'@'+'${domain}')&lt;/script&gt;`;
+    document.getElementById('r3').innerHTML=`${js}<button onclick="cp('r3')">Copier</button>`;
+    const rev=email.split('').reverse().join('');
+    const css=`&lt;span style="unicode-bidi:bidi-override;direction:rtl;"&gt;${rev}&lt;/span&gt;`;
+    document.getElementById('r4').innerHTML=`${css}<button onclick="cp('r4')">Copier</button>`;
+    document.getElementById('r5').innerHTML=`${user} ⓐ ${domName}˙${ext}<button onclick="cp('r5')">Copier</button>`;
+}
+function cp(id){
+    const el=document.getElementById(id);
+    const text=el.textContent.replace('Copier','').trim();
+    navigator.clipboard.writeText(text);
+    const btn=el.querySelector('button');btn.textContent='✅';
+    setTimeout(()=>btn.textContent='Copier',2000);
+}
+</script>
+</body>
+</html>

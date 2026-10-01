@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3846518968014998" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブログ - MOGU Moon</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><circle cx=%2260%22 cy=%2260%22 r=%2250%22 fill=%22%23FFD93D%22/><ellipse cx=%2243%22 cy=%2268%22 rx=%227%22 ry=%224%22 fill=%22rgba(245,150,150,0.6)%22/><ellipse cx=%2277%22 cy=%2268%22 rx=%227%22 ry=%224%22 fill=%22rgba(245,150,150,0.6)%22/><circle cx=%2248%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><circle cx=%2272%22 cy=%2262%22 r=%222.8%22 fill=%22%23333%22/><path d=%22M56,75 Q60,79 64,75%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%221.5%22 stroke-linecap=%22round%22/></svg>">
+
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0c0c1e;color:#ddd;min-height:100vh;line-height:1.7;}
+
+/* Nav */
+.nav{background:rgba(10,10,26,0.95);backdrop-filter:blur(12px);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1a1a3e;position:sticky;top:0;z-index:100;}
+.nav-logo{font-size:20px;font-weight:700;color:#c9a84c;text-decoration:none;letter-spacing:2px;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.nav-logo svg{width:26px;height:26px;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 14px;border-radius:20px;color:#888;font-weight:500;transition:all .2s;}
+.nav-links a:hover{background:rgba(201,168,76,0.1);color:#c9a84c;}
+.nav-links a.active{background:rgba(201,168,76,0.2);color:#c9a84c;}
+.nav-lang{padding:6px 10px;border-radius:12px;border:1px solid #2a2a5a;font-size:11px;color:#888;background:#12122a;cursor:pointer;outline:none;}
+
+/* Hero */
+.hero{max-width:1200px;margin:0 auto;padding:48px 40px 0;}
+.hero-greeting{font-size:14px;color:#888;margin-bottom:4px;}
+.hero h1{font-size:32px;font-weight:800;color:#e8e0d0;margin-bottom:8px;letter-spacing:-0.5px;}
+.hero h1 span{color:#c9a84c;}
+.hero-sub{font-size:15px;color:#777;margin-bottom:36px;line-height:1.7;}
+
+/* Featured */
+.featured{max-width:1200px;margin:0 auto;padding:0 40px;}
+.featured-card{display:block;text-decoration:none;background:linear-gradient(135deg,#161630,#1e1e40);border:1px solid #2a2a5a;border-radius:16px;padding:36px 40px;margin-bottom:36px;transition:all .25s;position:relative;overflow:hidden;}
+.featured-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c9a84c,#e8c56d,#c9a84c);border-radius:16px 16px 0 0;}
+.featured-card:hover{transform:translateY(-2px);border-color:rgba(201,168,76,0.3);box-shadow:0 12px 32px rgba(0,0,0,0.3);}
+.featured-label{display:inline-block;font-size:11px;color:#c9a84c;font-weight:700;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;}
+.featured-title{font-size:24px;font-weight:800;color:#e8e0d0;margin-bottom:10px;line-height:1.35;}
+.featured-desc{font-size:14px;color:#999;line-height:1.8;margin-bottom:14px;}
+.featured-meta{font-size:12px;color:#555;}
+
+/* Divider */
+.section-label{max-width:1200px;margin:0 auto;padding:0 40px 16px;font-size:12px;color:#555;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #1a1a3e;}
+
+/* Post grid */
+.post-list{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;}
+.post-item{display:flex;gap:16px;padding:24px 20px;border-bottom:1px solid #151530;border-right:1px solid #151530;text-decoration:none;transition:all .15s;}
+.post-item:hover{background:rgba(201,168,76,0.03);}
+.post-item:nth-child(2n){border-right:none;}
+.post-num{font-size:28px;font-weight:800;color:#1e1e40;min-width:40px;line-height:1;}
+.post-item:hover .post-num{color:#c9a84c;}
+.post-body{flex:1;}
+.post-date{font-size:11px;color:#555;margin-bottom:4px;}
+.post-title{font-size:16px;font-weight:700;color:#ddd;margin-bottom:6px;line-height:1.4;transition:color .15s;}
+.post-item:hover .post-title{color:#c9a84c;}
+.post-desc{font-size:13px;color:#777;line-height:1.6;}
+.post-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+.post-tag{display:inline-block;padding:2px 10px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.1);border-radius:12px;font-size:10px;color:#888;}
+
+/* Footer */
+.app-footer{text-align:center;padding:40px 20px 20px;font-size:11px;color:#333;border-top:1px solid #151530;margin-top:40px;}
+.app-footer a{color:#555;text-decoration:none;}
+
+/* Responsive */
+@media(max-width:900px){
+.nav-links a{font-size:11px;padding:6px 8px;white-space:nowrap;}
+.nav-lang{font-size:10px;padding:4px 6px;}
+.post-list{grid-template-columns:1fr;}
+.post-item{border-right:none !important;}
+}
+@media(max-width:600px){
+.hero{padding:28px 16px 0;}
+.hero h1{font-size:24px;}
+.featured{padding:0 16px;}
+.featured-card{padding:24px;}
+.featured-title{font-size:20px;}
+.post-list{padding:12px 16px 0;}
+.section-label{padding:0 16px 12px;}
+.post-num{display:none;}
+}
+
+/* Light mode */
+.light-mode{background:#fafaf8 !important;color:#333 !important}
+.light-mode .nav{background:rgba(255,255,255,0.95) !important;border-color:#eee !important}
+.light-mode .hero h1{color:#333 !important}
+.light-mode .featured-card{background:linear-gradient(135deg,#fff,#faf8f2) !important;border-color:#e8e0d0 !important}
+.light-mode .featured-title{color:#333 !important}
+.light-mode .post-title{color:#333 !important}
+.light-mode .post-item{border-color:#eee !important}
+.light-mode .post-item:hover .post-title{color:#b8860b !important}
+.light-mode .section-label{border-color:#eee !important}
+.light-mode .app-footer{color:#bbb !important;border-color:#eee !important}
+</style>
+</head>
+<body>
+<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+
+<nav class="nav">
+    <a href="/jp/" class="nav-logo">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+        MOGU Moon
+    </a>
+    <div class="nav-links">
+        <a href="/jp/">ホーム</a>
+        <a href="/jp/about/">紹介</a>
+        <a href="/jp/blog/" class="active">ブログ</a>
+        <select class="nav-lang" onchange="if(this.value)location.href=this.value">
+            <option value="/blog/">KR</option>
+            <option value="/en/blog/">EN</option>
+            <option value="/jp/blog/" selected>JP</option>
+            <option value="/es/blog/">ES</option>
+            <option value="/de/blog/">DE</option>
+            <option value="/fr/blog/">FR</option>
+            <option value="/pt/blog/">PT</option>
+        </select>
+    </div>
+</nav>
+
+
+<div class="hero">
+    <div class="hero-greeting">MOGU Moon Blog</div>
+    <h1>世界は<span>不思議</span></h1>
+    <p class="hero-sub">占星術、宇宙、古代文明 — 知れば知るほど謎が深まる物語。</p>
+</div>
+
+<div class="featured">
+    <a href="what-is-blackhole/" class="featured-card">
+        <div class="featured-label">最新記事</div>
+        <div class="featured-title">ブラックホールとは？</div>
+        <div class="featured-desc">光も飲み込む。中に何があるか誰も知らない。ホワイトホール、宇宙はブラックホールの中？</div>
+        <div class="featured-meta">2026.09.24 · ブラックホール, ホワイトホール, 宇宙</div>
+    </a>
+</div>
+
+<div class="section-label">すべての記事</div>
+
+<div class="post-list">
+    <a href="why-these-12/" class="post-item">
+        <div class="post-num">01</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.24</div>
+            <div class="post-title">星座はなぜこの12個なのか？</div>
+            <div class="post-desc">88星座の中からなぜ12個だけ？バビロニアの元の名前は畝、羊飼い、穀物の女神。</div>
+            <div class="post-tags"><span class="post-tag">星座</span><span class="post-tag">バビロニア</span><span class="post-tag">農業</span></div>
+        </div>
+    </a>
+    <a href="why-planet-meanings/" class="post-item">
+        <div class="post-num">02</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.19</div>
+            <div class="post-title">なぜ惑星ごとに意味があるのか？</div>
+            <div class="post-desc">金星は愛、火星は戦争。遠く離れた文明が同じ意味を付けた。</div>
+            <div class="post-tags"><span class="post-tag">惑星</span><span class="post-tag">占星術</span><span class="post-tag">文明</span></div>
+        </div>
+    </a>
+    <a href="is-space-black/" class="post-item">
+        <div class="post-num">03</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.19</div>
+            <div class="post-title">宇宙は本当に黒いのか？</div>
+            <div class="post-desc">95%が不明。ブラックホール、暗黒物質、暗黒エネルギー。人間の目が見えないだけでは？</div>
+            <div class="post-tags"><span class="post-tag">宇宙</span><span class="post-tag">暗黒</span><span class="post-tag">人間の目</span></div>
+        </div>
+    </a>
+    <a href="same-team/" class="post-item">
+        <div class="post-num">04</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.18</div>
+            <div class="post-title">もしかしたら私たちは皆同じチーム?</div>
+            <div class="post-desc">星が惑星を育て、惑星が生物を育て、生物が惑星を生かす。</div>
+            <div class="post-tags"><span class="post-tag">星</span><span class="post-tag">循環</span><span class="post-tag">生物</span></div>
+        </div>
+    </a>
+    <a href="change-reads-change/" class="post-item">
+        <div class="post-num">05</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.18</div>
+            <div class="post-title">変化するもので変化するものを読んだ</div>
+            <div class="post-desc">バビロニアの大麦領収書に惑星が書かれていた。楔形文字と占星術。シュメール絵文字のミステリー。</div>
+            <div class="post-tags"><span class="post-tag">楔形文字</span><span class="post-tag">占星術</span><span class="post-tag">シュメール</span></div>
+        </div>
+    </a>
+    <a href="gold-mystery/" class="post-item">
+        <div class="post-num">06</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.17</div>
+            <div class="post-title">金は特別なのか？</div>
+            <div class="post-desc">中性子星衝突で生まれた宇宙物質。錆びない、割れない、永遠に変わらない。</div>
+            <div class="post-tags"><span class="post-tag">金</span><span class="post-tag">宇宙</span><span class="post-tag">古代</span></div>
+        </div>
+    </a>
+    <a href="3-earth-3/" class="post-item">
+        <div class="post-num">07</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.17</div>
+            <div class="post-title">3つ — 地球 — 3つ</div>
+            <div class="post-desc">地球は正確に真ん中。ヴェーダ占星術、ラーフとケートゥ、狼男、吸血鬼、土星。</div>
+            <div class="post-tags"><span class="post-tag">ヴェーダ</span><span class="post-tag">太陽系</span><span class="post-tag">ミステリー</span></div>
+        </div>
+    </a>
+    <a href="vedic-planets/" class="post-item">
+        <div class="post-num">08</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.17</div>
+            <div class="post-title">ヴェーダ占星術の惑星たち</div>
+            <div class="post-desc">数千億の惑星からなぜ9つだけ？影の惑星、周波数、電気体、カルマ。</div>
+            <div class="post-tags"><span class="post-tag">ヴェーダ</span><span class="post-tag">惑星</span><span class="post-tag">周波数</span></div>
+        </div>
+    </a>
+    <a href="mythical-creatures/" class="post-item">
+        <div class="post-num">09</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.16</div>
+            <div class="post-title">空想の動物は本当に空想なのか？</div>
+            <div class="post-desc">龍、ユニコーン、グリフィン — 本当に空想？古代壁画のミステリー。ゼロから想像は可能か？</div>
+            <div class="post-tags"><span class="post-tag">古代</span><span class="post-tag">ミステリー</span><span class="post-tag">宇宙</span></div>
+        </div>
+    </a>
+    <a href="ocean-secrets/" class="post-item">
+        <div class="post-num">10</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.16</div>
+            <div class="post-title">海は不思議だ</div>
+            <div class="post-desc">海の底には何がある？深海生物はなぜ宇宙生物のように見える？宇宙人、確率、数学。</div>
+            <div class="post-tags"><span class="post-tag">海</span><span class="post-tag">宇宙</span><span class="post-tag">確率</span></div>
+        </div>
+    </a>
+    <a href="is-astrology-a-scam/" class="post-item">
+        <div class="post-num">11</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.16</div>
+            <div class="post-title">占星術は詐欺なのか？</div>
+            <div class="post-desc">科学的証拠を求める基準はなぜ占星術だけに適用されるのか。数千年のデータ、確率、参考地図。</div>
+            <div class="post-tags"><span class="post-tag">占星術</span><span class="post-tag">データ</span><span class="post-tag">確率</span></div>
+        </div>
+    </a>
+    <a href="human-emotions/" class="post-item">
+        <div class="post-num">12</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">人間の感情とは</div>
+            <div class="post-desc">嫉妬、孤独、寂しさの利点がわからない。綺麗な感情だけ残しちゃダメ？</div>
+            <div class="post-tags"><span class="post-tag">感情</span><span class="post-tag">嫉妬</span><span class="post-tag">愛</span></div>
+        </div>
+    </a>
+    <a href="emotions-and-astrology/" class="post-item">
+        <div class="post-num">13</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">感情と占星術</div>
+            <div class="post-desc">占星術が数学なら、感情も数学？数字の中に愛がある。</div>
+            <div class="post-tags"><span class="post-tag">感情</span><span class="post-tag">愛</span><span class="post-tag">占星術</span></div>
+        </div>
+    </a>
+    <a href="math-is-language/" class="post-item">
+        <div class="post-num">14</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">数学は世界を見る言語だ</div>
+            <div class="post-desc">数学は学校の科目じゃない。NASAが宇宙の音を聞かせたのも、AIが話すのも全部数学。</div>
+            <div class="post-tags"><span class="post-tag">数学</span><span class="post-tag">言語</span><span class="post-tag">NASA</span></div>
+        </div>
+    </a>
+    <a href="why-astrology-is-math/" class="post-item">
+        <div class="post-num">15</div>
+        <div class="post-body">
+            <div class="post-date">2026.09.15</div>
+            <div class="post-title">占星術はなぜ数学なのか？</div>
+            <div class="post-desc">生まれると数字がつく。誰も選んでいない。なぜ読めるんだ？</div>
+            <div class="post-tags"><span class="post-tag">占星術</span><span class="post-tag">数学</span><span class="post-tag">古代史</span></div>
+        </div>
+    </a>
+</div>
+
+<footer class="app-footer">
+    &copy; 2025 MOGU Moon<br>
+    <a href="/jp/privacy/">プライバシーポリシー</a>
+</footer>
+
+<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
+<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script></body>
+</html>

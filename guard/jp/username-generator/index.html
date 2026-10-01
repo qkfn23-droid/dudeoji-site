@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4Y3DC1CLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K4Y3DC1CLG');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全なユーザー名生成器 - 匿名ID作成 | MOGU Guard</title>
+    <meta name="description" content="個人情報を含まない安全なユーザー名/IDを自動生成します。様々なスタイルで匿名IDを作成。">
+    <link rel="canonical" href="https://moguguard.com/jp/username-generator/">
+    <link rel="alternate" hreflang="ko" href="https://moguguard.com/username-generator/">
+    <link rel="alternate" hreflang="en" href="https://moguguard.com/en/username-generator/">
+    <link rel="alternate" hreflang="ja" href="https://moguguard.com/jp/username-generator/">
+    <link rel="alternate" hreflang="es" href="https://moguguard.com/es/generador-usuario/">
+    <link rel="alternate" hreflang="de" href="https://moguguard.com/de/benutzername-generator/">
+    <link rel="alternate" hreflang="fr" href="https://moguguard.com/fr/generateur-nom/">
+    <link rel="alternate" hreflang="pt" href="https://moguguard.com/pt/gerador-usuario/">
+    <link rel="alternate" hreflang="x-default" href="https://moguguard.com/username-generator/">
+    <meta property="og:title" content="安全なユーザー名生成器 | MOGU Guard">
+    <meta property="og:description" content="匿名ユーザー名を自動生成！">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moguguard.com/jp/username-generator/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+        header{background:#111;border-bottom:1px solid #1a3a1a;padding:16px 20px;text-align:center}header a{text-decoration:none;font-size:20px;color:#00ff41;letter-spacing:2px;font-weight:700;font-family:'Fira Code',monospace}
+        .container{max-width:700px;margin:20px auto 40px;padding:0 20px}
+        .page-title{text-align:center;margin-bottom:30px}.page-title h2{font-size:28px;color:#00ff41;margin-bottom:8px}.page-title p{color:#666;font-size:14px}
+        .style-select{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;justify-content:center}
+        .style-btn{padding:10px 18px;background:#111;border:1px solid #00ff4130;border-radius:6px;color:#888;font-size:13px;cursor:pointer;transition:all .2s}
+        .style-btn.active{border-color:#00ff41;color:#00ff41;background:rgba(0,255,65,0.08)}
+        .style-btn:hover{border-color:#00ff41;color:#00ff41}
+        .gen-btn{width:100%;padding:16px;background:#00ff41;color:#0a0a0a;border:none;border-radius:8px;font-size:18px;font-weight:700;cursor:pointer;font-family:'Fira Code',monospace;margin-bottom:24px}
+        .results{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:24px}
+        .results-title{font-size:14px;color:#00ff41;margin-bottom:16px;font-weight:600}
+        .result-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #0f0f0f}
+        .result-item:last-child{border-bottom:none}
+        .result-name{font-size:18px;font-family:'Fira Code',monospace;color:#e0e0e0;letter-spacing:1px}
+        .result-copy{padding:6px 14px;background:transparent;border:1px solid #00ff4130;border-radius:4px;color:#00ff41;font-size:12px;cursor:pointer;font-family:'Fira Code',monospace}
+        .result-copy:hover{background:rgba(0,255,65,0.08)}
+        .info{background:#111;border:1px solid #00ff4130;border-radius:8px;padding:20px;margin-top:20px}
+        .info-title{font-size:16px;color:#00ff41;font-weight:600;margin-bottom:10px}
+        .info-text{font-size:14px;color:#888;line-height:1.8}.info-text strong{color:#00ff41}
+        footer{text-align:center;padding:30px;color:#333;font-size:11px}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"ユーザー名生成器","url":"https://moguguard.com/jp/username-generator/","description":"個人情報を含まない安全なユーザー名を自動生成します。","applicationCategory":"SecurityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires JavaScript"}
+    </script>
+</head>
+<body>
+<header><a href="/jp/">MOGU <span style="color:#00ff41;">Guard</span></a></header>
+<div class="container">
+    <div class="page-title">
+        <h2>👤 ユーザー名生成器</h2>
+        <p>個人情報のない安全なユーザー名を作成</p>
+    </div>
+    <div style="text-align:center;margin-bottom:16px;font-size:13px;color:#888;">スタイル選択</div>
+    <div class="style-select">
+        <div class="style-btn active" onclick="setStyle('cool')" id="s1">😎 クール</div>
+        <div class="style-btn" onclick="setStyle('cute')" id="s2">🐱 かわいい</div>
+        <div class="style-btn" onclick="setStyle('hacker')" id="s3">💀 ハッカー</div>
+        <div class="style-btn" onclick="setStyle('random')" id="s4">🎲 ランダム</div>
+        <div class="style-btn" onclick="setStyle('game')" id="s5">🎮 ゲーム</div>
+    </div>
+    <button class="gen-btn" onclick="generate()">👤 10個生成</button>
+    <div class="results">
+        <div class="results-title">生成されたユーザー名</div>
+        <div id="resultList"></div>
+    </div>
+    <div class="info">
+        <div class="info-title">💡 安全なユーザー名とは？</div>
+        <div class="info-text">
+            &bull; <strong>本名は使わない</strong> — 名前が入ったIDは個人情報が露出する<br>
+            &bull; <strong>生年月日は使わない</strong> — kim1990のようなIDは年齢が分かる<br>
+            &bull; <strong>サイトごとに変える</strong> — 同じIDだと活動が追跡される<br>
+            &bull; <strong>性別を隠す</strong> — 性別が分からないIDが安全
+        </div>
+    </div>
+</div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #1a3a1a;margin-top:30px;"><span style="font-size:12px;color:#333;margin-right:8px;">共有:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1da1f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:5px 10px;background:#1877f2;color:#fff;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;">Facebook</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:5px 10px;background:#333;color:#0f0;border-radius:4px;text-decoration:none;font-size:11px;margin:3px;font-family:monospace;">URLコピー</a></div>
+<footer>&copy; 2025 MOGU Guard</footer>
+<script>
+let style='cool';
+const data={
+    cool:{adj:['Shadow','Storm','Iron','Nova','Blaze','Frost','Dark','Swift','Night','Steel','Vex','Rune','Ash','Bolt','Cipher'],noun:['Wolf','Hawk','Blade','Rider','Knight','Hunter','Phantom','Rogue','Striker','Viper','Drift','Echo','Flux','Spark','Core']},
+    cute:{adj:['Fluffy','Tiny','Sweet','Happy','Cozy','Dreamy','Sunny','Bubbly','Starry','Peachy','Misty','Berry','Honey','Cloudy','Minty'],noun:['Panda','Kitten','Bunny','Pixel','Cookie','Mochi','Doodle','Cupcake','Sprout','Pebble','Noodle','Waffle','Dumpling','Marshmallow','Pudding']},
+    hacker:{adj:['x0r','null','void','root','sudo','crypt','hex','byte','zero','net','sys','d4rk','sh4dow','c0de','gl1tch'],noun:['h4ck','b0t','pr0xy','sh3ll','k3rnel','d4t4','n0d3','r00t','ph4nt0m','sp3ctr3','v1rus','c1ph3r','m4lw4r3','3xpl01t','zer0day']},
+    random:{adj:['Alpha','Beta','Gamma','Delta','Omega','Sigma','Zeta','Kappa','Lambda','Theta','Epsilon','Psi','Phi','Tau','Rho'],noun:['X','7','42','99','404','101','256','512','1024','000','777','13','21','88','33']},
+    game:{adj:['Pro','Epic','Mega','Ultra','Hyper','Super','Elite','Legend','Master','King','Ace','God','Lord','Chief','Boss'],noun:['Sniper','Slayer','Gamer','Player','Fighter','Warrior','Ninja','Samurai','Viking','Dragon','Titan','Phoenix','Thunder','Reaper','Champion']}
+};
+function r(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function rn(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function setStyle(s){style=s;document.querySelectorAll('.style-btn').forEach(b=>b.classList.remove('active'));document.getElementById({cool:'s1',cute:'s2',hacker:'s3',random:'s4',game:'s5'}[s]).classList.add('active');}
+function generate(){
+    const d=data[style];const names=[];
+    for(let i=0;i<10;i++){
+        const formats=[
+            ()=>r(d.adj)+r(d.noun),
+            ()=>r(d.adj)+'_'+r(d.noun),
+            ()=>r(d.adj)+r(d.noun)+rn(1,99),
+            ()=>r(d.noun)+r(d.adj),
+            ()=>r(d.adj)+rn(10,999),
+        ];
+        names.push(r(formats)());
+    }
+    document.getElementById('resultList').innerHTML=names.map(n=>`
+        <div class="result-item">
+            <span class="result-name">${n}</span>
+            <button class="result-copy" onclick="navigator.clipboard.writeText('${n}');this.textContent='✅'">コピー</button>
+        </div>
+    `).join('');
+}
+generate();
+</script>
+</body>
+</html>

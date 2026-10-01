@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSM83JHLR1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZSM83JHLR1');
+</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor HEX/RGB - MOGU Tools</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Es Convertidor HEX/RGB gratis?","acceptedAnswer":{"@type":"Answer","text":"Si, 100% gratis. Sin registro. Todo el procesamiento ocurre en tu navegador, sin enviar datos personales a ningun servidor."}},
+    {"@type":"Question","name":"Como usar Convertidor HEX/RGB?","acceptedAnswer":{"@type":"Answer","text":"Convierte códigos de color HEX, RGB y HSL en tiempo real. Seleccione un color con el selector y copie el código CSS directamente."}}
+    ]}
+    </script>
+    <link rel="alternate" hreflang="ko" href="https://mogutool.com/tools/color-convert.html">
+    <link rel="alternate" hreflang="en" href="https://mogutool.com/en/tools/color-convert.html">
+    <link rel="alternate" hreflang="ja" href="https://mogutool.com/jp/tools/color-convert.html">
+    <link rel="alternate" hreflang="es" href="https://mogutool.com/es/tools/color-convert.html">
+    <link rel="alternate" hreflang="de" href="https://mogutool.com/de/tools/color-convert.html">
+    <link rel="alternate" hreflang="fr" href="https://mogutool.com/fr/tools/color-convert.html">
+    <link rel="alternate" hreflang="pt" href="https://mogutool.com/pt/tools/color-convert.html">
+    <link rel="alternate" hreflang="x-default" href="https://mogutool.com/tools/color-convert.html">
+    <link rel="canonical" href="https://mogutool.com/es/tools/color-convert.html">
+    <meta property="og:title" content="Convertidor HEX/RGB - MOGU Tools">
+    <meta property="og:description" content="Convierte códigos de color HEX, RGB y HSL en tiempo real. Seleccione un color con el selector y copie el código CSS directamente.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mogutool.com/es/og-image.png">
+    <meta property="og:url" content="https://mogutool.com/es/tools/color-convert.html">
+    <meta name="description" content="Convierte códigos de color HEX, RGB y HSL en tiempo real. Seleccione un color con el selector y copie el código CSS directamente.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 2px solid #eee;
+            padding: 16px 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        header a span {
+            color: #4a90d9;
+        }
+
+        .breadcrumb {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #4a90d9;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .calc-box {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        /* Color preview */
+        .preview-block {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px;
+            background: #FF5733;
+            margin-bottom: 24px;
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: background 0.15s;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .preview-hex-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            background: rgba(0,0,0,0.25);
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Picker row */
+        .picker-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .color-picker-wrap {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .color-picker-wrap input[type="color"] {
+            width: 52px;
+            height: 52px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 3px;
+            cursor: pointer;
+            background: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .color-picker-wrap input[type="color"]:hover {
+            border-color: #4a90d9;
+        }
+
+        .picker-hint {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .picker-hint strong {
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* Input groups */
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #555;
+            letter-spacing: 0.3px;
+        }
+
+        .input-copy-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-copy-row input[type="text"] {
+            flex: 1;
+            padding: 11px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Courier New', monospace;
+            outline: none;
+            transition: border-color 0.2s;
+            color: #333;
+        }
+
+        .input-copy-row input[type="text"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .copy-btn {
+            flex-shrink: 0;
+            padding: 10px 14px;
+            background: #f0f0f0;
+            color: #555;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: #4a90d9;
+            color: #fff;
+            border-color: #4a90d9;
+        }
+
+        .copy-btn.copied {
+            background: #5cb85c;
+            color: #fff;
+            border-color: #5cb85c;
+        }
+
+        /* CSS output */
+        .css-output-section {
+            margin-top: 8px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .css-output-section label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .css-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .css-tab {
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            background: #f8f8f8;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .css-tab.active {
+            background: #4a90d9;
+            color: #fff;
+            border-color: #4a90d9;
+        }
+
+        .css-code-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .css-code-row input[type="text"] {
+            flex: 1;
+            padding: 11px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            color: #555;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .css-code-row input[type="text"]:focus {
+            border-color: #4a90d9;
+            background: #fff;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .info-section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+    </style>
+<style>.seo-content{max-width:600px;margin:30px auto;padding:0 20px}.seo-section{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:24px;margin-bottom:16px}.seo-section h2{font-size:18px;font-weight:700;margin-bottom:12px;color:#333}.seo-section p,.seo-section li{font-size:14px;color:#555;line-height:1.8}.seo-section ul{margin:8px 0 8px 20px}.seo-faq summary{font-size:15px;font-weight:600;color:#333;cursor:pointer;padding:8px 0}.seo-faq p{margin-top:8px}.seo-related{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.seo-related a{display:inline-block;padding:6px 14px;background:#f0f4ff;border-radius:8px;color:#4a90d9;text-decoration:none;font-size:13px}.seo-related a:hover{background:#e0eaff}</style></head>
+<body>
+
+<header>
+    <a href="../index.html">MOGU <span>Herramientas</span></a>
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">MOGU Tools — Herramientas Online Gratis</a> &gt; Herramientas de color &gt; Convertidor HEX/RGB
+</div>
+
+<div class="container">
+    <h1>Convertidor HEX/RGB</h1>
+    <p class="subtitle">Seleccione un color para convertir los códigos HEX, RGB y HSL en tiempo real.</p>
+
+    <div class="calc-box">
+
+        <!-- Preview -->
+        <div class="preview-block" id="previewBlock">
+            <span class="preview-hex-label" id="previewLabel">#FF5733</span>
+        </div>
+
+        <!-- Color Picker -->
+        <div class="picker-row">
+            <div class="color-picker-wrap">
+                <input type="color" id="colorPicker" value="#FF5733">
+            </div>
+            <p class="picker-hint">
+                Seleccione un color con el <strong>selector de color</strong>, o<br>
+                ingrese directamente los valores HEX, RGB o HSL en los campos de abajo.
+            </p>
+        </div>
+
+        <!-- HEX -->
+        <div class="input-group">
+            <label>HEX</label>
+            <div class="input-copy-row">
+                <input type="text" id="hexInput" value="#FF5733" placeholder="#FF5733" maxlength="7">
+                <button class="copy-btn" onclick="copyValue('hexInput', this)">Copiar</button>
+            </div>
+        </div>
+
+        <!-- RGB -->
+        <div class="input-group">
+            <label>RGB</label>
+            <div class="input-copy-row">
+                <input type="text" id="rgbInput" value="255, 87, 51" placeholder="255, 87, 51">
+                <button class="copy-btn" onclick="copyValue('rgbInput', this)">Copiar</button>
+            </div>
+        </div>
+
+        <!-- HSL -->
+        <div class="input-group">
+            <label>HSL</label>
+            <div class="input-copy-row">
+                <input type="text" id="hslInput" value="11, 100%, 60%" placeholder="11, 100%, 60%">
+                <button class="copy-btn" onclick="copyValue('hslInput', this)">Copiar</button>
+            </div>
+        </div>
+
+        <!-- CSS Output -->
+        <div class="css-output-section">
+            <label>Código CSS</label>
+            <div class="css-tabs">
+                <button class="css-tab active" onclick="setCssTab('bg', this)">background-color</button>
+                <button class="css-tab" onclick="setCssTab('color', this)">color</button>
+                <button class="css-tab" onclick="setCssTab('border', this)">border-color</button>
+            </div>
+            <div class="css-code-row">
+                <input type="text" id="cssOutput" readonly value="background-color: #FF5733;">
+                <button class="copy-btn" onclick="copyValue('cssOutput', this)">Copiar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="info-section">
+        <h2>Información sobre formatos de color</h2>
+        <p><strong>HEX</strong> — Código de color hexadecimal. Ej: #FF5733. Es el más usado en HTML y CSS.</p>
+        <p><strong>RGB</strong> — Rojo (R), Verde (G), Azul (B), cada uno en un rango de 0~255. Ej: rgb(255, 87, 51).</p>
+        <p><strong>HSL</strong> — Tono (H, 0~360°), Saturación (S, 0~100%), Luminosidad (L, 0~100%). Ideal para ajustes intuitivos de color.</p>
+    </div>
+</div>
+
+<div class="seo-content"><div class="seo-section"><h2>Convertidor HEX/RGB</h2><p>Convierte entre códigos de color HEX, RGB y HSL en tiempo real. Selecciona colores y copia CSS.</p></div><div class="seo-section"><h2>Preguntas frecuentes</h2><details class="seo-faq"><summary>¿Esta herramienta es gratuita?</summary><p>Sí, es 100% gratuita. Sin registro. Todo se procesa en tu navegador — no se envían datos a ningún servidor.</p></details><details class="seo-faq"><summary>¿Funciona en el móvil?</summary><p>Sí, todas las herramientas son responsive y funcionan en smartphones, tablets y ordenadores.</p></details></div>
+<div class="seo-section"><h2>Herramientas relacionadas</h2><div class="seo-related"><a href="color-picker.html">Extractor de Color de Imagen</a><a href="gradient-gen.html">Generador de Gradientes</a></div></div></div>
+<div style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:30px;"><span style="font-size:13px;color:#999;margin-right:8px;">Share:</span><a href="" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1da1f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Twitter</a><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400');return false" style="display:inline-block;padding:6px 12px;background:#1877f2;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Facebook</a><a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a><a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#888;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">Copy URL</a></div>
+<footer>
+    &copy; 2025 MOGU Tools
+</footer>
+
+<script>
+    let currentCssProperty = 'background-color';
+
+    // ── Conversion helpers ──────────────────────────────────────────────
+
+    function hexToRgb(hex) {
+        hex = hex.replace(/^#/, '');
+        if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+        if (hex.length !== 6 || !/^[0-9a-fA-F]{6}$/.test(hex)) return null;
+        return {
+            r: parseInt(hex.slice(0, 2), 16),
+            g: parseInt(hex.slice(2, 4), 16),
+            b: parseInt(hex.slice(4, 6), 16)
+        };
+    }
+
+    function rgbToHex(r, g, b) {
+        return '#' + [r, g, b].map(v => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join('').toUpperCase();
+    }
+
+    function rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+        if (max === min) {
+            h = s = 0;
+        } else {
+            const d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+                case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                case g: h = ((b - r) / d + 2) / 6; break;
+                case b: h = ((r - g) / d + 4) / 6; break;
+            }
+        }
+        return {
+            h: Math.round(h * 360),
+            s: Math.round(s * 100),
+            l: Math.round(l * 100)
+        };
+    }
+
+    function hslToRgb(h, s, l) {
+        s /= 100; l /= 100;
+        const k = n => (n + h / 30) % 12;
+        const a = s * Math.min(l, 1 - l);
+        const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+        return {
+            r: Math.round(f(0) * 255),
+            g: Math.round(f(8) * 255),
+            b: Math.round(f(4) * 255)
+        };
+    }
+
+    function parseRgbString(str) {
+        const parts = str.split(',').map(s => parseFloat(s.trim()));
+        if (parts.length !== 3 || parts.some(isNaN)) return null;
+        if (parts.some(v => v < 0 || v > 255)) return null;
+        return { r: parts[0], g: parts[1], b: parts[2] };
+    }
+
+    function parseHslString(str) {
+        const parts = str.replace(/%/g, '').split(',').map(s => parseFloat(s.trim()));
+        if (parts.length !== 3 || parts.some(isNaN)) return null;
+        if (parts[0] < 0 || parts[0] > 360) return null;
+        if (parts[1] < 0 || parts[1] > 100) return null;
+        if (parts[2] < 0 || parts[2] > 100) return null;
+        return { h: parts[0], s: parts[1], l: parts[2] };
+    }
+
+    // ── Update all fields from an rgb object ────────────────────────────
+
+    function updateAll(r, g, b, sourceId) {
+        const hex = rgbToHex(r, g, b);
+        const hsl = rgbToHsl(r, g, b);
+        const hslStr = hsl.h + ', ' + hsl.s + '%, ' + hsl.l + '%';
+        const rgbStr = r + ', ' + g + ', ' + b;
+
+        if (sourceId !== 'hexInput')    document.getElementById('hexInput').value = hex;
+        if (sourceId !== 'rgbInput')    document.getElementById('rgbInput').value = rgbStr;
+        if (sourceId !== 'hslInput')    document.getElementById('hslInput').value = hslStr;
+        if (sourceId !== 'colorPicker') document.getElementById('colorPicker').value = hex;
+
+        document.getElementById('previewBlock').style.background = hex;
+        document.getElementById('previewLabel').textContent = hex;
+        updateCssOutput(hex);
+    }
+
+    function updateCssOutput(hex) {
+        document.getElementById('cssOutput').value = currentCssProperty + ': ' + hex + ';';
+    }
+
+    // ── Event listeners ─────────────────────────────────────────────────
+
+    document.getElementById('colorPicker').addEventListener('input', function () {
+        const rgb = hexToRgb(this.value);
+        if (rgb) updateAll(rgb.r, rgb.g, rgb.b, 'colorPicker');
+    });
+
+    document.getElementById('hexInput').addEventListener('input', function () {
+        let val = this.value.trim();
+        if (!val.startsWith('#')) val = '#' + val;
+        const rgb = hexToRgb(val);
+        if (rgb) updateAll(rgb.r, rgb.g, rgb.b, 'hexInput');
+    });
+
+    document.getElementById('hexInput').addEventListener('blur', function () {
+        let val = this.value.trim();
+        if (!val.startsWith('#')) val = '#' + val;
+        const rgb = hexToRgb(val);
+        if (rgb) {
+            this.value = rgbToHex(rgb.r, rgb.g, rgb.b);
+        }
+    });
+
+    document.getElementById('rgbInput').addEventListener('input', function () {
+        const rgb = parseRgbString(this.value);
+        if (rgb) updateAll(Math.round(rgb.r), Math.round(rgb.g), Math.round(rgb.b), 'rgbInput');
+    });
+
+    document.getElementById('hslInput').addEventListener('input', function () {
+        const hsl = parseHslString(this.value);
+        if (hsl) {
+            const rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+            updateAll(rgb.r, rgb.g, rgb.b, 'hslInput');
+        }
+    });
+
+    // ── Copy ────────────────────────────────────────────────────────────
+
+    function copyValue(inputId, btn) {
+        const val = document.getElementById(inputId).value;
+        navigator.clipboard.writeText(val).then(() => {
+            const orig = btn.textContent;
+            btn.textContent = '¡Copiado!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = orig;
+                btn.classList.remove('copied');
+            }, 1500);
+        }).catch(() => {
+            const el = document.getElementById(inputId);
+            el.select();
+            document.execCommand('copy');
+        });
+    }
+
+    // ── CSS tabs ────────────────────────────────────────────────────────
+
+    function setCssTab(prop, btn) {
+        const map = {
+            bg: 'background-color',
+            color: 'color',
+            border: 'border-color'
+        };
+        currentCssProperty = map[prop];
+        document.querySelectorAll('.css-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        const hex = document.getElementById('hexInput').value;
+        updateCssOutput(hex);
+    }
+
+    // ── Init ────────────────────────────────────────────────────────────
+
+    (function init() {
+        const rgb = hexToRgb('#FF5733');
+        updateAll(rgb.r, rgb.g, rgb.b, null);
+    })();
+</script>
+
+</body>
+</html>
