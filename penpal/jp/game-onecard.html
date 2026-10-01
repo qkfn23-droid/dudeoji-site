@@ -130,7 +130,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .played-card.red .card-num,.played-card.red .card-suit{color:#dc2626;}
 .played-card.black .card-num,.played-card.black .card-suit{color:#1a1a1a;}
 
-/* 내 カード */
+/* my カード */
 .my-area{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .my-info{display:flex;align-items:center;gap:8px;}
 .my-pic{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
@@ -177,7 +177,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 @keyframes megaShake{0%,100%{transform:rotate(0);}25%{transform:rotate(-10deg);}75%{transform:rotate(10deg);}}
 @keyframes megaStar{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.3);}}
 
-/* 招待 모달 */
+/* 招待 모month */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:999;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
 .modal{background:#fff;border-radius:16px;width:340px;max-height:80vh;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.2);animation:modalIn .2s ease-out;}
@@ -280,16 +280,16 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     </div>
 </nav>
 <div class="tab-bar">
-    <div class="tab-room"><span class="t-emoji">🃏</span> Maria의 원カードRoom (4/4)</div>
+    <div class="tab-room"><span class="t-emoji">🃏</span> Maria 원カードRoom (4/4)</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">원カード シーズン 오픈! ペンパル 友達와 one 판 해보세요</div>
-            <div class="notice-text">이번 주 원カード TOP 3to Star 気 x50 プレゼント!</div>
-            <div class="notice-text">絵 맞추기 10월 오픈 予定! 기대してください</div>
-            <div class="notice-text">Star 気을 모아 オーラ를 解放하세요!</div>
+            <div class="notice-text active">원カード シーズン 오픈! ペンパル 友達 one 판 해보세요</div>
+            <div class="notice-text">번 주 원カード TOP 3to Star 気 x50 プレゼント!</div>
+            <div class="notice-text">絵 Match 10month 오픈 予定! 기대してください</div>
+            <div class="notice-text">Star 気 모아 オーラ 解放하세요!</div>
             <div class="notice-text">현재 접속자 127명 · 進行 in progress ゲーム 23개</div>
-            <div class="notice-text">비매너 ユーザー 通報 기능이 addされました</div>
+            <div class="notice-text">비매너 ユーザー 通報 기능 addされました</div>
         </div>
     </div>
 </div>
@@ -345,10 +345,10 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">今日の運勢は?</div>
-                <div class="moon-text">タロット one 장의 メッセージ</div>
+                <div class="moon-text">タロット one pcs メッセージ</div>
                 <div class="moon-text">前世の私は誰?</div>
-                <div class="moon-text">내 夢の隠された意味</div>
-                <div class="moon-text">내 運命の人は?</div>
+                <div class="moon-text">my 夢の隠された意味</div>
+                <div class="moon-text">my 運命の人は?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -364,7 +364,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                         <div class="opp-pic" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">🐱</div>
                         <div>
                             <div class="opp-name">Hana K.</div>
-                            <div class="opp-count">カード 4장</div>
+                            <div class="opp-count">カード 4pcs</div>
                         </div>
                     </div>
                     <div class="opp-hand">
@@ -376,7 +376,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                         <div class="opp-pic">🦊</div>
                         <div>
                             <div class="opp-name">Maria G.</div>
-                            <div class="opp-count">カード 5장</div>
+                            <div class="opp-count">カード 5pcs</div>
                         </div>
                     </div>
                     <div class="opp-hand">
@@ -388,7 +388,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                         <div class="opp-pic" style="background:linear-gradient(135deg,#10b981,#34d399);">🐻</div>
                         <div>
                             <div class="opp-name">Jun P.</div>
-                            <div class="opp-count">カード 6장</div>
+                            <div class="opp-count">カード 6pcs</div>
                         </div>
                     </div>
                     <div class="opp-hand">
@@ -414,11 +414,11 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- 내 カード -->
+            <!-- my カード -->
             <div class="my-area">
                 <div class="my-info">
                     <div class="my-pic">⭐</div>
-                    <div class="my-label">내 カード (7장)</div>
+                    <div class="my-label">my カード (7pcs)</div>
                 </div>
                 <div class="my-hand" id="myHand">
                     <div class="my-card red playable" onclick="playCard(this)"><div class="card-num">3</div><div class="card-suit">&#9829;</div></div>
@@ -447,10 +447,10 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 ゲーム ルール</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 カード와 <b>数字</b> 또는 <b>模様</b>가 같으면 낼 수 있어요</div>
+                <div class="rule-basic">바닥 カード <b>数字</b> 또는 <b>模様</b>가 같으면 낼 수 have요</div>
                 <div class="rule-cards">
-                    <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 攻撃</span></div>
-                    <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 攻撃</span></div>
+                    <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs 攻撃</span></div>
+                    <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">🔄</span><span>順番 뒤집기</span></div>
                     <div class="rule-card"><span class="rc-icon">⛔</span><span>다음 ターン 스킵</span></div>
                     <div class="rule-card"><span class="rc-icon">7️⃣</span><span>模様 바꾸기</span></div>
@@ -460,9 +460,9 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title" style="color:#f59e0b;">⭐ 報酬</div>
             <div style="font-size:11px;color:#888;line-height:1.8;">
-                🥇 1등: Star 気 x30<br>
-                🥈 2등: Star 気 x15<br>
-                🥉 3등: Star 気 x5
+                🥇 1etc: Star 気 x30<br>
+                🥈 2etc: Star 気 x15<br>
+                🥉 3etc: Star 気 x5
             </div>
         </div>
     </div>
@@ -473,20 +473,20 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[通知]</span> Maria의 원カードRoom에 joined</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> Maria 원カードRoom joined</div>
             <div class="chat-msg"><span class="sys">[通知]</span> Hana K.has joined</div>
             <div class="chat-msg"><span class="sys">[通知]</span> Jun P.has joined</div>
             <div class="chat-msg"><span class="user">Maria:</span> こんにちは! 원カード lets~ 😄</div>
             <div class="chat-msg"><span class="user">Hana:</span> 好き 開始lets!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
-            <div class="chat-msg"><span class="sys">[通知]</span> ゲーム이 開始されました!</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> ゲーム 開始されました!</div>
             <div class="chat-msg"><span class="user">Maria:</span> 攻撃 간다~ 🔥</div>
             <div class="chat-msg"><span class="sys">[通知]</span> TAZOof ターンis</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두to-</option><option>Mariato</option></select>
-            <input class="chat-input" placeholder="メッセージ를 please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
-            <button class="chat-send" onclick="sendChat()">전송</button>
+            <input class="chat-input" placeholder="メッセージ please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="chat-send" onclick="sendChat()">before송</button>
         </div>
     </div>
     <div class="bottom-btns">
@@ -506,7 +506,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     </div>
 </div>
 
-<!-- 招待 모달 -->
+<!-- 招待 모month -->
 <div class="modal-overlay" id="inviteModal" onclick="if(event.target===this)closeInvite()">
     <div class="modal">
         <div class="modal-head">
@@ -517,25 +517,25 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
-                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">onライン · 待機 중</div></div>
+                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">onライン · 待機 in</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">招待</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
-                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">onライン · 待機 중</div></div>
+                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">onライン · 待機 in</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">招待</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🎵</div>
-                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">onライン · ゲーム 중</div></div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">onライン · ゲーム in</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">招待</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#ef4444,#f87171);">🔥</div>
-                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">onライン · 待機 중</div></div>
+                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">onライン · 待機 in</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Lucas')">招待</button>
             </div>
             <div class="friend-item">
@@ -559,10 +559,10 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');
-    // 관전 바 add
+    // Spectate 바 add
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 Spectate Mode — ゲーム을 구경하고 exists';
+    bar.textContent = '👁 Spectate Mode — ゲーム 구경하고 exists';
     document.querySelector('.tab-bar').after(bar);
     // Enter 通知
     var badge = document.createElement('div');
@@ -571,7 +571,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// ターン 타이머
+// ターン 타머
 var turnTime = 15;
 var turnSec = turnTime;
 var turnInterval = null;
@@ -592,9 +592,9 @@ function startTurnTimer() {
     }, 1000);
 }
 function skipTurn() {
-    addLog('<span class="sys">[通知]</span> 時間 초과! ターン이 moves on');
+    addLog('<span class="sys">[通知]</span> 時間 Exceeded! ターン moves on');
     drawCard();
-    addLog('<span class="sys">[通知]</span> パネル티: カード 1장 뽑기');
+    addLog('<span class="sys">[通知]</span> パネル티: カード 1pcs 뽑기');
     startTurnTimer();
 }
 startTurnTimer();
@@ -629,12 +629,12 @@ function drawCard() {
     card.innerHTML = '<div class="card-num">' + n + '</div><div class="card-suit">' + s + '</div>';
     hand.appendChild(card);
     updateCount();
-    addLog('<span class="sys">[通知]</span> カード 1장 뽑음');
+    addLog('<span class="sys">[通知]</span> カード 1pcs 뽑음');
     startTurnTimer();
 }
 function updateCount() {
     var c = document.getElementById('myHand').children.length;
-    document.querySelector('.my-label').textContent = '내 カード (' + c + '장)';
+    document.querySelector('.my-label').textContent = 'my カード (' + c + 'pcs)';
 }
 function sendChat() {
     var input = document.getElementById('chatInput');
@@ -659,9 +659,9 @@ function closeInvite() {
     document.getElementById('inviteModal').classList.remove('show');
 }
 function sendInvite(btn, name) {
-    btn.textContent = '전송됨 ✓';
+    btn.textContent = 'beforeSent ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[通知]</span> ' + name + '님to 招待를 sent');
+    addLog('<span class="sys">[通知]</span> ' + name + 'sirto 招待 sent');
 }
 
 // ミュート
@@ -669,22 +669,22 @@ var isMuted = false;
 function toggleMute(btn) {
     isMuted = !isMuted;
     if (isMuted) {
-        btn.textContent = '🔇 ミュート 중';
+        btn.textContent = '🔇 ミュート in';
         btn.style.background = '#f0f0f0';
         btn.style.color = '#999';
-        addLog('<span class="sys">[通知]</span> 사운드를 껐습니다');
+        addLog('<span class="sys">[通知]</span> 사운드 껐습your다');
     } else {
         btn.textContent = '🔊 ミュート';
         btn.style.background = '';
         btn.style.color = '';
-        addLog('<span class="sys">[通知]</span> 사운드를 켰습니다');
+        addLog('<span class="sys">[通知]</span> 사운드 켰습your다');
     }
 }
 
-// Page 이동 確認
+// Page 동 確認
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('ゲームfrom Would you like to leave?\n進行 in progress ゲーム은 敗北 processingwill be.');
+    return confirm('ゲームfrom Would you like to leave?\n進行 in progress ゲーム 敗北 processingwill be.');
 }
 
 // 退出
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 Roomfrom Would you like to leave?\n進行 in progress ゲーム은 敗北 processingwill be.')) {
+    if (confirm('정말 Roomfrom Would you like to leave?\n進行 in progress ゲーム 敗北 processingwill be.')) {
         addLog('<span class="sys">[通知]</span> TAZOhas has left');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }
@@ -706,7 +706,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','원カード 고수만 와라!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','원カード 고수만 라!! 🔥');},15000);
 
 // お知らせ 티커
 var noticeIdx=0;

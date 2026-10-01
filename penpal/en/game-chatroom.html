@@ -322,7 +322,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="topic-icon">💬</div>
             <div>
                 <div class="topic-label">Today Topic</div>
-                <div class="topic-text" id="topicText">니 countryfrom the most unusual food in your country? 🍽️</div>
+                <div class="topic-text" id="topicText">your countryfrom the most unusual food in your country? 🍽️</div>
             </div>
             <button class="topic-new" onclick="nextTopic()">Next Topic</button>
         </div>
@@ -357,7 +357,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="msg-system">Felixhas has joined</div>
             <div class="msg-system">Lucashas has joined</div>
 
-            <!-- Mission 등장 -->
+            <!-- Mission etcpcs -->
             <div class="msg-mission">
                 <div class="mission-icon">🎯</div>
                 <div class="mission-label">Speaking Mission</div>
@@ -390,15 +390,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#e91e63;">Maria G.</span><span class="lang-badge native">🇪🇸</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:34</span></div>
-                    <div class="msg-text">¡Delicioso! SpanishAlso 비슷해! 😄</div>
+                    <div class="msg-text">¡Delicioso! SpanishAlso Similar! 😄</div>
                 </div>
             </div>
-            <div class="msg-system">🎯 Mission Done! Join자 4peopleAt게 💎 x5 payment</div>
+            <div class="msg-system">🎯 Mission Done! Join자 4peopleAtto 💎 x5 payment</div>
             <div class="msg">
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="msg-time">20:35</span></div>
-                    <div class="msg-text">TAZOIs 어디from came?</div>
+                    <div class="msg-text">TAZOIs Wherefrom came?</div>
                 </div>
             </div>
         </div>
@@ -416,7 +416,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="emoji-grid" id="emojiGrid"></div>
             </div>
             <button class="emoji-btn" title="Emoji" onclick="toggleEmoji()">😊</button>
-            <input class="chat-input" placeholder="Messagesthe 입력please do..." id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()">
+            <input class="chat-input" placeholder="Messagesthe Inputplease do..." id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()">
             <button class="chat-send-btn" onclick="sendMsg()">before송</button>
         </div>
     </div>
@@ -522,7 +522,7 @@ function sendMsg(){
     m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
     c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
     setTimeout(function(){
-        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 Real?','fun다 😄','나Also나Also~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['I see!','Korean is hard ㅠㅠ','And 멋지다!','나Also 그래~','ㅎㅎ like!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 I see','ㅋㅋ 웃기다','I am 잘 모르겠어','GermanyfromIs 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['Real? 대박','BrazilAlso 비슷해!','ㅋㅋㅋ','fun다~','오 Good 생Each!']}];
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ Right!','오 Real?','fun다 😄','IAlsoIAlso~','Wow!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['I see!','Korean is hard ㅠㅠ','And Cool!','IAlso OK~','ㅎㅎ like!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 I see','ㅋㅋ Funny','I am well Not sure','GermanyfromIs 안 OK ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['Real? Wow','BrazilAlso Similar!','ㅋㅋㅋ','fun다~','오 Good 생Each!']}];
         var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
         var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
         var reply=document.createElement('div');reply.className='msg';
@@ -531,15 +531,15 @@ function sendMsg(){
     },800+Math.random()*1500);
 }
 
-function confirmLeave(){return confirm('Chat Roomfrom 나IsWould you like to?');}
+function confirmLeave(){return confirm('Chat Roomfrom IIsWould you like to?');}
 function copyInvite(){document.getElementById('inviteModal').classList.add('show');}
 function closeInvite(){document.getElementById('inviteModal').classList.remove('show');}
-function sendInvite(btn,name){btn.textContent='before송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님At게 Invitethe sent';c.appendChild(s);c.scrollTop=c.scrollHeight;}
+function sendInvite(btn,name){btn.textContent='beforeSent ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'sirAtto Invitethe sent';c.appendChild(s);c.scrollTop=c.scrollHeight;}
 var isMuted=false;
 function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 Mute During':'🔊 Mute';}
-function leaveRoom(){if(confirm('Chat Roomfrom 나IsWould you like to?'))location.href='game-v2.html';}
+function leaveRoom(){if(confirm('Chat Roomfrom IIsWould you like to?'))location.href='game-v2.html';}
 function showMegaphone(name,msg){var b=document.getElementById('megaBanner');document.getElementById('megaMsg').textContent=name+': '+msg;b.style.display='block';setTimeout(function(){b.style.display='none';},5000);}
-setTimeout(function(){showMegaphone('Felix','Chat Roomfrom German Is르쳐줄게! 🇩🇪');},10000);
+setTimeout(function(){showMegaphone('Felix','Chat Roomfrom German Isteachto! 🇩🇪');},10000);
 var noticeIdx=0;var notices=document.querySelectorAll('#noticeTicker .notice-text');
 setInterval(function(){notices[noticeIdx].classList.remove('active');noticeIdx=(noticeIdx+1)%notices.length;notices[noticeIdx].classList.add('active');},3000);
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');var moonIdx=0;
@@ -548,26 +548,26 @@ document.getElementById('chatMessages').scrollTop=document.getElementById('chatM
 
 // Today Topic List
 var topics=[
-    '니 countryfrom the most unusual food in your country? 🍽️',
-    '어제 본 드라마/영화 Recommend해줘 🎬',
-    '니 countryfrom Popular 있Is 노래 Tell me 🎵',
-    'Is장 like하Is Korea FoodIs? 🇰🇷',
-    '니 countryOf 인사법the Tell me! 👋',
-    'Is장 Is보고 싶Is countryIs? ✈️',
-    '니 countryOnlyOf 독특one CultureIs 있어? 🌍',
-    'These days 빠져있Is 취미 what야? 🎨',
-    '니 country 학교생활Is 어때? 🏫',
-    'Is장 웃긴 Korean 실수 Tell me ㅋㅋ 😂',
-    '니 country 욕 하나Only Tell me ㅋㅋ 🤫',
+    'your countryfrom the most unusual food in your country? 🍽️',
+    'Yesterday 본 drama/영change Recommenddo it 🎬',
+    'your countryfrom Popular 있Is song Tell me 🎵',
+    'Ispcs like하Is Korea FoodIs? 🇰🇷',
+    'your countryOf greetingsthe Tell me! 👋',
+    'Ispcs Isafter watching 싶Is countryIs? ✈️',
+    'your countryOnlyOf uniqueone CultureIs have? 🌍',
+    'These days intoIs hobby what야? 🎨',
+    'your country school lifeIs how about? 🏫',
+    'Ispcs funny Korean mistake Tell me ㅋㅋ 😂',
+    'your country 욕 하IOnly Tell me ㅋㅋ 🤫',
     '제day like하Is EmojiIs? 😎',
-    'Now 니 country 날씨 어때? ☀️',
-    '니 country 크리스마스Is 어떻게 보My? 🎄',
-    'Is장 자신있Is 요리Is? 👨‍🍳',
-    '니 countryfrom 유행하Is 밈 있어? 🤣',
-    'Korean 배우면서 Is장 어려운 점Is? 📚',
-    '니 country 대표 디저트Is? 🍰',
-    'Is장 like하Is 계절Is? 🌸',
-    '니 countryfrom 데This트할 때 what 해? 💕'
+    'Now your country weather how about? ☀️',
+    'your country 크리스마스Is 어떻to 보My? 🎄',
+    'Ispcs 자신있Is 요리Is? 👨‍🍳',
+    'your countryfrom 유행하Is 밈 have? 🤣',
+    'Korean 배우면서 Ispcs 어려운 점Is? 📚',
+    'your country 대표 디저트Is? 🍰',
+    'Ispcs like하Is 계절Is? 🌸',
+    'your countryfrom 데This트할 때 what 해? 💕'
 ];
 var topicIdx=Math.floor(Math.random()*topics.length);
 document.getElementById('topicText').textContent=topics[topicIdx];
@@ -579,19 +579,19 @@ var missions=[
     '"love해"the Say it in your language! 💕',
     '"Helloplease do"the Say it in your language! 👋',
     '"감사does"the Say it in your language! 🙏',
-    '니 country Food Name 3pcs Try it! 🍽️',
+    'your country Food Name 3pcs Try it! 🍽️',
     '"춥다"the Say it in your language! ❄️',
-    'like하Is 노래 Is사 one 줄 Try it! 🎵',
+    'like하Is song Is사 one 줄 Try it! 🎵',
     '"fun다"the Say it in your language! 😄',
-    '니 Namethe KoreanTo Try it! ✍️',
+    'your Namethe KoreanTo Try it! ✍️',
     '"배고파"the Say it in your language! 🍔',
-    '"잘 자"the Say it in your language! 🌙',
-    '니 country 유people인 1people Tell me! 🌟',
-    '"멋지다"the Say it in your language! 😎',
-    '니 country 수Also Name Try it! 🏙️',
+    '"well 자"the Say it in your language! 🌙',
+    'your country 유people인 1people Tell me! 🌟',
+    '"Cool"the Say it in your language! 😎',
+    'your country 수Also Name Try it! 🏙️',
     '"Friends"the Say it in your language! 🤝'
 ];
-// Mission Auto 발생 (Demo: 45초마다)
+// Mission Auto 발생 (Demo: 45sec마다)
 setInterval(function(){
     var c=document.getElementById('chatMessages');
     var m=missions[Math.floor(Math.random()*missions.length)];

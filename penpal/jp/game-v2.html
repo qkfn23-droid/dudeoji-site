@@ -45,7 +45,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .banner p{font-size:11px;color:rgba(255,255,255,0.8);line-height:1.6;}
 .banner .bg-emoji{position:absolute;right:12px;bottom:12px;font-size:50px;opacity:0.15;animation:floatEmoji 3s ease-in-out infinite;}
 @keyframes floatEmoji{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-8px) rotate(5deg);}}
-/* Banner キラキラ이 */
+/* Banner キラキラ */
 .sparkle{position:absolute;color:#fff;font-size:10px;opacity:0;animation:sparkleAni 2s ease-in-out infinite;}
 .sparkle:nth-child(1){top:10px;left:20px;animation-delay:0s;}
 .sparkle:nth-child(2){top:30px;right:60px;animation-delay:0.7s;}
@@ -69,7 +69,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .slider-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;}
 .slider-dot.active{background:#fff;}
 
-/* 내 プロフィール Card */
+/* my プロフィール Card */
 .my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
 @keyframes starGlow{0%{filter:drop-shadow(0 0 6px rgba(255,160,50,0.8)) drop-shadow(0 0 12px rgba(255,120,20,0.5)) drop-shadow(0 0 20px rgba(255,80,0,0.2));}100%{filter:drop-shadow(0 0 10px rgba(255,160,50,1)) drop-shadow(0 0 20px rgba(255,120,20,0.7)) drop-shadow(0 0 30px rgba(255,80,0,0.3));}}
@@ -353,7 +353,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .guild-lb-meta{font-size:10px;color:#999;}
 .guild-lb-score{font-size:12px;font-weight:700;color:#8b5cf6;}
 
-/* 은하 피드 */
+/* 하 피드 */
 .guild-feed{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
 .guild-feed-card{background:#f8f8f8;border:1px solid #f0f0f0;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;}
 .gf-word{font-size:14px;font-weight:700;color:#333;flex:1;}
@@ -362,14 +362,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .gf-guild{font-size:10px;color:#0ea5e9;font-weight:600;}
 .gf-stars{color:#f59e0b;}
 
-/* ギルド 퀘스트 미니 */
+/* ギルド 퀘스트 미your */
 .guild-quest-mini{margin-top:8px;}
 .guild-quest-text{font-size:10px;color:#888;margin-bottom:4px;display:flex;align-items:center;gap:4px;}
 
 /* ギルド 찾기/作成 Button */
 .guild-empty-text{font-size:12px;color:#888;text-align:center;margin-bottom:12px;line-height:1.6;}
 
-/* ギルド전 Badge */
+/* ギルドbefore Badge */
 .r-guild-badge{font-size:9px;padding:2px 6px;background:#fef3c7;color:#b45309;border-radius:6px;font-weight:600;margin-left:4px;}
 </style>
 </head>
@@ -402,19 +402,19 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">ワンカード シーズン 오픈! ペンパル 友達와 one ラウンド 해보세요</div>
-            <div class="notice-text">이번 주 ワンカード TOP 3to 星の気 x50 プレゼント!</div>
-            <div class="notice-text">絵合わせ 10월 오픈 予定! お楽しみに</div>
+            <div class="notice-text active">ワンカード シーズン 오픈! ペンパル 友達 one ラウンド 해보세요</div>
+            <div class="notice-text">번 주 ワンカード TOP 3to 星の気 x50 プレゼント!</div>
+            <div class="notice-text">絵合わせ 10month 오픈 予定! お楽しみに</div>
             <div class="notice-text">星の気を集めてオーラを解放しよう！</div>
             <div class="notice-text">현재 접속자 127人 · 進行 in progress ゲーム 23개</div>
-            <div class="notice-text">マナー違反 ユーザー 通報 기능이 addされました</div>
+            <div class="notice-text">マナー違反 ユーザー 通報 기능 addされました</div>
         </div>
     </div>
 </div>
 
 <div class="game-main">
     <div class="left">
-        <!-- 내 プロフィール -->
+        <!-- my プロフィール -->
         <div class="my-profile-card">
             <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg">
                 <path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/>
@@ -437,17 +437,17 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="slide slide-1 active">
                 <span class="sparkle">✦</span><span class="sparkle">✧</span><span class="sparkle">⋆</span>
                 <h3>ワンカード シーズン 오픈! 🎉</h3>
-                <p>ペンパル 友達와 ワンカード one ラウンド!<br>이번 주 TOP 3 星の気 x50</p>
+                <p>ペンパル 友達 ワンカード one ラウンド!<br>번 주 TOP 3 星の気 x50</p>
                 <div class="bg-emoji">🃏</div>
             </div>
             <div class="slide slide-2">
                 <h3>絵合わせ 오픈! 🧩</h3>
-                <p>国旗 Card로 絵合わせ!<br>友達와 記憶力 対決</p>
+                <p>国旗 Cardto 絵合わせ!<br>友達 記憶力 対決</p>
                 <div class="bg-emoji">🧩</div>
             </div>
             <div class="slide slide-3">
                 <h3>星の気イベント ✨</h3>
-                <p>ゲーム하면 気이 모여요!<br>オーラを解放して輝こう</p>
+                <p>ゲーム하면 気 모여요!<br>オーラを解放して輝こう</p>
                 <div class="bg-emoji">📮</div>
             </div>
             <div class="slider-arrows">
@@ -475,9 +475,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- 내 ギルド -->
+        <!-- my ギルド -->
         <div class="guild-box">
-            <div class="guild-title">🪐 내 ギルド</div>
+            <div class="guild-title">🪐 my ギルド</div>
             <div class="guild-card" onclick="location.href='guild-space.html'" style="cursor:pointer;">
                 <div class="guild-emblem">♌︎</div>
                 <div class="guild-info">
@@ -520,7 +520,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-onecard.html'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Yukiのルーム</div><div class="r-desc">韓国語로 대화do 🇰🇷</div></div>
+                <div class="r-info"><div class="r-name">Yukiのルーム</div><div class="r-desc">韓国語to Chatdo 🇰🇷</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
@@ -532,7 +532,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row playing" onclick="location.href='game-onecard.html?spectate=true'">
                 <div class="r-icon">🃏</div>
-                <div class="r-info"><div class="r-name">Felixのルーム</div><div class="r-desc">ドイツ語 대화 🇩🇪</div></div>
+                <div class="r-info"><div class="r-name">Felixのルーム</div><div class="r-desc">ドイツ語 Chat 🇩🇪</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
@@ -589,7 +589,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="room-list" id="roomListPicture" style="display:none;">
             <div class="room-row" onclick="location.href='game-picture.html'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Mariaのルーム</div><div class="r-desc">国旗 맞추기! 같이 lets 🧩</div></div>
+                <div class="r-info"><div class="r-name">Mariaのルーム</div><div class="r-desc">国旗 Match! 같 lets 🧩</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p empty"></div>
@@ -609,7 +609,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="room-row" onclick="location.href='game-picture.html'">
                 <div class="r-icon">🧩</div>
-                <div class="r-info"><div class="r-name">Sofiaのルーム</div><div class="r-desc">초보 Welcome! 😄</div></div>
+                <div class="r-info"><div class="r-name">Sofiaのルーム</div><div class="r-desc">sec보 Welcome! 😄</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div>
                     <div class="r-p empty"></div>
@@ -622,7 +622,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="room-list" id="roomListChat" style="display:none;">
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">자유 おしゃべり部屋</div><div class="r-desc">아무 トピック나 OK! 편하게 들어와~ 😊</div></div>
+                <div class="r-info"><div class="r-name">자유 おしゃべり部屋</div><div class="r-desc">아무 トピックI OK! 편하to 들어~ 😊</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
@@ -786,10 +786,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">今日の運勢は?</div>
-                <div class="moon-text">タロット one 장의 メッセージ</div>
+                <div class="moon-text">タロット one pcs メッセージ</div>
                 <div class="moon-text">前世の私は誰?</div>
-                <div class="moon-text">내 夢の隠された意味</div>
-                <div class="moon-text">내 運命の人は?</div>
+                <div class="moon-text">my 夢の隠された意味</div>
+                <div class="moon-text">my 運命の人は?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -800,24 +800,24 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <div class="chat-wrap">
     <div class="chat-box">
         <div class="chat-msgs" id="chatMsgs">
-            <div class="c-msg"><span class="sys">[通知]</span> Dudeoji Studio에 오신 걸 Welcome합니다!</div>
+            <div class="c-msg"><span class="sys">[通知]</span> Dudeoji Studio 오신 걸 Welcome합your다!</div>
             <div class="c-msg"><span class="nm c1">Maria:</span> 誰 ワンカード 할 사람~ 😄</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> 나 할래! Room 만들어줘</div>
-            <div class="c-msg"><span class="sys">[通知]</span> Mariahas Room을 created</div>
-            <div class="c-msg"><span class="nm c3">Felix:</span> 나도 들어간다!</div>
-            <div class="c-msg whisper"><span class="nm">to.TAZO:</span> 야 우리 Room에 와!</div>
-            <div class="c-msg"><span class="nm c4">Lucas:</span> 나도 끼워줘~</div>
-            <div class="c-msg"><span class="sys">[通知]</span> Lucashas Mariaのルーム에 入場했습니다</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> I 할래! Room 만들어줘</div>
+            <div class="c-msg"><span class="sys">[通知]</span> Mariahas Room created</div>
+            <div class="c-msg"><span class="nm c3">Felix:</span> Me too 들어간다!</div>
+            <div class="c-msg whisper"><span class="nm">to.TAZO:</span> 야 우리 Room !</div>
+            <div class="c-msg"><span class="nm c4">Lucas:</span> Me too 끼워줘~</div>
+            <div class="c-msg"><span class="sys">[通知]</span> Lucashas Mariaのルーム 入場했습your다</div>
             <div class="c-msg"><span class="nm c1">Maria:</span> 好き~ すぐ startlets!</div>
-            <div class="c-msg"><span class="nm c5">Sofia:</span> 나도 Room 만들까?</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> ソフィア Room 만들면 나 갈게!</div>
-            <div class="c-msg"><span class="sys">[通知]</span> Sofiahas Room을 created</div>
-            <div class="c-msg"><span class="nm c6">Jin:</span> 誰でも歓迎~ 초보도 와요 😊</div>
-            <div class="c-msg"><span class="nm c3">Felix:</span> ドイツ語로 대화하면서 lets!</div>
+            <div class="c-msg"><span class="nm c5">Sofia:</span> Me too Room 만들까?</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> ソフィア Room 만들면 I 갈to!</div>
+            <div class="c-msg"><span class="sys">[通知]</span> Sofiahas Room created</div>
+            <div class="c-msg"><span class="nm c6">Jin:</span> 誰でも歓迎~ sec보도 요 😊</div>
+            <div class="c-msg"><span class="nm c3">Felix:</span> ドイツ語to Chat하면서 lets!</div>
             <div class="c-msg"><span class="nm c5">Sofia:</span> イタリア語도 가능!</div>
-            <div class="c-msg"><span class="nm c1">Maria:</span> ㅋㅋㅋ ワンカード에 言語交換まで</div>
-            <div class="c-msg"><span class="nm c4">Lucas:</span> 이게 本物 Dudeoji월드지</div>
-            <div class="c-msg"><span class="nm c2">Yuki:</span> 다음 ラウンド은 내가 이길거야!</div>
+            <div class="c-msg"><span class="nm c1">Maria:</span> ㅋㅋㅋ ワンカード 言語交換まで</div>
+            <div class="c-msg"><span class="nm c4">Lucas:</span> to 本物 Dudeojimonth드지</div>
+            <div class="c-msg"><span class="nm c2">Yuki:</span> 다음 ラウンド my가 길거야!</div>
         </div>
         <div class="chat-row">
             <select class="chat-to">
@@ -826,22 +826,22 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <option>-Party-</option>
                 <option>-ギルド-</option>
             </select>
-            <input class="chat-in" placeholder="メッセージ를 please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
-            <button class="chat-btn" onclick="sendChat()">전송</button>
+            <input class="chat-in" placeholder="メッセージ please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="chat-btn" onclick="sendChat()">before송</button>
         </div>
     </div>
 </div>
 
-<!-- ルーム作成 모달 -->
+<!-- ルーム作成 모month -->
 <div class="modal-bg" id="modal">
     <div class="modal">
         <h3>🃏 ルーム作成</h3>
         <div class="modal-field">
             <div class="modal-label">Room Name</div>
-            <input class="modal-input" placeholder="예: TAZO의 ワンカードRoom" value="TAZO의 ワンカードRoom">
+            <input class="modal-input" placeholder="예: TAZO ワンカードRoom" value="TAZO ワンカードRoom">
         </div>
         <div class="modal-field">
-            <div class="modal-label">대화 言語</div>
+            <div class="modal-label">Chat 言語</div>
             <select class="modal-select">
                 <option>🇰🇷 韓国語</option>
                 <option>🇬🇧 English</option>
@@ -862,9 +862,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
         <div class="modal-field">
             <label style="font-size:12px;color:#888;display:flex;align-items:center;gap:6px;cursor:pointer;">
-                <input type="checkbox" id="guildBattle" style="accent-color:#f59e0b;"> 🪐 ギルド전 (Guild Battle)
+                <input type="checkbox" id="guildBattle" style="accent-color:#f59e0b;"> 🪐 ギルドbefore (Guild Battle)
             </label>
-            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">다른 ギルド원 入場 시 公式 대전as recordwill be</div>
+            <div style="font-size:10px;color:#bbb;margin-top:4px;margin-left:22px;">다른 ギルド원 入場 시 公式 대beforeas recordwill be</div>
         </div>
         <div class="modal-btns">
             <button class="modal-cancel" onclick="closeModal()">キャンセル</button>
@@ -913,7 +913,7 @@ document.querySelectorAll('.tab-item').forEach(function(tab, idx){
         roomIds.forEach(function(id){document.getElementById(id).style.display='none';});
         document.getElementById(roomIds[idx]).style.display='';
         document.getElementById('roomTitle').textContent=tabTitles[idx];
-        // ギルド 탭이면 ルーム作成 Button 숨기기
+        // ギルド 탭면 ルーム作成 Button 숨기기
         document.querySelector('.create-btn').style.display = idx===3?'none':'';
     });
 });
@@ -925,13 +925,13 @@ function selectP(el){
 }
 function createRoom(){
     closeModal();
-    alert('Room이 was created! (데모)');
+    alert('Room was created! (데모)');
 }
 document.getElementById('modal').addEventListener('click',function(e){
     if(e.target===this)closeModal();
 });
 
-// Banner 슬라이더
+// Banner 슬라더
 var slideIdx=0;
 var slides=document.querySelectorAll('.slide');
 var dots=document.querySelectorAll('.slider-dot');
@@ -972,8 +972,8 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-// 데모: 15초 후 メガホン 1회 표시
-setTimeout(function(){showMegaphone('Maria','ワンカード 고수만 와라!! 🔥');},15000);
+// 데모: 15sec 후 メガホン 1times 표시
+setTimeout(function(){showMegaphone('Maria','ワンカード 고수만 라!! 🔥');},15000);
 
 </script>
 

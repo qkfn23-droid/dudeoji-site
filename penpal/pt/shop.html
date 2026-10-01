@@ -20,7 +20,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .shop-layout{margin:16px 24px;display:grid;grid-template-columns:220px 1fr 220px;gap:14px;min-height:calc(100vh - 120px);}
 
-/* Left - 내 info */
+/* Left - my info */
 .shop-left{display:flex;flex-direction:column;gap:12px;}
 .my-card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,0.04);text-align:center;}
 .my-avatar{width:70px;height:70px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;animation:starBounce 2s ease-in-out infinite;}
@@ -155,7 +155,7 @@ if(new URLSearchParams(location.search).get('from')==='world'){
 
 <div class="shop-layout">
 
-    <!-- Left - 내 info -->
+    <!-- Left - my info -->
     <div class="shop-left">
         <div class="my-card">
             <div class="my-avatar"><svg viewBox="0 0 120 120" width="65" height="65" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
@@ -164,13 +164,13 @@ if(new URLSearchParams(location.search).get('from')==='world'){
             <div class="my-wallet">
                 <div class="wallet-label">Minha carteira</div>
                 <div class="wallet-row"><span class="wallet-item">⭐ Dudeoji Pass</span><span class="wallet-val">Ativo</span></div>
-                <div class="wallet-row"><span class="wallet-item">🚀 Boost</span><span class="wallet-val">0일</span></div>
+                <div class="wallet-row"><span class="wallet-item">🚀 Boost</span><span class="wallet-val">0day</span></div>
                 <div class="wallet-row"><span class="wallet-item">💎 Fragmentos estelares</span><span class="wallet-val">230개</span></div>
             </div>
         </div>
 
         <div class="ticket-status">
-            <div class="ts-title">내 Use권 현황</div>
+            <div class="ts-title">my Use권 현황</div>
             <div class="ts-row">
                 <span class="ts-icon">⭐</span>
                 <span class="ts-label">Dudeoji Pass</span>
@@ -194,40 +194,40 @@ if(new URLSearchParams(location.search).get('from')==='world'){
         </div>
         <div class="shop-items">
             <div class="items-grid" id="itemsGrid">
-                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass monthly" data-emoji="⭐" data-price="$2.99/월" data-sub="매월 Automatico Pagamento" data-desc="Anuncio 없이 깔끔하게! all Pagefrom Anuncio가 사라집니다. Cancelar a qualquer momento." data-feats="Remover anuncios,깔끔one UI,Page immediately Enter,Cancelar a qualquer momento" data-btn="blue">
+                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass monthly" data-emoji="⭐" data-price="$2.99/month" data-sub="매month Automatico Pagamento" data-desc="Anuncio 없 깔끔하to! all Pagefrom Anuncio가 disappears. Cancelar a qualquer momento." data-feats="Remover anuncios,깔끔one UI,Page immediately Enter,Cancelar a qualquer momento" data-btn="blue">
                     <span class="item-hot">HOT</span>
                     <span class="item-emoji">⭐</span>
                     <div class="item-name">Dudeoji Pass</div>
                     <div class="item-desc-short">Anuncio remove · monthly</div>
-                    <span class="item-price-tag price-blue">$2.99/월</span>
+                    <span class="item-price-tag price-blue">$2.99/month</span>
                 </div>
-                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass annual" data-emoji="🌟" data-price="$24.99/년" data-sub="annual Pagamento · 월 $2.08" data-desc="annual 구독as 16% Discount! 월 $2.08에 Anuncio without 깨끗one 환경을 즐기세요." data-feats="Remover anuncios,깔끔one UI,Page immediately Enter,monthly 대비 16% Discount" data-btn="blue">
+                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass annual" data-emoji="🌟" data-price="$24.99/년" data-sub="annual Pagamento · month $2.08" data-desc="annual 구독as 16% Discount! month $2.08 Anuncio without 깨끗one 환경 즐기세요." data-feats="Remover anuncios,깔끔one UI,Page immediately Enter,monthly 대비 16% Discount" data-btn="blue">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">🌟</span>
                     <div class="item-name">Dudeoji Pass annual</div>
-                    <div class="item-desc-short">월 $2.08 · 16% Discount</div>
+                    <div class="item-desc-short">month $2.08 · 16% Discount</div>
                     <span class="item-price-tag price-blue">$24.99/년</span>
                 </div>
-                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Perfil Boost 7일" data-emoji="🚀" data-price="💎 300" data-sub="7dias ativo" data-desc="7일 동안 Encontrar amigosfrom 내 Perfil이 at the top will be shown. Atividadeas 모은 파편as Compra!" data-feats="Encontrar amigos 상위 노출,Perfil에 Boost 표시,Penpals recomendados 우선 Correspondencia" data-btn="purple">
+                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Perfil Boost 7day" data-emoji="🚀" data-price="💎 300" data-sub="7dias ativo" data-desc="7day 동안 Encontrar amigosfrom my Perfil at the top will be shown. Atividadeas 모 파편as Compra!" data-feats="Encontrar amigos 상위 노출,Perfil Boost 표시,Penpals recomendados 우선 Correspondencia" data-btn="purple">
                     <span class="item-emoji">🚀</span>
-                    <div class="item-name">Boost 7일</div>
-                    <div class="item-desc-short">상위 노출 7일</div>
+                    <div class="item-name">Boost 7day</div>
+                    <div class="item-desc-short">상위 노출 7day</div>
                     <span class="item-price-tag price-purple">💎 300</span>
                 </div>
-                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Perfil Boost 30일" data-emoji="💫" data-price="💎 1,000" data-sub="30dias ativo" data-desc="30일 동안 Encontrar amigosfrom 내 Perfil이 at the top will be shown. Atividadeas 모은 파편as Compra!" data-feats="Encontrar amigos 상위 노출,Perfil에 Boost 표시,Penpals recomendados 우선 Correspondencia" data-btn="purple">
+                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Perfil Boost 30day" data-emoji="💫" data-price="💎 1,000" data-sub="30dias ativo" data-desc="30day 동안 Encontrar amigosfrom my Perfil at the top will be shown. Atividadeas 모 파편as Compra!" data-feats="Encontrar amigos 상위 노출,Perfil Boost 표시,Penpals recomendados 우선 Correspondencia" data-btn="purple">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">💫</span>
-                    <div class="item-name">Boost 30일</div>
-                    <div class="item-desc-short">상위 노출 30일</div>
+                    <div class="item-name">Boost 30day</div>
+                    <div class="item-desc-short">상위 노출 30day</div>
                     <span class="item-price-tag price-purple">💎 1,000</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megafone 1개" data-emoji="📣" data-price="💎 100" data-sub="1회 use · 하루 3번 제one" data-desc="all Usuario의 화면 상단에 금색 Banner로 내 Mensagens가 5초간 표시will be! 하루 최대 3번까지." data-feats="Todos Usuario 화면에 표시,금색 강조 Banner,Nickname + Mensagens,하루 3번 제one" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megafone 1개" data-emoji="📣" data-price="💎 100" data-sub="1times use · 하루 3번 제one" data-desc="all Usuario change면 상단 금색 Bannerto my Mensagens가 5sec간 표시will be! 하루 최대 3번까지." data-feats="Todos Usuario change면 표시,금색 강조 Banner,Nickname + Mensagens,하루 3번 제one" data-btn="amber">
                     <span class="item-emoji">📣</span>
                     <div class="item-name">Megafone</div>
-                    <div class="item-desc-short">Todos Avisos 1회</div>
+                    <div class="item-desc-short">Todos Avisos 1times</div>
                     <span class="item-price-tag price-amber">💎 100</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megafone Pacote de 5" data-emoji="📣" data-price="💎 400" data-sub="5회 use · 20% Discount" data-desc="Megafone 5개를 Discountbecame 가격에!" data-feats="Megafone 5개,개당 💎 80 (20% Discount),Todos Usuario 화면에 표시" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megafone Pacote de 5" data-emoji="📣" data-price="💎 400" data-sub="5times use · 20% Discount" data-desc="Megafone 5개 Discountbecame 가격!" data-feats="Megafone 5개,개당 💎 80 (20% Discount),Todos Usuario change면 표시" data-btn="amber">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">📣</span>
                     <div class="item-name">Megafone x5</div>
@@ -235,31 +235,31 @@ if(new URLSearchParams(location.search).get('from')==='world'){
                     <span class="item-price-tag price-amber">💎 400</span>
                 </div>
                 <!-- 코디 Item -->
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Coroa" data-emoji="👑" data-price="💎500" data-sub="Permanente" data-desc="내 별 character 황금 Coroa을 씌워보세요! one 번 Compra하면 Permanente." data-feats="별 캐릭터 위에 Coroa 표시,Perfilfrom 빛나는 Effect,💎 파편 500개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Coroa" data-emoji="👑" data-price="💎500" data-sub="Permanente" data-desc="my Star character 황금 Coroa try putting on! one 번 Compra하면 Permanente." data-feats="Star 캐릭터 위 Coroa 표시,Perfilfrom 빛I는 Effect,💎 파편 500개" data-btn="amber">
                     <span class="item-emoji">👑</span>
                     <div class="item-name">Coroa</div>
                     <div class="item-desc-short">Cosmetico</div>
                     <span class="item-price-tag price-amber">💎500</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Fita" data-emoji="🎀" data-price="💎300" data-sub="Permanente" data-desc="귀여운 핑크 Fitaas 내 별을 꾸며보세요!" data-feats="별 character Fita 표시,💎 파편 300개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Fita" data-emoji="🎀" data-price="💎300" data-sub="Permanente" data-desc="귀여운 핑크 Fitaas my Star try decorating!" data-feats="Star character Fita 표시,💎 파편 300개" data-btn="amber">
                     <span class="item-emoji">🎀</span>
                     <div class="item-name">Fita</div>
                     <div class="item-desc-short">Cosmetico</div>
                     <span class="item-price-tag price-amber">💎300</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Oculos de sol" data-emoji="😎" data-price="💎400" data-sub="Permanente" data-desc="쿨one Oculos de sol로 내 별에 스웨거를!" data-feats="별 character Oculos de sol,쿨one Expressao Alteracao,💎 파편 400개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Oculos de sol" data-emoji="😎" data-price="💎400" data-sub="Permanente" data-desc="쿨one Oculos de solto my Star 스웨거!" data-feats="Star character Oculos de sol,쿨one Expressao Alteracao,💎 파편 400개" data-btn="amber">
                     <span class="item-emoji">😎</span>
                     <div class="item-name">Oculos de sol</div>
                     <div class="item-desc-short">Cosmetico</div>
                     <span class="item-price-tag price-amber">💎400</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Oculos coracao" data-emoji="💕" data-price="💎400" data-sub="Permanente" data-desc="러블리 Oculos coracao! Amor 가득one 내 별~" data-feats="별 character Oculos coracao,💎 파편 400개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Oculos coracao" data-emoji="💕" data-price="💎400" data-sub="Permanente" data-desc="러블리 Oculos coracao! Amor 가득one my Star~" data-feats="Star character Oculos coracao,💎 파편 400개" data-btn="amber">
                     <span class="item-emoji">💕</span>
                     <div class="item-name">Oculos coracao</div>
                     <div class="item-desc-short">Cosmetico</div>
                     <span class="item-price-tag price-amber">💎400</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="FogoFlower Border" data-emoji="🔥" data-price="💎800" data-sub="Permanente" data-desc="내 별 주위에 FogoFlower Effect가! most 화려one 코디." data-feats="별 캐릭터 주위 FogoFlower Effect,Perfil 강조 Effect,💎 파편 800개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="FogoFlower Border" data-emoji="🔥" data-price="💎800" data-sub="Permanente" data-desc="my Star 주위 FogoFlower Effect가! most change려one 코디." data-feats="Star 캐릭터 주위 FogoFlower Effect,Perfil 강조 Effect,💎 파편 800개" data-btn="amber">
                     <span class="item-hot">HOT</span>
                     <span class="item-emoji">🔥</span>
                     <div class="item-name">FogoFlower Border</div>
@@ -270,12 +270,12 @@ if(new URLSearchParams(location.search).get('from')==='world'){
         </div>
         <div class="info-bar">
             <div class="notice-slider" id="shopNotice">
-                <div class="notice-item active">Dudeoji Pass는 Sem anuncios이며, PayPal로 Automatico Pagamentowill be.</div>
-                <div class="notice-item">Regras Violacaoas Expulsao permanente 시 남은 period은 환Fogo되지 않습니다.</div>
+                <div class="notice-item active">Dudeoji Pass는 Sem anuncios며, PayPalto Automatico Pagamentowill be.</div>
+                <div class="notice-item">Regras Violacaoas Expulsao permanente 시 남 period 환Fogo되지 않습your다.</div>
                 <div class="notice-item">Boost는 Compra immediately 적용되며, period 만료 후 Automatico endwill be.</div>
-                <div class="notice-item">💎 Fragmentos estelares은 Jogo win, Enviar carta, Presenca 등 Atividadeas 얻을 수 exists.</div>
+                <div class="notice-item">💎 Fragmentos estelares Jogo win, Enviar carta, Presenca etc Atividadeas 얻 수 exists.</div>
                 <div class="notice-item">코디 · Megafone · Boost는 Fragmentos estelaresas만 Compracan exists.</div>
-                <div class="notice-item">Pagamento Consulta는 <a href="contact.html" style="color:#0ea5e9;text-decoration:none;font-weight:600;">Contato</a> Page를 please use.</div>
+                <div class="notice-item">Pagamento Consulta는 <a href="contact.html" style="color:#0ea5e9;text-decoration:none;font-weight:600;">Contato</a> Page please use.</div>
             </div>
         </div>
     </div>
@@ -284,12 +284,12 @@ if(new URLSearchParams(location.search).get('from')==='world'){
     <div class="shop-right">
         <div class="detail-card" id="detailCard">
             <div class="detail-emoji" id="detailEmoji">🛒</div>
-            <div class="detail-name" id="detailName">Item을 Selecionar하세요</div>
-            <div class="detail-desc" id="detailDesc">왼쪽from Item을 클릭하면 Details info가 여기에 표시will be.</div>
+            <div class="detail-name" id="detailName">Item Selecionar하세요</div>
+            <div class="detail-desc" id="detailDesc">왼쪽from Item 클릭하면 Details info가 여기 표시will be.</div>
             <div class="detail-feats" id="detailFeats"></div>
             <div class="detail-price" id="detailPrice" style="display:none;"></div>
             <div class="detail-price-sub" id="detailPriceSub" style="display:none;"></div>
-            <button class="detail-buy" id="detailBuy" style="display:none;" onclick="alert('Pagamento 시스템 Preparacao 중is!')">Comprar</button>
+            <button class="detail-buy" id="detailBuy" style="display:none;" onclick="alert('Pagamento 시스템 Preparacao inis!')">Comprar</button>
         </div>
 
         <div class="my-items">

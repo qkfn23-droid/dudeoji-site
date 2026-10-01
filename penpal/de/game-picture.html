@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — Bild 맞추기</title>
+<title>Dudeoji Studio — Bild Match</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -132,7 +132,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 @keyframes megaShake{0%,100%{transform:rotate(0);}25%{transform:rotate(-10deg);}75%{transform:rotate(10deg);}}
 @keyframes megaStar{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.3);}}
 
-/* Einladung 모달 */
+/* Einladung 모month */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:999;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
 .modal{background:#fff;border-radius:16px;width:340px;max-height:80vh;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.2);animation:modalIn .2s ease-out;}
@@ -220,14 +220,14 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     </div>
 </nav>
 <div class="tab-bar">
-    <div class="tab-room"><span class="t-emoji">🧩</span> Maria의 Bild맞추기Room (2/2)</div>
+    <div class="tab-room"><span class="t-emoji">🧩</span> Maria BildMatchRoom (2/2)</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">Bild 맞추기 Saison 오픈! 누가 더 빨리 찾을까?</div>
-            <div class="notice-text">이번 주 Bild 맞추기 TOP 3to Star Energie x50 Geschenk!</div>
-            <div class="notice-text">One Card도 같이 즐겨보세요!</div>
-            <div class="notice-text">Star Energie을 모아 Aura를 Freischalten하세요!</div>
+            <div class="notice-text active">Bild Match Saison 오픈! 누가 더 빨리 찾까?</div>
+            <div class="notice-text">번 주 Bild Match TOP 3to Star Energie x50 Geschenk!</div>
+            <div class="notice-text">One Card도 같 Enjoy!</div>
+            <div class="notice-text">Star Energie 모아 Aura Freischalten하세요!</div>
             <div class="notice-text">현재 접속자 127명 · Fortschritt in progress Spiel 23개</div>
         </div>
     </div>
@@ -265,10 +265,10 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">Heutiges Horoskop?</div>
-                <div class="moon-text">Tarot one 장의 Nachrichten</div>
+                <div class="moon-text">Tarot one pcs Nachrichten</div>
                 <div class="moon-text">Wer war ich im fruheren Leben?</div>
-                <div class="moon-text">내 Verborgene Bedeutung der Traume</div>
-                <div class="moon-text">내 배우자는?</div>
+                <div class="moon-text">my Verborgene Bedeutung der Traume</div>
+                <div class="moon-text">my 배우자는?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -302,9 +302,9 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="box-title" style="color:#8b5cf6;">📋 Spiel Regeln</div>
             <div class="game-rule">
                 <div class="rule-basic">
-                    Card를 2장 뒤집어서 <b>Gleich Bild</b>을 찾으세요!<br><br>
+                    Card 2pcs 뒤집어서 <b>Gleich Bild</b> 찾으세요!<br><br>
                     pair 맞추면 <b>+1점</b> Earned하고 one 번 더!<br>
-                    틀리면 상대Room Runde로 넘어갑니다.<br><br>
+                    틀리면 OpponentRoom Rundeto moves on.<br><br>
                     all pair 찾으면 Spiel end!
                 </div>
             </div>
@@ -324,15 +324,15 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Maria의 Bild맞추기Room에 joined</div>
-            <div class="chat-msg"><span class="user">Maria:</span> Bild 맞추기 lets! 🧩</div>
-            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Spiel이 Startcompleted!</div>
+            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Maria BildMatchRoom joined</div>
+            <div class="chat-msg"><span class="user">Maria:</span> Bild Match lets! 🧩</div>
+            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Spiel Startcompleted!</div>
             <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> TAZOof Rundeis</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두to-</option><option>Maria G.</option></select>
-            <input class="chat-input" placeholder="Nachrichten를 please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
-            <button class="chat-send" onclick="sendChat()">전송</button>
+            <input class="chat-input" placeholder="Nachrichten please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="chat-send" onclick="sendChat()">before송</button>
         </div>
     </div>
     <div class="bottom-btns">
@@ -352,7 +352,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     </div>
 </div>
 
-<!-- Einladung 모달 -->
+<!-- Einladung 모month -->
 <div class="modal-overlay" id="inviteModal" onclick="if(event.target===this)closeInvite()">
     <div class="modal">
         <div class="modal-head">
@@ -363,19 +363,19 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
-                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">Online · Warten 중</div></div>
+                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">Online · Warten in</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">Einladung</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
-                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">Online · Warten 중</div></div>
+                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">Online · Warten in</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">Einladung</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🎵</div>
-                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">Online · Spiel 중</div></div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">Online · Spiel in</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">Einladung</button>
             </div>
             <div class="friend-item">
@@ -395,7 +395,7 @@ if (isSpectate) {
     document.body.classList.add('spectate');
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 Spectate Mode — Spiel을 구경하고 exists';
+    bar.textContent = '👁 Spectate Mode — Spiel 구경하고 exists';
     document.querySelector('.tab-bar').after(bar);
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
@@ -403,7 +403,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// Card data (Flagge Emoji 8쌍 = 16장)
+// Card data (Flagge Emoji 8쌍 = 16pcs)
 var emojis = ['🇰🇷','🇯🇵','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇮🇹','🇪🇸'];
 var cards = [];
 var flipped = [];
@@ -469,12 +469,12 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! 상대 Runde로...';
+                document.getElementById('matchMsg').textContent = '아쉽! Opponent Rundeto...';
                 addLog('<span class="sys">[Benachrichtigung]</span> Mariaof Rundeis');
                 flipped = [];
                 setTimeout(function(){
                     document.getElementById('matchMsg').textContent = '';
-                    // AI 상대 Turn
+                    // AI Opponent Turn
                     aiTurn();
                 }, 800);
             }, 900);
@@ -535,7 +535,7 @@ function endGame() {
     document.getElementById('matchMsg').textContent = msg;
 }
 
-// Turn 타이머
+// Turn 타머
 var turnTime = 15;
 var turnSec = turnTime;
 var turnInterval = null;
@@ -559,8 +559,8 @@ function stopTurnTimer() {
     clearInterval(turnInterval);
 }
 function skipTurn() {
-    addLog('<span class="sys">[Benachrichtigung]</span> Stunden 초과! Turn이 넘어갑니다');
-    document.getElementById('matchMsg').textContent = 'Stunden 초과!';
+    addLog('<span class="sys">[Benachrichtigung]</span> Stunden Exceeded! Turn moves on');
+    document.getElementById('matchMsg').textContent = 'Stunden Exceeded!';
     setTimeout(function(){ document.getElementById('matchMsg').textContent = ''; }, 1500);
     aiTurn();
 }
@@ -588,24 +588,24 @@ function addLog(html) {
 function copyInvite() { document.getElementById('inviteModal').classList.add('show'); }
 function closeInvite() { document.getElementById('inviteModal').classList.remove('show'); }
 function sendInvite(btn, name) {
-    btn.textContent = '전송됨 ✓';
+    btn.textContent = 'beforeSent ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[Benachrichtigung]</span> ' + name + '님to Einladung를 보냈습니다');
+    addLog('<span class="sys">[Benachrichtigung]</span> ' + name + 'sirto Einladung sent');
 }
 
 // Stumm
 var isMuted = false;
 function toggleMute(btn) {
     isMuted = !isMuted;
-    btn.textContent = isMuted ? '🔇 Stumm 중' : '🔊 Stumm';
+    btn.textContent = isMuted ? '🔇 Stumm in' : '🔊 Stumm';
     btn.style.background = isMuted ? '#f0f0f0' : '';
     btn.style.color = isMuted ? '#999' : '';
 }
 
-// Page 이동 Bestatigen
+// Page 동 Bestatigen
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Spielfrom Would you like to leave?\nFortschritt in progress Spiel은 Niederlage processingwill be.');
+    return confirm('Spielfrom Would you like to leave?\nFortschritt in progress Spiel Niederlage processingwill be.');
 }
 
 // Beenden
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 Roomfrom Would you like to leave?\nFortschritt in progress Spiel은 Niederlage processingwill be.')) {
+    if (confirm('정말 Roomfrom Would you like to leave?\nFortschritt in progress Spiel Niederlage processingwill be.')) {
         location.href = 'game-v2.html';
     }
 }
@@ -626,7 +626,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Yuki','Bild 맞추기 나랑 할 사람~! 🧩');},12000);
+setTimeout(function(){showMegaphone('Yuki','Bild Match I랑 할 사람~! 🧩');},12000);
 
 // Mitteilungen 티커
 var noticeIdx=0;

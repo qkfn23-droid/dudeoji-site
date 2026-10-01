@@ -69,10 +69,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .qp-name{font-size:12px;font-weight:700;color:#c4b5fd;}
 .qp-meta{font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px;}
 
-/* Center — 행성 View + Board */
+/* Center — Planet View + Board */
 .center{display:flex;flex-direction:column;gap:12px;}
 
-/* Guild 행성 View */
+/* Guild Planet View */
 .planet-view{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;text-align:center;position:relative;overflow:hidden;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .pv-planet{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fde68a,#f59e0b,#b45309);box-shadow:0 0 40px rgba(245,158,11,0.35),0 0 80px rgba(245,158,11,0.15);position:relative;animation:pvFloat 5s ease-in-out infinite;margin-bottom:16px;}
 .pv-planet::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 28% 22%,rgba(255,255,255,0.45) 0%,transparent 35%),radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(0,0,0,0.35) 65%,rgba(0,0,0,0.7) 100%);}
@@ -221,7 +221,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                     <div class="vc-word">木漏れ日</div>
                     <div class="vc-lang">🇯🇵→🇰🇷</div>
                 </div>
-                <div class="vc-trans">나뭇잎 사이로 비치는 햇빛</div>
+                <div class="vc-trans">I뭇잎 사to 비치는 햇빛</div>
                 <div class="vc-bottom">
                     <div class="vc-author">by Yuki</div>
                     <div class="vc-stars" onclick="this.textContent='⭐ 35'">⭐ 34</div>
@@ -243,17 +243,17 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                 <div class="panel-title" style="margin-bottom:8px;">📚 Quiz 팩</div>
                 <div class="quiz-pack" onclick="alert('Quiz Play (Demo)')">
                     <div class="qp-name">🇯🇵 Japonais Sensibilite Mot 10선</div>
-                    <div class="qp-meta">by Yuki · 10Probleme · 🎮 48회 Play</div>
+                    <div class="qp-meta">by Yuki · 10Probleme · 🎮 48times Play</div>
                 </div>
                 <div class="quiz-pack" onclick="alert('Quiz Play (Demo)')">
                     <div class="qp-name">🇰🇷 Coree 슬랭 Quiz</div>
-                    <div class="qp-meta">by TAZO · 8Probleme · 🎮 31회 Play</div>
+                    <div class="qp-meta">by TAZO · 8Probleme · 🎮 31times Play</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 센터 — 행성 View + Board -->
+    <!-- 센터 — Planet View + Board -->
     <div class="center">
         <div class="planet-view">
             <div class="member-orbit" id="memberOrbit"></div>
@@ -272,51 +272,51 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
             <div class="board">
                 <div class="bp-pinned">
                     <div class="bp-pin-label">📌 Annonces</div>
-                    <div class="bp-content">이번 주 Guild전 토요일 오후 3시! 모두 Participerplease do. Star Breakers 상대is 🔥</div>
+                    <div class="bp-content">번 주 Guildbefore 토요day 오후 3시! 모두 Participerplease do. Star Breakers Opponentis 🔥</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">TAZO</span>
-                        <span class="bp-role">Guild장</span>
-                        <span class="bp-time">2Heures 전</span>
+                        <span class="bp-role">Guildpcs</span>
+                        <span class="bp-time">2Heures before</span>
                     </div>
-                    <div class="bp-content">Vocabulaire Card 열심히 please create! 이번 주 Objectif 50장is 💪</div>
+                    <div class="bp-content">Vocabulaire Card 열심히 please create! 번 주 Objectif 50pcsis 💪</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Maria</span>
                         <span class="bp-role">Starkeeper</span>
-                        <span class="bp-time">5Heures 전</span>
+                        <span class="bp-time">5Heures before</span>
                     </div>
-                    <div class="bp-content">Espagnol Quiz팩 만heard요! one번 풀어보세요~ 🇪🇸</div>
+                    <div class="bp-content">Espagnol Quiz팩 만heard요! one번 try solving~ 🇪🇸</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Yuki</span>
-                        <span class="bp-time">8Heures 전</span>
+                        <span class="bp-time">8Heures before</span>
                     </div>
-                    <div class="bp-content">Japonais Sensibilite Mot Quiz팩 Mise a jour했습니다! 木漏れ日 add ☀️</div>
+                    <div class="bp-content">Japonais Sensibilite Mot Quiz팩 Mise a jour했습your다! 木漏れ日 add ☀️</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Felix</span>
-                        <span class="bp-time">1일 전</span>
+                        <span class="bp-time">1day before</span>
                     </div>
-                    <div class="bp-content">Allemand Mot Card 5장 올렸어요. Wanderlust Meme Translate Feu가 Mot들! 🇩🇪</div>
+                    <div class="bp-content">Allemand Mot Card 5pcs 올렸어요. Wanderlust Meme Translate Feu가 Mot들! 🇩🇪</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Lucas</span>
-                        <span class="bp-time">1일 전</span>
+                        <span class="bp-time">1day before</span>
                     </div>
-                    <div class="bp-content">어제 Guild전from 3Serie! 다음 주도 화이팅 🎉</div>
+                    <div class="bp-content">Yesterday Guildbeforefrom 3Serie! 다음 주도 change팅 🎉</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Sofia</span>
-                        <span class="bp-time">2일 전</span>
+                        <span class="bp-time">2day before</span>
                     </div>
-                    <div class="bp-content">새로 join했어요! Italien apprend in progress데 잘 please 😊</div>
+                    <div class="bp-content">새to join했어요! Italien apprend in progress데 well please 😊</div>
                 </div>
             </div>
         </div>
@@ -327,7 +327,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
         <div class="panel">
             <div class="panel-title">👥 Membre (12/20)</div>
             <div class="member-list">
-                <div class="member-item"><div class="m-dot"></div><div class="m-name">TAZO</div><span class="m-role leader">Guild장</span><div class="m-level">Lv.5</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">TAZO</div><span class="m-role leader">Guildpcs</span><div class="m-level">Lv.5</div></div>
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">Maria</div><span class="m-role keeper">Starkeeper</span><div class="m-level">Lv.4</div></div>
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">Yuki</div><span class="m-role keeper">Starkeeper</span><div class="m-level">Lv.3</div></div>
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">Felix</div><div class="m-level">Lv.4</div></div>
@@ -345,20 +345,20 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
         <div class="panel guild-chat">
             <div class="panel-title">💬 Guild Discussion</div>
             <div class="gc-msgs" id="gcMsgs">
-                <div class="gc-msg"><span class="sys">[Notification]</span> Sofiahas Guild에 join했습니다!</div>
+                <div class="gc-msg"><span class="sys">[Notification]</span> Sofiahas Guild join했습your다!</div>
                 <div class="gc-msg"><span class="nm">Maria:</span> 소피아 Welcome! 🎉</div>
                 <div class="gc-msg"><span class="nm">Yuki:</span> 반가워요~</div>
-                <div class="gc-msg"><span class="nm">Sofia:</span> Merci! 잘 부탁드려요 😊</div>
-                <div class="gc-msg"><span class="nm">TAZO:</span> Welcome! Vocabulaire Card 만들어보면 재밌어</div>
-                <div class="gc-msg"><span class="nm">Felix:</span> 오늘 Guild전 doing 사람?</div>
-                <div class="gc-msg"><span class="nm">Lucas:</span> 나 할래!</div>
-                <div class="gc-msg"><span class="nm">Maria:</span> 나도 ㄱ</div>
+                <div class="gc-msg"><span class="nm">Sofia:</span> Merci! well please 😊</div>
+                <div class="gc-msg"><span class="nm">TAZO:</span> Welcome! Vocabulaire Card if you create 재밌어</div>
+                <div class="gc-msg"><span class="nm">Felix:</span> 오늘 Guildbefore doing 사람?</div>
+                <div class="gc-msg"><span class="nm">Lucas:</span> I 할래!</div>
+                <div class="gc-msg"><span class="nm">Maria:</span> Me too ㄱ</div>
                 <div class="gc-msg"><span class="nm">Yuki:</span> Japonais Quiz 누가 풀어볼 사람~</div>
-                <div class="gc-msg"><span class="nm">Hana:</span> 나 해볼게!</div>
+                <div class="gc-msg"><span class="nm">Hana:</span> I 해볼to!</div>
             </div>
             <div class="gc-row">
-                <input class="gc-input" placeholder="Messages 입력..." id="gcInput" onkeydown="if(event.key==='Enter')sendGC()">
-                <button class="gc-send" onclick="sendGC()">전송</button>
+                <input class="gc-input" placeholder="Messages Input..." id="gcInput" onkeydown="if(event.key==='Enter')sendGC()">
+                <button class="gc-send" onclick="sendGC()">before송</button>
             </div>
         </div>
     </div>
@@ -386,7 +386,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 <div class="footer">&copy; 2025 Dudeoji Studio · <a href="privacy.html">Confidentialite</a> · <a href="terms.html">Conditions</a></div>
 
 <script>
-// 별 배경
+// Star 배경
 var s=document.getElementById('stars');
 for(var i=0;i<150;i++){
     var d=document.createElement('div');

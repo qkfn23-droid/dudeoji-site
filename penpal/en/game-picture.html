@@ -225,7 +225,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectate During)';
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Picture Match Season Open! Who can find it fastest?</div>
-            <div class="notice-text">This번 주 Picture Match TOP 3At게 Star Energy x50 Gift!</div>
+            <div class="notice-text">This번 주 Picture Match TOP 3Atto Star Energy x50 Gift!</div>
             <div class="notice-text">One CardAlso 같This 즐겨See!</div>
             <div class="notice-text">Star Energythe Collect Aurathe Unlockplease do!</div>
             <div class="notice-text">Current Access자 127people · Progress During인 Game 23pcs</div>
@@ -278,7 +278,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectate During)';
     <div class="game-col">
         <div class="game-status-bar">
             <div class="game-status">
-                <span id="turnName">TAZO님Of Turn</span>
+                <span id="turnName">TAZOsirOf Turn</span>
                 <span class="turn-timer" id="turnTimer">15</span>
             </div>
         </div>
@@ -302,7 +302,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectate During)';
             <div class="box-title" style="color:#8b5cf6;">📋 Game Rules</div>
             <div class="game-rule">
                 <div class="rule-basic">
-                    Cardthe 2장 뒤집어서 <b>Same picture</b>the 찾으세요!<br><br>
+                    Cardthe 2pcs 뒤집어서 <b>Same picture</b>the 찾으세요!<br><br>
                     짝the 맞추면 <b>+1점</b> obtainand one 번 More!<br>
                     틀리면 OpponentRoom TurnTo moves on.<br><br>
                     all 짝the 찾으면 Game end!
@@ -327,11 +327,11 @@ body.spectate .game-status span:first-child::after{content:' (Spectate During)';
             <div class="chat-msg"><span class="sys">[Notifications]</span> MariaOf Picture Match RoomAt Joinhas been done</div>
             <div class="chat-msg"><span class="user">Maria:</span> Picture Match Let us! 🧩</div>
             <div class="chat-msg"><span class="sys">[Notifications]</span> GameThis Starthas been completed!</div>
-            <div class="chat-msg"><span class="sys">[Notifications]</span> TAZO님Of Turnis</div>
+            <div class="chat-msg"><span class="sys">[Notifications]</span> TAZOsirOf Turnis</div>
         </div>
         <div class="chat-input-wrap">
-            <select class="chat-target"><option>-AllAt게-</option><option>Maria G.</option></select>
-            <input class="chat-input" placeholder="Messagesthe 입력please do..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <select class="chat-target"><option>-AllAtto-</option><option>Maria G.</option></select>
+            <input class="chat-input" placeholder="Messagesthe Inputplease do..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-send" onclick="sendChat()">before송</button>
         </div>
     </div>
@@ -403,7 +403,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// Card 데This터 (Flag Emoji 8쌍 = 16장)
+// Card 데This터 (Flag Emoji 8쌍 = 16pcs)
 var emojis = ['🇰🇷','🇯🇵','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇮🇹','🇪🇸'];
 var cards = [];
 var flipped = [];
@@ -470,7 +470,7 @@ function flipCard(el) {
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
                 document.getElementById('matchMsg').textContent = '아쉽! Opponent TurnTo...';
-                addLog('<span class="sys">[Notifications]</span> Maria님Of Turnis');
+                addLog('<span class="sys">[Notifications]</span> MariasirOf Turnis');
                 flipped = [];
                 setTimeout(function(){
                     document.getElementById('matchMsg').textContent = '';
@@ -485,7 +485,7 @@ function flipCard(el) {
 function aiTurn() {
     canFlip = false;
     stopTurnTimer();
-    document.getElementById('turnName').textContent = 'Maria님Of Turn';
+    document.getElementById('turnName').textContent = 'MariasirOf Turn';
     var unmatched = [];
     var allCards = document.querySelectorAll('.pic-card');
     allCards.forEach(function(c){ if (!c.classList.contains('matched')) unmatched.push(c); });
@@ -514,8 +514,8 @@ function aiTurn() {
                 } else {
                     picks[0].classList.remove('flipped');
                     picks[1].classList.remove('flipped');
-                    document.getElementById('turnName').textContent = 'TAZO님Of Turn';
-                    addLog('<span class="sys">[Notifications]</span> TAZO님Of Turnis');
+                    document.getElementById('turnName').textContent = 'TAZOsirOf Turn';
+                    addLog('<span class="sys">[Notifications]</span> TAZOsirOf Turnis');
                     canFlip = true;
                     startTurnTimer();
                 }
@@ -559,8 +559,8 @@ function stopTurnTimer() {
     clearInterval(turnInterval);
 }
 function skipTurn() {
-    addLog('<span class="sys">[Notifications]</span> Hours 초And! TurnThis moves on');
-    document.getElementById('matchMsg').textContent = 'Hours 초And!';
+    addLog('<span class="sys">[Notifications]</span> Hours secAnd! TurnThis moves on');
+    document.getElementById('matchMsg').textContent = 'Hours secAnd!';
     setTimeout(function(){ document.getElementById('matchMsg').textContent = ''; }, 1500);
     aiTurn();
 }
@@ -588,9 +588,9 @@ function addLog(html) {
 function copyInvite() { document.getElementById('inviteModal').classList.add('show'); }
 function closeInvite() { document.getElementById('inviteModal').classList.remove('show'); }
 function sendInvite(btn, name) {
-    btn.textContent = 'before송됨 ✓';
+    btn.textContent = 'beforeSent ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[Notifications]</span> ' + name + '님At게 Invitethe sent');
+    addLog('<span class="sys">[Notifications]</span> ' + name + 'sirAtto Invitethe sent');
 }
 
 // Mute
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // Page This동 Confirm
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Gamefrom 나IsWould you like to?\nProgress During인 GameIs Lose processingwill be.');
+    return confirm('Gamefrom IIsWould you like to?\nProgress During인 GameIs Lose processingwill be.');
 }
 
 // Exit
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 Roomfrom 나IsWould you like to?\nProgress During인 GameIs Lose processingwill be.')) {
+    if (confirm('정말 Roomfrom IIsWould you like to?\nProgress During인 GameIs Lose processingwill be.')) {
         location.href = 'game-v2.html';
     }
 }
@@ -626,7 +626,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Yuki','Picture Match 나랑 할 Person~! 🧩');},12000);
+setTimeout(function(){showMegaphone('Yuki','Picture Match I랑 할 Person~! 🧩');},12000);
 
 // Notice 티커
 var noticeIdx=0;
