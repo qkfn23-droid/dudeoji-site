@@ -87,7 +87,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .msg-system{text-align:center;font-size:11px;color:rgba(255,255,255,0.3);padding:8px 0;display:flex;align-items:center;gap:10px;}
 .msg-system::before,.msg-system::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.06);}
 
-/* 오늘의 주제 */
+/* 今日の 주제 */
 .topic-bar{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(251,191,36,0.05));border-bottom:1px solid rgba(245,158,11,0.15);padding:10px 20px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .topic-icon{font-size:18px;animation:topicBounce 2s ease-in-out infinite;}
 @keyframes topicBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
@@ -249,7 +249,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 <nav class="nav">
     <span class="nav-logo">Dudeoji Studio <span>World</span></span>
     <div class="nav-links">
-        <a href="game-v2.html" class="active" onclick="return confirmLeave()">게임</a>
+        <a href="game-v2.html" class="active" onclick="return confirmLeave()">ゲーム</a>
         <a href="shop.html?from=world">ショップ</a>
         <a href="mypage.html?from=world">マイページ</a>
     </div>
@@ -307,9 +307,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="44" height="44"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
-                <div class="moon-text active">오늘의 운세는?</div>
+                <div class="moon-text active">今日の運勢は?</div>
                 <div class="moon-text">타로 한 장의 メッセージ</div>
-                <div class="moon-text">내 꿈의 숨은 의미</div>
+                <div class="moon-text">내 夢の隠された意味</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -317,12 +317,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 
     <!-- 가운데 — 채팅 -->
     <div class="chat-col">
-        <!-- 오늘의 대화 주제 -->
+        <!-- 今日の 대화 주제 -->
         <div class="topic-bar">
             <div class="topic-icon">💬</div>
             <div>
-                <div class="topic-label">오늘의 주제</div>
-                <div class="topic-text" id="topicText">니 나라에서 가장 이상한 음식은? 🍽️</div>
+                <div class="topic-label">今日の 주제</div>
+                <div class="topic-text" id="topicText">니 나라에서 가장 이상한 料理은? 🍽️</div>
             </div>
             <button class="topic-new" onclick="nextTopic()">다음 주제</button>
         </div>
@@ -343,14 +343,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="lang-badge native">🇯🇵</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:31</span></div>
-                    <div class="msg-text">일본에서 왔어! 韓国語 공부 중이야 🇯🇵</div>
+                    <div class="msg-text">日本에서 왔어! 韓国語 勉強 중이야 🇯🇵</div>
                 </div>
             </div>
             <div class="msg">
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#1e88e5;">Felix</span><span class="lang-badge native">🇩🇪</span><span class="lang-badge advanced">🇰🇷B1</span><span class="msg-time">20:32</span></div>
-                    <div class="msg-text">나는 독일! Hallo~ 韓国語 어렵다 ㅋㅋ</div>
+                    <div class="msg-text">私は 독일! Hallo~ 韓国語 어렵다 ㅋㅋ</div>
                 </div>
             </div>
 
@@ -480,7 +480,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🐱</div>
-                <div class="friend-info"><div class="friend-name">Hana</div><div class="friend-status">온라인 · 게임 중</div></div>
+                <div class="friend-info"><div class="friend-name">Hana</div><div class="friend-status">온라인 · ゲーム 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Hana')">초대</button>
             </div>
             <div class="friend-item">
@@ -522,7 +522,7 @@ function sendMsg(){
     m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
     c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
     setTimeout(function(){
-        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','韓国語 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ 좋아!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일에서는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','韓国語 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ 좋아!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','私は 잘 모르겠어','독일에서는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 良い 생각!']}];
         var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
         var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
         var reply=document.createElement('div');reply.className='msg';
@@ -546,15 +546,15 @@ var moonTexts=document.querySelectorAll('#moonSlider .moon-text');var moonIdx=0;
 setInterval(function(){moonTexts[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%moonTexts.length;moonTexts[moonIdx].classList.add('active');},3000);
 document.getElementById('chatMessages').scrollTop=document.getElementById('chatMessages').scrollHeight;
 
-// 오늘의 주제 리스트
+// 今日の 주제 리스트
 var topics=[
-    '니 나라에서 가장 이상한 음식은? 🍽️',
-    '어제 본 드라마/영화 추천해줘 🎬',
+    '니 나라에서 가장 이상한 料理은? 🍽️',
+    '어제 본 드라마/영화 おすすめ해줘 🎬',
     '니 나라에서 인기 있는 노래 알려줘 🎵',
-    '가장 좋아하는 한국 음식은? 🇰🇷',
+    '가장 좋아하는 韓国 料理은? 🇰🇷',
     '니 나라의 인사법을 알려줘! 👋',
     '가장 가보고 싶은 나라는? ✈️',
-    '니 나라만의 독특한 문화가 있어? 🌍',
+    '니 나라만의 독특한 文化가 있어? 🌍',
     '요즘 빠져있는 취미 뭐야? 🎨',
     '니 나라 학교생활은 어때? 🏫',
     '가장 웃긴 韓国語 실수 알려줘 ㅋㅋ 😂',
@@ -579,7 +579,7 @@ var missions=[
     '"사랑해"를 니 언어로 써봐! 💕',
     '"안녕하세요"를 니 언어로 써봐! 👋',
     '"감사합니다"를 니 언어로 써봐! 🙏',
-    '니 나라 음식 이름 3개 써봐! 🍽️',
+    '니 나라 料理 이름 3개 써봐! 🍽️',
     '"춥다"를 니 언어로 써봐! ❄️',
     '좋아하는 노래 가사 한 줄 써봐! 🎵',
     '"재밌다"를 니 언어로 써봐! 😄',

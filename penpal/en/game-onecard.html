@@ -91,7 +91,7 @@ body{display:flex;flex-direction:column;height:100vh;overflow:hidden;}
 .turn-item .turn-num{width:20px;height:20px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#999;flex-shrink:0;}
 .turn-item.current .turn-num{background:#0ea5e9;color:#fff;}
 
-/* 가운데 - 게임 테이블 */
+/* 가운데 - Game 테이블 */
 .game-col{display:flex;flex-direction:column;gap:0;min-height:0;}
 .game-table{flex:1;border-radius:14px;position:relative;overflow:hidden;
 border:1px solid #d0cdc9;
@@ -130,7 +130,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .played-card.red .card-num,.played-card.red .card-suit{color:#dc2626;}
 .played-card.black .card-num,.played-card.black .card-suit{color:#1a1a1a;}
 
-/* 내 카드 */
+/* My 카드 */
 .my-area{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .my-info{display:flex;align-items:center;gap:8px;}
 .my-pic{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
@@ -200,14 +200,14 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .friend-invite-btn:hover{background:#0ea5e9;color:#fff;}
 .friend-invite-btn.sent{background:#f0f0f0;color:#999;border-color:#e0e0e0;pointer-events:none;}
 
-/* 관전 모드 */
+/* 관before 모드 */
 .spectate-badge{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);color:#fff;padding:12px 32px;border-radius:20px;font-size:16px;font-weight:700;z-index:200;pointer-events:none;animation:specFade 2s ease forwards;}
 @keyframes specFade{0%{opacity:1;transform:translate(-50%,-50%) scale(1);}70%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(0.9);}}
 .spectate-bar{background:#1a1a2e;color:#fff;text-align:center;padding:6px;font-size:12px;font-weight:600;letter-spacing:1px;}
 body.spectate .my-card{pointer-events:none;opacity:0.5;filter:grayscale(0.3);}
 body.spectate .my-card:hover{transform:none;box-shadow:0 3px 10px rgba(0,0,0,0.08);}
 body.spectate .deck-pile{pointer-events:none;opacity:0.5;}
-body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
+body.spectate .my-label::after{content:' (관before 중)';color:#f59e0b;}
 
 @media(max-width:900px){
 .page-main{grid-template-columns:1fr;}
@@ -239,7 +239,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 .dark .turn-item.current{background:#1a2a3a;}
 .dark .rule-basic{color:#aaa;background:#12122a;}
 .dark .rule-card{background:#12122a;border:none;color:#ccc;}
-/* 게임 영역 */
+/* Game 영역 */
 .dark .game-area,.dark .game-board,.dark .game-table{background:#12122a;border:none;box-shadow:none;}
 .dark .game-col{background:#12122a;}
 .dark .page-main{background:#0a0a1a;}
@@ -273,7 +273,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 <nav class="nav">
     <span class="nav-logo">Dudeoji Studio <span>World</span></span>
     <div class="nav-links">
-        <a href="game-v2.html" class="active" onclick="return confirmLeave()">게임</a>
+        <a href="game-v2.html" class="active" onclick="return confirmLeave()">Game</a>
         <a href="shop.html?from=world">Shop</a>
         <a href="mypage.html?from=world">My Page</a>
         <button class="sound-btn" onclick="this.textContent=this.textContent==='🔊'?'🔇':'🔊'" title="BGM">🔇</button>
@@ -284,11 +284,11 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">원카드 시즌 오픈! 펜팔 Friends와 한 판 해보세요</div>
+            <div class="notice-text active">원카드 시즌 오픈! Penpal Friends와 one 판 해보세요</div>
             <div class="notice-text">이번 주 원카드 TOP 3에게 별의 기운 x50 증정!</div>
             <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대해주세요</div>
             <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
-            <div class="notice-text">현재 접속자 127명 · 진행 중인 게임 23개</div>
+            <div class="notice-text">현재 접속자 127명 · 진행 중인 Game 23개</div>
             <div class="notice-text">비매너 유저 신고 기능이 추가되었습니다</div>
         </div>
     </div>
@@ -344,17 +344,17 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
-                <div class="moon-text active">오늘의 운세는?</div>
-                <div class="moon-text">타로 한 장의 Messages</div>
-                <div class="moon-text">전생의 나는 누구?</div>
-                <div class="moon-text">내 꿈의 숨은 의미</div>
-                <div class="moon-text">내 배우자는?</div>
+                <div class="moon-text active">Today Horoscope?</div>
+                <div class="moon-text">Tarot one card Messages</div>
+                <div class="moon-text">Who Was I in Past Life?</div>
+                <div class="moon-text">My Hidden Meaning of Dreams</div>
+                <div class="moon-text">My soulmate?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
     </div>
 
-    <!-- 가운데 - 게임 -->
+    <!-- 가운데 - Game -->
     <div class="game-col">
         <div class="game-table">
             <!-- 상대 3명 -->
@@ -414,11 +414,11 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- 내 카드 -->
+            <!-- My 카드 -->
             <div class="my-area">
                 <div class="my-info">
                     <div class="my-pic">⭐</div>
-                    <div class="my-label">내 카드 (7장)</div>
+                    <div class="my-label">My 카드 (7장)</div>
                 </div>
                 <div class="my-hand" id="myHand">
                     <div class="my-card red playable" onclick="playCard(this)"><div class="card-num">3</div><div class="card-suit">&#9829;</div></div>
@@ -445,7 +445,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             </div>
         </div>
         <div class="game-info-box">
-            <div class="box-title">📋 게임 규칙</div>
+            <div class="box-title">📋 Game 규칙</div>
             <div class="game-rule">
                 <div class="rule-basic">바닥 카드와 <b>숫자</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
@@ -477,16 +477,16 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="chat-msg"><span class="sys">[알림]</span> Hana K.님이 입장했습니다</div>
             <div class="chat-msg"><span class="sys">[알림]</span> Jun P.님이 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 안녕! 원카드 하자~ 😄</div>
-            <div class="chat-msg"><span class="user">Hana:</span> 좋아 시작하자!</div>
+            <div class="chat-msg"><span class="user">Hana:</span> like 시작하자!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> 게임이 시작되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[알림]</span> Game이 시작되었습니다!</div>
             <div class="chat-msg"><span class="user">Maria:</span> 공격 간다~ 🔥</div>
             <div class="chat-msg"><span class="sys">[알림]</span> TAZO님의 턴입니다</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두에게-</option><option>Maria에게</option></select>
             <input class="chat-input" placeholder="Messages를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
-            <button class="chat-send" onclick="sendChat()">전송</button>
+            <button class="chat-send" onclick="sendChat()">before송</button>
         </div>
     </div>
     <div class="bottom-btns">
@@ -517,25 +517,25 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
-                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">from라인 · 대기 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">초대</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
-                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">from라인 · 대기 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">초대</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🎵</div>
-                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · 게임 중</div></div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">from라인 · Game 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">초대</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#ef4444,#f87171);">🔥</div>
-                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">from라인 · 대기 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Lucas')">초대</button>
             </div>
             <div class="friend-item">
@@ -555,19 +555,19 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 </div>
 
 <script>
-// 관전 모드 체크
+// 관before 모드 체크
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');
-    // 관전 바 추가
+    // 관before 바 추가
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 관전 모드 — 게임을 구경하고 있습니다';
+    bar.textContent = '👁 관before 모드 — Game을 구경하고 있습니다';
     document.querySelector('.tab-bar').after(bar);
     // 입장 알림
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
-    badge.textContent = '👁 관전 모드';
+    badge.textContent = '👁 관before 모드';
     document.body.appendChild(badge);
 }
 
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 없는 카드! (같은 무늬 또는 같은 숫자만 가능)');
+        alert('낼 수 없는 카드! (Same 무늬 또는 Same 숫자만 가능)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -634,7 +634,7 @@ function drawCard() {
 }
 function updateCount() {
     var c = document.getElementById('myHand').children.length;
-    document.querySelector('.my-label').textContent = '내 카드 (' + c + '장)';
+    document.querySelector('.my-label').textContent = 'My 카드 (' + c + '장)';
 }
 function sendChat() {
     var input = document.getElementById('chatInput');
@@ -659,7 +659,7 @@ function closeInvite() {
     document.getElementById('inviteModal').classList.remove('show');
 }
 function sendInvite(btn, name) {
-    btn.textContent = '전송됨 ✓';
+    btn.textContent = 'before송됨 ✓';
     btn.classList.add('sent');
     addLog('<span class="sys">[알림]</span> ' + name + '님에게 초대를 보냈습니다');
 }
@@ -684,7 +684,7 @@ function toggleMute(btn) {
 // 페이지 이동 확인
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('게임에서 나가시겠습니까?\n진행 중인 게임은 패배 처리됩니다.');
+    return confirm('Game에서 나가시겠습니까?\n진행 중인 Game은 패배 처리됩니다.');
 }
 
 // Exit
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 게임은 패배 처리됩니다.')) {
+    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 Game은 패배 처리됩니다.')) {
         addLog('<span class="sys">[알림]</span> TAZO님이 퇴장했습니다');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }

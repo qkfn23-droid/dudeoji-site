@@ -75,7 +75,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .score-pts{margin-left:auto;font-weight:700;color:#f59e0b;}
 .game-rule .rule-basic{font-size:11px;color:#666;line-height:1.6;margin-bottom:10px;padding:8px;background:#f8f7f5;border-radius:8px;}
 
-/* 게임 테이블 */
+/* Jeu 테이블 */
 .game-col{display:flex;flex-direction:column;gap:8px;min-height:0;}
 .game-status-bar{display:flex;justify-content:center;}
 .game-table{flex:1;border-radius:14px;border:1px solid #d0cdc9;box-shadow:0 2px 12px rgba(0,0,0,0.06);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 20px;gap:6px;overflow:hidden;min-height:0;}
@@ -213,7 +213,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
 <nav class="nav">
     <span class="nav-logo">Dudeoji Studio <span>World</span></span>
     <div class="nav-links">
-        <a href="game-v2.html" class="active" onclick="return confirmLeave()">게임</a>
+        <a href="game-v2.html" class="active" onclick="return confirmLeave()">Jeu</a>
         <a href="shop.html?from=world">Boutique</a>
         <a href="mypage.html?from=world">Mon profil</a>
         <button class="sound-btn" onclick="this.textContent=this.textContent==='🔊'?'🔇':'🔊'" title="BGM">🔇</button>
@@ -228,7 +228,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <div class="notice-text">이번 주 그림 맞추기 TOP 3에게 별의 기운 x50 증정!</div>
             <div class="notice-text">원카드도 같이 즐겨보세요!</div>
             <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
-            <div class="notice-text">현재 접속자 127명 · 진행 중인 게임 23개</div>
+            <div class="notice-text">현재 접속자 127명 · 진행 중인 Jeu 23개</div>
         </div>
     </div>
 </div>
@@ -264,17 +264,17 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
-                <div class="moon-text active">오늘의 운세는?</div>
+                <div class="moon-text active">Horoscope du jour?</div>
                 <div class="moon-text">타로 한 장의 Messages</div>
-                <div class="moon-text">전생의 나는 누구?</div>
-                <div class="moon-text">내 꿈의 숨은 의미</div>
+                <div class="moon-text">Qui etais-je dans ma vie passee?</div>
+                <div class="moon-text">내 Sens cache des reves</div>
                 <div class="moon-text">내 배우자는?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
     </div>
 
-    <!-- 가운데 - 게임 -->
+    <!-- 가운데 - Jeu -->
     <div class="game-col">
         <div class="game-status-bar">
             <div class="game-status">
@@ -299,13 +299,13 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             </div>
         </div>
         <div class="game-info-box">
-            <div class="box-title" style="color:#8b5cf6;">📋 게임 규칙</div>
+            <div class="box-title" style="color:#8b5cf6;">📋 Jeu 규칙</div>
             <div class="game-rule">
                 <div class="rule-basic">
                     카드를 2장 뒤집어서 <b>같은 그림</b>을 찾으세요!<br><br>
                     짝을 맞추면 <b>+1점</b> 획득하고 한 번 더!<br>
                     틀리면 상대방 차례로 넘어갑니다.<br><br>
-                    모든 짝을 찾으면 게임 종료!
+                    모든 짝을 찾으면 Jeu 종료!
                 </div>
             </div>
         </div>
@@ -326,7 +326,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
         <div class="chat-log" id="chatLog">
             <div class="chat-msg"><span class="sys">[알림]</span> Maria의 그림맞추기방에 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 그림 맞추기 하자! 🧩</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> 게임이 시작되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[알림]</span> Jeu이 시작되었습니다!</div>
             <div class="chat-msg"><span class="sys">[알림]</span> TAZO님의 차례입니다</div>
         </div>
         <div class="chat-input-wrap">
@@ -375,7 +375,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🎵</div>
-                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · 게임 중</div></div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · Jeu 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">초대</button>
             </div>
             <div class="friend-item">
@@ -395,7 +395,7 @@ if (isSpectate) {
     document.body.classList.add('spectate');
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 관전 모드 — 게임을 구경하고 있습니다';
+    bar.textContent = '👁 관전 모드 — Jeu을 구경하고 있습니다';
     document.querySelector('.tab-bar').after(bar);
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
@@ -531,7 +531,7 @@ function endGame() {
     if (myScore > oppScore) msg = '🎉 축하합니다! TAZO 승리! (별의 기운 x20 획득)';
     else if (myScore < oppScore) msg = '😢 Maria 승리... (별의 기운 x3 획득)';
     else msg = '🤝 무승부! (별의 기운 x10 획득)';
-    addLog('<span class="sys">[알림]</span> 게임 종료! ' + msg);
+    addLog('<span class="sys">[알림]</span> Jeu 종료! ' + msg);
     document.getElementById('matchMsg').textContent = msg;
 }
 
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // 페이지 이동 확인
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('게임에서 나가시겠습니까?\n진행 중인 게임은 패배 처리됩니다.');
+    return confirm('Jeu에서 나가시겠습니까?\n진행 중인 Jeu은 패배 처리됩니다.');
 }
 
 // Quitter
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 게임은 패배 처리됩니다.')) {
+    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 Jeu은 패배 처리됩니다.')) {
         location.href = 'game-v2.html';
     }
 }
