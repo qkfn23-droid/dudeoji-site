@@ -105,7 +105,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .bp-pinned{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:8px 10px;margin-bottom:8px;}
 .bp-pin-label{font-size:9px;color:#f59e0b;font-weight:700;margin-bottom:2px;}
 
-/* 오른쪽 — 멤버 + 채팅 */
+/* 오른쪽 — 멤버 + Chat */
 .member-list{margin-bottom:8px;}
 .member-item{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
 .member-item:last-child{border-bottom:none;}
@@ -117,7 +117,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .m-role.keeper{background:rgba(14,165,233,0.2);color:#38bdf8;}
 .m-level{font-size:9px;color:rgba(255,255,255,0.25);}
 
-/* 길드 채팅 */
+/* 길드 Chat */
 .guild-chat{margin-top:8px;}
 .gc-msgs{height:180px;overflow-y:auto;margin-bottom:6px;}
 .gc-msgs::-webkit-scrollbar{width:4px;}
@@ -263,7 +263,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
             <div class="pv-quest">
                 <div class="pv-quest-title">📋 주간 퀘스트: Juego 24판 플레이</div>
                 <div class="pv-quest-bar"><div class="pv-quest-fill" style="width:75%;"></div></div>
-                <div class="pv-quest-text">18 / 24 Listo · 보상: 성진 +30, 💎 x20</div>
+                <div class="pv-quest-text">18 / 24 Listo · Recompensa: 성진 +30, 💎 x20</div>
             </div>
         </div>
 
@@ -272,7 +272,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
             <div class="board">
                 <div class="bp-pinned">
                     <div class="bp-pin-label">📌 Avisos</div>
-                    <div class="bp-content">이번 주 길드전 토요일 오후 3시! 모두 참여해주세요. Star Breakers 상대입니다 🔥</div>
+                    <div class="bp-content">이번 주 길드전 토요일 오후 3시! 모두 Participar해주세요. Star Breakers 상대입니다 🔥</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
@@ -295,7 +295,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                         <span class="bp-author">Yuki</span>
                         <span class="bp-time">8Horas 전</span>
                     </div>
-                    <div class="bp-content">Japones 감성 단어 퀴즈팩 업데이트했습니다! 木漏れ日 추가 ☀️</div>
+                    <div class="bp-content">Japones 감성 단어 퀴즈팩 Actualizacion했습니다! 木漏れ日 추가 ☀️</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
@@ -322,7 +322,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
         </div>
     </div>
 
-    <!-- 오른쪽 — 멤버 + 채팅 -->
+    <!-- 오른쪽 — 멤버 + Chat -->
     <div class="right-panel">
         <div class="panel">
             <div class="panel-title">👥 멤버 (12/20)</div>
@@ -343,7 +343,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
         </div>
 
         <div class="panel guild-chat">
-            <div class="panel-title">💬 길드 채팅</div>
+            <div class="panel-title">💬 길드 Chat</div>
             <div class="gc-msgs" id="gcMsgs">
                 <div class="gc-msg"><span class="sys">[Notificacion]</span> Sofia님이 길드에 가입했습니다!</div>
                 <div class="gc-msg"><span class="nm">Maria:</span> 소피아 환영! 🎉</div>
@@ -427,7 +427,7 @@ for(var i=0;i<onlineCount;i++){
     orbit.appendChild(dot);
 }
 
-// 길드 채팅
+// 길드 Chat
 function sendGC(){
     var input=document.getElementById('gcInput');
     if(!input.value.trim())return;

@@ -249,7 +249,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 .dark .opp-count{color:#777;}
 .dark .my-label{color:#ccc;}
 .dark .my-card{border-color:#2a2a3a;}
-/* 하단 채팅 + 버튼 */
+/* 하단 Bate-papo + 버튼 */
 .dark .bottom-bar{background:#1a1a2a;border-top-color:#2a2a3a;}
 .dark .chat-area{background:#1e1e30;border:none;box-shadow:none;}
 .dark .chat-log{background:#1e1e30;}
@@ -458,7 +458,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             </div>
         </div>
         <div class="game-info-box">
-            <div class="box-title" style="color:#f59e0b;">⭐ 보상</div>
+            <div class="box-title" style="color:#f59e0b;">⭐ Recompensa</div>
             <div style="font-size:11px;color:#888;line-height:1.8;">
                 🥇 1등: 별의 기운 x30<br>
                 🥈 2등: 별의 기운 x15<br>
@@ -477,9 +477,9 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="chat-msg"><span class="sys">[Notificacao]</span> Hana K.님이 입장했습니다</div>
             <div class="chat-msg"><span class="sys">[Notificacao]</span> Jun P.님이 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 안녕! 원카드 하자~ 😄</div>
-            <div class="chat-msg"><span class="user">Hana:</span> gosta 시작하자!</div>
+            <div class="chat-msg"><span class="user">Hana:</span> gosta Inicio하자!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
-            <div class="chat-msg"><span class="sys">[Notificacao]</span> Jogo이 시작되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[Notificacao]</span> Jogo이 Inicio되었습니다!</div>
             <div class="chat-msg"><span class="user">Maria:</span> 공격 간다~ 🔥</div>
             <div class="chat-msg"><span class="sys">[Notificacao]</span> TAZO님의 턴입니다</div>
         </div>
@@ -517,13 +517,13 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
-                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">온라인 · Aguardando 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">초대</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
-                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">온라인 · Aguardando 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">초대</button>
             </div>
             <div class="friend-item">
@@ -535,7 +535,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#ef4444,#f87171);">🔥</div>
-                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Lucas</div><div class="friend-status">온라인 · Aguardando 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Lucas')">초대</button>
             </div>
             <div class="friend-item">
@@ -684,7 +684,7 @@ function toggleMute(btn) {
 // 페이지 이동 Confirmar
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Jogo에서 나가시겠습니까?\n진행 중인 Jogo은 패배 처리됩니다.');
+    return confirm('Jogo에서 나가시겠습니까?\n진행 중인 Jogo은 Derrota 처리됩니다.');
 }
 
 // Sair
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 Jogo은 패배 처리됩니다.')) {
+    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 Jogo은 Derrota 처리됩니다.')) {
         addLog('<span class="sys">[Notificacao]</span> TAZO님이 퇴장했습니다');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }

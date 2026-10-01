@@ -292,7 +292,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
     <!-- 오른쪽 -->
     <div class="side-right">
         <div class="game-info-box">
-            <div class="box-title">🏆 점수</div>
+            <div class="box-title">🏆 Punkte</div>
             <div class="score-list">
                 <div class="score-item me"><span>⭐ TAZO</span><span class="score-pts" id="myScore">0</span></div>
                 <div class="score-item"><span>🦊 Maria G.</span><span class="score-pts" id="oppScore">0</span></div>
@@ -310,11 +310,11 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             </div>
         </div>
         <div class="game-info-box">
-            <div class="box-title" style="color:#f59e0b;">⭐ 보상</div>
+            <div class="box-title" style="color:#f59e0b;">⭐ Belohnung</div>
             <div style="font-size:11px;color:#888;line-height:1.8;">
-                🥇 승리: 별의 기운 x20<br>
-                🤝 무승부: 별의 기운 x10<br>
-                😢 패배: 별의 기운 x3
+                🥇 Sieg: 별의 기운 x20<br>
+                🤝 Unentschieden: 별의 기운 x10<br>
+                😢 Niederlage: 별의 기운 x3
             </div>
         </div>
     </div>
@@ -326,7 +326,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
         <div class="chat-log" id="chatLog">
             <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Maria의 그림맞추기방에 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 그림 맞추기 하자! 🧩</div>
-            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Spiel이 시작되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Spiel이 Start되었습니다!</div>
             <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> TAZO님의 차례입니다</div>
         </div>
         <div class="chat-input-wrap">
@@ -363,13 +363,13 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
-                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">온라인 · Warten 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">초대</button>
             </div>
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
-                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">온라인 · Warten 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">초대</button>
             </div>
             <div class="friend-item">
@@ -528,9 +528,9 @@ function endGame() {
     stopTurnTimer();
     canFlip = false;
     var msg;
-    if (myScore > oppScore) msg = '🎉 축하합니다! TAZO 승리! (별의 기운 x20 획득)';
-    else if (myScore < oppScore) msg = '😢 Maria 승리... (별의 기운 x3 획득)';
-    else msg = '🤝 무승부! (별의 기운 x10 획득)';
+    if (myScore > oppScore) msg = '🎉 축하합니다! TAZO Sieg! (별의 기운 x20 획득)';
+    else if (myScore < oppScore) msg = '😢 Maria Sieg... (별의 기운 x3 획득)';
+    else msg = '🤝 Unentschieden! (별의 기운 x10 획득)';
     addLog('<span class="sys">[Benachrichtigung]</span> Spiel 종료! ' + msg);
     document.getElementById('matchMsg').textContent = msg;
 }
@@ -568,7 +568,7 @@ function skipTurn() {
 initGame();
 startTurnTimer();
 
-// 채팅
+// Chat
 function sendChat() {
     var input = document.getElementById('chatInput');
     if (!input.value.trim()) return;
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // 페이지 이동 Bestatigen
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Spiel에서 나가시겠습니까?\n진행 중인 Spiel은 패배 처리됩니다.');
+    return confirm('Spiel에서 나가시겠습니까?\n진행 중인 Spiel은 Niederlage 처리됩니다.');
 }
 
 // Beenden
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 Spiel은 패배 처리됩니다.')) {
+    if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 Spiel은 Niederlage 처리됩니다.')) {
         location.href = 'game-v2.html';
     }
 }

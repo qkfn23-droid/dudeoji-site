@@ -63,7 +63,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .moon-text.active{opacity:1;transform:translateY(0);}
 .moon-brand{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:1px;}
 
-/* 가운데 — 채팅 */
+/* 가운데 — Chat */
 .chat-col{display:flex;flex-direction:column;min-height:0;background:#1a1a2a;}
 .chat-messages{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:2px;}
 .chat-messages::-webkit-scrollbar{width:6px;}
@@ -104,7 +104,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .mission-text{font-size:13px;color:#c4b5fd;font-weight:500;}
 .mission-reward{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;}
 
-/* Idioma 레벨 뱃지 */
+/* Idioma Nivel 뱃지 */
 .lang-badge{font-size:9px;padding:1px 5px;border-radius:4px;font-weight:600;margin-left:4px;}
 .lang-badge.native{background:rgba(74,222,128,0.15);color:#4ade80;}
 .lang-badge.advanced{background:rgba(14,165,233,0.15);color:#38bdf8;}
@@ -315,7 +315,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
         </a>
     </div>
 
-    <!-- 가운데 — 채팅 -->
+    <!-- 가운데 — Chat -->
     <div class="chat-col">
         <!-- De hoy 대화 주제 -->
         <div class="topic-bar">
@@ -362,7 +362,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="mission-icon">🎯</div>
                 <div class="mission-label">말하기 미션</div>
                 <div class="mission-text">"맛있다"를 니 Idioma로 써봐!</div>
-                <div class="mission-reward">참여 시 💎 x5 보상</div>
+                <div class="mission-reward">Participar 시 💎 x5 Recompensa</div>
             </div>
 
             <div class="msg">
@@ -393,7 +393,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                     <div class="msg-text">¡Delicioso! Espanol도 비슷해! 😄</div>
                 </div>
             </div>
-            <div class="msg-system">🎯 미션 Listo! 참여자 4명에게 💎 x5 지급</div>
+            <div class="msg-system">🎯 미션 Listo! Participar자 4명에게 💎 x5 지급</div>
             <div class="msg">
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
@@ -474,7 +474,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="friend-item">
                 <div class="friend-dot online"></div>
                 <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌸</div>
-                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · Espera 중</div></div>
                 <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">초대</button>
             </div>
             <div class="friend-item">
@@ -597,7 +597,7 @@ setInterval(function(){
     var m=missions[Math.floor(Math.random()*missions.length)];
     var div=document.createElement('div');
     div.className='msg-mission';
-    div.innerHTML='<div class="mission-icon">🎯</div><div class="mission-label">말하기 미션</div><div class="mission-text">'+m+'</div><div class="mission-reward">참여 시 💎 x5 보상</div>';
+    div.innerHTML='<div class="mission-icon">🎯</div><div class="mission-label">말하기 미션</div><div class="mission-text">'+m+'</div><div class="mission-reward">Participar 시 💎 x5 Recompensa</div>';
     c.appendChild(div);
     c.scrollTop=c.scrollHeight;
 },45000);
