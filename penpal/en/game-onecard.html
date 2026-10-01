@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without Card! (Same Pattern AgainIs Same numberOnly possible)');
+        alert('No playable card! (Must match suit or number)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
