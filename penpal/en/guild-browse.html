@@ -238,7 +238,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <div class="tab-bar">
     <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🃏</span> 원Card</a>
-    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🧩</span> 그림 맞추기</a>
+    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🧩</span> Picture Match</a>
     <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">💬</span> 수다방</a>
     <div class="tab-item active"><span class="t-emoji">🪐</span> 길드</div>
     <div class="notice-ticker">
@@ -301,7 +301,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </select>
             </div>
             <div class="filter-group">
-                <div class="filter-label">가입 방식</div>
+                <div class="filter-label">Join Method</div>
                 <div class="filter-pills" id="joinFilter">
                     <div class="filter-pill active">before체</div>
                     <div class="filter-pill">자유</div>
@@ -310,7 +310,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <button class="create-guild-btn" onclick="openCreateModal()">🌟 길드 만들기<br><span style="font-size:10px;font-weight:400;color:#92400e;">💎 500 Star Fragments</span></button>
+        <button class="create-guild-btn" onclick="openCreateModal()">🌟 Create Guild<br><span style="font-size:10px;font-weight:400;color:#92400e;">💎 500 Star Fragments</span></button>
 
         <a href="v2-penpal.html" style="display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;font-size:14px;font-weight:700;border-radius:12px;text-decoration:none;box-shadow:0 3px 10px rgba(14,165,233,0.25);transition:all .2s;letter-spacing:1px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Dudeoji Studio</a>
     </div>
@@ -321,7 +321,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <h2>🪐 길드 탐색</h2>
         </div>
         <div class="search-bar">
-            <input class="search-input" placeholder="길드 이름 Search...">
+            <input class="search-input" placeholder="Guild Name Search...">
             <button class="search-btn">Search</button>
         </div>
 
@@ -462,12 +462,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     </div>
 </div>
 
-<!-- 길드 만들기 모달 -->
+<!-- Create Guild 모달 -->
 <div class="modal-bg" id="createModal">
     <div class="modal">
-        <h3>🌟 길드 만들기</h3>
+        <h3>🌟 Create Guild</h3>
         <div class="modal-field">
-            <div class="modal-label">길드 이름</div>
+            <div class="modal-label">Guild Name</div>
             <input class="modal-input" placeholder="2~12자" maxlength="12">
         </div>
         <div class="modal-field">
@@ -488,7 +488,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
         <div class="modal-field">
-            <div class="modal-label">길드 색상</div>
+            <div class="modal-label">Guild Color</div>
             <div class="color-grid">
                 <div class="color-item selected" style="background:#ef4444;" onclick="sel(this,'.color-item')"></div>
                 <div class="color-item" style="background:#f59e0b;" onclick="sel(this,'.color-item')"></div>
@@ -513,14 +513,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <textarea class="modal-textarea" placeholder="길드를 About해주세요 (선택)"></textarea>
         </div>
         <div class="modal-field">
-            <div class="modal-label">가입 방식</div>
+            <div class="modal-label">Join Method</div>
             <div class="join-type-btns">
-                <div class="join-type-btn selected" onclick="sel(this,'.join-type-btn')">🔓 자유 가입</div>
+                <div class="join-type-btn selected" onclick="sel(this,'.join-type-btn')">🔓 Open Join</div>
                 <div class="join-type-btn" onclick="sel(this,'.join-type-btn')">🔒 승인 필요</div>
             </div>
         </div>
         <div class="modal-field">
-            <div class="modal-label">최대 인원</div>
+            <div class="modal-label">Max Players</div>
             <div class="member-btns">
                 <div class="member-btn" onclick="sel(this,'.member-btn')">10명</div>
                 <div class="member-btn selected" onclick="sel(this,'.member-btn')">20명</div>
@@ -529,7 +529,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
         <div class="modal-btns">
             <button class="modal-cancel" onclick="closeCreateModal()">Cancel</button>
-            <button class="modal-create" onclick="createGuild()">길드 만들기</button>
+            <button class="modal-create" onclick="createGuild()">Create Guild</button>
         </div>
         <div class="modal-cost">💎 500 Star Fragments이 차감됩니다</div>
     </div>
@@ -553,7 +553,7 @@ document.querySelectorAll('.filter-pills').forEach(function(wrap){
 function openCreateModal(){document.getElementById('createModal').classList.add('show');}
 function closeCreateModal(){document.getElementById('createModal').classList.remove('show');}
 document.getElementById('createModal').addEventListener('click',function(e){if(e.target===this)closeCreateModal();});
-function createGuild(){closeCreateModal();alert('길드가 만들어졌습니다! (데모)\n💎 500 Star Fragments 차감');}
+function createGuild(){closeCreateModal();alert('길드가 만들어You lost! (데모)\n💎 500 Star Fragments 차감');}
 </script>
 
 </body>

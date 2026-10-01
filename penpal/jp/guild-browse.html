@@ -301,7 +301,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </select>
             </div>
             <div class="filter-group">
-                <div class="filter-label">가입 방식</div>
+                <div class="filter-label">加入方式</div>
                 <div class="filter-pills" id="joinFilter">
                     <div class="filter-pill active">전체</div>
                     <div class="filter-pill">자유</div>
@@ -310,7 +310,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <button class="create-guild-btn" onclick="openCreateModal()">🌟 길드 만들기<br><span style="font-size:10px;font-weight:400;color:#92400e;">💎 500 星のかけら</span></button>
+        <button class="create-guild-btn" onclick="openCreateModal()">🌟 ギルド作成<br><span style="font-size:10px;font-weight:400;color:#92400e;">💎 500 星のかけら</span></button>
 
         <a href="v2-penpal.html" style="display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;font-size:14px;font-weight:700;border-radius:12px;text-decoration:none;box-shadow:0 3px 10px rgba(14,165,233,0.25);transition:all .2s;letter-spacing:1px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Dudeoji Studio</a>
     </div>
@@ -321,7 +321,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <h2>🪐 길드 탐색</h2>
         </div>
         <div class="search-bar">
-            <input class="search-input" placeholder="길드 이름 検索...">
+            <input class="search-input" placeholder="ギルド名 検索...">
             <button class="search-btn">検索</button>
         </div>
 
@@ -462,12 +462,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     </div>
 </div>
 
-<!-- 길드 만들기 모달 -->
+<!-- ギルド作成 모달 -->
 <div class="modal-bg" id="createModal">
     <div class="modal">
-        <h3>🌟 길드 만들기</h3>
+        <h3>🌟 ギルド作成</h3>
         <div class="modal-field">
-            <div class="modal-label">길드 이름</div>
+            <div class="modal-label">ギルド名</div>
             <input class="modal-input" placeholder="2~12자" maxlength="12">
         </div>
         <div class="modal-field">
@@ -513,9 +513,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <textarea class="modal-textarea" placeholder="길드를 紹介해주세요 (선택)"></textarea>
         </div>
         <div class="modal-field">
-            <div class="modal-label">가입 방식</div>
+            <div class="modal-label">加入方式</div>
             <div class="join-type-btns">
-                <div class="join-type-btn selected" onclick="sel(this,'.join-type-btn')">🔓 자유 가입</div>
+                <div class="join-type-btn selected" onclick="sel(this,'.join-type-btn')">🔓 自由加入</div>
                 <div class="join-type-btn" onclick="sel(this,'.join-type-btn')">🔒 승인 필요</div>
             </div>
         </div>
@@ -529,7 +529,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
         <div class="modal-btns">
             <button class="modal-cancel" onclick="closeCreateModal()">キャンセル</button>
-            <button class="modal-create" onclick="createGuild()">길드 만들기</button>
+            <button class="modal-create" onclick="createGuild()">ギルド作成</button>
         </div>
         <div class="modal-cost">💎 500 星のかけら이 차감됩니다</div>
     </div>
@@ -553,7 +553,7 @@ document.querySelectorAll('.filter-pills').forEach(function(wrap){
 function openCreateModal(){document.getElementById('createModal').classList.add('show');}
 function closeCreateModal(){document.getElementById('createModal').classList.remove('show');}
 document.getElementById('createModal').addEventListener('click',function(e){if(e.target===this)closeCreateModal();});
-function createGuild(){closeCreateModal();alert('길드가 만들어졌습니다! (데모)\n💎 500 星のかけら 차감');}
+function createGuild(){closeCreateModal();alert('길드가 만들어負けました! (데모)\n💎 500 星のかけら 차감');}
 </script>
 
 </body>

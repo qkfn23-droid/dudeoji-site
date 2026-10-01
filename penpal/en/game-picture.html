@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — 그림 맞추기</title>
+<title>Dudeoji Studio — Picture Match</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -224,8 +224,8 @@ body.spectate .game-status span:first-child::after{content:' (관before 중)';co
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">그림 맞추기 시즌 오픈! 누가 더 빨리 찾을까?</div>
-            <div class="notice-text">이번 주 그림 맞추기 TOP 3에게 별의 기운 x50 증정!</div>
+            <div class="notice-text active">Picture Match 시즌 오픈! 누가 더 빨리 찾을까?</div>
+            <div class="notice-text">이번 주 Picture Match TOP 3에게 별의 기운 x50 증정!</div>
             <div class="notice-text">원Card도 같이 즐겨보세요!</div>
             <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
             <div class="notice-text">현재 접속자 127명 · 진행 중인 Game 23개</div>
@@ -325,7 +325,7 @@ body.spectate .game-status span:first-child::after{content:' (관before 중)';co
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
             <div class="chat-msg"><span class="sys">[Notifications]</span> Maria의 그림맞추기방에 입장했습니다</div>
-            <div class="chat-msg"><span class="user">Maria:</span> 그림 맞추기 하자! 🧩</div>
+            <div class="chat-msg"><span class="user">Maria:</span> Picture Match 하자! 🧩</div>
             <div class="chat-msg"><span class="sys">[Notifications]</span> Game이 Start되었습니다!</div>
             <div class="chat-msg"><span class="sys">[Notifications]</span> TAZO님의 차례입니다</div>
         </div>
@@ -528,7 +528,7 @@ function endGame() {
     stopTurnTimer();
     canFlip = false;
     var msg;
-    if (myScore > oppScore) msg = '🎉 축하합니다! TAZO Win! (별의 기운 x20 획득)';
+    if (myScore > oppScore) msg = '🎉 Congratulations! TAZO Win! (별의 기운 x20 획득)';
     else if (myScore < oppScore) msg = '😢 Maria Win... (별의 기운 x3 획득)';
     else msg = '🤝 Draw! (별의 기운 x10 획득)';
     addLog('<span class="sys">[Notifications]</span> Game 종료! ' + msg);
@@ -626,7 +626,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Yuki','그림 맞추기 나랑 할 사람~! 🧩');},12000);
+setTimeout(function(){showMegaphone('Yuki','Picture Match 나랑 할 사람~! 🧩');},12000);
 
 // Notice 티커
 var noticeIdx=0;
