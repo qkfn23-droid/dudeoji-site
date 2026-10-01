@@ -210,7 +210,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <a href="about.html">Sobre</a>
         <a href="shop.html">Loja</a>
         <a href="mypage.html">Meu perfil</a>
-        <select onchange="alert('Idioma Alteracao: '+this.value+' (Demo)')" style="padding:6px 10px;border-radius:12px;border:1px solid #e0e0e0;font-size:11px;color:#666;background:#fff;cursor:pointer;outline:none;font-family:'Noto Sans KR',sans-serif;"><option value="ko" selected>🇰🇷 Coreano</option><option value="en">🇬🇧 English</option><option value="ja">🇯🇵 日本語</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="fr">🇫🇷 Français</option><option value="pt">🇵🇹 Português</option></select>
+        <select onchange="var p={ko:'/penpal/v2-penpal.html',en:'/penpal/en/v2-penpal.html',ja:'/penpal/jp/v2-penpal.html',es:'/penpal/es/v2-penpal.html',de:'/penpal/de/v2-penpal.html',fr:'/penpal/fr/v2-penpal.html',pt:'/penpal/pt/v2-penpal.html'};if(p[this.value])location.href=p[this.value];" style="padding:6px 10px;border-radius:12px;border:1px solid #e0e0e0;font-size:11px;color:#666;background:#fff;cursor:pointer;outline:none;font-family:'Noto Sans KR',sans-serif;"><option value="ko">🇰🇷 Coreano</option><option value="en">🇬🇧 English</option><option value="ja">🇯🇵 日本語</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="fr">🇫🇷 Français</option><option value="pt" selected selected>🇵🇹 Português</option></select>
     </div>
 </nav>
 
