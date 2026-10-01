@@ -118,7 +118,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .comm-name{font-weight:600;color:#333;flex:1;}
 .comm-count{font-size:10px;color:#aaa;}
 
-/* Dudeoji문 Banner */
+/* Dudeoji Studio Banner */
 .moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;margin-top:10px;position:relative;overflow:hidden;}
 .moon-banner:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(99,102,241,0.45);}
 .moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;line-height:0;}
@@ -420,7 +420,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- Dudeoji문 Banner -->
+    <!-- Dudeoji Studio Banner -->
     <a href="https://dudeojistudio.com/astro" target="_blank" class="moon-banner" id="moonBanner">
         <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
         <div class="moon-icon"><svg viewBox="0 0 120 120" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -443,7 +443,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <button id="darkBtn" onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'));this.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#0ea5e9;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:999;">🌙</button>
 <script>if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
-// Dudeoji문 Banner Slide
+// Dudeoji Studio Banner Slide
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
 if(moonTexts.length){var moonIdx=0;setInterval(function(){moonTexts[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%moonTexts.length;moonTexts[moonIdx].classList.add('active');},3000);}
 
