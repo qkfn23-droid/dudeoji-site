@@ -44,14 +44,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <div class="lang">
-    <select>
-        <option selected>KR</option>
-        <option>EN</option>
-        <option>JP</option>
-        <option>DE</option>
-        <option>ES</option>
-        <option>FR</option>
-        <option>PT</option>
+    <select onchange="if(this.value)location.href=this.value">
+        <option value="" selected>KR</option>
+        <option value="/astro/en/">EN</option>
+        <option value="/astro/jp/">JP</option>
+        <option value="/astro/de/">DE</option>
+        <option value="/astro/es/">ES</option>
+        <option value="/astro/fr/">FR</option>
+        <option value="/astro/pt/">PT</option>
     </select>
 </div>
 
