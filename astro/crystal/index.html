@@ -335,12 +335,14 @@ function askCrystal() {
 
     setTimeout(() => {
         ball.classList.remove('shaking');
-        // 질문 텍스트 + 날짜를 시드로 → 주역 64괘 기반 답변 선택
+        // 질문 텍스트 + 날짜 + 시간을 시드로 → 주역 64괘 기반 답변 선택
         var qText = question || '';
         var today = new Date();
         var hashSeed = 0;
         for (var ci = 0; ci < qText.length; ci++) hashSeed += qText.charCodeAt(ci);
         hashSeed += today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
+        hashSeed += today.getHours() * 3600 + today.getMinutes() * 60 + today.getSeconds();
+        hashSeed += history.length;
         var answer = ANSWERS[Math.abs(hashSeed) % ANSWERS.length];
 
         textEl.innerHTML = answer.text;
