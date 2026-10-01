@@ -347,10 +347,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">답장하기</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Maria G.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doProfile('Maria G.')">Profile 보기</button>
                         <button class="btn-act" onclick="doSave(this)">Letters 보관</button>
                         <button class="btn-act warn" onclick="doDecline('Maria G.')">정중히 거절</button>
-                        <button class="btn-act warn" onclick="doReport('Maria G.')">신고</button>
+                        <button class="btn-act warn" onclick="doReport('Maria G.')">Report</button>
                     </div>
                 </div>
                 <div class="recent-meta"><span class="recent-badge badge-received">받은 Letters</span><div class="recent-time">2Hours before</div></div>
@@ -364,10 +364,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">답장하기</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Yuki T.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doProfile('Yuki T.')">Profile 보기</button>
                         <button class="btn-act" onclick="doSave(this)">Letters 보관</button>
                         <button class="btn-act warn" onclick="doDecline('Yuki T.')">정중히 거절</button>
-                        <button class="btn-act warn" onclick="doReport('Yuki T.')">신고</button>
+                        <button class="btn-act warn" onclick="doReport('Yuki T.')">Report</button>
                     </div>
                 </div>
                 <div class="recent-meta"><span class="recent-badge badge-received">받은 Letters</span><div class="recent-time">1day before</div></div>
@@ -379,10 +379,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">안녕하세요! 저는 브라질에서 from Lucas입니다...</div>
                     <div class="letter-full">안녕하세요! 저는 브라질에서 from Lucas입니다. Korean를 배우기 시작one 지 6개월 됐어요. astronomy and Game을 like하는데, 혹시 비슷one Interest사 있으면 같이 talkdo! Portuguese도 가르쳐줄 수 있어요~</div>
                     <div class="recent-actions">
-                        <button class="btn-act" onclick="doProfile('Lucas S.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doProfile('Lucas S.')">Profile 보기</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">번역 보기</button>
                         <button class="btn-act" onclick="doSave(this)">Letters 보관</button>
-                        <button class="btn-act warn" onclick="doDelete(this)">삭제</button>
+                        <button class="btn-act warn" onclick="doDelete(this)">Delete</button>
                     </div>
                 </div>
                 <div class="recent-meta"><span class="recent-badge badge-sent">보낸 Letters</span><div class="recent-time">3day before</div></div>
@@ -489,11 +489,11 @@ function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(fun
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messages를 선택해주세요');return;}closeModal();showToast(name+'님에게 거절 Messages를 보냈습니다');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">신고하기</div><div class="modal-body">'+name+'님을 신고하는 이유를 선택해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / 광고 / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적이거나 Fire쾌one My용</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">개인정보 요구 (before화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">신고 접수</button>');
+    openModal('<div class="modal-title">Report하기</div><div class="modal-body">'+name+'님을 Report하는 이유를 선택해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / 광고 / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적이거나 Fire쾌one My용</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">개인정보 요구 (before화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report 접수</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('신고 사유를 선택해주세요');return;}closeModal();showToast('신고가 접수되었습니다. 운영팀이 검토합니다.');}
-function doDelete(el){event.stopPropagation();if(!confirm('이 Letters를 삭제하시겠어요?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Letters가 삭제되었습니다');}
+function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Report 사유를 선택해주세요');return;}closeModal();showToast('Report가 접수되었습니다. 운영팀이 검토합니다.');}
+function doDelete(el){event.stopPropagation();if(!confirm('이 Letters를 Delete하시겠어요?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Letters가 Delete되었습니다');}
 </script>
 </body>
 </html>

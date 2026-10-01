@@ -320,7 +320,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </div>
             </div>
             <div class="letter-area">
-                <div class="letter-label">Cartas 내용</div>
+                <div class="letter-label">Cartas Conteudo</div>
                 <div class="letter-wrap">
                     <textarea class="letter-input" placeholder="안녕하세요! 저는 Coreia에서 온 TAZO입니다. Espanhol를 배우고 있어요..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
@@ -332,7 +332,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 </div>
             </div>
             <div class="send-area">
-                <button class="btn-send" onclick="doSend()">보내기</button>
+                <button class="btn-send" onclick="doSend()">Enviar</button>
             </div>
         </div>
 
@@ -347,10 +347,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">답장하기</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Maria G.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doProfile('Maria G.')">Perfil 보기</button>
                         <button class="btn-act" onclick="doSave(this)">Cartas 보관</button>
                         <button class="btn-act warn" onclick="doDecline('Maria G.')">정중히 거절</button>
-                        <button class="btn-act warn" onclick="doReport('Maria G.')">신고</button>
+                        <button class="btn-act warn" onclick="doReport('Maria G.')">Denunciar</button>
                     </div>
                 </div>
                 <div class="recent-meta"><span class="recent-badge badge-received">받은 Cartas</span><div class="recent-time">2Horas 전</div></div>
@@ -364,10 +364,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Yuki T.')">답장하기</button>
                         <button class="btn-act" onclick="doTranslate('Yuki T.',this)">번역 보기</button>
-                        <button class="btn-act" onclick="doProfile('Yuki T.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doProfile('Yuki T.')">Perfil 보기</button>
                         <button class="btn-act" onclick="doSave(this)">Cartas 보관</button>
                         <button class="btn-act warn" onclick="doDecline('Yuki T.')">정중히 거절</button>
-                        <button class="btn-act warn" onclick="doReport('Yuki T.')">신고</button>
+                        <button class="btn-act warn" onclick="doReport('Yuki T.')">Denunciar</button>
                     </div>
                 </div>
                 <div class="recent-meta"><span class="recent-badge badge-received">받은 Cartas</span><div class="recent-time">1일 전</div></div>
@@ -379,10 +379,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="recent-preview">안녕하세요! 저는 브라질에서 온 Lucas입니다...</div>
                     <div class="letter-full">안녕하세요! 저는 브라질에서 온 Lucas입니다. Coreano를 배우기 시작한 지 6개월 됐어요. 천문학이랑 Jogo을 gosta하는데, 혹시 비슷한 Interesse사 있으면 같이 conversa해요! Portugues도 가르쳐줄 수 있어요~</div>
                     <div class="recent-actions">
-                        <button class="btn-act" onclick="doProfile('Lucas S.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doProfile('Lucas S.')">Perfil 보기</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">번역 보기</button>
                         <button class="btn-act" onclick="doSave(this)">Cartas 보관</button>
-                        <button class="btn-act warn" onclick="doDelete(this)">삭제</button>
+                        <button class="btn-act warn" onclick="doDelete(this)">Excluir</button>
                     </div>
                 </div>
                 <div class="recent-meta"><span class="recent-badge badge-sent">보낸 Cartas</span><div class="recent-time">3일 전</div></div>
@@ -438,11 +438,11 @@ function toggleLetter(el){var f=el.querySelector('.letter-full'),a=el.querySelec
 function doSend(){
     var ta=document.querySelector('.letter-input'),text=ta.value.trim(),sel=document.querySelector('.to-person.selected .to-name');
     if(!sel){showToast('받는 사람을 선택해주세요');return;}
-    if(!text){showToast('Cartas 내용을 입력해주세요');return;}
+    if(!text){showToast('Cartas Conteudo을 입력해주세요');return;}
     if(text.length>2000){showToast('2,000자를 초과했습니다');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
     btn.textContent='전송 중...';btn.disabled=true;btn.style.opacity='0.6';
-    setTimeout(function(){btn.textContent='보내기';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님에게 Cartas를 보냈습니다');},1000);
+    setTimeout(function(){btn.textContent='Enviar';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님에게 Cartas를 보냈습니다');},1000);
 }
 
 function openModal(html){document.getElementById('modalContent').innerHTML='<button class="modal-close" onclick="closeModal()">&times;</button>'+html;document.getElementById('modalOverlay').classList.add('show');}
@@ -483,17 +483,17 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='보관됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Cartas가 보관되었습니다');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정중히 거절</div><div class="modal-body">'+name+'님에게 보낼 거절 Mensagens를 선택해주세요.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas 감사합니다! 지금은 여유가 없어서 답장이 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse 가져주셔서 감사해요! 다만 지금은 새로운 Penpal을 받기 어려운 상황이에요.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas 잘 읽었어요! aprendendo Idioma가 달라서 아쉽지만, 좋은 Penpal 만나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">거절 Mensagens 보내기</button>');
+    openModal('<div class="modal-title">정중히 거절</div><div class="modal-body">'+name+'님에게 보낼 거절 Mensagens를 선택해주세요.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas 감사합니다! 지금은 여유가 없어서 답장이 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interesse 가져주셔서 감사해요! 다만 지금은 새로운 Penpal을 받기 어려운 상황이에요.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas 잘 읽었어요! aprendendo Idioma가 달라서 아쉽지만, 좋은 Penpal 만나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">거절 Mensagens Enviar</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Mensagens를 선택해주세요');return;}closeModal();showToast(name+'님에게 거절 Mensagens를 보냈습니다');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">신고하기</div><div class="modal-body">'+name+'님을 신고하는 이유를 선택해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / 광고 / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적이거나 Fogo쾌한 내용</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">개인정보 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">신고 접수</button>');
+    openModal('<div class="modal-title">Denunciar하기</div><div class="modal-body">'+name+'님을 Denunciar하는 이유를 선택해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / 광고 / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적이거나 Fogo쾌한 Conteudo</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">개인정보 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Denunciar 접수</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('신고 사유를 선택해주세요');return;}closeModal();showToast('신고가 접수되었습니다. 운영팀이 검토합니다.');}
-function doDelete(el){event.stopPropagation();if(!confirm('이 Cartas를 삭제하시겠어요?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Cartas가 삭제되었습니다');}
+function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Denunciar 사유를 선택해주세요');return;}closeModal();showToast('Denunciar가 접수되었습니다. 운영팀이 검토합니다.');}
+function doDelete(el){event.stopPropagation();if(!confirm('이 Cartas를 Excluir하시겠어요?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Cartas가 Excluir되었습니다');}
 </script>
 </body>
 </html>

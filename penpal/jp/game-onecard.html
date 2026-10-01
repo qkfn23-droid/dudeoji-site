@@ -289,7 +289,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대해주세요</div>
             <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
             <div class="notice-text">현재 접속자 127명 · 진행 중인 ゲーム 23개</div>
-            <div class="notice-text">비매너 유저 신고 기능이 추가되었습니다</div>
+            <div class="notice-text">비매너 유저 通報 기능이 추가되었습니다</div>
         </div>
     </div>
 </div>
@@ -445,7 +445,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             </div>
         </div>
         <div class="game-info-box">
-            <div class="box-title">📋 ゲーム 규칙</div>
+            <div class="box-title">📋 ゲーム ルール</div>
             <div class="game-rule">
                 <div class="rule-basic">바닥 카드와 <b>숫자</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
@@ -473,15 +473,15 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[알림]</span> Maria의 원카드방에 입장했습니다</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> Hana K.님이 입장했습니다</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> Jun P.님이 입장했습니다</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> Maria의 원카드방에 입장했습니다</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> Hana K.님이 입장했습니다</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> Jun P.님이 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 안녕! 원카드 하자~ 😄</div>
             <div class="chat-msg"><span class="user">Hana:</span> 好き 시작하자!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> ゲーム이 시작되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> ゲーム이 시작되었습니다!</div>
             <div class="chat-msg"><span class="user">Maria:</span> 공격 간다~ 🔥</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> TAZO님의 턴입니다</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> TAZO님의 턴입니다</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두에게-</option><option>Maria에게</option></select>
@@ -564,7 +564,7 @@ if (isSpectate) {
     bar.className = 'spectate-bar';
     bar.textContent = '👁 관전 모드 — ゲーム을 구경하고 있습니다';
     document.querySelector('.tab-bar').after(bar);
-    // 입장 알림
+    // 입장 通知
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
     badge.textContent = '👁 관전 모드';
@@ -592,9 +592,9 @@ function startTurnTimer() {
     }, 1000);
 }
 function skipTurn() {
-    addLog('<span class="sys">[알림]</span> 時間 초과! 턴이 넘어갑니다');
+    addLog('<span class="sys">[通知]</span> 時間 초과! 턴이 넘어갑니다');
     drawCard();
-    addLog('<span class="sys">[알림]</span> 패널티: 카드 1장 뽑기');
+    addLog('<span class="sys">[通知]</span> 패널티: 카드 1장 뽑기');
     startTurnTimer();
 }
 startTurnTimer();
@@ -629,7 +629,7 @@ function drawCard() {
     card.innerHTML = '<div class="card-num">' + n + '</div><div class="card-suit">' + s + '</div>';
     hand.appendChild(card);
     updateCount();
-    addLog('<span class="sys">[알림]</span> 카드 1장 뽑음');
+    addLog('<span class="sys">[通知]</span> 카드 1장 뽑음');
     startTurnTimer();
 }
 function updateCount() {
@@ -661,7 +661,7 @@ function closeInvite() {
 function sendInvite(btn, name) {
     btn.textContent = '전송됨 ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[알림]</span> ' + name + '님에게 초대를 보냈습니다');
+    addLog('<span class="sys">[通知]</span> ' + name + '님에게 초대를 보냈습니다');
 }
 
 // 음소거
@@ -672,16 +672,16 @@ function toggleMute(btn) {
         btn.textContent = '🔇 음소거 중';
         btn.style.background = '#f0f0f0';
         btn.style.color = '#999';
-        addLog('<span class="sys">[알림]</span> 사운드를 껐습니다');
+        addLog('<span class="sys">[通知]</span> 사운드를 껐습니다');
     } else {
         btn.textContent = '🔊 음소거';
         btn.style.background = '';
         btn.style.color = '';
-        addLog('<span class="sys">[알림]</span> 사운드를 켰습니다');
+        addLog('<span class="sys">[通知]</span> 사운드를 켰습니다');
     }
 }
 
-// 페이지 이동 확인
+// 페이지 이동 確認
 function confirmLeave() {
     if (isSpectate) return true;
     return confirm('ゲーム에서 나가시겠습니까?\n진행 중인 ゲーム은 패배 처리됩니다.');
@@ -694,7 +694,7 @@ function leaveRoom() {
         return;
     }
     if (confirm('정말 방에서 나가시겠습니까?\n진행 중인 ゲーム은 패배 처리됩니다.')) {
-        addLog('<span class="sys">[알림]</span> TAZO님이 퇴장했습니다');
+        addLog('<span class="sys">[通知]</span> TAZO님이 퇴장했습니다');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }
 }

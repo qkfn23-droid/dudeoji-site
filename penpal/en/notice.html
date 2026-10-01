@@ -254,7 +254,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="notice-card" data-cat="vote">
                 <div class="notice-top"><span class="notice-badge badge-vote">투표</span><span class="notice-date">2025.01.18</span></div>
-                <div class="notice-title">프로필 캐릭터 배경색 추가 — 어떤 색?</div>
+                <div class="notice-title">Profile 캐릭터 배경색 추가 — 어떤 색?</div>
                 <div class="notice-preview">캐시템으로 추가될 배경색을 골라주세요!</div>
                 <div class="vote-box" id="vote2">
                     <div class="vote-option" onclick="vote('vote2',0)"><div class="vote-radio"></div><span class="vote-label">🌈 레인보우</span><div class="vote-bar-wrap"><div class="vote-bar c1" style="width:52%;"><span class="vote-pct">52%</span></div></div></div>
@@ -272,22 +272,22 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="notice-card pinned" data-cat="notice">
                 <div class="notice-top"><span class="pin-icon">📌</span><span class="notice-badge badge-event">이벤트</span><span class="notice-date">2025.01.15</span></div>
                 <div class="notice-title">별의 기운 이벤트 시작!</div>
-                <div class="notice-preview">Game에서 승리하고 별의 기운을 모아보세요. 오라를 해금하면 프로필이 빛납니다 ✨</div>
+                <div class="notice-preview">Game에서 승리하고 별의 기운을 모아보세요. 오라를 해금하면 Profile이 빛납니다 ✨</div>
             </div>
             <div class="notice-card" data-cat="dev">
                 <div class="notice-top"><span class="notice-badge badge-dev">개발day지</span><span class="notice-date">2025.01.14</span></div>
-                <div class="notice-title">v1.1 업데이트 — 확성기, Boost, 채팅 필터</div>
-                <div class="notice-preview">확성기 아이템 추가, 프로필 Boost 출시, 7개 Language 채팅 필터 적용.</div>
+                <div class="notice-title">v1.1 업데이트 — 확성기, Boost, 채팅 Filter</div>
+                <div class="notice-preview">확성기 아이템 추가, Profile Boost 출시, 7개 Language 채팅 Filter Application.</div>
             </div>
             <div class="notice-card" data-cat="notice">
                 <div class="notice-top"><span class="notice-badge badge-notice">안My</span><span class="notice-date">2025.01.10</span></div>
-                <div class="notice-title">비매너 유저 신고 기능 추가</div>
-                <div class="notice-preview">Contact 페이지에서 증거와 함께 신고할 수 있습니다. 무관용 원칙으로 운영됩니다.</div>
+                <div class="notice-title">비매너 유저 Report 기능 추가</div>
+                <div class="notice-preview">Contact 페이지에서 증거와 함께 Report할 수 있습니다. 무관용 원칙으로 운영됩니다.</div>
             </div>
             <div class="notice-card" data-cat="notice">
                 <div class="notice-top"><span class="notice-badge badge-maint">점검</span><span class="notice-date">2025.01.03</span></div>
-                <div class="notice-title">서버 점검 안My (완료)</div>
-                <div class="notice-preview">1월 3day 02:00~04:00 서버 점검이 완료되었습니다.</div>
+                <div class="notice-title">서버 점검 안My (Done)</div>
+                <div class="notice-preview">1월 3day 02:00~04:00 서버 점검이 Done되었습니다.</div>
             </div>
             <div class="notice-card" data-cat="dev">
                 <div class="notice-top"><span class="notice-badge badge-dev">개발day지</span><span class="notice-date">2025.01.01</span></div>
@@ -314,7 +314,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="recent-item"><span class="recent-badge badge-dev">개발</span> v1.2 별의 기운</div>
             <div class="recent-item"><span class="recent-badge badge-event">이벤트</span> 별의 기운 이벤트</div>
             <div class="recent-item"><span class="recent-badge badge-dev">개발</span> v1.1 확성기</div>
-            <div class="recent-item"><span class="recent-badge badge-notice">안My</span> 신고 기능</div>
+            <div class="recent-item"><span class="recent-badge badge-notice">안My</span> Report 기능</div>
         </div>
     </div>
 </div>
@@ -346,7 +346,7 @@ function submitVote(voteId){
     var selected=document.querySelector('#'+voteId+' .vote-radio.selected');
     if(!selected){alert('항목을 선택해주세요!');return;}
     var btn=document.getElementById(voteId+'Btn');
-    btn.textContent='투표 완료!';
+    btn.textContent='투표 Done!';
     btn.classList.add('voted');
     btn.onclick=null;
     alert('투표해주셔서 감사합니다!');

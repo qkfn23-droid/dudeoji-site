@@ -299,7 +299,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             </div>
         </div>
         <div class="game-info-box">
-            <div class="box-title" style="color:#8b5cf6;">📋 Jeu 규칙</div>
+            <div class="box-title" style="color:#8b5cf6;">📋 Jeu Regles</div>
             <div class="game-rule">
                 <div class="rule-basic">
                     카드를 2장 뒤집어서 <b>Meme 그림</b>을 찾으세요!<br><br>
@@ -324,10 +324,10 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[알림]</span> Maria의 그림맞추기방에 입장했습니다</div>
+            <div class="chat-msg"><span class="sys">[Notification]</span> Maria의 그림맞추기방에 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 그림 맞추기 하자! 🧩</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> Jeu이 시작되었습니다!</div>
-            <div class="chat-msg"><span class="sys">[알림]</span> TAZO님의 차례입니다</div>
+            <div class="chat-msg"><span class="sys">[Notification]</span> Jeu이 시작되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[Notification]</span> TAZO님의 차례입니다</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두에게-</option><option>Maria G.</option></select>
@@ -455,7 +455,7 @@ function flipCard(el) {
                 matched++;
                 document.getElementById('myScore').textContent = myScore;
                 document.getElementById('matchMsg').textContent = '짝을 찾았어요! +1점 🎉';
-                addLog('<span class="sys">[알림]</span> TAZO가 ' + cards[i1] + ' 짝을 맞췄습니다!');
+                addLog('<span class="sys">[Notification]</span> TAZO가 ' + cards[i1] + ' 짝을 맞췄습니다!');
                 flipped = [];
                 canFlip = true;
                 startTurnTimer();
@@ -470,7 +470,7 @@ function flipCard(el) {
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
                 document.getElementById('matchMsg').textContent = '아쉽! 상대 차례로...';
-                addLog('<span class="sys">[알림]</span> Maria님의 차례입니다');
+                addLog('<span class="sys">[Notification]</span> Maria님의 차례입니다');
                 flipped = [];
                 setTimeout(function(){
                     document.getElementById('matchMsg').textContent = '';
@@ -505,7 +505,7 @@ function aiTurn() {
                     oppScore++;
                     matched++;
                     document.getElementById('oppScore').textContent = oppScore;
-                    addLog('<span class="sys">[알림]</span> Maria가 ' + cards[i1] + ' 짝을 맞췄습니다!');
+                    addLog('<span class="sys">[Notification]</span> Maria가 ' + cards[i1] + ' 짝을 맞췄습니다!');
                     if (matched === emojis.length) {
                         setTimeout(endGame, 500);
                     } else {
@@ -515,7 +515,7 @@ function aiTurn() {
                     picks[0].classList.remove('flipped');
                     picks[1].classList.remove('flipped');
                     document.getElementById('turnName').textContent = 'TAZO님의 차례';
-                    addLog('<span class="sys">[알림]</span> TAZO님의 차례입니다');
+                    addLog('<span class="sys">[Notification]</span> TAZO님의 차례입니다');
                     canFlip = true;
                     startTurnTimer();
                 }
@@ -531,7 +531,7 @@ function endGame() {
     if (myScore > oppScore) msg = '🎉 축하합니다! TAZO 승리! (별의 기운 x20 획득)';
     else if (myScore < oppScore) msg = '😢 Maria 승리... (별의 기운 x3 획득)';
     else msg = '🤝 무승부! (별의 기운 x10 획득)';
-    addLog('<span class="sys">[알림]</span> Jeu 종료! ' + msg);
+    addLog('<span class="sys">[Notification]</span> Jeu 종료! ' + msg);
     document.getElementById('matchMsg').textContent = msg;
 }
 
@@ -559,7 +559,7 @@ function stopTurnTimer() {
     clearInterval(turnInterval);
 }
 function skipTurn() {
-    addLog('<span class="sys">[알림]</span> Heures 초과! 턴이 넘어갑니다');
+    addLog('<span class="sys">[Notification]</span> Heures 초과! 턴이 넘어갑니다');
     document.getElementById('matchMsg').textContent = 'Heures 초과!';
     setTimeout(function(){ document.getElementById('matchMsg').textContent = ''; }, 1500);
     aiTurn();
@@ -590,7 +590,7 @@ function closeInvite() { document.getElementById('inviteModal').classList.remove
 function sendInvite(btn, name) {
     btn.textContent = '전송됨 ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[알림]</span> ' + name + '님에게 초대를 보냈습니다');
+    addLog('<span class="sys">[Notification]</span> ' + name + '님에게 초대를 보냈습니다');
 }
 
 // 음소거
@@ -602,7 +602,7 @@ function toggleMute(btn) {
     btn.style.color = isMuted ? '#999' : '';
 }
 
-// 페이지 이동 확인
+// 페이지 이동 Confirmer
 function confirmLeave() {
     if (isSpectate) return true;
     return confirm('Jeu에서 나가시겠습니까?\n진행 중인 Jeu은 패배 처리됩니다.');

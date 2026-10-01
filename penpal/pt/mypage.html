@@ -22,7 +22,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
 
-/* 프로필 */
+/* Perfil */
 .profile-pic{width:90px;height:90px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;animation:starBounce 2s ease-in-out infinite;}
 .profile-pic svg path:first-child{filter:drop-shadow(0 0 4px rgba(255,160,50,0.7));stroke:rgba(255,140,30,0.8);stroke-width:2.5;}
 @keyframes starBounce{0%,100%{transform:translateY(0) rotate(0deg);}25%{transform:translateY(-3px) rotate(-3deg);}50%{transform:translateY(0) rotate(0deg);}75%{transform:translateY(-2px) rotate(3deg);}}
@@ -94,7 +94,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .stamp{width:44px;height:44px;border-radius:10px;background:#fef3c7;display:flex;align-items:center;justify-content:center;font-size:20px;}
 .stamp.locked{background:#f0f0f0;opacity:0.4;filter:grayscale(1);}
 
-/* 설정 */
+/* Configuracoes */
 .setting-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:13px;color:#555;}
 .setting-item:last-child{border-bottom:none;}
 .setting-label{display:flex;align-items:center;gap:8px;}
@@ -161,7 +161,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <div class="main">
 
-<!-- 왼쪽: 프로필 -->
+<!-- 왼쪽: Perfil -->
 <div style="display:flex;flex-direction:column;gap:16px;">
     <div class="card">
         <div class="profile-pic"><svg viewBox="0 0 120 120" width="85" height="85" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
@@ -177,7 +177,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div><div class="stat-val">48</div><div class="stat-lbl">Cartas</div></div>
             <div><div class="stat-val">156</div><div class="stat-lbl">Horas</div></div>
         </div>
-        <a href="#" class="edit-btn">프로필 수정</a>
+        <a href="#" class="edit-btn">Perfil 수정</a>
         <div class="ticket-status">
             <div class="ticket-icon">🎫</div>
             <div class="ticket-info">
@@ -274,11 +274,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
     </div>
 
-    <!-- 설정 -->
+    <!-- Configuracoes -->
     <div class="card">
-        <div class="section-title">설정</div>
+        <div class="section-title">Configuracoes</div>
         <div class="setting-item">
-            <div class="setting-label"><span class="setting-icon">🔔</span> 알림</div>
+            <div class="setting-label"><span class="setting-icon">🔔</span> Notificacao</div>
             <div class="toggle on" onclick="this.classList.toggle('on')"></div>
         </div>
         <div class="setting-item">
@@ -286,15 +286,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="toggle" id="darkToggle" onclick="this.classList.toggle('on');document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'))"></div>
         </div>
         <div class="setting-item">
-            <div class="setting-label"><span class="setting-icon">🔒</span> 비밀번호 변경</div>
+            <div class="setting-label"><span class="setting-icon">🔒</span> Senha 변경</div>
             <a href="#" class="setting-link">변경</a>
         </div>
         <div class="setting-item">
             <div class="setting-label"><span class="setting-icon">📧</span> Contato</div>
-            <a href="contact.html" class="setting-link">문의</a>
+            <a href="contact.html" class="setting-link">Consulta</a>
         </div>
         <div style="margin-top:14px;text-align:right;">
-            <button class="danger-btn" onclick="alert('정말 탈퇴하시겠습니까? (데모)')">회원 탈퇴</button>
+            <button class="danger-btn" onclick="alert('정말 Sair하시겠습니까? (데모)')">회원 Sair</button>
         </div>
     </div>
 
