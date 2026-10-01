@@ -98,10 +98,10 @@ border:1px solid #d0cdc9;
 box-shadow:0 2px 12px rgba(0,0,0,0.06);
 display:flex;flex-direction:column;justify-content:space-between;padding:16px 20px;}
 
-/* Opponent 영역 */
+/* Opponent Area */
 .opp-row{display:flex;justify-content:space-evenly;align-items:flex-start;width:100%;}
 
-/* Opponent 공통 */
+/* Opponent Common */
 .opp-player{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .opp-info{display:flex;align-items:center;gap:8px;}
 .opp-pic{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#e91e63,#ff5252);display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
@@ -145,7 +145,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .my-card.black .card-num,.my-card.black .card-suit{color:#1a1a1a;}
 @keyframes glow{0%,100%{box-shadow:0 3px 10px rgba(0,0,0,0.2),0 0 6px rgba(74,222,128,0.2);}50%{box-shadow:0 3px 10px rgba(0,0,0,0.2),0 0 16px rgba(74,222,128,0.5);}}
 
-/* Bottom 바 */
+/* Bottom Bar */
 .bottom-bar{flex-shrink:0;background:#fff;border-top:1px solid #e0e0e0;display:flex;align-items:stretch;height:200px;}
 .chat-area{flex:1;display:flex;flex-direction:column;border-right:1px solid #f0f0f0;min-width:0;}
 .chat-log{flex:1;overflow-y:auto;padding:12px 20px;font-size:14px;line-height:2;min-height:0;}
@@ -315,7 +315,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         </div>
 
         <div class="card-box">
-            <div class="box-title blue">👥 참가자</div>
+            <div class="box-title blue">👥 Participants</div>
             <div class="player-list">
                 <div class="pl-item">
                     <div class="pl-dot"></div>
@@ -397,7 +397,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- Turn + Card더미 -->
+            <!-- Turn + Card Deck -->
             <div class="table-center">
                 <div class="turn-badge">
                     <div class="turn-text"><span id="turnName">TAZOof Turn</span><span class="turn-timer" id="turnTimer">15</span></div>
@@ -405,7 +405,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                 <div class="center-mat">
                     <div class="deck-pile" onclick="drawCard()">
                         <div class="deck-card"><div class="logo">Dudeoji Studio</div></div>
-                        <div class="deck-label">뽑기</div>
+                        <div class="deck-label">Draw</div>
                     </div>
                     <div class="played-card red" id="playedCard">
                         <div class="card-num">7</div>
@@ -436,7 +436,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     <!-- Right Side -->
     <div class="side-right">
         <div class="game-info-box">
-            <div class="box-title">🔄 Turn Order서</div>
+            <div class="box-title">🔄 Turn Order</div>
             <div class="turn-order">
                 <div class="turn-item"><div class="turn-num">1</div><span>🦊 Maria G.</span></div>
                 <div class="turn-item current"><div class="turn-num">2</div><span>⭐ TAZO</span></div>
@@ -447,13 +447,13 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 Jogo Regras</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 Card <b>Numero</b> 또는 <b>무늬</b>가 같으면 낼 수 have요</div>
+                <div class="rule-basic">바닥 Card <b>Numero</b> 또 <b>무늬</b> 같으면 낼 수 have요</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs Ataque</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs Ataque</span></div>
-                    <div class="rule-card"><span class="rc-icon">🔄</span><span>Order서 Flip</span></div>
-                    <div class="rule-card"><span class="rc-icon">⛔</span><span>Next Turn 스킵</span></div>
-                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>무늬 바꾸기</span></div>
+                    <div class="rule-card"><span class="rc-icon">🔄</span><span>Reverse Order</span></div>
+                    <div class="rule-card"><span class="rc-icon">⛔</span><span>Skip Next Turn</span></div>
+                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>Change Suit</span></div>
                 </div>
             </div>
         </div>
@@ -484,7 +484,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="chat-msg"><span class="sys">[Notificacao]</span> TAZOof Turnis</div>
         </div>
         <div class="chat-input-wrap">
-            <select class="chat-target"><option>-모두to-</option><option>Mariato</option></select>
+            <select class="chat-target"><option>-Everyone-</option><option>To Maria</option></select>
             <input class="chat-input" placeholder="Mensagens please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-send" onclick="sendChat()">Send</button>
         </div>
@@ -594,14 +594,14 @@ function startTurnTimer() {
 function skipTurn() {
     addLog('<span class="sys">[Notificacao]</span> Horas Exceeded! Turn moves on');
     drawCard();
-    addLog('<span class="sys">[Notificacao]</span> 패널티: Card 1pcs 뽑기');
+    addLog('<span class="sys">[Notificacao]</span> Penalty: Draw 1 card');
     startTurnTimer();
 }
 startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without Card! (Mesmo 무늬 또는 Mesmo Numero만 possible)');
+        alert('낼 수 without Card! (Mesmo 무늬 또 Mesmo Numero만 possible)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -613,7 +613,7 @@ function playCard(el) {
     played.className = 'played-card ' + (isRed ? 'red' : 'black');
     el.style.transform = 'scale(0)';
     setTimeout(function(){ el.remove(); updateCount(); }, 200);
-    addLog('<span class="user">TAZO:</span> ' + suit + num + ' 냄!');
+    addLog('<span class="user">TAZO:</span> ' + suit + num + ' played!');
     startTurnTimer();
 }
 function drawCard() {
@@ -629,7 +629,7 @@ function drawCard() {
     card.innerHTML = '<div class="card-num">' + n + '</div><div class="card-suit">' + s + '</div>';
     hand.appendChild(card);
     updateCount();
-    addLog('<span class="sys">[Notificacao]</span> Card 1pcs 뽑음');
+    addLog('<span class="sys">[Notificacao]</span> Drew 1 card');
     startTurnTimer();
 }
 function updateCount() {
@@ -672,12 +672,12 @@ function toggleMute(btn) {
         btn.textContent = '🔇 Silenciar in';
         btn.style.background = '#f0f0f0';
         btn.style.color = '#999';
-        addLog('<span class="sys">[Notificacao]</span> Sound 껐습your다');
+        addLog('<span class="sys">[Notificacao]</span> Sound OFF');
     } else {
         btn.textContent = '🔊 Silenciar';
         btn.style.background = '';
         btn.style.color = '';
-        addLog('<span class="sys">[Notificacao]</span> Sound 켰습your다');
+        addLog('<span class="sys">[Notificacao]</span> Sound ON');
     }
 }
 
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 Roomfrom Would you like to leave?\nProgresso in progress Jogo Derrota processingwill be.')) {
+    if (confirm('Really leave this room?\nProgresso in progress Jogo Derrota processingwill be.')) {
         addLog('<span class="sys">[Notificacao]</span> TAZOhas has left');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }

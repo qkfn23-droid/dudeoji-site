@@ -224,9 +224,9 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">絵 Match シーズン Open! 누가 더 빨리 찾까?</div>
+            <div class="notice-text active">絵 Match シーズン Open! 누 더 빨리 찾까?</div>
             <div class="notice-text">This week 絵 Match TOP 3to Star 気 x50 プレゼント!</div>
-            <div class="notice-text">원カード도 같 Enjoy!</div>
+            <div class="notice-text">원カードtoo 같 Enjoy!</div>
             <div class="notice-text">Star 気 collect オーラ 解放please!</div>
             <div class="notice-text">Current users 127people · 進行 in progress ゲーム 23pcs</div>
         </div>
@@ -245,7 +245,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
         </div>
 
         <div class="card-box">
-            <div class="box-title blue">👥 참가자</div>
+            <div class="box-title blue">👥 Participants</div>
             <div class="player-list">
                 <div class="pl-item">
                     <div class="pl-dot"></div>
@@ -455,7 +455,7 @@ function flipCard(el) {
                 matched++;
                 document.getElementById('myScore').textContent = myScore;
                 document.getElementById('matchMsg').textContent = 'pair found! +1점 🎉';
-                addLog('<span class="sys">[通知]</span> TAZO가 ' + cards[i1] + ' pair 맞췄습your다!');
+                addLog('<span class="sys">[通知]</span> TAZO ' + cards[i1] + ' pair 맞췄습your다!');
                 flipped = [];
                 canFlip = true;
                 startTurnTimer();
@@ -505,7 +505,7 @@ function aiTurn() {
                     oppScore++;
                     matched++;
                     document.getElementById('oppScore').textContent = oppScore;
-                    addLog('<span class="sys">[通知]</span> Maria가 ' + cards[i1] + ' pair 맞췄습your다!');
+                    addLog('<span class="sys">[通知]</span> Maria ' + cards[i1] + ' pair 맞췄습your다!');
                     if (matched === emojis.length) {
                         setTimeout(endGame, 500);
                     } else {
