@@ -278,7 +278,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
     <div class="game-col">
         <div class="game-status-bar">
             <div class="game-status">
-                <span id="turnName">TAZO님의 차례</span>
+                <span id="turnName">TAZO님의 Vez</span>
                 <span class="turn-timer" id="turnTimer">15</span>
             </div>
         </div>
@@ -304,7 +304,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
                 <div class="rule-basic">
                     카드를 2장 뒤집어서 <b>Mesmo 그림</b>을 찾으세요!<br><br>
                     짝을 맞추면 <b>+1점</b> 획득하고 one 번 더!<br>
-                    틀리면 상대방 차례로 넘어갑니다.<br><br>
+                    틀리면 상대방 Vez로 넘어갑니다.<br><br>
                     all 짝을 찾으면 Jogo end!
                 </div>
             </div>
@@ -327,7 +327,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <div class="chat-msg"><span class="sys">[Notificacao]</span> Maria의 그림맞추기방에 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 그림 맞추기 하자! 🧩</div>
             <div class="chat-msg"><span class="sys">[Notificacao]</span> Jogo이 Inicio되었습니다!</div>
-            <div class="chat-msg"><span class="sys">[Notificacao]</span> TAZO님의 차례입니다</div>
+            <div class="chat-msg"><span class="sys">[Notificacao]</span> TAZO님의 Vez입니다</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두to-</option><option>Maria G.</option></select>
@@ -403,7 +403,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// 카드 data (국기 이모지 8쌍 = 16장)
+// 카드 data (Bandeira 이모지 8쌍 = 16장)
 var emojis = ['🇰🇷','🇯🇵','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇮🇹','🇪🇸'];
 var cards = [];
 var flipped = [];
@@ -469,8 +469,8 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! 상대 차례로...';
-                addLog('<span class="sys">[Notificacao]</span> Maria님의 차례입니다');
+                document.getElementById('matchMsg').textContent = '아쉽! 상대 Vez로...';
+                addLog('<span class="sys">[Notificacao]</span> Maria님의 Vez입니다');
                 flipped = [];
                 setTimeout(function(){
                     document.getElementById('matchMsg').textContent = '';
@@ -485,7 +485,7 @@ function flipCard(el) {
 function aiTurn() {
     canFlip = false;
     stopTurnTimer();
-    document.getElementById('turnName').textContent = 'Maria님의 차례';
+    document.getElementById('turnName').textContent = 'Maria님의 Vez';
     var unmatched = [];
     var allCards = document.querySelectorAll('.pic-card');
     allCards.forEach(function(c){ if (!c.classList.contains('matched')) unmatched.push(c); });
@@ -514,8 +514,8 @@ function aiTurn() {
                 } else {
                     picks[0].classList.remove('flipped');
                     picks[1].classList.remove('flipped');
-                    document.getElementById('turnName').textContent = 'TAZO님의 차례';
-                    addLog('<span class="sys">[Notificacao]</span> TAZO님의 차례입니다');
+                    document.getElementById('turnName').textContent = 'TAZO님의 Vez';
+                    addLog('<span class="sys">[Notificacao]</span> TAZO님의 Vez입니다');
                     canFlip = true;
                     startTurnTimer();
                 }

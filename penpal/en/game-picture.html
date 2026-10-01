@@ -220,13 +220,13 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
     </div>
 </nav>
 <div class="tab-bar">
-    <div class="tab-room"><span class="t-emoji">🧩</span> MariaOf 그림맞추기방 (2/2)</div>
+    <div class="tab-room"><span class="t-emoji">🧩</span> MariaOf Picture Match Room (2/2)</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Picture Match Season Open! 누Is More 빨리 찾the까?</div>
             <div class="notice-text">This번 주 Picture Match TOP 3At게 별Of Energy x50 Gift!</div>
-            <div class="notice-text">원CardAlso 같This 즐겨보세요!</div>
+            <div class="notice-text">원CardAlso 같This 즐겨See!</div>
             <div class="notice-text">별Of Energythe Collect Aurathe Unlockplease do!</div>
             <div class="notice-text">Current Access자 127명 · Progress During인 Game 23개</div>
         </div>
@@ -278,7 +278,7 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
     <div class="game-col">
         <div class="game-status-bar">
             <div class="game-status">
-                <span id="turnName">TAZO님Of 차례</span>
+                <span id="turnName">TAZO님Of Turn</span>
                 <span class="turn-timer" id="turnTimer">15</span>
             </div>
         </div>
@@ -304,7 +304,7 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
                 <div class="rule-basic">
                     Cardthe 2장 뒤집어서 <b>Same 그림</b>the 찾으세요!<br><br>
                     짝the 맞추면 <b>+1점</b> 획득and one 번 More!<br>
-                    틀리면 Opponent방 차례To 넘어갑니다.<br><br>
+                    틀리면 Opponent방 TurnTo 넘어갑니다.<br><br>
                     all 짝the 찾으면 Game end!
                 </div>
             </div>
@@ -324,10 +324,10 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[Notifications]</span> MariaOf 그림맞추기방At Joinhas been done</div>
+            <div class="chat-msg"><span class="sys">[Notifications]</span> MariaOf Picture Match RoomAt Joinhas been done</div>
             <div class="chat-msg"><span class="user">Maria:</span> Picture Match Let us! 🧩</div>
             <div class="chat-msg"><span class="sys">[Notifications]</span> GameThis Starthas been completed!</div>
-            <div class="chat-msg"><span class="sys">[Notifications]</span> TAZO님Of 차례is</div>
+            <div class="chat-msg"><span class="sys">[Notifications]</span> TAZO님Of Turnis</div>
         </div>
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-AllAt게-</option><option>Maria G.</option></select>
@@ -469,8 +469,8 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! Opponent 차례To...';
-                addLog('<span class="sys">[Notifications]</span> Maria님Of 차례is');
+                document.getElementById('matchMsg').textContent = '아쉽! Opponent TurnTo...';
+                addLog('<span class="sys">[Notifications]</span> Maria님Of Turnis');
                 flipped = [];
                 setTimeout(function(){
                     document.getElementById('matchMsg').textContent = '';
@@ -485,7 +485,7 @@ function flipCard(el) {
 function aiTurn() {
     canFlip = false;
     stopTurnTimer();
-    document.getElementById('turnName').textContent = 'Maria님Of 차례';
+    document.getElementById('turnName').textContent = 'Maria님Of Turn';
     var unmatched = [];
     var allCards = document.querySelectorAll('.pic-card');
     allCards.forEach(function(c){ if (!c.classList.contains('matched')) unmatched.push(c); });
@@ -514,8 +514,8 @@ function aiTurn() {
                 } else {
                     picks[0].classList.remove('flipped');
                     picks[1].classList.remove('flipped');
-                    document.getElementById('turnName').textContent = 'TAZO님Of 차례';
-                    addLog('<span class="sys">[Notifications]</span> TAZO님Of 차례is');
+                    document.getElementById('turnName').textContent = 'TAZO님Of Turn';
+                    addLog('<span class="sys">[Notifications]</span> TAZO님Of Turnis');
                     canFlip = true;
                     startTurnTimer();
                 }

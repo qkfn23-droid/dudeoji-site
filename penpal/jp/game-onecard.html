@@ -286,7 +286,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">원カード シーズン 오픈! ペンパル 友達와 one 판 해보세요</div>
             <div class="notice-text">이번 주 원カード TOP 3to 별의 気 x50 プレゼント!</div>
-            <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대してください</div>
+            <div class="notice-text">그림 맞추기 10월 오픈 予定! 기대してください</div>
             <div class="notice-text">별의 気을 모아 オーラ를 解放하세요!</div>
             <div class="notice-text">현재 접속자 127명 · 進行 in progress ゲーム 23개</div>
             <div class="notice-text">비매너 ユーザー 通報 기능이 addされました</div>
@@ -436,7 +436,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     <!-- 오른쪽 사이드 -->
     <div class="side-right">
         <div class="game-info-box">
-            <div class="box-title">🔄 ターン 순서</div>
+            <div class="box-title">🔄 ターン 順番</div>
             <div class="turn-order">
                 <div class="turn-item"><div class="turn-num">1</div><span>🦊 Maria G.</span></div>
                 <div class="turn-item current"><div class="turn-num">2</div><span>⭐ TAZO</span></div>
@@ -447,13 +447,13 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 ゲーム ルール</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 カード와 <b>숫자</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
+                <div class="rule-basic">바닥 カード와 <b>숫자</b> 또는 <b>模様</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 攻撃</span></div>
-                    <div class="rule-card"><span class="rc-icon">🔄</span><span>순서 뒤집기</span></div>
+                    <div class="rule-card"><span class="rc-icon">🔄</span><span>順番 뒤집기</span></div>
                     <div class="rule-card"><span class="rc-icon">⛔</span><span>다음 ターン 스킵</span></div>
-                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>무늬 바꾸기</span></div>
+                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>模様 바꾸기</span></div>
                 </div>
             </div>
         </div>
@@ -476,7 +476,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="chat-msg"><span class="sys">[通知]</span> Maria의 원カード방에 입장했습니다</div>
             <div class="chat-msg"><span class="sys">[通知]</span> Hana K.님이 입장했습니다</div>
             <div class="chat-msg"><span class="sys">[通知]</span> Jun P.님이 입장했습니다</div>
-            <div class="chat-msg"><span class="user">Maria:</span> 안녕! 원カード 하자~ 😄</div>
+            <div class="chat-msg"><span class="user">Maria:</span> こんにちは! 원カード 하자~ 😄</div>
             <div class="chat-msg"><span class="user">Hana:</span> 好き 開始하자!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
             <div class="chat-msg"><span class="sys">[通知]</span> ゲーム이 開始されました!</div>
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without カード! (同じ 무늬 또는 同じ 숫자만 가능)');
+        alert('낼 수 without カード! (同じ 模様 또는 同じ 숫자만 가능)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;

@@ -96,7 +96,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .topic-new{font-size:9px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,0.15);color:#f59e0b;font-weight:600;cursor:pointer;border:none;font-family:'Noto Sans KR';transition:all .15s;}
 .topic-new:hover{background:rgba(245,158,11,0.25);}
 
-/* 미션 Nachrichten */
+/* Mission Nachrichten */
 .msg-mission{text-align:center;padding:12px 16px;margin:8px 0;background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(99,102,241,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:12px;animation:missionIn .3s ease-out;}
 @keyframes missionIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
 .mission-icon{font-size:20px;margin-bottom:4px;}
@@ -259,7 +259,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">비속어, 욕설은 Automatisch Blockieren됩니다</div>
+            <div class="notice-text active">Schimpfwort, 욕설은 Automatisch Blockieren됩니다</div>
             <div class="notice-text">수다방from 새 Freunde를 사귀어보세요!</div>
             <div class="notice-text">별의 Energie을 모아 Aura를 Freischalten하세요!</div>
         </div>
@@ -322,7 +322,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="topic-icon">💬</div>
             <div>
                 <div class="topic-label">Heutige 주제</div>
-                <div class="topic-text" id="topicText">니 나라from 가장 aboveone Essen은? 🍽️</div>
+                <div class="topic-text" id="topicText">니 Landfrom 가장 aboveone Essen은? 🍽️</div>
             </div>
             <button class="topic-new" onclick="nextTopic()">다음 주제</button>
         </div>
@@ -336,7 +336,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#e91e63;">Maria G.</span><span class="lang-badge native">🇪🇸</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:31</span></div>
-                    <div class="msg-text">안녕! 다들 어디서 왔어? 😊</div>
+                    <div class="msg-text">Hallo! 다들 어디서 왔어? 😊</div>
                 </div>
             </div>
             <div class="msg">
@@ -357,10 +357,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="msg-system">Felix님이 입장했습니다</div>
             <div class="msg-system">Lucas님이 입장했습니다</div>
 
-            <!-- 미션 등장 -->
+            <!-- Mission 등장 -->
             <div class="msg-mission">
                 <div class="mission-icon">🎯</div>
-                <div class="mission-label">말하기 미션</div>
+                <div class="mission-label">말하기 Mission</div>
                 <div class="mission-text">"맛있다"를 니 Sprache로 써봐!</div>
                 <div class="mission-reward">Teilnehmen 시 💎 x5 Belohnung</div>
             </div>
@@ -393,7 +393,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                     <div class="msg-text">¡Delicioso! Spanisch도 비슷해! 😄</div>
                 </div>
             </div>
-            <div class="msg-system">🎯 미션 Fertig! Teilnehmen자 4명to 💎 x5 지급</div>
+            <div class="msg-system">🎯 Mission Fertig! Teilnehmen자 4명to 💎 x5 지급</div>
             <div class="msg">
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
@@ -436,11 +436,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="rule-title">📋 수다방 Regeln</div>
             <div class="rule-text">
                 <b>1.</b> 1인 1Konto<br>
-                <b>2.</b> 사기/사칭 금지<br>
-                <b>3.</b> 성적/폭력 콘텐츠 금지<br>
+                <b>2.</b> Betrug/사칭 금지<br>
+                <b>3.</b> Sexuell/Gewalt 콘텐츠 금지<br>
                 <b>4.</b> Personliche Daten 강요 금지<br>
-                <b>5.</b> 스팸/권유 금지<br>
-                <b>6.</b> 욕설/비속어 Automatisch Blockieren
+                <b>5.</b> Spam/권유 금지<br>
+                <b>6.</b> 욕설/Schimpfwort Automatisch Blockieren
             </div>
             <div class="rule-warn">위반 시: Dauerhafter Ausschluss · 환Feuer Feuer가</div>
         </div>
@@ -522,7 +522,7 @@ function sendMsg(){
     m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
     c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
     setTimeout(function(){
-        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','Koreanisch 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ gern!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일from는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 Echt?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','Koreanisch 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ gern!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일from는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['Echt? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
         var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
         var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
         var reply=document.createElement('div');reply.className='msg';
@@ -548,56 +548,56 @@ document.getElementById('chatMessages').scrollTop=document.getElementById('chatM
 
 // Heutige 주제 리스트
 var topics=[
-    '니 나라from 가장 aboveone Essen은? 🍽️',
+    '니 Landfrom 가장 aboveone Essen은? 🍽️',
     '어제 본 드라마/Filme Empfehlung해줘 🎬',
-    '니 나라from 인기 with 노래 알려줘 🎵',
+    '니 Landfrom 인기 with 노래 알려줘 🎵',
     '가장 gerndoing Korea Essen은? 🇰🇷',
-    '니 나라의 인사법을 알려줘! 👋',
-    '가장 가보고 싶은 나라는? ✈️',
-    '니 나라만의 독특one Kultur가 있어? 🌍',
-    '요즘 빠져with 취미 뭐야? 🎨',
-    '니 나라 학교생활은 어때? 🏫',
+    '니 Land의 인사법을 알려줘! 👋',
+    '가장 가보고 싶은 Land는? ✈️',
+    '니 Land만의 독특one Kultur가 있어? 🌍',
+    'Neulich 빠져with 취미 뭐야? 🎨',
+    '니 Land 학교생활은 어때? 🏫',
     '가장 웃긴 Koreanisch 실수 알려줘 ㅋㅋ 😂',
-    '니 나라 욕 하나만 알려줘 ㅋㅋ 🤫',
+    '니 Land 욕 하나만 알려줘 ㅋㅋ 🤫',
     '제일 gerndoing 이모지는? 😎',
-    '지금 니 나라 날씨 어때? ☀️',
-    '니 나라 크리스마스는 어떻게 보내? 🎄',
+    '지금 니 Land 날씨 어때? ☀️',
+    '니 Land 크리스마스는 어떻게 보내? 🎄',
     '가장 자신with Kochen는? 👨‍🍳',
-    '니 나라from 유행doing 밈 있어? 🤣',
+    '니 Landfrom 유행doing 밈 있어? 🤣',
     'Koreanisch 배우면서 가장 어려운 점은? 📚',
-    '니 나라 대표 디저트는? 🍰',
+    '니 Land 대표 디저트는? 🍰',
     '가장 gerndoing 계절은? 🌸',
-    '니 나라from 데이트할 때 뭐 해? 💕'
+    '니 Landfrom 데이트할 때 뭐 해? 💕'
 ];
 var topicIdx=Math.floor(Math.random()*topics.length);
 document.getElementById('topicText').textContent=topics[topicIdx];
 function nextTopic(){topicIdx=(topicIdx+1)%topics.length;document.getElementById('topicText').textContent=topics[topicIdx];}
 
-// 미션 리스트
+// Mission 리스트
 var missions=[
     '"맛있다"를 니 Sprache로 써봐!',
     '"사랑해"를 니 Sprache로 써봐! 💕',
-    '"안녕하세요"를 니 Sprache로 써봐! 👋',
-    '"감사합니다"를 니 Sprache로 써봐! 🙏',
-    '니 나라 Essen 이름 3개 써봐! 🍽️',
+    '"Hallo하세요"를 니 Sprache로 써봐! 👋',
+    '"Vielen Dank"를 니 Sprache로 써봐! 🙏',
+    '니 Land Essen 이름 3개 써봐! 🍽️',
     '"춥다"를 니 Sprache로 써봐! ❄️',
     'gerndoing 노래 가사 one 줄 써봐! 🎵',
     '"재밌다"를 니 Sprache로 써봐! 😄',
     '니 이름을 Koreanisch로 써봐! ✍️',
     '"배고파"를 니 Sprache로 써봐! 🍔',
     '"잘 자"를 니 Sprache로 써봐! 🌙',
-    '니 나라 유명인 1명 알려줘! 🌟',
+    '니 Land 유명인 1명 알려줘! 🌟',
     '"멋지다"를 니 Sprache로 써봐! 😎',
-    '니 나라 수도 이름 써봐! 🏙️',
+    '니 Land 수도 이름 써봐! 🏙️',
     '"Freunde"를 니 Sprache로 써봐! 🤝'
 ];
-// 미션 Automatisch 발생 (데모: 45초마다)
+// Mission Automatisch 발생 (데모: 45초마다)
 setInterval(function(){
     var c=document.getElementById('chatMessages');
     var m=missions[Math.floor(Math.random()*missions.length)];
     var div=document.createElement('div');
     div.className='msg-mission';
-    div.innerHTML='<div class="mission-icon">🎯</div><div class="mission-label">말하기 미션</div><div class="mission-text">'+m+'</div><div class="mission-reward">Teilnehmen 시 💎 x5 Belohnung</div>';
+    div.innerHTML='<div class="mission-icon">🎯</div><div class="mission-label">말하기 Mission</div><div class="mission-text">'+m+'</div><div class="mission-reward">Teilnehmen 시 💎 x5 Belohnung</div>';
     c.appendChild(div);
     c.scrollTop=c.scrollHeight;
 },45000);
