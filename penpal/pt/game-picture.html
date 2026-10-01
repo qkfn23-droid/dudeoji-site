@@ -224,7 +224,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">Imagem Match Temporada Open! 누 더 빨리 찾까?</div>
+            <div class="notice-text active">Picture Match Season Open! Who finds matches fastest?</div>
             <div class="notice-text">This week Imagem Match TOP 3to Star Energia x50 Presente!</div>
             <div class="notice-text">Try One Card too!</div>
             <div class="notice-text">Star Energia collect Aura Desbloquearplease!</div>
@@ -469,7 +469,7 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! Opponent Vezto...';
+                document.getElementById('matchMsg').textContent = 'Miss! Opponents turn...';
                 addLog('<span class="sys">[Notificacao]</span> Mariaof Vezis');
                 flipped = [];
                 setTimeout(function(){
