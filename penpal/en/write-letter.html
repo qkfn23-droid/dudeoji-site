@@ -395,7 +395,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="right-box">
             <div class="right-title">✉️ Letters 팁</div>
             <div class="tip-item"><span class="tip-icon">👋</span> 첫 LettersAtIs 자기Aboutthe 포함please do</div>
-            <div class="tip-item"><span class="tip-icon">🌍</span> Opponent LanguageTo 한두 sentence 쓰면 I am touched</div>
+            <div class="tip-item"><span class="tip-icon">🌍</span> Opponent LanguageTo one두 sentence 쓰면 I am touched</div>
             <div class="tip-item"><span class="tip-icon">❓</span> 질문the if you add reply 확률This increases</div>
             <div class="tip-item"><span class="tip-icon">🎵</span> 공통 Interest사the 찾아 This야기해보세요</div>
             <div class="tip-item"><span class="tip-icon">⭐</span> Lettersthe 보My면 별Of energy +5!</div>
@@ -489,7 +489,7 @@ function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(fun
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messagesthe Selectplease');return;}closeModal();showToast(name+'님At게 reject Messagesthe 보냈습니다');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">ReportDo</div><div class="modal-body">'+name+'님the Report하Is This유the Selectplease.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / Ads / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적This거나 Fire쾌one MyFor</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">Personal Info 요구 (before화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report 접수</button>');
+    openModal('<div class="modal-title">ReportDo</div><div class="modal-body">'+name+'님the Report하Is This유the Selectplease.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / Ads / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적This거나 Fire쾌one MyFor</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">Personal Info 요구 (before화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report 접수</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Report 사유the Selectplease');return;}closeModal();showToast('ReportIs 접수has been completed. 운영팀This 검토does.');}

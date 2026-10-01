@@ -305,7 +305,7 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
                     Cardthe 2장 뒤집어서 <b>Same 그림</b>the 찾으세요!<br><br>
                     짝the 맞추면 <b>+1점</b> 획득and one 번 More!<br>
                     틀리면 Opponent방 차례To 넘어갑니다.<br><br>
-                    모든 짝the 찾으면 Game 종료!
+                    all 짝the 찾으면 Game end!
                 </div>
             </div>
         </div>
@@ -531,7 +531,7 @@ function endGame() {
     if (myScore > oppScore) msg = '🎉 Congratulations! TAZO Win! (별Of Energy x20 획득)';
     else if (myScore < oppScore) msg = '😢 Maria Win... (별Of Energy x3 획득)';
     else msg = '🤝 Draw! (별Of Energy x10 획득)';
-    addLog('<span class="sys">[Notifications]</span> Game 종료! ' + msg);
+    addLog('<span class="sys">[Notifications]</span> Game end! ' + msg);
     document.getElementById('matchMsg').textContent = msg;
 }
 
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // 페This지 This동 Confirm
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('GameAt서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리will be.');
+    return confirm('GameAt서 나Is시겠습니까?\nProgress During인 GameIs Lose processingwill be.');
 }
 
 // Exit
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방At서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리will be.')) {
+    if (confirm('정말 방At서 나Is시겠습니까?\nProgress During인 GameIs Lose processingwill be.')) {
         location.href = 'game-v2.html';
     }
 }

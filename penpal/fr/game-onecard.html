@@ -284,12 +284,12 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">원카드 Saison 오픈! Penpal Amis와 한 판 해보세요</div>
-            <div class="notice-text">이번 주 원카드 TOP 3에게 별의 Energie x50 Cadeau!</div>
+            <div class="notice-text active">원카드 Saison 오픈! Penpal Amis와 one 판 해보세요</div>
+            <div class="notice-text">이번 주 원카드 TOP 3to 별의 Energie x50 Cadeau!</div>
             <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대해주세요</div>
             <div class="notice-text">별의 Energie을 모아 Aura를 Debloquer하세요!</div>
-            <div class="notice-text">현재 접속자 127명 · Progression 중인 Jeu 23개</div>
-            <div class="notice-text">비매너 Utilisateur Signaler 기능이 추가되었습니다</div>
+            <div class="notice-text">현재 접속자 127명 · Progression in progress Jeu 23개</div>
+            <div class="notice-text">비매너 Utilisateur Signaler 기능이 add되었습니다</div>
         </div>
     </div>
 </div>
@@ -345,7 +345,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">Horoscope du jour?</div>
-                <div class="moon-text">Tarot 한 장의 Messages</div>
+                <div class="moon-text">Tarot one 장의 Messages</div>
                 <div class="moon-text">Qui etais-je dans ma vie passee?</div>
                 <div class="moon-text">내 Sens cache des reves</div>
                 <div class="moon-text">내 배우자는?</div>
@@ -484,7 +484,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="chat-msg"><span class="sys">[Notification]</span> TAZO님의 턴입니다</div>
         </div>
         <div class="chat-input-wrap">
-            <select class="chat-target"><option>-모두에게-</option><option>Maria에게</option></select>
+            <select class="chat-target"><option>-모두to-</option><option>Mariato</option></select>
             <input class="chat-input" placeholder="Messages를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-send" onclick="sendChat()">전송</button>
         </div>
@@ -559,7 +559,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');
-    // 관전 바 추가
+    // 관전 바 add
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
     bar.textContent = '👁 관전 모드 — Jeu을 구경하고 있습니다';
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 없는 카드! (Meme 무늬 또는 Meme 숫자만 가능)');
+        alert('낼 수 without 카드! (Meme 무늬 또는 Meme 숫자만 가능)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -661,7 +661,7 @@ function closeInvite() {
 function sendInvite(btn, name) {
     btn.textContent = '전송됨 ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[Notification]</span> ' + name + '님에게 Invitation를 보냈습니다');
+    addLog('<span class="sys">[Notification]</span> ' + name + '님to Invitation를 보냈습니다');
 }
 
 // Muet
@@ -684,7 +684,7 @@ function toggleMute(btn) {
 // 페이지 이동 Confirmer
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Jeu에서 나가시겠습니까?\nProgression 중인 Jeu은 Defaite 처리됩니다.');
+    return confirm('Jeufrom 나가시겠습니까?\nProgression in progress Jeu은 Defaite processing됩니다.');
 }
 
 // Quitter
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방에서 나가시겠습니까?\nProgression 중인 Jeu은 Defaite 처리됩니다.')) {
+    if (confirm('정말 방from 나가시겠습니까?\nProgression in progress Jeu은 Defaite processing됩니다.')) {
         addLog('<span class="sys">[Notification]</span> TAZO님이 퇴장했습니다');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }

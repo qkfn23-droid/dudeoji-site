@@ -684,7 +684,7 @@ function toggleMute(btn) {
 // 페This지 This동 Confirm
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('GameAt서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리will be.');
+    return confirm('GameAt서 나Is시겠습니까?\nProgress During인 GameIs Lose processingwill be.');
 }
 
 // Exit
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방At서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리will be.')) {
+    if (confirm('정말 방At서 나Is시겠습니까?\nProgress During인 GameIs Lose processingwill be.')) {
         addLog('<span class="sys">[Notifications]</span> TAZO님This 퇴장has been done');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }

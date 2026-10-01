@@ -20,7 +20,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .shop-layout{margin:16px 24px;display:grid;grid-template-columns:220px 1fr 220px;gap:14px;min-height:calc(100vh - 120px);}
 
-/* 왼쪽 - 내 정보 */
+/* 왼쪽 - 내 info */
 .shop-left{display:flex;flex-direction:column;gap:12px;}
 .my-card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,0.04);text-align:center;}
 .my-avatar{width:70px;height:70px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;animation:starBounce 2s ease-in-out infinite;}
@@ -155,7 +155,7 @@ if(new URLSearchParams(location.search).get('from')==='world'){
 
 <div class="shop-layout">
 
-    <!-- 왼쪽 - 내 정보 -->
+    <!-- 왼쪽 - 내 info -->
     <div class="shop-left">
         <div class="my-card">
             <div class="my-avatar"><svg viewBox="0 0 120 120" width="65" height="65" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
@@ -194,40 +194,40 @@ if(new URLSearchParams(location.search).get('from')==='world'){
         </div>
         <div class="shop-items">
             <div class="items-grid" id="itemsGrid">
-                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass 월간" data-emoji="⭐" data-price="$2.99/월" data-sub="매월 Automatique Paiement" data-desc="Publicite 없이 깔끔하게! 모든 페이지에서 Publicite가 사라집니다. Resiliable a tout moment." data-feats="Supprimer les pubs,깔끔한 UI,페이지 즉시 입장,Resiliable a tout moment" data-btn="blue">
+                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass monthly" data-emoji="⭐" data-price="$2.99/월" data-sub="매월 Automatique Paiement" data-desc="Publicite 없이 깔끔하게! all 페이지from Publicite가 사라집니다. Resiliable a tout moment." data-feats="Supprimer les pubs,깔끔one UI,페이지 immediately 입장,Resiliable a tout moment" data-btn="blue">
                     <span class="item-hot">HOT</span>
                     <span class="item-emoji">⭐</span>
                     <div class="item-name">Dudeoji Pass</div>
-                    <div class="item-desc-short">Publicite 제거 · 월간</div>
+                    <div class="item-desc-short">Publicite remove · monthly</div>
                     <span class="item-price-tag price-blue">$2.99/월</span>
                 </div>
-                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass 연간" data-emoji="🌟" data-price="$24.99/년" data-sub="연간 Paiement · 월 $2.08" data-desc="연간 구독으로 16% 할인! 월 $2.08에 Publicite 없는 깨끗한 환경을 즐기세요." data-feats="Supprimer les pubs,깔끔한 UI,페이지 즉시 입장,월간 대비 16% 할인" data-btn="blue">
+                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass annual" data-emoji="🌟" data-price="$24.99/년" data-sub="annual Paiement · 월 $2.08" data-desc="annual 구독as 16% 할인! 월 $2.08에 Publicite without 깨끗one 환경을 즐기세요." data-feats="Supprimer les pubs,깔끔one UI,페이지 immediately 입장,monthly 대비 16% 할인" data-btn="blue">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">🌟</span>
-                    <div class="item-name">Dudeoji Pass 연간</div>
+                    <div class="item-name">Dudeoji Pass annual</div>
                     <div class="item-desc-short">월 $2.08 · 16% 할인</div>
                     <span class="item-price-tag price-blue">$24.99/년</span>
                 </div>
-                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Profil 부스트 7일" data-emoji="🚀" data-price="💎 300" data-sub="7jours actif" data-desc="7일 동안 Trouver des amis에서 내 Profil이 상위에 노출됩니다. 활동으로 모은 파편으로 구매!" data-feats="Trouver des amis 상위 노출,Profil에 부스트 표시,Penpals recommandes 우선 Correspondance" data-btn="purple">
+                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Profil 부스트 7일" data-emoji="🚀" data-price="💎 300" data-sub="7jours actif" data-desc="7일 동안 Trouver des amisfrom 내 Profil이 상위에 노출됩니다. 활동as 모은 파편as 구매!" data-feats="Trouver des amis 상위 노출,Profil에 부스트 표시,Penpals recommandes 우선 Correspondance" data-btn="purple">
                     <span class="item-emoji">🚀</span>
                     <div class="item-name">부스트 7일</div>
                     <div class="item-desc-short">상위 노출 7일</div>
                     <span class="item-price-tag price-purple">💎 300</span>
                 </div>
-                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Profil 부스트 30일" data-emoji="💫" data-price="💎 1,000" data-sub="30jours actif" data-desc="30일 동안 Trouver des amis에서 내 Profil이 상위에 노출됩니다. 활동으로 모은 파편으로 구매!" data-feats="Trouver des amis 상위 노출,Profil에 부스트 표시,Penpals recommandes 우선 Correspondance" data-btn="purple">
+                <div class="item" data-cat="boost" onclick="selectItem(this)" data-name="Profil 부스트 30일" data-emoji="💫" data-price="💎 1,000" data-sub="30jours actif" data-desc="30일 동안 Trouver des amisfrom 내 Profil이 상위에 노출됩니다. 활동as 모은 파편as 구매!" data-feats="Trouver des amis 상위 노출,Profil에 부스트 표시,Penpals recommandes 우선 Correspondance" data-btn="purple">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">💫</span>
                     <div class="item-name">부스트 30일</div>
                     <div class="item-desc-short">상위 노출 30일</div>
                     <span class="item-price-tag price-purple">💎 1,000</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone 1개" data-emoji="📣" data-price="💎 100" data-sub="1회 사용 · 하루 3번 제한" data-desc="모든 Utilisateur의 화면 상단에 금색 배너로 내 Messages가 5초간 표시됩니다! 하루 최대 3번까지." data-feats="Tous Utilisateur 화면에 표시,금색 강조 배너,닉네임 + Messages,하루 3번 제한" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone 1개" data-emoji="📣" data-price="💎 100" data-sub="1회 use · 하루 3번 제one" data-desc="all Utilisateur의 화면 상단에 금색 배너로 내 Messages가 5초간 표시됩니다! 하루 최대 3번까지." data-feats="Tous Utilisateur 화면에 표시,금색 강조 배너,닉네임 + Messages,하루 3번 제one" data-btn="amber">
                     <span class="item-emoji">📣</span>
                     <div class="item-name">Megaphone</div>
                     <div class="item-desc-short">Tous Annonces 1회</div>
                     <span class="item-price-tag price-amber">💎 100</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone Pack de 5" data-emoji="📣" data-price="💎 400" data-sub="5회 사용 · 20% 할인" data-desc="Megaphone 5개를 할인된 가격에!" data-feats="Megaphone 5개,개당 💎 80 (20% 할인),Tous Utilisateur 화면에 표시" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone Pack de 5" data-emoji="📣" data-price="💎 400" data-sub="5회 use · 20% 할인" data-desc="Megaphone 5개를 할인became 가격에!" data-feats="Megaphone 5개,개당 💎 80 (20% 할인),Tous Utilisateur 화면에 표시" data-btn="amber">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">📣</span>
                     <div class="item-name">Megaphone x5</div>
@@ -235,31 +235,31 @@ if(new URLSearchParams(location.search).get('from')==='world'){
                     <span class="item-price-tag price-amber">💎 400</span>
                 </div>
                 <!-- 코디 아이템 -->
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Couronne" data-emoji="👑" data-price="💎500" data-sub="Permanent" data-desc="내 별 캐릭터에 황금 Couronne을 씌워보세요! 한 번 구매하면 Permanent." data-feats="별 캐릭터 위에 Couronne 표시,Profil에서 빛나는 효과,💎 파편 500개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Couronne" data-emoji="👑" data-price="💎500" data-sub="Permanent" data-desc="내 별 캐릭터에 황금 Couronne을 씌워보세요! one 번 구매하면 Permanent." data-feats="별 캐릭터 위에 Couronne 표시,Profilfrom 빛나는 효과,💎 파편 500개" data-btn="amber">
                     <span class="item-emoji">👑</span>
                     <div class="item-name">Couronne</div>
                     <div class="item-desc-short">Cosmetique</div>
                     <span class="item-price-tag price-amber">💎500</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Ruban" data-emoji="🎀" data-price="💎300" data-sub="Permanent" data-desc="귀여운 핑크 Ruban으로 내 별을 꾸며보세요!" data-feats="별 캐릭터에 Ruban 표시,💎 파편 300개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Ruban" data-emoji="🎀" data-price="💎300" data-sub="Permanent" data-desc="귀여운 핑크 Rubanas 내 별을 꾸며보세요!" data-feats="별 캐릭터에 Ruban 표시,💎 파편 300개" data-btn="amber">
                     <span class="item-emoji">🎀</span>
                     <div class="item-name">Ruban</div>
                     <div class="item-desc-short">Cosmetique</div>
                     <span class="item-price-tag price-amber">💎300</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Lunettes de soleil" data-emoji="😎" data-price="💎400" data-sub="Permanent" data-desc="쿨한 Lunettes de soleil로 내 별에 스웨거를!" data-feats="별 캐릭터에 Lunettes de soleil,쿨한 Expression Modification,💎 파편 400개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Lunettes de soleil" data-emoji="😎" data-price="💎400" data-sub="Permanent" data-desc="쿨one Lunettes de soleil로 내 별에 스웨거를!" data-feats="별 캐릭터에 Lunettes de soleil,쿨one Expression Modification,💎 파편 400개" data-btn="amber">
                     <span class="item-emoji">😎</span>
                     <div class="item-name">Lunettes de soleil</div>
                     <div class="item-desc-short">Cosmetique</div>
                     <span class="item-price-tag price-amber">💎400</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Lunettes coeur" data-emoji="💕" data-price="💎400" data-sub="Permanent" data-desc="러블리 Lunettes coeur! 사랑 가득한 내 별~" data-feats="별 캐릭터에 Lunettes coeur,💎 파편 400개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Lunettes coeur" data-emoji="💕" data-price="💎400" data-sub="Permanent" data-desc="러블리 Lunettes coeur! 사랑 가득one 내 별~" data-feats="별 캐릭터에 Lunettes coeur,💎 파편 400개" data-btn="amber">
                     <span class="item-emoji">💕</span>
                     <div class="item-name">Lunettes coeur</div>
                     <div class="item-desc-short">Cosmetique</div>
                     <span class="item-price-tag price-amber">💎400</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Feu꽃 테두리" data-emoji="🔥" data-price="💎800" data-sub="Permanent" data-desc="내 별 주위에 Feu꽃 이펙트가! 가장 화려한 코디." data-feats="별 캐릭터 주위 Feu꽃 효과,Profil 강조 효과,💎 파편 800개" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Feu꽃 테두리" data-emoji="🔥" data-price="💎800" data-sub="Permanent" data-desc="내 별 주위에 Feu꽃 이펙트가! 가장 화려one 코디." data-feats="별 캐릭터 주위 Feu꽃 효과,Profil 강조 효과,💎 파편 800개" data-btn="amber">
                     <span class="item-hot">HOT</span>
                     <span class="item-emoji">🔥</span>
                     <div class="item-name">Feu꽃 테두리</div>
@@ -271,10 +271,10 @@ if(new URLSearchParams(location.search).get('from')==='world'){
         <div class="info-bar">
             <div class="notice-slider" id="shopNotice">
                 <div class="notice-item active">Dudeoji Pass는 Sans publicite이며, PayPal로 Automatique Paiement됩니다.</div>
-                <div class="notice-item">Regles 위반으로 Exclusion permanente 시 남은 기간은 환Feu되지 않습니다.</div>
-                <div class="notice-item">부스트는 구매 즉시 적용되며, 기간 만료 후 Automatique 종료됩니다.</div>
-                <div class="notice-item">💎 Fragments stellaires은 Jeu 승리, Envoyer une lettre, 출석 등 활동으로 얻을 수 있습니다.</div>
-                <div class="notice-item">코디 · Megaphone · 부스트는 Fragments stellaires으로만 구매할 수 있습니다.</div>
+                <div class="notice-item">Regles 위반as Exclusion permanente 시 남은 period은 환Feu되지 않습니다.</div>
+                <div class="notice-item">부스트는 구매 immediately 적용되며, period 만료 후 Automatique end됩니다.</div>
+                <div class="notice-item">💎 Fragments stellaires은 Jeu win, Envoyer une lettre, 출석 등 활동as 얻을 수 있습니다.</div>
+                <div class="notice-item">코디 · Megaphone · 부스트는 Fragments stellairesas만 구매can 있습니다.</div>
                 <div class="notice-item">Paiement Demande는 <a href="contact.html" style="color:#0ea5e9;text-decoration:none;font-weight:600;">Contact</a> 페이지를 이용해주세요.</div>
             </div>
         </div>
@@ -285,7 +285,7 @@ if(new URLSearchParams(location.search).get('from')==='world'){
         <div class="detail-card" id="detailCard">
             <div class="detail-emoji" id="detailEmoji">🛒</div>
             <div class="detail-name" id="detailName">아이템을 Selection하세요</div>
-            <div class="detail-desc" id="detailDesc">왼쪽에서 아이템을 클릭하면 상세 정보가 여기에 표시됩니다.</div>
+            <div class="detail-desc" id="detailDesc">왼쪽from 아이템을 클릭하면 상세 info가 여기에 표시됩니다.</div>
             <div class="detail-feats" id="detailFeats"></div>
             <div class="detail-price" id="detailPrice" style="display:none;"></div>
             <div class="detail-price-sub" id="detailPriceSub" style="display:none;"></div>

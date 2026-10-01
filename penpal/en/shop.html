@@ -20,7 +20,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 .shop-layout{margin:16px 24px;display:grid;grid-template-columns:220px 1fr 220px;gap:14px;min-height:calc(100vh - 120px);}
 
-/* 왼쪽 - My 정보 */
+/* 왼쪽 - My info */
 .shop-left{display:flex;flex-direction:column;gap:12px;}
 .my-card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,0.04);text-align:center;}
 .my-avatar{width:70px;height:70px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;animation:starBounce 2s ease-in-out infinite;}
@@ -155,7 +155,7 @@ if(new URLSearchParams(location.search).get('from')==='world'){
 
 <div class="shop-layout">
 
-    <!-- 왼쪽 - My 정보 -->
+    <!-- 왼쪽 - My info -->
     <div class="shop-left">
         <div class="my-card">
             <div class="my-avatar"><svg viewBox="0 0 120 120" width="65" height="65" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
@@ -194,17 +194,17 @@ if(new URLSearchParams(location.search).get('from')==='world'){
         </div>
         <div class="shop-items">
             <div class="items-grid" id="itemsGrid">
-                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass 월간" data-emoji="⭐" data-price="$2.99/월" data-sub="매월 Auto Payment" data-desc="Ad-free and clean! Ads removed from all pages. Cancel anytime." data-feats="Remove all ads,깔끔one UI,Instant page access,Cancel anytime" data-btn="blue">
+                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass monthly" data-emoji="⭐" data-price="$2.99/월" data-sub="매월 Auto Payment" data-desc="Ad-free and clean! Ads removed from all pages. Cancel anytime." data-feats="Remove all ads,깔끔one UI,Instant page access,Cancel anytime" data-btn="blue">
                     <span class="item-hot">HOT</span>
                     <span class="item-emoji">⭐</span>
                     <div class="item-name">Dudeoji Pass</div>
-                    <div class="item-desc-short">Ads 제거 · 월간</div>
+                    <div class="item-desc-short">Ads remove · monthly</div>
                     <span class="item-price-tag price-blue">$2.99/월</span>
                 </div>
-                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass 연간" data-emoji="🌟" data-price="$24.99/년" data-sub="Annual · 월 $2.08" data-desc="With annual subscription 16% discount! 월 $2.08At Ads 없Is 깨끗one 환경the 즐기세요." data-feats="Remove all ads,깔끔one UI,Instant page access,Compared to monthly 16% discount" data-btn="blue">
+                <div class="item" data-cat="pass" onclick="selectItem(this)" data-name="Dudeoji Pass annual" data-emoji="🌟" data-price="$24.99/년" data-sub="Annual · 월 $2.08" data-desc="With annual subscription 16% discount! 월 $2.08At Ads 없Is 깨끗one 환경the 즐기세요." data-feats="Remove all ads,깔끔one UI,Instant page access,Compared to monthly 16% discount" data-btn="blue">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">🌟</span>
-                    <div class="item-name">Dudeoji Pass 연간</div>
+                    <div class="item-name">Dudeoji Pass annual</div>
                     <div class="item-desc-short">월 $2.08 · 16% discount</div>
                     <span class="item-price-tag price-blue">$24.99/년</span>
                 </div>
@@ -221,13 +221,13 @@ if(new URLSearchParams(location.search).get('from')==='world'){
                     <div class="item-desc-short">Top exposure 30day</div>
                     <span class="item-price-tag price-purple">💎 1,000</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone 1개" data-emoji="📣" data-price="💎 100" data-sub="1uses · Daily 3limit" data-desc="모든 UserOf 화면 상단At 금색 배너To My MessagesIs 5초간 표시will be! Daily 최대 3번Until." data-feats="before체 User 화면At 표시,Gold highlight banner,Nickname + Messages,Daily 3limit" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone 1개" data-emoji="📣" data-price="💎 100" data-sub="1uses · Daily 3limit" data-desc="all UserOf 화면 상단At 금색 배너To My MessagesIs 5초간 표시will be! Daily 최대 3번Until." data-feats="before체 User 화면At 표시,Gold highlight banner,Nickname + Messages,Daily 3limit" data-btn="amber">
                     <span class="item-emoji">📣</span>
                     <div class="item-name">Megaphone</div>
                     <div class="item-desc-short">before체 Notice 1회</div>
                     <span class="item-price-tag price-amber">💎 100</span>
                 </div>
-                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone 5 pack" data-emoji="📣" data-price="💎 400" data-sub="5uses · 20% discount" data-desc="Megaphone 5개the discount된 Is격At!" data-feats="Megaphone 5개,Per unit 💎 80 (20% discount),before체 User 화면At 표시" data-btn="amber">
+                <div class="item" data-cat="item" onclick="selectItem(this)" data-name="Megaphone 5 pack" data-emoji="📣" data-price="💎 400" data-sub="5uses · 20% discount" data-desc="Megaphone 5개the discountbecame Is격At!" data-feats="Megaphone 5개,Per unit 💎 80 (20% discount),before체 User 화면At 표시" data-btn="amber">
                     <span class="item-new">SAVE</span>
                     <span class="item-emoji">📣</span>
                     <div class="item-name">Megaphone x5</div>
@@ -270,11 +270,11 @@ if(new URLSearchParams(location.search).get('from')==='world'){
         </div>
         <div class="info-bar">
             <div class="notice-slider" id="shopNotice">
-                <div class="notice-item active">Dudeoji PassIs Ads 제거 beforeForThis며, PayPalTo Auto-billed.</div>
-                <div class="notice-item">Rules Violation으To Permanent ban 시 남Is 기간Is 환Fire되지 does not.</div>
-                <div class="notice-item">BoostIs 구매 즉시 Application되며, 기간 Only료 After Auto 종료will be.</div>
-                <div class="notice-item">💎 Star FragmentsIs Game 승리, Send Letter, 출석 등 Can be earned through activities.</div>
-                <div class="notice-item">코디 · Megaphone · BoostIs Star Fragments으ToOnly 구매할 수 exists.</div>
+                <div class="notice-item active">Dudeoji PassIs Ads remove beforeForThis며, PayPalTo Auto-billed.</div>
+                <div class="notice-item">Rules Violation으To Permanent ban 시 남Is periodIs 환Fire되지 does not.</div>
+                <div class="notice-item">BoostIs 구매 immediately Application되며, period Only료 After Auto endwill be.</div>
+                <div class="notice-item">💎 Star FragmentsIs Game win, Send Letter, 출석 등 Can be earned through activities.</div>
+                <div class="notice-item">코디 · Megaphone · BoostIs Star Fragments으ToOnly 구매can exists.</div>
                 <div class="notice-item">For payment inquiries <a href="contact.html" style="color:#0ea5e9;text-decoration:none;font-weight:600;">Contact</a> please use the page.</div>
             </div>
         </div>

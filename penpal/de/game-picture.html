@@ -225,10 +225,10 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">그림 맞추기 Saison 오픈! 누가 더 빨리 찾을까?</div>
-            <div class="notice-text">이번 주 그림 맞추기 TOP 3에게 별의 Energie x50 Geschenk!</div>
+            <div class="notice-text">이번 주 그림 맞추기 TOP 3to 별의 Energie x50 Geschenk!</div>
             <div class="notice-text">원카드도 같이 즐겨보세요!</div>
             <div class="notice-text">별의 Energie을 모아 Aura를 Freischalten하세요!</div>
-            <div class="notice-text">현재 접속자 127명 · Fortschritt 중인 Spiel 23개</div>
+            <div class="notice-text">현재 접속자 127명 · Fortschritt in progress Spiel 23개</div>
         </div>
     </div>
 </div>
@@ -265,7 +265,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">Heutiges Horoskop?</div>
-                <div class="moon-text">Tarot 한 장의 Nachrichten</div>
+                <div class="moon-text">Tarot one 장의 Nachrichten</div>
                 <div class="moon-text">Wer war ich im fruheren Leben?</div>
                 <div class="moon-text">내 Verborgene Bedeutung der Traume</div>
                 <div class="moon-text">내 배우자는?</div>
@@ -303,9 +303,9 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <div class="game-rule">
                 <div class="rule-basic">
                     카드를 2장 뒤집어서 <b>Gleich 그림</b>을 찾으세요!<br><br>
-                    짝을 맞추면 <b>+1점</b> 획득하고 한 번 더!<br>
+                    짝을 맞추면 <b>+1점</b> 획득하고 one 번 더!<br>
                     틀리면 상대방 차례로 넘어갑니다.<br><br>
-                    모든 짝을 찾으면 Spiel 종료!
+                    all 짝을 찾으면 Spiel end!
                 </div>
             </div>
         </div>
@@ -330,7 +330,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
             <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> TAZO님의 차례입니다</div>
         </div>
         <div class="chat-input-wrap">
-            <select class="chat-target"><option>-모두에게-</option><option>Maria G.</option></select>
+            <select class="chat-target"><option>-모두to-</option><option>Maria G.</option></select>
             <input class="chat-input" placeholder="Nachrichten를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-send" onclick="sendChat()">전송</button>
         </div>
@@ -403,7 +403,7 @@ if (isSpectate) {
     document.body.appendChild(badge);
 }
 
-// 카드 데이터 (국기 이모지 8쌍 = 16장)
+// 카드 data (국기 이모지 8쌍 = 16장)
 var emojis = ['🇰🇷','🇯🇵','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇮🇹','🇪🇸'];
 var cards = [];
 var flipped = [];
@@ -531,7 +531,7 @@ function endGame() {
     if (myScore > oppScore) msg = '🎉 Herzlichen Gluckwunsch! TAZO Sieg! (별의 Energie x20 획득)';
     else if (myScore < oppScore) msg = '😢 Maria Sieg... (별의 Energie x3 획득)';
     else msg = '🤝 Unentschieden! (별의 Energie x10 획득)';
-    addLog('<span class="sys">[Benachrichtigung]</span> Spiel 종료! ' + msg);
+    addLog('<span class="sys">[Benachrichtigung]</span> Spiel end! ' + msg);
     document.getElementById('matchMsg').textContent = msg;
 }
 
@@ -590,7 +590,7 @@ function closeInvite() { document.getElementById('inviteModal').classList.remove
 function sendInvite(btn, name) {
     btn.textContent = '전송됨 ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[Benachrichtigung]</span> ' + name + '님에게 Einladung를 보냈습니다');
+    addLog('<span class="sys">[Benachrichtigung]</span> ' + name + '님to Einladung를 보냈습니다');
 }
 
 // Stumm
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // 페이지 이동 Bestatigen
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Spiel에서 나가시겠습니까?\nFortschritt 중인 Spiel은 Niederlage 처리됩니다.');
+    return confirm('Spielfrom 나가시겠습니까?\nFortschritt in progress Spiel은 Niederlage processing됩니다.');
 }
 
 // Beenden
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방에서 나가시겠습니까?\nFortschritt 중인 Spiel은 Niederlage 처리됩니다.')) {
+    if (confirm('정말 방from 나가시겠습니까?\nFortschritt in progress Spiel은 Niederlage processing됩니다.')) {
         location.href = 'game-v2.html';
     }
 }

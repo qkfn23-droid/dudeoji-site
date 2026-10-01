@@ -110,7 +110,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .lang-badge.advanced{background:rgba(14,165,233,0.15);color:#38bdf8;}
 .lang-badge.beginner{background:rgba(245,158,11,0.15);color:#fbbf24;}
 
-/* 라이트모드 추가 */
+/* 라이트모드 add */
 .light .topic-bar{background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(251,191,36,0.04));border-bottom-color:rgba(245,158,11,0.1);}
 .light .topic-text{color:#b45309;}
 .light .msg-mission{background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(99,102,241,0.03));border-color:rgba(139,92,246,0.1);}
@@ -260,7 +260,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">비속어, 욕설은 Automatico Bloquear됩니다</div>
-            <div class="notice-text">수다방에서 새 Amigos를 사귀어보세요!</div>
+            <div class="notice-text">수다방from 새 Amigos를 사귀어보세요!</div>
             <div class="notice-text">별의 Energia을 모아 Aura를 Desbloquear하세요!</div>
         </div>
     </div>
@@ -308,7 +308,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="44" height="44"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">Horoscopo de hoy?</div>
-                <div class="moon-text">Tarot 한 장의 Mensajes</div>
+                <div class="moon-text">Tarot one 장의 Mensajes</div>
                 <div class="moon-text">내 Significado oculto de suenos</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
@@ -322,7 +322,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="topic-icon">💬</div>
             <div>
                 <div class="topic-label">De hoy 주제</div>
-                <div class="topic-text" id="topicText">니 나라에서 가장 이상한 Comida은? 🍽️</div>
+                <div class="topic-text" id="topicText">니 나라from 가장 aboveone Comida은? 🍽️</div>
             </div>
             <button class="topic-new" onclick="nextTopic()">다음 주제</button>
         </div>
@@ -343,7 +343,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="lang-badge native">🇯🇵</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:31</span></div>
-                    <div class="msg-text">Japon에서 왔어! Coreano 공부 중이야 🇯🇵</div>
+                    <div class="msg-text">Japonfrom 왔어! Coreano 공부 중이야 🇯🇵</div>
                 </div>
             </div>
             <div class="msg">
@@ -393,12 +393,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                     <div class="msg-text">¡Delicioso! Espanol도 비슷해! 😄</div>
                 </div>
             </div>
-            <div class="msg-system">🎯 미션 Listo! Participar자 4명에게 💎 x5 지급</div>
+            <div class="msg-system">🎯 미션 Listo! Participar자 4명to 💎 x5 지급</div>
             <div class="msg">
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="msg-time">20:35</span></div>
-                    <div class="msg-text">TAZO는 어디에서 왔어?</div>
+                    <div class="msg-text">TAZO는 어디from 왔어?</div>
                 </div>
             </div>
         </div>
@@ -522,7 +522,7 @@ function sendMsg(){
     m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
     c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
     setTimeout(function(){
-        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','Coreano 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ gusta!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일에서는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','Coreano 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ gusta!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일from는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
         var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
         var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
         var reply=document.createElement('div');reply.className='msg';
@@ -531,15 +531,15 @@ function sendMsg(){
     },800+Math.random()*1500);
 }
 
-function confirmLeave(){return confirm('수다방에서 나가시겠습니까?');}
+function confirmLeave(){return confirm('수다방from 나가시겠습니까?');}
 function copyInvite(){document.getElementById('inviteModal').classList.add('show');}
 function closeInvite(){document.getElementById('inviteModal').classList.remove('show');}
-function sendInvite(btn,name){btn.textContent='전송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님에게 Invitar를 보냈습니다';c.appendChild(s);c.scrollTop=c.scrollHeight;}
+function sendInvite(btn,name){btn.textContent='전송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님to Invitar를 보냈습니다';c.appendChild(s);c.scrollTop=c.scrollHeight;}
 var isMuted=false;
 function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 Silenciar 중':'🔊 Silenciar';}
-function leaveRoom(){if(confirm('수다방에서 나가시겠습니까?'))location.href='game-v2.html';}
+function leaveRoom(){if(confirm('수다방from 나가시겠습니까?'))location.href='game-v2.html';}
 function showMegaphone(name,msg){var b=document.getElementById('megaBanner');document.getElementById('megaMsg').textContent=name+': '+msg;b.style.display='block';setTimeout(function(){b.style.display='none';},5000);}
-setTimeout(function(){showMegaphone('Felix','수다방에서 Aleman 가르쳐줄게! 🇩🇪');},10000);
+setTimeout(function(){showMegaphone('Felix','수다방from Aleman 가르쳐줄게! 🇩🇪');},10000);
 var noticeIdx=0;var notices=document.querySelectorAll('#noticeTicker .notice-text');
 setInterval(function(){notices[noticeIdx].classList.remove('active');noticeIdx=(noticeIdx+1)%notices.length;notices[noticeIdx].classList.add('active');},3000);
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');var moonIdx=0;
@@ -548,26 +548,26 @@ document.getElementById('chatMessages').scrollTop=document.getElementById('chatM
 
 // De hoy 주제 리스트
 var topics=[
-    '니 나라에서 가장 이상한 Comida은? 🍽️',
+    '니 나라from 가장 aboveone Comida은? 🍽️',
     '어제 본 드라마/Peliculas Recomendacion해줘 🎬',
-    '니 나라에서 인기 있는 노래 알려줘 🎵',
-    '가장 gusta하는 Corea Comida은? 🇰🇷',
+    '니 나라from 인기 with 노래 알려줘 🎵',
+    '가장 gustadoing Corea Comida은? 🇰🇷',
     '니 나라의 인사법을 알려줘! 👋',
     '가장 가보고 싶은 나라는? ✈️',
-    '니 나라만의 독특한 Cultura가 있어? 🌍',
-    '요즘 빠져있는 취미 뭐야? 🎨',
+    '니 나라만의 독특one Cultura가 있어? 🌍',
+    '요즘 빠져with 취미 뭐야? 🎨',
     '니 나라 학교생활은 어때? 🏫',
     '가장 웃긴 Coreano 실수 알려줘 ㅋㅋ 😂',
     '니 나라 욕 하나만 알려줘 ㅋㅋ 🤫',
-    '제일 gusta하는 이모지는? 😎',
+    '제일 gustadoing 이모지는? 😎',
     '지금 니 나라 날씨 어때? ☀️',
     '니 나라 크리스마스는 어떻게 보내? 🎄',
-    '가장 자신있는 Cocina는? 👨‍🍳',
-    '니 나라에서 유행하는 밈 있어? 🤣',
+    '가장 자신with Cocina는? 👨‍🍳',
+    '니 나라from 유행doing 밈 있어? 🤣',
     'Coreano 배우면서 가장 어려운 점은? 📚',
     '니 나라 대표 디저트는? 🍰',
-    '가장 gusta하는 계절은? 🌸',
-    '니 나라에서 데이트할 때 뭐 해? 💕'
+    '가장 gustadoing 계절은? 🌸',
+    '니 나라from 데이트할 때 뭐 해? 💕'
 ];
 var topicIdx=Math.floor(Math.random()*topics.length);
 document.getElementById('topicText').textContent=topics[topicIdx];
@@ -581,7 +581,7 @@ var missions=[
     '"감사합니다"를 니 Idioma로 써봐! 🙏',
     '니 나라 Comida 이름 3개 써봐! 🍽️',
     '"춥다"를 니 Idioma로 써봐! ❄️',
-    'gusta하는 노래 가사 한 줄 써봐! 🎵',
+    'gustadoing 노래 가사 one 줄 써봐! 🎵',
     '"재밌다"를 니 Idioma로 써봐! 😄',
     '니 이름을 Coreano로 써봐! ✍️',
     '"배고파"를 니 Idioma로 써봐! 🍔',
@@ -604,7 +604,7 @@ setInterval(function(){
 </script>
 
 <script>
-// 다크/라이트 모드 — 기본이 다크, localStorage에서 라이트 아닌 경우 다크 유지
+// 다크/라이트 모드 — default이 다크, localStoragefrom 라이트 아닌 case 다크 유지
 if(localStorage.getItem('moguPalDark')!=='true'){
     document.documentElement.classList.add('light');
 }
