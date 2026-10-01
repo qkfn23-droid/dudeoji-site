@@ -304,8 +304,8 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
                 <div class="rule-basic">
                     Card 2pcs flip <b>Mismo Imagen</b> find!<br><br>
                     Match a pair for <b>+1 point</b> and another turn!<br>
-                    틀리면 OpponentRoom Turnoto moves on.<br><br>
-                    all pair 찾으면 Juego end!
+                    if wrong OpponentRoom Turnoto moves on.<br><br>
+                    all pair when found Juego end!
                 </div>
             </div>
         </div>
@@ -320,7 +320,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     </div>
 </div>
 
-<!-- 하단 바 -->
+<!-- Bottom Bar -->
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
@@ -389,7 +389,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
 </div>
 
 <script>
-// Spectate Mode 체크
+// Spectate Mode check
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');

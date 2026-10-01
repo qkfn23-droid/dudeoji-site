@@ -469,7 +469,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 
 </div>
 
-<!-- 하단 바 -->
+<!-- Bottom Bar -->
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
@@ -555,7 +555,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 </div>
 
 <script>
-// Spectate Mode 체크
+// Spectate Mode check
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');

@@ -200,7 +200,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .friend-invite-btn:hover{background:#0ea5e9;color:#fff;}
 .friend-invite-btn.sent{background:#f0f0f0;color:#999;border-color:#e0e0e0;pointer-events:none;}
 
-/* Spectate 모드 */
+/* Spectate mode */
 .spectate-badge{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);color:#fff;padding:12px 32px;border-radius:20px;font-size:16px;font-weight:700;z-index:200;pointer-events:none;animation:specFade 2s ease forwards;}
 @keyframes specFade{0%{opacity:1;transform:translate(-50%,-50%) scale(1);}70%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(0.9);}}
 .spectate-bar{background:#1a1a2e;color:#fff;text-align:center;padding:6px;font-size:12px;font-weight:600;letter-spacing:1px;}
@@ -286,7 +286,7 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">One Card Season Open! Penpal FriendsAnd one 판 Try it</div>
             <div class="notice-text">ThisThis week One Card TOP 3Atto Star Energy x50 Gift!</div>
-            <div class="notice-text">Picture Match 10month Open Scheduled! 기대please</div>
+            <div class="notice-text">Picture Match 10month Open Scheduled! expectplease</div>
             <div class="notice-text">Star Energythe Collect Aurathe Unlockplease do!</div>
             <div class="notice-text">Current Access자 127people · Progress During인 Game 23pcs</div>
             <div class="notice-text">bad manner User Report FeatureThis Addhas been completed</div>
@@ -447,7 +447,7 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 Game Rules</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 CardAnd <b>number</b> AgainIs <b>Pattern</b>Is 같으면 낼 수 is available</div>
+                <div class="rule-basic">바닥 CardAnd <b>number</b> AgainIs <b>Pattern</b>Is if match 낼 수 is available</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs Attack</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs Attack</span></div>
@@ -469,7 +469,7 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
 
 </div>
 
-<!-- 하단 바 -->
+<!-- Bottom Bar -->
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
@@ -555,19 +555,19 @@ body.spectate .my-label::after{content:' (Spectate During)';color:#f59e0b;}
 </div>
 
 <script>
-// Spectate 모드 체크
+// Spectate mode check
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');
     // Spectate 바 Add
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 Spectate 모드 — Gamethe 구경and exists';
+    bar.textContent = '👁 Spectate mode — Gamethe 구경and exists';
     document.querySelector('.tab-bar').after(bar);
     // Join Notifications
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
-    badge.textContent = '👁 Spectate 모드';
+    badge.textContent = '👁 Spectate mode';
     document.body.appendChild(badge);
 }
 

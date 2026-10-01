@@ -562,12 +562,12 @@ var topics=[
     'Your favorite emoji? 😎',
     'How's the weather in your country right now? ☀️',
     'your Pais Christmas is howto 보my? 🎄',
-    'most 자신with Cocina는? 👨‍🍳',
-    'your Paisfrom 유행doing 밈 have? 🤣',
+    'most selfwith Cocina는? 👨‍🍳',
+    'your Paisfrom trendingdoing 밈 have? 🤣',
     'Coreano while learning most difficult 점? 📚',
-    'your Pais 대표 dessert? 🍰',
-    'most gustadoing 계절? 🌸',
-    'your Paisfrom 데트할 때 what 해? 💕'
+    'your Pais signature dessert? 🍰',
+    'most gustadoing season? 🌸',
+    'your Paisfrom date 때 what 해? 💕'
 ];
 var topicIdx=Math.floor(Math.random()*topics.length);
 document.getElementById('topicText').textContent=topics[topicIdx];
@@ -580,18 +580,18 @@ var missions=[
     '"Holaplease" your Idiomato Try it! 👋',
     '"Gracias" your Idiomato Try it! 🙏',
     'your Pais Comida Name 3pcs Try it! 🍽️',
-    '"춥다" your Idiomato Try it! ❄️',
-    'gustadoing song 가사 one 줄 Try it! 🎵',
+    '"cold" your Idiomato Try it! ❄️',
+    'gustadoing song lyrics one 줄 Try it! 🎵',
     '"Fun" your Idiomato Try it! 😄',
     'your Name Coreanoto Try it! ✍️',
-    '"배고파" your Idiomato Try it! 🍔',
+    '"hungry" your Idiomato Try it! 🍔',
     '"well 자" your Idiomato Try it! 🌙',
     'your Pais 유people인 1people Tell me! 🌟',
     '"Cool" your Idiomato Try it! 😎',
     'your Pais 수too Name Try it! 🏙️',
     '"Amigos" your Idiomato Try it! 🤝'
 ];
-// Mision Automatico 발생 (Demo: 45sec마다)
+// Mision Automatico occurs (Demo: 45secevery)
 setInterval(function(){
     var c=document.getElementById('chatMessages');
     var m=missions[Math.floor(Math.random()*missions.length)];
@@ -604,7 +604,7 @@ setInterval(function(){
 </script>
 
 <script>
-// 다크/Light 모드 — default 다크, localStoragefrom Light 아닌 case 다크 Maintain
+// dark/Light mode — default dark, localStoragefrom Light not case dark Maintain
 if(localStorage.getItem('moguPalDark')!=='true'){
     document.documentElement.classList.add('light');
 }

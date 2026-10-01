@@ -268,7 +268,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="my-profile-sub">⭐ Lv.5 · 🔥 Fuego · Leo</div>
             </div>
         </div>
-        <div class="my-sign-card"><h3>♌ Leo</h3><p>Jul 23 ~ Aug 22</p><div class="sign-tag">🔥 Fuego Elemento · 리더십 · 열정</div><div class="my-sign-icon">♌</div></div>
+        <div class="my-sign-card"><h3>♌ Leo</h3><p>Jul 23 ~ Aug 22</p><div class="sign-tag">🔥 Fuego Elemento · Leadership · Passion</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
             <div class="aura-title"><span class="aura-star">⭐</span> Star Energia</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
@@ -343,7 +343,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Maria G.</div>
                     <div class="recent-preview">Hola! 오늘 what 했어? I K-pop heard~</div>
-                    <div class="letter-full">Hola! 오늘 what 했어? I 오늘 하루 종day K-pop heard~ BTS New 앨범 I왔거든! 너too gusta해? 그리고 Coreanoto Cartas 써보려고 했는데 아직 어려워 Espanolto 쓸to haha next time Coreanoto I will try! Ultimamente what 하면 지my? 답pcs 기다릴to~</div>
+                    <div class="letter-full">Hola! 오늘 what 했어? I 오늘 하루 종day K-pop heard~ BTS New 앨범 I왔거든! 너too gusta해? 그리고 Coreanoto Cartas trying to use 했는데 아직 어려워 Espanolto 쓸to haha next time Coreanoto I will try! Ultimamente what when 지my? 답pcs 기다릴to~</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">답pcs하기</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
@@ -468,7 +468,7 @@ function doTranslate(name,el){
 }
 
 var profiles={
-    'Maria G.':{zodiac:'Aries',element:'Fuego',lang:'🇪🇸 Espanol (Nativo)',learning:'🇰🇷 Coreano',bio:'Coreano learn 싶어요! K-popand Astrologia gustado~',pic:'star'},
+    'Maria G.':{zodiac:'Aries',element:'Fuego',lang:'🇪🇸 Espanol (Nativo)',learning:'🇰🇷 Coreano',bio:'Coreano learn want! K-popand Astrologia gustado~',pic:'star'},
     'Yuki T.':{zodiac:'Virgo',element:'Tierra',lang:'🇯🇵 Japones (Nativo)',learning:'🇰🇷 Coreano, 🇪🇸 Espanol',bio:'Corea Cultura Interes mucho! 벚Flower 보러 가고 싶어~',pic:'moon'},
     'Lucas S.':{zodiac:'Geminis',element:'Aire',lang:'🇧🇷 Portugues (Nativo)',learning:'🇰🇷 Coreano',bio:'astronomy and Juego gustaWelcome. Corea, Japon Amigos find!',pic:'star'}
 };
@@ -483,13 +483,13 @@ function doProfile(name){
 function doSave(el){event.stopPropagation();el.textContent='보관됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('Cartas has been saved');}
 function doDecline(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">정in히 Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Mensajes Seleccionarplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas Gracias! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interes for having 감사do! 다만 지금 new Penpal 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas well 읽었어요! aprendiendo Idioma month라 아쉽지만, good Penpal 만I시길 바랍your다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Mensajes Enviar</button>');
+    openModal('<div class="modal-title">정in히 Reject</div><div class="modal-body">'+name+'sirto 보낼 Reject Mensajes Seleccionarplease do.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">Cartas Gracias! 지금 여유 없어 답pcs 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">Interes for having thanksdo! 다만 지금 new Penpal 받기 difficult is the situation.</div><div class="decline-opt" onclick="selectDecline(this)">Cartas well read it! aprendiendo Idioma month라 아쉽지만, good Penpal 만I시길 바랍your다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">Reject Mensajes Enviar</button>');
 }
 function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Mensajes Seleccionarplease do');return;}closeModal();showToast(name+'sirto Reject Mensajes sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Reportar하기</div><div class="modal-body">'+name+'sir Reportardoing 유 Seleccionarplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexual거I Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personales!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar 접수</button>');
+    openModal('<div class="modal-title">Reportar하기</div><div class="modal-body">'+name+'sir Reportardoing 유 Seleccionarplease do.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexual거I Fuego쾌one Contenido</div><div class="report-opt" onclick="selectReport(this)">Profanity / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraude / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Datos personales!구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar received</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Reportar 사유 Seleccionarplease do');return;}closeModal();showToast('Reportar has been received. the team reviews.');}

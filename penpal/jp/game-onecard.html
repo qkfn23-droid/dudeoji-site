@@ -98,7 +98,7 @@ border:1px solid #d0cdc9;
 box-shadow:0 2px 12px rgba(0,0,0,0.06);
 display:flex;flex-direction:column;justify-content:space-between;padding:16px 20px;}
 
-/* 相手 영역 */
+/* 相手 area */
 .opp-row{display:flex;justify-content:space-evenly;align-items:flex-start;width:100%;}
 
 /* 相手 공통 */
@@ -239,7 +239,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 .dark .turn-item.current{background:#1a2a3a;}
 .dark .rule-basic{color:#aaa;background:#12122a;}
 .dark .rule-card{background:#12122a;border:none;color:#ccc;}
-/* ゲーム 영역 */
+/* ゲーム area */
 .dark .game-area,.dark .game-board,.dark .game-table{background:#12122a;border:none;box-shadow:none;}
 .dark .game-col{background:#12122a;}
 .dark .page-main{background:#0a0a1a;}
@@ -286,10 +286,10 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">원カード シーズン Open! ペンパル 友達 one 판 try it</div>
             <div class="notice-text">This week 원カード TOP 3to Star 気 x50 プレゼント!</div>
-            <div class="notice-text">絵 Match 10month Open 予定! 기대してください</div>
+            <div class="notice-text">絵 Match 10month Open 予定! expectしてください</div>
             <div class="notice-text">Star 気 collect オーラ 解放please!</div>
             <div class="notice-text">Current users 127people · 進行 in progress ゲーム 23pcs</div>
-            <div class="notice-text">비매너 ユーザー 通報 Feature addされました</div>
+            <div class="notice-text">bad behavior ユーザー 通報 Feature addされました</div>
         </div>
     </div>
 </div>
@@ -447,13 +447,13 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 ゲーム ルール</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 カード <b>数字</b> 또 <b>模様</b> 같으면 낼 수 have요</div>
+                <div class="rule-basic">바닥 カード <b>数字</b> 또 <b>模様</b> if match 낼 수 have요</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">🔄</span><span>順番 Flip</span></div>
                     <div class="rule-card"><span class="rc-icon">⛔</span><span>Next ターン 스킵</span></div>
-                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>模様 바꾸기</span></div>
+                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>模様 change</span></div>
                 </div>
             </div>
         </div>
@@ -469,7 +469,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 
 </div>
 
-<!-- 하단 바 -->
+<!-- Bottom Bar -->
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
@@ -555,7 +555,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 </div>
 
 <script>
-// Spectate Mode 체크
+// Spectate Mode check
 var isSpectate = location.search.indexOf('spectate=true') !== -1;
 if (isSpectate) {
     document.body.classList.add('spectate');

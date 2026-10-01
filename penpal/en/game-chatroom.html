@@ -563,11 +563,11 @@ var topics=[
     'Now your country weather how about? ☀️',
     'your country ChristmasIs howto 보My? 🎄',
     'Ispcs confidentIs!리Is? 👨‍🍳',
-    'your countryfrom 유행하Is 밈 have? 🤣',
+    'your countryfrom trendingIs 밈 have? 🤣',
     'Korean while learning Ispcs difficult 점Is? 📚',
-    'your country 대표 디저트Is? 🍰',
-    'Ispcs like하Is 계절Is? 🌸',
-    'your countryfrom 데This트할 때 what 해? 💕'
+    'your country signature dessertIs? 🍰',
+    'Ispcs like하Is seasonIs? 🌸',
+    'your countryfrom 데Thisdate 때 what 해? 💕'
 ];
 var topicIdx=Math.floor(Math.random()*topics.length);
 document.getElementById('topicText').textContent=topics[topicIdx];
@@ -578,20 +578,20 @@ var missions=[
     '"Delicious"the Say it in your language!',
     '"love해"the Say it in your language! 💕',
     '"Helloplease do"the Say it in your language! 👋',
-    '"감사does"the Say it in your language! 🙏',
+    '"thanksdoes"the Say it in your language! 🙏',
     'your country Food Name 3pcs Try it! 🍽️',
-    '"춥다"the Say it in your language! ❄️',
+    '"cold"the Say it in your language! ❄️',
     'like하Is song Is사 one 줄 Try it! 🎵',
     '"fun다"the Say it in your language! 😄',
     'your Namethe KoreanTo Try it! ✍️',
-    '"배고파"the Say it in your language! 🍔',
+    '"hungry"the Say it in your language! 🍔',
     '"well 자"the Say it in your language! 🌙',
     'your country 유people인 1people Tell me! 🌟',
     '"Cool"the Say it in your language! 😎',
     'your country 수Also Name Try it! 🏙️',
     '"Friends"the Say it in your language! 🤝'
 ];
-// Mission Auto 발생 (Demo: 45sec마다)
+// Mission Auto occurs (Demo: 45secevery)
 setInterval(function(){
     var c=document.getElementById('chatMessages');
     var m=missions[Math.floor(Math.random()*missions.length)];
@@ -604,7 +604,7 @@ setInterval(function(){
 </script>
 
 <script>
-// 다크/라This트 모드 — BasicThis 다크, localStoragefrom 라This트 아닌 case 다크 Maintain
+// dark/라This트 mode — BasicThis dark, localStoragefrom 라This트 not case dark Maintain
 if(localStorage.getItem('moguPalDark')!=='true'){
     document.documentElement.classList.add('light');
 }
