@@ -224,7 +224,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">Image Match Saison Open! 누 더 빨리 찾까?</div>
+            <div class="notice-text active">Picture Match Season Open! Who can find matches fastest?</div>
             <div class="notice-text">This week Image Match TOP 3to Star Energie x50 Cadeau!</div>
             <div class="notice-text">Try One Card too!</div>
             <div class="notice-text">Star Energie collect Aura Debloquerplease!</div>
@@ -469,7 +469,7 @@ function flipCard(el) {
                 flipped[0].classList.remove('flipped');
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
-                document.getElementById('matchMsg').textContent = '아쉽! Opponent Tourto...';
+                document.getElementById('matchMsg').textContent = 'Miss! Opponents turn...';
                 addLog('<span class="sys">[Notification]</span> Mariaof Touris');
                 flipped = [];
                 setTimeout(function(){
@@ -626,7 +626,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Yuki','Image Match I랑 wants to play~! 🧩');},12000);
+setTimeout(function(){showMegaphone('Yuki','Image Match Lets play~ 🧩');},12000);
 
 // Annonces Ticker
 var noticeIdx=0;

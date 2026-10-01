@@ -447,7 +447,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 Juego Reglas</div>
             <div class="game-rule">
-                <div class="rule-basic">floor Card <b>Numero</b> 또 <b>무늬</b> if match 낼 수 available</div>
+                <div class="rule-basic">Play if the <b>number</b> or <b>suit</b> matches</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1pcs Ataque</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2pcs Ataque</span></div>
@@ -480,7 +480,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="chat-msg"><span class="user">Hana:</span> gusta Iniciolets!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
             <div class="chat-msg"><span class="sys">[Notificacion]</span> Juego Iniciocompleted!</div>
-            <div class="chat-msg"><span class="user">Maria:</span> Ataque 간다~ 🔥</div>
+            <div class="chat-msg"><span class="user">Maria:</span> Here I come~ 🔥</div>
             <div class="chat-msg"><span class="sys">[Notificacion]</span> TAZOof Turnis</div>
         </div>
         <div class="chat-input-wrap">
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without Card! (Mismo 무늬 또 Mismo Numero만 possible)');
+        alert('No playable card! (Must match suit or number)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
