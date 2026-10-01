@@ -326,7 +326,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                     <div class="letter-footer">
                         <div class="char-count"><span id="charNum">0</span> / 2,000자</div>
                         <div class="letter-tools">
-                            <button class="btn-act" onclick="showToast('번역 도우미 준비 중입니다')" style="opacity:0.5;">번역 도우미 (준비 중)</button>
+                            <button class="btn-act" onclick="showToast('번역 도우미 Vorbereitung 중입니다')" style="opacity:0.5;">번역 도우미 (Vorbereitung 중)</button>
                         </div>
                     </div>
                 </div>
@@ -396,7 +396,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="right-title">✉️ Briefe 팁</div>
             <div class="tip-item"><span class="tip-icon">👋</span> 첫 Briefe에는 자기Info를 포함하세요</div>
             <div class="tip-item"><span class="tip-icon">🌍</span> 상대 Sprache로 one두 문장 쓰면 감동이에요</div>
-            <div class="tip-item"><span class="tip-icon">❓</span> 질문을 넣으면 답장 확률이 높아져요</div>
+            <div class="tip-item"><span class="tip-icon">❓</span> Frage을 넣으면 답장 확률이 높아져요</div>
             <div class="tip-item"><span class="tip-icon">🎵</span> 공통 Interesse사를 찾아 이야기해보세요</div>
             <div class="tip-item"><span class="tip-icon">⭐</span> Briefe를 보내면 별의 Energie +5!</div>
         </div>
@@ -489,7 +489,7 @@ function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(fun
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Nachrichten를 Auswahl해주세요');return;}closeModal();showToast(name+'님to 거절 Nachrichten를 보냈습니다');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Melden하기</div><div class="modal-body">'+name+'님을 Meldendoing 이유를 Auswahl해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Werbung / 홍보</div><div class="report-opt" onclick="selectReport(this)">Sexuell이거나 Feuer쾌one Inhalt</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">Betrug / 사칭</div><div class="report-opt" onclick="selectReport(this)">Personliche Daten 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Melden 접수</button>');
+    openModal('<div class="modal-title">Melden하기</div><div class="modal-body">'+name+'님을 Meldendoing 이유를 Auswahl해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Werbung / Werbung</div><div class="report-opt" onclick="selectReport(this)">Sexuell이거나 Feuer쾌one Inhalt</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">Betrug / 사칭</div><div class="report-opt" onclick="selectReport(this)">Personliche Daten 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Melden 접수</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Melden 사유를 Auswahl해주세요');return;}closeModal();showToast('Melden가 접수되었습니다. 운영팀이 검토합니다.');}

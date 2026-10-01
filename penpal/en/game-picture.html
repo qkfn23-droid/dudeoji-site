@@ -224,7 +224,7 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">Picture Match Season Open! 누Is More 빨리 찾the까?</div>
+            <div class="notice-text active">Picture Match Season Open! 누Is More quickly 찾the까?</div>
             <div class="notice-text">This번 주 Picture Match TOP 3At게 별Of Energy x50 Gift!</div>
             <div class="notice-text">원CardAlso 같This 즐겨See!</div>
             <div class="notice-text">별Of Energythe Collect Aurathe Unlockplease do!</div>
@@ -302,8 +302,8 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
             <div class="box-title" style="color:#8b5cf6;">📋 Game Rules</div>
             <div class="game-rule">
                 <div class="rule-basic">
-                    Cardthe 2장 뒤집어서 <b>Same 그림</b>the 찾으세요!<br><br>
-                    짝the 맞추면 <b>+1점</b> 획득and one 번 More!<br>
+                    Cardthe 2장 뒤집어서 <b>Same picture</b>the 찾으세요!<br><br>
+                    짝the 맞추면 <b>+1점</b> obtainand one 번 More!<br>
                     틀리면 Opponent방 TurnTo 넘어갑니다.<br><br>
                     all 짝the 찾으면 Game end!
                 </div>
@@ -528,9 +528,9 @@ function endGame() {
     stopTurnTimer();
     canFlip = false;
     var msg;
-    if (myScore > oppScore) msg = '🎉 Congratulations! TAZO Win! (별Of Energy x20 획득)';
-    else if (myScore < oppScore) msg = '😢 Maria Win... (별Of Energy x3 획득)';
-    else msg = '🤝 Draw! (별Of Energy x10 획득)';
+    if (myScore > oppScore) msg = '🎉 Congratulations! TAZO Win! (별Of Energy x20 obtain)';
+    else if (myScore < oppScore) msg = '😢 Maria Win... (별Of Energy x3 obtain)';
+    else msg = '🤝 Draw! (별Of Energy x10 obtain)';
     addLog('<span class="sys">[Notifications]</span> Game end! ' + msg);
     document.getElementById('matchMsg').textContent = msg;
 }

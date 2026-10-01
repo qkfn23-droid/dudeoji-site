@@ -286,7 +286,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">원카드 Saison 오픈! Penpal Amis와 one 판 해보세요</div>
             <div class="notice-text">이번 주 원카드 TOP 3to 별의 Energie x50 Cadeau!</div>
-            <div class="notice-text">그림 맞추기 10월 오픈 Prevu! 기대해주세요</div>
+            <div class="notice-text">Image 맞추기 10월 오픈 Prevu! 기대해주세요</div>
             <div class="notice-text">별의 Energie을 모아 Aura를 Debloquer하세요!</div>
             <div class="notice-text">현재 접속자 127명 · Progression in progress Jeu 23개</div>
             <div class="notice-text">비매너 Utilisateur Signaler 기능이 add되었습니다</div>
@@ -447,7 +447,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 Jeu Regles</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 카드와 <b>숫자</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
+                <div class="rule-basic">바닥 카드와 <b>Nombre</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 Attaque</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 Attaque</span></div>
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without 카드! (Meme 무늬 또는 Meme 숫자만 가능)');
+        alert('낼 수 without 카드! (Meme 무늬 또는 Meme Nombre만 가능)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;

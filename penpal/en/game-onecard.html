@@ -101,7 +101,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 /* Opponent 영역 */
 .opp-row{display:flex;justify-content:space-evenly;align-items:flex-start;width:100%;}
 
-/* Opponent 공통 */
+/* Opponent common */
 .opp-player{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .opp-info{display:flex;align-items:center;gap:8px;}
 .opp-pic{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#e91e63,#ff5252);display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
@@ -289,7 +289,7 @@ body.spectate .my-label::after{content:' (관before During)';color:#f59e0b;}
             <div class="notice-text">Picture Match 10월 Open Scheduled! 기대please</div>
             <div class="notice-text">별Of Energythe Collect Aurathe Unlockplease do!</div>
             <div class="notice-text">Current Access자 127명 · Progress During인 Game 23개</div>
-            <div class="notice-text">비매너 User Report FeatureThis 추Ishas been completed</div>
+            <div class="notice-text">bad manner User Report FeatureThis 추Ishas been completed</div>
         </div>
     </div>
 </div>
@@ -405,7 +405,7 @@ body.spectate .my-label::after{content:' (관before During)';color:#f59e0b;}
                 <div class="center-mat">
                     <div class="deck-pile" onclick="drawCard()">
                         <div class="deck-card"><div class="logo">Dudeoji Studio</div></div>
-                        <div class="deck-label">뽑기</div>
+                        <div class="deck-label">draw</div>
                     </div>
                     <div class="played-card red" id="playedCard">
                         <div class="card-num">7</div>
@@ -447,13 +447,13 @@ body.spectate .my-label::after{content:' (관before During)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 Game Rules</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 CardAnd <b>숫자</b> AgainIs <b>Pattern</b>Is 같으면 낼 수 is available</div>
+                <div class="rule-basic">바닥 CardAnd <b>number</b> AgainIs <b>Pattern</b>Is 같으면 낼 수 is available</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 Attack</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 Attack</span></div>
-                    <div class="rule-card"><span class="rc-icon">🔄</span><span>Order 뒤집기</span></div>
-                    <div class="rule-card"><span class="rc-icon">⛔</span><span>Next Turn 스킵</span></div>
-                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>Pattern 바꾸기</span></div>
+                    <div class="rule-card"><span class="rc-icon">🔄</span><span>Order flip</span></div>
+                    <div class="rule-card"><span class="rc-icon">⛔</span><span>Next Turn skip</span></div>
+                    <div class="rule-card"><span class="rc-icon">7️⃣</span><span>Pattern change</span></div>
                 </div>
             </div>
         </div>
@@ -594,14 +594,14 @@ function startTurnTimer() {
 function skipTurn() {
     addLog('<span class="sys">[Notifications]</span> Hours 초And! TurnThis 넘어갑니다');
     drawCard();
-    addLog('<span class="sys">[Notifications]</span> Panel티: Card 1장 뽑기');
+    addLog('<span class="sys">[Notifications]</span> Panel티: Card 1장 draw');
     startTurnTimer();
 }
 startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 없Is Card! (Same Pattern AgainIs Same 숫자Only Is능)');
+        alert('낼 수 없Is Card! (Same Pattern AgainIs Same numberOnly Is능)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;

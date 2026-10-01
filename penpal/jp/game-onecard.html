@@ -286,7 +286,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">원カード シーズン 오픈! ペンパル 友達와 one 판 해보세요</div>
             <div class="notice-text">이번 주 원カード TOP 3to 별의 気 x50 プレゼント!</div>
-            <div class="notice-text">그림 맞추기 10월 오픈 予定! 기대してください</div>
+            <div class="notice-text">絵 맞추기 10월 오픈 予定! 기대してください</div>
             <div class="notice-text">별의 気을 모아 オーラ를 解放하세요!</div>
             <div class="notice-text">현재 접속자 127명 · 進行 in progress ゲーム 23개</div>
             <div class="notice-text">비매너 ユーザー 通報 기능이 addされました</div>
@@ -447,7 +447,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="game-info-box">
             <div class="box-title">📋 ゲーム ルール</div>
             <div class="game-rule">
-                <div class="rule-basic">바닥 カード와 <b>숫자</b> 또는 <b>模様</b>가 같으면 낼 수 있어요</div>
+                <div class="rule-basic">바닥 カード와 <b>数字</b> 또는 <b>模様</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
                     <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 攻撃</span></div>
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without カード! (同じ 模様 또는 同じ 숫자만 가능)');
+        alert('낼 수 without カード! (同じ 模様 또는 同じ 数字만 가능)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
