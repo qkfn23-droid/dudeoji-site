@@ -268,7 +268,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="my-profile-sub">⭐ Lv.5 · 🔥 Feuer · Lowe</div>
             </div>
         </div>
-        <div class="my-sign-card"><h3>♌ Lowe</h3><p>Jul 23 ~ Aug 22</p><div class="sign-tag">🔥 Feuer Element · Führung · Leidenschaft</div><div class="my-sign-icon">♌</div></div>
+        <div class="my-sign-card"><h3>♌ Lowe</h3><p>23. Jul ~ 22. Aug</p><div class="sign-tag">🔥 Feuer Element · Führung · Leidenschaft</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
             <div class="aura-title"><span class="aura-star">⭐</span> Star Energie</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
@@ -324,7 +324,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="letter-wrap">
                     <textarea class="letter-input" placeholder="Hello! I am from Korea TAZO. Spanisch learning..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
-                        <div class="char-count"><span id="charNum">0</span> / 2,000 chars</div>
+                        <div class="char-count"><span id="charNum">0</span> / 2.000 Zeichen</div>
                         <div class="letter-tools">
                             <button class="btn-act" onclick="showToast('Translate Helper Vorbereitung inis')" style="opacity:0.5;">Translate Helper (Vorbereitung in)</button>
                         </div>
@@ -439,7 +439,7 @@ function doSend(){
     var ta=document.querySelector('.letter-input'),text=ta.value.trim(),sel=document.querySelector('.to-person.selected .to-name');
     if(!sel){showToast('Recipient Auswahlplease do');return;}
     if(!text){showToast('Briefe Inhalt please enter');return;}
-    if(text.length>2000){showToast('2,000 chars has been exceeded');return;}
+    if(text.length>2000){showToast('2.000 Zeichen has been exceeded');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
     btn.textContent='Send in...';btn.disabled=true;btn.style.opacity='0.6';
     setTimeout(function(){btn.textContent='Senden';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'sirto Briefe sent');},1000);

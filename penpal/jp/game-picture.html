@@ -588,9 +588,9 @@ function addLog(html) {
 function copyInvite() { document.getElementById('inviteModal').classList.add('show'); }
 function closeInvite() { document.getElementById('inviteModal').classList.remove('show'); }
 function sendInvite(btn, name) {
-    btn.textContent = 'beforeSent ✓';
+    btn.textContent = '送信済み ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[通知]</span> ' + name + 'sirto 招待 sent');
+    addLog('<span class="sys">[通知]</span> ' + name + 'さんに招待を送りました');
 }
 
 // ミュート

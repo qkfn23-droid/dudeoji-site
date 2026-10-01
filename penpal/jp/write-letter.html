@@ -268,7 +268,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="my-profile-sub">⭐ Lv.5 · 🔥 火 · 獅子座</div>
             </div>
         </div>
-        <div class="my-sign-card"><h3>♌ 獅子座</h3><p>Jul 23 ~ Aug 22</p><div class="sign-tag">🔥 火 エレメント · リーダーシップ · 情熱</div><div class="my-sign-icon">♌</div></div>
+        <div class="my-sign-card"><h3>♌ 獅子座</h3><p>7月23日 ~ 8月22日</p><div class="sign-tag">🔥 火 エレメント · リーダーシップ · 情熱</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
             <div class="aura-title"><span class="aura-star">⭐</span> 星の気</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
@@ -324,7 +324,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="letter-wrap">
                     <textarea class="letter-input" placeholder="こんにちは！韓国のTAZOです。スペイン語を勉強中です..." oninput="updateCount(this)"></textarea>
                     <div class="letter-footer">
-                        <div class="char-count"><span id="charNum">0</span> / 2,000 chars</div>
+                        <div class="char-count"><span id="charNum">0</span> / 2,000文字</div>
                         <div class="letter-tools">
                             <button class="btn-act" onclick="showToast('Translate Helper 準備 inis')" style="opacity:0.5;">翻訳ヘルパー（準備中）</button>
                         </div>
@@ -398,10 +398,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="tip-item"><span class="tip-icon">🌍</span> 相手の言語で一文二文書くと感動的</div>
             <div class="tip-item"><span class="tip-icon">❓</span> 質問を入れると返信率アップ</div>
             <div class="tip-item"><span class="tip-icon">🎵</span> 共通の関心事を見つけて話そう</div>
-            <div class="tip-item"><span class="tip-icon">⭐</span> 手紙 when sending 星の気 +5!</div>
+            <div class="tip-item"><span class="tip-icon">⭐</span> 手紙 を送ると星の気 +5!</div>
         </div>
         <div class="right-box">
-            <div class="right-title">📊 my 手紙 統計</div>
+            <div class="right-title">📊 私の手紙統計</div>
             <div style="display:flex;justify-content:space-around;text-align:center;padding:8px 0;">
                 <div><div style="font-size:20px;font-weight:700;color:#8b5cf6;">48</div><div style="font-size:9px;color:#999;">手紙合計</div></div>
                 <div><div style="font-size:20px;font-weight:700;color:#f59e0b;">23</div><div style="font-size:9px;color:#999;">受信</div></div>
@@ -439,7 +439,7 @@ function doSend(){
     var ta=document.querySelector('.letter-input'),text=ta.value.trim(),sel=document.querySelector('.to-person.selected .to-name');
     if(!sel){showToast('宛先 選択してください');return;}
     if(!text){showToast('手紙 内容 Inputしてください');return;}
-    if(text.length>2000){showToast('2,000 chars has been exceeded');return;}
+    if(text.length>2000){showToast('2,000文字 has been exceeded');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
     btn.textContent='Send in...';btn.disabled=true;btn.style.opacity='0.6';
     setTimeout(function(){btn.textContent='送信';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'sirto 手紙 sent');},1000);

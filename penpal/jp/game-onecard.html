@@ -289,7 +289,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="notice-text">絵 Match 10month オープン予定! expectしてください</div>
             <div class="notice-text">星の気 collect オーラ 解放please!</div>
             <div class="notice-text">Current users 127people · 進行 in progress ゲーム 23pcs</div>
-            <div class="notice-text">bad behavior ユーザー 通報 Feature addされました</div>
+            <div class="notice-text">マナー違反ユーザー通報機能が追加されました</div>
         </div>
     </div>
 </div>
@@ -659,9 +659,9 @@ function closeInvite() {
     document.getElementById('inviteModal').classList.remove('show');
 }
 function sendInvite(btn, name) {
-    btn.textContent = 'beforeSent ✓';
+    btn.textContent = '送信済み ✓';
     btn.classList.add('sent');
-    addLog('<span class="sys">[通知]</span> ' + name + 'sirto 招待 sent');
+    addLog('<span class="sys">[通知]</span> ' + name + 'さんに招待を送りました');
 }
 
 // ミュート
