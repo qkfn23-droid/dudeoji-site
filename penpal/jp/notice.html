@@ -206,25 +206,25 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="my-profile-sub">⭐ Lv.5 · 🔥 火 · 獅子座</div>
             </div>
         </div>
-        <div class="my-sign-card"><h3>♌ 獅子座</h3><p>Jul 23 ~ Aug 22</p><div class="sign-tag">🔥 火 エレメント · Leadership · Passion</div><div class="my-sign-icon">♌</div></div>
+        <div class="my-sign-card"><h3>♌ 獅子座</h3><p>Jul 23 ~ Aug 22</p><div class="sign-tag">🔥 火 エレメント · リーダーシップ · 情熱</div><div class="my-sign-icon">♌</div></div>
         <div class="aura-box">
-            <div class="aura-title"><span class="aura-star">⭐</span> Star 気</div>
+            <div class="aura-title"><span class="aura-star">⭐</span> 星の気</div>
             <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
-            <div class="aura-info"><span>165 / 500</span><span>Next: 👀 Dazzle</span></div>
+            <div class="aura-info"><span>165 / 500</span><span>次: 👀 まぶしさ</span></div>
             <div class="aura-grid">
-                <div class="aura-item active"><div class="aura-emoji">⭐</div><div class="aura-name">default</div></div>
-                <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">Sparkle</div></div>
-                <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">Glow</div></div>
-                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">Dazzle</div></div>
-                <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">secmonth</div></div>
+                <div class="aura-item active"><div class="aura-emoji">⭐</div><div class="aura-name">基本</div></div>
+                <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">キラキラ</div></div>
+                <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">輝き</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">まぶしさ</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">超越</div></div>
             </div>
         </div>
         <a href="game-v2.html" class="pal-btn">Dudeoji Studio</a>
-        <a href="#" class="moon-banner" onclick="alert('Dudeoji Studio Open 予定!');return false;">
+        <a href="#" class="moon-banner" onclick="alert('Dudeoji Studio オープン予定!');return false;">
             <div class="moon-stars"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
             <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
             <div class="moon-icon"><svg width="48" height="48" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#fbbf24" opacity="0.9"/><circle cx="40" cy="46" r="3" fill="#92400e"/><circle cx="60" cy="46" r="3" fill="#92400e"/><path d="M42,60 Q50,68 58,60" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="32" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="68" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/></svg></div>
-            <div class="moon-slider" id="moonSlider"><div class="moon-text active">今日の運勢は?</div><div class="moon-text">タロット one pcs メッセージ</div><div class="moon-text">前世の私は誰?</div><div class="moon-text">my 夢の隠された意味</div><div class="moon-text">my 運命の人は?</div></div>
+            <div class="moon-slider" id="moonSlider"><div class="moon-text active">今日の運勢は?</div><div class="moon-text">タロット一枚のメッセージ</div><div class="moon-text">前世の私は誰?</div><div class="moon-text">私の夢の隠された意味</div><div class="moon-text">私の運命の人は?</div></div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
     </div>
@@ -232,10 +232,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- Center -->
     <div class="center">
         <div class="tabs">
-            <div class="tab active" onclick="filterNotice(this,'all')">all</div>
-            <div class="tab" onclick="filterNotice(this,'notice')">お知らせ</div>
-            <div class="tab" onclick="filterNotice(this,'dev')">Dev Log</div>
-            <div class="tab" onclick="filterNotice(this,'vote')">投票</div>
+            <div class="tab active" onclick="filterお知らせ(this,'all')">all</div>
+            <div class="tab" onclick="filterお知らせ(this,'notice')">お知らせ</div>
+            <div class="tab" onclick="filterお知らせ(this,'dev')">Dev Log</div>
+            <div class="tab" onclick="filterお知らせ(this,'vote')">投票</div>
         </div>
 
         <div class="notice-list" id="noticeList">
@@ -266,13 +266,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
             <div class="notice-card" data-cat="dev">
                 <div class="notice-top"><span class="notice-badge badge-dev">Dev Log</span><span class="notice-date">2025.01.17</span></div>
-                <div class="notice-title">v1.2 アップデート — Star 気 システム</div>
-                <div class="notice-preview">Stamp システム Star 気as before has been changed. ゲーム 勝利 when 気 collect, オーラ 解放can exists.</div>
+                <div class="notice-title">v1.2 アップデート — 星の気 システム</div>
+                <div class="notice-preview">Stamp システム 星の気as before has been changed. ゲーム 勝利 when 気 collect, オーラ 解放can exists.</div>
             </div>
             <div class="notice-card pinned" data-cat="notice">
                 <div class="notice-top"><span class="pin-icon">📌</span><span class="notice-badge badge-event">イベント</span><span class="notice-date">2025.01.15</span></div>
-                <div class="notice-title">Star 気 イベント 開始!</div>
-                <div class="notice-preview">ゲームfrom 勝利and Star 気 collect. オーラ 解放when プロフィール shine. ✨</div>
+                <div class="notice-title">星の気 イベント 開始!</div>
+                <div class="notice-preview">ゲームfrom 勝利and 星の気 collect. オーラ 解放when プロフィール shine. ✨</div>
             </div>
             <div class="notice-card" data-cat="dev">
                 <div class="notice-top"><span class="notice-badge badge-dev">Dev Log</span><span class="notice-date">2025.01.14</span></div>
@@ -280,13 +280,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="notice-preview">メガホン Item add, プロフィール ブースト リリース, 7pcs 言語 チャット Filter Apply.</div>
             </div>
             <div class="notice-card" data-cat="notice">
-                <div class="notice-top"><span class="notice-badge badge-notice">Notice</span><span class="notice-date">2025.01.10</span></div>
+                <div class="notice-top"><span class="notice-badge badge-notice">お知らせ</span><span class="notice-date">2025.01.10</span></div>
                 <div class="notice-title">bad behavior ユーザー 通報 Feature add</div>
                 <div class="notice-preview">お問い合わせ Pagefrom 証拠 一緒に 通報can exists. zero-tolerance principleas operatewill be.</div>
             </div>
             <div class="notice-card" data-cat="notice">
                 <div class="notice-top"><span class="notice-badge badge-maint">メンテナンス</span><span class="notice-date">2025.01.03</span></div>
-                <div class="notice-title">サーバー メンテナンス Notice (完了)</div>
+                <div class="notice-title">サーバー メンテナンス お知らせ (完了)</div>
                 <div class="notice-preview">1month 3day 02:00~04:00 サーバー メンテナンス 完了されました.</div>
             </div>
             <div class="notice-card" data-cat="dev">
@@ -311,10 +311,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="right-box">
             <div class="right-title">🕐 最近 アップデート</div>
             <div class="recent-item"><span class="recent-badge badge-vote">投票</span> Next ゲーム 投票</div>
-            <div class="recent-item"><span class="recent-badge badge-dev">開発</span> v1.2 Star 気</div>
-            <div class="recent-item"><span class="recent-badge badge-event">イベント</span> Star 気 イベント</div>
+            <div class="recent-item"><span class="recent-badge badge-dev">開発</span> v1.2 星の気</div>
+            <div class="recent-item"><span class="recent-badge badge-event">イベント</span> 星の気 イベント</div>
             <div class="recent-item"><span class="recent-badge badge-dev">開発</span> v1.1 メガホン</div>
-            <div class="recent-item"><span class="recent-badge badge-notice">Notice</span> 通報 Feature</div>
+            <div class="recent-item"><span class="recent-badge badge-notice">お知らせ</span> 通報 Feature</div>
         </div>
     </div>
 </div>
@@ -330,7 +330,7 @@ setInterval(()=>{const t=document.querySelectorAll('#noticeTicker .notice-text')
 let moonIdx=0;
 setInterval(()=>{const t=document.querySelectorAll('#moonSlider .moon-text');if(!t.length)return;t[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%t.length;t[moonIdx].classList.add('active');},3000);
 
-function filterNotice(tab,cat){
+function filterお知らせ(tab,cat){
     document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
     tab.classList.add('active');
     document.querySelectorAll('.notice-card').forEach(function(card){

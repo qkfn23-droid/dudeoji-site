@@ -269,7 +269,7 @@ if(new URLSearchParams(location.search).get('from')==='world'){
             </div>
         </div>
         <div class="info-bar">
-            <div class="notice-slider" id="shopNotice">
+            <div class="notice-slider" id="shopお知らせ">
                 <div class="notice-item active">Dudeoji Pass 広告除去専用and  PayPalto 自動 決済will be.</div>
                 <div class="notice-item">ルール違反による永久退場の場合、残り期間の返金はされません。</div>
                 <div class="notice-item">ブースト 購入 immediately applies and  period after expiry 自動 will end.</div>
@@ -333,12 +333,12 @@ function selectItem(el){
 }
 
 // お知らせ Slide
-var shopNotices=document.querySelectorAll('#shopNotice .notice-item');
+var shopお知らせs=document.querySelectorAll('#shopお知らせ .notice-item');
 var snIdx=0;
 setInterval(function(){
-    shopNotices[snIdx].classList.remove('active');
-    snIdx=(snIdx+1)%shopNotices.length;
-    shopNotices[snIdx].classList.add('active');
+    shopお知らせs[snIdx].classList.remove('active');
+    snIdx=(snIdx+1)%shopお知らせs.length;
+    shopお知らせs[snIdx].classList.add('active');
 },3000);
 
 function switchTab(tab,cat){
