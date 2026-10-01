@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dudeoji Studio — 수다방</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+
+/* 네비 */
+.nav{background:#12122a;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);z-index:100;}
+.nav-logo{font-size:22px;font-weight:700;color:#0ea5e9;text-decoration:none;}
+.nav-logo span{color:#f59e0b;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 16px;border-radius:20px;color:rgba(255,255,255,0.5);font-weight:500;}
+.nav-links a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+.nav-links a.active{background:#0ea5e9;color:#fff;}
+
+/* 탭 */
+.tab-bar{background:linear-gradient(135deg,#0c4a6e,#1e3a5f);padding:0 20px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+.tab-room{padding:12px 22px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px;border-bottom:3px solid #f59e0b;background:rgba(255,255,255,0.05);}
+.tab-room .t-emoji{font-size:18px;}
+.notice-ticker{margin-left:auto;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.2);border-radius:20px;padding:6px 14px;min-width:260px;max-width:420px;overflow:hidden;}
+.notice-icon{font-size:14px;flex-shrink:0;}
+.notice-slide{flex:1;overflow:hidden;position:relative;height:18px;}
+.notice-text{position:absolute;top:0;left:0;width:100%;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(10px);}
+.notice-text.active{opacity:1;transform:translateY(0);}
+
+/* 메인 3컬럼 */
+.page-main{margin:0;display:grid;grid-template-columns:220px 1fr 220px;flex:1;min-height:0;}
+
+/* 왼쪽 사이드 */
+.side-left{background:#12122a;border-right:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;gap:0;overflow-y:auto;padding:12px;}
+.profile-card{padding:10px;display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.profile-name{font-size:13px;font-weight:700;color:#ddd;}
+.profile-sub{font-size:10px;color:#777;}
+.side-section{padding:10px 0;}
+.side-title{font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;padding:0 4px;}
+.side-user{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;cursor:pointer;transition:background .15s;}
+.side-user:hover{background:rgba(255,255,255,0.05);}
+.su-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;position:relative;}
+.su-dot{position:absolute;bottom:-1px;right:-1px;width:8px;height:8px;border-radius:50%;background:#4ade80;border:2px solid #12122a;}
+.su-name{font-size:12px;color:#ccc;flex:1;}
+.su-badge{font-size:8px;padding:1px 5px;border-radius:4px;font-weight:600;}
+.su-badge.host{background:rgba(245,158,11,0.2);color:#fbbf24;}
+.su-badge.me{background:rgba(14,165,233,0.2);color:#38bdf8;}
+
+.moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.25);transition:all .2s;margin-top:auto;position:relative;overflow:hidden;}
+.moon-banner:hover{transform:scale(1.03);}
+.moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;display:inline-block;}
+@keyframes moonFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.moon-sparkle{color:#fbbf24;position:absolute;opacity:0;animation:sparkleGlow 2s ease-in-out infinite;z-index:1;font-size:8px;}
+.moon-sparkle:nth-child(1){top:8px;left:10px;animation-delay:0s;}
+.moon-sparkle:nth-child(2){top:14px;right:16px;animation-delay:0.4s;}
+.moon-sparkle:nth-child(3){bottom:14px;left:16px;animation-delay:0.8s;}
+.moon-sparkle:nth-child(4){bottom:8px;right:10px;animation-delay:1.2s;}
+@keyframes sparkleGlow{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.2);}}
+.moon-slider{position:relative;height:18px;overflow:hidden;margin-bottom:4px;}
+.moon-text{position:absolute;top:0;left:0;width:100%;font-size:12px;font-weight:700;color:#fff;opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateY(10px);}
+.moon-text.active{opacity:1;transform:translateY(0);}
+.moon-brand{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:1px;}
+
+/* 가운데 — 채팅 */
+.chat-col{display:flex;flex-direction:column;min-height:0;background:#1a1a2a;}
+.chat-messages{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:2px;}
+.chat-messages::-webkit-scrollbar{width:6px;}
+.chat-messages::-webkit-scrollbar-track{background:transparent;}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px;}
+.chat-messages::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.2);}
+
+/* Messages */
+.msg{display:flex;gap:10px;padding:4px 0;animation:msgIn .2s ease-out;}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.msg-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px;}
+.msg-body{flex:1;min-width:0;}
+.msg-head{display:flex;align-items:baseline;gap:8px;margin-bottom:2px;}
+.msg-name{font-size:12px;font-weight:700;}
+.msg-time{font-size:10px;color:#555;}
+.msg-text{font-size:13px;color:#ddd;line-height:1.6;word-break:break-word;background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:4px 14px 14px 14px;display:inline-block;max-width:85%;}
+.msg.me{flex-direction:row-reverse;}
+.msg.me .msg-body{text-align:right;}
+.msg.me .msg-text{background:rgba(14,165,233,0.15);border-radius:14px 4px 14px 14px;color:#b8e4ff;}
+.msg.me .msg-head{flex-direction:row-reverse;}
+.msg-system{text-align:center;font-size:11px;color:rgba(255,255,255,0.3);padding:8px 0;display:flex;align-items:center;gap:10px;}
+.msg-system::before,.msg-system::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.06);}
+
+/* 오늘의 주제 */
+.topic-bar{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(251,191,36,0.05));border-bottom:1px solid rgba(245,158,11,0.15);padding:10px 20px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topic-icon{font-size:18px;animation:topicBounce 2s ease-in-out infinite;}
+@keyframes topicBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+.topic-label{font-size:10px;color:#f59e0b;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.topic-text{font-size:13px;color:#fbbf24;font-weight:500;flex:1;}
+.topic-new{font-size:9px;padding:2px 8px;border-radius:8px;background:rgba(245,158,11,0.15);color:#f59e0b;font-weight:600;cursor:pointer;border:none;font-family:'Noto Sans KR';transition:all .15s;}
+.topic-new:hover{background:rgba(245,158,11,0.25);}
+
+/* 미션 Messages */
+.msg-mission{text-align:center;padding:12px 16px;margin:8px 0;background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(99,102,241,0.05));border:1px solid rgba(139,92,246,0.15);border-radius:12px;animation:missionIn .3s ease-out;}
+@keyframes missionIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
+.mission-icon{font-size:20px;margin-bottom:4px;}
+.mission-label{font-size:9px;color:#8b5cf6;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.mission-text{font-size:13px;color:#c4b5fd;font-weight:500;}
+.mission-reward{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;}
+
+/* 언어 레벨 뱃지 */
+.lang-badge{font-size:9px;padding:1px 5px;border-radius:4px;font-weight:600;margin-left:4px;}
+.lang-badge.native{background:rgba(74,222,128,0.15);color:#4ade80;}
+.lang-badge.advanced{background:rgba(14,165,233,0.15);color:#38bdf8;}
+.lang-badge.beginner{background:rgba(245,158,11,0.15);color:#fbbf24;}
+
+/* 라이트모드 추가 */
+.light .topic-bar{background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(251,191,36,0.04));border-bottom-color:rgba(245,158,11,0.1);}
+.light .topic-text{color:#b45309;}
+.light .msg-mission{background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(99,102,241,0.03));border-color:rgba(139,92,246,0.1);}
+.light .mission-text{color:#7c3aed;}
+.light .mission-reward{color:#bbb;}
+
+/* 입력 바 */
+.chat-input-bar{border-top:1px solid rgba(255,255,255,0.06);padding:12px 20px;display:flex;gap:10px;align-items:center;background:#12122a;position:relative;}
+.emoji-btn{width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,0.06);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.emoji-btn:hover{background:rgba(255,255,255,0.12);}
+.chat-input{flex:1;padding:10px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:20px;font-size:14px;outline:none;font-family:'Noto Sans KR';color:#fff;}
+.chat-input:focus{border-color:#0ea5e9;background:rgba(255,255,255,0.08);}
+.chat-input::placeholder{color:rgba(255,255,255,0.25);}
+.chat-send-btn{padding:10px 22px;background:#0ea5e9;color:#fff;border:none;border-radius:20px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';transition:all .15s;}
+.chat-send-btn:hover{background:#0284c7;}
+
+/* 오른쪽 사이드 */
+.side-right{background:#12122a;border-left:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;overflow-y:auto;padding:12px;}
+.right-section{margin-bottom:16px;}
+.right-title{font-size:11px;font-weight:700;color:#8b5cf6;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.online-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:8px;font-size:12px;color:#ccc;cursor:pointer;transition:background .15s;}
+.online-item:hover{background:rgba(255,255,255,0.05);}
+.online-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.online-name{flex:1;font-weight:500;}
+.online-badge{font-size:8px;padding:1px 5px;border-radius:4px;font-weight:600;}
+.online-badge.host{background:rgba(245,158,11,0.2);color:#fbbf24;}
+.online-badge.me{background:rgba(14,165,233,0.2);color:#38bdf8;}
+
+.rule-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:12px;}
+.rule-title{font-size:11px;font-weight:700;color:#f59e0b;margin-bottom:8px;}
+.rule-text{font-size:10px;color:rgba(255,255,255,0.4);line-height:1.8;}
+.rule-warn{font-size:10px;color:#ef4444;font-weight:700;margin-top:8px;}
+
+/* 하단 버튼 */
+.bottom-actions{background:#0a0a1a;border-top:1px solid rgba(255,255,255,0.06);padding:8px 24px;display:flex;justify-content:flex-end;gap:8px;}
+.ba-btn{padding:8px 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#ccc;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';transition:all .2s;}
+.ba-btn:hover{background:rgba(255,255,255,0.08);border-color:#0ea5e9;color:#38bdf8;}
+.ba-btn.exit{border-color:rgba(239,68,68,0.3);color:#ef4444;}
+.ba-btn.exit:hover{background:rgba(239,68,68,0.1);}
+
+/* 이모지 피커 */
+.emoji-picker{display:none;position:absolute;bottom:60px;left:20px;background:#1e1e30;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);padding:10px;width:280px;z-index:50;}
+.emoji-picker.show{display:block;}
+.emoji-picker-tabs{display:flex;gap:2px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px;}
+.ep-tab{padding:4px 8px;border:none;background:none;font-size:16px;cursor:pointer;border-radius:6px;transition:background .15s;}
+.ep-tab:hover{background:rgba(255,255,255,0.08);}
+.ep-tab.active{background:rgba(14,165,233,0.2);}
+.emoji-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;max-height:180px;overflow-y:auto;}
+.emoji-grid::-webkit-scrollbar{width:4px;}
+.emoji-grid::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+.emoji-item{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;border-radius:6px;transition:all .1s;}
+.emoji-item:hover{background:rgba(255,255,255,0.1);transform:scale(1.15);}
+
+/* 확성기 */
+.megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
+.megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
+.megaphone-icon{font-size:24px;}
+.megaphone-msg{font-size:15px;font-weight:700;color:#7c2d12;}
+.megaphone-sparkle{position:absolute;color:#fff;font-size:10px;opacity:0;animation:megaStar 1s ease-in-out infinite;}
+.megaphone-sparkle:nth-child(1){left:5%;top:4px;animation-delay:0s;}
+.megaphone-sparkle:nth-child(2){left:15%;bottom:4px;animation-delay:0.3s;}
+.megaphone-sparkle:nth-child(3){right:15%;top:4px;animation-delay:0.6s;}
+.megaphone-sparkle:nth-child(4){right:5%;bottom:4px;animation-delay:0.9s;}
+@keyframes megaSlide{from{transform:translateY(-100%);}to{transform:translateY(0);}}
+@keyframes megaStar{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.3);}}
+
+/* 모달 */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;align-items:center;justify-content:center;}
+.modal-overlay.show{display:flex;}
+.modal{background:#1e1e30;border-radius:16px;width:340px;max-height:80vh;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.4);animation:modalIn .2s ease-out;border:1px solid rgba(255,255,255,0.08);}
+@keyframes modalIn{from{transform:scale(0.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+.modal-head{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;}
+.modal-head h3{font-size:15px;font-weight:700;color:#ddd;display:flex;align-items:center;gap:6px;}
+.modal-close{width:28px;height:28px;border-radius:50%;border:none;background:rgba(255,255,255,0.08);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#ccc;}
+.modal-close:hover{background:rgba(255,255,255,0.15);}
+.modal-body{padding:12px 16px;overflow-y:auto;max-height:50vh;}
+.friend-item{display:flex;align-items:center;gap:10px;padding:10px 8px;border-radius:10px;transition:background .15s;}
+.friend-item:hover{background:rgba(255,255,255,0.05);}
+.friend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.friend-dot.online{background:#4ade80;}
+.friend-dot.offline{background:#555;}
+.friend-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.friend-info{flex:1;}
+.friend-name{font-size:13px;font-weight:600;color:#ccc;}
+.friend-status{font-size:10px;color:#666;}
+.friend-invite-btn{padding:5px 14px;border-radius:8px;border:1px solid #0ea5e9;background:transparent;color:#0ea5e9;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';transition:all .15s;}
+.friend-invite-btn:hover{background:#0ea5e9;color:#fff;}
+.friend-invite-btn.sent{background:rgba(255,255,255,0.05);color:#555;border-color:#333;pointer-events:none;}
+
+/* 라이트모드 */
+.light body{background:#f0eeeb;color:#333;}
+.light .nav{background:#fff;border-bottom-color:#e0e0e0;}
+.light .nav-links a{color:#666;}
+.light .nav-links a:hover{background:#e0f2fe;color:#0ea5e9;}
+.light .tab-bar{background:linear-gradient(135deg,#0ea5e9,#38bdf8);}
+.light .notice-ticker{background:rgba(255,255,255,0.15);}
+.light .side-left,.light .side-right{background:#fff;border-color:#f0f0f0;}
+.light .profile-name{color:#333;}
+.light .profile-sub{color:#999;}
+.light .side-title{color:#aaa;}
+.light .su-name{color:#555;}
+.light .su-dot{border-color:#fff;}
+.light .chat-col{background:#f8f7f5;}
+.light .msg-text{color:#444;background:rgba(0,0,0,0.04);}
+.light .msg.me .msg-text{background:rgba(14,165,233,0.1);color:#0c4a6e;}
+.light .msg-time{color:#bbb;}
+.light .msg-system{color:#bbb;}
+.light .msg-system::before,.light .msg-system::after{background:#e0e0e0;}
+.light .chat-input-bar{background:#fff;border-top-color:#f0f0f0;}
+.light .chat-input{background:#f0f0f0;border-color:#e0e0e0;color:#333;}
+.light .chat-input::placeholder{color:#bbb;}
+.light .emoji-btn{background:#f0f0f0;border:1px solid #e0e0e0;}
+.light .online-item{color:#555;}
+.light .online-name{color:#333;}
+.light .rule-box{background:#f8f8f8;border-color:#f0f0f0;}
+.light .rule-text{color:#888;}
+.light .bottom-actions{background:#fff;border-top-color:#e0e0e0;}
+.light .ba-btn{background:#fff;border-color:#e0e0e0;color:#555;}
+.light .ba-btn:hover{background:#e0f2fe;border-color:#0ea5e9;color:#0ea5e9;}
+.light .ba-btn.exit{border-color:#fecaca;color:#ef4444;}
+.light .emoji-picker{background:#fff;border-color:#e0e0e0;box-shadow:0 8px 30px rgba(0,0,0,0.15);}
+.light .ep-tab.active{background:#e0f2fe;}
+.light .emoji-item:hover{background:#f0f9ff;}
+.light .modal{background:#fff;border-color:#e0e0e0;}
+.light .modal-head{border-bottom-color:#f0f0f0;}
+.light .modal-head h3{color:#333;}
+.light .modal-close{background:#f0f0f0;color:#666;}
+.light .friend-name{color:#333;}
+.light .friend-status{color:#aaa;}
+
+@media(max-width:900px){.page-main{grid-template-columns:1fr;}.side-left,.side-right{display:none;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+    <span class="nav-logo">Dudeoji Studio <span>World</span></span>
+    <div class="nav-links">
+        <a href="game-v2.html" class="active" onclick="return confirmLeave()">게임</a>
+        <a href="shop.html?from=world">Shop</a>
+        <a href="mypage.html?from=world">My Page</a>
+    </div>
+</nav>
+<div class="tab-bar">
+    <div class="tab-room"><span class="t-emoji">💬</span> 자유 수다방 (5/20)</div>
+    <div class="notice-ticker">
+        <span class="notice-icon">📢</span>
+        <div class="notice-slide" id="noticeTicker">
+            <div class="notice-text active">비속어, 욕설은 자동 차단됩니다</div>
+            <div class="notice-text">수다방에서 새 Friends를 사귀어보세요!</div>
+            <div class="notice-text">별의 기운을 모아 오라를 해금하세요!</div>
+        </div>
+    </div>
+</div>
+
+<div class="page-main">
+    <!-- 왼쪽 -->
+    <div class="side-left">
+        <div class="profile-card">
+            <svg viewBox="0 0 40 40" width="32" height="32"><polygon points="20,2 25,15 39,15 28,24 32,38 20,30 8,38 12,24 1,15 15,15" fill="#FFD93D" stroke="#F59E0B" stroke-width="1"/><circle cx="15" cy="18" r="1.5" fill="#333"/><circle cx="25" cy="18" r="1.5" fill="#333"/><path d="M16,24 Q20,28 24,24" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <div>
+                <div class="profile-name">TAZO</div>
+                <div class="profile-sub">Lv.5 · Leo</div>
+            </div>
+        </div>
+
+        <div class="side-section">
+            <div class="side-title">접속 중 — 5명</div>
+            <div class="side-user">
+                <div class="su-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊<div class="su-dot"></div></div>
+                <div class="su-name">Maria G.</div>
+                <span class="su-badge host">방장</span>
+            </div>
+            <div class="side-user">
+                <div class="su-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐<div class="su-dot"></div></div>
+                <div class="su-name">TAZO</div>
+                <span class="su-badge me">나</span>
+            </div>
+            <div class="side-user">
+                <div class="su-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵<div class="su-dot"></div></div>
+                <div class="su-name">Yuki</div>
+            </div>
+            <div class="side-user">
+                <div class="su-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿<div class="su-dot"></div></div>
+                <div class="su-name">Felix</div>
+            </div>
+            <div class="side-user">
+                <div class="su-avatar" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">🔥<div class="su-dot"></div></div>
+                <div class="su-name">Lucas</div>
+            </div>
+        </div>
+
+        <a href="https://dudeojistudio.com/astro" target="_blank" class="moon-banner">
+            <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
+            <div class="moon-icon"><svg viewBox="0 0 120 120" width="44" height="44"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div class="moon-slider" id="moonSlider">
+                <div class="moon-text active">오늘의 운세는?</div>
+                <div class="moon-text">타로 한 장의 Messages</div>
+                <div class="moon-text">내 꿈의 숨은 의미</div>
+            </div>
+            <div class="moon-brand">Dudeoji Studio</div>
+        </a>
+    </div>
+
+    <!-- 가운데 — 채팅 -->
+    <div class="chat-col">
+        <!-- 오늘의 대화 주제 -->
+        <div class="topic-bar">
+            <div class="topic-icon">💬</div>
+            <div>
+                <div class="topic-label">오늘의 주제</div>
+                <div class="topic-text" id="topicText">니 나라에서 가장 이상한 음식은? 🍽️</div>
+            </div>
+            <button class="topic-new" onclick="nextTopic()">다음 주제</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg-system">Maria G.님이 방을 만들었습니다</div>
+            <div class="msg-system">TAZO님이 입장했습니다</div>
+            <div class="msg-system">Yuki님이 입장했습니다</div>
+
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#e91e63;">Maria G.</span><span class="lang-badge native">🇪🇸</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:31</span></div>
+                    <div class="msg-text">안녕! 다들 어디서 왔어? 😊</div>
+                </div>
+            </div>
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="lang-badge native">🇯🇵</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:31</span></div>
+                    <div class="msg-text">일본에서 왔어! Korean 공부 중이야 🇯🇵</div>
+                </div>
+            </div>
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#1e88e5;">Felix</span><span class="lang-badge native">🇩🇪</span><span class="lang-badge advanced">🇰🇷B1</span><span class="msg-time">20:32</span></div>
+                    <div class="msg-text">나는 독일! Hallo~ Korean 어렵다 ㅋㅋ</div>
+                </div>
+            </div>
+
+            <div class="msg-system">Felix님이 입장했습니다</div>
+            <div class="msg-system">Lucas님이 입장했습니다</div>
+
+            <!-- 미션 등장 -->
+            <div class="msg-mission">
+                <div class="mission-icon">🎯</div>
+                <div class="mission-label">말하기 미션</div>
+                <div class="mission-text">"맛있다"를 니 언어로 써봐!</div>
+                <div class="mission-reward">참여 시 💎 x5 보상</div>
+            </div>
+
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">🔥</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#ef6c00;">Lucas</span><span class="lang-badge native">🇧🇷</span><span class="lang-badge beginner">🇰🇷A1</span><span class="msg-time">20:33</span></div>
+                    <div class="msg-text">Delicioso! 🇧🇷 Portuguese로 맛있다!</div>
+                </div>
+            </div>
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="lang-badge native">🇯🇵</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:33</span></div>
+                    <div class="msg-text">おいしい (오이시이)! 🇯🇵</div>
+                </div>
+            </div>
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#1e88e5;">Felix</span><span class="lang-badge native">🇩🇪</span><span class="lang-badge advanced">🇰🇷B1</span><span class="msg-time">20:34</span></div>
+                    <div class="msg-text">Lecker! German로 맛있다 ㅋㅋ 🇩🇪</div>
+                </div>
+            </div>
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#e91e63;">Maria G.</span><span class="lang-badge native">🇪🇸</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:34</span></div>
+                    <div class="msg-text">¡Delicioso! Spanish도 비슷해! 😄</div>
+                </div>
+            </div>
+            <div class="msg-system">🎯 미션 완료! 참여자 4명에게 💎 x5 지급</div>
+            <div class="msg">
+                <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
+                <div class="msg-body">
+                    <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="msg-time">20:35</span></div>
+                    <div class="msg-text">TAZO는 어디에서 왔어?</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-bar" style="position:relative;">
+            <div class="emoji-picker" id="emojiPicker">
+                <div class="emoji-picker-tabs">
+                    <button class="ep-tab active" onclick="switchEmojiTab(0,this)">😊</button>
+                    <button class="ep-tab" onclick="switchEmojiTab(1,this)">👍</button>
+                    <button class="ep-tab" onclick="switchEmojiTab(2,this)">🐶</button>
+                    <button class="ep-tab" onclick="switchEmojiTab(3,this)">🍕</button>
+                    <button class="ep-tab" onclick="switchEmojiTab(4,this)">⚽</button>
+                    <button class="ep-tab" onclick="switchEmojiTab(5,this)">🌍</button>
+                </div>
+                <div class="emoji-grid" id="emojiGrid"></div>
+            </div>
+            <button class="emoji-btn" title="이모지" onclick="toggleEmoji()">😊</button>
+            <input class="chat-input" placeholder="Messages를 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()">
+            <button class="chat-send-btn" onclick="sendMsg()">전송</button>
+        </div>
+    </div>
+
+    <!-- 오른쪽 -->
+    <div class="side-right">
+        <div class="right-section">
+            <div class="right-title">💬 접속 중 (5/20)</div>
+            <div class="online-item"><div class="online-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊</div><div class="online-name">Maria G.</div><span class="online-badge host">방장</span></div>
+            <div class="online-item"><div class="online-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="online-name">TAZO</div><span class="online-badge me">나</span></div>
+            <div class="online-item"><div class="online-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div><div class="online-name">Yuki</div></div>
+            <div class="online-item"><div class="online-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿</div><div class="online-name">Felix</div></div>
+            <div class="online-item"><div class="online-avatar" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">🔥</div><div class="online-name">Lucas</div></div>
+        </div>
+
+        <div class="rule-box">
+            <div class="rule-title">📋 수다방 규칙</div>
+            <div class="rule-text">
+                <b>1.</b> 1인 1계정<br>
+                <b>2.</b> 사기/사칭 금지<br>
+                <b>3.</b> 성적/폭력 콘텐츠 금지<br>
+                <b>4.</b> 개인정보 강요 금지<br>
+                <b>5.</b> 스팸/권유 금지<br>
+                <b>6.</b> 욕설/비속어 자동 차단
+            </div>
+            <div class="rule-warn">위반 시: 영구 퇴장 · 환Fire Fire가</div>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-actions">
+    <button class="ba-btn" onclick="copyInvite()">👥 초대</button>
+    <button class="ba-btn" onclick="toggleMute(this)">🔊 음소거</button>
+    <button class="ba-btn exit" onclick="leaveRoom()">🚪 Exit</button>
+</div>
+
+<!-- 확성기 -->
+<div class="megaphone-banner" id="megaBanner">
+    <span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span><span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span>
+    <div class="megaphone-inner">
+        <span class="megaphone-icon">📣</span>
+        <span class="megaphone-msg" id="megaMsg"></span>
+        <span class="megaphone-icon">📣</span>
+    </div>
+</div>
+
+<!-- 초대 모달 -->
+<div class="modal-overlay" id="inviteModal" onclick="if(event.target===this)closeInvite()">
+    <div class="modal">
+        <div class="modal-head">
+            <h3>👥 Friends 초대</h3>
+            <button class="modal-close" onclick="closeInvite()">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="friend-item">
+                <div class="friend-dot online"></div>
+                <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌸</div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">온라인 · 대기 중</div></div>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">초대</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-dot online"></div>
+                <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🐱</div>
+                <div class="friend-info"><div class="friend-name">Hana</div><div class="friend-status">온라인 · 게임 중</div></div>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Hana')">초대</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-dot offline"></div>
+                <div class="friend-avatar" style="background:#555;">💤</div>
+                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">오프라인</div></div>
+                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">초대</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// 이모지 피커
+var emojiSets = [
+    ['😊','😂','🥹','😍','🥰','😘','😎','🤩','😭','😤','😱','🤔','😴','🤗','😏','🙄','😇','🥳','😋','🤭','😶'],
+    ['👍','👎','👏','🙌','🤝','✌️','🤞','💪','❤️','🔥','💯','⭐','✨','💖','💕','🎉','🎊','💐','🙏','👋','🫶'],
+    ['🐶','🐱','🐻','🦊','🐰','🐸','🐵','🐷','🐮','🦁','🐯','🐨','🐼','🐧','🐥','🦋','🐢','🐬','🦄','🐝','🐙'],
+    ['🍕','🍔','🍟','🍣','🍜','🍩','🍰','🧁','🍫','☕','🍺','🥤','🍎','🍇','🍓','🌮','🥐','🍳','🥗','🍦','🧀'],
+    ['⚽','🏀','🎮','🎯','🎲','🎵','🎸','🎤','📸','✈️','🚗','🏖️','⛰️','🎪','🎭','🏆','🥇','🎁','📚','💻','🎨'],
+    ['🇰🇷','🇯🇵','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇮🇹','🇪🇸','🇧🇷','🇨🇳','🇷🇺','🇮🇳','🇦🇺','🇨🇦','🇲🇽','🇹🇷','🇹🇭','🇻🇳','🇵🇹','🇳🇱','🇸🇪']
+];
+function renderEmojis(idx){var g=document.getElementById('emojiGrid');g.innerHTML='';emojiSets[idx].forEach(function(e){var b=document.createElement('div');b.className='emoji-item';b.textContent=e;b.onclick=function(){pickEmoji(e);};g.appendChild(b);});}
+function switchEmojiTab(idx,tab){document.querySelectorAll('.ep-tab').forEach(function(t){t.classList.remove('active');});tab.classList.add('active');renderEmojis(idx);}
+function toggleEmoji(){var p=document.getElementById('emojiPicker');p.classList.toggle('show');if(p.classList.contains('show')&&!document.getElementById('emojiGrid').children.length)renderEmojis(0);}
+function pickEmoji(e){var i=document.getElementById('chatInput');i.value+=e;i.focus();}
+document.addEventListener('click',function(ev){if(!ev.target.closest('.emoji-picker')&&!ev.target.closest('.emoji-btn'))document.getElementById('emojiPicker').classList.remove('show');});
+
+// Messages 전송
+function sendMsg(){
+    var input=document.getElementById('chatInput');
+    var text=input.value.trim();
+    if(!text)return;
+    var now=new Date();
+    var time=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+    var c=document.getElementById('chatMessages');
+    var m=document.createElement('div');
+    m.className='msg me';
+    m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
+    c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
+    setTimeout(function(){
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ 맞아!','오 진짜?','재밌다 😄','나도나도~','대박!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['그렇구나!','Korean 어렵다 ㅠㅠ','와 멋지다!','나도 그래~','ㅎㅎ 좋아!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 그렇구나','ㅋㅋ 웃기다','나는 잘 모르겠어','독일에서는 안 그래 ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['진짜? 대박','브라질도 비슷해!','ㅋㅋㅋ','재밌다~','오 좋은 생각!']}];
+        var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
+        var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
+        var reply=document.createElement('div');reply.className='msg';
+        reply.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,'+p.color+',#ff5252);">'+p.emoji+'</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:'+p.color+';">'+p.name+'</span><span class="msg-time">'+time2+'</span></div><div class="msg-text">'+t+'</div></div>';
+        c.appendChild(reply);c.scrollTop=c.scrollHeight;
+    },800+Math.random()*1500);
+}
+
+function confirmLeave(){return confirm('수다방에서 나가시겠습니까?');}
+function copyInvite(){document.getElementById('inviteModal').classList.add('show');}
+function closeInvite(){document.getElementById('inviteModal').classList.remove('show');}
+function sendInvite(btn,name){btn.textContent='전송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님에게 초대를 보냈습니다';c.appendChild(s);c.scrollTop=c.scrollHeight;}
+var isMuted=false;
+function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 음소거 중':'🔊 음소거';}
+function leaveRoom(){if(confirm('수다방에서 나가시겠습니까?'))location.href='game-v2.html';}
+function showMegaphone(name,msg){var b=document.getElementById('megaBanner');document.getElementById('megaMsg').textContent=name+': '+msg;b.style.display='block';setTimeout(function(){b.style.display='none';},5000);}
+setTimeout(function(){showMegaphone('Felix','수다방에서 German 가르쳐줄게! 🇩🇪');},10000);
+var noticeIdx=0;var notices=document.querySelectorAll('#noticeTicker .notice-text');
+setInterval(function(){notices[noticeIdx].classList.remove('active');noticeIdx=(noticeIdx+1)%notices.length;notices[noticeIdx].classList.add('active');},3000);
+var moonTexts=document.querySelectorAll('#moonSlider .moon-text');var moonIdx=0;
+setInterval(function(){moonTexts[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%moonTexts.length;moonTexts[moonIdx].classList.add('active');},3000);
+document.getElementById('chatMessages').scrollTop=document.getElementById('chatMessages').scrollHeight;
+
+// 오늘의 주제 리스트
+var topics=[
+    '니 나라에서 가장 이상한 음식은? 🍽️',
+    '어제 본 드라마/영화 추천해줘 🎬',
+    '니 나라에서 인기 있는 노래 알려줘 🎵',
+    '가장 좋아하는 한국 음식은? 🇰🇷',
+    '니 나라의 인사법을 알려줘! 👋',
+    '가장 가보고 싶은 나라는? ✈️',
+    '니 나라만의 독특한 문화가 있어? 🌍',
+    '요즘 빠져있는 취미 뭐야? 🎨',
+    '니 나라 학교생활은 어때? 🏫',
+    '가장 웃긴 Korean 실수 알려줘 ㅋㅋ 😂',
+    '니 나라 욕 하나만 알려줘 ㅋㅋ 🤫',
+    '제일 좋아하는 이모지는? 😎',
+    '지금 니 나라 날씨 어때? ☀️',
+    '니 나라 크리스마스는 어떻게 보내? 🎄',
+    '가장 자신있는 요리는? 👨‍🍳',
+    '니 나라에서 유행하는 밈 있어? 🤣',
+    'Korean 배우면서 가장 어려운 점은? 📚',
+    '니 나라 대표 디저트는? 🍰',
+    '가장 좋아하는 계절은? 🌸',
+    '니 나라에서 데이트할 때 뭐 해? 💕'
+];
+var topicIdx=Math.floor(Math.random()*topics.length);
+document.getElementById('topicText').textContent=topics[topicIdx];
+function nextTopic(){topicIdx=(topicIdx+1)%topics.length;document.getElementById('topicText').textContent=topics[topicIdx];}
+
+// 미션 리스트
+var missions=[
+    '"맛있다"를 니 언어로 써봐!',
+    '"사랑해"를 니 언어로 써봐! 💕',
+    '"안녕하세요"를 니 언어로 써봐! 👋',
+    '"감사합니다"를 니 언어로 써봐! 🙏',
+    '니 나라 음식 이름 3개 써봐! 🍽️',
+    '"춥다"를 니 언어로 써봐! ❄️',
+    '좋아하는 노래 가사 한 줄 써봐! 🎵',
+    '"재밌다"를 니 언어로 써봐! 😄',
+    '니 이름을 Korean로 써봐! ✍️',
+    '"배고파"를 니 언어로 써봐! 🍔',
+    '"잘 자"를 니 언어로 써봐! 🌙',
+    '니 나라 유명인 1명 알려줘! 🌟',
+    '"멋지다"를 니 언어로 써봐! 😎',
+    '니 나라 수도 이름 써봐! 🏙️',
+    '"Friends"를 니 언어로 써봐! 🤝'
+];
+// 미션 자동 발생 (데모: 45초마다)
+setInterval(function(){
+    var c=document.getElementById('chatMessages');
+    var m=missions[Math.floor(Math.random()*missions.length)];
+    var div=document.createElement('div');
+    div.className='msg-mission';
+    div.innerHTML='<div class="mission-icon">🎯</div><div class="mission-label">말하기 미션</div><div class="mission-text">'+m+'</div><div class="mission-reward">참여 시 💎 x5 보상</div>';
+    c.appendChild(div);
+    c.scrollTop=c.scrollHeight;
+},45000);
+</script>
+
+<script>
+// 다크/라이트 모드 — 기본이 다크, localStorage에서 라이트 아닌 경우 다크 유지
+if(localStorage.getItem('moguPalDark')!=='true'){
+    document.documentElement.classList.add('light');
+}
+</script>
+
+</body>
+</html>

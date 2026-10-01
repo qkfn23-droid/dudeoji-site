@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dudeoji Studio — Stellar Lions</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-height:100vh;overflow-x:hidden;}
+
+/* 네비 */
+.nav{background:rgba(10,10,26,0.9);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-logo{font-size:22px;font-weight:700;color:#0ea5e9;text-decoration:none;}
+.nav-logo span{color:#f59e0b;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 16px;border-radius:20px;color:rgba(255,255,255,0.5);font-weight:500;}
+.nav-links a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+.nav-links a.active{background:#0ea5e9;color:#fff;}
+
+/* 길드 헤더 */
+.guild-header{padding:20px 24px;display:flex;align-items:center;gap:16px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.gh-planet{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fde68a,#f59e0b,#b45309);box-shadow:0 0 25px rgba(245,158,11,0.4);position:relative;animation:planetFloat 4s ease-in-out infinite;}
+.gh-planet::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 28% 22%,rgba(255,255,255,0.4) 0%,transparent 35%),radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0.7) 100%);}
+@keyframes planetFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+.gh-info{flex:1;}
+.gh-name{font-size:20px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.gh-emblem{font-size:24px;}
+.gh-meta{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;}
+.gh-stats{display:flex;gap:16px;}
+.gh-stat{text-align:center;}
+.gh-stat-num{font-size:16px;font-weight:700;color:#f59e0b;}
+.gh-stat-label{font-size:9px;color:rgba(255,255,255,0.4);}
+.gh-actions{display:flex;gap:6px;}
+.gh-btn{padding:8px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';transition:all .2s;}
+.gh-btn:hover{background:rgba(255,255,255,0.1);}
+.gh-btn.primary{background:#0ea5e9;border-color:#0ea5e9;}
+.gh-btn.primary:hover{background:#0284c7;}
+
+/* 별 배경 */
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--dur) ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:0.15;}50%{opacity:0.9;}}
+
+/* 메인 3컬럼 */
+.main{position:relative;z-index:1;margin:12px 24px;display:grid;grid-template-columns:minmax(200px,16vw) 1fr minmax(200px,18vw);gap:12px;}
+
+/* 왼쪽 — UGC 별자리 벽 */
+.panel{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px;backdrop-filter:blur(4px);}
+.panel-title{font-size:12px;font-weight:700;color:#f59e0b;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;}
+.panel-title .add-btn{width:24px;height:24px;border-radius:50%;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.3);color:#f59e0b;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.panel-title .add-btn:hover{background:rgba(245,158,11,0.4);}
+
+/* 어휘 카드 */
+.vocab-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px;margin-bottom:8px;cursor:pointer;transition:all .15s;}
+.vocab-card:hover{background:rgba(255,255,255,0.1);transform:scale(1.02);}
+.vc-word{font-size:14px;font-weight:700;color:#fff;}
+.vc-trans{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
+.vc-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+.vc-author{font-size:9px;color:rgba(255,255,255,0.3);}
+.vc-stars{font-size:10px;color:#f59e0b;cursor:pointer;}
+.vc-stars:hover{transform:scale(1.1);}
+.vc-lang{font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(14,165,233,0.2);color:#38bdf8;}
+
+/* 퀴즈팩 */
+.quiz-pack{background:linear-gradient(135deg,rgba(139,92,246,0.15),rgba(99,102,241,0.1));border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:10px;margin-bottom:8px;cursor:pointer;transition:all .15s;}
+.quiz-pack:hover{background:linear-gradient(135deg,rgba(139,92,246,0.25),rgba(99,102,241,0.15));}
+.qp-name{font-size:12px;font-weight:700;color:#c4b5fd;}
+.qp-meta{font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px;}
+
+/* 센터 — 행성 뷰 + 게시판 */
+.center{display:flex;flex-direction:column;gap:12px;}
+
+/* 길드 행성 뷰 */
+.planet-view{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;text-align:center;position:relative;overflow:hidden;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.pv-planet{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fde68a,#f59e0b,#b45309);box-shadow:0 0 40px rgba(245,158,11,0.35),0 0 80px rgba(245,158,11,0.15);position:relative;animation:pvFloat 5s ease-in-out infinite;margin-bottom:16px;}
+.pv-planet::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 28% 22%,rgba(255,255,255,0.45) 0%,transparent 35%),radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(0,0,0,0.35) 65%,rgba(0,0,0,0.7) 100%);}
+@keyframes pvFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-8px) scale(1.02);}}
+.pv-name{font-size:18px;font-weight:700;margin-bottom:4px;}
+.pv-level{font-size:12px;color:rgba(255,255,255,0.5);}
+.pv-quest{margin-top:12px;background:rgba(255,255,255,0.06);border-radius:10px;padding:10px 16px;display:inline-block;}
+.pv-quest-title{font-size:11px;color:#f59e0b;font-weight:600;margin-bottom:4px;}
+.pv-quest-bar{width:200px;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;}
+.pv-quest-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#fbbf24,#f59e0b);position:relative;}
+.pv-quest-fill::after{content:'';position:absolute;top:0;left:-50%;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);animation:barShimmer 2s ease-in-out infinite;}
+@keyframes barShimmer{0%{left:-50%;}100%{left:150%;}}
+.pv-quest-text{font-size:10px;color:rgba(255,255,255,0.4);margin-top:4px;}
+
+/* 멤버 오빗 (행성 주변 작은 점들) */
+.member-orbit{position:absolute;width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;}
+.orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor;}
+
+/* 길드 게시판 */
+.board{max-height:300px;overflow-y:auto;}
+.board::-webkit-scrollbar{width:4px;}
+.board::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+.board-post{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.board-post:last-child{border-bottom:none;}
+.bp-header{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.bp-author{font-size:11px;font-weight:700;color:#38bdf8;}
+.bp-role{font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(245,158,11,0.2);color:#fbbf24;}
+.bp-time{font-size:9px;color:rgba(255,255,255,0.25);margin-left:auto;}
+.bp-content{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.bp-pinned{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:8px 10px;margin-bottom:8px;}
+.bp-pin-label{font-size:9px;color:#f59e0b;font-weight:700;margin-bottom:2px;}
+
+/* 오른쪽 — 멤버 + 채팅 */
+.member-list{margin-bottom:8px;}
+.member-item{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.member-item:last-child{border-bottom:none;}
+.m-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;}
+.m-dot.offline{background:#555;}
+.m-name{font-size:11px;color:rgba(255,255,255,0.7);flex:1;}
+.m-role{font-size:8px;padding:1px 5px;border-radius:4px;font-weight:600;}
+.m-role.leader{background:rgba(245,158,11,0.2);color:#fbbf24;}
+.m-role.keeper{background:rgba(14,165,233,0.2);color:#38bdf8;}
+.m-level{font-size:9px;color:rgba(255,255,255,0.25);}
+
+/* 길드 채팅 */
+.guild-chat{margin-top:8px;}
+.gc-msgs{height:180px;overflow-y:auto;margin-bottom:6px;}
+.gc-msgs::-webkit-scrollbar{width:4px;}
+.gc-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+.gc-msg{font-size:12px;color:rgba(255,255,255,0.6);padding:3px 0;}
+.gc-msg .nm{font-weight:600;color:#c4b5fd;}
+.gc-msg .sys{color:#f59e0b;font-weight:600;}
+.gc-row{display:flex;gap:4px;}
+.gc-input{flex:1;padding:7px 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;font-size:11px;color:#fff;outline:none;font-family:'Noto Sans KR';}
+.gc-input:focus{border-color:#0ea5e9;}
+.gc-input::placeholder{color:rgba(255,255,255,0.25);}
+.gc-send{padding:7px 14px;background:#0ea5e9;color:#fff;border:none;border-radius:10px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';}
+
+/* 멤버 링 (하단) */
+.member-ring{margin:12px 24px;position:relative;z-index:1;}
+.ring-title{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;text-align:center;}
+.ring-list{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.ring-member{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;transition:all .2s;}
+.ring-member:hover{transform:translateY(-3px);}
+.ring-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700;position:relative;}
+.ring-avatar.online{box-shadow:0 0 10px rgba(74,222,128,0.4);}
+.ring-avatar.online::after{content:'';position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;background:#4ade80;border:2px solid #0a0a1a;}
+.ring-avatar.offline{opacity:0.4;filter:grayscale(0.5);}
+.ring-name{font-size:9px;color:rgba(255,255,255,0.5);}
+
+.footer{text-align:center;padding:12px 20px 8px;font-size:11px;color:rgba(255,255,255,0.25);position:relative;z-index:1;}
+.footer a{color:rgba(255,255,255,0.25);text-decoration:none;}
+
+/* 유성 */
+.shooting-star{position:fixed;width:2px;height:2px;background:#fff;border-radius:50%;opacity:0;z-index:0;}
+.shooting-star::after{content:'';position:absolute;top:0;right:0;width:50px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.6),transparent);}
+.shoot{animation:shoot 1s ease-out forwards;}
+@keyframes shoot{0%{opacity:1;transform:translate(0,0) rotate(-45deg);}100%{opacity:0;transform:translate(-300px,300px) rotate(-45deg);}}
+
+@media(max-width:900px){.main{grid-template-columns:1fr 200px;}.left-panel{display:none;}}
+@media(max-width:640px){.main{grid-template-columns:1fr;}.right-panel{display:none;}.gh-stats{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<nav class="nav">
+    <a href="game-v2.html" class="nav-logo">Dudeoji Studio <span>World</span></a>
+    <div class="nav-links">
+        <a href="game-v2.html">홈</a>
+        <a href="shop.html?from=world">Loja</a>
+        <a href="mypage.html?from=world">Meu perfil</a>
+    </div>
+</nav>
+
+<!-- 길드 헤더 -->
+<div class="guild-header">
+    <div class="gh-planet"></div>
+    <div class="gh-info">
+        <div class="gh-name"><span class="gh-emblem">♌</span> Stellar Lions</div>
+        <div class="gh-meta">Lv.4 쌍성 · 🇰🇷 Coreano · 자유 가입 · 생성 2025.09.15</div>
+    </div>
+    <div class="gh-stats">
+        <div class="gh-stat"><div class="gh-stat-num">12</div><div class="gh-stat-label">멤버</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">1,247</div><div class="gh-stat-label">성진</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">#3</div><div class="gh-stat-label">순위</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">89</div><div class="gh-stat-label">게임</div></div>
+    </div>
+    <div class="gh-actions">
+        <button class="gh-btn" onclick="alert('길드 설정 (데모)')">⚙️ 설정</button>
+        <button class="gh-btn primary" onclick="location.href='game-v2.html'">🃏 게임하기</button>
+    </div>
+</div>
+
+<div class="main">
+    <!-- 왼쪽 — UGC 별자리 벽 -->
+    <div class="left-panel">
+        <div class="panel">
+            <div class="panel-title">✨ 별자리 벽 <button class="add-btn" onclick="alert('어휘 카드 만들기 (데모)')">+</button></div>
+
+            <div class="vocab-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div class="vc-word">사랑해</div>
+                    <div class="vc-lang">🇰🇷→🇪🇸</div>
+                </div>
+                <div class="vc-trans">Te quiero</div>
+                <div class="vc-bottom">
+                    <div class="vc-author">by Maria</div>
+                    <div class="vc-stars" onclick="this.textContent='⭐ 13'">⭐ 12</div>
+                </div>
+            </div>
+            <div class="vocab-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div class="vc-word">Saudade</div>
+                    <div class="vc-lang">🇵🇹→🇰🇷</div>
+                </div>
+                <div class="vc-trans">그리움 (번역 Fogo가)</div>
+                <div class="vc-bottom">
+                    <div class="vc-author">by Lucas</div>
+                    <div class="vc-stars" onclick="this.textContent='⭐ 28'">⭐ 27</div>
+                </div>
+            </div>
+            <div class="vocab-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div class="vc-word">木漏れ日</div>
+                    <div class="vc-lang">🇯🇵→🇰🇷</div>
+                </div>
+                <div class="vc-trans">나뭇잎 사이로 비치는 햇빛</div>
+                <div class="vc-bottom">
+                    <div class="vc-author">by Yuki</div>
+                    <div class="vc-stars" onclick="this.textContent='⭐ 35'">⭐ 34</div>
+                </div>
+            </div>
+            <div class="vocab-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div class="vc-word">Gemütlichkeit</div>
+                    <div class="vc-lang">🇩🇪→🇰🇷</div>
+                </div>
+                <div class="vc-trans">아늑하고 따뜻한 분위기</div>
+                <div class="vc-bottom">
+                    <div class="vc-author">by Felix</div>
+                    <div class="vc-stars" onclick="this.textContent='⭐ 20'">⭐ 19</div>
+                </div>
+            </div>
+
+            <div style="margin-top:12px;">
+                <div class="panel-title" style="margin-bottom:8px;">📚 퀴즈 팩</div>
+                <div class="quiz-pack" onclick="alert('퀴즈 플레이 (데모)')">
+                    <div class="qp-name">🇯🇵 Japones 감성 단어 10선</div>
+                    <div class="qp-meta">by Yuki · 10문제 · 🎮 48회 플레이</div>
+                </div>
+                <div class="quiz-pack" onclick="alert('퀴즈 플레이 (데모)')">
+                    <div class="qp-name">🇰🇷 한국 슬랭 퀴즈</div>
+                    <div class="qp-meta">by TAZO · 8문제 · 🎮 31회 플레이</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 센터 — 행성 뷰 + 게시판 -->
+    <div class="center">
+        <div class="planet-view">
+            <div class="member-orbit" id="memberOrbit"></div>
+            <div class="pv-planet"></div>
+            <div class="pv-name">♌ Stellar Lions</div>
+            <div class="pv-level">Lv.4 쌍성 · 성진 1,247 / 3,000</div>
+            <div class="pv-quest">
+                <div class="pv-quest-title">📋 주간 퀘스트: 게임 24판 플레이</div>
+                <div class="pv-quest-bar"><div class="pv-quest-fill" style="width:75%;"></div></div>
+                <div class="pv-quest-text">18 / 24 완료 · 보상: 성진 +30, 💎 x20</div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">📋 길드 게시판 <button class="add-btn" onclick="alert('글 쓰기 (데모)')">+</button></div>
+            <div class="board">
+                <div class="bp-pinned">
+                    <div class="bp-pin-label">📌 Avisos</div>
+                    <div class="bp-content">이번 주 길드전 토요일 오후 3시! 모두 참여해주세요. Star Breakers 상대입니다 🔥</div>
+                </div>
+                <div class="board-post">
+                    <div class="bp-header">
+                        <span class="bp-author">TAZO</span>
+                        <span class="bp-role">길드장</span>
+                        <span class="bp-time">2Horas 전</span>
+                    </div>
+                    <div class="bp-content">어휘 카드 열심히 만들어주세요! 이번 주 목표 50장입니다 💪</div>
+                </div>
+                <div class="board-post">
+                    <div class="bp-header">
+                        <span class="bp-author">Maria</span>
+                        <span class="bp-role">별지기</span>
+                        <span class="bp-time">5Horas 전</span>
+                    </div>
+                    <div class="bp-content">Espanhol 퀴즈팩 만들었어요! 한번 풀어보세요~ 🇪🇸</div>
+                </div>
+                <div class="board-post">
+                    <div class="bp-header">
+                        <span class="bp-author">Yuki</span>
+                        <span class="bp-time">8Horas 전</span>
+                    </div>
+                    <div class="bp-content">Japones 감성 단어 퀴즈팩 업데이트했습니다! 木漏れ日 추가 ☀️</div>
+                </div>
+                <div class="board-post">
+                    <div class="bp-header">
+                        <span class="bp-author">Felix</span>
+                        <span class="bp-time">1일 전</span>
+                    </div>
+                    <div class="bp-content">Alemao 단어 카드 5장 올렸어요. Wanderlust 같은 번역 Fogo가 단어들! 🇩🇪</div>
+                </div>
+                <div class="board-post">
+                    <div class="bp-header">
+                        <span class="bp-author">Lucas</span>
+                        <span class="bp-time">1일 전</span>
+                    </div>
+                    <div class="bp-content">어제 길드전에서 3연승! 다음 주도 화이팅 🎉</div>
+                </div>
+                <div class="board-post">
+                    <div class="bp-header">
+                        <span class="bp-author">Sofia</span>
+                        <span class="bp-time">2일 전</span>
+                    </div>
+                    <div class="bp-content">새로 가입했어요! 이탈리아어 배우는 중인데 잘 부탁드립니다 😊</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 오른쪽 — 멤버 + 채팅 -->
+    <div class="right-panel">
+        <div class="panel">
+            <div class="panel-title">👥 멤버 (12/20)</div>
+            <div class="member-list">
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">TAZO</div><span class="m-role leader">길드장</span><div class="m-level">Lv.5</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Maria</div><span class="m-role keeper">별지기</span><div class="m-level">Lv.4</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Yuki</div><span class="m-role keeper">별지기</span><div class="m-level">Lv.3</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Felix</div><div class="m-level">Lv.4</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Lucas</div><div class="m-level">Lv.3</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Sofia</div><div class="m-level">Lv.2</div></div>
+                <div class="member-item"><div class="m-dot"></div><div class="m-name">Hana</div><div class="m-level">Lv.3</div></div>
+                <div class="member-item"><div class="m-dot offline"></div><div class="m-name" style="opacity:0.4;">Jin</div><div class="m-level">Lv.2</div></div>
+                <div class="member-item"><div class="m-dot offline"></div><div class="m-name" style="opacity:0.4;">Alex</div><div class="m-level">Lv.3</div></div>
+                <div class="member-item"><div class="m-dot offline"></div><div class="m-name" style="opacity:0.4;">Leo</div><div class="m-level">Lv.1</div></div>
+                <div class="member-item"><div class="m-dot offline"></div><div class="m-name" style="opacity:0.4;">Mina</div><div class="m-level">Lv.2</div></div>
+                <div class="member-item"><div class="m-dot offline"></div><div class="m-name" style="opacity:0.4;">Tom</div><div class="m-level">Lv.1</div></div>
+            </div>
+        </div>
+
+        <div class="panel guild-chat">
+            <div class="panel-title">💬 길드 채팅</div>
+            <div class="gc-msgs" id="gcMsgs">
+                <div class="gc-msg"><span class="sys">[알림]</span> Sofia님이 길드에 가입했습니다!</div>
+                <div class="gc-msg"><span class="nm">Maria:</span> 소피아 환영! 🎉</div>
+                <div class="gc-msg"><span class="nm">Yuki:</span> 반가워요~</div>
+                <div class="gc-msg"><span class="nm">Sofia:</span> 감사합니다! 잘 부탁드려요 😊</div>
+                <div class="gc-msg"><span class="nm">TAZO:</span> 환영! 어휘 카드 만들어보면 재밌어</div>
+                <div class="gc-msg"><span class="nm">Felix:</span> 오늘 길드전 하는 사람?</div>
+                <div class="gc-msg"><span class="nm">Lucas:</span> 나 할래!</div>
+                <div class="gc-msg"><span class="nm">Maria:</span> 나도 ㄱ</div>
+                <div class="gc-msg"><span class="nm">Yuki:</span> Japones 퀴즈 누가 풀어볼 사람~</div>
+                <div class="gc-msg"><span class="nm">Hana:</span> 나 해볼게!</div>
+            </div>
+            <div class="gc-row">
+                <input class="gc-input" placeholder="Mensagens 입력..." id="gcInput" onkeydown="if(event.key==='Enter')sendGC()">
+                <button class="gc-send" onclick="sendGC()">전송</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 멤버 링 -->
+<div class="member-ring">
+    <div class="ring-title">🪐 온라인 멤버</div>
+    <div class="ring-list">
+        <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">T</div><div class="ring-name">TAZO</div></div>
+        <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div><div class="ring-name">Maria</div></div>
+        <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div><div class="ring-name">Yuki</div></div>
+        <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">F</div><div class="ring-name">Felix</div></div>
+        <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#43a047,#66bb6a);">L</div><div class="ring-name">Lucas</div></div>
+        <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">S</div><div class="ring-name">Sofia</div></div>
+        <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#ec4899,#f472b6);">H</div><div class="ring-name">Hana</div></div>
+        <div class="ring-member"><div class="ring-avatar offline" style="background:#555;">J</div><div class="ring-name" style="opacity:0.3;">Jin</div></div>
+        <div class="ring-member"><div class="ring-avatar offline" style="background:#555;">A</div><div class="ring-name" style="opacity:0.3;">Alex</div></div>
+        <div class="ring-member"><div class="ring-avatar offline" style="background:#555;">L</div><div class="ring-name" style="opacity:0.3;">Leo</div></div>
+        <div class="ring-member"><div class="ring-avatar offline" style="background:#555;">M</div><div class="ring-name" style="opacity:0.3;">Mina</div></div>
+        <div class="ring-member"><div class="ring-avatar offline" style="background:#555;">T</div><div class="ring-name" style="opacity:0.3;">Tom</div></div>
+    </div>
+</div>
+
+<div class="footer">&copy; 2025 Dudeoji Studio · <a href="privacy.html">Privacidade</a> · <a href="terms.html">Termos</a></div>
+
+<script>
+// 별 배경
+var s=document.getElementById('stars');
+for(var i=0;i<150;i++){
+    var d=document.createElement('div');
+    d.className='star';
+    var sz=Math.random()*2+0.5;
+    d.style.width=sz+'px';d.style.height=sz+'px';
+    d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';
+    d.style.setProperty('--dur',(Math.random()*3+2)+'s');
+    d.style.animationDelay=Math.random()*3+'s';
+    s.appendChild(d);
+}
+
+// 유성
+function shootStar(){
+    var el=document.createElement('div');
+    el.className='shooting-star shoot';
+    el.style.left=Math.random()*80+10+'%';
+    el.style.top=Math.random()*40+'%';
+    document.body.appendChild(el);
+    setTimeout(function(){el.remove();},1200);
+}
+setInterval(shootStar,Math.random()*6000+5000);
+setTimeout(shootStar,3000);
+
+// 멤버 오빗 점
+var orbit=document.getElementById('memberOrbit');
+var colors=['#f59e0b','#e91e63','#ab47bc','#1e88e5','#43a047','#ef6c00','#ec4899'];
+var onlineCount=7;
+for(var i=0;i<onlineCount;i++){
+    var dot=document.createElement('div');
+    dot.className='orbit-dot';
+    var angle=(i/onlineCount)*Math.PI*2;
+    var r=90;
+    dot.style.left=(100+Math.cos(angle)*r-4)+'px';
+    dot.style.top=(100+Math.sin(angle)*r-4)+'px';
+    dot.style.background=colors[i];
+    dot.style.color=colors[i];
+    orbit.appendChild(dot);
+}
+
+// 길드 채팅
+function sendGC(){
+    var input=document.getElementById('gcInput');
+    if(!input.value.trim())return;
+    var msgs=document.getElementById('gcMsgs');
+    var div=document.createElement('div');
+    div.className='gc-msg';
+    div.innerHTML='<span class="nm">TAZO:</span> '+input.value;
+    msgs.appendChild(div);
+    msgs.scrollTop=msgs.scrollHeight;
+    input.value='';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dudeoji Studio — 길드 탐색</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-height:100vh;}
+
+.nav{background:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:100;}
+.nav-logo{font-size:22px;font-weight:700;color:#0ea5e9;text-decoration:none;}
+.nav-logo span{color:#f59e0b;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 16px;border-radius:20px;color:#666;font-weight:500;}
+.nav-links a:hover{background:#e0f2fe;color:#0ea5e9;}
+.nav-links a.active{background:#0ea5e9;color:#fff;}
+
+/* 탭 바 — game-v2와 동일 */
+.tab-bar{background:linear-gradient(135deg,#0ea5e9,#38bdf8);padding:0 20px;display:flex;gap:0;box-shadow:0 2px 8px rgba(14,165,233,0.2);}
+.tab-item{padding:12px 22px;font-size:13px;font-weight:700;cursor:pointer;color:rgba(255,255,255,0.6);border-bottom:3px solid transparent;display:flex;align-items:center;gap:6px;transition:all .2s;}
+.tab-item:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
+.tab-item.active{color:#fff;border-bottom-color:#f59e0b;background:rgba(255,255,255,0.1);}
+.tab-item .t-emoji{font-size:20px;}
+.notice-ticker{margin-left:auto;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border-radius:20px;padding:6px 14px;min-width:260px;max-width:420px;overflow:hidden;}
+.notice-icon{font-size:14px;flex-shrink:0;}
+.notice-text{font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* 메인 3컬럼 — game-v2와 동일 */
+.game-main{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(180px,14vw);gap:12px;}
+
+/* 공통 카드 */
+.card{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.card-title{font-size:12px;font-weight:700;color:#0ea5e9;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+
+/* 왼쪽 */
+.left{display:flex;flex-direction:column;gap:12px;}
+.my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
+.my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
+@keyframes starGlow{0%{filter:drop-shadow(0 0 6px rgba(255,160,50,0.8));}100%{filter:drop-shadow(0 0 10px rgba(255,160,50,1));}}
+@keyframes starBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+.my-profile-name{font-size:14px;font-weight:700;color:#333;}
+.my-profile-sub{font-size:10px;color:#999;}
+
+.my-guild-card{display:flex;align-items:center;gap:10px;padding:10px;background:linear-gradient(135deg,#fef3c7,#fff7ed);border-radius:10px;cursor:pointer;transition:all .15s;}
+.my-guild-card:hover{transform:scale(1.02);}
+.mg-emblem{font-size:28px;}
+.mg-name{font-size:13px;font-weight:700;color:#b45309;}
+.mg-sub{font-size:10px;color:#999;}
+
+/* 필터 */
+.filter-group{margin-bottom:10px;}
+.filter-label{font-size:11px;font-weight:600;color:#888;margin-bottom:5px;}
+.filter-pills{display:flex;flex-wrap:wrap;gap:4px;}
+.filter-pill{font-size:10px;padding:4px 10px;border-radius:12px;border:1px solid #e0e0e0;background:#fff;cursor:pointer;font-family:'Noto Sans KR';transition:all .15s;color:#666;}
+.filter-pill:hover{border-color:#0ea5e9;color:#0ea5e9;}
+.filter-pill.active{background:#0ea5e9;color:#fff;border-color:#0ea5e9;}
+.filter-select{width:100%;padding:8px 10px;border:1px solid #e0e0e0;border-radius:10px;font-size:12px;font-family:'Noto Sans KR';outline:none;background:#fff;}
+
+.create-guild-btn{display:block;width:100%;padding:14px;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#7c2d12;font-size:14px;font-weight:700;border:none;border-radius:12px;cursor:pointer;font-family:'Noto Sans KR';text-align:center;box-shadow:0 3px 10px rgba(245,158,11,0.25);transition:all .2s;}
+.create-guild-btn:hover{transform:scale(1.03);}
+
+/* 센터 — 길드 리스트 */
+.room-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.room-header h2{font-size:15px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
+.search-bar{display:flex;gap:6px;margin-bottom:10px;}
+.search-input{flex:1;padding:9px 14px;border:1px solid #e0e0e0;border-radius:12px;font-size:12px;font-family:'Noto Sans KR';outline:none;}
+.search-input:focus{border-color:#0ea5e9;}
+.search-btn{padding:9px 18px;background:#0ea5e9;color:#fff;border:none;border-radius:12px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';}
+
+.room-list{background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);overflow:hidden;}
+.room-row{display:flex;align-items:center;padding:12px 14px;border-bottom:1px solid #f5f5f5;cursor:pointer;transition:all .15s;gap:10px;}
+.room-row:last-child{border-bottom:none;}
+.room-row:hover{background:#f0f9ff;transform:scale(1.005);}
+.room-row.mine{border-left:3px solid #f59e0b;}
+.r-emblem{font-size:28px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#f8f8f8;border-radius:10px;flex-shrink:0;}
+/* 레벨별 박스 배경색 */
+.r-emblem.lv1{background:#f0f0f0;}
+.r-emblem.lv2{background:#e0f2fe;}
+.r-emblem.lv3{background:#ecfccb;}
+.r-emblem.lv4{background:#fef3c7;}
+.r-emblem.lv5{background:#fed7aa;}
+.r-emblem.lv6{background:#fecaca;}
+.r-emblem.lv7{background:#ede9fe;}
+.r-emblem.lv8{background:#ddd6fe;}
+.r-emblem.lv9{background:#fecdd3;}
+.r-emblem.lv10{background:#fef3c7;}
+/* 레벨별 이모지 선 글로우 (text-shadow) */
+.r-emblem.lv1 span{}
+.r-emblem.lv2 span{text-shadow:0 0 4px rgba(14,165,233,0.5);}
+.r-emblem.lv3 span{text-shadow:0 0 5px rgba(132,204,22,0.6);}
+.r-emblem.lv4 span{text-shadow:0 0 6px rgba(245,158,11,0.6);}
+.r-emblem.lv5 span{text-shadow:0 0 8px rgba(249,115,22,0.7);animation:tGlow5 2.5s ease-in-out infinite alternate;}
+.r-emblem.lv6 span{text-shadow:0 0 8px rgba(239,68,68,0.7);animation:tGlow6 2.5s ease-in-out infinite alternate;}
+.r-emblem.lv7 span{text-shadow:0 0 10px rgba(139,92,246,0.8);animation:tGlow7 2s ease-in-out infinite alternate;}
+.r-emblem.lv8 span{text-shadow:0 0 10px rgba(139,92,246,0.9),0 0 20px rgba(139,92,246,0.4);animation:tGlow8 2s ease-in-out infinite alternate;}
+.r-emblem.lv9 span{text-shadow:0 0 10px rgba(239,68,68,0.9),0 0 20px rgba(245,158,11,0.5);animation:tGlow9 1.8s ease-in-out infinite alternate;}
+.r-emblem.lv10 span{text-shadow:0 0 12px rgba(245,158,11,1),0 0 24px rgba(139,92,246,0.6),0 0 36px rgba(239,68,68,0.4);animation:tGlow10 1.5s ease-in-out infinite alternate;}
+@keyframes tGlow5{to{text-shadow:0 0 14px rgba(249,115,22,1);}}
+@keyframes tGlow6{to{text-shadow:0 0 14px rgba(239,68,68,1);}}
+@keyframes tGlow7{to{text-shadow:0 0 16px rgba(139,92,246,1);}}
+@keyframes tGlow8{to{text-shadow:0 0 16px rgba(139,92,246,1),0 0 30px rgba(139,92,246,0.6);}}
+@keyframes tGlow9{to{text-shadow:0 0 16px rgba(239,68,68,1),0 0 30px rgba(245,158,11,0.8);}}
+@keyframes tGlow10{to{text-shadow:0 0 20px rgba(245,158,11,1),0 0 36px rgba(139,92,246,0.8),0 0 50px rgba(239,68,68,0.6);}}
+.r-info{flex:1;min-width:0;}
+.r-name{font-size:14px;font-weight:700;color:#333;display:flex;align-items:center;gap:6px;}
+.r-name .mine-badge{font-size:9px;color:#f59e0b;font-weight:400;}
+.r-desc{font-size:11px;color:#999;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.r-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap;}
+.r-tag{font-size:9px;padding:2px 7px;border-radius:6px;font-weight:500;}
+.r-tag.lang{background:#fef3c7;color:#b45309;}
+.r-tag.level{background:#f0fdf4;color:#16a34a;}
+.r-tag.open{background:#e0f2fe;color:#0ea5e9;}
+.r-tag.closed{background:#fce7f3;color:#db2777;}
+.r-right{text-align:right;flex-shrink:0;}
+.r-members{font-size:12px;font-weight:700;color:#555;}
+.r-score{font-size:10px;color:#8b5cf6;font-weight:600;}
+.r-join{padding:5px 14px;background:#0ea5e9;color:#fff;border:none;border-radius:10px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';margin-top:4px;transition:all .2s;animation:enterPulse 2s ease-in-out infinite;}
+.r-join:hover{background:#0284c7;transform:scale(1.05);}
+@keyframes enterPulse{0%,100%{box-shadow:0 0 0 0 rgba(14,165,233,0.3);}50%{box-shadow:0 0 0 6px rgba(14,165,233,0);}}
+.r-join.mine-btn{background:#f59e0b;animation:none;}
+.r-join.mine-btn:hover{background:#d97706;}
+.r-join.full{background:#e0e0e0;color:#999;cursor:default;animation:none;}
+.r-join.full:hover{transform:none;}
+.r-join.apply{background:#8b5cf6;}
+.r-join.apply:hover{background:#7c3aed;}
+
+/* 오른쪽 */
+.side-right{display:flex;flex-direction:column;gap:12px;}
+.stat-num{font-size:18px;font-weight:700;color:#0ea5e9;}
+.stat-label{font-size:9px;color:#999;}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;text-align:center;}
+.stat-item{padding:8px 4px;background:#f8f8f8;border-radius:10px;}
+
+.top-guild-item{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid #f5f5f5;}
+.top-guild-item:last-child{border-bottom:none;}
+.tg-rank{font-size:12px;font-weight:700;color:#f59e0b;width:18px;}
+.tg-emblem{font-size:16px;}
+.tg-name{font-size:11px;font-weight:600;color:#555;flex:1;}
+.tg-score{font-size:10px;color:#8b5cf6;font-weight:600;}
+
+/* Dudeoji문 배너 */
+.moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;position:relative;overflow:hidden;}
+.moon-banner:hover{transform:scale(1.03);}
+.moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;display:inline-block;}
+@keyframes moonFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.moon-title{font-size:13px;font-weight:700;margin-bottom:2px;}
+.moon-brand{font-size:12px;color:rgba(255,255,255,0.6);}
+
+/* 모달 */
+.modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:200;align-items:center;justify-content:center;}
+.modal-bg.show{display:flex;}
+.modal{background:#fff;border-radius:20px;padding:28px;width:400px;max-height:85vh;overflow-y:auto;box-shadow:0 8px 30px rgba(0,0,0,0.15);}
+.modal h3{font-size:18px;font-weight:700;color:#333;margin-bottom:16px;text-align:center;}
+.modal-field{margin-bottom:14px;}
+.modal-label{font-size:12px;font-weight:600;color:#888;margin-bottom:6px;}
+.modal-input{width:100%;padding:10px 14px;border:1px solid #e0e0e0;border-radius:12px;font-size:13px;outline:none;font-family:'Noto Sans KR';}
+.modal-input:focus{border-color:#0ea5e9;}
+.modal-select{width:100%;padding:10px 14px;border:1px solid #e0e0e0;border-radius:12px;font-size:13px;outline:none;font-family:'Noto Sans KR';background:#fff;}
+.modal-textarea{width:100%;padding:10px 14px;border:1px solid #e0e0e0;border-radius:12px;font-size:12px;outline:none;font-family:'Noto Sans KR';resize:vertical;height:60px;}
+.emblem-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+.emblem-item{text-align:center;font-size:22px;padding:8px 4px;border:2px solid #f0f0f0;border-radius:10px;cursor:pointer;transition:all .15s;}
+.emblem-item:hover{border-color:#0ea5e9;background:#e0f2fe;}
+.emblem-item.selected{border-color:#f59e0b;background:#fef3c7;}
+.color-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+.color-item{width:100%;aspect-ratio:1;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .15s;}
+.color-item:hover{transform:scale(1.15);}
+.color-item.selected{border-color:#333;box-shadow:0 0 0 2px #fff, 0 0 0 4px #333;}
+.join-type-btns{display:flex;gap:8px;}
+.join-type-btn{flex:1;padding:10px;border:2px solid #e0e0e0;border-radius:12px;background:#fff;font-size:12px;font-weight:600;cursor:pointer;text-align:center;font-family:'Noto Sans KR';transition:all .2s;color:#666;}
+.join-type-btn.selected{border-color:#0ea5e9;background:#e0f2fe;color:#0ea5e9;}
+.member-btns{display:flex;gap:8px;}
+.member-btn{flex:1;padding:10px;border:2px solid #e0e0e0;border-radius:12px;background:#fff;font-size:13px;font-weight:700;cursor:pointer;text-align:center;font-family:'Noto Sans KR';color:#666;}
+.member-btn.selected{border-color:#0ea5e9;background:#e0f2fe;color:#0ea5e9;}
+.modal-btns{display:flex;gap:8px;margin-top:18px;}
+.modal-cancel{flex:1;padding:10px;border:1px solid #e0e0e0;border-radius:12px;background:#fff;font-size:13px;cursor:pointer;font-family:'Noto Sans KR';color:#888;}
+.modal-create{flex:1;padding:10px;border:none;border-radius:12px;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#7c2d12;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR';}
+.modal-cost{text-align:center;font-size:11px;color:#999;margin-top:8px;}
+
+.footer{text-align:center;padding:12px 20px 8px;font-size:11px;color:#888;width:100%;display:block;clear:both;margin-top:12px;}
+
+/* 다크모드 */
+.dark body{background:#1a1a2a;color:#ccc;}
+.dark .nav{background:#12122a;box-shadow:0 1px 8px rgba(0,0,0,0.3);}
+.dark .nav-links a{color:#888;}
+.dark .nav-links a:hover{background:#1a2a3a;color:#38bdf8;}
+.dark .tab-bar{background:linear-gradient(135deg,#0c4a6e,#1e3a5f);}
+.dark .card{background:#1e1e30;box-shadow:none;border:1px solid #2a2a3a;}
+.dark .my-profile-card{background:#1e1e30;border:1px solid #2a2a3a;box-shadow:none;}
+.dark .my-profile-name{color:#ddd;}
+.dark .my-guild-card{background:linear-gradient(135deg,#2a2a1a,#1e1e30);border:1px solid #3a3a2a;}
+.dark .mg-name{color:#fbbf24;}
+.dark .filter-pill{background:#1a1a2a;border-color:#2a2a3a;color:#888;}
+.dark .filter-pill.active{background:#0ea5e9;color:#fff;border-color:#0ea5e9;}
+.dark .filter-select{background:#12122a;border-color:#2a2a3a;color:#ccc;}
+.dark .search-input{background:#1e1e30;border-color:#2a2a3a;color:#ccc;}
+.dark .room-list{background:#1e1e30;box-shadow:none;border:1px solid #2a2a3a;}
+.dark .room-row{border-bottom-color:#2a2a3a;}
+.dark .room-row:hover{background:#252540;}
+.dark .r-emblem{background:#12122a;}
+.dark .r-name{color:#ddd;}
+.dark .r-desc{color:#777;}
+.dark .r-members{color:#ccc;}
+.dark .r-tag.lang{background:#2a2a1a;color:#fbbf24;}
+.dark .r-tag.level{background:#1a2a1a;color:#4ade80;}
+.dark .r-tag.open{background:#0c2a3a;color:#38bdf8;}
+.dark .r-tag.closed{background:#2a1a2a;color:#f472b6;}
+.dark .room-header h2{color:#ddd;}
+.dark .stat-item{background:#12122a;}
+.dark .stat-num{color:#38bdf8;}
+.dark .top-guild-item{border-bottom-color:#2a2a3a;}
+.dark .tg-name{color:#ccc;}
+.dark .notice-ticker{background:rgba(0,0,0,0.2);}
+.dark .modal{background:#1e1e30;} .dark .modal h3{color:#ddd;}
+.dark .modal-input,.dark .modal-select,.dark .modal-textarea{background:#12122a;border-color:#2a2a3a;color:#ccc;}
+.dark .emblem-item{border-color:#2a2a3a;} .dark .emblem-item.selected{border-color:#f59e0b;background:#2a2a1a;}
+.dark .join-type-btn,.dark .member-btn{background:#12122a;border-color:#2a2a3a;color:#888;}
+.dark .join-type-btn.selected,.dark .member-btn.selected{border-color:#0ea5e9;background:#1a2a3a;color:#38bdf8;}
+.dark .modal-cancel{background:#12122a;border-color:#2a2a3a;color:#888;}
+.dark .footer{color:#555;}
+
+@media(max-width:900px){.game-main{grid-template-columns:1fr 180px;}.left{display:none;}}
+@media(max-width:640px){.game-main{grid-template-columns:1fr;}.left{display:flex;}.side-right{display:none;}.notice-ticker{display:none;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="game-v2.html" class="nav-logo">Dudeoji Studio <span>World</span></a>
+    <div class="nav-links">
+        <a href="game-v2.html">홈</a>
+        <a href="shop.html?from=world">Loja</a>
+        <a href="mypage.html?from=world">Meu perfil</a>
+    </div>
+</nav>
+
+<div class="tab-bar">
+    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🃏</span> 원카드</a>
+    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">🧩</span> 그림 맞추기</a>
+    <a href="game-v2.html" class="tab-item" style="text-decoration:none;"><span class="t-emoji">💬</span> 수다방</a>
+    <div class="tab-item active"><span class="t-emoji">🪐</span> 길드</div>
+    <div class="notice-ticker">
+        <span class="notice-icon">📢</span>
+        <div class="notice-text">길드를 만들고 함께 빛나세요! 길드전 보상 2배 이벤트 진행 중</div>
+    </div>
+</div>
+
+<div class="game-main">
+    <div class="left">
+        <!-- 프로필 -->
+        <div class="my-profile-card">
+            <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/>
+                <ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite"/></ellipse>
+                <ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite"/></ellipse>
+                <path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div>
+                <div class="my-profile-name">TAZO</div>
+                <div class="my-profile-sub">⭐ Lv.5 · 🔥 Fogo · Leao</div>
+            </div>
+        </div>
+
+        <!-- 내 길드 -->
+        <div class="card">
+            <div class="card-title">🪐 내 길드</div>
+            <div class="my-guild-card" onclick="location.href='guild-space.html'">
+                <div class="mg-emblem">♌</div>
+                <div>
+                    <div class="mg-name">Stellar Lions</div>
+                    <div class="mg-sub">Lv.4 쌍성 · 👤 12/20 · #3위</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 필터 -->
+        <div class="card">
+            <div class="card-title">🔍 필터</div>
+            <div class="filter-group">
+                <div class="filter-label">언어</div>
+                <div class="filter-pills" id="langFilter">
+                    <div class="filter-pill active">전체</div>
+                    <div class="filter-pill">🇰🇷</div>
+                    <div class="filter-pill">🇬🇧</div>
+                    <div class="filter-pill">🇯🇵</div>
+                    <div class="filter-pill">🇪🇸</div>
+                    <div class="filter-pill">🇩🇪</div>
+                    <div class="filter-pill">🇫🇷</div>
+                    <div class="filter-pill">🇮🇹</div>
+                    <div class="filter-pill">🇵🇹</div>
+                </div>
+            </div>
+            <div class="filter-group">
+                <div class="filter-label">정렬</div>
+                <select class="filter-select">
+                    <option>멤버 많은 순</option>
+                    <option>레벨 높은 순</option>
+                    <option>최신순</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <div class="filter-label">가입 방식</div>
+                <div class="filter-pills" id="joinFilter">
+                    <div class="filter-pill active">전체</div>
+                    <div class="filter-pill">자유</div>
+                    <div class="filter-pill">승인</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="create-guild-btn" onclick="openCreateModal()">🌟 길드 만들기<br><span style="font-size:10px;font-weight:400;color:#92400e;">💎 500 Fragmentos estelares</span></button>
+
+        <a href="v2-penpal.html" style="display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;font-size:14px;font-weight:700;border-radius:12px;text-decoration:none;box-shadow:0 3px 10px rgba(14,165,233,0.25);transition:all .2s;letter-spacing:1px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Dudeoji Studio</a>
+    </div>
+
+    <!-- 센터 -->
+    <div>
+        <div class="room-header">
+            <h2>🪐 길드 탐색</h2>
+        </div>
+        <div class="search-bar">
+            <input class="search-input" placeholder="길드 이름 검색...">
+            <button class="search-btn">검색</button>
+        </div>
+
+        <div class="room-list">
+            <div class="room-row">
+                <div class="r-emblem lv7"><span>♈</span></div>
+                <div class="r-info">
+                    <div class="r-name">Star Breakers</div>
+                    <div class="r-desc">Espanhol 배우는 사람 모여라! 매일 원카드 대회 🔥</div>
+                    <div class="r-tags"><div class="r-tag lang">🇪🇸 Espanhol</div><div class="r-tag level">Lv.7</div><div class="r-tag open">자유</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 28/30</div>
+                    <div class="r-score">2,840 성진</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('가입 완료! (데모)')">가입</button>
+                </div>
+            </div>
+            <div class="room-row">
+                <div class="r-emblem lv6"><span>♊</span></div>
+                <div class="r-info">
+                    <div class="r-name">Luna Wolves</div>
+                    <div class="r-desc">Japones + Coreano 교환! 초보 환영 🌙</div>
+                    <div class="r-tags"><div class="r-tag lang">🇯🇵 Japones</div><div class="r-tag level">Lv.6</div><div class="r-tag closed">승인</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 22/30</div>
+                    <div class="r-score">2,105 성진</div>
+                    <button class="r-join apply" onclick="event.stopPropagation();alert('가입 신청 완료! (데모)')">신청</button>
+                </div>
+            </div>
+            <div class="room-row mine">
+                <div class="r-emblem lv4"><span>♌</span></div>
+                <div class="r-info">
+                    <div class="r-name">Stellar Lions <span class="mine-badge">내 길드</span></div>
+                    <div class="r-desc">Coreano 마스터를 목표로! 길드전 매주 참여 🦁</div>
+                    <div class="r-tags"><div class="r-tag lang">🇰🇷 Coreano</div><div class="r-tag level">Lv.4</div><div class="r-tag open">자유</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 12/20</div>
+                    <div class="r-score">1,247 성진</div>
+                    <button class="r-join mine-btn" onclick="event.stopPropagation();location.href='guild-space.html'">입장</button>
+                </div>
+            </div>
+            <div class="room-row">
+                <div class="r-emblem lv5"><span>♓</span></div>
+                <div class="r-info">
+                    <div class="r-name">Cosmic Riders</div>
+                    <div class="r-desc">Alemao 중급 이상! 어휘 카드 열심히 만들어요 🚀</div>
+                    <div class="r-tags"><div class="r-tag lang">🇩🇪 Alemao</div><div class="r-tag level">Lv.5</div><div class="r-tag open">자유</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 18/20</div>
+                    <div class="r-score">980 성진</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('가입 완료! (데모)')">가입</button>
+                </div>
+            </div>
+            <div class="room-row">
+                <div class="r-emblem lv3"><span>♎</span></div>
+                <div class="r-info">
+                    <div class="r-name">Nebula Knights</div>
+                    <div class="r-desc">Frances 사랑! Bonjour~ 🇫🇷</div>
+                    <div class="r-tags"><div class="r-tag lang">🇫🇷 Frances</div><div class="r-tag level">Lv.3</div><div class="r-tag closed">승인</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 15/20</div>
+                    <div class="r-score">720 성진</div>
+                    <button class="r-join apply" onclick="event.stopPropagation();alert('가입 신청 완료! (데모)')">신청</button>
+                </div>
+            </div>
+            <div class="room-row">
+                <div class="r-emblem lv2"><span>♉</span></div>
+                <div class="r-info">
+                    <div class="r-name">Starlight Cafe</div>
+                    <div class="r-desc">이탈리아어로 커피 한잔? Ciao! ☕</div>
+                    <div class="r-tags"><div class="r-tag lang">🇮🇹 이탈리아어</div><div class="r-tag level">Lv.2</div><div class="r-tag open">자유</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 8/10</div>
+                    <div class="r-score">310 성진</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('가입 완료! (데모)')">가입</button>
+                </div>
+            </div>
+            <div class="room-row">
+                <div class="r-emblem lv4"><span>♏</span></div>
+                <div class="r-info">
+                    <div class="r-name">Nova Squad</div>
+                    <div class="r-desc">Ingles 실력 폭발! 매일 퀴즈 도전 💥</div>
+                    <div class="r-tags"><div class="r-tag lang">🇬🇧 Ingles</div><div class="r-tag level">Lv.4</div><div class="r-tag open">자유</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 20/20</div>
+                    <div class="r-score">1,100 성진</div>
+                    <button class="r-join full" disabled>마감</button>
+                </div>
+            </div>
+            <div class="room-row">
+                <div class="r-emblem lv1"><span>♒</span></div>
+                <div class="r-info">
+                    <div class="r-name">Galaxy Dreamers</div>
+                    <div class="r-desc">Portugues + Espanhol 동시 교환! 🌎</div>
+                    <div class="r-tags"><div class="r-tag lang">🇵🇹 Portugues</div><div class="r-tag level">Lv.1</div><div class="r-tag open">자유</div></div>
+                </div>
+                <div class="r-right">
+                    <div class="r-members">👤 5/30</div>
+                    <div class="r-score">85 성진</div>
+                    <button class="r-join" onclick="event.stopPropagation();alert('가입 완료! (데모)')">가입</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 오른쪽 -->
+    <div class="side-right">
+        <div class="card">
+            <div class="card-title">📊 길드 현황</div>
+            <div class="stat-grid">
+                <div class="stat-item"><div class="stat-num">42</div><div class="stat-label">전체 길드</div></div>
+                <div class="stat-item"><div class="stat-num">389</div><div class="stat-label">총 멤버</div></div>
+                <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">이번 주 신규</div></div>
+                <div class="stat-item"><div class="stat-num">156</div><div class="stat-label">길드전 수</div></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🏆 인기 길드</div>
+            <div class="top-guild-item"><div class="tg-rank">🥇</div><div class="tg-emblem">♈</div><div class="tg-name">Star Breakers</div><div class="tg-score">2,840</div></div>
+            <div class="top-guild-item"><div class="tg-rank">🥈</div><div class="tg-emblem">♊</div><div class="tg-name">Luna Wolves</div><div class="tg-score">2,105</div></div>
+            <div class="top-guild-item"><div class="tg-rank">🥉</div><div class="tg-emblem">♌</div><div class="tg-name">Stellar Lions</div><div class="tg-score">1,247</div></div>
+            <div class="top-guild-item"><div class="tg-rank" style="color:#888;">4</div><div class="tg-emblem">♏</div><div class="tg-name">Nova Squad</div><div class="tg-score">1,100</div></div>
+            <div class="top-guild-item"><div class="tg-rank" style="color:#888;">5</div><div class="tg-emblem">♓</div><div class="tg-name">Cosmic Riders</div><div class="tg-score">980</div></div>
+        </div>
+
+        <a href="#" class="moon-banner">
+            <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div class="moon-title">오늘의 운세는?</div>
+            <div class="moon-brand">Dudeoji Studio</div>
+        </a>
+    </div>
+</div>
+
+<!-- 길드 만들기 모달 -->
+<div class="modal-bg" id="createModal">
+    <div class="modal">
+        <h3>🌟 길드 만들기</h3>
+        <div class="modal-field">
+            <div class="modal-label">길드 이름</div>
+            <input class="modal-input" placeholder="2~12자" maxlength="12">
+        </div>
+        <div class="modal-field">
+            <div class="modal-label">엠블럼</div>
+            <div class="emblem-grid">
+                <div class="emblem-item selected" onclick="sel(this,'.emblem-item')">♈</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♉</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♊</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♋</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♌</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♍</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♎</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♏</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♐</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♑</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♒</div>
+                <div class="emblem-item" onclick="sel(this,'.emblem-item')">♓</div>
+            </div>
+        </div>
+        <div class="modal-field">
+            <div class="modal-label">길드 색상</div>
+            <div class="color-grid">
+                <div class="color-item selected" style="background:#ef4444;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#f59e0b;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#eab308;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#22c55e;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#0ea5e9;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#6366f1;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#8b5cf6;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#ec4899;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#14b8a6;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#f97316;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#64748b;" onclick="sel(this,'.color-item')"></div>
+                <div class="color-item" style="background:#1e1b4b;" onclick="sel(this,'.color-item')"></div>
+            </div>
+        </div>
+        <div class="modal-field">
+            <div class="modal-label">주요 언어</div>
+            <select class="modal-select"><option>🇰🇷 Coreano</option><option>🇬🇧 English</option><option>🇯🇵 日本語</option><option>🇪🇸 Español</option><option>🇩🇪 Deutsch</option><option>🇫🇷 Français</option><option>🇮🇹 Italiano</option><option>🇵🇹 Português</option><option>🌍 다국어</option></select>
+        </div>
+        <div class="modal-field">
+            <div class="modal-label">Sobre글</div>
+            <textarea class="modal-textarea" placeholder="길드를 Sobre해주세요 (선택)"></textarea>
+        </div>
+        <div class="modal-field">
+            <div class="modal-label">가입 방식</div>
+            <div class="join-type-btns">
+                <div class="join-type-btn selected" onclick="sel(this,'.join-type-btn')">🔓 자유 가입</div>
+                <div class="join-type-btn" onclick="sel(this,'.join-type-btn')">🔒 승인 필요</div>
+            </div>
+        </div>
+        <div class="modal-field">
+            <div class="modal-label">최대 인원</div>
+            <div class="member-btns">
+                <div class="member-btn" onclick="sel(this,'.member-btn')">10명</div>
+                <div class="member-btn selected" onclick="sel(this,'.member-btn')">20명</div>
+                <div class="member-btn" onclick="sel(this,'.member-btn')">30명</div>
+            </div>
+        </div>
+        <div class="modal-btns">
+            <button class="modal-cancel" onclick="closeCreateModal()">취소</button>
+            <button class="modal-create" onclick="createGuild()">길드 만들기</button>
+        </div>
+        <div class="modal-cost">💎 500 Fragmentos estelares이 차감됩니다</div>
+    </div>
+</div>
+
+<div class="footer">&copy; 2025 Dudeoji Studio<br><a href="privacy.html" style="color:#aaa;font-size:10px;text-decoration:none;">Privacidade</a> · <a href="terms.html" style="color:#aaa;font-size:10px;text-decoration:none;">Termos</a></div>
+
+<button id="darkBtn" onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'));this.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#0ea5e9;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:999;">🌙</button>
+<script>if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}</script>
+
+<script>
+function sel(el,cls){document.querySelectorAll(cls).forEach(function(e){e.classList.remove('selected');});el.classList.add('selected');}
+document.querySelectorAll('.filter-pills').forEach(function(wrap){
+    wrap.querySelectorAll('.filter-pill').forEach(function(pill){
+        pill.addEventListener('click',function(){
+            wrap.querySelectorAll('.filter-pill').forEach(function(p){p.classList.remove('active');});
+            pill.classList.add('active');
+        });
+    });
+});
+function openCreateModal(){document.getElementById('createModal').classList.add('show');}
+function closeCreateModal(){document.getElementById('createModal').classList.remove('show');}
+document.getElementById('createModal').addEventListener('click',function(e){if(e.target===this)closeCreateModal();});
+function createGuild(){closeCreateModal();alert('길드가 만들어졌습니다! (데모)\n💎 500 Fragmentos estelares 차감');}
+</script>
+
+</body>
+</html>
