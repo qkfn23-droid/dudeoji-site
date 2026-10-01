@@ -271,7 +271,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <a href="game-v2.html" style="display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;font-size:15px;font-weight:700;border-radius:14px;text-decoration:none;box-shadow:0 4px 12px rgba(14,165,233,0.25);transition:all .2s;letter-spacing:1px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Dudeoji Studio<br>World</a>
 </div>
 
-<!-- 가운데 -->
+<!-- Is운데 -->
 <div class="center">
     <div class="actions">
         <a href="write-letter.html" class="action-btn">
@@ -443,7 +443,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 
 <button id="darkBtn" onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'));this.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#0ea5e9;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:999;">🌙</button>
 <script>if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
-// Dudeoji문 배너 슬라이드
+// Dudeoji문 배너 슬라This드
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
 if(moonTexts.length){var moonIdx=0;setInterval(function(){moonTexts[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%moonTexts.length;moonTexts[moonIdx].classList.add('active');},3000);}
 
@@ -454,7 +454,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Sofia','같이 Italian 배울 사람~ 🇮🇹');},12000);
+setTimeout(function(){showMegaphone('Sofia','같This Italian 배울 사람~ 🇮🇹');},12000);
 </script>
 </body>
 </html>
