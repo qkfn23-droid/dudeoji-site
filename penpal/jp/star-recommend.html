@@ -522,7 +522,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- 今日の 運勢 미your -->
+        <!-- 今日の 運勢 Preview -->
         <div class="fortune-mini">
             <div class="fortune-title">🌙 今日の 獅子座</div>
             <div class="fortune-text">
@@ -546,7 +546,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <script>
 if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
 
-// お知らせ 티커
+// お知らせ Ticker
 let noticeIdx=0;
 setInterval(()=>{
     const texts=document.querySelectorAll('#noticeTicker .notice-text');
@@ -555,7 +555,7 @@ setInterval(()=>{
     texts[noticeIdx].classList.add('active');
 },4000);
 
-// month 슬라더
+// month Slider
 let moonIdx=0;
 setInterval(()=>{
     const texts=document.querySelectorAll('#moonSlider .moon-text');

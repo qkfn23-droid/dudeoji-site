@@ -285,11 +285,11 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">One Card Saison Open! Penpal Amis one 판 try it</div>
-            <div class="notice-text">번 주 One Card TOP 3to Star Energie x50 Cadeau!</div>
+            <div class="notice-text">This week One Card TOP 3to Star Energie x50 Cadeau!</div>
             <div class="notice-text">Image Match 10month Open Prevu! Stay tuned</div>
             <div class="notice-text">Star Energie collect Aura Debloquerplease!</div>
-            <div class="notice-text">Current Connected자 127명 · Progression in progress Jeu 23개</div>
-            <div class="notice-text">비매너 Utilisateur Signaler 기능 addcompleted</div>
+            <div class="notice-text">Current users 127people · Progression in progress Jeu 23pcs</div>
+            <div class="notice-text">비매너 Utilisateur Signaler Feature addcompleted</div>
         </div>
     </div>
 </div>
@@ -357,7 +357,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     <!-- Center - Jeu -->
     <div class="game-col">
         <div class="game-table">
-            <!-- Opponent 3명 -->
+            <!-- Opponent 3people -->
             <div class="opp-row">
                 <div class="opp-player">
                     <div class="opp-info">
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without Card! (Meme 무늬 또는 Meme Nombre만 가능)');
+        alert('낼 수 without Card! (Meme 무늬 또는 Meme Nombre만 possible)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -706,9 +706,9 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','One Card 고수만 라!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','One Card pros only!! 🔥');},15000);
 
-// Annonces 티커
+// Annonces Ticker
 var noticeIdx=0;
 var notices=document.querySelectorAll('#noticeTicker .notice-text');
 setInterval(function(){

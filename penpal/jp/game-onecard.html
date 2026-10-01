@@ -285,11 +285,11 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">원カード シーズン Open! ペンパル 友達 one 판 try it</div>
-            <div class="notice-text">번 주 원カード TOP 3to Star 気 x50 プレゼント!</div>
+            <div class="notice-text">This week 원カード TOP 3to Star 気 x50 プレゼント!</div>
             <div class="notice-text">絵 Match 10month Open 予定! 기대してください</div>
             <div class="notice-text">Star 気 collect オーラ 解放please!</div>
-            <div class="notice-text">Current Connected자 127명 · 進行 in progress ゲーム 23개</div>
-            <div class="notice-text">비매너 ユーザー 通報 기능 addされました</div>
+            <div class="notice-text">Current users 127people · 進行 in progress ゲーム 23pcs</div>
+            <div class="notice-text">비매너 ユーザー 通報 Feature addされました</div>
         </div>
     </div>
 </div>
@@ -357,7 +357,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     <!-- Center - ゲーム -->
     <div class="game-col">
         <div class="game-table">
-            <!-- 相手 3명 -->
+            <!-- 相手 3people -->
             <div class="opp-row">
                 <div class="opp-player">
                     <div class="opp-info">
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without カード! (同じ 模様 또는 同じ 数字만 가능)');
+        alert('낼 수 without カード! (同じ 模様 또는 同じ 数字만 possible)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -706,9 +706,9 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','원カード 고수만 라!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','원カード pros only!! 🔥');},15000);
 
-// お知らせ 티커
+// お知らせ Ticker
 var noticeIdx=0;
 var notices=document.querySelectorAll('#noticeTicker .notice-text');
 setInterval(function(){

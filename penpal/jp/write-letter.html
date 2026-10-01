@@ -252,8 +252,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">ペンパル 友達to 本気 담긴 手紙 try sending!</div>
-            <div class="notice-text">다른 言語to 手紙 쓰면 Star 気 올라가요</div>
-            <div class="notice-text">Translate Helper 기능 곧 Openwill be</div>
+            <div class="notice-text">Other 言語to 手紙 쓰면 Star 気 올라가요</div>
+            <div class="notice-text">Translate Helper Feature 곧 Openwill be</div>
         </div>
     </div>
 </div>
@@ -377,7 +377,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
                     <div class="recent-preview">こんにちはplease! I am ブラジルfrom on Lucasis...</div>
-                    <div class="letter-full">こんにちはplease! I am ブラジルfrom on Lucasis. 韓国語 배우기 開始one 지 6개month 됐어요. astronomy and ゲーム 好きdoing데, 혹시 비슷one 関心사 있으면 같 話do! ポルトガル語도 가teach 수 have요~</div>
+                    <div class="letter-full">こんにちはplease! I am ブラジルfrom on Lucasis. 韓国語 배우기 開始one 지 6pcsmonth 됐어요. astronomy and ゲーム 好きdoing데, 혹시 비슷one 関心사 있으면 같 話do! ポルトガル語도 가teach 수 have요~</div>
                     <div class="recent-actions">
                         <button class="btn-act" onclick="doProfile('Lucas S.')">プロフィール View</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
@@ -425,7 +425,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <script>
 if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
 
-// 티커
+// Ticker
 let noticeIdx=0;
 setInterval(()=>{const t=document.querySelectorAll('#noticeTicker .notice-text');t[noticeIdx].classList.remove('active');noticeIdx=(noticeIdx+1)%t.length;t[noticeIdx].classList.add('active');},4000);
 let moonIdx=0;
@@ -470,7 +470,7 @@ function doTranslate(name,el){
 var profiles={
     'Maria G.':{zodiac:'牡羊座',element:'火',lang:'🇪🇸 スペイン語 (ネイティブ)',learning:'🇰🇷 韓国語',bio:'韓国語 学びたい 싶어요! K-popand 占星術 好きdo~',pic:'star'},
     'Yuki T.':{zodiac:'乙女座',element:'土',lang:'🇯🇵 日本語 (ネイティブ)',learning:'🇰🇷 韓国語, 🇪🇸 スペイン語',bio:'韓国 文化 関心 たくさん! 벚Flower 보러 가고 싶어~',pic:'moon'},
-    'Lucas S.':{zodiac:'双子座',element:'風',lang:'🇧🇷 ポルトガル語 (ネイティブ)',learning:'🇰🇷 韓国語',bio:'astronomy and ゲーム 好き합your다. 韓国, 日本 友達 find!',pic:'star'}
+    'Lucas S.':{zodiac:'双子座',element:'風',lang:'🇧🇷 ポルトガル語 (ネイティブ)',learning:'🇰🇷 韓国語',bio:'astronomy and ゲーム 好きWelcome. 韓国, 日本 友達 find!',pic:'star'}
 };
 var picSvg={
     star:'<svg viewBox="0 0 120 120" width="70" height="70"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><circle cx="45.5" cy="60" r="1.2" fill="#fff"/><circle cx="77.5" cy="60" r="1.2" fill="#fff"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>',

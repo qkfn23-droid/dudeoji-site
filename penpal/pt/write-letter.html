@@ -252,8 +252,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Penpal Amigosto 진심 담긴 Cartas try sending!</div>
-            <div class="notice-text">다른 Idiomato Cartas 쓰면 Star Energia 올라가요</div>
-            <div class="notice-text">Translate Helper 기능 곧 Openwill be</div>
+            <div class="notice-text">Other Idiomato Cartas 쓰면 Star Energia 올라가요</div>
+            <div class="notice-text">Translate Helper Feature 곧 Openwill be</div>
         </div>
     </div>
 </div>
@@ -377,7 +377,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Lucas S.</div>
                     <div class="recent-preview">Olaplease! I am Brazilfrom on Lucasis...</div>
-                    <div class="letter-full">Olaplease! I am Brazilfrom on Lucasis. Coreano 배우기 Inicioone 지 6개month 됐어요. astronomy and Jogo gostadoing데, 혹시 비슷one Interesse사 있으면 같 conversado! Portugues도 가teach 수 have요~</div>
+                    <div class="letter-full">Olaplease! I am Brazilfrom on Lucasis. Coreano 배우기 Inicioone 지 6pcsmonth 됐어요. astronomy and Jogo gostadoing데, 혹시 비슷one Interesse사 있으면 같 conversado! Portugues도 가teach 수 have요~</div>
                     <div class="recent-actions">
                         <button class="btn-act" onclick="doProfile('Lucas S.')">Perfil View</button>
                         <button class="btn-act" onclick="doTranslate('Lucas S.',this)">Translate View</button>
@@ -425,7 +425,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <script>
 if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
 
-// 티커
+// Ticker
 let noticeIdx=0;
 setInterval(()=>{const t=document.querySelectorAll('#noticeTicker .notice-text');t[noticeIdx].classList.remove('active');noticeIdx=(noticeIdx+1)%t.length;t[noticeIdx].classList.add('active');},4000);
 let moonIdx=0;
@@ -470,7 +470,7 @@ function doTranslate(name,el){
 var profiles={
     'Maria G.':{zodiac:'Aries',element:'Fogo',lang:'🇪🇸 Espanhol (Nativo)',learning:'🇰🇷 Coreano',bio:'Coreano learn 싶어요! K-popand Astrologia gostado~',pic:'star'},
     'Yuki T.':{zodiac:'Virgem',element:'Terra',lang:'🇯🇵 Japones (Nativo)',learning:'🇰🇷 Coreano, 🇪🇸 Espanhol',bio:'Coreia Cultura Interesse muito! 벚Flower 보러 가고 싶어~',pic:'moon'},
-    'Lucas S.':{zodiac:'Gemeos',element:'Ar',lang:'🇧🇷 Portugues (Nativo)',learning:'🇰🇷 Coreano',bio:'astronomy and Jogo gosta합your다. Coreia, Japao Amigos find!',pic:'star'}
+    'Lucas S.':{zodiac:'Gemeos',element:'Ar',lang:'🇧🇷 Portugues (Nativo)',learning:'🇰🇷 Coreano',bio:'astronomy and Jogo gostaWelcome. Coreia, Japao Amigos find!',pic:'star'}
 };
 var picSvg={
     star:'<svg viewBox="0 0 120 120" width="70" height="70"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><circle cx="45.5" cy="60" r="1.2" fill="#fff"/><circle cx="77.5" cy="60" r="1.2" fill="#fff"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>',

@@ -522,7 +522,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- De hoy Horoscopo 미your -->
+        <!-- De hoy Horoscopo Preview -->
         <div class="fortune-mini">
             <div class="fortune-title">🌙 De hoy Leo</div>
             <div class="fortune-text">
@@ -546,7 +546,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <script>
 if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
 
-// Avisos 티커
+// Avisos Ticker
 let noticeIdx=0;
 setInterval(()=>{
     const texts=document.querySelectorAll('#noticeTicker .notice-text');
@@ -555,7 +555,7 @@ setInterval(()=>{
     texts[noticeIdx].classList.add('active');
 },4000);
 
-// month 슬라더
+// month Slider
 let moonIdx=0;
 setInterval(()=>{
     const texts=document.querySelectorAll('#moonSlider .moon-text');

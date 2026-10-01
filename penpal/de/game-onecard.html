@@ -285,11 +285,11 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">One Card Saison Open! Brieffreund Freunde one 판 try it</div>
-            <div class="notice-text">번 주 One Card TOP 3to Star Energie x50 Geschenk!</div>
+            <div class="notice-text">This week One Card TOP 3to Star Energie x50 Geschenk!</div>
             <div class="notice-text">Bild Match 10month Open Geplant! Stay tuned</div>
             <div class="notice-text">Star Energie collect Aura Freischaltenplease!</div>
-            <div class="notice-text">Current Connected자 127명 · Fortschritt in progress Spiel 23개</div>
-            <div class="notice-text">비매너 Benutzer Melden 기능 addcompleted</div>
+            <div class="notice-text">Current users 127people · Fortschritt in progress Spiel 23pcs</div>
+            <div class="notice-text">비매너 Benutzer Melden Feature addcompleted</div>
         </div>
     </div>
 </div>
@@ -357,7 +357,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     <!-- Center - Spiel -->
     <div class="game-col">
         <div class="game-table">
-            <!-- Opponent 3명 -->
+            <!-- Opponent 3people -->
             <div class="opp-row">
                 <div class="opp-player">
                     <div class="opp-info">
@@ -601,7 +601,7 @@ startTurnTimer();
 
 function playCard(el) {
     if (!el.classList.contains('playable')) {
-        alert('낼 수 without Card! (Gleich 무늬 또는 Gleich Zahl만 가능)');
+        alert('낼 수 without Card! (Gleich 무늬 또는 Gleich Zahl만 possible)');
         return;
     }
     var num = el.querySelector('.card-num').textContent;
@@ -706,9 +706,9 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','One Card 고수만 라!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','One Card pros only!! 🔥');},15000);
 
-// Mitteilungen 티커
+// Mitteilungen Ticker
 var noticeIdx=0;
 var notices=document.querySelectorAll('#noticeTicker .notice-text');
 setInterval(function(){

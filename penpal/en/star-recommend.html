@@ -522,7 +522,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- Today Horoscope 미your -->
+        <!-- Today Horoscope Preview -->
         <div class="fortune-mini">
             <div class="fortune-title">🌙 Today Leo</div>
             <div class="fortune-text">
@@ -546,7 +546,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <script>
 if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
 
-// Notice 티커
+// Notice Ticker
 let noticeIdx=0;
 setInterval(()=>{
     const texts=document.querySelectorAll('#noticeTicker .notice-text');

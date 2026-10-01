@@ -425,7 +425,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 <script>
 if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
 
-// 티커
+// Ticker
 let noticeIdx=0;
 setInterval(()=>{const t=document.querySelectorAll('#noticeTicker .notice-text');t[noticeIdx].classList.remove('active');noticeIdx=(noticeIdx+1)%t.length;t[noticeIdx].classList.add('active');},4000);
 let moonIdx=0;
