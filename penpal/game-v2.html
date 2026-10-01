@@ -880,7 +880,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 function sendChat(){
     var input=document.getElementById('chatInput');
     if(!input.value.trim())return;
-    var filterResult=Dudeoji Studio_FILTER.filter(input.value);
+    var filterResult=CHAT_FILTER.filter(input.value);
     if(!filterResult.ok){alert(filterResult.reason);return;}
     var target=document.querySelector('.chat-to').value;
     var msgs=document.getElementById('chatMsgs');
