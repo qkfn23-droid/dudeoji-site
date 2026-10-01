@@ -6,21 +6,21 @@
 <title>Dudeoji Studio</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f0eb;color:#4a3728;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e8ddd0;color:#4a3728;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 
 .logo{font-size:28px;font-weight:700;color:#5c4033;letter-spacing:2px;margin-bottom:36px;}
 
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:680px;width:100%;padding:0 20px;margin-bottom:24px;}
 @media(max-width:500px){.card-grid{grid-template-columns:1fr;max-width:340px;}}
 
-.card{background:#fffbf5;border:1px solid #e6d5c3;border-radius:20px;padding:48px 32px;text-align:center;text-decoration:none;color:#4a3728;transition:all .25s;cursor:pointer;}
+.card{background:#f5ede2;border:1px solid #d4c0a8;border-radius:20px;padding:48px 32px;text-align:center;text-decoration:none;color:#4a3728;transition:all .25s;cursor:pointer;}
 .card:hover{border-color:#c9a87c;transform:translateY(-6px);box-shadow:0 12px 40px rgba(92,64,51,0.1);}
 .card-icon{font-size:52px;margin-bottom:18px;}
 .card-title{font-size:22px;font-weight:700;margin-bottom:10px;}
 .card-desc{font-size:13px;color:#a08970;line-height:1.7;}
 
 .lang{margin-top:8px;}
-.lang select{padding:4px 8px;border-radius:6px;border:1px solid #d4c4b0;font-size:11px;color:#8b7355;background:#fffbf5;cursor:pointer;outline:none;}
+.lang select{padding:4px 8px;border-radius:6px;border:1px solid #c4b09a;font-size:11px;color:#8b7355;background:#f5ede2;cursor:pointer;outline:none;}
 </style>
 </head>
 <body>
@@ -29,14 +29,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <div class="card-grid">
     <a class="card" href="/astro/">
-        <div class="card-icon">🔮</div>
+        <div class="card-icon"><svg viewBox="0 0 120 120" width="60" height="60"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="card-title">점성술</div>
-        <div class="card-desc">사주 · 타로 · 베딕 · 럭키타임<br>13가지 전통 점술 도구</div>
     </a>
     <a class="card" href="/penpal/">
-        <div class="card-icon">📮</div>
+        <div class="card-icon"><svg viewBox="0 0 120 120" width="60" height="60"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><circle cx="44" cy="60" r="3" fill="#555"/><circle cx="76" cy="60" r="3" fill="#555"/><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"/><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"/><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div class="card-title">펜팔</div>
-        <div class="card-desc">별자리 기반 언어교환<br>게임 · 채팅 · 7개 언어</div>
     </a>
 </div>
 
