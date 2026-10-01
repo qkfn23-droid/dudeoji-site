@@ -196,7 +196,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .c-msg.whisper .nm{color:#9333ea;}
 .c-msg.party{color:#4ade80;}
 .c-msg.party .nm{color:#16a34a;}
-/* 확성기 배너 */
+/* メガホン 배너 */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -407,7 +407,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="notice-text">絵合わせ 10월 오픈 예정! お楽しみに</div>
             <div class="notice-text">星の気を集めてオーラを解放しよう！</div>
             <div class="notice-text">현재 접속자 127人 · 進行 중인 ゲーム 23개</div>
-            <div class="notice-text">マナー違反 유저 通報 기능이 추가되었습니다</div>
+            <div class="notice-text">マナー違反 ユーザー 通報 기능이 추가されました</div>
         </div>
     </div>
 </div>
@@ -622,7 +622,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="room-list" id="roomListChat" style="display:none;">
             <div class="room-row" onclick="location.href='game-chatroom.html'">
                 <div class="r-icon">💬</div>
-                <div class="r-info"><div class="r-name">자유 おしゃべり部屋</div><div class="r-desc">아무 주제나 OK! 편하게 들어와~ 😊</div></div>
+                <div class="r-info"><div class="r-name">자유 おしゃべり部屋</div><div class="r-desc">아무 トピック나 OK! 편하게 들어와~ 😊</div></div>
                 <div class="r-players">
                     <div class="r-p" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div>
                     <div class="r-p" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">Y</div>
@@ -965,14 +965,14 @@ setInterval(function(){
     moonTexts[moonIdx].classList.add('active');
 },3000);
 
-// 확성기
+// メガホン
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-// 데모: 15초 후 확성기 1회 표시
+// 데모: 15초 후 メガホン 1회 표시
 setTimeout(function(){showMegaphone('Maria','ワンカード 고수만 와라!! 🔥');},15000);
 
 </script>

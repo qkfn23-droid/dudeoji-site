@@ -118,7 +118,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .bb.exit{border-color:#fecaca;color:#ef4444;}
 .bb.exit:hover{background:#fef2f2;}
 
-/* 확성기 배너 */
+/* Megaphone 배너 */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -227,7 +227,7 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
             <div class="notice-text active">Picture Match Season Open! 누Is More 빨리 찾the까?</div>
             <div class="notice-text">This번 주 Picture Match TOP 3At게 별Of Energy x50 Gift!</div>
             <div class="notice-text">원CardAlso 같This 즐겨보세요!</div>
-            <div class="notice-text">별Of Energythe 모아 Aurathe Unlock하세요!</div>
+            <div class="notice-text">별Of Energythe Collect Aurathe Unlockplease do!</div>
             <div class="notice-text">Current Access자 127명 · Progress During인 Game 23개</div>
         </div>
     </div>
@@ -303,7 +303,7 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
             <div class="game-rule">
                 <div class="rule-basic">
                     Cardthe 2장 뒤집어서 <b>Same 그림</b>the 찾으세요!<br><br>
-                    짝the 맞추면 <b>+1점</b> 획득하고 one 번 More!<br>
+                    짝the 맞추면 <b>+1점</b> 획득and one 번 More!<br>
                     틀리면 Opponent방 차례To 넘어갑니다.<br><br>
                     모든 짝the 찾으면 Game 종료!
                 </div>
@@ -326,23 +326,23 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
         <div class="chat-log" id="chatLog">
             <div class="chat-msg"><span class="sys">[Notifications]</span> MariaOf 그림맞추기방At Joinhas been done</div>
             <div class="chat-msg"><span class="user">Maria:</span> Picture Match Let us! 🧩</div>
-            <div class="chat-msg"><span class="sys">[Notifications]</span> GameThis Start되었습니다!</div>
-            <div class="chat-msg"><span class="sys">[Notifications]</span> TAZO님Of 차례입니다</div>
+            <div class="chat-msg"><span class="sys">[Notifications]</span> GameThis Starthas been completed!</div>
+            <div class="chat-msg"><span class="sys">[Notifications]</span> TAZO님Of 차례is</div>
         </div>
         <div class="chat-input-wrap">
-            <select class="chat-target"><option>-모두At게-</option><option>Maria G.</option></select>
-            <input class="chat-input" placeholder="Messagesthe 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <select class="chat-target"><option>-AllAt게-</option><option>Maria G.</option></select>
+            <input class="chat-input" placeholder="Messagesthe 입력please do..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
             <button class="chat-send" onclick="sendChat()">before송</button>
         </div>
     </div>
     <div class="bottom-btns">
         <button class="bb" onclick="copyInvite()">👥 Invite</button>
-        <button class="bb" onclick="toggleMute(this)">🔊 음소거</button>
+        <button class="bb" onclick="toggleMute(this)">🔊 Mute</button>
         <button class="bb exit" onclick="leaveRoom()">🚪 Exit</button>
     </div>
 </div>
 
-<!-- 확성기 배너 -->
+<!-- Megaphone 배너 -->
 <div class="megaphone-banner" id="megaBanner">
     <span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span><span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span>
     <div class="megaphone-inner">
@@ -381,7 +381,7 @@ body.spectate .game-status span:first-child::after{content:' (관before During)'
             <div class="friend-item">
                 <div class="friend-dot offline"></div>
                 <div class="friend-avatar" style="background:#e0e0e0;">💤</div>
-                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">오프Line</div></div>
+                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">OffLine</div></div>
                 <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">Invite</button>
             </div>
         </div>
@@ -395,7 +395,7 @@ if (isSpectate) {
     document.body.classList.add('spectate');
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 관before 모드 — Gamethe 구경하고 있습니다';
+    bar.textContent = '👁 관before 모드 — Gamethe 구경and exists';
     document.querySelector('.tab-bar').after(bar);
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
@@ -470,7 +470,7 @@ function flipCard(el) {
                 flipped[1].classList.remove('flipped');
                 stopTurnTimer();
                 document.getElementById('matchMsg').textContent = '아쉽! Opponent 차례To...';
-                addLog('<span class="sys">[Notifications]</span> Maria님Of 차례입니다');
+                addLog('<span class="sys">[Notifications]</span> Maria님Of 차례is');
                 flipped = [];
                 setTimeout(function(){
                     document.getElementById('matchMsg').textContent = '';
@@ -515,7 +515,7 @@ function aiTurn() {
                     picks[0].classList.remove('flipped');
                     picks[1].classList.remove('flipped');
                     document.getElementById('turnName').textContent = 'TAZO님Of 차례';
-                    addLog('<span class="sys">[Notifications]</span> TAZO님Of 차례입니다');
+                    addLog('<span class="sys">[Notifications]</span> TAZO님Of 차례is');
                     canFlip = true;
                     startTurnTimer();
                 }
@@ -593,11 +593,11 @@ function sendInvite(btn, name) {
     addLog('<span class="sys">[Notifications]</span> ' + name + '님At게 Invitethe 보냈습니다');
 }
 
-// 음소거
+// Mute
 var isMuted = false;
 function toggleMute(btn) {
     isMuted = !isMuted;
-    btn.textContent = isMuted ? '🔇 음소거 During' : '🔊 음소거';
+    btn.textContent = isMuted ? '🔇 Mute During' : '🔊 Mute';
     btn.style.background = isMuted ? '#f0f0f0' : '';
     btn.style.color = isMuted ? '#999' : '';
 }
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // 페This지 This동 Confirm
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('GameAt서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리됩니다.');
+    return confirm('GameAt서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리will be.');
 }
 
 // Exit
@@ -614,12 +614,12 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('정말 방At서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리됩니다.')) {
+    if (confirm('정말 방At서 나Is시겠습니까?\nProgress During인 GameIs Lose 처리will be.')) {
         location.href = 'game-v2.html';
     }
 }
 
-// 확성기
+// Megaphone
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;

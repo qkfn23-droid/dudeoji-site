@@ -87,7 +87,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .msg-system{text-align:center;font-size:11px;color:rgba(255,255,255,0.3);padding:8px 0;display:flex;align-items:center;gap:10px;}
 .msg-system::before,.msg-system::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.06);}
 
-/* Today 주제 */
+/* Today Topic */
 .topic-bar{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(251,191,36,0.05));border-bottom:1px solid rgba(245,158,11,0.15);padding:10px 20px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .topic-icon{font-size:18px;animation:topicBounce 2s ease-in-out infinite;}
 @keyframes topicBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
@@ -164,7 +164,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 .emoji-item{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;border-radius:6px;transition:all .1s;}
 .emoji-item:hover{background:rgba(255,255,255,0.1);transform:scale(1.15);}
 
-/* 확성기 */
+/* Megaphone */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;}
@@ -259,9 +259,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">비속어, 욕설Is 자동 Block됩니다</div>
+            <div class="notice-text active">비속어, 욕설Is Auto Blockwill be</div>
             <div class="notice-text">Chat RoomAt서 새 Friendsthe 사귀어보세요!</div>
-            <div class="notice-text">별Of Energythe 모아 Aurathe Unlock하세요!</div>
+            <div class="notice-text">별Of Energythe Collect Aurathe Unlockplease do!</div>
         </div>
     </div>
 </div>
@@ -317,14 +317,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 
     <!-- Is운데 — Chat -->
     <div class="chat-col">
-        <!-- Today Chat 주제 -->
+        <!-- Today Chat Topic -->
         <div class="topic-bar">
             <div class="topic-icon">💬</div>
             <div>
-                <div class="topic-label">Today 주제</div>
+                <div class="topic-label">Today Topic</div>
                 <div class="topic-text" id="topicText">니 나라At서 Is장 This상one FoodIs? 🍽️</div>
             </div>
-            <button class="topic-new" onclick="nextTopic()">Next 주제</button>
+            <button class="topic-new" onclick="nextTopic()">Next Topic</button>
         </div>
 
         <div class="chat-messages" id="chatMessages">
@@ -336,14 +336,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#e91e63;">Maria G.</span><span class="lang-badge native">🇪🇸</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:31</span></div>
-                    <div class="msg-text">안녕! 다들 어디서 왔어? 😊</div>
+                    <div class="msg-text">안녕! 다들 어디서 came? 😊</div>
                 </div>
             </div>
             <div class="msg">
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="lang-badge native">🇯🇵</span><span class="lang-badge beginner">🇰🇷A2</span><span class="msg-time">20:31</span></div>
-                    <div class="msg-text">JapanAt서 왔어! Korean Study DuringThis야 🇯🇵</div>
+                    <div class="msg-text">JapanAt서 came! Korean Study DuringThis야 🇯🇵</div>
                 </div>
             </div>
             <div class="msg">
@@ -361,7 +361,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             <div class="msg-mission">
                 <div class="mission-icon">🎯</div>
                 <div class="mission-label">말Do 미션</div>
-                <div class="mission-text">"맛있다"the 니 LanguageTo 써봐!</div>
+                <div class="mission-text">"Delicious"the 니 LanguageTo 써봐!</div>
                 <div class="mission-reward">Join 시 💎 x5 Reward</div>
             </div>
 
@@ -369,7 +369,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ef6c00,#ffa726);">🔥</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#ef6c00;">Lucas</span><span class="lang-badge native">🇧🇷</span><span class="lang-badge beginner">🇰🇷A1</span><span class="msg-time">20:33</span></div>
-                    <div class="msg-text">Delicioso! 🇧🇷 PortugueseTo 맛있다!</div>
+                    <div class="msg-text">Delicioso! 🇧🇷 PortugueseTo Delicious!</div>
                 </div>
             </div>
             <div class="msg">
@@ -383,7 +383,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#1e88e5;">Felix</span><span class="lang-badge native">🇩🇪</span><span class="lang-badge advanced">🇰🇷B1</span><span class="msg-time">20:34</span></div>
-                    <div class="msg-text">Lecker! GermanTo 맛있다 ㅋㅋ 🇩🇪</div>
+                    <div class="msg-text">Lecker! GermanTo Delicious ㅋㅋ 🇩🇪</div>
                 </div>
             </div>
             <div class="msg">
@@ -398,7 +398,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#ab47bc,#ce93d8);">🎵</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#ab47bc;">Yuki</span><span class="msg-time">20:35</span></div>
-                    <div class="msg-text">TAZOIs 어디At서 왔어?</div>
+                    <div class="msg-text">TAZOIs 어디At서 came?</div>
                 </div>
             </div>
         </div>
@@ -416,7 +416,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="emoji-grid" id="emojiGrid"></div>
             </div>
             <button class="emoji-btn" title="This모지" onclick="toggleEmoji()">😊</button>
-            <input class="chat-input" placeholder="Messagesthe 입력하세요..." id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()">
+            <input class="chat-input" placeholder="Messagesthe 입력please do..." id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()">
             <button class="chat-send-btn" onclick="sendMsg()">before송</button>
         </div>
     </div>
@@ -435,12 +435,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
         <div class="rule-box">
             <div class="rule-title">📋 Chat Room Rules</div>
             <div class="rule-text">
-                <b>1.</b> 1인 1계정<br>
+                <b>1.</b> 1인 1Account<br>
                 <b>2.</b> 사기/사칭 Prohibited<br>
                 <b>3.</b> 성적/폭력 콘텐츠 Prohibited<br>
-                <b>4.</b> 개인정보 강요 Prohibited<br>
+                <b>4.</b> Personal Info 강요 Prohibited<br>
                 <b>5.</b> 스팸/권유 Prohibited<br>
-                <b>6.</b> 욕설/비속어 자동 Block
+                <b>6.</b> 욕설/비속어 Auto Block
             </div>
             <div class="rule-warn">Violation 시: Permanent ban · 환Fire FireIs</div>
         </div>
@@ -449,11 +449,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 
 <div class="bottom-actions">
     <button class="ba-btn" onclick="copyInvite()">👥 Invite</button>
-    <button class="ba-btn" onclick="toggleMute(this)">🔊 음소거</button>
+    <button class="ba-btn" onclick="toggleMute(this)">🔊 Mute</button>
     <button class="ba-btn exit" onclick="leaveRoom()">🚪 Exit</button>
 </div>
 
-<!-- 확성기 -->
+<!-- Megaphone -->
 <div class="megaphone-banner" id="megaBanner">
     <span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span><span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span>
     <div class="megaphone-inner">
@@ -536,7 +536,7 @@ function copyInvite(){document.getElementById('inviteModal').classList.add('show
 function closeInvite(){document.getElementById('inviteModal').classList.remove('show');}
 function sendInvite(btn,name){btn.textContent='before송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님At게 Invitethe 보냈습니다';c.appendChild(s);c.scrollTop=c.scrollHeight;}
 var isMuted=false;
-function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 음소거 During':'🔊 음소거';}
+function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 Mute During':'🔊 Mute';}
 function leaveRoom(){if(confirm('Chat RoomAt서 나Is시겠습니까?'))location.href='game-v2.html';}
 function showMegaphone(name,msg){var b=document.getElementById('megaBanner');document.getElementById('megaMsg').textContent=name+': '+msg;b.style.display='block';setTimeout(function(){b.style.display='none';},5000);}
 setTimeout(function(){showMegaphone('Felix','Chat RoomAt서 German Is르쳐줄게! 🇩🇪');},10000);
@@ -546,11 +546,11 @@ var moonTexts=document.querySelectorAll('#moonSlider .moon-text');var moonIdx=0;
 setInterval(function(){moonTexts[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%moonTexts.length;moonTexts[moonIdx].classList.add('active');},3000);
 document.getElementById('chatMessages').scrollTop=document.getElementById('chatMessages').scrollHeight;
 
-// Today 주제 리스트
+// Today Topic 리스트
 var topics=[
     '니 나라At서 Is장 This상one FoodIs? 🍽️',
     '어제 본 드라마/영화 Recommend해줘 🎬',
-    '니 나라At서 인기 있Is 노래 알려줘 🎵',
+    '니 나라At서 Popular 있Is 노래 알려줘 🎵',
     'Is장 like하Is Korea FoodIs? 🇰🇷',
     '니 나라Of 인사법the 알려줘! 👋',
     'Is장 Is보고 싶Is 나라Is? ✈️',
@@ -575,10 +575,10 @@ function nextTopic(){topicIdx=(topicIdx+1)%topics.length;document.getElementById
 
 // 미션 리스트
 var missions=[
-    '"맛있다"the 니 LanguageTo 써봐!',
+    '"Delicious"the 니 LanguageTo 써봐!',
     '"사랑해"the 니 LanguageTo 써봐! 💕',
-    '"안녕하세요"the 니 LanguageTo 써봐! 👋',
-    '"감사합니다"the 니 LanguageTo 써봐! 🙏',
+    '"안녕please do"the 니 LanguageTo 써봐! 👋',
+    '"감사does"the 니 LanguageTo 써봐! 🙏',
     '니 나라 Food This름 3개 써봐! 🍽️',
     '"춥다"the 니 LanguageTo 써봐! ❄️',
     'like하Is 노래 Is사 one 줄 써봐! 🎵',
@@ -591,7 +591,7 @@ var missions=[
     '니 나라 수Also This름 써봐! 🏙️',
     '"Friends"the 니 LanguageTo 써봐! 🤝'
 ];
-// 미션 자동 발생 (데모: 45초마다)
+// 미션 Auto 발생 (데모: 45초마다)
 setInterval(function(){
     var c=document.getElementById('chatMessages');
     var m=missions[Math.floor(Math.random()*missions.length)];

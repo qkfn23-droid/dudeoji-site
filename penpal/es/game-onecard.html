@@ -289,7 +289,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대해주세요</div>
             <div class="notice-text">별의 Energia을 모아 Aura를 Desbloquear하세요!</div>
             <div class="notice-text">현재 접속자 127명 · Progreso 중인 Juego 23개</div>
-            <div class="notice-text">비매너 유저 Reportar 기능이 추가되었습니다</div>
+            <div class="notice-text">비매너 Usuario Reportar 기능이 추가되었습니다</div>
         </div>
     </div>
 </div>
@@ -449,8 +449,8 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="game-rule">
                 <div class="rule-basic">바닥 카드와 <b>숫자</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
-                    <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 공격</span></div>
-                    <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 공격</span></div>
+                    <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 Ataque</span></div>
+                    <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 Ataque</span></div>
                     <div class="rule-card"><span class="rc-icon">🔄</span><span>순서 뒤집기</span></div>
                     <div class="rule-card"><span class="rc-icon">⛔</span><span>다음 턴 스킵</span></div>
                     <div class="rule-card"><span class="rc-icon">7️⃣</span><span>무늬 바꾸기</span></div>
@@ -480,7 +480,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="chat-msg"><span class="user">Hana:</span> gusta Inicio하자!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
             <div class="chat-msg"><span class="sys">[Notificacion]</span> Juego이 Inicio되었습니다!</div>
-            <div class="chat-msg"><span class="user">Maria:</span> 공격 간다~ 🔥</div>
+            <div class="chat-msg"><span class="user">Maria:</span> Ataque 간다~ 🔥</div>
             <div class="chat-msg"><span class="sys">[Notificacion]</span> TAZO님의 턴입니다</div>
         </div>
         <div class="chat-input-wrap">
@@ -491,7 +491,7 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     </div>
     <div class="bottom-btns">
         <button class="bb" onclick="copyInvite(this)">👥 Invitar</button>
-        <button class="bb" onclick="toggleMute(this)">🔊 음소거</button>
+        <button class="bb" onclick="toggleMute(this)">🔊 Silenciar</button>
         <button class="bb exit" onclick="leaveRoom()">🚪 Salir</button>
     </div>
 </div>
@@ -664,17 +664,17 @@ function sendInvite(btn, name) {
     addLog('<span class="sys">[Notificacion]</span> ' + name + '님에게 Invitar를 보냈습니다');
 }
 
-// 음소거
+// Silenciar
 var isMuted = false;
 function toggleMute(btn) {
     isMuted = !isMuted;
     if (isMuted) {
-        btn.textContent = '🔇 음소거 중';
+        btn.textContent = '🔇 Silenciar 중';
         btn.style.background = '#f0f0f0';
         btn.style.color = '#999';
         addLog('<span class="sys">[Notificacion]</span> 사운드를 껐습니다');
     } else {
-        btn.textContent = '🔊 음소거';
+        btn.textContent = '🔊 Silenciar';
         btn.style.background = '';
         btn.style.color = '';
         addLog('<span class="sys">[Notificacion]</span> 사운드를 켰습니다');

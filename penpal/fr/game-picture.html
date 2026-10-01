@@ -337,7 +337,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
     </div>
     <div class="bottom-btns">
         <button class="bb" onclick="copyInvite()">👥 Invitation</button>
-        <button class="bb" onclick="toggleMute(this)">🔊 음소거</button>
+        <button class="bb" onclick="toggleMute(this)">🔊 Muet</button>
         <button class="bb exit" onclick="leaveRoom()">🚪 Quitter</button>
     </div>
 </div>
@@ -593,11 +593,11 @@ function sendInvite(btn, name) {
     addLog('<span class="sys">[Notification]</span> ' + name + '님에게 Invitation를 보냈습니다');
 }
 
-// 음소거
+// Muet
 var isMuted = false;
 function toggleMute(btn) {
     isMuted = !isMuted;
-    btn.textContent = isMuted ? '🔇 음소거 중' : '🔊 음소거';
+    btn.textContent = isMuted ? '🔇 Muet 중' : '🔊 Muet';
     btn.style.background = isMuted ? '#f0f0f0' : '';
     btn.style.color = isMuted ? '#999' : '';
 }

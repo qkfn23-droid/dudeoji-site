@@ -259,7 +259,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">비속어, 욕설은 자동 Bloquer됩니다</div>
+            <div class="notice-text active">비속어, 욕설은 Automatique Bloquer됩니다</div>
             <div class="notice-text">수다방에서 새 Amis를 사귀어보세요!</div>
             <div class="notice-text">별의 Energie을 모아 Aura를 Debloquer하세요!</div>
         </div>
@@ -435,12 +435,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
         <div class="rule-box">
             <div class="rule-title">📋 수다방 Regles</div>
             <div class="rule-text">
-                <b>1.</b> 1인 1계정<br>
+                <b>1.</b> 1인 1Compte<br>
                 <b>2.</b> 사기/사칭 금지<br>
                 <b>3.</b> 성적/폭력 콘텐츠 금지<br>
-                <b>4.</b> 개인정보 강요 금지<br>
+                <b>4.</b> Donnees personnelles 강요 금지<br>
                 <b>5.</b> 스팸/권유 금지<br>
-                <b>6.</b> 욕설/비속어 자동 Bloquer
+                <b>6.</b> 욕설/비속어 Automatique Bloquer
             </div>
             <div class="rule-warn">위반 시: Exclusion permanente · 환Feu Feu가</div>
         </div>
@@ -449,7 +449,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
 
 <div class="bottom-actions">
     <button class="ba-btn" onclick="copyInvite()">👥 Invitation</button>
-    <button class="ba-btn" onclick="toggleMute(this)">🔊 음소거</button>
+    <button class="ba-btn" onclick="toggleMute(this)">🔊 Muet</button>
     <button class="ba-btn exit" onclick="leaveRoom()">🚪 Quitter</button>
 </div>
 
@@ -536,7 +536,7 @@ function copyInvite(){document.getElementById('inviteModal').classList.add('show
 function closeInvite(){document.getElementById('inviteModal').classList.remove('show');}
 function sendInvite(btn,name){btn.textContent='전송됨 ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'님에게 Invitation를 보냈습니다';c.appendChild(s);c.scrollTop=c.scrollHeight;}
 var isMuted=false;
-function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 음소거 중':'🔊 음소거';}
+function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 Muet 중':'🔊 Muet';}
 function leaveRoom(){if(confirm('수다방에서 나가시겠습니까?'))location.href='game-v2.html';}
 function showMegaphone(name,msg){var b=document.getElementById('megaBanner');document.getElementById('megaMsg').textContent=name+': '+msg;b.style.display='block';setTimeout(function(){b.style.display='none';},5000);}
 setTimeout(function(){showMegaphone('Felix','수다방에서 Allemand 가르쳐줄게! 🇩🇪');},10000);
@@ -591,7 +591,7 @@ var missions=[
     '니 나라 수도 이름 써봐! 🏙️',
     '"Amis"를 니 Langue로 써봐! 🤝'
 ];
-// 미션 자동 발생 (데모: 45초마다)
+// 미션 Automatique 발생 (데모: 45초마다)
 setInterval(function(){
     var c=document.getElementById('chatMessages');
     var m=missions[Math.floor(Math.random()*missions.length)];

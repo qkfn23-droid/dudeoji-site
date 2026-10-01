@@ -138,7 +138,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .moon-sparkle:nth-child(8){bottom:6px;right:8px;font-size:10px;animation-delay:2.1s;}
 @keyframes sparkleGlow{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.2);}}
 
-/* 확성기 배너 */
+/* Megaphone 배너 */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -447,7 +447,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
 if(moonTexts.length){var moonIdx=0;setInterval(function(){moonTexts[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%moonTexts.length;moonTexts[moonIdx].classList.add('active');},3000);}
 
-// 확성기
+// Megaphone
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;

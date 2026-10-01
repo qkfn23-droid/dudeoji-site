@@ -52,7 +52,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .panel-title .add-btn{width:24px;height:24px;border-radius:50%;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.3);color:#f59e0b;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .panel-title .add-btn:hover{background:rgba(245,158,11,0.4);}
 
-/* 어휘 카드 */
+/* Vocabulario 카드 */
 .vocab-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px;margin-bottom:8px;cursor:pointer;transition:all .15s;}
 .vocab-card:hover{background:rgba(255,255,255,0.1);transform:scale(1.02);}
 .vc-word{font-size:14px;font-weight:700;color:#fff;}
@@ -87,7 +87,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 @keyframes barShimmer{0%{left:-50%;}100%{left:150%;}}
 .pv-quest-text{font-size:10px;color:rgba(255,255,255,0.4);margin-top:4px;}
 
-/* 멤버 오빗 (행성 주변 작은 점들) */
+/* Miembro 오빗 (행성 주변 작은 점들) */
 .member-orbit{position:absolute;width:200px;height:200px;top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;}
 .orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor;}
 
@@ -105,7 +105,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .bp-pinned{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:8px;padding:8px 10px;margin-bottom:8px;}
 .bp-pin-label{font-size:9px;color:#f59e0b;font-weight:700;margin-bottom:2px;}
 
-/* 오른쪽 — 멤버 + Chat */
+/* 오른쪽 — Miembro + Chat */
 .member-list{margin-bottom:8px;}
 .member-item{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
 .member-item:last-child{border-bottom:none;}
@@ -131,7 +131,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
 .gc-input::placeholder{color:rgba(255,255,255,0.25);}
 .gc-send{padding:7px 14px;background:#0ea5e9;color:#fff;border:none;border-radius:10px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';}
 
-/* 멤버 링 (하단) */
+/* Miembro 링 (하단) */
 .member-ring{margin:12px 24px;position:relative;z-index:1;}
 .ring-title{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;text-align:center;}
 .ring-list{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
@@ -177,7 +177,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
         <div class="gh-meta">Lv.4 쌍성 · 🇰🇷 Coreano · 자유 가입 · 생성 2025.09.15</div>
     </div>
     <div class="gh-stats">
-        <div class="gh-stat"><div class="gh-stat-num">12</div><div class="gh-stat-label">멤버</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">12</div><div class="gh-stat-label">Miembro</div></div>
         <div class="gh-stat"><div class="gh-stat-num">1,247</div><div class="gh-stat-label">성진</div></div>
         <div class="gh-stat"><div class="gh-stat-num">#3</div><div class="gh-stat-label">순위</div></div>
         <div class="gh-stat"><div class="gh-stat-num">89</div><div class="gh-stat-label">Juego</div></div>
@@ -192,7 +192,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
     <!-- 왼쪽 — UGC 별자리 벽 -->
     <div class="left-panel">
         <div class="panel">
-            <div class="panel-title">✨ 별자리 벽 <button class="add-btn" onclick="alert('어휘 카드 만들기 (데모)')">+</button></div>
+            <div class="panel-title">✨ 별자리 벽 <button class="add-btn" onclick="alert('Vocabulario 카드 만들기 (데모)')">+</button></div>
 
             <div class="vocab-card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -242,12 +242,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
             <div style="margin-top:12px;">
                 <div class="panel-title" style="margin-bottom:8px;">📚 Quiz 팩</div>
                 <div class="quiz-pack" onclick="alert('Quiz 플레이 (데모)')">
-                    <div class="qp-name">🇯🇵 Japones 감성 단어 10선</div>
-                    <div class="qp-meta">by Yuki · 10문제 · 🎮 48회 플레이</div>
+                    <div class="qp-name">🇯🇵 Japones 감성 Palabra 10선</div>
+                    <div class="qp-meta">by Yuki · 10Problema · 🎮 48회 플레이</div>
                 </div>
                 <div class="quiz-pack" onclick="alert('Quiz 플레이 (데모)')">
                     <div class="qp-name">🇰🇷 Corea 슬랭 Quiz</div>
-                    <div class="qp-meta">by TAZO · 8문제 · 🎮 31회 플레이</div>
+                    <div class="qp-meta">by TAZO · 8Problema · 🎮 31회 플레이</div>
                 </div>
             </div>
         </div>
@@ -280,7 +280,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                         <span class="bp-role">길드장</span>
                         <span class="bp-time">2Horas 전</span>
                     </div>
-                    <div class="bp-content">어휘 카드 열심히 만들어주세요! 이번 주 목표 50장입니다 💪</div>
+                    <div class="bp-content">Vocabulario 카드 열심히 만들어주세요! 이번 주 목표 50장입니다 💪</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
@@ -295,14 +295,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                         <span class="bp-author">Yuki</span>
                         <span class="bp-time">8Horas 전</span>
                     </div>
-                    <div class="bp-content">Japones 감성 단어 Quiz팩 Actualizacion했습니다! 木漏れ日 추가 ☀️</div>
+                    <div class="bp-content">Japones 감성 Palabra Quiz팩 Actualizacion했습니다! 木漏れ日 추가 ☀️</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
                         <span class="bp-author">Felix</span>
                         <span class="bp-time">1일 전</span>
                     </div>
-                    <div class="bp-content">Aleman 단어 카드 5장 올렸어요. Wanderlust Mismo 번역 Fuego가 단어들! 🇩🇪</div>
+                    <div class="bp-content">Aleman Palabra 카드 5장 올렸어요. Wanderlust Mismo 번역 Fuego가 Palabra들! 🇩🇪</div>
                 </div>
                 <div class="board-post">
                     <div class="bp-header">
@@ -322,10 +322,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
         </div>
     </div>
 
-    <!-- 오른쪽 — 멤버 + Chat -->
+    <!-- 오른쪽 — Miembro + Chat -->
     <div class="right-panel">
         <div class="panel">
-            <div class="panel-title">👥 멤버 (12/20)</div>
+            <div class="panel-title">👥 Miembro (12/20)</div>
             <div class="member-list">
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">TAZO</div><span class="m-role leader">길드장</span><div class="m-level">Lv.5</div></div>
                 <div class="member-item"><div class="m-dot"></div><div class="m-name">Maria</div><span class="m-role keeper">별지기</span><div class="m-level">Lv.4</div></div>
@@ -349,7 +349,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
                 <div class="gc-msg"><span class="nm">Maria:</span> 소피아 환영! 🎉</div>
                 <div class="gc-msg"><span class="nm">Yuki:</span> 반가워요~</div>
                 <div class="gc-msg"><span class="nm">Sofia:</span> 감사합니다! 잘 부탁드려요 😊</div>
-                <div class="gc-msg"><span class="nm">TAZO:</span> 환영! 어휘 카드 만들어보면 재밌어</div>
+                <div class="gc-msg"><span class="nm">TAZO:</span> 환영! Vocabulario 카드 만들어보면 재밌어</div>
                 <div class="gc-msg"><span class="nm">Felix:</span> 오늘 길드전 하는 사람?</div>
                 <div class="gc-msg"><span class="nm">Lucas:</span> 나 할래!</div>
                 <div class="gc-msg"><span class="nm">Maria:</span> 나도 ㄱ</div>
@@ -364,9 +364,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#0a0a1a;color:#fff;min-hei
     </div>
 </div>
 
-<!-- 멤버 링 -->
+<!-- Miembro 링 -->
 <div class="member-ring">
-    <div class="ring-title">🪐 온라인 멤버</div>
+    <div class="ring-title">🪐 온라인 Miembro</div>
     <div class="ring-list">
         <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">T</div><div class="ring-name">TAZO</div></div>
         <div class="ring-member"><div class="ring-avatar online" style="background:linear-gradient(135deg,#e91e63,#ff5252);">M</div><div class="ring-name">Maria</div></div>
@@ -411,7 +411,7 @@ function shootStar(){
 setInterval(shootStar,Math.random()*6000+5000);
 setTimeout(shootStar,3000);
 
-// 멤버 오빗 점
+// Miembro 오빗 점
 var orbit=document.getElementById('memberOrbit');
 var colors=['#f59e0b','#e91e63','#ab47bc','#1e88e5','#43a047','#ef6c00','#ec4899'];
 var onlineCount=7;

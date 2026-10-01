@@ -163,7 +163,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .bb.exit{border-color:#fecaca;color:#ef4444;}
 .bb.exit:hover{background:#fef2f2;}
 
-/* 확성기 배너 */
+/* メガホン 배너 */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -286,10 +286,10 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">원カード シーズン 오픈! ペンパル 友達와 한 판 해보세요</div>
             <div class="notice-text">이번 주 원カード TOP 3에게 별의 気 x50 プレゼント!</div>
-            <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대해주세요</div>
+            <div class="notice-text">그림 맞추기 10월 오픈 예정! 기대してください</div>
             <div class="notice-text">별의 気을 모아 オーラ를 解放하세요!</div>
             <div class="notice-text">현재 접속자 127명 · 進行 중인 ゲーム 23개</div>
-            <div class="notice-text">비매너 유저 通報 기능이 추가되었습니다</div>
+            <div class="notice-text">비매너 ユーザー 通報 기능이 추가されました</div>
         </div>
     </div>
 </div>
@@ -449,8 +449,8 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="game-rule">
                 <div class="rule-basic">바닥 カード와 <b>숫자</b> 또는 <b>무늬</b>가 같으면 낼 수 있어요</div>
                 <div class="rule-cards">
-                    <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 공격</span></div>
-                    <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 공격</span></div>
+                    <div class="rule-card"><span class="rc-icon">🅰</span><span>+1장 攻撃</span></div>
+                    <div class="rule-card"><span class="rc-icon">2️⃣</span><span>+2장 攻撃</span></div>
                     <div class="rule-card"><span class="rc-icon">🔄</span><span>순서 뒤집기</span></div>
                     <div class="rule-card"><span class="rc-icon">⛔</span><span>다음 ターン 스킵</span></div>
                     <div class="rule-card"><span class="rc-icon">7️⃣</span><span>무늬 바꾸기</span></div>
@@ -479,8 +479,8 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
             <div class="chat-msg"><span class="user">Maria:</span> 안녕! 원カード 하자~ 😄</div>
             <div class="chat-msg"><span class="user">Hana:</span> 好き 開始하자!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
-            <div class="chat-msg"><span class="sys">[通知]</span> ゲーム이 開始되었습니다!</div>
-            <div class="chat-msg"><span class="user">Maria:</span> 공격 간다~ 🔥</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> ゲーム이 開始されました!</div>
+            <div class="chat-msg"><span class="user">Maria:</span> 攻撃 간다~ 🔥</div>
             <div class="chat-msg"><span class="sys">[通知]</span> TAZO님의 ターン입니다</div>
         </div>
         <div class="chat-input-wrap">
@@ -491,12 +491,12 @@ body.spectate .my-label::after{content:' (관전 중)';color:#f59e0b;}
     </div>
     <div class="bottom-btns">
         <button class="bb" onclick="copyInvite(this)">👥 招待</button>
-        <button class="bb" onclick="toggleMute(this)">🔊 음소거</button>
+        <button class="bb" onclick="toggleMute(this)">🔊 ミュート</button>
         <button class="bb exit" onclick="leaveRoom()">🚪 退出</button>
     </div>
 </div>
 
-<!-- 확성기 배너 -->
+<!-- メガホン 배너 -->
 <div class="megaphone-banner" id="megaBanner">
     <span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span><span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span>
     <div class="megaphone-inner">
@@ -664,17 +664,17 @@ function sendInvite(btn, name) {
     addLog('<span class="sys">[通知]</span> ' + name + '님에게 招待를 보냈습니다');
 }
 
-// 음소거
+// ミュート
 var isMuted = false;
 function toggleMute(btn) {
     isMuted = !isMuted;
     if (isMuted) {
-        btn.textContent = '🔇 음소거 중';
+        btn.textContent = '🔇 ミュート 중';
         btn.style.background = '#f0f0f0';
         btn.style.color = '#999';
         addLog('<span class="sys">[通知]</span> 사운드를 껐습니다');
     } else {
-        btn.textContent = '🔊 음소거';
+        btn.textContent = '🔊 ミュート';
         btn.style.background = '';
         btn.style.color = '';
         addLog('<span class="sys">[通知]</span> 사운드를 켰습니다');
@@ -699,7 +699,7 @@ function leaveRoom() {
     }
 }
 
-// 확성기
+// メガホン
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;

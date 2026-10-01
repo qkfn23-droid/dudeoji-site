@@ -118,7 +118,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .bb.exit{border-color:#fecaca;color:#ef4444;}
 .bb.exit:hover{background:#fef2f2;}
 
-/* 확성기 배너 */
+/* メガホン 배너 */
 .megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
 .megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
 .megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
@@ -326,7 +326,7 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
         <div class="chat-log" id="chatLog">
             <div class="chat-msg"><span class="sys">[通知]</span> Maria의 그림맞추기방에 입장했습니다</div>
             <div class="chat-msg"><span class="user">Maria:</span> 그림 맞추기 하자! 🧩</div>
-            <div class="chat-msg"><span class="sys">[通知]</span> ゲーム이 開始되었습니다!</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> ゲーム이 開始されました!</div>
             <div class="chat-msg"><span class="sys">[通知]</span> TAZO님의 차례입니다</div>
         </div>
         <div class="chat-input-wrap">
@@ -337,12 +337,12 @@ body.spectate .game-status span:first-child::after{content:' (관전 중)';color
     </div>
     <div class="bottom-btns">
         <button class="bb" onclick="copyInvite()">👥 招待</button>
-        <button class="bb" onclick="toggleMute(this)">🔊 음소거</button>
+        <button class="bb" onclick="toggleMute(this)">🔊 ミュート</button>
         <button class="bb exit" onclick="leaveRoom()">🚪 退出</button>
     </div>
 </div>
 
-<!-- 확성기 배너 -->
+<!-- メガホン 배너 -->
 <div class="megaphone-banner" id="megaBanner">
     <span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span><span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span>
     <div class="megaphone-inner">
@@ -593,11 +593,11 @@ function sendInvite(btn, name) {
     addLog('<span class="sys">[通知]</span> ' + name + '님에게 招待를 보냈습니다');
 }
 
-// 음소거
+// ミュート
 var isMuted = false;
 function toggleMute(btn) {
     isMuted = !isMuted;
-    btn.textContent = isMuted ? '🔇 음소거 중' : '🔊 음소거';
+    btn.textContent = isMuted ? '🔇 ミュート 중' : '🔊 ミュート';
     btn.style.background = isMuted ? '#f0f0f0' : '';
     btn.style.color = isMuted ? '#999' : '';
 }
@@ -619,7 +619,7 @@ function leaveRoom() {
     }
 }
 
-// 확성기
+// メガホン
 function showMegaphone(name,msg){
     var banner=document.getElementById('megaBanner');
     document.getElementById('megaMsg').textContent=name+': '+msg;

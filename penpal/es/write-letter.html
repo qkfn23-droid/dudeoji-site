@@ -337,7 +337,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         </div>
 
         <div class="card">
-            <div class="recent-title">최근 Cartas</div>
+            <div class="recent-title">Reciente Cartas</div>
             <div class="recent-item" onclick="toggleLetter(this)">
                 <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
                 <div class="recent-info">
@@ -489,7 +489,7 @@ function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(fun
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Mensajes를 Seleccionar해주세요');return;}closeModal();showToast(name+'님에게 거절 Mensajes를 보냈습니다');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">Reportar하기</div><div class="modal-body">'+name+'님을 Reportar하는 이유를 Seleccionar해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / 광고 / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적이거나 Fuego쾌한 Contenido</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">개인정보 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar 접수</button>');
+    openModal('<div class="modal-title">Reportar하기</div><div class="modal-body">'+name+'님을 Reportar하는 이유를 Seleccionar해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / Anuncio / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적이거나 Fuego쾌한 Contenido</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">Datos personales 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Reportar 접수</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Reportar 사유를 Seleccionar해주세요');return;}closeModal();showToast('Reportar가 접수되었습니다. 운영팀이 검토합니다.');}
