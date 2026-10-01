@@ -132,7 +132,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 @keyframes megaShake{0%,100%{transform:rotate(0);}25%{transform:rotate(-10deg);}75%{transform:rotate(10deg);}}
 @keyframes megaStar{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.3);}}
 
-/* Invitar 모month */
+/* Invitar Modal */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:999;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
 .modal{background:#fff;border-radius:16px;width:340px;max-height:80vh;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.2);animation:modalIn .2s ease-out;}
@@ -224,11 +224,11 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">Imagen Match Temporada 오픈! 누가 더 빨리 찾까?</div>
+            <div class="notice-text active">Imagen Match Temporada Open! 누가 더 빨리 찾까?</div>
             <div class="notice-text">번 주 Imagen Match TOP 3to Star Energia x50 Regalo!</div>
             <div class="notice-text">One Card도 같 Enjoy!</div>
-            <div class="notice-text">Star Energia 모아 Aura Desbloquear하세요!</div>
-            <div class="notice-text">현재 접속자 127명 · Progreso in progress Juego 23개</div>
+            <div class="notice-text">Star Energia collect Aura Desbloquearplease!</div>
+            <div class="notice-text">Current Connected자 127명 · Progreso in progress Juego 23개</div>
         </div>
     </div>
 </div>
@@ -268,7 +268,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
                 <div class="moon-text">Tarot one pcs Mensajes</div>
                 <div class="moon-text">Quien fui en mi vida pasada?</div>
                 <div class="moon-text">my Significado oculto de suenos</div>
-                <div class="moon-text">my 배우자는?</div>
+                <div class="moon-text">my soulmate?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -302,7 +302,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="box-title" style="color:#8b5cf6;">📋 Juego Reglas</div>
             <div class="game-rule">
                 <div class="rule-basic">
-                    Card 2pcs 뒤집어서 <b>Mismo Imagen</b> 찾으세요!<br><br>
+                    Card 2pcs flip <b>Mismo Imagen</b> find!<br><br>
                     pair 맞추면 <b>+1점</b> Earned하고 one 번 더!<br>
                     틀리면 OpponentRoom Turnoto moves on.<br><br>
                     all pair 찾으면 Juego end!
@@ -332,7 +332,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
         <div class="chat-input-wrap">
             <select class="chat-target"><option>-모두to-</option><option>Maria G.</option></select>
             <input class="chat-input" placeholder="Mensajes please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
-            <button class="chat-send" onclick="sendChat()">before송</button>
+            <button class="chat-send" onclick="sendChat()">Send</button>
         </div>
     </div>
     <div class="bottom-btns">
@@ -352,7 +352,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
     </div>
 </div>
 
-<!-- Invitar 모month -->
+<!-- Invitar Modal -->
 <div class="modal-overlay" id="inviteModal" onclick="if(event.target===this)closeInvite()">
     <div class="modal">
         <div class="modal-head">
@@ -395,7 +395,7 @@ if (isSpectate) {
     document.body.classList.add('spectate');
     var bar = document.createElement('div');
     bar.className = 'spectate-bar';
-    bar.textContent = '👁 Spectate Mode — Juego 구경하고 exists';
+    bar.textContent = '👁 Spectate Mode — Juego browse exists';
     document.querySelector('.tab-bar').after(bar);
     var badge = document.createElement('div');
     badge.className = 'spectate-badge';
@@ -454,7 +454,7 @@ function flipCard(el) {
                 myScore++;
                 matched++;
                 document.getElementById('myScore').textContent = myScore;
-                document.getElementById('matchMsg').textContent = 'pair 찾았어요! +1점 🎉';
+                document.getElementById('matchMsg').textContent = 'pair found! +1점 🎉';
                 addLog('<span class="sys">[Notificacion]</span> TAZO가 ' + cards[i1] + ' pair got it right!');
                 flipped = [];
                 canFlip = true;

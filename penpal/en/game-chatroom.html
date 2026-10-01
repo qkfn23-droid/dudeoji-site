@@ -260,7 +260,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Profanity, InsultsIs Auto Blockwill be</div>
-            <div class="notice-text">Chat Roomfrom 새 Friendsthe make friends!</div>
+            <div class="notice-text">Chat Roomfrom New Friendsthe make friends!</div>
             <div class="notice-text">Star Energythe Collect Aurathe Unlockplease do!</div>
         </div>
     </div>
@@ -350,7 +350,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#1e88e5;">Felix</span><span class="lang-badge native">🇩🇪</span><span class="lang-badge advanced">🇰🇷B1</span><span class="msg-time">20:32</span></div>
-                    <div class="msg-text">I am Germany! Hallo~ Korean is hard ㅋㅋ</div>
+                    <div class="msg-text">I am Germany! Hallo~ Korean is hard haha</div>
                 </div>
             </div>
 
@@ -383,7 +383,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
                 <div class="msg-avatar" style="background:linear-gradient(135deg,#1e88e5,#42a5f5);">🌿</div>
                 <div class="msg-body">
                     <div class="msg-head"><span class="msg-name" style="color:#1e88e5;">Felix</span><span class="lang-badge native">🇩🇪</span><span class="lang-badge advanced">🇰🇷B1</span><span class="msg-time">20:34</span></div>
-                    <div class="msg-text">Lecker! GermanTo Delicious ㅋㅋ 🇩🇪</div>
+                    <div class="msg-text">Lecker! GermanTo Delicious haha 🇩🇪</div>
                 </div>
             </div>
             <div class="msg">
@@ -417,7 +417,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#1a1a2a;color:#ccc;display
             </div>
             <button class="emoji-btn" title="Emoji" onclick="toggleEmoji()">😊</button>
             <input class="chat-input" placeholder="Messagesthe Inputplease do..." id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()">
-            <button class="chat-send-btn" onclick="sendMsg()">before송</button>
+            <button class="chat-send-btn" onclick="sendMsg()">Send</button>
         </div>
     </div>
 
@@ -509,7 +509,7 @@ function toggleEmoji(){var p=document.getElementById('emojiPicker');p.classList.
 function pickEmoji(e){var i=document.getElementById('chatInput');i.value+=e;i.focus();}
 document.addEventListener('click',function(ev){if(!ev.target.closest('.emoji-picker')&&!ev.target.closest('.emoji-btn'))document.getElementById('emojiPicker').classList.remove('show');});
 
-// Messages before송
+// Messages Send
 function sendMsg(){
     var input=document.getElementById('chatInput');
     var text=input.value.trim();
@@ -522,7 +522,7 @@ function sendMsg(){
     m.innerHTML='<div class="msg-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div><div class="msg-body"><div class="msg-head"><span class="msg-name" style="color:#0ea5e9;">TAZO</span><span class="msg-time">'+time+'</span></div><div class="msg-text">'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
     c.appendChild(m);c.scrollTop=c.scrollHeight;input.value='';
     setTimeout(function(){
-        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['ㅋㅋㅋ Right!','오 Real?','fun다 😄','IAlsoIAlso~','Wow!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['I see!','Korean is hard ㅠㅠ','And Cool!','IAlso OK~','ㅎㅎ like!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','아 I see','ㅋㅋ Funny','I am well Not sure','GermanyfromIs 안 OK ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['Real? Wow','BrazilAlso Similar!','ㅋㅋㅋ','fun다~','오 Good 생Each!']}];
+        var r=[{name:'Maria G.',color:'#e91e63',emoji:'🦊',texts:['haha Right!','Oh Real?','fun다 😄','IAlsoIAlso~','Wow!']},{name:'Yuki',color:'#ab47bc',emoji:'🎵',texts:['I see!','Korean is hard T_T','And Cool!','IAlso OK~','hehe like!']},{name:'Felix',color:'#1e88e5',emoji:'🌿',texts:['Cool!','Ah I see','haha Funny','I am well Not sure','GermanyfromIs 안 OK ㅎ']},{name:'Lucas',color:'#ef6c00',emoji:'🔥',texts:['Real? Wow','BrazilAlso Similar!','haha','fun다~','Oh Good 생Each!']}];
         var p=r[Math.floor(Math.random()*r.length)];var t=p.texts[Math.floor(Math.random()*p.texts.length)];
         var now2=new Date();var time2=String(now2.getHours()).padStart(2,'0')+':'+String(now2.getMinutes()).padStart(2,'0');
         var reply=document.createElement('div');reply.className='msg';
@@ -549,7 +549,7 @@ document.getElementById('chatMessages').scrollTop=document.getElementById('chatM
 // Today Topic List
 var topics=[
     'your countryfrom the most unusual food in your country? 🍽️',
-    'Yesterday 본 drama/영change Recommenddo it 🎬',
+    'What I watched yesterday drama/영change Recommenddo it 🎬',
     'your countryfrom Popular 있Is song Tell me 🎵',
     'Ispcs like하Is Korea FoodIs? 🇰🇷',
     'your countryOf greetingsthe Tell me! 👋',
@@ -557,14 +557,14 @@ var topics=[
     'your countryOnlyOf uniqueone CultureIs have? 🌍',
     'These days intoIs hobby what야? 🎨',
     'your country school lifeIs how about? 🏫',
-    'Ispcs funny Korean mistake Tell me ㅋㅋ 😂',
-    'your country 욕 하IOnly Tell me ㅋㅋ 🤫',
+    'Ispcs funny Korean mistake Tell me haha 😂',
+    'your country 욕 하IOnly Tell me haha 🤫',
     '제day like하Is EmojiIs? 😎',
     'Now your country weather how about? ☀️',
     'your country 크리스마스Is 어떻to 보My? 🎄',
     'Ispcs 자신있Is 요리Is? 👨‍🍳',
     'your countryfrom 유행하Is 밈 have? 🤣',
-    'Korean 배우면서 Ispcs 어려운 점Is? 📚',
+    'Korean while learning Ispcs 어려운 점Is? 📚',
     'your country 대표 디저트Is? 🍰',
     'Ispcs like하Is 계절Is? 🌸',
     'your countryfrom 데This트할 때 what 해? 💕'
@@ -604,7 +604,7 @@ setInterval(function(){
 </script>
 
 <script>
-// 다크/라This트 모드 — BasicThis 다크, localStoragefrom 라This트 아닌 case 다크 유지
+// 다크/라This트 모드 — BasicThis 다크, localStoragefrom 라This트 아닌 case 다크 Maintain
 if(localStorage.getItem('moguPalDark')!=='true'){
     document.documentElement.classList.add('light');
 }

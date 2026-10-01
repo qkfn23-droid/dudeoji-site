@@ -343,7 +343,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="recent-info">
                     <div class="recent-name">Maria G.</div>
                     <div class="recent-preview">Hola! Today what did? I am K-pop heard~</div>
-                    <div class="letter-full">Hola! Today what did? I am Today Day 종day K-pop heard~ BTS 새 앨범 came out! you too like해? 그리고 KoreanTo Letters 써보려고 했Is데 Not yet 어려워서 SpanishTo 쓸to ㅋㅋ nextAtIs KoreanTo AlsobeforeWill try! These days what if서 지My? reply I will wait~</div>
+                    <div class="letter-full">Hola! Today what did? I am Today Day 종day K-pop heard~ BTS New 앨범 came out! you too like해? 그리고 KoreanTo Letters 써보려고 했Is데 Not yet 어려워서 SpanishTo 쓸to haha nextAtIs KoreanTo AlsobeforeWill try! These days what if서 지My? reply I will wait~</div>
                     <div class="recent-actions">
                         <button class="btn-reply" onclick="doReply('Maria G.')">Reply</button>
                         <button class="btn-act" onclick="doTranslate('Maria G.',this)">Translate View</button>
@@ -397,7 +397,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="tip-item"><span class="tip-icon">👋</span> 첫 LettersAtIs 자기Aboutthe includeplease do</div>
             <div class="tip-item"><span class="tip-icon">🌍</span> Opponent LanguageTo one두 sentence if use I am touched</div>
             <div class="tip-item"><span class="tip-icon">❓</span> questionthe if you add reply probabilityThis increases</div>
-            <div class="tip-item"><span class="tip-icon">🎵</span> common Interest사the 찾아 This야기Try it</div>
+            <div class="tip-item"><span class="tip-icon">🎵</span> common Interest사the 찾Ah This야기Try it</div>
             <div class="tip-item"><span class="tip-icon">⭐</span> Lettersthe 보My면 Star energy +5!</div>
         </div>
         <div class="right-box">
@@ -412,7 +412,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 </div>
 </div>
 
-<!-- 모month -->
+<!-- Modal -->
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
     <div class="modal" id="modalContent"></div>
 </div>
@@ -441,7 +441,7 @@ function doSend(){
     if(!text){showToast('Letters MyForthe Inputplease');return;}
     if(text.length>2000){showToast('2,000자the secAndhas been done');return;}
     var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
-    btn.textContent='before송 During...';btn.disabled=true;btn.style.opacity='0.6';
+    btn.textContent='Send During...';btn.disabled=true;btn.style.opacity='0.6';
     setTimeout(function(){btn.textContent='보My기';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'sirAtto Lettersthe sent');},1000);
 }
 
@@ -489,7 +489,7 @@ function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(fun
 function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('Messagesthe Selectplease');return;}closeModal();showToast(name+'sirAtto reject Messagesthe sent');}
 function doReport(name){
     event.stopPropagation();
-    openModal('<div class="modal-title">ReportDo</div><div class="modal-body">'+name+'sirthe Report하Is This유the Selectplease.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Ads / promotion</div><div class="report-opt" onclick="selectReport(this)">SexualThis거I Fire쾌one MyFor</div><div class="report-opt" onclick="selectReport(this)">Insults / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">Fraud / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Personal Info 요구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report 접수</button>');
+    openModal('<div class="modal-title">ReportDo</div><div class="modal-body">'+name+'sirthe Report하Is This유the Selectplease.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">Spam / Ads / promotion</div><div class="report-opt" onclick="selectReport(this)">SexualThis거I Fire쾌one MyFor</div><div class="report-opt" onclick="selectReport(this)">Insults / 혐Oh 발언</div><div class="report-opt" onclick="selectReport(this)">Fraud / Impersonation</div><div class="report-opt" onclick="selectReport(this)">Personal Info 요구 (beforechange번호, SNS etc)</div><div class="report-opt" onclick="selectReport(this)">other</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">Report 접수</button>');
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Report 사유the Selectplease');return;}closeModal();showToast('ReportIs 접수has been completed. teamThis 검토does.');}
