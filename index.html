@@ -6,30 +6,42 @@
 <title>Dudeoji Studio</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f9fa;color:#333;min-height:100vh;display:flex;flex-direction:column;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f9fa;color:#333;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 
-.nav{background:#fff;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;}
-.nav-logo{font-size:17px;font-weight:700;color:#333;text-decoration:none;letter-spacing:1px;}
-.nav-lang{padding:5px 10px;border-radius:8px;border:1px solid #ddd;font-size:11px;color:#666;background:#fff;cursor:pointer;outline:none;}
+.logo{font-size:28px;font-weight:700;color:#333;letter-spacing:2px;margin-bottom:36px;}
 
-.main{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;}
-.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;width:100%;}
-@media(max-width:600px){.card-grid{grid-template-columns:1fr;max-width:400px;}}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:680px;width:100%;padding:0 20px;margin-bottom:24px;}
+@media(max-width:500px){.card-grid{grid-template-columns:1fr;max-width:340px;}}
 
-.card{background:#fff;border:1px solid #eee;border-radius:16px;padding:40px 30px;text-align:center;text-decoration:none;color:#333;transition:all .3s;cursor:pointer;}
-.card:hover{border-color:#333;transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08);}
-.card-icon{font-size:48px;margin-bottom:16px;}
-.card-title{font-size:20px;font-weight:700;margin-bottom:8px;}
-.card-desc{font-size:12px;color:#999;line-height:1.6;}
+.card{background:#fff;border:1px solid #e8e8e8;border-radius:20px;padding:48px 32px;text-align:center;text-decoration:none;color:#333;transition:all .25s;cursor:pointer;}
+.card:hover{border-color:#ccc;transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.08);}
+.card-icon{font-size:52px;margin-bottom:18px;}
+.card-title{font-size:22px;font-weight:700;margin-bottom:10px;}
+.card-desc{font-size:13px;color:#aaa;line-height:1.7;}
 
-.footer{text-align:center;padding:16px;font-size:11px;color:#ccc;border-top:1px solid #eee;}
+.lang{margin-top:8px;}
+.lang select{padding:4px 8px;border-radius:6px;border:1px solid #ddd;font-size:11px;color:#999;background:#fff;cursor:pointer;outline:none;}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-    <div></div>
-    <select class="nav-lang">
+<div class="logo">Dudeoji Studio</div>
+
+<div class="card-grid">
+    <a class="card" href="/astro/">
+        <div class="card-icon">🔮</div>
+        <div class="card-title">점성술</div>
+        <div class="card-desc">사주 · 타로 · 베딕 · 럭키타임<br>13가지 전통 점술 도구</div>
+    </a>
+    <a class="card" href="/penpal/">
+        <div class="card-icon">📮</div>
+        <div class="card-title">펜팔</div>
+        <div class="card-desc">별자리 기반 언어교환<br>게임 · 채팅 · 7개 언어</div>
+    </a>
+</div>
+
+<div class="lang">
+    <select>
         <option selected>KR</option>
         <option>EN</option>
         <option>JP</option>
@@ -38,27 +50,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <option>FR</option>
         <option>PT</option>
     </select>
-</nav>
-
-<div class="main">
-    <div style="text-align:center;width:100%;max-width:700px;">
-        <div style="font-size:24px;font-weight:700;color:#333;letter-spacing:2px;margin-bottom:30px;">Dudeoji Studio</div>
-    <div class="card-grid" style="max-width:700px;width:100%;">
-        <a class="card" href="/astro/">
-            <div class="card-icon">🔮</div>
-            <div class="card-title">점성술</div>
-            <div class="card-desc">사주 · 타로 · 베딕 · 럭키타임<br>13가지 전통 점술 도구</div>
-        </a>
-        <a class="card" href="/penpal/">
-            <div class="card-icon">📮</div>
-            <div class="card-title">펜팔</div>
-            <div class="card-desc">별자리 기반 언어교환<br>게임 · 채팅 · 7개 언어</div>
-        </a>
-    </div>
-    </div>
 </div>
-
-<footer class="footer">&copy; 2025 Dudeoji Studio</footer>
 
 </body>
 </html>
