@@ -94,11 +94,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         Dudeoji Studio
     </a>
     <div class="nav-tabs">
-        <a class="nav-tab active" onclick="showTab('home')">홈</a>
-        <a class="nav-tab" onclick="showTab('astro')">점성술</a>
-        <a class="nav-tab" onclick="showTab('penpal')">펜팔</a>
-        <a class="nav-tab" onclick="showTab('world')">월드</a>
-        <a class="nav-tab" onclick="showTab('tool')">도구</a>
+        <a class="nav-tab active" href="/">홈</a>
+        <a class="nav-tab" href="/astro/">점성술</a>
+        <a class="nav-tab" href="/penpal/">펜팔</a>
     </div>
     <div class="nav-right">
         <select class="nav-lang">
@@ -117,118 +115,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- 히어로 -->
 <div class="hero">
     <h1>Dudeoji Studio</h1>
-    <p>별자리 기반 점성술 · 언어교환 펜팔 · 게임 월드<br>7개 언어 · 전통 고대 기법 · 무료</p>
 </div>
 
 <!-- 메인 서비스 카드 -->
 <div class="services">
-    <div class="services-title">✦ 서비스</div>
-    <div class="service-grid">
-        <div class="service-card" style="--accent:#c9a84c;" onclick="showTab('astro')">
-            <span class="card-badge badge-hot">HOT</span>
+    <div class="service-grid" style="grid-template-columns:repeat(2,1fr);">
+        <a class="service-card" style="--accent:#c9a84c;text-decoration:none;" href="/astro/">
             <div class="card-icon">🔮</div>
             <div class="card-title">점성술</div>
             <div class="card-desc">사주 · 타로 · 베딕 · 럭키타임 · 꿈해몽<br>13가지 전통 점술 도구 · 7개 언어</div>
-        </div>
-        <div class="service-card" style="--accent:#38bdf8;" onclick="showTab('penpal')">
-            <span class="card-badge badge-main">MAIN</span>
+        </a>
+        <a class="service-card" style="--accent:#38bdf8;text-decoration:none;" href="/penpal/">
             <div class="card-icon">📮</div>
             <div class="card-title">펜팔</div>
-            <div class="card-desc">별자리 기반 언어교환 · 펜팔 편지<br>7개 언어 · 별자리 매칭</div>
-        </div>
-        <div class="service-card" style="--accent:#8b5cf6;" onclick="showTab('world')">
-            <span class="card-badge badge-new">NEW</span>
-            <div class="card-icon">🌍</div>
-            <div class="card-title">월드</div>
-            <div class="card-desc">멀티플레이 게임 · 채팅 · 상점<br>별자리 길드 · 언어교환 게임</div>
-        </div>
+            <div class="card-desc">별자리 기반 언어교환 · 게임 · 채팅<br>7개 언어 · 별자리 매칭</div>
+        </a>
     </div>
 </div>
 
-<!-- 탭별 미리보기 -->
-<div class="tab-preview">
-    <!-- 점성술 -->
-    <div class="preview-box" id="preview-astro">
-        <div class="preview-title">🔮 점성술</div>
-        <div class="preview-desc">5대 고대 문명의 수천 년 전통 기법으로 당신의 운명을 해석합니다.</div>
-        <div class="preview-items">
-            <div class="preview-item"><span class="pi-icon">🌅</span>오늘의 운세</div>
-            <div class="preview-item"><span class="pi-icon">⏰</span>럭키타임</div>
-            <div class="preview-item"><span class="pi-icon">☯️</span>사주팔자</div>
-            <div class="preview-item"><span class="pi-icon">🃏</span>타로 카드</div>
-            <div class="preview-item"><span class="pi-icon">🕉️</span>베딕 점성술</div>
-            <div class="preview-item"><span class="pi-icon">🏛️</span>헬레니즘</div>
-            <div class="preview-item"><span class="pi-icon">🌀</span>마야 점성술</div>
-            <div class="preview-item"><span class="pi-icon">𓂀</span>이집트 데칸</div>
-            <div class="preview-item"><span class="pi-icon">💜</span>자미두수</div>
-            <div class="preview-item"><span class="pi-icon">🌿</span>꿈 해몽</div>
-            <div class="preview-item"><span class="pi-icon">📖</span>주역</div>
-            <div class="preview-item"><span class="pi-icon">🔢</span>수비학</div>
-            <div class="preview-item"><span class="pi-icon">🌈</span>오라 컬러</div>
-            <div class="preview-item"><span class="pi-icon">🔮</span>수정구</div>
-            <div class="preview-item"><span class="pi-icon">🌕</span>문 페이즈</div>
-            <div class="preview-item"><span class="pi-icon">📊</span>바이오리듬</div>
-            <div class="preview-item"><span class="pi-icon">💑</span>사주 궁합</div>
-            <div class="preview-item"><span class="pi-icon">💕</span>별자리 궁합</div>
-            <div class="preview-item"><span class="pi-icon">🏛️</span>전생 테스트</div>
-            <div class="preview-item"><span class="pi-icon">🐾</span>수호 동물</div>
-        </div>
-    </div>
-
-    <!-- 펜팔 -->
-    <div class="preview-box" id="preview-penpal">
-        <div class="preview-title">📮 펜팔</div>
-        <div class="preview-desc">별자리 기반으로 전세계 펜팔을 만나보세요. 7개 언어 지원.</div>
-        <div class="preview-items">
-            <div class="preview-item"><span class="pi-icon">🔍</span>친구 찾기</div>
-            <div class="preview-item"><span class="pi-icon">✉️</span>편지 쓰기</div>
-            <div class="preview-item"><span class="pi-icon">⭐</span>별자리 매칭</div>
-            <div class="preview-item"><span class="pi-icon">👤</span>마이페이지</div>
-        </div>
-    </div>
-
-    <!-- 월드 -->
-    <div class="preview-box" id="preview-world">
-        <div class="preview-title">🌍 월드</div>
-        <div class="preview-desc">별자리 길드와 함께 게임하며 언어교환하세요.</div>
-        <div class="preview-items">
-            <div class="preview-item"><span class="pi-icon">🎮</span>게임방</div>
-            <div class="preview-item"><span class="pi-icon">💬</span>채팅방</div>
-            <div class="preview-item"><span class="pi-icon">🏪</span>상점</div>
-            <div class="preview-item"><span class="pi-icon">🪐</span>길드</div>
-        </div>
-    </div>
-
-    <!-- 도구 -->
-    <div class="preview-box" id="preview-tool">
-        <div class="preview-title">🛠️ 도구</div>
-        <div class="preview-desc">100+ 무료 온라인 도구.</div>
-        <div class="preview-items">
-            <div class="preview-item"><span class="pi-icon">🛠️</span>100+ 도구</div>
-        </div>
-    </div>
-</div>
-
-<!-- 연결 흐름 -->
-<div class="connect-section">
-    <div class="connect-title">✦ 이렇게 연결돼요</div>
-    <div class="connect-flow">
-        <div class="flow-item">
-            <div class="flow-icon">🔮</div>
-            <div class="flow-name">별자리 확인</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item">
-            <div class="flow-icon">📮</div>
-            <div class="flow-name">별자리 매칭 펜팔</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item">
-            <div class="flow-icon">🌍</div>
-            <div class="flow-name">같이 게임하며 언어교환</div>
-        </div>
-    </div>
-</div>
 
 <!-- 푸터 -->
 <footer class="footer">
