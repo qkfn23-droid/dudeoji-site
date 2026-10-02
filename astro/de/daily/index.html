@@ -147,7 +147,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
         <span style="font-size:20px;">🌅</span>
         <div>
             <div style="font-size:18px;font-weight:700;color:#c9a84c;">Tageshoroskop</div>
-            <div style="font-size:13px;color:#888;" id="todayDate">-</div>
+            
         </div>
     </div>
 </div>
@@ -236,7 +236,7 @@ const today = new Date();
 const dayNames = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
 const monthNames = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
 const dateStr = `${today.getDate()}. ${monthNames[today.getMonth()]} ${today.getFullYear()}`;
-document.getElementById('todayDate').textContent = `${dateStr} (${dayNames[today.getDay()]})`;
+// date display removed
 
 const dateSeed = today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
 const rand = seededRandom(dateSeed);

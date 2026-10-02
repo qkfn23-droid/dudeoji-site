@@ -147,7 +147,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
         <span style="font-size:20px;">🌅</span>
         <div>
             <div style="font-size:18px;font-weight:700;color:#c9a84c;">今日の運勢</div>
-            <div style="font-size:13px;color:#888;" id="todayDate">-</div>
+            
         </div>
     </div>
 </div>
@@ -235,7 +235,7 @@ function seededRandom(seed) {
 const today = new Date();
 const dayNames = ['日','月','火','水','木','金','土'];
 const dateStr = `${today.getFullYear()}年 ${today.getMonth()+1}月 ${today.getDate()}日`;
-document.getElementById('todayDate').textContent = `${dateStr} (${dayNames[today.getDay()]}曜日)`;
+// date display removed
 
 const dateSeed = today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
 const rand = seededRandom(dateSeed);
