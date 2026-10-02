@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — Guild Browse</title>
+<title>Dudeoji Studio — Guild Explorer</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -263,7 +263,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <!-- my Guild -->
+        <!-- Ma Guilde -->
         <div class="card">
             <div class="card-title">🪐 my Guild</div>
             <div class="my-guild-card" onclick="location.href='guild-space.html'">
@@ -310,7 +310,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             </div>
         </div>
 
-        <button class="create-guild-btn" onclick="openCreateModal()">🌟 Creer guilde<br><span style="font-size:10px;font-weight:400;color:#92400e;">💎 500 Fragments stellaires</span></button>
+        <button class="create-guild-btn" onclick="openCreateModal()">🌟 Creer guilde<br><span style="font-size:10px;font-weight:400;color:#92400e;">💎 500 Fragments stellaires stellaires</span></button>
 
         <a href="v2-penpal.html" style="display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;font-size:14px;font-weight:700;border-radius:12px;text-decoration:none;box-shadow:0 3px 10px rgba(14,165,233,0.25);transition:all .2s;letter-spacing:1px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Dudeoji Studio</a>
     </div>
@@ -318,7 +318,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- Center -->
     <div>
         <div class="room-header">
-            <h2>🪐 Guild Browse</h2>
+            <h2>🪐 Guild Explorer</h2>
         </div>
         <div class="search-bar">
             <input class="search-input" placeholder="Guild Name Recherche...">
@@ -441,12 +441,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
                 <div class="stat-item"><div class="stat-num">42</div><div class="stat-label">all Guild</div></div>
                 <div class="stat-item"><div class="stat-num">389</div><div class="stat-label">Total Members</div></div>
                 <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Nouveaux cette semaine</div></div>
-                <div class="stat-item"><div class="stat-num">156</div><div class="stat-label">Guild Battles</div></div>
+                <div class="stat-item"><div class="stat-num">156</div><div class="stat-label">Bataille de guildes</div></div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-title">🏆 Popular Guild</div>
+            <div class="card-title">🏆 Populaire Guild</div>
             <div class="top-guild-item"><div class="tg-rank">🥇</div><div class="tg-emblem">♈</div><div class="tg-name">Star Breakers</div><div class="tg-score">2,840</div></div>
             <div class="top-guild-item"><div class="tg-rank">🥈</div><div class="tg-emblem">♊</div><div class="tg-name">Luna Wolves</div><div class="tg-score">2,105</div></div>
             <div class="top-guild-item"><div class="tg-rank">🥉</div><div class="tg-emblem">♌</div><div class="tg-name">Stellar Lions</div><div class="tg-score">1,247</div></div>
@@ -531,7 +531,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <button class="modal-cancel" onclick="closeCreateModal()">Annuler</button>
             <button class="modal-create" onclick="createGuild()">Creer guilde</button>
         </div>
-        <div class="modal-cost">💎 500 Fragments stellaires Deductwill be</div>
+        <div class="modal-cost">💎 500 Fragments stellaires stellaires Deductwill be</div>
     </div>
 </div>
 
@@ -553,7 +553,7 @@ document.querySelectorAll('.filter-pills').forEach(function(wrap){
 function openCreateModal(){document.getElementById('createModal').classList.add('show');}
 function closeCreateModal(){document.getElementById('createModal').classList.remove('show');}
 document.getElementById('createModal').addEventListener('click',function(e){if(e.target===this)closeCreateModal();});
-function createGuild(){closeCreateModal();alert('Guild a été créée ! (Démo)\n💎 500 Fragments stellaires Deduct');}
+function createGuild(){closeCreateModal();alert('Guild a été créée ! (Démo)\n💎 500 Fragments stellaires stellaires Deduct');}
 </script>
 
 </body>

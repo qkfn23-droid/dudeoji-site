@@ -493,7 +493,7 @@ function doReport(name){
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('通報 reason 選択してください');return;}closeModal();showToast('通報を送信されました. The team will review.');}
-function doDelete(el){event.stopPropagation();if(!confirm(' 手紙 削除would you like?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('手紙 削除されました');}
+function doDelete(el){event.stopPropagation();if(!confirm(' 手紙を削除しますか？'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('手紙が削除されました');}
 </script>
 </body>
 </html>

@@ -493,7 +493,7 @@ function doReport(name){
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Please select a report reason');return;}closeModal();showToast('Melden has been received. the team reviews.');}
-function doDelete(el){event.stopPropagation();if(!confirm(' Briefe Loschenwould you like?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Briefe Loschencompleted');}
+function doDelete(el){event.stopPropagation();if(!confirm(' Brief wirklich löschen?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Brief wurde gelöscht');}
 </script>
 </body>
 </html>

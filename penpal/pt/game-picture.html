@@ -225,10 +225,10 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
             <div class="notice-text active">Picture Match Season Open! Who finds matches fastest?</div>
-            <div class="notice-text">This week Imagem Match TOP 3to Star Energia x50 Presente!</div>
-            <div class="notice-text">Try One Card too!</div>
+            <div class="notice-text">Esta semana Imagem Match TOP 3to Star Energia x50 Presente!</div>
+            <div class="notice-text">Try Um Cartão too!</div>
             <div class="notice-text">Star Energia collect Aura Desbloquearplease!</div>
-            <div class="notice-text">Current users 127people · Progresso em andamento Jogo 23pcs</div>
+            <div class="notice-text">127 usuários online · 23 jogos em andamento</div>
         </div>
     </div>
 </div>
@@ -265,10 +265,10 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">Horoscopo de hoje?</div>
-                <div class="moon-text">Taro one pcs Mensagens</div>
+                <div class="moon-text">Mensagem de uma carta de Tarot</div>
                 <div class="moon-text">Quem fui na vida passada?</div>
-                <div class="moon-text">my Significado oculto dos sonhos</div>
-                <div class="moon-text">my soulmate?</div>
+                <div class="moon-text">O significado oculto dos meus sonhos</div>
+                <div class="moon-text">Minha alma gêmea?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // Page 동 Confirmar
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Jogofrom Would you like to leave?\nProgresso em andamento Jogo Derrota processingwill be.');
+    return confirm('Jogofrom Deseja sair?\nProgresso em andamento Jogo Derrota será contado como derrota.');
 }
 
 // Sair
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('Realmente deseja sair?\nProgresso em andamento Jogo Derrota processingwill be.')) {
+    if (confirm('Realmente deseja sair?\nProgresso em andamento Jogo Derrota será contado como derrota.')) {
         location.href = 'game-v2.html';
     }
 }

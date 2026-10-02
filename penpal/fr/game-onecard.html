@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dudeoji Studio — One Card</title>
+<title>Dudeoji Studio — Une Carte</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -130,7 +130,7 @@ display:flex;flex-direction:column;justify-content:space-between;padding:16px 20
 .played-card.red .card-num,.played-card.red .card-suit{color:#dc2626;}
 .played-card.black .card-num,.played-card.black .card-suit{color:#1a1a1a;}
 
-/* my Card */
+/* Mes Cartes */
 .my-area{display:flex;flex-direction:column;align-items:center;gap:4px;}
 .my-info{display:flex;align-items:center;gap:8px;}
 .my-pic{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
@@ -280,16 +280,16 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
     </div>
 </nav>
 <div class="tab-bar">
-    <div class="tab-room"><span class="t-emoji">🃏</span> Maria One CardRoom (4/4)</div>
+    <div class="tab-room"><span class="t-emoji">🃏</span> Maria Salle Une Carte (4/4)</div>
     <div class="notice-ticker">
         <span class="notice-icon">📢</span>
         <div class="notice-slide" id="noticeTicker">
-            <div class="notice-text active">One Card Saison Open! Penpal Amis a round try it</div>
-            <div class="notice-text">This week One Card TOP 3to Star Energie x50 Cadeau!</div>
-            <div class="notice-text">Image Match 10month Open Prevu! Stay tuned</div>
+            <div class="notice-text active">Saison Une Carte ouverte ! Joue un tour avec ton correspondant</div>
+            <div class="notice-text">Cette semaine : TOP 3 Une Carte reçoivent Énergie Stellaire x50 !</div>
+            <div class="notice-text">Jeu d'images prévu en octobre ! Restez à l'écoute</div>
             <div class="notice-text">Star Energie collect Aura Debloquerplease!</div>
-            <div class="notice-text">Current users 127people · Progression en cours Jeu 23pcs</div>
-            <div class="notice-text">bad behavior Utilisateur Signaler Feature addcompleted</div>
+            <div class="notice-text">127 utilisateurs en ligne · 23 jeux en cours</div>
+            <div class="notice-text">Fonction de signalement de mauvaise conduite ajoutée</div>
         </div>
     </div>
 </div>
@@ -345,10 +345,10 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">Horoscope du jour?</div>
-                <div class="moon-text">Tarot one pcs Messages</div>
+                <div class="moon-text">Message d'une carte de Tarot</div>
                 <div class="moon-text">Qui etais-je dans ma vie passee?</div>
-                <div class="moon-text">my Sens cache des reves</div>
-                <div class="moon-text">my soulmate?</div>
+                <div class="moon-text">Le sens caché de mes rêves</div>
+                <div class="moon-text">Mon âme sœur ?</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -414,11 +414,11 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
                 </div>
             </div>
 
-            <!-- my Card -->
+            <!-- Mes Cartes -->
             <div class="my-area">
                 <div class="my-info">
                     <div class="my-pic">⭐</div>
-                    <div class="my-label">my Card (7pcs)</div>
+                    <div class="my-label">Mes Cartes (7)</div>
                 </div>
                 <div class="my-hand" id="myHand">
                     <div class="my-card red playable" onclick="playCard(this)"><div class="card-num">3</div><div class="card-suit">&#9829;</div></div>
@@ -473,10 +473,10 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[Notification]</span> Maria One Card a rejoint la salle</div>
-            <div class="chat-msg"><span class="sys">[Notification]</span> Hana K.has joined</div>
-            <div class="chat-msg"><span class="sys">[Notification]</span> Jun P.has joined</div>
-            <div class="chat-msg"><span class="user">Maria:</span> Bonjour! One Card lets~ 😄</div>
+            <div class="chat-msg"><span class="sys">[Notification]</span> Maria Une Carte a rejoint la salle</div>
+            <div class="chat-msg"><span class="sys">[Notification]</span> Hana K. a rejoint</div>
+            <div class="chat-msg"><span class="sys">[Notification]</span> Jun P. a rejoint</div>
+            <div class="chat-msg"><span class="user">Maria:</span> Bonjour! Une Carte lets~ 😄</div>
             <div class="chat-msg"><span class="user">Hana:</span> aime Debutlets!</div>
             <div class="chat-msg"><span class="user">Jun:</span> ㄱㄱ 🔥</div>
             <div class="chat-msg"><span class="sys">[Notification]</span> Jeu Debutcompleted!</div>
@@ -634,7 +634,7 @@ function drawCard() {
 }
 function updateCount() {
     var c = document.getElementById('myHand').children.length;
-    document.querySelector('.my-label').textContent = 'my Card (' + c + 'pcs)';
+    document.querySelector('.my-label').textContent = 'Mes Cartes (' + c + 'pcs)';
 }
 function sendChat() {
     var input = document.getElementById('chatInput');
@@ -684,7 +684,7 @@ function toggleMute(btn) {
 // Page 동 Confirmer
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Jeufrom Would you like to leave?\nProgression en cours Jeu Defaite processingwill be.');
+    return confirm('Jeufrom Voulez-vous quitter ?\nProgression en cours Jeu Defaite sera compté comme défaite.');
 }
 
 // Quitter
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('Vraiment quitter cette salle ?\nProgression en cours Jeu Defaite processingwill be.')) {
+    if (confirm('Vraiment quitter cette salle ?\nProgression en cours Jeu Defaite sera compté comme défaite.')) {
         addLog('<span class="sys">[Notification]</span> TAZOhas has left');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }
@@ -706,7 +706,7 @@ function showMegaphone(name,msg){
     banner.style.display='block';
     setTimeout(function(){banner.style.display='none';},5000);
 }
-setTimeout(function(){showMegaphone('Maria','One Card pros only!! 🔥');},15000);
+setTimeout(function(){showMegaphone('Maria','Une Carte réservé aux pros !! 🔥');},15000);
 
 // Annonces Ticker
 var noticeIdx=0;

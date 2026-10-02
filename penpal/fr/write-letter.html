@@ -286,7 +286,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
             <div class="moon-stars"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
             <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
             <div class="moon-icon"><svg width="48" height="48" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#fbbf24" opacity="0.9"/><circle cx="40" cy="46" r="3" fill="#92400e"/><circle cx="60" cy="46" r="3" fill="#92400e"/><path d="M42,60 Q50,68 58,60" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="32" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="68" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/></svg></div>
-            <div class="moon-slider" id="moonSlider"><div class="moon-text active">Horoscope du jour?</div><div class="moon-text">Message d'une carte de Tarot</div><div class="moon-text">Qui etais-je dans ma vie passee?</div><div class="moon-text">my Sens cache des reves</div><div class="moon-text">Mon âme sœur ?</div></div>
+            <div class="moon-slider" id="moonSlider"><div class="moon-text active">Horoscope du jour?</div><div class="moon-text">Message d'une carte de Tarot</div><div class="moon-text">Qui etais-je dans ma vie passee?</div><div class="moon-text">Le sens caché de mes rêves</div><div class="moon-text">Mon âme sœur ?</div></div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
     </div>
@@ -493,7 +493,7 @@ function doReport(name){
 }
 function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
 function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('Signaler reason Selectionplease do');return;}closeModal();showToast('Signaler has been received. The team will review.');}
-function doDelete(el){event.stopPropagation();if(!confirm(' Lettres Supprimerwould you like?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Lettres Supprimercompleted');}
+function doDelete(el){event.stopPropagation();if(!confirm(' Supprimer cette lettre ?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('Lettre supprimée');}
 </script>
 </body>
 </html>

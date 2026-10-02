@@ -531,13 +531,13 @@ function sendMsg(){
     },800+Math.random()*1500);
 }
 
-function confirmLeave(){return confirm('Chat Roomfrom Would you like to leave?');}
+function confirmLeave(){return confirm('チャットルームから退出しますか？');}
 function copyInvite(){document.getElementById('inviteModal').classList.add('show');}
 function closeInvite(){document.getElementById('inviteModal').classList.remove('show');}
 function sendInvite(btn,name){btn.textContent='送信済み ✓';btn.classList.add('sent');var c=document.getElementById('chatMessages');var s=document.createElement('div');s.className='msg-system';s.textContent=name+'sirto 招待 sent';c.appendChild(s);c.scrollTop=c.scrollHeight;}
 var isMuted=false;
 function toggleMute(btn){isMuted=!isMuted;btn.textContent=isMuted?'🔇 ミュート in':'🔊 ミュート';}
-function leaveRoom(){if(confirm('Chat Roomfrom Would you like to leave?'))location.href='game-v2.html';}
+function leaveRoom(){if(confirm('チャットルームから退出しますか？'))location.href='game-v2.html';}
 function showMegaphone(name,msg){var b=document.getElementById('megaBanner');document.getElementById('megaMsg').textContent=name+': '+msg;b.style.display='block';setTimeout(function(){b.style.display='none';},5000);}
 setTimeout(function(){showMegaphone('Felix','Chat Roomfrom ドイツ語 I will teach you! 🇩🇪');},10000);
 var noticeIdx=0;var notices=document.querySelectorAll('#noticeTicker .notice-text');
