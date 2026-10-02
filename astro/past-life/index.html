@@ -329,34 +329,45 @@ function discover() {
 
     const lifeNum = reduceNum(reduceNum(y) + reduceNum(m) + reduceNum(d));
     const ketuSign = calcKetu(y, m, d);
-    const seed = y * 10000 + m * 100 + d;
-    const rand = seededRand(seed);
 
     const ketuSignNames = ['양자리','황소자리','쌍둥이자리','게자리','사자자리','처녀자리','천칭자리','전갈자리','사수자리','염소자리','물병자리','물고기자리'];
     const eraIdx = ketuSign % PAST_LIVES.length;
     const pl = PAST_LIVES[eraIdx];
-    const jobIdx = Math.floor(rand() * pl.jobs.length);
+    // 케투 별자리 + 운명수로 직업 결정 (랜덤 아님)
+    const jobIdx = (ketuSign + lifeNum) % pl.jobs.length;
     const job = pl.jobs[jobIdx];
 
-    const karmaScore = Math.floor(rand() * 40) + 50;
-    const wisdomScore = Math.floor(rand() * 40) + 45;
-    const adventureScore = Math.floor(rand() * 40) + 40;
+    // 케투 별자리 기반 고정 카르마 점수 (전통: 케투 별자리 에너지 강도)
+    const KETU_KARMA = [72,58,65,80,55,68,75,85,60,70,63,78];
+    const karmaScore = KETU_KARMA[ketuSign];
 
-    const deathAge = Math.floor(rand() * 50) + 25;
-    const deathCauses = ["자연사 (평화로운 죽음)","전쟁 중 명예로운 전사","병으로 인한 이른 죽음","모험 중 사고","노환으로 편안한 죽음","알 수 없는 이유 (미스터리)"];
-    const death = deathCauses[Math.floor(rand() * deathCauses.length)];
-
-    const lessons = [
-        "용기를 내어 행동하는 것의 중요성",
-        "사랑하는 사람을 지키는 헌신",
-        "물질보다 정신적 풍요의 가치",
-        "변화를 두려워하지 않는 유연함",
-        "자기 자신에 대한 진정한 이해",
-        "타인을 용서하고 놓아주는 지혜",
-        "겸손함 속에 숨겨진 진정한 힘",
-        "직감을 믿고 따르는 용기"
+    // 사망 관련: 케투 별자리별 전통적 테마 (베딕 전통 해석 기반)
+    const KETU_DEATH = [
+      "전쟁 중 명예로운 전사","노환으로 편안한 죽음","여행 중 사고",
+      "가족을 지키다 희생","자연사 (평화로운 죽음)","병으로 인한 이른 죽음",
+      "알 수 없는 이유 (미스터리)","극적인 사건 속 죽음","모험 중 사고",
+      "노환으로 편안한 죽음","혁명 중 순교","물과 관련된 사고"
     ];
-    const lesson = lessons[Math.floor(rand() * lessons.length)];
+    const death = KETU_DEATH[ketuSign];
+    const KETU_AGE = [35,72,45,60,42,55,68,38,48,75,40,52];
+    const deathAge = KETU_AGE[ketuSign];
+
+    // 교훈: 케투 별자리별 카르마 교훈 (베딕 전통)
+    const KETU_LESSONS = [
+      "용기를 내어 행동하는 것의 중요성",
+      "물질보다 정신적 풍요의 가치",
+      "소통하고 배움을 나누는 지혜",
+      "사랑하는 사람을 지키는 헌신",
+      "겸손함 속에 숨겨진 진정한 힘",
+      "완벽을 내려놓고 자기 자신을 수용하기",
+      "타인을 용서하고 놓아주는 지혜",
+      "변화를 두려워하지 않는 유연함",
+      "자유와 탐구의 가치",
+      "자기 자신에 대한 진정한 이해",
+      "직감을 믿고 따르는 용기",
+      "무조건적 사랑과 연민의 힘"
+    ];
+    const lesson = KETU_LESSONS[ketuSign];
 
     const section = document.getElementById('resultSection');
     section.innerHTML = `

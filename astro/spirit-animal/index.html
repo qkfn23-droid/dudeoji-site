@@ -231,7 +231,150 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 </footer>
 
 <script>
+// 생년월일 드롭다운
+var yS=document.getElementById('birthYear'),mS=document.getElementById('birthMonth'),dS=document.getElementById('birthDay');
+for(var yi=2025;yi>=1940;yi--){var o=document.createElement('option');o.value=yi;o.textContent=yi+'년';yS.appendChild(o);}
+for(var mi=1;mi<=12;mi++){var o=document.createElement('option');o.value=mi;o.textContent=mi+'월';mS.appendChild(o);}
+for(var di=1;di<=31;di++){var o=document.createElement('option');o.value=di;o.textContent=di+'일';dS.appendChild(o);}
 
-    </script>
+// ═══════════════════════════════════════
+// 마야 촐킨 데이사인 계산 (전통 기법)
+// ═══════════════════════════════════════
+// 기준일: 2000-01-01 = Kin 159 (11 Cauac)
+// 촐킨 = 20 day signs × 13 tones = 260일 주기
+// Day sign = (기준 day sign + 일수차) % 20
+
+var TZOLKIN_REF_JDN = 2451545; // 2000-01-01 Julian Day Number
+var TZOLKIN_REF_KIN = 159;     // 2000-01-01 = Kin 159
+
+function dateToJDN(y,m,d) {
+  var a = Math.floor((14-m)/12);
+  var y2 = y+4800-a;
+  var m2 = m+12*a-3;
+  return d+Math.floor((153*m2+2)/5)+365*y2+Math.floor(y2/4)-Math.floor(y2/100)+Math.floor(y2/400)-32045;
+}
+
+function getTzolkinSign(y,m,d) {
+  var jdn = dateToJDN(y,m,d);
+  var diff = jdn - TZOLKIN_REF_JDN;
+  var kin = ((TZOLKIN_REF_KIN + diff) % 260 + 260) % 260;
+  var daySign = kin % 20;
+  var tone = (kin % 13) + 1;
+  return { daySign: daySign, tone: tone, kin: kin };
+}
+
+// 20 마야 데이사인 → 수호 동물 매핑
+var DAY_SIGNS = [
+  {name:'이미시(Imix)',animal:'악어',emoji:'🐊',element:'물',direction:'동쪽',
+   title:'시작의 수호자',desc:'태초의 에너지를 지닌 당신은 새로운 것을 창조하는 힘이 있습니다. 악어처럼 강인하고 보호적이며, 본능이 매우 강합니다.',
+   traits:['창조력','보호본능','직관력'],good:'바람(Ik)',bad:'부싯돌(Etznab)'},
+  {name:'이크(Ik)',animal:'독수리',emoji:'🦅',element:'바람',direction:'북쪽',
+   title:'바람의 전달자',desc:'자유로운 영혼을 가진 당신은 독수리처럼 높은 곳에서 세상을 내려다봅니다. 소통과 영감의 힘을 지니고 있습니다.',
+   traits:['자유','소통력','영감'],good:'악어(Imix)',bad:'비(Cauac)'},
+  {name:'악발(Akbal)',animal:'재규어',emoji:'🐆',element:'흙',direction:'서쪽',
+   title:'밤의 탐험가',desc:'어둠 속에서 빛을 찾는 재규어처럼, 당신은 미지의 세계를 두려워하지 않습니다. 내면의 힘이 강합니다.',
+   traits:['용기','탐구심','직관'],good:'뱀(Chicchan)',bad:'원숭이(Chuen)'},
+  {name:'칸(Kan)',animal:'뱀',emoji:'🐍',element:'불',direction:'남쪽',
+   title:'생명력의 화신',desc:'뱀처럼 끊임없이 변화하고 재생하는 힘을 가졌습니다. 강력한 생명 에너지와 치유의 능력이 있습니다.',
+   traits:['변화','재생력','치유'],good:'재규어(Akbal)',bad:'독(Cib)'},
+  {name:'치크찬(Chicchan)',animal:'봉황',emoji:'🔥',element:'불',direction:'동쪽',
+   title:'불사조의 영혼',desc:'봉황처럼 시련 속에서 다시 태어나는 힘이 있습니다. 강렬한 열정과 변환의 에너지를 지녔습니다.',
+   traits:['열정','부활','영적 힘'],good:'사슴(Manik)',bad:'재규어(Akbal)'},
+  {name:'키미(Cimi)',animal:'올빼미',emoji:'🦉',element:'흙',direction:'북쪽',
+   title:'지혜의 안내자',desc:'올빼미처럼 어둠 속에서도 진실을 볼 수 있습니다. 삶과 죽음의 경계를 이해하며 깊은 지혜를 가졌습니다.',
+   traits:['지혜','통찰력','수용'],good:'토끼(Lamat)',bad:'독수리(Men)'},
+  {name:'마닉(Manik)',animal:'사슴',emoji:'🦌',element:'바람',direction:'서쪽',
+   title:'치유의 손',desc:'사슴처럼 우아하고 민감한 당신은 타인을 치유하는 힘이 있습니다. 손재주가 뛰어나고 예술적입니다.',
+   traits:['치유','우아함','예술성'],good:'봉황(Chicchan)',bad:'전사(Cib)'},
+  {name:'라마트(Lamat)',animal:'토끼',emoji:'🐇',element:'불',direction:'남쪽',
+   title:'풍요의 별',desc:'토끼처럼 재빠르고 다산의 에너지를 가졌습니다. 풍요와 행운을 끌어당기는 별의 에너지가 있습니다.',
+   traits:['풍요','민첩함','행운'],good:'올빼미(Cimi)',bad:'비(Cauac)'},
+  {name:'물룩(Muluc)',animal:'돌고래',emoji:'🐬',element:'물',direction:'동쪽',
+   title:'감성의 흐름',desc:'돌고래처럼 감성이 풍부하고 직관적입니다. 물의 에너지로 주변을 정화하고 치유합니다.',
+   traits:['감성','직관','정화'],good:'개(Oc)',bad:'독(Cib)'},
+  {name:'옥(Oc)',animal:'늑대',emoji:'🐺',element:'흙',direction:'북쪽',
+   title:'충성의 수호자',desc:'늑대처럼 무리에 대한 충성심이 강하고 보호적입니다. 팀워크와 리더십이 뛰어납니다.',
+   traits:['충성','리더십','팀워크'],good:'돌고래(Muluc)',bad:'독수리(Men)'},
+  {name:'추엔(Chuen)',animal:'원숭이',emoji:'🐒',element:'바람',direction:'서쪽',
+   title:'장난의 예술가',desc:'원숭이처럼 재치 있고 창의적입니다. 유머와 예술로 세상을 밝히는 재능이 있습니다.',
+   traits:['창의력','유머','재치'],good:'갈대(Ben)',bad:'재규어(Akbal)'},
+  {name:'에브(Eb)',animal:'거북이',emoji:'🐢',element:'흙',direction:'남쪽',
+   title:'길의 인내자',desc:'거북이처럼 느리지만 꾸준한 당신은 인생의 긴 여정을 묵묵히 걸어갑니다. 인내와 지구력이 최고입니다.',
+   traits:['인내','지구력','꾸준함'],good:'재규어(Ix)',bad:'뱀(Kan)'},
+  {name:'벤(Ben)',animal:'매',emoji:'🦅',element:'불',direction:'동쪽',
+   title:'하늘의 전사',desc:'매처럼 날카로운 시야와 빠른 판단력을 가졌습니다. 높은 이상을 향해 돌진하는 리더입니다.',
+   traits:['결단력','비전','리더십'],good:'원숭이(Chuen)',bad:'올빼미(Cimi)'},
+  {name:'이시(Ix)',animal:'표범',emoji:'🐆',element:'바람',direction:'북쪽',
+   title:'마법의 사냥꾼',desc:'표범처럼 은밀하고 강력한 당신은 영적인 힘이 강합니다. 자연과 깊이 연결되어 있습니다.',
+   traits:['영적 힘','은밀함','자연 연결'],good:'거북이(Eb)',bad:'토끼(Lamat)'},
+  {name:'멘(Men)',animal:'부엉이',emoji:'🦉',element:'물',direction:'서쪽',
+   title:'달빛의 현자',desc:'부엉이처럼 밤의 지혜를 가진 당신은 높은 관점에서 세상을 봅니다. 비전과 예지력이 뛰어납니다.',
+   traits:['예지력','비전','관찰력'],good:'전사(Cib)',bad:'늑대(Oc)'},
+  {name:'시브(Cib)',animal:'독',emoji:'🦂',element:'불',direction:'남쪽',
+   title:'카르마의 전사',desc:'전갈처럼 강인하고 두려움이 없습니다. 과거의 카르마를 정화하고 용서의 힘을 가졌습니다.',
+   traits:['강인함','용서','정화'],good:'부엉이(Men)',bad:'뱀(Kan)'},
+  {name:'카반(Caban)',animal:'곰',emoji:'🐻',element:'흙',direction:'동쪽',
+   title:'대지의 힘',desc:'곰처럼 대지와 연결된 강력한 에너지를 가졌습니다. 지진처럼 큰 변화를 일으키는 힘이 있습니다.',
+   traits:['힘','안정감','대지 연결'],good:'비(Cauac)',bad:'매(Ben)'},
+  {name:'에츠납(Etznab)',animal:'매미',emoji:'🪞',element:'바람',direction:'북쪽',
+   title:'진실의 거울',desc:'거울처럼 진실을 반사하는 힘이 있습니다. 날카로운 분석력으로 본질을 꿰뚫어 봅니다.',
+   traits:['분석력','진실','명확함'],good:'비(Cauac)',bad:'악어(Imix)'},
+  {name:'카우악(Cauac)',animal:'고래',emoji:'🐋',element:'물',direction:'서쪽',
+   title:'폭풍의 치유자',desc:'고래처럼 깊은 바다의 지혜를 가졌습니다. 폭풍 같은 변화를 통해 치유와 재생을 가져옵니다.',
+   traits:['깊이','치유','재생'],good:'곰(Caban)',bad:'독수리(Ik)'},
+  {name:'아하우(Ahau)',animal:'나비',emoji:'🦋',element:'불',direction:'남쪽',
+   title:'태양의 꽃',desc:'나비처럼 아름다운 변환을 겪는 영혼입니다. 태양의 에너지로 빛나며 예술과 사랑의 힘을 가졌습니다.',
+   traits:['아름다움','변환','사랑'],good:'악어(Imix)',bad:'거북이(Eb)'}
+];
+
+function calcAnimal() {
+  var y = parseInt(document.getElementById('birthYear').value);
+  var m = parseInt(document.getElementById('birthMonth').value);
+  var d = parseInt(document.getElementById('birthDay').value);
+  if (!y || !m || !d) return alert('생년월일을 선택하세요!');
+
+  var tz = getTzolkinSign(y, m, d);
+  var ds = DAY_SIGNS[tz.daySign];
+
+  document.getElementById('inputSection').style.display = 'none';
+  var rs = document.getElementById('resultSection');
+  rs.style.display = 'block';
+  document.getElementById('shareBar').style.display = 'block';
+
+  rs.innerHTML = `
+    <div class="animal-display">
+      <span class="animal-emoji">${ds.emoji}</span>
+      <div class="animal-name">${ds.animal}</div>
+      <div class="animal-title">${ds.title}</div>
+      <div class="animal-element">마야 데이사인: ${ds.name} · 톤 ${tz.tone} · 원소: ${ds.element} · 방위: ${ds.direction}</div>
+    </div>
+    <div class="trait-grid">
+      ${ds.traits.map(function(t){return '<div class="trait-item"><div class="trait-value">'+t+'</div></div>';}).join('')}
+    </div>
+    <div class="reading-card">
+      <div class="reading-title">🐾 당신의 수호 동물 해석</div>
+      <div class="reading-text">${ds.desc}</div>
+    </div>
+    <div class="reading-card">
+      <div class="reading-title">🔮 왜 이 결과가 나왔나요?</div>
+      <div class="reading-text">
+        당신의 생년월일(${y}년 ${m}월 ${d}일)을 마야 촐킨 달력으로 변환하면 <strong>킨(Kin) ${tz.kin}</strong>번째 날입니다.
+        촐킨은 20개의 데이사인과 13개의 톤이 결합한 260일 주기의 신성한 달력입니다.
+        당신의 데이사인은 <strong>${ds.name}</strong> (톤 ${tz.tone})이며, 이 사인의 수호 동물은 <strong>${ds.animal}</strong>입니다.
+      </div>
+    </div>
+    <div class="reading-card">
+      <div class="reading-title">💫 궁합</div>
+      <div class="compat-row">
+        <div class="compat-item compat-good">✨ 잘 맞는 동물<br><strong>${ds.good}</strong></div>
+        <div class="compat-item compat-bad">⚡ 도전적 관계<br><strong>${ds.bad}</strong></div>
+      </div>
+    </div>
+    <div class="disclaimer">마야 촐킨(Tzolkin) 데이사인 체계 기반 · 재미와 영감을 위한 것입니다</div>
+    <button class="retry-btn" onclick="location.reload()">다시 하기</button>
+  `;
+  rs.scrollIntoView({behavior:'smooth'});
+}
+</script>
 <button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script><script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script><script>document.addEventListener('contextmenu',function(e){e.preventDefault()});document.addEventListener('selectstart',function(e){e.preventDefault()});document.addEventListener('copy',function(e){e.preventDefault()});document.addEventListener('keydown',function(e){if(e.ctrlKey&&'uUsSiIcCaA'.includes(e.key)){e.preventDefault()}if(e.key==='F12'){e.preventDefault()}if(e.ctrlKey&&e.shiftKey&&'iIjJ'.includes(e.key)){e.preventDefault()}});</script></body>
 </html>
