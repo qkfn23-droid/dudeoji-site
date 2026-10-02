@@ -240,6 +240,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     <a href="" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank');return false" style="display:inline-block;padding:6px 12px;background:#25d366;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">WhatsApp</a>
     <a href="" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';return false" style="display:inline-block;padding:6px 12px;background:#666;color:#fff;border-radius:6px;text-decoration:none;font-size:12px;margin:4px;">URLをコピー</a>
 </div>
+<script src="/astro/astronomy.browser.min.js"></script>
 <script>
 const ANSWERS = [
     {text:"乾 — 天の気。大きく志を立てれば叶う。",type:"positive"},
@@ -263,19 +264,21 @@ const ANSWERS = [
 const TYPE_LABELS = {positive:"肯定",neutral:"中立",negative:"否定",mystical:"神秘"};
 const TYPE_CLASS = {positive:"type-positive",neutral:"type-neutral",negative:"type-negative",mystical:"type-mystical"};
 
+function getPlanetLon(body){try{var now=new Date();if(body==="Sun")return Astronomy.SunPosition(now).elon;if(body==="Moon")return Astronomy.EclipticGeoMoon(now).lon;var e=Astronomy.GeoVector(body,now,true);return Astronomy.Ecliptic(e).elon;}catch(ex){return -1;}}
+function lonToSign(lon){return Math.floor(((lon%360)+360)%360/30);}
+function findMoonAspect(){var moonLon=getPlanetLon("Moon");var planets=["Sun","Mercury","Venus","Mars","Jupiter","Saturn"];var benefics=["Venus","Jupiter"];var malefics=["Mars","Saturn"];var closest=null;var closestDiff=999;planets.forEach(function(p){var pLon=getPlanetLon(p);if(pLon<0)return;var diff=((pLon-moonLon)%360+360)%360;var aspects=[{angle:0,name:"conjunction",orb:10},{angle:60,name:"sextile",orb:6},{angle:90,name:"square",orb:7},{angle:120,name:"trine",orb:8},{angle:180,name:"opposition",orb:8}];aspects.forEach(function(asp){var aspDiff=Math.abs(diff-asp.angle);if(aspDiff<=asp.orb&&diff<=180&&aspDiff<closestDiff){closestDiff=aspDiff;closest={planet:p,aspect:asp,isBenefic:benefics.indexOf(p)>=0,isMalefic:malefics.indexOf(p)>=0,diff:aspDiff};}});});return{moonLon:moonLon,moonSign:lonToSign(moonLon),nextAspect:closest};}
+function getHoraryAnswer(){var horary=findMoonAspect();var asp=horary.nextAspect;var score=0;if(!asp){score=32;}else{if(asp.aspect.name==="trine")score+=20;else if(asp.aspect.name==="sextile")score+=15;else if(asp.aspect.name==="conjunction")score+=(asp.isBenefic?18:asp.isMalefic?-10:10);else if(asp.aspect.name==="square")score-=12;else if(asp.aspect.name==="opposition")score-=8;if(asp.isBenefic)score+=10;if(asp.isMalefic)score-=8;}var pool=[];if(score>10){ANSWERS.forEach(function(a,i){if(a.type==="positive")pool.push(i);});}else if(score<-5){ANSWERS.forEach(function(a,i){if(a.type==="negative")pool.push(i);});}else{ANSWERS.forEach(function(a,i){if(a.type==="neutral"||a.type==="mystical")pool.push(i);});}var moonIdx=Math.floor(((horary.moonLon*1000)%pool.length+pool.length)%pool.length);return{answer:ANSWERS[pool[moonIdx]],horary:horary,score:score};}
+var SIGN_NAMES_LOCAL = ["牡羊座","牡牛座","双子座","蟹座","獅子座","乙女座","天秤座","蠍座","射手座","山羊座","水瓶座","魚座"];
 let isAsking = false;
 const history = [];
-
 function askCrystal() {
     if (isAsking) return;
     isAsking = true;
-
-    const btn = document.getElementById("askBtn");
-    const ball = document.getElementById("crystalBall");
-    const textEl = document.getElementById("crystalText");
-    const mist = document.getElementById("mist");
-    const question = '';
-
+    var btn = document.getElementById("askBtn");
+    var ball = document.getElementById("crystalBall");
+    var textEl = document.getElementById("crystalText");
+    var mist = document.getElementById("mist");
+    var question = "";
     btn.disabled = true;
     textEl.className = "crystal-text";
     textEl.innerHTML = "...";
@@ -283,23 +286,25 @@ function askCrystal() {
     mist.classList.remove("active");
     void mist.offsetWidth;
     mist.classList.add("active");
-
-    setTimeout(() => {
+    setTimeout(function() {
         ball.classList.remove("shaking");
-        var qText = question || '';
-        var today = new Date();
-        var hashSeed = 0;
-        for (var ci = 0; ci < qText.length; ci++) hashSeed += qText.charCodeAt(ci) * (ci + 1);
-        hashSeed += today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
-        hashSeed += history.length;
-        var answer = ANSWERS[Math.abs(hashSeed) % ANSWERS.length];
-
-        textEl.innerHTML = answer.text;
+        var result = getHoraryAnswer();
+        var answer = result.answer;
+        var h = result.horary;
+        var planetKR = {Sun:"太陽",Mercury:"水星",Venus:"金星",Mars:"火星",Jupiter:"木星",Saturn:"土星"};
+        var horaryInfo = '<div style="margin-top:12px;font-size:11px;color:#666;text-align:center;">';
+        horaryInfo += '🌙 月: ' + SIGN_NAMES_LOCAL[h.moonSign] + ' (' + h.moonLon.toFixed(1) + '°)';
+        if (h.nextAspect) {
+          horaryInfo += '<br>次のアスペクト: ' + (planetKR[h.nextAspect.planet]||h.nextAspect.planet) + ' ' + h.nextAspect.aspect.name;
+          horaryInfo += ' (' + h.nextAspect.diff.toFixed(1) + '° ' + (h.nextAspect.isBenefic?'吉星':'') + (h.nextAspect.isMalefic?'凶星':'') + ')';
+        } else {
+          horaryInfo += '<br>ボイド・オブ・コース — 月に主要アスペクトなし';
+        }
+        horaryInfo += '</div>';
+        textEl.innerHTML = answer.text + horaryInfo;
         textEl.className = "crystal-text active";
-
         history.unshift({q: question || "(心の中の質問)", a: answer.text, type: answer.type});
         updateHistory();
-
         btn.disabled = false;
         isAsking = false;
     }, 1500);

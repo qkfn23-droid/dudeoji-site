@@ -239,9 +239,10 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     <a href="../privacy/">개인정보처리방침</a>
 </footer>
 
+<script src="../astronomy.browser.min.js"></script>
 <script>
-// 주역(易經) 64괘 기반 답변 — 3000년 전통 점술 체계
-// 질문 텍스트 + 날짜를 시드로 괘를 뽑음 (같은 질문+같은 날 = 같은 괘)
+// 호라리 점성술 기반 수정구 — 질문 순간의 실제 행성 배치로 답변 결정
+// 달의 다음 애스펙트 + 길성/흉성 판단
 const ANSWERS = [
     {text:"건(乾) — 하늘의 기운. 크게 뜻을 세우면 이루어진다. 힘차게 나아갈 때.",type:"positive"},
     {text:"곤(坤) — 땅의 기운. 받아들이고 기다리면 좋은 결과가 온다.",type:"positive"},
@@ -312,6 +313,113 @@ const ANSWERS = [
 const TYPE_LABELS = {positive:"긍정",neutral:"중립",negative:"부정",mystical:"신비"};
 const TYPE_CLASS = {positive:"type-positive",neutral:"type-neutral",negative:"type-negative",mystical:"type-mystical"};
 
+// ═══════════════════════════════════════
+// 호라리 점성술 엔진
+// ═══════════════════════════════════════
+function getPlanetLon(body) {
+  try {
+    var now = new Date();
+    if (body === 'Sun') return Astronomy.SunPosition(now).elon;
+    if (body === 'Moon') return Astronomy.EclipticGeoMoon(now).lon;
+    var e = Astronomy.GeoVector(body, now, true);
+    return Astronomy.Ecliptic(e).elon;
+  } catch(ex) { return -1; }
+}
+
+function lonToSign(lon) { return Math.floor(((lon%360)+360)%360/30); }
+
+// 달의 다음 애스펙트 찾기 (호라리 핵심)
+function findMoonAspect() {
+  var moonLon = getPlanetLon('Moon');
+  var planets = ['Sun','Mercury','Venus','Mars','Jupiter','Saturn'];
+  var benefics = ['Venus','Jupiter']; // 길성
+  var malefics = ['Mars','Saturn'];   // 흉성
+  var SIGN_NAMES = ['양자리','황소자리','쌍둥이자리','게자리','사자자리','처녀자리','천칭자리','전갈자리','사수자리','염소자리','물병자리','물고기자리'];
+
+  var closest = null;
+  var closestDiff = 999;
+
+  planets.forEach(function(p) {
+    var pLon = getPlanetLon(p);
+    if (pLon < 0) return;
+    var diff = ((pLon - moonLon) % 360 + 360) % 360; // 달→행성 순방향 거리
+
+    // 주요 애스펙트 확인 (달이 다가가는 방향만 = applying)
+    var aspects = [
+      {angle:0, name:'합', type:'conjunction', orb:10},
+      {angle:60, name:'섹스타일', type:'sextile', orb:6},
+      {angle:90, name:'스퀘어', type:'square', orb:7},
+      {angle:120, name:'트라인', type:'trine', orb:8},
+      {angle:180, name:'오포지션', type:'opposition', orb:8}
+    ];
+
+    aspects.forEach(function(asp) {
+      var aspDiff = Math.abs(diff - asp.angle);
+      if (aspDiff <= asp.orb && diff <= 180 && aspDiff < closestDiff) {
+        closestDiff = aspDiff;
+        closest = {
+          planet: p,
+          aspect: asp,
+          isBenefic: benefics.indexOf(p) >= 0,
+          isMalefic: malefics.indexOf(p) >= 0,
+          diff: aspDiff
+        };
+      }
+    });
+  });
+
+  var moonSign = lonToSign(moonLon);
+  return {
+    moonLon: moonLon,
+    moonSign: SIGN_NAMES[moonSign],
+    nextAspect: closest
+  };
+}
+
+// 호라리 판단 → 답변 선택
+function getHoraryAnswer() {
+  var horary = findMoonAspect();
+  var asp = horary.nextAspect;
+  var score = 0;
+
+  if (!asp) {
+    // Void of Course (달이 아무 애스펙트도 안 만듦) = "아무 일도 안 일어남"
+    score = 32; // 중립 답변 영역
+  } else {
+    // 애스펙트 종류에 따른 기본 점수
+    if (asp.aspect.type === 'trine') score += 20;
+    else if (asp.aspect.type === 'sextile') score += 15;
+    else if (asp.aspect.type === 'conjunction') score += (asp.isBenefic ? 18 : asp.isMalefic ? -10 : 10);
+    else if (asp.aspect.type === 'square') score -= 12;
+    else if (asp.aspect.type === 'opposition') score -= 8;
+
+    // 길성/흉성 보너스
+    if (asp.isBenefic) score += 10;
+    if (asp.isMalefic) score -= 8;
+  }
+
+  // 점수 → ANSWERS 인덱스 매핑
+  // 긍정(score > 10) → 긍정 답변들, 부정(score < -5) → 부정 답변들, 중간 → 중립
+  var pool = [];
+  if (score > 10) {
+    ANSWERS.forEach(function(a,i){ if (a.type === 'positive') pool.push(i); });
+  } else if (score < -5) {
+    ANSWERS.forEach(function(a,i){ if (a.type === 'negative') pool.push(i); });
+  } else {
+    ANSWERS.forEach(function(a,i){ if (a.type === 'neutral' || a.type === 'mystical') pool.push(i); });
+  }
+
+  // 달 경도로 pool 내 선택 (매 순간 다른 답)
+  var moonIdx = Math.floor(((horary.moonLon * 1000) % pool.length + pool.length) % pool.length);
+  var answerIdx = pool[moonIdx];
+
+  return {
+    answer: ANSWERS[answerIdx],
+    horary: horary,
+    score: score
+  };
+}
+
 let isAsking = false;
 const history = [];
 
@@ -335,19 +443,27 @@ function askCrystal() {
 
     setTimeout(() => {
         ball.classList.remove('shaking');
-        // 질문 텍스트 + 날짜 + 질문 횟수를 시드로 → 주역 64괘 기반 답변 선택
-        var qText = question || '';
-        var today = new Date();
-        var hashSeed = 0;
-        for (var ci = 0; ci < qText.length; ci++) hashSeed += qText.charCodeAt(ci) * (ci + 1);
-        hashSeed += today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
-        hashSeed += history.length;
-        var answer = ANSWERS[Math.abs(hashSeed) % ANSWERS.length];
 
-        textEl.innerHTML = answer.text;
+        // 호라리 점성술: 질문 순간의 실제 행성 배치로 답변 결정
+        var result = getHoraryAnswer();
+        var answer = result.answer;
+        var h = result.horary;
+
+        // 호라리 정보 표시
+        var horaryInfo = '<div style="margin-top:12px;font-size:11px;color:#666;text-align:center;">';
+        horaryInfo += '🌙 달: ' + h.moonSign + ' (' + h.moonLon.toFixed(1) + '°)';
+        if (h.nextAspect) {
+          var planetKR = {Sun:'태양',Mercury:'수성',Venus:'금성',Mars:'화성',Jupiter:'목성',Saturn:'토성'};
+          horaryInfo += '<br>다음 애스펙트: ' + (planetKR[h.nextAspect.planet]||h.nextAspect.planet) + ' ' + h.nextAspect.aspect.name;
+          horaryInfo += ' (' + h.nextAspect.diff.toFixed(1) + '° ' + (h.nextAspect.isBenefic?'길성':'') + (h.nextAspect.isMalefic?'흉성':'') + ')';
+        } else {
+          horaryInfo += '<br>Void of Course (보이드) — 달이 주요 애스펙트 없음';
+        }
+        horaryInfo += '</div>';
+
+        textEl.innerHTML = answer.text + horaryInfo;
         textEl.className = 'crystal-text active';
 
-        // 히스토리 추가
         history.unshift({q: question || '(마음속 질문)', a: answer.text, type: answer.type});
         updateHistory();
 
