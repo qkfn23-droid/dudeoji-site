@@ -138,9 +138,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     </div>
 </nav>
 
-<div class="page-layout">
-<div class="content">
-    <div class="input-bar">
+<div class="input-bar">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
         <span style="font-size:20px;">🌀</span>
         <div>
@@ -148,20 +146,21 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
             <div style="font-size:11px;color:#666;">Descubre tu identidad cosmica a traves del sagrado ciclo del calendario de 260 dias</div>
         </div>
     </div>
-</div>
-
-
     <div class="input-bar-inner">
-        <div class="input-group">
+        <div class="ib-group">
             <label>Fecha de nacimiento</label>
-            <div class="input-row">
+            <div style="display:flex;gap:6px;">
                 <select id="birthYear"></select>
                 <select id="birthMonth"></select>
                 <select id="birthDay"></select>
             </div>
         </div>
-        <button class="calc-btn" onclick="calculate()">Descubre tu Signo Maya</button>
+        <button class="calc-btn" onclick="calculate()">🌀 Descubre tu Signo Maya</button>
     </div>
+</div>
+
+<div class="page-layout">
+<div class="content">
 
     <div class="result-section" id="resultSection">
 
