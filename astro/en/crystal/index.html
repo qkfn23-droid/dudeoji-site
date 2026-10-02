@@ -298,6 +298,12 @@ function askCrystal() {
 
     setTimeout(() => {
         ball.classList.remove("shaking");
+        var qText = question || '';
+        var today = new Date();
+        var hashSeed = 0;
+        for (var ci = 0; ci < qText.length; ci++) hashSeed += qText.charCodeAt(ci) * (ci + 1);
+        hashSeed += today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
+        var answer = ANSWERS[Math.abs(hashSeed) % ANSWERS.length];
 
         textEl.innerHTML = answer.text;
         textEl.className = "crystal-text active";
