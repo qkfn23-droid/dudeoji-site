@@ -60,7 +60,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
         .daily-card .card-emoji { font-size: 64px; margin-bottom: 12px; }
         .daily-card .card-name { font-size: 24px; color: #f39c12; font-weight: 700; margin-bottom: 4px; }
         .daily-card .card-sub { font-size: 13px; color: #888; margin-bottom: 16px; }
-        .daily-card .reading { font-size: 15px; color: #bbb; line-height: 1.8; text-align: left; }
+        .daily-card .reading { font-size: 15px; color: #bbb; line-height: 1.8; text-align: center; }
 
         .luck-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
         @media (max-width: 480px) { .luck-grid { grid-template-columns: 1fr 1fr; } }
@@ -304,37 +304,7 @@ document.getElementById('dailyAdvice').innerHTML = `
 `;
 
 // ═══════════════════════════════════════
-// 행운 정보 (행성 위치 기반)
-// ═══════════════════════════════════════
-// 달 별자리 → 행운의 원소 (전통 4원소)
-const SIGN_ELEMENT = ['불','흙','바람','물','불','흙','바람','물','불','흙','바람','물'];
-const SIGN_ELEMENT_EMOJI = {불:'🔥',흙:'🌍',바람:'💨',물:'🌊'};
-// 태양 별자리 → 행운의 방향 (전통 방위)
-const SIGN_DIR = ['동쪽','남동쪽','남쪽','북쪽','동쪽','남쪽','서쪽','북쪽','동쪽','남쪽','서쪽','북쪽'];
-// 금성 별자리 → 궁합 사인 (트라인 사인)
-function getTrineSign(signIdx) {
-  return ZODIAC[(signIdx + 4) % 12].name;
-}
-
-const moonSign = lonToSign(planetPositions['Moon']);
-const sunSign = lonToSign(planetPositions['Sun']);
-const venusSign = lonToSign(planetPositions['Venus']);
-// 행운의 숫자: 달 경도 기반
-const luckyNum = Math.floor(((planetPositions['Moon'] % 360 + 360) % 360) / 360 * 99) + 1;
-const luckyElement = SIGN_ELEMENT[moonSign];
-const luckyDir = SIGN_DIR[sunSign];
-const compatibility = getTrineSign(venusSign);
-
-document.getElementById('luckGrid').innerHTML = `
-    <div class="luck-item"><div class="luck-label">행운의 숫자</div><div class="luck-value">${luckyNum}</div></div>
-    <div class="luck-item"><div class="luck-label">오늘의 원소</div><div class="luck-value">${SIGN_ELEMENT_EMOJI[luckyElement]} ${luckyElement}</div></div>
-    <div class="luck-item"><div class="luck-label">행운의 방향</div><div class="luck-value">${luckyDir}</div></div>
-    <div class="luck-item"><div class="luck-label">오늘의 궁합</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
-    <a href="../lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">럭키타임 · 럭키컬러</div><div class="luck-value" style="font-size:14px;">⏰ 확인하기</div></a>
-`;
-
-// ═══════════════════════════════════════
-// 별자리별 운세
+// 별자리별 운세 + 트랜짓 기반 (전통 점성술)
 // ═══════════════════════════════════════
 const ZODIAC = [
     {name:'양자리',emoji:'♈',date:'3/21~4/19'},
@@ -350,16 +320,41 @@ const ZODIAC = [
     {name:'물병자리',emoji:'♒',date:'1/20~2/18'},
     {name:'물고기자리',emoji:'♓',date:'2/19~3/20'}
 ];
-
-// ═══════════════════════════════════════
-// 트랜짓 기반 별자리 운세 (전통 점성술)
-// ═══════════════════════════════════════
 const PLANETS = ['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn'];
 const PLANET_KR = {Sun:'태양',Moon:'달',Mercury:'수성',Venus:'금성',Mars:'화성',Jupiter:'목성',Saturn:'토성'};
 const PLANET_EMOJI = {Sun:'☀️',Moon:'🌙',Mercury:'☿',Venus:'♀️',Mars:'♂️',Jupiter:'♃',Saturn:'♄'};
-
-// 각 별자리 지배성 (전통)
 const SIGN_RULER = ['Mars','Venus','Mercury','Moon','Sun','Mercury','Venus','Mars','Jupiter','Saturn','Saturn','Jupiter'];
+
+// 오늘 행성 위치 계산
+const now = new Date();
+const planetPositions = {};
+PLANETS.forEach(p => { planetPositions[p] = getPlanetLon(p, now); });
+
+// ═══════════════════════════════════════
+// 행운 정보 (행성 위치 기반)
+// ═══════════════════════════════════════
+const SIGN_ELEMENT = ['불','흙','바람','물','불','흙','바람','물','불','흙','바람','물'];
+const SIGN_ELEMENT_EMOJI = {불:'🔥',흙:'🌍',바람:'💨',물:'🌊'};
+const SIGN_DIR = ['동쪽','남동쪽','남쪽','북쪽','동쪽','남쪽','서쪽','북쪽','동쪽','남쪽','서쪽','북쪽'];
+function getTrineSign(signIdx) {
+  return ZODIAC[(signIdx + 4) % 12].name;
+}
+
+const moonSign = lonToSign(planetPositions['Moon']);
+const sunSign = lonToSign(planetPositions['Sun']);
+const venusSign = lonToSign(planetPositions['Venus']);
+const luckyNum = Math.floor(((planetPositions['Moon'] % 360 + 360) % 360) / 360 * 99) + 1;
+const luckyElement = SIGN_ELEMENT[moonSign];
+const luckyDir = SIGN_DIR[sunSign];
+const compatibility = getTrineSign(venusSign);
+
+document.getElementById('luckGrid').innerHTML = `
+    <div class="luck-item"><div class="luck-label">행운의 숫자</div><div class="luck-value">${luckyNum}</div></div>
+    <div class="luck-item"><div class="luck-label">오늘의 원소</div><div class="luck-value">${SIGN_ELEMENT_EMOJI[luckyElement]} ${luckyElement}</div></div>
+    <div class="luck-item"><div class="luck-label">행운의 방향</div><div class="luck-value">${luckyDir}</div></div>
+    <div class="luck-item"><div class="luck-label">오늘의 궁합</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
+    <a href="../lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">럭키타임 · 럭키컬러</div><div class="luck-value" style="font-size:14px;">⏰ 확인하기</div></a>
+`;
 
 // 애스펙트: 합(0°), 섹스타일(60°), 스퀘어(90°), 트라인(120°), 오포지션(180°)
 function getAspect(pLon, signIdx) {
@@ -426,11 +421,6 @@ const TRANSIT_MSG = {
     opposition:'토성이 맞은편에서 작용합니다. 외부 제약이 있지만 이를 통해 더 강해집니다.'
   }
 };
-
-// 오늘 행성 위치 계산
-const now = new Date();
-const planetPositions = {};
-PLANETS.forEach(p => { planetPositions[p] = getPlanetLon(p, now); });
 
 // Build zodiac grid
 let zodiacHTML = '';
