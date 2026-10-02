@@ -203,12 +203,27 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 </style>
 <button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#f39c12;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
     </script>
-
+<script src="../astronomy.browser.min.js"></script>
 <script>
-// 날짜 기반 시드 랜덤 (같은 날 = 같은 결과)
+// ═══════════════════════════════════════
+// 실제 행성 경도 계산 (astronomy.js)
+// ═══════════════════════════════════════
+function getPlanetLon(body, date) {
+  try {
+    if (body === 'Sun') return Astronomy.SunPosition(date).elon;
+    if (body === 'Moon') return Astronomy.EclipticGeoMoon(date).lon;
+    var e = Astronomy.GeoVector(body, date, true);
+    return Astronomy.Ecliptic(e).elon;
+  } catch(ex) { return -1; }
+}
+
+function lonToSign(lon) {
+  return Math.floor(((lon % 360) + 360) % 360 / 30);
+}
+
+// 날짜 시드 (같은 날 = 같은 타로/조언)
 function seededRandom(seed) {
     let s = seed;
-    // 초기 seed를 충분히 섞기 (warming up)
     for (let i = 0; i < 10; i++) s = (s * 16807) % 2147483647;
     return function() {
         s = (s * 16807) % 2147483647;
@@ -289,21 +304,30 @@ document.getElementById('dailyAdvice').innerHTML = `
 `;
 
 // ═══════════════════════════════════════
-// 행운 정보
+// 행운 정보 (행성 위치 기반)
 // ═══════════════════════════════════════
-const COLORS = ['빨강','주황','노랑','초록','하늘','파랑','보라','분홍','흰색','검정','금색','은색'];
-const COLOR_HEX = ['#e74c3c','#e67e22','#f1c40f','#27ae60','#3498db','#2c3e50','#9b59b6','#e84393','#ecf0f1','#2c3e50','#f39c12','#bdc3c7'];
-const ELEMENTS = ['불','물','바람','흙','빛'];
-const DIRECTIONS = ['동쪽','서쪽','남쪽','북쪽','동남쪽','동북쪽','서남쪽','서북쪽'];
+// 달 별자리 → 행운의 원소 (전통 4원소)
+const SIGN_ELEMENT = ['불','흙','바람','물','불','흙','바람','물','불','흙','바람','물'];
+const SIGN_ELEMENT_EMOJI = {불:'🔥',흙:'🌍',바람:'💨',물:'🌊'};
+// 태양 별자리 → 행운의 방향 (전통 방위)
+const SIGN_DIR = ['동쪽','남동쪽','남쪽','북쪽','동쪽','남쪽','서쪽','북쪽','동쪽','남쪽','서쪽','북쪽'];
+// 금성 별자리 → 궁합 사인 (트라인 사인)
+function getTrineSign(signIdx) {
+  return ZODIAC[(signIdx + 4) % 12].name;
+}
 
-const luckyNum = Math.floor(rand() * 99) + 1;
-const luckyElement = ELEMENTS[Math.floor(rand() * ELEMENTS.length)];
-const luckyDir = DIRECTIONS[Math.floor(rand() * DIRECTIONS.length)];
-const compatibility = ['양자리','황소자리','쌍둥이자리','게자리','사자자리','처녀자리','천칭자리','전갈자리','사수자리','염소자리','물병자리','물고기자리'][Math.floor(rand() * 12)];
+const moonSign = lonToSign(planetPositions['Moon']);
+const sunSign = lonToSign(planetPositions['Sun']);
+const venusSign = lonToSign(planetPositions['Venus']);
+// 행운의 숫자: 달 경도 기반
+const luckyNum = Math.floor(((planetPositions['Moon'] % 360 + 360) % 360) / 360 * 99) + 1;
+const luckyElement = SIGN_ELEMENT[moonSign];
+const luckyDir = SIGN_DIR[sunSign];
+const compatibility = getTrineSign(venusSign);
 
 document.getElementById('luckGrid').innerHTML = `
     <div class="luck-item"><div class="luck-label">행운의 숫자</div><div class="luck-value">${luckyNum}</div></div>
-    <div class="luck-item"><div class="luck-label">행운의 원소</div><div class="luck-value">${luckyElement}</div></div>
+    <div class="luck-item"><div class="luck-label">오늘의 원소</div><div class="luck-value">${SIGN_ELEMENT_EMOJI[luckyElement]} ${luckyElement}</div></div>
     <div class="luck-item"><div class="luck-label">행운의 방향</div><div class="luck-value">${luckyDir}</div></div>
     <div class="luck-item"><div class="luck-label">오늘의 궁합</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
     <a href="../lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">럭키타임 · 럭키컬러</div><div class="luck-value" style="font-size:14px;">⏰ 확인하기</div></a>
@@ -327,20 +351,86 @@ const ZODIAC = [
     {name:'물고기자리',emoji:'♓',date:'2/19~3/20'}
 ];
 
-const ZODIAC_MSGS = [
-    ['오늘은 새로운 도전이 보상받는 날입니다. 주저하지 말고 행동으로 옮기세요.','인간관계에서 따뜻한 교류가 있을 수 있습니다.','재정적으로 신중하되, 작은 투자는 괜찮습니다.'],
-    ['안정적인 하루가 예상됩니다. 루틴을 지키면 좋은 결과가 옵니다.','사랑하는 사람과 깊은 대화를 나눌 기회.','지출보다 저축에 집중하면 좋은 날.'],
-    ['소통의 날! 아이디어가 샘솟습니다. 회의나 발표에서 빛나세요.','새로운 만남이 기대됩니다.','정보 수집이 재물운으로 이어질 수 있습니다.'],
-    ['감정이 풍부한 날입니다. 직관을 믿으세요.','가족과 함께하면 힐링이 됩니다.','집과 관련된 결정에 좋은 날.'],
-    ['주목받는 날! 자신감을 가지고 앞에 나서세요.','로맨틱한 순간이 찾아올 수 있습니다.','리더십을 발휘하면 금전적 보상이 따릅니다.'],
-    ['꼼꼼함이 빛나는 날. 디테일에 신경 쓰면 큰 실수를 피할 수 있습니다.','진심 어린 조언이 관계를 깊게 합니다.','건강 관련 투자가 장기적으로 이득.'],
-    ['조화와 균형의 날. 갈등을 중재하면 인정받습니다.','파트너십이 강화됩니다.','협력을 통한 수익이 기대됩니다.'],
-    ['깊은 통찰력이 빛나는 날. 표면 아래를 읽으세요.','비밀이 밝혀지거나 깊은 유대가 형성됩니다.','장기적 투자에 좋은 직감이 옵니다.'],
-    ['모험의 날! 새로운 경험에 열려 있으면 행운이 찾아옵니다.','낯선 사람과의 만남이 인상적.','해외나 먼 곳에서 좋은 소식.'],
-    ['성실함이 보상받는 날. 꾸준히 해온 일이 결실을 맺습니다.','어른이나 멘토에게 좋은 평가를 받습니다.','커리어 관련 좋은 소식이 올 수 있습니다.'],
-    ['독창적 아이디어가 넘치는 날. 틀을 깨면 새 길이 열립니다.','같은 취향의 사람과 의미 있는 교류.','기술이나 혁신 관련 기회.'],
-    ['직관이 매우 강한 날. 꿈이나 영감에 주의를 기울이세요.','감성적인 교류가 관계를 따뜻하게 합니다.','예술이나 창작에 투자하면 좋습니다.']
-];
+// ═══════════════════════════════════════
+// 트랜짓 기반 별자리 운세 (전통 점성술)
+// ═══════════════════════════════════════
+const PLANETS = ['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn'];
+const PLANET_KR = {Sun:'태양',Moon:'달',Mercury:'수성',Venus:'금성',Mars:'화성',Jupiter:'목성',Saturn:'토성'};
+const PLANET_EMOJI = {Sun:'☀️',Moon:'🌙',Mercury:'☿',Venus:'♀️',Mars:'♂️',Jupiter:'♃',Saturn:'♄'};
+
+// 각 별자리 지배성 (전통)
+const SIGN_RULER = ['Mars','Venus','Mercury','Moon','Sun','Mercury','Venus','Mars','Jupiter','Saturn','Saturn','Jupiter'];
+
+// 애스펙트: 합(0°), 섹스타일(60°), 스퀘어(90°), 트라인(120°), 오포지션(180°)
+function getAspect(pLon, signIdx) {
+  var signMid = signIdx * 30 + 15;
+  var diff = Math.abs(((pLon - signMid) % 360 + 360) % 360);
+  if (diff > 180) diff = 360 - diff;
+  if (diff <= 10) return {type:'conjunction',score:5,label:'합(0°)',desc:'강력한 에너지 집중'};
+  if (Math.abs(diff-60) <= 6) return {type:'sextile',score:3,label:'섹스타일(60°)',desc:'기회와 조화'};
+  if (Math.abs(diff-90) <= 7) return {type:'square',score:-3,label:'스퀘어(90°)',desc:'긴장과 도전'};
+  if (Math.abs(diff-120) <= 8) return {type:'trine',score:4,label:'트라인(120°)',desc:'행운과 순조로움'};
+  if (Math.abs(diff-180) <= 8) return {type:'opposition',score:-2,label:'오포지션(180°)',desc:'균형과 대립'};
+  return null;
+}
+
+// 행성별 영향 해석
+const TRANSIT_MSG = {
+  Sun: {
+    conjunction:'태양이 당신의 별자리에 머물고 있습니다. 자신감과 활력이 넘치는 시기입니다.',
+    trine:'태양이 조화로운 각도에서 빛나고 있습니다. 자연스럽게 좋은 일이 찾아옵니다.',
+    sextile:'태양이 기회의 각도에 있습니다. 적극적으로 움직이면 성과를 얻습니다.',
+    square:'태양이 도전의 각도에 있습니다. 자존심보다 유연함이 필요한 날입니다.',
+    opposition:'태양이 맞은편에 있습니다. 타인과의 관계에서 균형을 찾으세요.'
+  },
+  Moon: {
+    conjunction:'달이 당신의 별자리를 지나갑니다. 감정이 풍부하고 직관이 강해집니다.',
+    trine:'달이 부드러운 각도에서 비추고 있습니다. 마음이 편안한 하루입니다.',
+    sextile:'달이 기회의 각도에 있습니다. 감성적인 교류가 좋은 결과를 가져옵니다.',
+    square:'달이 긴장의 각도에 있습니다. 감정 기복에 주의하세요.',
+    opposition:'달이 맞은편에 있습니다. 내면의 감정과 외부 상황 사이에서 조율이 필요합니다.'
+  },
+  Mercury: {
+    conjunction:'수성이 당신의 별자리에 있습니다. 소통과 사고력이 최고조입니다.',
+    trine:'수성이 조화로운 각도에 있습니다. 대화와 협상에서 좋은 결과를 기대하세요.',
+    sextile:'수성이 기회를 줍니다. 새로운 정보나 소식이 도움이 됩니다.',
+    square:'수성이 긴장의 각도에 있습니다. 오해가 생기기 쉬우니 명확하게 소통하세요.',
+    opposition:'수성이 맞은편에서 작용합니다. 다른 사람의 의견에 귀 기울여 보세요.'
+  },
+  Venus: {
+    conjunction:'금성이 당신의 별자리에 있습니다. 사랑과 아름다움이 빛나는 시기입니다.',
+    trine:'금성이 조화의 각도에 있습니다. 연애운과 대인관계가 좋습니다.',
+    sextile:'금성이 기회를 줍니다. 사교적인 활동이 행운을 가져옵니다.',
+    square:'금성이 긴장의 각도에 있습니다. 관계에서 기대치를 조절하세요.',
+    opposition:'금성이 맞은편에 있습니다. 타인에 대한 욕구와 자신의 필요 사이에서 균형을 찾으세요.'
+  },
+  Mars: {
+    conjunction:'화성이 당신의 별자리에 있습니다. 에너지와 추진력이 폭발합니다.',
+    trine:'화성이 힘을 실어줍니다. 행동으로 옮기면 성과가 따라옵니다.',
+    sextile:'화성이 기회를 줍니다. 적극적인 행동이 좋은 결과를 만듭니다.',
+    square:'화성이 도전의 각도에 있습니다. 충동적인 결정은 피하세요.',
+    opposition:'화성이 맞은편에서 작용합니다. 갈등 상황에서는 한 발 물러서세요.'
+  },
+  Jupiter: {
+    conjunction:'목성이 당신의 별자리에 있습니다! 행운과 확장의 시기입니다.',
+    trine:'목성이 조화로운 각도에서 축복합니다. 큰 행운이 기대됩니다.',
+    sextile:'목성이 기회의 문을 엽니다. 새로운 가능성에 열려 있으세요.',
+    square:'목성이 과욕의 각도에 있습니다. 지나친 낙관은 주의하세요.',
+    opposition:'목성이 맞은편에 있습니다. 타인을 통해 성장의 기회가 옵니다.'
+  },
+  Saturn: {
+    conjunction:'토성이 당신의 별자리에 있습니다. 책임감과 성숙함이 요구되는 시기입니다.',
+    trine:'토성이 안정의 각도에 있습니다. 꾸준한 노력이 보상받습니다.',
+    sextile:'토성이 구조적 기회를 줍니다. 계획을 세우면 좋은 결과가 옵니다.',
+    square:'토성이 시련의 각도에 있습니다. 인내가 필요하지만 성장의 기회입니다.',
+    opposition:'토성이 맞은편에서 작용합니다. 외부 제약이 있지만 이를 통해 더 강해집니다.'
+  }
+};
+
+// 오늘 행성 위치 계산
+const now = new Date();
+const planetPositions = {};
+PLANETS.forEach(p => { planetPositions[p] = getPlanetLon(p, now); });
 
 // Build zodiac grid
 let zodiacHTML = '';
@@ -351,14 +441,82 @@ document.getElementById('zodiacGrid').innerHTML = zodiacHTML;
 
 function showZodiac(idx) {
     const z = ZODIAC[idx];
-    const zRand = seededRandom(dateSeed + idx * 7);
+    var aspects = [];
+    var totalScore = 50; // 기본 50
+    var loveScore = 50;
+    var workScore = 50;
+    var moneyScore = 50;
 
-    const msgs = ZODIAC_MSGS[idx];
-    const overall = Math.floor(zRand() * 40) + 60;
-    const love = Math.floor(zRand() * 50) + 50;
-    const work = Math.floor(zRand() * 50) + 50;
-    const money = Math.floor(zRand() * 50) + 50;
-    const health = Math.floor(zRand() * 30) + 70;
+    PLANETS.forEach(function(p) {
+      var lon = planetPositions[p];
+      if (lon < 0) return;
+      var asp = getAspect(lon, idx);
+      if (asp) {
+        aspects.push({planet:p, aspect:asp, lon:lon});
+        totalScore += asp.score * 4;
+        // 금성/달 → 애정운, 목성/태양 → 직장운, 토성/수성 → 금전운
+        if (p==='Venus'||p==='Moon') loveScore += asp.score * 5;
+        if (p==='Jupiter'||p==='Sun'||p==='Mars') workScore += asp.score * 5;
+        if (p==='Saturn'||p==='Mercury'||p==='Jupiter') moneyScore += asp.score * 4;
+      }
+    });
+
+    // 지배성 위치 보너스
+    var ruler = SIGN_RULER[idx];
+    var rulerLon = planetPositions[ruler];
+    if (rulerLon >= 0) {
+      var rulerSign = lonToSign(rulerLon);
+      // 지배성이 자기 사인에 있으면 보너스
+      if (rulerSign === idx) { totalScore += 10; loveScore += 5; workScore += 5; moneyScore += 5; }
+    }
+
+    // 점수 범위 제한
+    totalScore = Math.max(20, Math.min(95, totalScore));
+    loveScore = Math.max(20, Math.min(95, loveScore));
+    workScore = Math.max(20, Math.min(95, workScore));
+    moneyScore = Math.max(20, Math.min(95, moneyScore));
+
+    // 총운 메시지 생성
+    var overallMsg = '';
+    var loveMsg = '';
+    var moneyMsg = '';
+
+    if (aspects.length === 0) {
+      overallMsg = '오늘은 주요 행성과 특별한 각도를 형성하지 않습니다. 평온한 하루가 예상됩니다.';
+      loveMsg = '조용하지만 안정적인 하루. 작은 친절이 관계에 따뜻함을 더합니다.';
+      moneyMsg = '큰 변화 없이 안정적인 흐름. 무리한 지출은 피하세요.';
+    } else {
+      // 가장 강한 애스펙트 찾기
+      var strongest = aspects.sort(function(a,b){ return Math.abs(b.aspect.score) - Math.abs(a.aspect.score); })[0];
+      overallMsg = TRANSIT_MSG[strongest.planet][strongest.aspect.type];
+
+      // 애정운: 금성/달 우선
+      var loveAsp = aspects.find(function(a){return a.planet==='Venus';}) || aspects.find(function(a){return a.planet==='Moon';});
+      if (loveAsp) {
+        loveMsg = TRANSIT_MSG[loveAsp.planet][loveAsp.aspect.type];
+      } else {
+        loveMsg = loveScore >= 60 ? '전반적으로 따뜻한 에너지가 흐릅니다. 마음을 열면 좋은 인연이 찾아옵니다.' : '감정적으로 조용한 하루입니다. 자신을 돌보는 시간을 가지세요.';
+      }
+
+      // 금전운: 토성/목성/수성 우선
+      var moneyAsp = aspects.find(function(a){return a.planet==='Jupiter';}) || aspects.find(function(a){return a.planet==='Saturn';}) || aspects.find(function(a){return a.planet==='Mercury';});
+      if (moneyAsp) {
+        moneyMsg = TRANSIT_MSG[moneyAsp.planet][moneyAsp.aspect.type];
+      } else {
+        moneyMsg = moneyScore >= 60 ? '재정적으로 안정적인 흐름입니다. 작은 기회를 놓치지 마세요.' : '지출에 주의하세요. 계획적인 소비가 필요한 날입니다.';
+      }
+    }
+
+    // 행성 위치 표시
+    var transitInfo = '';
+    aspects.forEach(function(a) {
+      var color = a.aspect.score > 0 ? '#27ae60' : '#e74c3c';
+      transitInfo += '<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#999;">' +
+        '<span style="font-size:16px;">' + PLANET_EMOJI[a.planet] + '</span>' +
+        '<span>' + PLANET_KR[a.planet] + '</span>' +
+        '<span style="color:' + color + ';font-weight:600;">' + a.aspect.label + '</span>' +
+        '<span style="color:#666;">' + a.aspect.desc + '</span></div>';
+    });
 
     document.querySelectorAll('.zodiac-btn').forEach(b => b.classList.remove('active'));
     event.target.closest('.zodiac-btn').classList.add('active');
@@ -368,15 +526,16 @@ function showZodiac(idx) {
         <div class="zr-title">${z.emoji} ${z.name}</div>
         <div class="zr-date">${z.date}</div>
         <div class="zr-text">
-            <strong>💫 총운:</strong> ${msgs[0]}<br><br>
-            <strong>💕 애정운:</strong> ${msgs[1]}<br><br>
-            <strong>💰 금전운:</strong> ${msgs[2]}
+            <strong>💫 총운:</strong> ${overallMsg}<br><br>
+            <strong>💕 애정운:</strong> ${loveMsg}<br><br>
+            <strong>💰 금전운:</strong> ${moneyMsg}
         </div>
+        ${transitInfo ? '<div style="margin-top:16px;padding-top:12px;border-top:1px solid #2a2a5a;"><div style="font-size:11px;color:#c9a84c;margin-bottom:8px;letter-spacing:1px;">오늘의 트랜짓</div>' + transitInfo + '</div>' : ''}
         <div class="zr-meters">
-            <div class="zr-meter">총운 ${overall}%<div class="bar"><div class="bar-fill" style="width:${overall}%"></div></div></div>
-            <div class="zr-meter">애정운 ${love}%<div class="bar"><div class="bar-fill" style="width:${love}%;background:#e84393"></div></div></div>
-            <div class="zr-meter">직장운 ${work}%<div class="bar"><div class="bar-fill" style="width:${work}%;background:#3498db"></div></div></div>
-            <div class="zr-meter">금전운 ${money}%<div class="bar"><div class="bar-fill" style="width:${money}%;background:#27ae60"></div></div></div>
+            <div class="zr-meter">총운 ${totalScore}%<div class="bar"><div class="bar-fill" style="width:${totalScore}%"></div></div></div>
+            <div class="zr-meter">애정운 ${loveScore}%<div class="bar"><div class="bar-fill" style="width:${loveScore}%;background:#e84393"></div></div></div>
+            <div class="zr-meter">직장운 ${workScore}%<div class="bar"><div class="bar-fill" style="width:${workScore}%;background:#3498db"></div></div></div>
+            <div class="zr-meter">금전운 ${moneyScore}%<div class="bar"><div class="bar-fill" style="width:${moneyScore}%;background:#27ae60"></div></div></div>
         </div>
     `;
     zr.style.display = 'block';

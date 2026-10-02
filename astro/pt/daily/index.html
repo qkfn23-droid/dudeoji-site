@@ -211,9 +211,10 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 
 <button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#f39c12;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
     </script>
-
+<script src="/astro/astronomy.browser.min.js"></script>
 <script>
-// Aleatoriedade baseada na data (mesmo dia = mesmo resultado)
+function getPlanetLon(body,date){try{if(body==='Sun')return Astronomy.SunPosition(date).elon;if(body==='Moon')return Astronomy.EclipticGeoMoon(date).lon;var e=Astronomy.GeoVector(body,date,true);return Astronomy.Ecliptic(e).elon;}catch(ex){return -1;}}
+function lonToSign(lon){return Math.floor(((lon%360)+360)%360/30);}
 function seededRandom(seed) {
     // warm up seed
     let s = seed;
@@ -299,98 +300,59 @@ document.getElementById('dailyAdvice').innerHTML = `
 
 // ═══════════════════════════════════════
 // Informações de sorte
-// ═══════════════════════════════════════
-const COLORS = ['Vermelho','Laranja','Amarelo','Verde','Azul-céu','Azul','Roxo','Rosa','Branco','Preto','Dourado','Prateado'];
-const COLOR_HEX = ['#e74c3c','#e67e22','#f1c40f','#27ae60','#3498db','#2c3e50','#9b59b6','#e84393','#ecf0f1','#2c3e50','#f39c12','#bdc3c7'];
-const ELEMENTS = ['Fogo','Água','Ar','Terra','Luz'];
-const DIRECTIONS = ['Leste','Oeste','Sul','Norte','Sudeste','Nordeste','Sudoeste','Noroeste'];
-
-const luckyNum = Math.floor(rand() * 99) + 1;
-const luckyElement = ELEMENTS[Math.floor(rand() * ELEMENTS.length)];
-const luckyDir = DIRECTIONS[Math.floor(rand() * DIRECTIONS.length)];
-const compatibility = ['Áries','Touro','Gêmeos','Câncer','Leão','Virgem','Libra','Escorpião','Sagitário','Capricórnio','Aquário','Peixes'][Math.floor(rand() * 12)];
-
-document.getElementById('luckGrid').innerHTML = `
-    <div class="luck-item"><div class="luck-label">Número da Sorte</div><div class="luck-value">${luckyNum}</div></div>
-    <div class="luck-item"><div class="luck-label">Elemento da Sorte</div><div class="luck-value">${luckyElement}</div></div>
-    <div class="luck-item"><div class="luck-label">Direção da Sorte</div><div class="luck-value">${luckyDir}</div></div>
-    <div class="luck-item"><div class="luck-label">Compatível Hoje</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
-    <a href="/pt/lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">Hora · Cor da Sorte</div><div class="luck-value" style="font-size:14px;">⏰ Ver</div></a>
+const ZODIAC=[{name:'\u00c1ries',emoji:'♈',date:'21/03 ~ 19/04'},{name:'Touro',emoji:'♉',date:'20/04 ~ 20/05'},{name:'G\u00eameos',emoji:'♊',date:'21/05 ~ 20/06'},{name:'C\u00e2ncer',emoji:'♋',date:'21/06 ~ 22/07'},{name:'Le\u00e3o',emoji:'♌',date:'23/07 ~ 22/08'},{name:'Virgem',emoji:'♍',date:'23/08 ~ 22/09'},{name:'Libra',emoji:'♎',date:'23/09 ~ 22/10'},{name:'Escorpi\u00e3o',emoji:'♏',date:'23/10 ~ 21/11'},{name:'Sagit\u00e1rio',emoji:'♐',date:'22/11 ~ 21/12'},{name:'Capric\u00f3rnio',emoji:'♑',date:'22/12 ~ 19/01'},{name:'Aqu\u00e1rio',emoji:'♒',date:'20/01 ~ 18/02'},{name:'Peixes',emoji:'♓',date:'19/02 ~ 20/03'}];
+const PLANETS=['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn'];
+const PLANET_NAME={Sun:'Sol',Moon:'Lua',Mercury:'Merc\u00fario',Venus:'V\u00eanus',Mars:'Marte',Jupiter:'J\u00fapiter',Saturn:'Saturno'};
+const PLANET_EMOJI={Sun:'☀️',Moon:'🌙',Mercury:'☿',Venus:'♀️',Mars:'♂️',Jupiter:'♃',Saturn:'♄'};
+const SIGN_RULER=['Mars','Venus','Mercury','Moon','Sun','Mercury','Venus','Mars','Jupiter','Saturn','Saturn','Jupiter'];
+const SIGN_ELEMENT=['Fogo','Terra','Ar','\u00c1gua','Fogo','Terra','Ar','\u00c1gua','Fogo','Terra','Ar','\u00c1gua'];
+const SIGN_ELEMENT_EMOJI={Fogo:'🔥',Terra:'🌍',Ar:'💨','\u00c1gua':'🌊'};
+const SIGN_DIR=['Leste','Sudeste','Sul','Norte','Leste','Sul','Oeste','Norte','Leste','Sul','Oeste','Norte'];
+function getAspect(pLon,signIdx){var signMid=signIdx*30+15,diff=Math.abs(((pLon-signMid)%360+360)%360);if(diff>180)diff=360-diff;
+  if(diff<=10)return{type:'conjunction',score:5,label:'Conjun\u00e7\u00e3o (0\u00b0)',desc:'Concentra\u00e7\u00e3o poderosa de energia'};
+  if(Math.abs(diff-60)<=6)return{type:'sextile',score:3,label:'Sextil (60\u00b0)',desc:'Oportunidade e harmonia'};
+  if(Math.abs(diff-90)<=7)return{type:'square',score:-3,label:'Quadratura (90\u00b0)',desc:'Tens\u00e3o e desafio'};
+  if(Math.abs(diff-120)<=8)return{type:'trine',score:4,label:'Tr\u00edgono (120\u00b0)',desc:'Sorte e facilidade'};
+  if(Math.abs(diff-180)<=8)return{type:'opposition',score:-2,label:'Oposi\u00e7\u00e3o (180\u00b0)',desc:'Equil\u00edbrio e conflito'};return null;}
+const TRANSIT_MSG={
+  Sun:{conjunction:'O Sol est\u00e1 no seu signo. Confian\u00e7a e vitalidade est\u00e3o no auge.',trine:'O Sol brilha de um \u00e2ngulo harmonioso. Coisas boas chegam naturalmente.',sextile:'O Sol oferece oportunidades. Tome a iniciativa e ver\u00e1 resultados.',square:'O Sol te desafia hoje. Flexibilidade importa mais que orgulho.',opposition:'O Sol est\u00e1 no lado oposto. Busque equil\u00edbrio nos relacionamentos.'},
+  Moon:{conjunction:'A Lua passa pelo seu signo. Emo\u00e7\u00f5es e intui\u00e7\u00e3o est\u00e3o intensificadas.',trine:'A Lua ilumina suavemente seu caminho. Um dia tranquilo e agrad\u00e1vel.',sextile:'A Lua abre portas. Conex\u00f5es emocionais levam a bons resultados.',square:'A Lua cria tens\u00e3o. Cuidado com mudan\u00e7as de humor.',opposition:'A Lua est\u00e1 no lado oposto. Encontre harmonia entre sentimentos e demandas externas.'},
+  Mercury:{conjunction:'Merc\u00fario est\u00e1 no seu signo. Comunica\u00e7\u00e3o e pensamento est\u00e3o no \u00e1pice.',trine:'Merc\u00fario flui harmoniosamente. Conversas e negocia\u00e7\u00f5es v\u00e3o bem.',sextile:'Merc\u00fario traz oportunidades. Novas informa\u00e7\u00f5es te ajudam.',square:'Merc\u00fario cria atrito. Mal-entendidos s\u00e3o prov\u00e1veis \u2014 comunique-se claramente.',opposition:'Merc\u00fario age do outro lado. Ou\u00e7a diferentes perspectivas.'},
+  Venus:{conjunction:'V\u00eanus est\u00e1 no seu signo. Amor e beleza brilham ao seu redor.',trine:'V\u00eanus envia harmonia. Romance e relacionamentos florescem.',sextile:'V\u00eanus oferece oportunidades sociais. Ser sociável traz sorte.',square:'V\u00eanus cria tens\u00e3o. Ajuste suas expectativas nos relacionamentos.',opposition:'V\u00eanus est\u00e1 no lado oposto. Equilibre o desejo pelos outros com suas pr\u00f3prias necessidades.'},
+  Mars:{conjunction:'Marte inflama seu signo. Energia e impulso explodem.',trine:'Marte te d\u00e1 for\u00e7a. A a\u00e7\u00e3o traz resultados.',sextile:'Marte oferece oportunidades. Movimentos ousados compensam.',square:'Marte te desafia. Evite decis\u00f5es impulsivas.',opposition:'Marte age do outro lado. D\u00ea um passo atr\u00e1s nos conflitos.'},
+  Jupiter:{conjunction:'J\u00fapiter est\u00e1 no seu signo! Um per\u00edodo de sorte e expans\u00e3o.',trine:'J\u00fapiter te aben\u00e7oa de um \u00e2ngulo harmonioso. Grande fortuna \u00e9 poss\u00edvel.',sextile:'J\u00fapiter abre portas de possibilidade. Fique aberto a novos horizontes.',square:'J\u00fapiter tenta o excesso. Cuidado com otimismo demais.',opposition:'J\u00fapiter age atrav\u00e9s dos outros. O crescimento vem pelos relacionamentos.'},
+  Saturn:{conjunction:'Saturno est\u00e1 no seu signo. Responsabilidade e maturidade s\u00e3o exigidas.',trine:'Saturno proporciona estabilidade. O esfor\u00e7o constante \u00e9 recompensado.',sextile:'Saturno oferece oportunidades estruturais. Planejar leva a bons resultados.',square:'Saturno te testa. Paci\u00eancia \u00e9 necess\u00e1ria, mas o crescimento espera.',opposition:'Saturno pressiona de fora. Limites externos te tornam mais forte.'}
+};
+const now=new Date();const planetPositions={};PLANETS.forEach(p=>{planetPositions[p]=getPlanetLon(p,now);});
+function getTrineSign(si){return ZODIAC[(si+4)%12].name;}
+const moonSign=lonToSign(planetPositions['Moon']),sunSign=lonToSign(planetPositions['Sun']),venusSign=lonToSign(planetPositions['Venus']);
+const luckyNum=Math.floor(((planetPositions['Moon']%360+360)%360)/360*99)+1;
+const luckyElement=SIGN_ELEMENT[moonSign],luckyDir=SIGN_DIR[sunSign],compatibility=getTrineSign(venusSign);
+document.getElementById('luckGrid').innerHTML=`
+    <div class="luck-item"><div class="luck-label">N\u00famero da Sorte</div><div class="luck-value">${luckyNum}</div></div>
+    <div class="luck-item"><div class="luck-label">Elemento do Dia</div><div class="luck-value">${SIGN_ELEMENT_EMOJI[luckyElement]} ${luckyElement}</div></div>
+    <div class="luck-item"><div class="luck-label">Dire\u00e7\u00e3o da Sorte</div><div class="luck-value">${luckyDir}</div></div>
+    <div class="luck-item"><div class="luck-label">Melhor Compatibilidade</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
+    <a href="/astro/pt/lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">Hora \u00b7 Cor da Sorte</div><div class="luck-value" style="font-size:14px;">\u23f0 Ver</div></a>
 `;
-
-// ═══════════════════════════════════════
-// Horóscopo por signo
-// ═══════════════════════════════════════
-const ZODIAC = [
-    {name:'Áries',emoji:'♈',date:'21/03 ~ 19/04'},
-    {name:'Touro',emoji:'♉',date:'20/04 ~ 20/05'},
-    {name:'Gêmeos',emoji:'♊',date:'21/05 ~ 20/06'},
-    {name:'Câncer',emoji:'♋',date:'21/06 ~ 22/07'},
-    {name:'Leão',emoji:'♌',date:'23/07 ~ 22/08'},
-    {name:'Virgem',emoji:'♍',date:'23/08 ~ 22/09'},
-    {name:'Libra',emoji:'♎',date:'23/09 ~ 22/10'},
-    {name:'Escorpião',emoji:'♏',date:'23/10 ~ 21/11'},
-    {name:'Sagitário',emoji:'♐',date:'22/11 ~ 21/12'},
-    {name:'Capricórnio',emoji:'♑',date:'22/12 ~ 19/01'},
-    {name:'Aquário',emoji:'♒',date:'20/01 ~ 18/02'},
-    {name:'Peixes',emoji:'♓',date:'19/02 ~ 20/03'}
-];
-
-const ZODIAC_MSGS = [
-    ['Hoje novos desafios serão recompensados. Não hesite — passe à ação.','Trocas calorosas são possíveis nos relacionamentos.','Seja prudente financeiramente, mas pequenos investimentos estão bem.'],
-    ['Um dia estável se aproxima. Seguir a rotina trará bons resultados.','Uma oportunidade para uma conversa profunda com alguém querido.','Um bom dia para focar em poupar em vez de gastar.'],
-    ['Dia de comunicação! As ideias fluem. Brilhe em reuniões e apresentações.','Novos encontros são esperados.','Reunir informações pode se converter em fortuna.'],
-    ['Um dia de emoções ricas. Confie na sua intuição.','Passar tempo com a família traz cura.','Um bom dia para decisões relacionadas ao lar.'],
-    ['Dia de estar no centro das atenções! Tenha confiança e apareça.','Momentos românticos podem surgir.','Exercer liderança traz recompensas financeiras.'],
-    ['Dia em que a atenção ao detalhe brilha. Cuidar dos detalhes evita grandes erros.','Conselhos sinceros aprofundam os relacionamentos.','Investir em saúde traz benefícios a longo prazo.'],
-    ['Dia de harmonia e equilíbrio. Mediar conflitos traz reconhecimento.','As parcerias se fortalecem.','Ganhos por meio da cooperação são esperados.'],
-    ['Dia de insights profundos. Leia o que está abaixo da superfície.','Segredos revelados ou vínculos profundos formados.','Uma boa intuição para investimentos de longo prazo.'],
-    ['Dia de aventura! Estar aberto a novas experiências traz sorte.','Encontros com estranhos deixam impressão.','Boas notícias vindas de longe ou do exterior.'],
-    ['Dia em que a diligência é recompensada. O trabalho consistente dá frutos.','Uma avaliação positiva de um superior ou mentor.','Boas notícias relacionadas à carreira podem chegar.'],
-    ['Dia transbordando de ideias originais. Quebrar padrões abre novos caminhos.','Trocas significativas com pessoas de gostos similares.','Oportunidades ligadas a tecnologia ou inovação.'],
-    ['Dia de intuição muito forte. Preste atenção aos sonhos e à inspiração.','Trocas emocionais aquecem os relacionamentos.','Investir em arte ou criatividade é favorável.']
-];
-
-// Montar grade de signos
-let zodiacHTML = '';
-ZODIAC.forEach((z, i) => {
-    zodiacHTML += `<button class="zodiac-btn" onclick="showZodiac(${i})"><span class="emoji">${z.emoji}</span>${z.name}</button>`;
-});
-document.getElementById('zodiacGrid').innerHTML = zodiacHTML;
-
-function showZodiac(idx) {
-    const z = ZODIAC[idx];
-    const zRand = seededRandom(dateSeed + idx * 7);
-
-    const msgs = ZODIAC_MSGS[idx];
-    const overall = Math.floor(zRand() * 40) + 60;
-    const love = Math.floor(zRand() * 50) + 50;
-    const work = Math.floor(zRand() * 50) + 50;
-    const money = Math.floor(zRand() * 50) + 50;
-    const health = Math.floor(zRand() * 30) + 70;
-
-    document.querySelectorAll('.zodiac-btn').forEach(b => b.classList.remove('active'));
-    event.target.closest('.zodiac-btn').classList.add('active');
-
-    const zr = document.getElementById('zodiacReading');
-    zr.innerHTML = `
-        <div class="zr-title">${z.emoji} ${z.name}</div>
-        <div class="zr-date">${z.date}</div>
-        <div class="zr-text">
-            <strong>💫 Geral:</strong> ${msgs[0]}<br><br>
-            <strong>💕 Amor:</strong> ${msgs[1]}<br><br>
-            <strong>💰 Finanças:</strong> ${msgs[2]}
-        </div>
-        <div class="zr-meters">
-            <div class="zr-meter">Geral ${overall}%<div class="bar"><div class="bar-fill" style="width:${overall}%"></div></div></div>
-            <div class="zr-meter">Amor ${love}%<div class="bar"><div class="bar-fill" style="width:${love}%;background:#e84393"></div></div></div>
-            <div class="zr-meter">Trabalho ${work}%<div class="bar"><div class="bar-fill" style="width:${work}%;background:#3498db"></div></div></div>
-            <div class="zr-meter">Finanças ${money}%<div class="bar"><div class="bar-fill" style="width:${money}%;background:#27ae60"></div></div></div>
-        </div>
-    `;
-    zr.style.display = 'block';
-    zr.scrollIntoView({ behavior: 'smooth' });
-}
+let zodiacHTML='';ZODIAC.forEach((z,i)=>{zodiacHTML+=`<button class="zodiac-btn" onclick="showZodiac(${i})"><span class="emoji">${z.emoji}</span>${z.name}</button>`;});
+document.getElementById('zodiacGrid').innerHTML=zodiacHTML;
+function showZodiac(idx){const z=ZODIAC[idx];var aspects=[],totalScore=50,loveScore=50,workScore=50,moneyScore=50;
+  PLANETS.forEach(function(p){var lon=planetPositions[p];if(lon<0)return;var asp=getAspect(lon,idx);if(asp){aspects.push({planet:p,aspect:asp});totalScore+=asp.score*4;if(p==='Venus'||p==='Moon')loveScore+=asp.score*5;if(p==='Jupiter'||p==='Sun'||p==='Mars')workScore+=asp.score*5;if(p==='Saturn'||p==='Mercury'||p==='Jupiter')moneyScore+=asp.score*4;}});
+  var ruler=SIGN_RULER[idx],rulerLon=planetPositions[ruler];if(rulerLon>=0&&lonToSign(rulerLon)===idx){totalScore+=10;loveScore+=5;workScore+=5;moneyScore+=5;}
+  totalScore=Math.max(20,Math.min(95,totalScore));loveScore=Math.max(20,Math.min(95,loveScore));workScore=Math.max(20,Math.min(95,workScore));moneyScore=Math.max(20,Math.min(95,moneyScore));
+  var overallMsg='',loveMsg='',moneyMsg='';
+  if(aspects.length===0){overallMsg='Hoje nenhum planeta importante forma \u00e2ngulos especiais com seu signo. Um dia calmo \u00e9 esperado.';loveMsg='Um dia silencioso mas est\u00e1vel. Pequenos gestos de gentileza aquecem os relacionamentos.';moneyMsg='Fluxo est\u00e1vel sem grandes mudan\u00e7as. Evite gastos desnecess\u00e1rios.';}
+  else{var strongest=aspects.sort(function(a,b){return Math.abs(b.aspect.score)-Math.abs(a.aspect.score);})[0];overallMsg=TRANSIT_MSG[strongest.planet][strongest.aspect.type];
+    var loveAsp=aspects.find(function(a){return a.planet==='Venus';})||aspects.find(function(a){return a.planet==='Moon';});
+    loveMsg=loveAsp?TRANSIT_MSG[loveAsp.planet][loveAsp.aspect.type]:(loveScore>=60?'Energia calorosa flui ao seu redor. Abra seu cora\u00e7\u00e3o para boas conex\u00f5es.':'Um dia emocionalmente tranquilo. Reserve um tempo para cuidar de si.');
+    var moneyAsp=aspects.find(function(a){return a.planet==='Jupiter';})||aspects.find(function(a){return a.planet==='Saturn';})||aspects.find(function(a){return a.planet==='Mercury';});
+    moneyMsg=moneyAsp?TRANSIT_MSG[moneyAsp.planet][moneyAsp.aspect.type]:(moneyScore>=60?'Financeiramente est\u00e1vel. Fique atento a pequenas oportunidades.':'Cuidado com os gastos. Um or\u00e7amento planejado ajuda hoje.');}
+  var transitInfo='';aspects.forEach(function(a){var color=a.aspect.score>0?'#27ae60':'#e74c3c';transitInfo+='<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#999;"><span style="font-size:16px;">'+PLANET_EMOJI[a.planet]+'</span><span>'+PLANET_NAME[a.planet]+'</span><span style="color:'+color+';font-weight:600;">'+a.aspect.label+'</span><span style="color:#666;">'+a.aspect.desc+'</span></div>';});
+  document.querySelectorAll('.zodiac-btn').forEach(b=>b.classList.remove('active'));event.target.closest('.zodiac-btn').classList.add('active');
+  const zr=document.getElementById('zodiacReading');
+  zr.innerHTML=`<div class="zr-title">${z.emoji} ${z.name}</div><div class="zr-date">${z.date}</div><div class="zr-text"><strong>\ud83d\udcab Geral:</strong> ${overallMsg}<br><br><strong>\ud83d\udc95 Amor:</strong> ${loveMsg}<br><br><strong>\ud83d\udcb0 Finan\u00e7as:</strong> ${moneyMsg}</div>${transitInfo?'<div style="margin-top:16px;padding-top:12px;border-top:1px solid #2a2a5a;"><div style="font-size:11px;color:#c9a84c;margin-bottom:8px;letter-spacing:1px;">TR\u00c2NSITOS DE HOJE</div>'+transitInfo+'</div>':''}<div class="zr-meters"><div class="zr-meter">Geral ${totalScore}%<div class="bar"><div class="bar-fill" style="width:${totalScore}%"></div></div></div><div class="zr-meter">Amor ${loveScore}%<div class="bar"><div class="bar-fill" style="width:${loveScore}%;background:#e84393"></div></div></div><div class="zr-meter">Carreira ${workScore}%<div class="bar"><div class="bar-fill" style="width:${workScore}%;background:#3498db"></div></div></div><div class="zr-meter">Finan\u00e7as ${moneyScore}%<div class="bar"><div class="bar-fill" style="width:${moneyScore}%;background:#27ae60"></div></div></div></div>`;
+  zr.style.display='block';zr.scrollIntoView({behavior:'smooth'});}
 </script>
 <script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("selectstart",function(e){e.preventDefault()});document.addEventListener("copy",function(e){e.preventDefault()});document.addEventListener("keydown",function(e){if(e.ctrlKey&&"uUsSiIcCaA".includes(e.key)){e.preventDefault()}if(e.key==="F12"){e.preventDefault()}if(e.ctrlKey&&e.shiftKey&&"iIjJ".includes(e.key)){e.preventDefault()}});</script></html>

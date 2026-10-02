@@ -211,11 +211,19 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 
 <button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#f39c12;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
     </script>
-
+<script src="/astro/astronomy.browser.min.js"></script>
 <script>
-// 日付ベースのシードランダム（同じ日 = 同じ結果）
+function getPlanetLon(body, date) {
+  try {
+    if (body === 'Sun') return Astronomy.SunPosition(date).elon;
+    if (body === 'Moon') return Astronomy.EclipticGeoMoon(date).lon;
+    var e = Astronomy.GeoVector(body, date, true);
+    return Astronomy.Ecliptic(e).elon;
+  } catch(ex) { return -1; }
+}
+function lonToSign(lon) { return Math.floor(((lon % 360) + 360) % 360 / 30); }
+
 function seededRandom(seed) {
-    // warm up seed
     let s = seed;
     for (let i = 0; i < 10; i++) s = (s * 16807) % 2147483647;
     return function() {
@@ -297,28 +305,7 @@ document.getElementById('dailyAdvice').innerHTML = `
 `;
 
 // ═══════════════════════════════════════
-// ラッキー情報
-// ═══════════════════════════════════════
-const COLORS = ['赤','オレンジ','黄色','緑','水色','青','紫','ピンク','白','黒','金色','銀色'];
-const COLOR_HEX = ['#e74c3c','#e67e22','#f1c40f','#27ae60','#3498db','#2c3e50','#9b59b6','#e84393','#ecf0f1','#2c3e50','#f39c12','#bdc3c7'];
-const ELEMENTS = ['火','水','風','土','光'];
-const DIRECTIONS = ['東','西','南','北','東南','東北','西南','西北'];
-
-const luckyNum = Math.floor(rand() * 99) + 1;
-const luckyElement = ELEMENTS[Math.floor(rand() * ELEMENTS.length)];
-const luckyDir = DIRECTIONS[Math.floor(rand() * DIRECTIONS.length)];
-const compatibility = ['牡羊座','牡牛座','双子座','蟹座','獅子座','乙女座','天秤座','蠍座','射手座','山羊座','水瓶座','魚座'][Math.floor(rand() * 12)];
-
-document.getElementById('luckGrid').innerHTML = `
-    <div class="luck-item"><div class="luck-label">ラッキーナンバー</div><div class="luck-value">${luckyNum}</div></div>
-    <div class="luck-item"><div class="luck-label">ラッキー元素</div><div class="luck-value">${luckyElement}</div></div>
-    <div class="luck-item"><div class="luck-label">ラッキー方位</div><div class="luck-value">${luckyDir}</div></div>
-    <div class="luck-item"><div class="luck-label">今日の相性</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
-    <a href="/jp/lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">ラッキータイム · ラッキーカラー</div><div class="luck-value" style="font-size:14px;">⏰ 確認する</div></a>
-`;
-
-// ═══════════════════════════════════════
-// 星座別運勢
+// 星座別運勢（トランジット基盤）
 // ═══════════════════════════════════════
 const ZODIAC = [
     {name:'牡羊座',emoji:'♈',date:'3/21〜4/19'},
@@ -334,23 +321,55 @@ const ZODIAC = [
     {name:'水瓶座',emoji:'♒',date:'1/20〜2/18'},
     {name:'魚座',emoji:'♓',date:'2/19〜3/20'}
 ];
+const PLANETS = ['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn'];
+const PLANET_NAME = {Sun:'太陽',Moon:'月',Mercury:'水星',Venus:'金星',Mars:'火星',Jupiter:'木星',Saturn:'土星'};
+const PLANET_EMOJI = {Sun:'☀️',Moon:'🌙',Mercury:'☿',Venus:'♀️',Mars:'♂️',Jupiter:'♃',Saturn:'♄'};
+const SIGN_RULER = ['Mars','Venus','Mercury','Moon','Sun','Mercury','Venus','Mars','Jupiter','Saturn','Saturn','Jupiter'];
+const SIGN_ELEMENT = ['火','地','風','水','火','地','風','水','火','地','風','水'];
+const SIGN_ELEMENT_EMOJI = {火:'🔥',地:'🌍',風:'💨',水:'🌊'};
+const SIGN_DIR = ['東','南東','南','北','東','南','西','北','東','南','西','北'];
 
-const ZODIAC_MSGS = [
-    ['今日は新たな挑戦が報われる日です。躊躇せず行動に移しましょう。','人間関係で温かい交流があるかもしれません。','財政的には慎重に、小さな投資は問題ありません。'],
-    ['安定した一日が予想されます。ルーティンを守れば良い結果が訪れます。','大切な人と深い話をする機会があります。','支出より貯蓄に集中すると良い日。'],
-    ['コミュニケーションの日！アイデアが湧き出ます。会議や発表で輝きましょう。','新しい出会いが期待されます。','情報収集が金運につながるかもしれません。'],
-    ['感情豊かな日です。直感を信じましょう。','家族と過ごすと癒されます。','家に関する決断に良い日。'],
-    ['注目される日！自信を持って前に出ましょう。','ロマンチックな瞬間が訪れるかもしれません。','リーダーシップを発揮すれば金銭的な報酬がついてきます。'],
-    ['丁寧さが輝く日。細部に気を配れば大きなミスを防げます。','心からのアドバイスが関係を深めます。','健康への投資が長期的にプラスになります。'],
-    ['調和とバランスの日。対立を仲裁すれば評価されます。','パートナーシップが強化されます。','協力による収益が期待されます。'],
-    ['深い洞察力が輝く日。表面の下を読みましょう。','秘密が明かされるか、深い絆が形成されます。','長期投資に良い直感が働きます。'],
-    ['冒険の日！新しい経験に開かれていれば幸運が訪れます。','初対面の人との出会いが印象的です。','海外や遠くから良い知らせが届きます。'],
-    ['誠実さが報われる日。コツコツ続けてきたことが実を結びます。','目上の方やメンターから良い評価を受けます。','キャリアに関する良い知らせが来るかもしれません。'],
-    ['独創的なアイデアが溢れる日。枠を超えれば新しい道が開けます。','同じ趣味の人と意義ある交流ができます。','テクノロジーやイノベーション関連のチャンス。'],
-    ['直感がとても冴えている日。夢やインスピレーションに注意を払いましょう。','感性的な交流が関係を温かくします。','芸術や創作への投資が吉です。']
-];
+function getAspect(pLon, signIdx) {
+  var signMid = signIdx * 30 + 15, diff = Math.abs(((pLon - signMid) % 360 + 360) % 360);
+  if (diff > 180) diff = 360 - diff;
+  if (diff <= 10) return {type:'conjunction',score:5,label:'合(0°)',desc:'強力なエネルギー集中'};
+  if (Math.abs(diff-60) <= 6) return {type:'sextile',score:3,label:'セクスタイル(60°)',desc:'チャンスと調和'};
+  if (Math.abs(diff-90) <= 7) return {type:'square',score:-3,label:'スクエア(90°)',desc:'緊張と挑戦'};
+  if (Math.abs(diff-120) <= 8) return {type:'trine',score:4,label:'トライン(120°)',desc:'幸運と順調'};
+  if (Math.abs(diff-180) <= 8) return {type:'opposition',score:-2,label:'オポジション(180°)',desc:'バランスと対立'};
+  return null;
+}
+const TRANSIT_MSG = {
+  Sun:{conjunction:'太陽があなたの星座にいます。自信と活力が最高潮の時期です。',trine:'太陽が調和的な角度から輝いています。自然と良いことが訪れます。',sextile:'太陽がチャンスの角度にあります。積極的に動けば成果が得られます。',square:'太陽が試練の角度にあります。プライドより柔軟さが必要な日です。',opposition:'太陽が向かい側にあります。人間関係でバランスを見つけてください。'},
+  Moon:{conjunction:'月があなたの星座を通過しています。感情が豊かで直感が鋭くなります。',trine:'月が優しい角度から照らしています。心穏やかな一日です。',sextile:'月がチャンスの角度にあります。感情的な交流が良い結果をもたらします。',square:'月が緊張の角度にあります。感情の起伏に注意してください。',opposition:'月が向かい側にあります。内面の感情と外部の状況の調整が必要です。'},
+  Mercury:{conjunction:'水星があなたの星座にいます。コミュニケーションと思考力が最高潮です。',trine:'水星が調和的な角度にあります。会話や交渉で良い結果が期待できます。',sextile:'水星がチャンスをくれます。新しい情報やニュースが助けになります。',square:'水星が緊張の角度にあります。誤解が生じやすいので明確に伝えてください。',opposition:'水星が向かい側から作用します。他の人の意見に耳を傾けてみてください。'},
+  Venus:{conjunction:'金星があなたの星座にいます。愛と美しさが輝く時期です。',trine:'金星が調和の角度にあります。恋愛運と対人関係が良好です。',sextile:'金星がチャンスをくれます。社交的な活動が幸運をもたらします。',square:'金星が緊張の角度にあります。関係での期待値を調整してください。',opposition:'金星が向かい側にあります。他者への欲求と自分のニーズのバランスを取ってください。'},
+  Mars:{conjunction:'火星があなたの星座にいます。エネルギーと推進力が爆発します。',trine:'火星が力を与えてくれます。行動すれば成果がついてきます。',sextile:'火星がチャンスをくれます。積極的な行動が良い結果を生みます。',square:'火星が試練の角度にあります。衝動的な決定は避けてください。',opposition:'火星が向かい側から作用します。衝突の場面では一歩引いてください。'},
+  Jupiter:{conjunction:'木星があなたの星座にいます！幸運と拡大の時期です。',trine:'木星が調和的な角度から祝福します。大きな幸運が期待できます。',sextile:'木星が可能性の扉を開きます。新しい可能性に開いていてください。',square:'木星が過欲の角度にあります。過度な楽観には注意してください。',opposition:'木星が向かい側にあります。他者を通じて成長の機会が訪れます。'},
+  Saturn:{conjunction:'土星があなたの星座にいます。責任感と成熟が求められる時期です。',trine:'土星が安定の角度にあります。地道な努力が報われます。',sextile:'土星が構造的なチャンスをくれます。計画を立てれば良い結果が出ます。',square:'土星が試練の角度にあります。忍耐が必要ですが成長のチャンスです。',opposition:'土星が向かい側から作用します。外部の制約がありますが、それにより強くなります。'}
+};
 
-// Build zodiac grid
+const now = new Date();
+const planetPositions = {};
+PLANETS.forEach(p => { planetPositions[p] = getPlanetLon(p, now); });
+
+function getTrineSign(signIdx) { return ZODIAC[(signIdx + 4) % 12].name; }
+const moonSign = lonToSign(planetPositions['Moon']);
+const sunSign = lonToSign(planetPositions['Sun']);
+const venusSign = lonToSign(planetPositions['Venus']);
+const luckyNum = Math.floor(((planetPositions['Moon'] % 360 + 360) % 360) / 360 * 99) + 1;
+const luckyElement = SIGN_ELEMENT[moonSign];
+const luckyDir = SIGN_DIR[sunSign];
+const compatibility = getTrineSign(venusSign);
+
+document.getElementById('luckGrid').innerHTML = `
+    <div class="luck-item"><div class="luck-label">ラッキーナンバー</div><div class="luck-value">${luckyNum}</div></div>
+    <div class="luck-item"><div class="luck-label">今日のエレメント</div><div class="luck-value">${SIGN_ELEMENT_EMOJI[luckyElement]} ${luckyElement}</div></div>
+    <div class="luck-item"><div class="luck-label">ラッキー方位</div><div class="luck-value">${luckyDir}</div></div>
+    <div class="luck-item"><div class="luck-label">今日の相性</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
+    <a href="/astro/jp/lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">ラッキータイム · ラッキーカラー</div><div class="luck-value" style="font-size:14px;">⏰ 確認する</div></a>
+`;
+
 let zodiacHTML = '';
 ZODIAC.forEach((z, i) => {
     zodiacHTML += `<button class="zodiac-btn" onclick="showZodiac(${i})"><span class="emoji">${z.emoji}</span>${z.name}</button>`;
@@ -359,32 +378,57 @@ document.getElementById('zodiacGrid').innerHTML = zodiacHTML;
 
 function showZodiac(idx) {
     const z = ZODIAC[idx];
-    const zRand = seededRandom(dateSeed + idx * 7);
+    var aspects = [], totalScore = 50, loveScore = 50, workScore = 50, moneyScore = 50;
+    PLANETS.forEach(function(p) {
+      var lon = planetPositions[p]; if (lon < 0) return;
+      var asp = getAspect(lon, idx);
+      if (asp) { aspects.push({planet:p,aspect:asp}); totalScore += asp.score*4;
+        if (p==='Venus'||p==='Moon') loveScore += asp.score*5;
+        if (p==='Jupiter'||p==='Sun'||p==='Mars') workScore += asp.score*5;
+        if (p==='Saturn'||p==='Mercury'||p==='Jupiter') moneyScore += asp.score*4;
+      }
+    });
+    var ruler = SIGN_RULER[idx], rulerLon = planetPositions[ruler];
+    if (rulerLon >= 0 && lonToSign(rulerLon) === idx) { totalScore += 10; loveScore += 5; workScore += 5; moneyScore += 5; }
+    totalScore = Math.max(20,Math.min(95,totalScore)); loveScore = Math.max(20,Math.min(95,loveScore));
+    workScore = Math.max(20,Math.min(95,workScore)); moneyScore = Math.max(20,Math.min(95,moneyScore));
 
-    const msgs = ZODIAC_MSGS[idx];
-    const overall = Math.floor(zRand() * 40) + 60;
-    const love = Math.floor(zRand() * 50) + 50;
-    const work = Math.floor(zRand() * 50) + 50;
-    const money = Math.floor(zRand() * 50) + 50;
-    const health = Math.floor(zRand() * 30) + 70;
+    var overallMsg='',loveMsg='',moneyMsg='';
+    if (aspects.length===0) {
+      overallMsg='今日は主要な惑星と特別な角度を形成していません。穏やかな一日が予想されます。';
+      loveMsg='静かですが安定した一日。小さな親切が関係に温かさを加えます。';
+      moneyMsg='大きな変化なく安定した流れ。無理な出費は控えましょう。';
+    } else {
+      var strongest = aspects.sort(function(a,b){return Math.abs(b.aspect.score)-Math.abs(a.aspect.score);})[0];
+      overallMsg = TRANSIT_MSG[strongest.planet][strongest.aspect.type];
+      var loveAsp = aspects.find(function(a){return a.planet==='Venus';}) || aspects.find(function(a){return a.planet==='Moon';});
+      loveMsg = loveAsp ? TRANSIT_MSG[loveAsp.planet][loveAsp.aspect.type] : (loveScore>=60?'温かいエネルギーが流れています。心を開けば良い縁が訪れます。':'感情的に静かな一日です。自分を大切にする時間を過ごしましょう。');
+      var moneyAsp = aspects.find(function(a){return a.planet==='Jupiter';}) || aspects.find(function(a){return a.planet==='Saturn';}) || aspects.find(function(a){return a.planet==='Mercury';});
+      moneyMsg = moneyAsp ? TRANSIT_MSG[moneyAsp.planet][moneyAsp.aspect.type] : (moneyScore>=60?'財政的に安定した流れです。小さなチャンスを見逃さないで。':'支出に注意。計画的な消費が必要な日です。');
+    }
+    var transitInfo = '';
+    aspects.forEach(function(a) {
+      var color = a.aspect.score > 0 ? '#27ae60' : '#e74c3c';
+      transitInfo += '<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#999;"><span style="font-size:16px;">'+PLANET_EMOJI[a.planet]+'</span><span>'+PLANET_NAME[a.planet]+'</span><span style="color:'+color+';font-weight:600;">'+a.aspect.label+'</span><span style="color:#666;">'+a.aspect.desc+'</span></div>';
+    });
 
     document.querySelectorAll('.zodiac-btn').forEach(b => b.classList.remove('active'));
     event.target.closest('.zodiac-btn').classList.add('active');
-
     const zr = document.getElementById('zodiacReading');
     zr.innerHTML = `
         <div class="zr-title">${z.emoji} ${z.name}</div>
         <div class="zr-date">${z.date}</div>
         <div class="zr-text">
-            <strong>💫 総合運：</strong> ${msgs[0]}<br><br>
-            <strong>💕 恋愛運：</strong> ${msgs[1]}<br><br>
-            <strong>💰 金運：</strong> ${msgs[2]}
+            <strong>💫 総合運：</strong> ${overallMsg}<br><br>
+            <strong>💕 恋愛運：</strong> ${loveMsg}<br><br>
+            <strong>💰 金運：</strong> ${moneyMsg}
         </div>
+        ${transitInfo ? '<div style="margin-top:16px;padding-top:12px;border-top:1px solid #2a2a5a;"><div style="font-size:11px;color:#c9a84c;margin-bottom:8px;letter-spacing:1px;">今日のトランジット</div>' + transitInfo + '</div>' : ''}
         <div class="zr-meters">
-            <div class="zr-meter">総合運 ${overall}%<div class="bar"><div class="bar-fill" style="width:${overall}%"></div></div></div>
-            <div class="zr-meter">恋愛運 ${love}%<div class="bar"><div class="bar-fill" style="width:${love}%;background:#e84393"></div></div></div>
-            <div class="zr-meter">仕事運 ${work}%<div class="bar"><div class="bar-fill" style="width:${work}%;background:#3498db"></div></div></div>
-            <div class="zr-meter">金運 ${money}%<div class="bar"><div class="bar-fill" style="width:${money}%;background:#27ae60"></div></div></div>
+            <div class="zr-meter">総合運 ${totalScore}%<div class="bar"><div class="bar-fill" style="width:${totalScore}%"></div></div></div>
+            <div class="zr-meter">恋愛運 ${loveScore}%<div class="bar"><div class="bar-fill" style="width:${loveScore}%;background:#e84393"></div></div></div>
+            <div class="zr-meter">仕事運 ${workScore}%<div class="bar"><div class="bar-fill" style="width:${workScore}%;background:#3498db"></div></div></div>
+            <div class="zr-meter">金運 ${moneyScore}%<div class="bar"><div class="bar-fill" style="width:${moneyScore}%;background:#27ae60"></div></div></div>
         </div>
     `;
     zr.style.display = 'block';

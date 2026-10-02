@@ -211,11 +211,19 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 
 <button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#f39c12;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
     </script>
-
+<script src="/astro/astronomy.browser.min.js"></script>
 <script>
-// Date-seeded random (same day = same result)
+function getPlanetLon(body, date) {
+  try {
+    if (body === 'Sun') return Astronomy.SunPosition(date).elon;
+    if (body === 'Moon') return Astronomy.EclipticGeoMoon(date).lon;
+    var e = Astronomy.GeoVector(body, date, true);
+    return Astronomy.Ecliptic(e).elon;
+  } catch(ex) { return -1; }
+}
+function lonToSign(lon) { return Math.floor(((lon % 360) + 360) % 360 / 30); }
+
 function seededRandom(seed) {
-    // warm up seed
     let s = seed;
     for (let i = 0; i < 10; i++) s = (s * 16807) % 2147483647;
     return function() {
@@ -298,28 +306,7 @@ document.getElementById('dailyAdvice').innerHTML = `
 `;
 
 // ═══════════════════════════════════════
-// Lucky Info
-// ═══════════════════════════════════════
-const COLORS = ['Red','Orange','Yellow','Green','Sky Blue','Blue','Purple','Pink','White','Black','Gold','Silver'];
-const COLOR_HEX = ['#e74c3c','#e67e22','#f1c40f','#27ae60','#3498db','#2c3e50','#9b59b6','#e84393','#ecf0f1','#2c3e50','#f39c12','#bdc3c7'];
-const ELEMENTS = ['Fire','Water','Wind','Earth','Light'];
-const DIRECTIONS = ['East','West','South','North','Southeast','Northeast','Southwest','Northwest'];
-
-const luckyNum = Math.floor(rand() * 99) + 1;
-const luckyElement = ELEMENTS[Math.floor(rand() * ELEMENTS.length)];
-const luckyDir = DIRECTIONS[Math.floor(rand() * DIRECTIONS.length)];
-const compatibility = ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'][Math.floor(rand() * 12)];
-
-document.getElementById('luckGrid').innerHTML = `
-    <div class="luck-item"><div class="luck-label">Lucky Number</div><div class="luck-value">${luckyNum}</div></div>
-    <div class="luck-item"><div class="luck-label">Lucky Element</div><div class="luck-value">${luckyElement}</div></div>
-    <div class="luck-item"><div class="luck-label">Lucky Direction</div><div class="luck-value">${luckyDir}</div></div>
-    <div class="luck-item"><div class="luck-label">Best Match Today</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
-    <a href="/en/lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">Lucky Time · Lucky Color</div><div class="luck-value" style="font-size:14px;">⏰ Check</div></a>
-`;
-
-// ═══════════════════════════════════════
-// Zodiac Horoscopes
+// Lucky Info (planet-based)
 // ═══════════════════════════════════════
 const ZODIAC = [
     {name:'Aries',emoji:'♈',date:'Mar 21 – Apr 19'},
@@ -336,20 +323,98 @@ const ZODIAC = [
     {name:'Pisces',emoji:'♓',date:'Feb 19 – Mar 20'}
 ];
 
-const ZODIAC_MSGS = [
-    ['New challenges are rewarded today. Act without hesitation and momentum will carry you.','Warm, genuine exchanges await in your relationships.','Financially, exercise care — but a modest investment is fine.'],
-    ['A stable, steady day ahead. Stick to your routine and good results will come.','A chance to have a deep, meaningful conversation with someone you love.','Focus on saving over spending today.'],
-    ['A day for communication! Ideas flow freely — shine in meetings or presentations.','An exciting new encounter may be on the horizon.','Gathering the right information could translate into financial gain.'],
-    ['Emotions run deep today. Trust your instincts.','Time spent with family brings real healing.','A good day for decisions related to home and property.'],
-    ['The spotlight is on you! Step forward with confidence.','A romantic moment could find you unexpectedly.','Showing leadership now may bring financial rewards.'],
-    ['Your attention to detail shines today. Careful focus helps you avoid costly mistakes.','A sincere piece of advice can deepen an important relationship.','Investing in your health now pays off in the long run.'],
-    ['A day of harmony and balance. Mediating a conflict earns you appreciation.','Your partnerships grow stronger.','Collaborative efforts are likely to be profitable.'],
-    ['Deep perception is your gift today. Read beneath the surface.','Secrets may surface or a profound bond may form.','Your gut instinct for long-term investments is sharp right now.'],
-    ['An adventurous day! Stay open to new experiences and luck will find you.','A stranger you meet today may leave a lasting impression.','Good news may arrive from far away.'],
-    ['Diligence is rewarded today. The steady work you have put in is bearing fruit.','A mentor or elder may offer encouraging feedback.','Positive news related to your career could arrive soon.'],
-    ['Original ideas abound. Break the mold and new paths open up before you.','A meaningful connection with someone who shares your interests awaits.','Opportunities tied to technology or innovation are within reach.'],
-    ['Your intuition is exceptionally strong today. Pay close attention to dreams and inspiration.','Emotional and heartfelt exchanges warm your relationships.','Investing in art or creative pursuits is favored.']
-];
+const PLANETS = ['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn'];
+const PLANET_KR = {Sun:'Sun',Moon:'Moon',Mercury:'Mercury',Venus:'Venus',Mars:'Mars',Jupiter:'Jupiter',Saturn:'Saturn'};
+const PLANET_EMOJI = {Sun:'☀️',Moon:'🌙',Mercury:'☿',Venus:'♀️',Mars:'♂️',Jupiter:'♃',Saturn:'♄'};
+const SIGN_RULER = ['Mars','Venus','Mercury','Moon','Sun','Mercury','Venus','Mars','Jupiter','Saturn','Saturn','Jupiter'];
+const SIGN_ELEMENT = ['Fire','Earth','Air','Water','Fire','Earth','Air','Water','Fire','Earth','Air','Water'];
+const SIGN_ELEMENT_EMOJI = {Fire:'🔥',Earth:'🌍',Air:'💨',Water:'🌊'};
+const SIGN_DIR = ['East','Southeast','South','North','East','South','West','North','East','South','West','North'];
+
+function getAspect(pLon, signIdx) {
+  var signMid = signIdx * 30 + 15;
+  var diff = Math.abs(((pLon - signMid) % 360 + 360) % 360);
+  if (diff > 180) diff = 360 - diff;
+  if (diff <= 10) return {type:'conjunction',score:5,label:'Conjunction (0°)',desc:'Powerful energy focus'};
+  if (Math.abs(diff-60) <= 6) return {type:'sextile',score:3,label:'Sextile (60°)',desc:'Opportunity & harmony'};
+  if (Math.abs(diff-90) <= 7) return {type:'square',score:-3,label:'Square (90°)',desc:'Tension & challenge'};
+  if (Math.abs(diff-120) <= 8) return {type:'trine',score:4,label:'Trine (120°)',desc:'Luck & ease'};
+  if (Math.abs(diff-180) <= 8) return {type:'opposition',score:-2,label:'Opposition (180°)',desc:'Balance & conflict'};
+  return null;
+}
+
+const TRANSIT_MSG = {
+  Sun: {
+    conjunction:'The Sun is in your sign. Confidence and vitality are at their peak.',
+    trine:'The Sun shines from a harmonious angle. Good things come naturally.',
+    sextile:'The Sun offers opportunity. Take initiative and you will see results.',
+    square:'The Sun challenges you today. Flexibility matters more than pride.',
+    opposition:'The Sun is opposite your sign. Seek balance in relationships.'
+  },
+  Moon: {
+    conjunction:'The Moon passes through your sign. Emotions and intuition are heightened.',
+    trine:'The Moon gently illuminates your path. A peaceful, comfortable day.',
+    sextile:'The Moon opens doors. Emotional connections lead to good outcomes.',
+    square:'The Moon creates tension. Watch for mood swings today.',
+    opposition:'The Moon sits opposite you. Find harmony between inner feelings and outer demands.'
+  },
+  Mercury: {
+    conjunction:'Mercury is in your sign. Communication and thinking are at their sharpest.',
+    trine:'Mercury flows harmoniously. Conversations and negotiations go well.',
+    sextile:'Mercury brings opportunity. New information or news helps you.',
+    square:'Mercury creates friction. Misunderstandings are likely — communicate clearly.',
+    opposition:'Mercury works from the other side. Listen to different perspectives.'
+  },
+  Venus: {
+    conjunction:'Venus graces your sign. Love and beauty shine around you.',
+    trine:'Venus sends harmony your way. Romance and relationships flourish.',
+    sextile:'Venus offers social opportunity. Being outgoing brings luck.',
+    square:'Venus creates tension. Adjust your expectations in relationships.',
+    opposition:'Venus sits opposite you. Balance desire for others with your own needs.'
+  },
+  Mars: {
+    conjunction:'Mars ignites your sign. Energy and drive are explosive.',
+    trine:'Mars empowers you. Action brings results.',
+    sextile:'Mars offers opportunity. Bold moves pay off.',
+    square:'Mars challenges you. Avoid impulsive decisions.',
+    opposition:'Mars works from the other side. Step back from conflicts.'
+  },
+  Jupiter: {
+    conjunction:'Jupiter is in your sign! A time of luck and expansion.',
+    trine:'Jupiter blesses you from a harmonious angle. Great fortune is possible.',
+    sextile:'Jupiter opens doors of possibility. Stay open to new horizons.',
+    square:'Jupiter tempts excess. Beware of overconfidence.',
+    opposition:'Jupiter works through others. Growth comes through relationships.'
+  },
+  Saturn: {
+    conjunction:'Saturn is in your sign. Responsibility and maturity are demanded.',
+    trine:'Saturn provides stability. Steady effort is rewarded.',
+    sextile:'Saturn offers structural opportunity. Planning leads to good results.',
+    square:'Saturn tests you. Patience is needed, but growth awaits.',
+    opposition:'Saturn presses from outside. External limits make you stronger.'
+  }
+};
+
+const now = new Date();
+const planetPositions = {};
+PLANETS.forEach(p => { planetPositions[p] = getPlanetLon(p, now); });
+
+function getTrineSign(signIdx) { return ZODIAC[(signIdx + 4) % 12].name; }
+const moonSign = lonToSign(planetPositions['Moon']);
+const sunSign = lonToSign(planetPositions['Sun']);
+const venusSign = lonToSign(planetPositions['Venus']);
+const luckyNum = Math.floor(((planetPositions['Moon'] % 360 + 360) % 360) / 360 * 99) + 1;
+const luckyElement = SIGN_ELEMENT[moonSign];
+const luckyDir = SIGN_DIR[sunSign];
+const compatibility = getTrineSign(venusSign);
+
+document.getElementById('luckGrid').innerHTML = `
+    <div class="luck-item"><div class="luck-label">Lucky Number</div><div class="luck-value">${luckyNum}</div></div>
+    <div class="luck-item"><div class="luck-label">Today's Element</div><div class="luck-value">${SIGN_ELEMENT_EMOJI[luckyElement]} ${luckyElement}</div></div>
+    <div class="luck-item"><div class="luck-label">Lucky Direction</div><div class="luck-value">${luckyDir}</div></div>
+    <div class="luck-item"><div class="luck-label">Best Match Today</div><div class="luck-value" style="font-size:14px;">${compatibility}</div></div>
+    <a href="/astro/en/lucky-time/" class="luck-item" style="text-decoration:none;border:1px solid #c9a84c;"><div class="luck-label">Lucky Time · Lucky Color</div><div class="luck-value" style="font-size:14px;">⏰ Check</div></a>
+`;
 
 // Build zodiac grid
 let zodiacHTML = '';
@@ -360,14 +425,54 @@ document.getElementById('zodiacGrid').innerHTML = zodiacHTML;
 
 function showZodiac(idx) {
     const z = ZODIAC[idx];
-    const zRand = seededRandom(dateSeed + idx * 7);
+    var aspects = [];
+    var totalScore = 50, loveScore = 50, workScore = 50, moneyScore = 50;
 
-    const msgs = ZODIAC_MSGS[idx];
-    const overall = Math.floor(zRand() * 40) + 60;
-    const love = Math.floor(zRand() * 50) + 50;
-    const work = Math.floor(zRand() * 50) + 50;
-    const money = Math.floor(zRand() * 50) + 50;
-    const health = Math.floor(zRand() * 30) + 70;
+    PLANETS.forEach(function(p) {
+      var lon = planetPositions[p];
+      if (lon < 0) return;
+      var asp = getAspect(lon, idx);
+      if (asp) {
+        aspects.push({planet:p, aspect:asp, lon:lon});
+        totalScore += asp.score * 4;
+        if (p==='Venus'||p==='Moon') loveScore += asp.score * 5;
+        if (p==='Jupiter'||p==='Sun'||p==='Mars') workScore += asp.score * 5;
+        if (p==='Saturn'||p==='Mercury'||p==='Jupiter') moneyScore += asp.score * 4;
+      }
+    });
+
+    var ruler = SIGN_RULER[idx];
+    var rulerLon = planetPositions[ruler];
+    if (rulerLon >= 0 && lonToSign(rulerLon) === idx) { totalScore += 10; loveScore += 5; workScore += 5; moneyScore += 5; }
+
+    totalScore = Math.max(20, Math.min(95, totalScore));
+    loveScore = Math.max(20, Math.min(95, loveScore));
+    workScore = Math.max(20, Math.min(95, workScore));
+    moneyScore = Math.max(20, Math.min(95, moneyScore));
+
+    var overallMsg = '', loveMsg = '', moneyMsg = '';
+    if (aspects.length === 0) {
+      overallMsg = 'No major planetary aspects today. A calm, steady day ahead.';
+      loveMsg = 'A quiet but stable day. Small acts of kindness warm your relationships.';
+      moneyMsg = 'Steady flow with no big changes. Avoid unnecessary spending.';
+    } else {
+      var strongest = aspects.sort(function(a,b){ return Math.abs(b.aspect.score) - Math.abs(a.aspect.score); })[0];
+      overallMsg = TRANSIT_MSG[strongest.planet][strongest.aspect.type];
+      var loveAsp = aspects.find(function(a){return a.planet==='Venus';}) || aspects.find(function(a){return a.planet==='Moon';});
+      loveMsg = loveAsp ? TRANSIT_MSG[loveAsp.planet][loveAsp.aspect.type] : (loveScore >= 60 ? 'Warm energy flows around you. Open your heart to good connections.' : 'An emotionally quiet day. Take time to care for yourself.');
+      var moneyAsp = aspects.find(function(a){return a.planet==='Jupiter';}) || aspects.find(function(a){return a.planet==='Saturn';}) || aspects.find(function(a){return a.planet==='Mercury';});
+      moneyMsg = moneyAsp ? TRANSIT_MSG[moneyAsp.planet][moneyAsp.aspect.type] : (moneyScore >= 60 ? 'Financially stable. Keep an eye out for small opportunities.' : 'Be careful with spending. A planned budget helps today.');
+    }
+
+    var transitInfo = '';
+    aspects.forEach(function(a) {
+      var color = a.aspect.score > 0 ? '#27ae60' : '#e74c3c';
+      transitInfo += '<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#999;">' +
+        '<span style="font-size:16px;">' + PLANET_EMOJI[a.planet] + '</span>' +
+        '<span>' + PLANET_KR[a.planet] + '</span>' +
+        '<span style="color:' + color + ';font-weight:600;">' + a.aspect.label + '</span>' +
+        '<span style="color:#666;">' + a.aspect.desc + '</span></div>';
+    });
 
     document.querySelectorAll('.zodiac-btn').forEach(b => b.classList.remove('active'));
     event.target.closest('.zodiac-btn').classList.add('active');
@@ -377,15 +482,16 @@ function showZodiac(idx) {
         <div class="zr-title">${z.emoji} ${z.name}</div>
         <div class="zr-date">${z.date}</div>
         <div class="zr-text">
-            <strong>💫 Overall:</strong> ${msgs[0]}<br><br>
-            <strong>💕 Love:</strong> ${msgs[1]}<br><br>
-            <strong>💰 Finance:</strong> ${msgs[2]}
+            <strong>💫 Overall:</strong> ${overallMsg}<br><br>
+            <strong>💕 Love:</strong> ${loveMsg}<br><br>
+            <strong>💰 Finance:</strong> ${moneyMsg}
         </div>
+        ${transitInfo ? '<div style="margin-top:16px;padding-top:12px;border-top:1px solid #2a2a5a;"><div style="font-size:11px;color:#c9a84c;margin-bottom:8px;letter-spacing:1px;">TODAY\'S TRANSITS</div>' + transitInfo + '</div>' : ''}
         <div class="zr-meters">
-            <div class="zr-meter">Overall ${overall}%<div class="bar"><div class="bar-fill" style="width:${overall}%"></div></div></div>
-            <div class="zr-meter">Love ${love}%<div class="bar"><div class="bar-fill" style="width:${love}%;background:#e84393"></div></div></div>
-            <div class="zr-meter">Career ${work}%<div class="bar"><div class="bar-fill" style="width:${work}%;background:#3498db"></div></div></div>
-            <div class="zr-meter">Finance ${money}%<div class="bar"><div class="bar-fill" style="width:${money}%;background:#27ae60"></div></div></div>
+            <div class="zr-meter">Overall ${totalScore}%<div class="bar"><div class="bar-fill" style="width:${totalScore}%"></div></div></div>
+            <div class="zr-meter">Love ${loveScore}%<div class="bar"><div class="bar-fill" style="width:${loveScore}%;background:#e84393"></div></div></div>
+            <div class="zr-meter">Career ${workScore}%<div class="bar"><div class="bar-fill" style="width:${workScore}%;background:#3498db"></div></div></div>
+            <div class="zr-meter">Finance ${moneyScore}%<div class="bar"><div class="bar-fill" style="width:${moneyScore}%;background:#27ae60"></div></div></div>
         </div>
     `;
     zr.style.display = 'block';
