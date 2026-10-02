@@ -179,7 +179,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
             </div>
         </div>
         <div class="ib-group" id="locationGroup">
-            <label>Local de nascimento <span class="optional-tag">(correção automática hora solar)</span></label>
+            <label>Local de nascimento</label>
             <div class="ib-row">
                 <select id="birthTimezone" onchange="updateCities()">
                     <option value="135" selected>UTC+9 (Coreia/Japão)</option>
@@ -198,7 +198,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
                 <select id="birthLocation">
                 </select>
             </div>
-            <div id="trueSolarNote" style="font-size:11px;color:#888;margin-top:6px;"></div>
+            <div id="trueSolarNote" style="display:none;"></div>
         </div>
         <div class="ib-group">
             <label>Gênero</label>
