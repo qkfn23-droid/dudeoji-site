@@ -151,24 +151,24 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
         </div>
     </div>
 <div class="input-bar-inner">
-        <div class="input-group">
+        <div class="ib-group">
             <label>Date de naissance</label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthYear"></select>
                 <select id="birthMonth"></select>
                 <select id="birthDay"></select>
             </div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>Heure de naissance <span class="optional-tag">(Sélectionnez 'Inconnu' si incertain)</span></label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthAmpm"><option value="am">AM</option><option value="pm">PM</option></select>
                 <select id="birthHour"></select>
                 <select id="birthMinute"></select>
                 <select id="birthTimeUnknown" onchange="toggleTime()"><option value="known">Saisir l'heure</option><option value="unknown">Inconnu</option></select>
             </div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>Lieu de naissance</label>
             <select id="birthCity">
                 <optgroup label="🇰🇷 South Korea"><option value="37.57,126.98" selected>Seoul</option><option value="35.18,129.08">Busan</option><option value="35.87,128.60">Daegu</option></optgroup>

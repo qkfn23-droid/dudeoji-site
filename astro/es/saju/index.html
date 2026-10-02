@@ -162,25 +162,25 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
         </div>
     </div>
 <div class="input-bar-inner">
-        <div class="input-group">
+        <div class="ib-group">
             <label>Fecha de nacimiento (calendario solar)</label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthYear"></select>
                 <select id="birthMonth"></select>
                 <select id="birthDay"></select>
             </div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>Hora de nacimiento <span class="optional-tag">(selecciona 'Desconocida' si no sabes)</span></label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthHour"></select>
                 <select id="birthMin"></select>
                 <select id="birthTimeUnknown" onchange="toggleTime()"><option value="known">Ingresar hora</option><option value="unknown">Desconocida</option></select>
             </div>
         </div>
-        <div class="input-group" id="locationGroup">
+        <div class="ib-group" id="locationGroup">
             <label>Lugar de nacimiento <span class="optional-tag">(corrección automática hora solar)</span></label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthTimezone" onchange="updateCities()">
                     <option value="135" selected>UTC+9 (Corea/Japón)</option>
                     <option value="120">UTC+8 (China/Taiwán/HK)</option>
@@ -200,9 +200,9 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
             </div>
             <div id="trueSolarNote" style="font-size:11px;color:#888;margin-top:6px;"></div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>Género</label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="gender">
                     <option value="m">Masculino</option>
                     <option value="f">Femenino</option>

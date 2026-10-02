@@ -162,25 +162,25 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
         </div>
     </div>
 <div class="input-bar-inner">
-        <div class="input-group">
+        <div class="ib-group">
             <label>生年月日（陽暦）</label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthYear"></select>
                 <select id="birthMonth"></select>
                 <select id="birthDay"></select>
             </div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>出生時間 <span class="optional-tag">（不明の場合は「不明」を選択）</span></label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthHour"></select>
                 <select id="birthMin"></select>
                 <select id="birthTimeUnknown" onchange="toggleTime()"><option value="known">時間を入力</option><option value="unknown">不明</option></select>
             </div>
         </div>
-        <div class="input-group" id="locationGroup">
+        <div class="ib-group" id="locationGroup">
             <label>出生地 <span class="optional-tag">(真太陽時自動補正)</span></label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthTimezone" onchange="updateCities()">
                     <option value="135" selected>UTC+9（韓国・日本）</option>
                     <option value="120">UTC+8（中国・台湾・香港）</option>
@@ -200,9 +200,9 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
             </div>
             <div id="trueSolarNote" style="font-size:11px;color:#888;margin-top:6px;"></div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>性別</label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="gender">
                     <option value="m">男性</option>
                     <option value="f">女性</option>

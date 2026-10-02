@@ -151,24 +151,24 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
         </div>
     </div>
 <div class="input-bar-inner">
-        <div class="input-group">
+        <div class="ib-group">
             <label>生年月日</label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthYear"></select>
                 <select id="birthMonth"></select>
                 <select id="birthDay"></select>
             </div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>出生時間 <span class="optional-tag">(不明の場合は「不明」を選択)</span></label>
-            <div class="input-row">
+            <div class="ib-row">
                 <select id="birthAmpm"><option value="am">午前</option><option value="pm">午後</option></select>
                 <select id="birthHour"></select>
                 <select id="birthMinute"></select>
                 <select id="birthTimeUnknown" onchange="toggleTime()"><option value="known">時間を入力</option><option value="unknown">不明</option></select>
             </div>
         </div>
-        <div class="input-group">
+        <div class="ib-group">
             <label>出生地</label>
             <select id="birthCity">
                 <optgroup label="🇯🇵 日本"><option value="35.68,139.69" selected>東京</option><option value="34.69,135.50">大阪</option><option value="43.06,141.35">札幌</option></optgroup>
