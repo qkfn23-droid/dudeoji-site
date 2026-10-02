@@ -1,1 +1,652 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=https://dudeojistudio.com/"><title>Dudeoji Studio</title></head><body></body></html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dudeoji Studio — Imagem Match</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-height:100vh;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+
+.nav{background:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:100;}
+.nav-logo{font-size:22px;font-weight:700;color:#0ea5e9;}
+.nav-logo span{color:#f59e0b;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 16px;border-radius:20px;color:#666;font-weight:500;}
+.nav-links a:hover{background:#e0f2fe;color:#0ea5e9;}
+.nav-links a.active{background:#0ea5e9;color:#fff;}
+.sound-btn{width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+.tab-bar{background:linear-gradient(135deg,#0ea5e9,#38bdf8);padding:0 20px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(14,165,233,0.2);}
+.tab-room{padding:12px 22px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px;border-bottom:3px solid #f59e0b;background:rgba(255,255,255,0.1);}
+.tab-room .t-emoji{font-size:18px;}
+.notice-ticker{margin-left:auto;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border-radius:20px;padding:6px 14px;min-width:300px;max-width:420px;overflow:hidden;}
+.notice-slide{flex:1;overflow:hidden;position:relative;height:18px;}
+.notice-icon{font-size:14px;flex-shrink:0;animation:megaphone 1s ease-in-out infinite;}
+@keyframes megaphone{0%,100%{transform:rotate(0deg);}15%{transform:rotate(-12deg);}30%{transform:rotate(10deg);}45%{transform:rotate(-8deg);}60%{transform:rotate(0deg);}}
+.notice-text{position:absolute;top:0;left:0;width:100%;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(10px);}
+.notice-text.active{opacity:1;transform:translateY(0);}
+
+.page-main{margin:10px 24px;display:grid;grid-template-columns:minmax(180px,14vw) 1fr minmax(180px,14vw);gap:12px;flex:1;min-height:0;}
+
+/* Left */
+.side-left{display:flex;flex-direction:column;gap:10px;overflow:hidden;}
+.profile-card{background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
+.profile-info{flex:1;}
+.profile-name{font-size:13px;font-weight:700;}
+.profile-sub{font-size:10px;color:#999;}
+.card-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.box-title{font-size:12px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.box-title.blue{color:#0ea5e9;}
+.player-list{display:flex;flex-direction:column;gap:6px;}
+.pl-item{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:12px;}
+.pl-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;flex-shrink:0;}
+.pl-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.pl-name{flex:1;font-weight:500;color:#555;}
+
+.moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;position:relative;overflow:hidden;}
+.moon-banner:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(99,102,241,0.45);}
+.moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;line-height:0;display:inline-block;}
+@keyframes moonFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-4px) rotate(5deg);}}
+.moon-sparkle{color:#fbbf24;position:absolute;opacity:0;animation:sparkleGlow 2s ease-in-out infinite;z-index:1;}
+.moon-sparkle:nth-child(1){top:6px;left:8px;font-size:10px;animation-delay:0s;}
+.moon-sparkle:nth-child(2){top:14px;right:14px;font-size:7px;animation-delay:0.3s;}
+.moon-sparkle:nth-child(3){top:30%;left:18%;font-size:7px;animation-delay:0.6s;}
+.moon-sparkle:nth-child(4){top:28%;right:8px;font-size:9px;animation-delay:0.9s;}
+.moon-sparkle:nth-child(5){bottom:40%;left:8px;font-size:9px;animation-delay:1.2s;}
+.moon-sparkle:nth-child(6){bottom:38%;right:18%;font-size:7px;animation-delay:1.5s;}
+.moon-sparkle:nth-child(7){bottom:14px;left:14px;font-size:7px;animation-delay:1.8s;}
+.moon-sparkle:nth-child(8){bottom:6px;right:8px;font-size:10px;animation-delay:2.1s;}
+@keyframes sparkleGlow{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.2);}}
+.moon-slider{position:relative;height:20px;overflow:hidden;margin-bottom:8px;}
+.moon-text{position:absolute;top:0;left:0;width:100%;font-size:13px;font-weight:700;color:#fff;opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateY(10px);}
+.moon-text.active{opacity:1;transform:translateY(0);}
+.moon-brand{font-size:12px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:1px;}
+
+/* Right */
+.side-right{display:flex;flex-direction:column;gap:10px;overflow-y:auto;}
+.game-info-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.game-info-box .box-title{font-size:12px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;color:#8b5cf6;}
+.score-list{display:flex;flex-direction:column;gap:6px;}
+.score-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;font-size:12px;font-weight:500;color:#555;}
+.score-item.me{background:#e0f2fe;color:#0ea5e9;font-weight:700;}
+.score-pts{margin-left:auto;font-weight:700;color:#f59e0b;}
+.game-rule .rule-basic{font-size:11px;color:#666;line-height:1.6;margin-bottom:10px;padding:8px;background:#f8f7f5;border-radius:8px;}
+
+/* Jogo Table */
+.game-col{display:flex;flex-direction:column;gap:8px;min-height:0;}
+.game-status-bar{display:flex;justify-content:center;}
+.game-table{flex:1;border-radius:14px;border:1px solid #d0cdc9;box-shadow:0 2px 12px rgba(0,0,0,0.06);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 20px;gap:6px;overflow:hidden;min-height:0;}
+.match-msg{min-height:20px;font-size:13px;font-weight:700;color:#4ade80;}
+
+.game-status{font-size:14px;font-weight:700;color:#333;display:inline-flex;align-items:center;gap:10px;background:rgba(0,0,0,0.06);padding:8px 24px;border-radius:20px;}
+.turn-timer{background:#0ea5e9;color:#fff;padding:4px 14px;border-radius:12px;font-size:16px;font-weight:800;min-width:44px;text-align:center;}
+.turn-timer.warn{background:#ef4444;animation:timerBlink .5s ease-in-out infinite;}
+@keyframes timerBlink{0%,100%{opacity:1;}50%{opacity:0.5;}}
+
+/* Card Grid */
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:clamp(4px,0.8vh,8px);width:100%;height:100%;max-width:440px;max-height:100%;}
+.pic-card{border-radius:clamp(6px,1vh,12px);cursor:pointer;position:relative;perspective:600px;transition:transform .1s;}
+.pic-card:hover{transform:scale(1.03);}
+.pic-card-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s;border-radius:12px;}
+.pic-card.flipped .pic-card-inner{transform:rotateY(180deg);}
+.pic-card.matched .pic-card-inner{transform:rotateY(180deg);}
+.pic-card.matched{pointer-events:none;opacity:0.6;}
+.pic-card-front,.pic-card-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.pic-card-front{background:linear-gradient(135deg,#3949ab,#1a237e);border:2px solid #0d1660;box-shadow:0 2px 8px rgba(0,0,0,0.15);color:rgba(255,255,255,0.2);font-size:12px;font-weight:700;}
+.pic-card-back{background:#fff;border:2px solid #e0e0e0;box-shadow:0 2px 8px rgba(0,0,0,0.1);transform:rotateY(180deg);font-size:36px;}
+
+.match-msg{font-size:14px;font-weight:700;color:#4ade80;min-height:22px;}
+
+/* Bottom 바 */
+.bottom-bar{flex-shrink:0;background:#fff;border-top:1px solid #e0e0e0;display:flex;align-items:stretch;height:200px;}
+.chat-area{flex:1;display:flex;flex-direction:column;border-right:1px solid #f0f0f0;min-width:0;}
+.chat-log{flex:1;overflow-y:auto;padding:12px 20px;font-size:14px;line-height:2;min-height:0;}
+.chat-msg{color:#666;}
+.chat-msg .sys{color:#f59e0b;font-weight:600;}
+.chat-msg .user{color:#0ea5e9;font-weight:600;}
+.chat-input-wrap{display:flex;gap:10px;padding:10px 16px;border-top:1px solid #f5f5f5;align-items:center;}
+.chat-target{padding:7px 12px;border-radius:8px;border:1px solid #e0e0e0;background:#fff;color:#888;font-size:13px;font-family:'Noto Sans KR';cursor:pointer;}
+.chat-input{flex:1;padding:10px 14px;border:1px solid #e0e0e0;border-radius:10px;font-size:14px;outline:none;font-family:'Noto Sans KR';}
+.chat-input:focus{border-color:#0ea5e9;}
+.chat-send{padding:10px 22px;background:#0ea5e9;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';}
+.bottom-btns{display:flex;flex-direction:column;gap:8px;padding:12px 16px;justify-content:center;}
+.bb{padding:10px 22px;border-radius:10px;border:1px solid #e0e0e0;background:#fff;color:#555;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';transition:all .2s;white-space:nowrap;}
+.bb:hover{background:#f0f9ff;border-color:#0ea5e9;color:#0ea5e9;}
+.bb.exit{border-color:#fecaca;color:#ef4444;}
+.bb.exit:hover{background:#fef2f2;}
+
+/* Megaphone Banner */
+.megaphone-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;display:none;animation:megaSlide .5s ease-out;}
+.megaphone-inner{background:linear-gradient(135deg,#f59e0b,#fbbf24);padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 20px rgba(245,158,11,0.4);}
+.megaphone-icon{font-size:24px;animation:megaShake .5s ease-in-out infinite;}
+.megaphone-msg{font-size:15px;font-weight:700;color:#7c2d12;}
+.megaphone-sparkle{position:absolute;color:#fff;font-size:10px;opacity:0;animation:megaStar 1s ease-in-out infinite;}
+.megaphone-sparkle:nth-child(1){left:5%;top:4px;animation-delay:0s;}
+.megaphone-sparkle:nth-child(2){left:15%;bottom:4px;animation-delay:0.3s;}
+.megaphone-sparkle:nth-child(3){right:15%;top:4px;animation-delay:0.6s;}
+.megaphone-sparkle:nth-child(4){right:5%;bottom:4px;animation-delay:0.9s;}
+@keyframes megaSlide{from{transform:translateY(-100%);}to{transform:translateY(0);}}
+@keyframes megaShake{0%,100%{transform:rotate(0);}25%{transform:rotate(-10deg);}75%{transform:rotate(10deg);}}
+@keyframes megaStar{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.3);}}
+
+/* Convite Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:999;align-items:center;justify-content:center;}
+.modal-overlay.show{display:flex;}
+.modal{background:#fff;border-radius:16px;width:340px;max-height:80vh;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.2);animation:modalIn .2s ease-out;}
+@keyframes modalIn{from{transform:scale(0.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+.modal-head{padding:16px 20px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;}
+.modal-head h3{font-size:15px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.modal-close{width:28px;height:28px;border-radius:50%;border:none;background:#f0f0f0;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{background:#e0e0e0;}
+.modal-body{padding:12px 16px;overflow-y:auto;max-height:50vh;}
+.friend-item{display:flex;align-items:center;gap:10px;padding:10px 8px;border-radius:10px;transition:background .15s;}
+.friend-item:hover{background:#f8f8f8;}
+.friend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.friend-dot.online{background:#4ade80;}
+.friend-dot.offline{background:#d4d4d4;}
+.friend-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.friend-info{flex:1;}
+.friend-name{font-size:13px;font-weight:600;color:#333;}
+.friend-status{font-size:10px;color:#aaa;}
+.friend-invite-btn{padding:5px 14px;border-radius:8px;border:1px solid #0ea5e9;background:#fff;color:#0ea5e9;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';transition:all .15s;}
+.friend-invite-btn:hover{background:#0ea5e9;color:#fff;}
+.friend-invite-btn.sent{background:#f0f0f0;color:#999;border-color:#e0e0e0;pointer-events:none;}
+
+/* Spectate Mode */
+.spectate-badge{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);color:#fff;padding:12px 32px;border-radius:20px;font-size:16px;font-weight:700;z-index:200;pointer-events:none;animation:specFade 2s ease forwards;}
+@keyframes specFade{0%{opacity:1;transform:translate(-50%,-50%) scale(1);}70%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(0.9);}}
+.spectate-bar{background:#1a1a2e;color:#fff;text-align:center;padding:6px;font-size:12px;font-weight:600;letter-spacing:1px;}
+body.spectate .pic-card{pointer-events:none;}
+body.spectate .game-status span:first-child::after{content:' (Spectating)';color:#f59e0b;margin-left:6px;}
+
+@media(max-width:900px){
+.page-main{grid-template-columns:1fr;}
+.side-left,.side-right{display:none;}
+}
+.dark body{background:#1a1a2a;color:#ccc;}
+.dark .nav{background:#12122a;box-shadow:0 1px 8px rgba(0,0,0,0.3);}
+.dark .nav-links a{color:#888;}
+.dark .nav-links a:hover{background:#1a2a3a;color:#38bdf8;}
+.dark .nav-links a.active{background:#0ea5e9;color:#fff;}
+.dark .tab-bar{background:linear-gradient(135deg,#0c4a6e,#1e3a5f);}
+.dark .side-left .card,.dark .side-right .card{background:#1e1e30;box-shadow:none;border:none;}
+.dark .chat-box{background:#1e1e30;border:none;}
+.dark .chat-input{background:#12122a;border-color:#2a2a3a;color:#ccc;}
+.dark .my-label{color:#ddd;}
+.dark .profile-card{background:#1e1e30;border-color:#2a2a3a;box-shadow:none;}
+.dark .profile-name{color:#ddd;}
+.dark .profile-sub{color:#777;}
+.dark .card-box{background:#1e1e30;border-color:#2a2a3a;box-shadow:none;}
+.dark .box-title{color:#ddd;}
+.dark .pl-name{color:#ccc;}
+.dark .game-info-box{background:#1e1e30;border-color:#2a2a3a;box-shadow:none;color:#ccc;}
+.dark .score-item{background:#12122a;color:#ccc;}
+.dark .rule-basic{color:#aaa;}
+.dark .game-table,.dark .game-board,.dark .game-col{background:#12122a;border-color:#2a2a3a;}
+.dark .game-status-bar{background:#1e1e30;color:#ccc;}
+.dark .page-main{background:#0a0a1a;}
+.dark .bottom-bar{background:#1a1a2a;}
+.dark .chat-area{background:#1e1e30;border-color:#2a2a3a;box-shadow:none;}
+.dark .chat-log{background:#1e1e30;}
+.dark .chat-msg{color:#aaa;}
+.dark .chat-msg .user{color:#38bdf8;}
+.dark .chat-target{background:#12122a;border-color:#2a2a3a;color:#aaa;}
+.dark .chat-input{background:#12122a;border-color:#2a2a3a;color:#ccc;}
+.dark .chat-input-wrap{background:#1e1e30;}
+.dark .bb{background:#1e1e30;border-color:#2a2a3a;color:#ccc;box-shadow:none;}
+.dark .bb:hover{background:#252540;}
+.dark .bb.exit{background:#2a1a1a;border-color:#4a2a2a;color:#ff6b6b;}
+.dark .modal{background:#1e1e30;color:#ccc;}
+.dark .modal h3{color:#ddd;}
+.dark .friend-item{border-color:#2a2a3a;}
+.dark .friend-name{color:#ccc;}
+.dark .friend-status{color:#777;}
+.dark .notice-ticker{background:rgba(0,0,0,0.2);}
+.dark .footer{color:#555;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+    <span class="nav-logo">Dudeoji Studio <span>World</span></span>
+    <div class="nav-links">
+        <a href="game-v2.html" class="active" onclick="return confirmLeave()">Jogo</a>
+        <a href="shop.html?from=world">Loja</a>
+        <a href="mypage.html?from=world">Meu perfil</a>
+        <button class="sound-btn" onclick="this.textContent=this.textContent==='🔊'?'🔇':'🔊'" title="BGM">🔇</button>
+    </div>
+</nav>
+<div class="tab-bar">
+    <div class="tab-room"><span class="t-emoji">🧩</span> Maria ImagemMatchRoom (2/2)</div>
+    <div class="notice-ticker">
+        <span class="notice-icon">📢</span>
+        <div class="notice-slide" id="noticeTicker">
+            <div class="notice-text active">Picture Match Season Open! Who finds matches fastest?</div>
+            <div class="notice-text">This week Imagem Match TOP 3to Star Energia x50 Presente!</div>
+            <div class="notice-text">Try One Card too!</div>
+            <div class="notice-text">Star Energia collect Aura Desbloquearplease!</div>
+            <div class="notice-text">Current users 127people · Progresso in progress Jogo 23pcs</div>
+        </div>
+    </div>
+</div>
+
+<div class="page-main">
+    <!-- Left -->
+    <div class="side-left">
+        <div class="profile-card">
+            <svg class="my-star" viewBox="0 0 40 40" width="36" height="36" xmlns="http://www.w3.org/2000/svg"><polygon points="20,2 25,15 39,15 28,24 32,38 20,30 8,38 12,24 1,15 15,15" fill="#FFD93D" stroke="#F59E0B" stroke-width="1"/><circle cx="15" cy="18" r="1.5" fill="#333"/><circle cx="25" cy="18" r="1.5" fill="#333"/><path d="M16,24 Q20,28 24,24" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <div class="profile-info">
+                <div class="profile-name">TAZO</div>
+                <div class="profile-sub">Lv.5 · Leao</div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="box-title blue">👥 Participants</div>
+            <div class="player-list">
+                <div class="pl-item">
+                    <div class="pl-dot"></div>
+                    <div class="pl-avatar" style="background:linear-gradient(135deg,#e91e63,#ff5252);">🦊</div>
+                    <div class="pl-name">Maria G.</div>
+                </div>
+                <div class="pl-item">
+                    <div class="pl-dot"></div>
+                    <div class="pl-avatar" style="background:linear-gradient(135deg,#0ea5e9,#f59e0b);">⭐</div>
+                    <div class="pl-name">TAZO</div>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://dudeojistudio.com/astro" target="_blank" class="moon-banner">
+            <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">⋆</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
+            <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div class="moon-slider" id="moonSlider">
+                <div class="moon-text active">Horoscopo de hoje?</div>
+                <div class="moon-text">Taro one pcs Mensagens</div>
+                <div class="moon-text">Quem fui na vida passada?</div>
+                <div class="moon-text">my Significado oculto dos sonhos</div>
+                <div class="moon-text">my soulmate?</div>
+            </div>
+            <div class="moon-brand">Dudeoji Studio</div>
+        </a>
+    </div>
+
+    <!-- Center - Jogo -->
+    <div class="game-col">
+        <div class="game-status-bar">
+            <div class="game-status">
+                <span id="turnName">TAZOof Vez</span>
+                <span class="turn-timer" id="turnTimer">15</span>
+            </div>
+        </div>
+        <div class="game-table">
+            <div class="card-grid" id="cardGrid"></div>
+
+            <div class="match-msg" id="matchMsg"></div>
+        </div>
+    </div>
+
+    <!-- Right -->
+    <div class="side-right">
+        <div class="game-info-box">
+            <div class="box-title">🏆 Pontos</div>
+            <div class="score-list">
+                <div class="score-item me"><span>⭐ TAZO</span><span class="score-pts" id="myScore">0</span></div>
+                <div class="score-item"><span>🦊 Maria G.</span><span class="score-pts" id="oppScore">0</span></div>
+            </div>
+        </div>
+        <div class="game-info-box">
+            <div class="box-title" style="color:#8b5cf6;">📋 Jogo Regras</div>
+            <div class="game-rule">
+                <div class="rule-basic">
+                    Card 2pcs flip <b>Mesmo Imagem</b> find!<br><br>
+                    Match a pair for <b>+1 point</b> and another turn!<br>
+                    if wrong OpponentRoom Vezto moves on.<br><br>
+                    all pair when found Jogo end!
+                </div>
+            </div>
+        </div>
+        <div class="game-info-box">
+            <div class="box-title" style="color:#f59e0b;">⭐ Recompensa</div>
+            <div style="font-size:11px;color:#888;line-height:1.8;">
+                🥇 Vitoria: Star Energia x20<br>
+                🤝 Empate: Star Energia x10<br>
+                😢 Derrota: Star Energia x3
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Bar -->
+<div class="bottom-bar">
+    <div class="chat-area">
+        <div class="chat-log" id="chatLog">
+            <div class="chat-msg"><span class="sys">[Notificacao]</span> Maria ImagemMatchRoom joined</div>
+            <div class="chat-msg"><span class="user">Maria:</span> Imagem Match lets! 🧩</div>
+            <div class="chat-msg"><span class="sys">[Notificacao]</span> Jogo Iniciocompleted!</div>
+            <div class="chat-msg"><span class="sys">[Notificacao]</span> TAZOof Vezis</div>
+        </div>
+        <div class="chat-input-wrap">
+            <select class="chat-target"><option>-Everyone-</option><option>Maria G.</option></select>
+            <input class="chat-input" placeholder="Mensagens please enter..." id="chatInput" onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="chat-send" onclick="sendChat()">Send</button>
+        </div>
+    </div>
+    <div class="bottom-btns">
+        <button class="bb" onclick="copyInvite()">👥 Convite</button>
+        <button class="bb" onclick="toggleMute(this)">🔊 Silenciar</button>
+        <button class="bb exit" onclick="leaveRoom()">🚪 Sair</button>
+    </div>
+</div>
+
+<!-- Megaphone Banner -->
+<div class="megaphone-banner" id="megaBanner">
+    <span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span><span class="megaphone-sparkle">✦</span><span class="megaphone-sparkle">✧</span>
+    <div class="megaphone-inner">
+        <span class="megaphone-icon">📣</span>
+        <span class="megaphone-msg" id="megaMsg"></span>
+        <span class="megaphone-icon">📣</span>
+    </div>
+</div>
+
+<!-- Convite Modal -->
+<div class="modal-overlay" id="inviteModal" onclick="if(event.target===this)closeInvite()">
+    <div class="modal">
+        <div class="modal-head">
+            <h3>👥 Amigos Convite</h3>
+            <button class="modal-close" onclick="closeInvite()">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="friend-item">
+                <div class="friend-dot online"></div>
+                <div class="friend-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">⭐</div>
+                <div class="friend-info"><div class="friend-name">Yuki</div><div class="friend-status">Online · Aguardando in</div></div>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Yuki')">Convite</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-dot online"></div>
+                <div class="friend-avatar" style="background:linear-gradient(135deg,#10b981,#34d399);">🌿</div>
+                <div class="friend-info"><div class="friend-name">Felix</div><div class="friend-status">Online · Aguardando in</div></div>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Felix')">Convite</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-dot online"></div>
+                <div class="friend-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);">🎵</div>
+                <div class="friend-info"><div class="friend-name">Sofia</div><div class="friend-status">Online · Jogo in</div></div>
+                <button class="friend-invite-btn" onclick="sendInvite(this,'Sofia')">Convite</button>
+            </div>
+            <div class="friend-item">
+                <div class="friend-dot offline"></div>
+                <div class="friend-avatar" style="background:#e0e0e0;">💤</div>
+                <div class="friend-info"><div class="friend-name">Jin</div><div class="friend-status">Offline</div></div>
+                <button class="friend-invite-btn" style="opacity:0.4;pointer-events:none;">Convite</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Spectate Mode check
+var isSpectate = location.search.indexOf('spectate=true') !== -1;
+if (isSpectate) {
+    document.body.classList.add('spectate');
+    var bar = document.createElement('div');
+    bar.className = 'spectate-bar';
+    bar.textContent = '👁 Spectate Mode — Jogo browse exists';
+    document.querySelector('.tab-bar').after(bar);
+    var badge = document.createElement('div');
+    badge.className = 'spectate-badge';
+    badge.textContent = '👁 Spectate Mode';
+    document.body.appendChild(badge);
+}
+
+// Card data (Bandeira Emoji 8쌍 = 16pcs)
+var emojis = ['🇰🇷','🇯🇵','🇺🇸','🇬🇧','🇫🇷','🇩🇪','🇮🇹','🇪🇸'];
+var cards = [];
+var flipped = [];
+var matched = 0;
+var myScore = 0;
+var oppScore = 0;
+var canFlip = true;
+
+function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+}
+
+function initGame() {
+    cards = shuffle(emojis.concat(emojis).slice());
+    var grid = document.getElementById('cardGrid');
+    grid.innerHTML = '';
+    for (var i = 0; i < cards.length; i++) {
+        var card = document.createElement('div');
+        card.className = 'pic-card';
+        card.dataset.idx = i;
+        card.innerHTML = '<div class="pic-card-inner"><div class="pic-card-front">Dudeoji Studio</div><div class="pic-card-back">' + cards[i] + '</div></div>';
+        card.onclick = function(){ flipCard(this); };
+        grid.appendChild(card);
+    }
+}
+
+function flipCard(el) {
+    if (!canFlip) return;
+    if (el.classList.contains('flipped') || el.classList.contains('matched')) return;
+    if (flipped.length >= 2) return;
+
+    el.classList.add('flipped');
+    flipped.push(el);
+
+    if (flipped.length === 2) {
+        canFlip = false;
+        var i1 = flipped[0].dataset.idx;
+        var i2 = flipped[1].dataset.idx;
+
+        if (cards[i1] === cards[i2]) {
+            setTimeout(function(){
+                flipped[0].classList.add('matched');
+                flipped[1].classList.add('matched');
+                myScore++;
+                matched++;
+                document.getElementById('myScore').textContent = myScore;
+                document.getElementById('matchMsg').textContent = 'Pair found! +1 point 🎉';
+                addLog('<span class="sys">[Notificacao]</span> TAZO ' + cards[i1] + ' pair got it right!');
+                flipped = [];
+                canFlip = true;
+                startTurnTimer();
+                setTimeout(function(){ document.getElementById('matchMsg').textContent = ''; }, 1500);
+                if (matched === emojis.length) {
+                    setTimeout(endGame, 500);
+                }
+            }, 600);
+        } else {
+            setTimeout(function(){
+                flipped[0].classList.remove('flipped');
+                flipped[1].classList.remove('flipped');
+                stopTurnTimer();
+                document.getElementById('matchMsg').textContent = 'Miss! Opponents turn...';
+                addLog('<span class="sys">[Notificacao]</span> Mariaof Vezis');
+                flipped = [];
+                setTimeout(function(){
+                    document.getElementById('matchMsg').textContent = '';
+                    // AI Opponent Turn
+                    aiTurn();
+                }, 800);
+            }, 900);
+        }
+    }
+}
+
+function aiTurn() {
+    canFlip = false;
+    stopTurnTimer();
+    document.getElementById('turnName').textContent = 'Mariaof Vez';
+    var unmatched = [];
+    var allCards = document.querySelectorAll('.pic-card');
+    allCards.forEach(function(c){ if (!c.classList.contains('matched')) unmatched.push(c); });
+    if (unmatched.length < 2) return;
+
+    var picks = shuffle(unmatched.slice()).slice(0, 2);
+    setTimeout(function(){
+        picks[0].classList.add('flipped');
+        setTimeout(function(){
+            picks[1].classList.add('flipped');
+            var i1 = picks[0].dataset.idx;
+            var i2 = picks[1].dataset.idx;
+            setTimeout(function(){
+                if (cards[i1] === cards[i2]) {
+                    picks[0].classList.add('matched');
+                    picks[1].classList.add('matched');
+                    oppScore++;
+                    matched++;
+                    document.getElementById('oppScore').textContent = oppScore;
+                    addLog('<span class="sys">[Notificacao]</span> Maria ' + cards[i1] + ' pair got it right!');
+                    if (matched === emojis.length) {
+                        setTimeout(endGame, 500);
+                    } else {
+                        setTimeout(aiTurn, 800);
+                    }
+                } else {
+                    picks[0].classList.remove('flipped');
+                    picks[1].classList.remove('flipped');
+                    document.getElementById('turnName').textContent = 'TAZOof Vez';
+                    addLog('<span class="sys">[Notificacao]</span> TAZOof Vezis');
+                    canFlip = true;
+                    startTurnTimer();
+                }
+            }, 800);
+        }, 500);
+    }, 600);
+}
+
+function endGame() {
+    stopTurnTimer();
+    canFlip = false;
+    var msg;
+    if (myScore > oppScore) msg = '🎉 Parabens! TAZO Vitoria! (Star Energia x20 Earned)';
+    else if (myScore < oppScore) msg = '😢 Maria Vitoria... (Star Energia x3 Earned)';
+    else msg = '🤝 Empate! (Star Energia x10 Earned)';
+    addLog('<span class="sys">[Notificacao]</span> Jogo end! ' + msg);
+    document.getElementById('matchMsg').textContent = msg;
+}
+
+// Turn Timer
+var turnTime = 15;
+var turnSec = turnTime;
+var turnInterval = null;
+function startTurnTimer() {
+    turnSec = turnTime;
+    var el = document.getElementById('turnTimer');
+    el.textContent = turnSec;
+    el.classList.remove('warn');
+    clearInterval(turnInterval);
+    turnInterval = setInterval(function(){
+        turnSec--;
+        el.textContent = turnSec;
+        if (turnSec <= 5) el.classList.add('warn');
+        if (turnSec <= 0) {
+            clearInterval(turnInterval);
+            skipTurn();
+        }
+    }, 1000);
+}
+function stopTurnTimer() {
+    clearInterval(turnInterval);
+}
+function skipTurn() {
+    addLog('<span class="sys">[Notificacao]</span> Horas Exceeded! Turn moves on');
+    document.getElementById('matchMsg').textContent = 'Horas Exceeded!';
+    setTimeout(function(){ document.getElementById('matchMsg').textContent = ''; }, 1500);
+    aiTurn();
+}
+
+initGame();
+startTurnTimer();
+
+// Bate-papo
+function sendChat() {
+    var input = document.getElementById('chatInput');
+    if (!input.value.trim()) return;
+    addLog('<span class="user">TAZO:</span> ' + input.value);
+    input.value = '';
+}
+function addLog(html) {
+    var log = document.getElementById('chatLog');
+    var div = document.createElement('div');
+    div.className = 'chat-msg';
+    div.innerHTML = html;
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+}
+
+// Convite
+function copyInvite() { document.getElementById('inviteModal').classList.add('show'); }
+function closeInvite() { document.getElementById('inviteModal').classList.remove('show'); }
+function sendInvite(btn, name) {
+    btn.textContent = 'beforeSent ✓';
+    btn.classList.add('sent');
+    addLog('<span class="sys">[Notificacao]</span> ' + name + 'sirto Convite sent');
+}
+
+// Silenciar
+var isMuted = false;
+function toggleMute(btn) {
+    isMuted = !isMuted;
+    btn.textContent = isMuted ? '🔇 Silenciar in' : '🔊 Silenciar';
+    btn.style.background = isMuted ? '#f0f0f0' : '';
+    btn.style.color = isMuted ? '#999' : '';
+}
+
+// Page 동 Confirmar
+function confirmLeave() {
+    if (isSpectate) return true;
+    return confirm('Jogofrom Would you like to leave?\nProgresso in progress Jogo Derrota processingwill be.');
+}
+
+// Sair
+function leaveRoom() {
+    if (isSpectate) {
+        location.href = 'game-v2.html';
+        return;
+    }
+    if (confirm('Really leave this room?\nProgresso in progress Jogo Derrota processingwill be.')) {
+        location.href = 'game-v2.html';
+    }
+}
+
+// Megaphone
+function showMegaphone(name,msg){
+    var banner=document.getElementById('megaBanner');
+    document.getElementById('megaMsg').textContent=name+': '+msg;
+    banner.style.display='block';
+    setTimeout(function(){banner.style.display='none';},5000);
+}
+setTimeout(function(){showMegaphone('Yuki','Imagem Match Lets play~ 🧩');},12000);
+
+// Avisos Ticker
+var noticeIdx=0;
+var notices=document.querySelectorAll('#noticeTicker .notice-text');
+setInterval(function(){
+    notices[noticeIdx].classList.remove('active');
+    noticeIdx=(noticeIdx+1)%notices.length;
+    notices[noticeIdx].classList.add('active');
+},3000);
+
+// Dudeoji문 Banner Slide
+var moonTexts=document.querySelectorAll('#moonSlider .moon-text');
+var moonIdx=0;
+setInterval(function(){
+    moonTexts[moonIdx].classList.remove('active');
+    moonIdx=(moonIdx+1)%moonTexts.length;
+    moonTexts[moonIdx].classList.add('active');
+},3000);
+</script>
+
+<script>if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');}</script>
+</body>
+</html>

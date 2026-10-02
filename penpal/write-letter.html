@@ -1,1 +1,499 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=https://dudeojistudio.com/"><title>Dudeoji Studio</title></head><body></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📮</text></svg>">
+<title>Dudeoji Studio — 편지 쓰기</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-height:100vh;display:flex;flex-direction:column;}
+
+.nav{background:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:100;}
+.nav-logo{font-size:22px;font-weight:700;color:#0ea5e9;text-decoration:none;}
+.nav-logo span{color:#f59e0b;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{text-decoration:none;font-size:13px;padding:8px 16px;border-radius:20px;color:#666;font-weight:500;}
+.nav-links a:hover{background:#e0f2fe;color:#0ea5e9;}
+.nav-links a.active{background:#0ea5e9;color:#fff;}
+
+.tab-bar{background:linear-gradient(135deg,#8b5cf6,#a78bfa);padding:0 20px;display:flex;gap:0;box-shadow:0 2px 8px rgba(139,92,246,0.2);}
+.tab-item{padding:12px 22px;font-size:13px;font-weight:700;cursor:pointer;color:rgba(255,255,255,0.6);border-bottom:3px solid transparent;display:flex;align-items:center;gap:6px;transition:all .2s;text-decoration:none;}
+.tab-item:hover{color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.08);}
+.tab-item.active{color:#fff;border-bottom-color:#fbbf24;background:rgba(255,255,255,0.1);}
+.tab-item .t-emoji{font-size:20px;}
+.notice-ticker{margin-left:auto;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border-radius:20px;padding:6px 14px;min-width:300px;max-width:420px;overflow:hidden;}
+.notice-icon{font-size:14px;flex-shrink:0;animation:megaphone 1s ease-in-out infinite;}
+@keyframes megaphone{0%,100%{transform:rotate(0deg);}15%{transform:rotate(-12deg);}30%{transform:rotate(10deg);}45%{transform:rotate(-8deg);}60%{transform:rotate(0deg);}}
+.notice-slide{position:relative;height:18px;flex:1;overflow:hidden;}
+.notice-text{position:absolute;top:0;left:0;width:100%;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(10px);}
+.notice-text.active{opacity:1;transform:translateY(0);}
+
+.main-grid{margin:10px 24px;display:grid;grid-template-columns:minmax(220px,18vw) 1fr minmax(200px,16vw);gap:12px;min-height:calc(100vh - 120px);}
+.page-content{flex:1;}
+
+/* 왼쪽 사이드바 — 공통 */
+.left{display:flex;flex-direction:column;gap:12px;}
+.my-profile-card{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:10px;}
+.my-star{flex-shrink:0;animation:starBounce 2s ease-in-out infinite,starGlow 1.5s ease-in-out infinite alternate;}
+@keyframes starGlow{0%{filter:drop-shadow(0 0 6px rgba(255,160,50,0.8));}100%{filter:drop-shadow(0 0 10px rgba(255,160,50,1));}}
+@keyframes starBounce{0%,100%{transform:translateY(0) rotate(0deg);}25%{transform:translateY(-3px) rotate(-3deg);}50%{transform:translateY(0) rotate(0deg);}75%{transform:translateY(-2px) rotate(3deg);}}
+.my-profile-info{flex:1;}
+.my-profile-name{font-size:14px;font-weight:700;color:#333;}
+.my-profile-sub{font-size:10px;color:#999;}
+.my-sign-card{background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:14px;padding:18px;color:#fff;position:relative;overflow:hidden;}
+.my-sign-card h3{font-size:15px;font-weight:700;margin-bottom:4px;}
+.my-sign-card p{font-size:11px;color:rgba(255,255,255,0.7);}
+.my-sign-icon{font-size:44px;position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.2;animation:floatSign 3s ease-in-out infinite;}
+@keyframes floatSign{0%,100%{transform:translateY(-50%) rotate(0deg);}50%{transform:translateY(calc(-50% - 6px)) rotate(5deg);}}
+.sign-tag{display:inline-block;font-size:10px;padding:3px 10px;background:rgba(255,255,255,0.2);border-radius:10px;margin-top:8px;}
+.aura-box{background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.aura-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.aura-title .aura-star{display:inline-block;animation:auraStar 2s ease-in-out infinite;}
+@keyframes auraStar{0%,100%{transform:scale(1) rotate(0deg);}50%{transform:scale(1.2) rotate(10deg);}}
+.aura-bar-wrap{background:#f0f0f0;border-radius:8px;height:10px;overflow:hidden;margin-bottom:6px;}
+.aura-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#fbbf24,#f59e0b,#8b5cf6);position:relative;overflow:hidden;}
+.aura-bar-fill::after{content:'';position:absolute;top:0;left:-50%;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);animation:barShimmer 2s ease-in-out infinite;}
+@keyframes barShimmer{0%{left:-50%;}100%{left:150%;}}
+.aura-info{display:flex;justify-content:space-between;font-size:10px;color:#888;margin-bottom:10px;}
+.aura-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;}
+.aura-item{text-align:center;padding:6px 2px;border-radius:10px;background:#f8f8f8;cursor:pointer;transition:transform .15s;}
+.aura-item:hover:not(.locked){transform:scale(1.1);}
+.aura-item.active{background:#fef3c7;border:1px solid #f59e0b;}
+.aura-item.locked{opacity:0.35;filter:grayscale(1);cursor:default;}
+.aura-emoji{font-size:clamp(16px,1.3vw,22px);}
+.aura-name{font-size:8px;color:#888;margin-top:2px;}
+.aura-item.active .aura-name{color:#b45309;font-weight:600;}
+.pal-btn{display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;border-radius:14px;text-decoration:none;font-size:15px;font-weight:700;box-shadow:0 4px 16px rgba(14,165,233,0.3);transition:all .2s;letter-spacing:1px;}
+.pal-btn:hover{transform:scale(1.03);}
+.moon-banner{display:block;text-align:center;padding:12px 10px;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);color:#fff;border-radius:12px;text-decoration:none;box-shadow:0 4px 16px rgba(99,102,241,0.35);transition:all .2s;position:relative;overflow:hidden;}
+.moon-banner:hover{transform:scale(1.03);}
+.moon-icon{animation:moonFloat 3s ease-in-out infinite;margin-bottom:4px;line-height:0;position:relative;display:inline-block;}
+.moon-sparkle{color:#fbbf24;position:absolute;opacity:0;animation:sparkleGlow 2s ease-in-out infinite;z-index:1;}
+.moon-sparkle:nth-child(1){top:6px;left:8px;font-size:10px;animation-delay:0s;}
+.moon-sparkle:nth-child(2){top:14px;right:14px;font-size:7px;animation-delay:0.3s;}
+.moon-sparkle:nth-child(3){top:30%;left:18%;font-size:7px;animation-delay:0.6s;}
+.moon-sparkle:nth-child(4){top:28%;right:8px;font-size:9px;animation-delay:0.9s;}
+@keyframes sparkleGlow{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.2);}}
+@keyframes moonFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-4px) rotate(5deg);}}
+.moon-slider{position:relative;height:20px;overflow:hidden;margin-bottom:8px;}
+.moon-text{position:absolute;top:0;left:0;width:100%;font-size:13px;font-weight:700;color:#fff;opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateY(10px);}
+.moon-text.active{opacity:1;transform:translateY(0);}
+.moon-brand{font-size:12px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:1px;}
+.moon-stars{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
+.moon-stars span{position:absolute;color:#fff;font-size:7px;opacity:0;animation:starTwinkle 2.5s ease-in-out infinite;}
+.moon-stars span:nth-child(1){top:6px;left:8%;animation-delay:0s;}
+.moon-stars span:nth-child(2){top:16px;right:12%;animation-delay:0.6s;}
+.moon-stars span:nth-child(3){bottom:8px;left:15%;animation-delay:1.2s;}
+.moon-stars span:nth-child(4){bottom:6px;right:8%;animation-delay:1.8s;}
+@keyframes starTwinkle{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:0.7;transform:scale(1.3);}}
+
+/* 중앙 — 편지 */
+.center{display:flex;flex-direction:column;gap:12px;}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
+.to-section{margin-bottom:22px;}
+.to-label{font-size:12px;font-weight:600;color:#888;margin-bottom:10px;}
+.to-list{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;}
+.to-list::-webkit-scrollbar{height:4px;}
+.to-list::-webkit-scrollbar-thumb{background:#e0e0e0;border-radius:2px;}
+.to-person{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:10px 14px;border-radius:14px;border:2px solid #f0f0f0;transition:all .2s;min-width:75px;}
+.to-person:hover{border-color:#8b5cf6;transform:translateY(-2px);}
+.to-person.selected{border-color:#8b5cf6;background:#f5f3ff;box-shadow:0 2px 8px rgba(139,92,246,0.15);}
+.to-pic{width:42px;height:42px;display:flex;align-items:center;justify-content:center;}
+.to-name{font-size:11px;color:#555;font-weight:600;text-align:center;}
+.to-lang{font-size:9px;color:#aaa;}
+.letter-area{margin-bottom:22px;}
+.letter-label{font-size:12px;font-weight:600;color:#888;margin-bottom:10px;}
+.letter-wrap{background:#fffef8;border:1px solid #e8e4d8;border-radius:16px;padding:4px;position:relative;}
+.letter-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#8b5cf6,#a78bfa,#8b5cf6);border-radius:16px 16px 0 0;opacity:0.6;}
+.letter-input{width:100%;min-height:220px;border:none;background:transparent;padding:20px 16px 16px;font-size:14px;font-family:'Noto Sans KR',sans-serif;color:#333;resize:vertical;outline:none;line-height:2;background-image:repeating-linear-gradient(transparent,transparent 31px,#f0ede4 31px,#f0ede4 32px);background-position-y:19px;}
+.letter-input::placeholder{color:#ccc;}
+.letter-footer{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px;}
+.char-count{font-size:10px;color:#ccc;}
+.letter-tools{display:flex;gap:6px;}
+.tool-btn{width:28px;height:28px;border-radius:8px;border:1px solid #e8e4d8;background:#fff;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.tool-btn:hover{border-color:#8b5cf6;background:#f5f3ff;}
+.send-area{display:flex;justify-content:space-between;align-items:center;padding-top:4px;}
+.btn-send{padding:14px 36px;background:linear-gradient(135deg,#8b5cf6,#a78bfa);color:#fff;border:none;border-radius:24px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(139,92,246,0.3);transition:all .2s;font-family:'Noto Sans KR',sans-serif;}
+.btn-send:hover{transform:scale(1.05);}
+.btn-send:active{transform:scale(0.98);}
+.recent-title{font-size:14px;font-weight:700;color:#333;margin-bottom:12px;}
+.recent-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f5f5f5;align-items:center;cursor:pointer;}
+.recent-item:last-child{border-bottom:none;}
+.recent-pic{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.recent-info{flex:1;min-width:0;}
+.recent-name{font-size:12px;font-weight:600;color:#333;}
+.recent-preview{font-size:11px;color:#aaa;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.recent-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+.recent-time{font-size:10px;color:#ccc;}
+.recent-badge{font-size:9px;padding:2px 8px;border-radius:8px;font-weight:600;}
+.badge-sent{background:#f5f3ff;color:#8b5cf6;}
+.badge-received{background:#fef3c7;color:#f59e0b;}
+.letter-full{display:none;margin-top:10px;padding:14px;background:#fffef8;border:1px solid #e8e4d8;border-radius:12px;font-size:13px;color:#555;line-height:2;background-image:repeating-linear-gradient(transparent,transparent 27px,#f0ede4 27px,#f0ede4 28px);background-position-y:13px;}
+.letter-full.open{display:block;}
+.recent-actions{display:none;gap:6px;margin-top:10px;flex-wrap:wrap;}
+.recent-actions.open{display:flex;}
+.btn-reply{padding:6px 14px;background:#8b5cf6;color:#fff;border:none;border-radius:10px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
+.btn-reply:hover{background:#7c3aed;}
+.btn-act{padding:6px 14px;background:none;color:#888;border:1px solid #e0e0e0;border-radius:10px;font-size:11px;font-weight:500;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
+.btn-act:hover{border-color:#8b5cf6;color:#8b5cf6;}
+.btn-act.warn:hover{border-color:#f87171;color:#f87171;}
+
+/* 오른쪽 */
+.right{display:flex;flex-direction:column;gap:12px;}
+.right-box{background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.right-title{font-size:12px;font-weight:700;color:#8b5cf6;margin-bottom:10px;}
+.tip-item{display:flex;gap:8px;padding:6px 0;font-size:11px;color:#666;line-height:1.5;}
+.tip-icon{font-size:14px;flex-shrink:0;}
+
+/* 모달 */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
+.modal-overlay.show{display:flex;}
+.modal{background:#fff;border-radius:20px;padding:24px;max-width:400px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,0.2);position:relative;}
+.modal-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:18px;color:#aaa;cursor:pointer;}
+.modal-close:hover{color:#333;}
+.modal-title{font-size:16px;font-weight:700;color:#333;margin-bottom:16px;}
+.modal-body{font-size:13px;color:#666;line-height:1.8;}
+.modal-profile{text-align:center;padding:10px 0;}
+.modal-profile .mp-name{font-size:18px;font-weight:700;color:#333;}
+.modal-profile .mp-bio{font-size:12px;color:#888;margin:6px 0 10px;line-height:1.6;}
+.modal-profile .mp-tags{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;}
+.mp-tag{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:500;}
+.mp-tag-lang{background:#e8f5e9;color:#43a047;}
+.mp-tag-zodiac{background:#fff3e0;color:#ef6c00;}
+.translate-box{background:#f5f3ff;border:1px solid #ede9fe;border-radius:12px;padding:14px;margin-top:10px;font-size:13px;color:#8b5cf6;line-height:1.8;}
+.report-options,.decline-options{display:flex;flex-direction:column;gap:8px;margin:10px 0;}
+.report-opt,.decline-opt{padding:10px 14px;border:1px solid #e0e0e0;border-radius:12px;font-size:13px;color:#555;cursor:pointer;transition:all .2s;text-align:left;background:#fff;font-family:'Noto Sans KR',sans-serif;}
+.report-opt:hover{border-color:#f87171;color:#f87171;background:#fef2f2;}
+.decline-opt:hover{border-color:#f59e0b;color:#f59e0b;background:#fffbeb;}
+.decline-opt.selected{border-color:#f59e0b;background:#fffbeb;color:#92400e;}
+.modal-submit{margin-top:14px;padding:10px 24px;background:#8b5cf6;color:#fff;border:none;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;width:100%;transition:all .2s;}
+.modal-submit:hover{background:#7c3aed;}
+.modal-submit.danger{background:#ef4444;}
+.modal-submit.danger:hover{background:#dc2626;}
+.saved-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 24px;border-radius:20px;font-size:13px;font-weight:500;z-index:300;opacity:0;transition:opacity .3s;}
+.saved-toast.show{opacity:1;}
+
+.footer{text-align:center;padding:6px 20px 4px;font-size:11px;color:#888;font-weight:500;}
+
+@media(max-width:900px){
+.main-grid{grid-template-columns:1fr 200px;margin:12px 16px;}
+.left{display:none;}
+}
+@media(max-width:640px){
+.main-grid{grid-template-columns:1fr;margin:10px 10px;gap:10px;}
+.left{display:flex;}
+.right{display:none;}
+.nav{padding:10px 14px;}
+.nav-logo{font-size:18px;}
+.tab-bar{padding:0 10px;flex-wrap:wrap;}
+.tab-item{padding:8px 12px;font-size:11px;}
+.notice-ticker{display:none;}
+}
+
+.dark body{background:#1a1a2a;color:#ccc;}
+.dark .nav{background:#12122a;box-shadow:0 1px 8px rgba(0,0,0,0.3);}
+.dark .nav-links a{color:#888;}
+.dark .nav-links a:hover{background:#1a2a3a;color:#38bdf8;}
+.dark .nav-links a.active{background:#0ea5e9;color:#fff;}
+.dark .tab-bar{background:linear-gradient(135deg,#4c1d95,#6d28d9);}
+.dark .my-profile-card{background:#1e1e30;border:1px solid #2a2a3a;box-shadow:none;}
+.dark .my-profile-name{color:#ddd;}
+.dark .aura-box{background:#1e1e30;box-shadow:none;border:1px solid #2a2a3a;}
+.dark .aura-item{background:#1a1a2a;}
+.dark .aura-item.active{background:#2a2a1a;border-color:#f59e0b;}
+.dark .aura-bar-wrap{background:#2a2a3a;}
+.dark .card{background:#1e1e30;box-shadow:none;border:1px solid #2a2a3a;}
+.dark .to-label,.dark .letter-label{color:#888;}
+.dark .to-person{border-color:#2a2a3a;}
+.dark .to-person:hover{border-color:#8b5cf6;}
+.dark .to-person.selected{border-color:#8b5cf6;background:#1a1a2a;}
+.dark .to-name{color:#ccc;}
+.dark .letter-wrap{background:#12122a;border-color:#2a2a3a;}
+.dark .letter-wrap::before{opacity:0.4;}
+.dark .letter-input{color:#e0e0e0;background-image:repeating-linear-gradient(transparent,transparent 31px,#2a2a3a 31px,#2a2a3a 32px);}
+.dark .tool-btn{background:#1a1a2a;border-color:#2a2a3a;color:#888;}
+.dark .recent-title{color:#e0e0e0;}
+.dark .recent-item{border-bottom-color:#2a2a3a;}
+.dark .recent-name{color:#e0e0e0;}
+.dark .recent-preview{color:#666;}
+.dark .letter-full{background:#0a0a1a;border-color:#2a2a3a;color:#aaa;background-image:repeating-linear-gradient(transparent,transparent 27px,#2a2a3a 27px,#2a2a3a 28px);}
+.dark .btn-act{border-color:#2a2a3a;color:#666;}
+.dark .right-box{background:#1e1e30;box-shadow:none;border:1px solid #2a2a3a;}
+.dark .right-title{color:#a78bfa;}
+.dark .tip-item{color:#888;}
+.dark .modal{background:#1e1e30;border:1px solid #2a2a3a;}
+.dark .modal-close{color:#666;}
+.dark .modal-title{color:#e0e0e0;}
+.dark .modal-body{color:#aaa;}
+.dark .modal-profile .mp-name{color:#e0e0e0;}
+.dark .translate-box{background:#1a1a2a;border-color:#2a2a3a;color:#a78bfa;}
+.dark .report-opt,.dark .decline-opt{background:#12122a;border-color:#2a2a3a;color:#888;}
+.dark .footer{color:#555;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="v2-penpal.html" class="nav-logo">Dudeoji Studio <span>Pal</span></a>
+    <div class="nav-links">
+        <a href="write-letter.html" class="active">편지 쓰기</a>
+        <button onclick="location.href='v2-penpal.html'" style="padding:8px 16px;border-radius:20px;border:1px solid #fecaca;background:#fff;color:#ef4444;font-size:13px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR';">나가기</button>
+    </div>
+</nav>
+
+<div class="page-content">
+<div class="tab-bar">
+    <a class="tab-item active"><span class="t-emoji">✉️</span> 편지</a>
+    <a class="tab-item" href="find-pals.html"><span class="t-emoji">🔍</span> 친구 찾기</a>
+    <a class="tab-item" href="star-recommend.html"><span class="t-emoji">⭐</span> 별의 추천</a>
+    <div class="notice-ticker">
+        <span class="notice-icon">📢</span>
+        <div class="notice-slide" id="noticeTicker">
+            <div class="notice-text active">펜팔 친구에게 진심이 담긴 편지를 보내보세요!</div>
+            <div class="notice-text">다른 언어로 편지를 쓰면 별의 기운이 올라가요</div>
+            <div class="notice-text">번역 도우미 기능이 곧 오픈됩니다</div>
+        </div>
+    </div>
+</div>
+
+<div class="main-grid">
+    <!-- 왼쪽 -->
+    <div class="left">
+        <div class="my-profile-card">
+            <svg class="my-star" viewBox="0 0 120 120" width="42" height="42" xmlns="http://www.w3.org/2000/svg"><path d="M60,5 L72,40 Q75,48 83,48 L108,48 Q98,58 92,68 Q89,74 92,82 L100,110 Q90,102 78,95 Q72,93 60,94 Q48,93 42,95 L30,102 L20,110 L28,82 Q31,74 28,68 Q22,58 12,48 L37,48 L48,48 Q45,48 48,40 Z" fill="#FFE066" stroke="#E6C84D" stroke-width="1.5"/><ellipse cx="38" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="68" rx="8" ry="5" fill="rgba(255,150,150,0.35)"/><ellipse cx="44" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><ellipse cx="76" cy="60" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></ellipse><circle cx="45.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><circle cx="77.5" cy="58.5" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="2s"/></circle><path d="M52,74 Q60,82 68,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
+            <div class="my-profile-info">
+                <div class="my-profile-name">TAZO</div>
+                <div class="my-profile-sub">⭐ Lv.5 · 🔥 불 · 사자자리</div>
+            </div>
+        </div>
+        <div class="my-sign-card"><h3>♌ 사자자리</h3><p>7월 23일 ~ 8월 22일</p><div class="sign-tag">🔥 불 원소 · 리더십 · 열정</div><div class="my-sign-icon">♌</div></div>
+        <div class="aura-box">
+            <div class="aura-title"><span class="aura-star">⭐</span> 별의 기운</div>
+            <div class="aura-bar-wrap"><div class="aura-bar-fill" style="width:33%;"></div></div>
+            <div class="aura-info"><span>165 / 500</span><span>다음: 👀 눈부심</span></div>
+            <div class="aura-grid">
+                <div class="aura-item active"><div class="aura-emoji">⭐</div><div class="aura-name">기본</div></div>
+                <div class="aura-item active"><div class="aura-emoji">🌟</div><div class="aura-name">반짝</div></div>
+                <div class="aura-item active"><div class="aura-emoji">💫</div><div class="aura-name">빛남</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">👀</div><div class="aura-name">눈부심</div></div>
+                <div class="aura-item locked"><div class="aura-emoji">🖥️</div><div class="aura-name">초월</div></div>
+            </div>
+        </div>
+        <a href="game-v2.html" class="pal-btn">Dudeoji Studio</a>
+        <a href="#" class="moon-banner" onclick="alert('Dudeoji Studio 오픈 예정!');return false;">
+            <div class="moon-stars"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
+            <span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span><span class="moon-sparkle">✦</span><span class="moon-sparkle">✧</span>
+            <div class="moon-icon"><svg width="48" height="48" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#fbbf24" opacity="0.9"/><circle cx="40" cy="46" r="3" fill="#92400e"/><circle cx="60" cy="46" r="3" fill="#92400e"/><path d="M42,60 Q50,68 58,60" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="32" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="68" cy="54" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/></svg></div>
+            <div class="moon-slider" id="moonSlider"><div class="moon-text active">오늘의 운세는?</div><div class="moon-text">타로 한 장의 메시지</div><div class="moon-text">전생의 나는 누구?</div><div class="moon-text">내 꿈의 숨은 의미</div><div class="moon-text">내 배우자는?</div></div>
+            <div class="moon-brand">Dudeoji Studio</div>
+        </a>
+    </div>
+
+    <!-- 중앙 -->
+    <div class="center">
+        <div class="card">
+            <div class="to-section">
+                <div class="to-label">받는 사람</div>
+                <div class="to-list">
+                    <div class="to-person selected" onclick="selectTo(this)">
+                        <div class="to-pic"><svg viewBox="0 0 120 120" width="38" height="38"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"><animate attributeName="ry" values="3;3;0.3;3;3" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></ellipse><circle cx="45.5" cy="60" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><circle cx="77.5" cy="60" r="1.2" fill="#fff"><animate attributeName="opacity" values="1;1;0;1;1" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0s"/></circle><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
+                        <div class="to-name">Maria G.</div><div class="to-lang">🇪🇸</div>
+                    </div>
+                    <div class="to-person" onclick="selectTo(this)">
+                        <div class="to-pic"><svg viewBox="0 0 120 120" width="38" height="38"><path d="M75,10 C45,10 25,35 25,65 C25,95 45,115 75,115 C55,105 45,85 45,65 C45,45 55,25 75,10Z" fill="#C8E6FF" stroke="#90CAF9" stroke-width="1.5"/><ellipse cx="56" cy="64" rx="2.5" ry="2.5" fill="#555"><animate attributeName="ry" values="2.5;2.5;0.3;2.5;2.5" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0.5s"/></ellipse><ellipse cx="74" cy="64" rx="2.5" ry="2.5" fill="#555"><animate attributeName="ry" values="2.5;2.5;0.3;2.5;2.5" dur="4s" keyTimes="0;0.45;0.475;0.5;1" repeatCount="indefinite" begin="0.5s"/></ellipse><ellipse cx="52" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="78" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><path d="M60,78 Q65,84 70,78" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                        <div class="to-name">Yuki T.</div><div class="to-lang">🇯🇵</div>
+                    </div>
+                    <div class="to-person" onclick="selectTo(this)">
+                        <div class="to-pic"><svg viewBox="0 0 120 120" width="38" height="38"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
+                        <div class="to-name">Lucas S.</div><div class="to-lang">🇧🇷</div>
+                    </div>
+                    <div class="to-person" onclick="selectTo(this)">
+                        <div class="to-pic"><svg viewBox="0 0 120 120" width="38" height="38"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
+                        <div class="to-name">Felix M.</div><div class="to-lang">🇩🇪</div>
+                    </div>
+                    <div class="to-person" onclick="selectTo(this)">
+                        <div class="to-pic"><svg viewBox="0 0 120 120" width="38" height="38"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
+                        <div class="to-name">Sofia R.</div><div class="to-lang">🇮🇹</div>
+                    </div>
+                </div>
+            </div>
+            <div class="letter-area">
+                <div class="letter-label">편지 내용</div>
+                <div class="letter-wrap">
+                    <textarea class="letter-input" placeholder="안녕하세요! 저는 한국에서 온 TAZO입니다. 스페인어를 배우고 있어요..." oninput="updateCount(this)"></textarea>
+                    <div class="letter-footer">
+                        <div class="char-count"><span id="charNum">0</span> / 2,000자</div>
+                        <div class="letter-tools">
+                            <button class="btn-act" onclick="showToast('번역 도우미 준비 중입니다')" style="opacity:0.5;">번역 도우미 (준비 중)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="send-area">
+                <button class="btn-send" onclick="doSend()">보내기</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="recent-title">최근 편지</div>
+            <div class="recent-item" onclick="toggleLetter(this)">
+                <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <div class="recent-info">
+                    <div class="recent-name">Maria G.</div>
+                    <div class="recent-preview">Hola! 오늘 뭐 했어? 나는 K-pop 들었어~</div>
+                    <div class="letter-full">Hola! 오늘 뭐 했어? 나는 오늘 하루 종일 K-pop 들었어~ BTS 새 앨범 나왔거든! 너도 좋아해? 그리고 한국어로 편지 써보려고 했는데 아직 어려워서 스페인어로 쓸게 ㅋㅋ 다음에는 한국어로 도전해볼게! 요즘 뭐 하면서 지내? 답장 기다릴게~</div>
+                    <div class="recent-actions">
+                        <button class="btn-reply" onclick="doReply('Maria G.')">답장하기</button>
+                        <button class="btn-act" onclick="doTranslate('Maria G.',this)">번역 보기</button>
+                        <button class="btn-act" onclick="doProfile('Maria G.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doSave(this)">편지 보관</button>
+                        <button class="btn-act warn" onclick="doDecline('Maria G.')">정중히 거절</button>
+                        <button class="btn-act warn" onclick="doReport('Maria G.')">신고</button>
+                    </div>
+                </div>
+                <div class="recent-meta"><span class="recent-badge badge-received">받은 편지</span><div class="recent-time">2시간 전</div></div>
+            </div>
+            <div class="recent-item" onclick="toggleLetter(this)">
+                <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><path d="M75,10 C45,10 25,35 25,65 C25,95 45,115 75,115 C55,105 45,85 45,65 C45,45 55,25 75,10Z" fill="#C8E6FF" stroke="#90CAF9" stroke-width="1.5"/><ellipse cx="56" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="74" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="52" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="78" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><path d="M60,78 Q65,84 70,78" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                <div class="recent-info">
+                    <div class="recent-name">Yuki T.</div>
+                    <div class="recent-preview">편지 고마워요! 다음에 일본어로도 써볼게요~</div>
+                    <div class="letter-full">편지 고마워요! 다음에 일본어로도 써볼게요~ 사실 나도 한국어 공부하고 있는데 아직 많이 부족해요. 일본에서는 요즘 벚꽃이 피기 시작했어요! 한국도 벚꽃 예쁘죠? 언젠가 한국 가서 같이 벚꽃 보고 싶다~ 좋아하는 음악이나 드라마 있으면 추천해줘!</div>
+                    <div class="recent-actions">
+                        <button class="btn-reply" onclick="doReply('Yuki T.')">답장하기</button>
+                        <button class="btn-act" onclick="doTranslate('Yuki T.',this)">번역 보기</button>
+                        <button class="btn-act" onclick="doProfile('Yuki T.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doSave(this)">편지 보관</button>
+                        <button class="btn-act warn" onclick="doDecline('Yuki T.')">정중히 거절</button>
+                        <button class="btn-act warn" onclick="doReport('Yuki T.')">신고</button>
+                    </div>
+                </div>
+                <div class="recent-meta"><span class="recent-badge badge-received">받은 편지</span><div class="recent-time">1일 전</div></div>
+            </div>
+            <div class="recent-item" onclick="toggleLetter(this)">
+                <div class="recent-pic"><svg viewBox="0 0 120 120" width="32" height="32"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <div class="recent-info">
+                    <div class="recent-name">Lucas S.</div>
+                    <div class="recent-preview">안녕하세요! 저는 브라질에서 온 Lucas입니다...</div>
+                    <div class="letter-full">안녕하세요! 저는 브라질에서 온 Lucas입니다. 한국어를 배우기 시작한 지 6개월 됐어요. 천문학이랑 게임을 좋아하는데, 혹시 비슷한 관심사 있으면 같이 얘기해요! 포르투갈어도 가르쳐줄 수 있어요~</div>
+                    <div class="recent-actions">
+                        <button class="btn-act" onclick="doProfile('Lucas S.')">프로필 보기</button>
+                        <button class="btn-act" onclick="doTranslate('Lucas S.',this)">번역 보기</button>
+                        <button class="btn-act" onclick="doSave(this)">편지 보관</button>
+                        <button class="btn-act warn" onclick="doDelete(this)">삭제</button>
+                    </div>
+                </div>
+                <div class="recent-meta"><span class="recent-badge badge-sent">보낸 편지</span><div class="recent-time">3일 전</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 오른쪽 -->
+    <div class="right">
+        <div class="right-box">
+            <div class="right-title">✉️ 편지 팁</div>
+            <div class="tip-item"><span class="tip-icon">👋</span> 첫 편지에는 자기소개를 포함하세요</div>
+            <div class="tip-item"><span class="tip-icon">🌍</span> 상대 언어로 한두 문장 쓰면 감동이에요</div>
+            <div class="tip-item"><span class="tip-icon">❓</span> 질문을 넣으면 답장 확률이 높아져요</div>
+            <div class="tip-item"><span class="tip-icon">🎵</span> 공통 관심사를 찾아 이야기해보세요</div>
+            <div class="tip-item"><span class="tip-icon">⭐</span> 편지를 보내면 별의 기운 +5!</div>
+        </div>
+        <div class="right-box">
+            <div class="right-title">📊 내 편지 통계</div>
+            <div style="display:flex;justify-content:space-around;text-align:center;padding:8px 0;">
+                <div><div style="font-size:20px;font-weight:700;color:#8b5cf6;">48</div><div style="font-size:9px;color:#999;">총 편지</div></div>
+                <div><div style="font-size:20px;font-weight:700;color:#f59e0b;">23</div><div style="font-size:9px;color:#999;">받은 편지</div></div>
+                <div><div style="font-size:20px;font-weight:700;color:#0ea5e9;">25</div><div style="font-size:9px;color:#999;">보낸 편지</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 모달 -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal" id="modalContent"></div>
+</div>
+<div class="saved-toast" id="toast"></div>
+
+<div class="footer">&copy; 2025 Dudeoji Studio<br><a href="privacy.html" style="color:#aaa;font-size:10px;text-decoration:none;">개인정보처리방침</a> · <a href="terms.html" style="color:#aaa;font-size:10px;text-decoration:none;">이용약관</a></div>
+
+<button id="darkBtn" onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'));this.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#8b5cf6;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:999;">🌙</button>
+
+<script>
+if(localStorage.getItem('moguPalDark')==='true'){document.documentElement.classList.add('dark');document.getElementById('darkBtn').textContent='☀️';}
+
+// 티커
+let noticeIdx=0;
+setInterval(()=>{const t=document.querySelectorAll('#noticeTicker .notice-text');t[noticeIdx].classList.remove('active');noticeIdx=(noticeIdx+1)%t.length;t[noticeIdx].classList.add('active');},4000);
+let moonIdx=0;
+setInterval(()=>{const t=document.querySelectorAll('#moonSlider .moon-text');if(!t.length)return;t[moonIdx].classList.remove('active');moonIdx=(moonIdx+1)%t.length;t[moonIdx].classList.add('active');},3000);
+
+function selectTo(el){document.querySelectorAll('.to-person').forEach(p=>p.classList.remove('selected'));el.classList.add('selected');}
+function updateCount(el){document.getElementById('charNum').textContent=el.value.length.toLocaleString();}
+function toggleLetter(el){var f=el.querySelector('.letter-full'),a=el.querySelector('.recent-actions'),p=el.querySelector('.recent-preview');if(f){f.classList.toggle('open');a.classList.toggle('open');if(p)p.style.display=f.classList.contains('open')?'none':'';}}
+
+function doSend(){
+    var ta=document.querySelector('.letter-input'),text=ta.value.trim(),sel=document.querySelector('.to-person.selected .to-name');
+    if(!sel){showToast('받는 사람을 선택해주세요');return;}
+    if(!text){showToast('편지 내용을 입력해주세요');return;}
+    if(text.length>2000){showToast('2,000자를 초과했습니다');return;}
+    var name=sel.textContent.trim(),btn=document.querySelector('.btn-send');
+    btn.textContent='전송 중...';btn.disabled=true;btn.style.opacity='0.6';
+    setTimeout(function(){btn.textContent='보내기';btn.disabled=false;btn.style.opacity='1';ta.value='';document.getElementById('charNum').textContent='0';showToast(name+'님에게 편지를 보냈습니다');},1000);
+}
+
+function openModal(html){document.getElementById('modalContent').innerHTML='<button class="modal-close" onclick="closeModal()">&times;</button>'+html;document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+
+function doReply(name){
+    event.stopPropagation();
+    document.querySelectorAll('.to-person').forEach(function(p){p.classList.remove('selected');if(p.querySelector('.to-name').textContent.trim()===name)p.classList.add('selected');});
+    window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(function(){document.querySelector('.letter-input').focus();},500);
+}
+
+var translations={
+    'Maria G.':'Hi! What did you do today? I listened to K-pop all day~ BTS released a new album! Do you like them too? I tried to write in Korean but it\'s still hard so I\'ll write in Spanish haha. Next time I\'ll try Korean! What have you been up to lately? Looking forward to your reply~',
+    'Yuki T.':'Thank you for the letter! Next time I\'ll try writing in Japanese too~ Actually I\'m studying Korean too but I\'m still lacking. Cherry blossoms are starting to bloom in Japan! Korea has beautiful cherry blossoms too right? Someday I want to go to Korea and see them together~ Recommend me your favorite music or dramas!',
+    'Lucas S.':'Hello! I\'m Lucas from Brazil. I started learning Korean 6 months ago. I like astronomy and games, so if you have similar interests, let\'s talk! I can teach you Portuguese too~'
+};
+function doTranslate(name,el){
+    event.stopPropagation();var item=el.closest('.recent-item'),full=item.querySelector('.letter-full'),existing=item.querySelector('.translate-box');
+    if(existing){existing.remove();return;}
+    var div=document.createElement('div');div.className='translate-box';div.textContent=translations[name]||'Translation not available';full.after(div);
+}
+
+var profiles={
+    'Maria G.':{zodiac:'양자리',element:'불',lang:'🇪🇸 스페인어 (원어민)',learning:'🇰🇷 한국어',bio:'한국어 배우고 싶어요! K-pop이랑 점성술 좋아해요~',pic:'star'},
+    'Yuki T.':{zodiac:'처녀자리',element:'땅',lang:'🇯🇵 일본어 (원어민)',learning:'🇰🇷 한국어, 🇪🇸 스페인어',bio:'한국 문화 관심 많아요! 벚꽃 보러 가고 싶어~',pic:'moon'},
+    'Lucas S.':{zodiac:'쌍둥이자리',element:'바람',lang:'🇧🇷 포르투갈어 (원어민)',learning:'🇰🇷 한국어',bio:'천문학이랑 게임 좋아합니다. 한국, 일본 친구 찾아요!',pic:'star'}
+};
+var picSvg={
+    star:'<svg viewBox="0 0 120 120" width="70" height="70"><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="#FFE066" stroke="#FFE066" stroke-width="12" stroke-linejoin="round"/><polygon points="60,6 86,36 116,52 100,80 94,114 60,96 26,114 20,80 4,52 34,36" fill="none" stroke="#E6C84D" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="44" cy="62" rx="3" ry="3" fill="#555"/><ellipse cx="76" cy="62" rx="3" ry="3" fill="#555"/><circle cx="45.5" cy="60" r="1.2" fill="#fff"/><circle cx="77.5" cy="60" r="1.2" fill="#fff"/><ellipse cx="38" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><ellipse cx="82" cy="72" rx="7" ry="4" fill="rgba(255,150,150,0.35)"/><path d="M51,74 Q60,82 69,74" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>',
+    moon:'<svg viewBox="0 0 120 120" width="70" height="70"><path d="M75,10 C45,10 25,35 25,65 C25,95 45,115 75,115 C55,105 45,85 45,65 C45,45 55,25 75,10Z" fill="#C8E6FF" stroke="#90CAF9" stroke-width="1.5"/><ellipse cx="52" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="78" cy="72" rx="6" ry="4" fill="rgba(255,150,150,0.3)"/><ellipse cx="56" cy="64" rx="2.5" ry="2.5" fill="#555"/><ellipse cx="74" cy="64" rx="2.5" ry="2.5" fill="#555"/><path d="M60,78 Q65,84 70,78" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg>'
+};
+function doProfile(name){
+    event.stopPropagation();var p=profiles[name];if(!p)return;
+    openModal('<div class="modal-profile"><div class="mp-pic">'+picSvg[p.pic]+'</div><div class="mp-name">'+name+'</div><div class="mp-bio">'+p.bio+'</div><div class="mp-tags"><span class="mp-tag mp-tag-zodiac">'+p.zodiac+'</span><span class="mp-tag mp-tag-zodiac">'+p.element+'</span><span class="mp-tag mp-tag-lang">'+p.lang+'</span></div><div style="font-size:11px;color:#888;">배우는 중: '+p.learning+'</div></div>');
+}
+function doSave(el){event.stopPropagation();el.textContent='보관됨';el.style.background='#e8f5e9';el.style.color='#43a047';el.style.borderColor='#a5d6a7';el.disabled=true;showToast('편지가 보관되었습니다');}
+function doDecline(name){
+    event.stopPropagation();
+    openModal('<div class="modal-title">정중히 거절</div><div class="modal-body">'+name+'님에게 보낼 거절 메시지를 선택해주세요.</div><div class="decline-options"><div class="decline-opt" onclick="selectDecline(this)">편지 감사합니다! 지금은 여유가 없어서 답장이 어려울 것 같아요.</div><div class="decline-opt" onclick="selectDecline(this)">관심 가져주셔서 감사해요! 다만 지금은 새로운 펜팔을 받기 어려운 상황이에요.</div><div class="decline-opt" onclick="selectDecline(this)">편지 잘 읽었어요! 배우는 언어가 달라서 아쉽지만, 좋은 펜팔 만나시길 바랍니다.</div></div><button class="modal-submit" onclick="sendDecline(\''+name+'\')">거절 메시지 보내기</button>');
+}
+function selectDecline(el){document.querySelectorAll('.decline-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
+function sendDecline(name){var sel=document.querySelector('.decline-opt.selected');if(!sel){showToast('메시지를 선택해주세요');return;}closeModal();showToast(name+'님에게 거절 메시지를 보냈습니다');}
+function doReport(name){
+    event.stopPropagation();
+    openModal('<div class="modal-title">신고하기</div><div class="modal-body">'+name+'님을 신고하는 이유를 선택해주세요.</div><div class="report-options"><div class="report-opt" onclick="selectReport(this)">스팸 / 광고 / 홍보</div><div class="report-opt" onclick="selectReport(this)">성적이거나 불쾌한 내용</div><div class="report-opt" onclick="selectReport(this)">욕설 / 혐오 발언</div><div class="report-opt" onclick="selectReport(this)">사기 / 사칭</div><div class="report-opt" onclick="selectReport(this)">개인정보 요구 (전화번호, SNS 등)</div><div class="report-opt" onclick="selectReport(this)">기타</div></div><button class="modal-submit danger" onclick="sendReport(\''+name+'\')">신고 접수</button>');
+}
+function selectReport(el){document.querySelectorAll('.report-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
+function sendReport(name){var sel=document.querySelector('.report-opt.selected');if(!sel){showToast('신고 사유를 선택해주세요');return;}closeModal();showToast('신고가 접수되었습니다. 운영팀이 검토합니다.');}
+function doDelete(el){event.stopPropagation();if(!confirm('이 편지를 삭제하시겠어요?'))return;var item=el.closest('.recent-item');item.style.transition='all .3s';item.style.opacity='0';item.style.maxHeight='0';item.style.overflow='hidden';item.style.padding='0';item.style.margin='0';setTimeout(function(){item.remove();},300);showToast('편지가 삭제되었습니다');}
+</script>
+</body>
+</html>
