@@ -245,7 +245,7 @@ for(var di=1;di<=31;di++){var o=document.createElement('option');o.value=di;o.te
 // Day sign = (기준 day sign + 일수차) % 20
 
 var TZOLKIN_REF_JDN = 2451545; // 2000-01-01 Julian Day Number
-var TZOLKIN_REF_KIN = 159;     // 2000-01-01 = Kin 159
+var TZOLKIN_REF_KIN = 101;     // 2000-01-01 = 11 Ik (검증: 2012-12-21 = 4 Ahau ✓)
 
 function dateToJDN(y,m,d) {
   var a = Math.floor((14-m)/12);
