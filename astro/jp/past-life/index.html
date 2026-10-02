@@ -321,16 +321,16 @@ function discover() {
     const ketuSignNames = ['牡羊座','牡牛座','双子座','蟹座','獅子座','乙女座','天秤座','蠍座','射手座','山羊座','水瓶座','魚座'];
     const eraIdx = ketuSign % PAST_LIVES.length;
     const pl = PAST_LIVES[eraIdx];
-    const jobIdx = Math.floor(rand() * pl.jobs.length);
+    const jobIdx = (ketuSign + lifeNum) % pl.jobs.length;
     const job = pl.jobs[jobIdx];
 
-    const karmaScore = Math.floor(rand() * 40) + 50;
-    const wisdomScore = Math.floor(rand() * 40) + 45;
-    const adventureScore = Math.floor(rand() * 40) + 40;
+    const KETU_KARMA = [72,58,65,80,55,68,75,85,60,70,63,78];
+    const karmaScore = KETU_KARMA[ketuSign];
 
-    const deathAge = Math.floor(rand() * 50) + 25;
+    const KETU_AGE = [35,72,45,60,42,55,68,38,48,75,40,52];
+    const deathAge = KETU_AGE[ketuSign];
     const deathCauses = ["自然死（穏やかな最期）", "戦場での名誉ある戦死", "病による早世", "冒険中の事故", "老衰による安らかな死", "不明な理由（ミステリー）"];
-    const death = deathCauses[Math.floor(rand() * deathCauses.length)];
+    const death = deathCauses[ketuSign % deathCauses.length];
 
     const lessons = [
         "勇気を持って行動することの大切さ",
@@ -342,7 +342,7 @@ function discover() {
         "謙虚さの中に隠れた真の力",
         "直感を信じて従う勇気"
     ];
-    const lesson = lessons[Math.floor(rand() * lessons.length)];
+    const lesson = lessons[ketuSign % lessons.length];
 
     const section = document.getElementById("resultSection");
     section.innerHTML = `

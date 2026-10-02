@@ -286,7 +286,6 @@ function askCrystal() {
 
     setTimeout(() => {
         ball.classList.remove("shaking");
-        var qText=question||"";var today=new Date();var hashSeed=0;for(var ci=0;ci<qText.length;ci++)hashSeed+=qText.charCodeAt(ci);hashSeed+=today.getFullYear()*10000+(today.getMonth()+1)*100+today.getDate();hashSeed+=today.getHours()*3600+today.getMinutes()*60+today.getSeconds();hashSeed+=history.length;var answer=ANSWERS[Math.abs(hashSeed)%ANSWERS.length];
 
         textEl.innerHTML = answer.text;
         textEl.className = "crystal-text active";
@@ -300,7 +299,6 @@ function askCrystal() {
 }
 
 function updateHistory() {
-    if (history.length === 0) return;
     document.getElementById("historySection").style.display = "block";
     document.getElementById("historyList").innerHTML = history.slice(0, 10).map(h => `
         <div class="history-item" style="animation:fadeIn 0.3s ease-out;">

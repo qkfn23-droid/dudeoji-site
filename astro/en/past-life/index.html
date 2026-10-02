@@ -321,28 +321,32 @@ function discover() {
     const ketuSignNames = ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
     const eraIdx = ketuSign % PAST_LIVES.length;
     const pl = PAST_LIVES[eraIdx];
-    const jobIdx = Math.floor(rand() * pl.jobs.length);
+    const jobIdx = (ketuSign + lifeNum) % pl.jobs.length;
     const job = pl.jobs[jobIdx];
 
-    const karmaScore = Math.floor(rand() * 40) + 50;
-    const wisdomScore = Math.floor(rand() * 40) + 45;
-    const adventureScore = Math.floor(rand() * 40) + 40;
+    const KETU_KARMA = [72,58,65,80,55,68,75,85,60,70,63,78];
+    const karmaScore = KETU_KARMA[ketuSign];
 
-    const deathAge = Math.floor(rand() * 50) + 25;
+    const KETU_AGE = [35,72,45,60,42,55,68,38,48,75,40,52];
+    const deathAge = KETU_AGE[ketuSign];
     const deathCauses = ["Natural causes (a peaceful death)", "An honorable death in battle", "An early death from illness", "An accident during an adventure", "A calm death from old age", "Unknown causes (a mystery)"];
-    const death = deathCauses[Math.floor(rand() * deathCauses.length)];
+    const death = KETU_DEATH[ketuSign];
 
-    const lessons = [
+    const KETU_LESSONS = [
         "The importance of acting with courage",
-        "The devotion of protecting those you love",
         "The value of spiritual richness over material wealth",
-        "The flexibility to embrace change without fear",
-        "A true understanding of who you really are",
-        "The wisdom to forgive others and let go",
+        "The wisdom of sharing knowledge and learning",
+        "The devotion of protecting those you love",
         "The true strength hidden within humility",
-        "The courage to trust and follow your instincts"
+        "Letting go of perfection and accepting yourself",
+        "The wisdom to forgive others and let go",
+        "The flexibility to embrace change without fear",
+        "The value of freedom and exploration",
+        "A true understanding of who you really are",
+        "The courage to trust and follow your instincts",
+        "The power of unconditional love and compassion"
     ];
-    const lesson = lessons[Math.floor(rand() * lessons.length)];
+    const lesson = KETU_LESSONS[ketuSign];
 
     const section = document.getElementById("resultSection");
     section.innerHTML = `

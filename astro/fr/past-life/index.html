@@ -321,16 +321,16 @@ function discover() {
     const ketuSignNames = ['Bélier','Taureau','Gémeaux','Cancer','Lion','Vierge','Balance','Scorpion','Sagittaire','Capricorne','Verseau','Poissons'];
     const eraIdx = ketuSign % PAST_LIVES.length;
     const pl = PAST_LIVES[eraIdx];
-    const jobIdx = Math.floor(rand() * pl.jobs.length);
+    const jobIdx = (ketuSign + lifeNum) % pl.jobs.length;
     const job = pl.jobs[jobIdx];
 
-    const karmaScore = Math.floor(rand() * 40) + 50;
-    const wisdomScore = Math.floor(rand() * 40) + 45;
-    const adventureScore = Math.floor(rand() * 40) + 40;
+    const KETU_KARMA = [72,58,65,80,55,68,75,85,60,70,63,78];
+    const karmaScore = KETU_KARMA[ketuSign];
 
-    const deathAge = Math.floor(rand() * 50) + 25;
+    const KETU_AGE = [35,72,45,60,42,55,68,38,48,75,40,52];
+    const deathAge = KETU_AGE[ketuSign];
     const deathCauses = ["Mort naturelle (fin paisible)","Mort honorable au combat","Mort prematuree due a la maladie","Accident lors d'une aventure","Mort sereine de vieillesse","Cause inconnue (mystere)"];
-    const death = deathCauses[Math.floor(rand() * deathCauses.length)];
+    const death = deathCauses[ketuSign % deathCauses.length];
 
     const lessons = [
         "L'importance d'agir avec courage",
@@ -342,7 +342,7 @@ function discover() {
         "La vraie force cachee dans l'humilite",
         "Le courage de faire confiance a son intuition et de la suivre"
     ];
-    const lesson = lessons[Math.floor(rand() * lessons.length)];
+    const lesson = lessons[ketuSign % lessons.length];
 
     const section = document.getElementById("resultSection");
     section.innerHTML = `
