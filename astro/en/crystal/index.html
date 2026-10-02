@@ -303,6 +303,7 @@ function askCrystal() {
         var hashSeed = 0;
         for (var ci = 0; ci < qText.length; ci++) hashSeed += qText.charCodeAt(ci) * (ci + 1);
         hashSeed += today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
+        hashSeed += history.length;
         var answer = ANSWERS[Math.abs(hashSeed) % ANSWERS.length];
 
         textEl.innerHTML = answer.text;
