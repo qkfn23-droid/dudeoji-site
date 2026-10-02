@@ -228,7 +228,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="notice-text">This week Imagen Match TOP 3to Star Energia x50 Regalo!</div>
             <div class="notice-text">Try One Card too!</div>
             <div class="notice-text">Star Energia collect Aura Desbloquearplease!</div>
-            <div class="notice-text">Current users 127people · Progreso in progress Juego 23pcs</div>
+            <div class="notice-text">Current users 127people · Progreso en curso Juego 23pcs</div>
         </div>
     </div>
 </div>
@@ -303,7 +303,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="game-rule">
                 <div class="rule-basic">
                     Card 2pcs flip <b>Mismo Imagen</b> find!<br><br>
-                    Match a pair for <b>+1 point</b> and another turn!<br>
+                    Match a pair for <b>+1 point</b> and anOtro turn!<br>
                     if wrong OpponentRoom Turnoto moves on.<br><br>
                     all pair when found Juego end!
                 </div>
@@ -324,7 +324,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[Notificacion]</span> Maria ImagenMatchRoom joined</div>
+            <div class="chat-msg"><span class="sys">[Notificacion]</span> Maria ImagenMatch se unió a la sala</div>
             <div class="chat-msg"><span class="user">Maria:</span> Imagen Match lets! 🧩</div>
             <div class="chat-msg"><span class="sys">[Notificacion]</span> Juego Iniciocompleted!</div>
             <div class="chat-msg"><span class="sys">[Notificacion]</span> TAZOof Turnois</div>
@@ -588,7 +588,7 @@ function addLog(html) {
 function copyInvite() { document.getElementById('inviteModal').classList.add('show'); }
 function closeInvite() { document.getElementById('inviteModal').classList.remove('show'); }
 function sendInvite(btn, name) {
-    btn.textContent = 'beforeSent ✓';
+    btn.textContent = 'Enviado ✓';
     btn.classList.add('sent');
     addLog('<span class="sys">[Notificacion]</span> ' + name + 'sirto Invitar sent');
 }
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // Page 동 Confirmar
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Juegofrom Would you like to leave?\nProgreso in progress Juego Derrota processingwill be.');
+    return confirm('Juegofrom Would you like to leave?\nProgreso en curso Juego Derrota processingwill be.');
 }
 
 // Salir
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('Really leave this room?\nProgreso in progress Juego Derrota processingwill be.')) {
+    if (confirm('¿Realmente quieres salir?\nProgreso en curso Juego Derrota processingwill be.')) {
         location.href = 'game-v2.html';
     }
 }

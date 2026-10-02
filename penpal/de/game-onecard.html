@@ -288,7 +288,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
             <div class="notice-text">This week One Card TOP 3to Star Energie x50 Geschenk!</div>
             <div class="notice-text">Bild Match 10month Open Geplant! Stay tuned</div>
             <div class="notice-text">Star Energie collect Aura Freischaltenplease!</div>
-            <div class="notice-text">Current users 127people · Fortschritt in progress Spiel 23pcs</div>
+            <div class="notice-text">127 Nutzer online · 23 Spiele im Gange</div>
             <div class="notice-text">Bad behavior user report feature added</div>
         </div>
     </div>
@@ -473,7 +473,7 @@ body.spectate .my-label::after{content:' (Spectating)';color:#f59e0b;}
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Maria One CardRoom joined</div>
+            <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Maria One Card ist dem Raum beigetreten</div>
             <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Hana K.has joined</div>
             <div class="chat-msg"><span class="sys">[Benachrichtigung]</span> Jun P.has joined</div>
             <div class="chat-msg"><span class="user">Maria:</span> Hallo! One Card lets~ 😄</div>
@@ -659,7 +659,7 @@ function closeInvite() {
     document.getElementById('inviteModal').classList.remove('show');
 }
 function sendInvite(btn, name) {
-    btn.textContent = 'beforeSent ✓';
+    btn.textContent = 'Gesendet ✓';
     btn.classList.add('sent');
     addLog('<span class="sys">[Benachrichtigung]</span> ' + name + 'sirto Einladung sent');
 }
@@ -684,7 +684,7 @@ function toggleMute(btn) {
 // Page 동 Bestatigen
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('Spielfrom Would you like to leave?\nGame in progress will count as a loss.');
+    return confirm('Möchtest du das Spiel verlassen?\nGame in progress will count as a loss.');
 }
 
 // Beenden
@@ -693,7 +693,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('Really leave this room?\nGame in progress will count as a loss.')) {
+    if (confirm('Wirklich diesen Raum verlassen?\nGame in progress will count as a loss.')) {
         addLog('<span class="sys">[Benachrichtigung]</span> TAZOhas has left');
         setTimeout(function(){ location.href = 'game-v2.html'; }, 500);
     }

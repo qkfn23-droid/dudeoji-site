@@ -95,15 +95,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .stamp.locked{background:#f0f0f0;opacity:0.4;filter:grayscale(1);}
 
 /* 設定 */
-.setting-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:13px;color:#555;}
-.setting-item:last-child{border-bottom:none;}
-.setting-label{display:flex;align-items:center;gap:8px;}
-.setting-icon{font-size:16px;}
+.設定-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:13px;color:#555;}
+.設定-item:last-child{border-bottom:none;}
+.設定-label{display:flex;align-items:center;gap:8px;}
+.設定-icon{font-size:16px;}
 .toggle{width:40px;height:22px;border-radius:11px;background:#d4d4d4;position:relative;cursor:pointer;transition:background .2s;}
 .toggle.on{background:#0ea5e9;}
 .toggle::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,0.15);}
 .toggle.on::after{left:20px;}
-.setting-link{color:#0ea5e9;font-size:12px;text-decoration:none;font-weight:500;}
+.設定-link{color:#0ea5e9;font-size:12px;text-decoration:none;font-weight:500;}
 .danger-btn{padding:8px 16px;background:none;border:1px solid #ef4444;color:#ef4444;border-radius:10px;font-size:12px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
 .danger-btn:hover{background:#ef4444;color:#fff;}
 
@@ -121,7 +121,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
 .dark .l-stat,.dark .friend-row,.dark .g-stat{background:#12122a;}
 .dark .friend-row:hover{background:#252540;}
 .dark .f-name{color:#ddd;}
-.dark .setting-item{border-bottom-color:#2a2a3a;color:#aaa;}
+.dark .設定-item{border-bottom-color:#2a2a3a;color:#aaa;}
 .dark .ticket-status{background:linear-gradient(135deg,#0a2a1a,#12122a);}
 .dark .edit-btn{background:#12122a;border-color:#2a2a3a;}
 .dark .edit-btn:hover{background:#0ea5e9;color:#fff;}
@@ -216,7 +216,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="letter-stats">
             <div class="l-stat"><div class="l-stat-icon">📤</div><div class="l-stat-num">24</div><div class="l-stat-label">Sent 手紙</div></div>
             <div class="l-stat"><div class="l-stat-icon">📥</div><div class="l-stat-num">24</div><div class="l-stat-label">Received</div></div>
-            <div class="l-stat"><div class="l-stat-icon">⭐</div><div class="l-stat-num">98%</div><div class="l-stat-label">Reply Rate</div></div>
+            <div class="l-stat"><div class="l-stat-icon">⭐</div><div class="l-stat-num">98%</div><div class="l-stat-label">返信率</div></div>
         </div>
     </div>
 
@@ -258,7 +258,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
         <div class="game-stats">
             <div class="g-stat"><div class="g-stat-num">47</div><div class="g-stat-label">Total ゲーム</div></div>
             <div class="g-stat"><div class="g-stat-num">31</div><div class="g-stat-label">勝利</div></div>
-            <div class="g-stat"><div class="g-stat-num">66%</div><div class="g-stat-label">Win Rate</div></div>
+            <div class="g-stat"><div class="g-stat-num">66%</div><div class="g-stat-label">勝率</div></div>
             <div class="g-stat"><div class="g-stat-num">7</div><div class="g-stat-label">Best Streak</div></div>
         </div>
         <div style="margin-top:14px;">
@@ -277,21 +277,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0eeeb;color:#333;min-hei
     <!-- 設定 -->
     <div class="card">
         <div class="section-title">設定</div>
-        <div class="setting-item">
-            <div class="setting-label"><span class="setting-icon">🔔</span> 通知</div>
+        <div class="設定-item">
+            <div class="設定-label"><span class="設定-icon">🔔</span> 通知</div>
             <div class="toggle on" onclick="this.classList.toggle('on')"></div>
         </div>
-        <div class="setting-item">
-            <div class="setting-label"><span class="setting-icon">🌙</span> Dark mode</div>
+        <div class="設定-item">
+            <div class="設定-label"><span class="設定-icon">🌙</span> Dark mode</div>
             <div class="toggle" id="darkToggle" onclick="this.classList.toggle('on');document.documentElement.classList.toggle('dark');localStorage.setItem('moguPalDark',document.documentElement.classList.contains('dark'))"></div>
         </div>
-        <div class="setting-item">
-            <div class="setting-label"><span class="setting-icon">🔒</span> パスワード 変更</div>
-            <a href="#" class="setting-link">変更</a>
+        <div class="設定-item">
+            <div class="設定-label"><span class="設定-icon">🔒</span> パスワード 変更</div>
+            <a href="#" class="設定-link">変更</a>
         </div>
-        <div class="setting-item">
-            <div class="setting-label"><span class="setting-icon">📧</span> お問い合わせ</div>
-            <a href="contact.html" class="setting-link">お問い合わせ</a>
+        <div class="設定-item">
+            <div class="設定-label"><span class="設定-icon">📧</span> お問い合わせ</div>
+            <a href="contact.html" class="設定-link">お問い合わせ</a>
         </div>
         <div style="margin-top:14px;text-align:right;">
             <button class="danger-btn" onclick="alert('本当に退会しますか？ (デモ)')">Withdraw</button>

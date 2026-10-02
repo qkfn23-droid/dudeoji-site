@@ -228,7 +228,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="notice-text">This week 絵 Match TOP 3to Star 気 x50 プレゼント!</div>
             <div class="notice-text">ワンカードも一緒に楽しもう!</div>
             <div class="notice-text">Star 気 collect オーラ 解放please!</div>
-            <div class="notice-text">Current users 127people · 進行 in progress ゲーム 23pcs</div>
+            <div class="notice-text">現在接続者 127人 · 進行中のゲーム 23個</div>
         </div>
     </div>
 </div>
@@ -265,10 +265,10 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
             <div class="moon-icon"><svg viewBox="0 0 120 120" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><ellipse cx="43" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><ellipse cx="77" cy="68" rx="7" ry="4" fill="rgba(245,150,150,0.6)"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg></div>
             <div class="moon-slider" id="moonSlider">
                 <div class="moon-text active">今日の運勢は?</div>
-                <div class="moon-text">タロット one pcs メッセージ</div>
+                <div class="moon-text">タロット一枚のメッセージ</div>
                 <div class="moon-text">前世の私は誰?</div>
-                <div class="moon-text">my 夢の隠された意味</div>
-                <div class="moon-text">my 運命の人は?</div>
+                <div class="moon-text">私の夢の隠された意味</div>
+                <div class="moon-text">私の運命の人は？</div>
             </div>
             <div class="moon-brand">Dudeoji Studio</div>
         </a>
@@ -324,7 +324,7 @@ body.spectate .game-status span:first-child::after{content:' (Spectating)';color
 <div class="bottom-bar">
     <div class="chat-area">
         <div class="chat-log" id="chatLog">
-            <div class="chat-msg"><span class="sys">[通知]</span> Maria 絵MatchRoom joined</div>
+            <div class="chat-msg"><span class="sys">[通知]</span> Maria 絵Matchルームに参加しました</div>
             <div class="chat-msg"><span class="user">Maria:</span> 絵 Match lets! 🧩</div>
             <div class="chat-msg"><span class="sys">[通知]</span> ゲーム 開始されました!</div>
             <div class="chat-msg"><span class="sys">[通知]</span> TAZOof ターンis</div>
@@ -588,7 +588,7 @@ function addLog(html) {
 function copyInvite() { document.getElementById('inviteModal').classList.add('show'); }
 function closeInvite() { document.getElementById('inviteModal').classList.remove('show'); }
 function sendInvite(btn, name) {
-    btn.textContent = 'beforeSent ✓';
+    btn.textContent = '送信済み ✓';
     btn.classList.add('sent');
     addLog('<span class="sys">[通知]</span> ' + name + 'sirto 招待 sent');
 }
@@ -605,7 +605,7 @@ function toggleMute(btn) {
 // Page 동 確認
 function confirmLeave() {
     if (isSpectate) return true;
-    return confirm('ゲームfrom Would you like to leave?\n進行 in progress ゲーム 敗北 processingwill be.');
+    return confirm('ゲームから退出しますか？\n進行中のゲームは敗北処理されます。');
 }
 
 // 退出
@@ -614,7 +614,7 @@ function leaveRoom() {
         location.href = 'game-v2.html';
         return;
     }
-    if (confirm('Really leave this room?\n進行 in progress ゲーム 敗北 processingwill be.')) {
+    if (confirm('本当にこのルームを退出しますか？\n進行中のゲームは敗北処理されます。')) {
         location.href = 'game-v2.html';
     }
 }
