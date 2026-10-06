@@ -57,7 +57,7 @@ article hr { border: none; border-top: 1px solid #3a2a15; margin: 28px 0; }
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+<script>if(localStorage.getItem('dudeojiLight')==='true')document.body.classList.add('light-mode');</script>
 
 <nav class="nav">
     <a href="/astro/jp/" class="nav-logo">
@@ -177,7 +177,7 @@ article hr { border: none; border-top: 1px solid #3a2a15; margin: 28px 0; }
 
 <footer style="text-align:center;padding:40px 20px 20px;font-size:11px;color:#333;border-top:1px solid #151530;margin-top:40px;">&copy; 2025 Dudeoji Studio &middot; <a href="/astro/jp/blog/" style="color:#555;text-decoration:none;">ブログに戻る</a></footer>
 
-<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='\🌙';</script>
-<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('dudeojiLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#e84393;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='\🌙';</script>
+<script>if(localStorage.getItem('dudeojiLight')==='true')document.body.classList.add('light-mode');</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("selectstart",function(e){e.preventDefault()});document.addEventListener("copy",function(e){e.preventDefault()});document.addEventListener("keydown",function(e){if(e.ctrlKey&&"uUsSiIcCaA".includes(e.key)){e.preventDefault()}if(e.key==="F12"){e.preventDefault()}if(e.ctrlKey&&e.shiftKey&&"iIjJ".includes(e.key)){e.preventDefault()}});</script></body>
 </html>

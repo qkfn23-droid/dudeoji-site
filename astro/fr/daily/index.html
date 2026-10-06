@@ -118,7 +118,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 </style>
 </head>
 <body>
-<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+<script>if(localStorage.getItem('dudeojiLight')==='true')document.body.classList.add('light-mode');</script>
 
 
 <nav class="nav">
@@ -208,7 +208,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     <a href="/astro/fr/privacy/">Confidentialité</a>
 </footer>
 
-<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('moguMoonLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#f39c12;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
+<button id="themeToggle" onclick="document.body.classList.toggle('light-mode');localStorage.setItem('dudeojiLight',document.body.classList.contains('light-mode'));this.textContent=document.body.classList.contains('light-mode')?'🌙':'☀️'" style="position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;cursor:pointer;background:#2a1530;color:#f39c12;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:999;">☀️</button><script>if(document.body.classList.contains('light-mode')&&document.getElementById('themeToggle'))document.getElementById('themeToggle').textContent='🌙';</script>
     </script>
 <script src="/astro/astronomy.browser.min.js"></script>
 <script>
@@ -353,5 +353,5 @@ function showZodiac(idx){const z=ZODIAC[idx];var aspects=[],totalScore=50,loveSc
   zr.innerHTML=`<div class="zr-title">${z.emoji} ${z.name}</div><div class="zr-date">${z.date}</div><div class="zr-text"><strong>\ud83d\udcab G\u00e9n\u00e9ral :</strong> ${overallMsg}<br><br><strong>\ud83d\udc95 Amour :</strong> ${loveMsg}<br><br><strong>\ud83d\udcb0 Finances :</strong> ${moneyMsg}</div>${transitInfo?'<div style="margin-top:16px;padding-top:12px;border-top:1px solid #2a2a5a;"><div style="font-size:11px;color:#c9a84c;margin-bottom:8px;letter-spacing:1px;">TRANSITS DU JOUR</div>'+transitInfo+'</div>':''}<div class="zr-meters"><div class="zr-meter">G\u00e9n\u00e9ral ${totalScore}%<div class="bar"><div class="bar-fill" style="width:${totalScore}%"></div></div></div><div class="zr-meter">Amour ${loveScore}%<div class="bar"><div class="bar-fill" style="width:${loveScore}%;background:#e84393"></div></div></div><div class="zr-meter">Carri\u00e8re ${workScore}%<div class="bar"><div class="bar-fill" style="width:${workScore}%;background:#3498db"></div></div></div><div class="zr-meter">Finances ${moneyScore}%<div class="bar"><div class="bar-fill" style="width:${moneyScore}%;background:#27ae60"></div></div></div></div>`;
   zr.style.display='block';zr.scrollIntoView({behavior:'smooth'});}
 </script>
-<script>if(localStorage.getItem('moguMoonLight')==='true')document.body.classList.add('light-mode');</script>
+<script>if(localStorage.getItem('dudeojiLight')==='true')document.body.classList.add('light-mode');</script>
 <script>document.addEventListener("contextmenu",function(e){e.preventDefault()});document.addEventListener("selectstart",function(e){e.preventDefault()});document.addEventListener("copy",function(e){e.preventDefault()});document.addEventListener("keydown",function(e){if(e.ctrlKey&&"uUsSiIcCaA".includes(e.key)){e.preventDefault()}if(e.key==="F12"){e.preventDefault()}if(e.ctrlKey&&e.shiftKey&&"iIjJ".includes(e.key)){e.preventDefault()}});</script></html>

@@ -1,9 +1,9 @@
 /*
- * MOGU Pal 채팅/편지 필터 시스템
+ * Dudeoji Studio 채팅/편지 필터 시스템
  * 모든 페이지에서 공통으로 사용
  */
 
-var MOGU_FILTER = (function(){
+var CHAT_FILTER = (function(){
 
     // === 금칙어 목록 ===
 
