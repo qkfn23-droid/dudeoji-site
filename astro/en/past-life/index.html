@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="de" href="https://dudeojistudio.com/astro/de/past-life/">
     <link rel="alternate" hreflang="fr" href="https://dudeojistudio.com/astro/fr/past-life/">
     <link rel="alternate" hreflang="pt" href="https://dudeojistudio.com/astro/pt/past-life/">
-    <link rel="alternate" hreflang="x-default" href="https://dudeojistudio.com/astro/past-life/">
+    <link rel="alternate" hreflang="x-default" href="https://dudeojistudio.com/astro/en/past-life/">
     <meta name="description" content="Free past life test. Discover your past life occupation, era, personality, and karma through your birthdate. How your past life memories influence your present life.">
     <link rel="canonical" href="https://dudeojistudio.com/astro/en/past-life/">
     <meta property="og:title" content="Who Was I in My Past Life? - Past Life Calculator by Date of Birth | Dudeoji Studio">
@@ -160,7 +160,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <div style="padding:12px 40px 0;">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
         <div>
-            <div style="font-size:18px;font-weight:700;color:#c9a84c;">🏛️ Past Life Test</div>
+            <h1 style="font-size:18px;font-weight:700;color:#c9a84c;margin:0;">🏛️ Past Life Test</h1>
             <div style="font-size:11px;color:#666;">Discover your past life through your birthdate</div>
         </div>
     </div>
@@ -331,7 +331,7 @@ function discover() {
     const KETU_AGE = [35,72,45,60,42,55,68,38,48,75,40,52];
     const deathAge = KETU_AGE[ketuSign];
     const deathCauses = ["Natural causes (a peaceful death)", "An honorable death in battle", "An early death from illness", "An accident during an adventure", "A calm death from old age", "Unknown causes (a mystery)"];
-    const death = KETU_DEATH[ketuSign];
+    const death = deathCauses[ketuSign % deathCauses.length];
 
     const KETU_LESSONS = [
         "The importance of acting with courage",
@@ -453,7 +453,7 @@ function discover() {
 })();
     </script>
 <footer class="app-footer">
-    &copy; 2025 Dudeoji Studio<br>
+    &copy; 2026 Dudeoji Studio<br>
     <a href="/astro/en/privacy/">Privacy Policy</a>
 </footer>
 
