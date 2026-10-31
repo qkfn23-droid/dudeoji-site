@@ -19,12 +19,13 @@
     <link rel="alternate" hreflang="ko" href="https://dudeojistudio.com/astro/past-life/">
     <link rel="alternate" hreflang="en" href="https://dudeojistudio.com/astro/en/past-life/">
     <link rel="alternate" hreflang="ja" href="https://dudeojistudio.com/astro/jp/past-life/">
-    <link rel="alternate" hreflang="es" href="https://dudeojistudio.com/astro/es/past-life/">
     <link rel="alternate" hreflang="de" href="https://dudeojistudio.com/astro/de/past-life/">
+    <link rel="alternate" hreflang="es" href="https://dudeojistudio.com/astro/es/past-life/">
     <link rel="alternate" hreflang="fr" href="https://dudeojistudio.com/astro/fr/past-life/">
     <link rel="alternate" hreflang="pt" href="https://dudeojistudio.com/astro/pt/past-life/">
     <link rel="alternate" hreflang="x-default" href="https://dudeojistudio.com/astro/en/past-life/">
-    <meta name="description" content="Test de vie anterieure gratuit. Decouvrez votre metier, epoque, personnalite et karma de votre vie anterieure grace a votre date de naissance.">
+
+<meta name="description" content="Test de vie anterieure gratuit. Decouvrez votre metier, epoque, personnalite et karma de votre vie anterieure grace a votre date de naissance.">
     <link rel="canonical" href="https://dudeojistudio.com/astro/fr/past-life/">
     <meta property="og:title" content="Test de Vie Antérieure Gratuit - Qui Étiez-Vous? | Dudeoji Studio">
     <meta property="og:description" content="Decouvrez votre metier, epoque et personnalite de votre vie anterieure grace a votre date de naissance.">
@@ -137,7 +138,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <body>
 <script>if(localStorage.getItem('dudeojiLight')==='true')document.body.classList.add('light-mode');</script>
 
-
 <nav class="nav">
     <a href="/astro/fr/" class="nav-logo">
         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -187,7 +187,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     <div id="resultSection" class="result-section"></div>
 </div>
 
-
 <div class="sidebar">
     <div class="side-card">
         <div class="side-title">🔗 Outils Associés</div>
@@ -207,7 +206,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     </div>
 </div>
 </div><!-- /page-layout -->
-
 
 <div class="seo-content"><div class="seo-section"><h2>Qu'est-ce que le Test de Vie Antérieure ?</h2><p>Le test de vie antérieure estime le métier, l'époque et la personnalité de votre vie passée en fonction de votre date de naissance. Il combine numérologie et données historiques pour explorer les possibilités de vies antérieures.</p></div><div class="seo-section"><h2>Comment Utiliser</h2><p>1. Entrez votre date de naissance.<br>2. L'époque, le métier et la personnalité de votre vie antérieure s'affichent.<br>3. Découvrez comment les traits passés peuvent influencer votre vie actuelle.</p></div><div class="seo-section"><h2>FAQ</h2><details class="seo-faq"><summary>Qu'est-ce qu'une vie antérieure ?</summary><p>Une vie antérieure est une existence avant la vie actuelle. De nombreuses cultures croient que l'âme se réincarne plusieurs fois.</p></details></div><div class="seo-section"><h2>Outils Associés</h2><div class="seo-related"><a href="../tarot/">Tarot</a><a href="../numerology/">Numérologie</a></div></div></div>
 </div>
@@ -306,7 +304,6 @@ function seededRand(seed) {
     for (let i = 0; i < 10; i++) s = (s * 16807) % 2147483647;
     return function() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
 }
-
 
 function calcKetu(year,month,day){var refDate=new Date(2000,0,1);var birthDate=new Date(year,month-1,day);var daysDiff=(birthDate-refDate)/(1000*60*60*24);var ketuRef=120;var dailyMotion=-360/(18.613*365.25);var ketuLon=((ketuRef+daysDiff*dailyMotion)%360+360)%360;return Math.floor(ketuLon/30);}
 

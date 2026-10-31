@@ -19,12 +19,13 @@
     <link rel="alternate" hreflang="ko" href="https://dudeojistudio.com/astro/past-life/">
     <link rel="alternate" hreflang="en" href="https://dudeojistudio.com/astro/en/past-life/">
     <link rel="alternate" hreflang="ja" href="https://dudeojistudio.com/astro/jp/past-life/">
-    <link rel="alternate" hreflang="es" href="https://dudeojistudio.com/astro/es/past-life/">
     <link rel="alternate" hreflang="de" href="https://dudeojistudio.com/astro/de/past-life/">
+    <link rel="alternate" hreflang="es" href="https://dudeojistudio.com/astro/es/past-life/">
     <link rel="alternate" hreflang="fr" href="https://dudeojistudio.com/astro/fr/past-life/">
     <link rel="alternate" hreflang="pt" href="https://dudeojistudio.com/astro/pt/past-life/">
     <link rel="alternate" hreflang="x-default" href="https://dudeojistudio.com/astro/en/past-life/">
-    <meta name="description" content="Teste de vida passada gratuito. Descubra sua profissao, epoca, personalidade e karma da sua vida passada atraves da sua data de nascimento.">
+
+<meta name="description" content="Teste de vida passada gratuito. Descubra sua profissao, epoca, personalidade e karma da sua vida passada atraves da sua data de nascimento.">
     <link rel="canonical" href="https://dudeojistudio.com/astro/pt/past-life/">
     <meta property="og:title" content="Teste de Vida Passada - Quem Voce Foi? | Dudeoji Studio">
     <meta property="og:description" content="Descubra sua profissao, epoca e personalidade da sua vida passada atraves da sua data de nascimento.">
@@ -137,7 +138,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <body>
 <script>if(localStorage.getItem('dudeojiLight')==='true')document.body.classList.add('light-mode');</script>
 
-
 <nav class="nav">
     <a href="/astro/pt/" class="nav-logo">
         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -187,7 +187,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     <div id="resultSection" class="result-section"></div>
 </div>
 
-
 <div class="sidebar">
     <div class="side-card">
         <div class="side-title">🔗 Ferramentas Relacionadas</div>
@@ -207,7 +206,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     </div>
 </div>
 </div><!-- /page-layout -->
-
 
 <div class="seo-content"><div class="seo-section"><h2>O que é o Teste de Vida Passada?</h2><p>O teste de vida passada estima a profissão, a época e a personalidade da sua vida anterior com base na sua data de nascimento. Combina numerologia e dados históricos para explorar possibilidades de vidas passadas.</p></div><div class="seo-section"><h2>Como Usar</h2><p>1. Insira sua data de nascimento.<br>2. A época, profissão e personalidade da sua vida passada são exibidas.<br>3. Confira como os traços passados podem influenciar sua vida atual.</p></div><div class="seo-section"><h2>FAQ</h2><details class="seo-faq"><summary>O que é uma vida passada?</summary><p>Uma vida passada é uma existência antes da atual. Muitas culturas acreditam que a alma renasce várias vezes.</p></details></div><div class="seo-section"><h2>Ferramentas Relacionadas</h2><div class="seo-related"><a href="../tarot/">Tarot</a><a href="../numerology/">Numerologia</a></div></div></div>
 </div>
@@ -306,7 +304,6 @@ function seededRand(seed) {
     for (let i = 0; i < 10; i++) s = (s * 16807) % 2147483647;
     return function() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
 }
-
 
 function calcKetu(year,month,day){var refDate=new Date(2000,0,1);var birthDate=new Date(year,month-1,day);var daysDiff=(birthDate-refDate)/(1000*60*60*24);var ketuRef=120;var dailyMotion=-360/(18.613*365.25);var ketuLon=((ketuRef+daysDiff*dailyMotion)%360+360)%360;return Math.floor(ketuLon/30);}
 

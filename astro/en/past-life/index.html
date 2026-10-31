@@ -19,12 +19,13 @@
     <link rel="alternate" hreflang="ko" href="https://dudeojistudio.com/astro/past-life/">
     <link rel="alternate" hreflang="en" href="https://dudeojistudio.com/astro/en/past-life/">
     <link rel="alternate" hreflang="ja" href="https://dudeojistudio.com/astro/jp/past-life/">
-    <link rel="alternate" hreflang="es" href="https://dudeojistudio.com/astro/es/past-life/">
     <link rel="alternate" hreflang="de" href="https://dudeojistudio.com/astro/de/past-life/">
+    <link rel="alternate" hreflang="es" href="https://dudeojistudio.com/astro/es/past-life/">
     <link rel="alternate" hreflang="fr" href="https://dudeojistudio.com/astro/fr/past-life/">
     <link rel="alternate" hreflang="pt" href="https://dudeojistudio.com/astro/pt/past-life/">
     <link rel="alternate" hreflang="x-default" href="https://dudeojistudio.com/astro/en/past-life/">
-    <meta name="description" content="Free past life test. Discover your past life occupation, era, personality, and karma through your birthdate. How your past life memories influence your present life.">
+
+<meta name="description" content="Free past life test. Discover your past life occupation, era, personality, and karma through your birthdate. How your past life memories influence your present life.">
     <link rel="canonical" href="https://dudeojistudio.com/astro/en/past-life/">
     <meta property="og:title" content="Who Was I in My Past Life? - Past Life Calculator by Date of Birth | Dudeoji Studio">
     <meta property="og:description" content="Discover your past life occupation, era, and personality through your birthdate.">
@@ -137,7 +138,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
 <body>
 <script>if(localStorage.getItem('dudeojiLight')==='true')document.body.classList.add('light-mode');</script>
 
-
 <nav class="nav">
     <a href="/astro/en/" class="nav-logo">
         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="50" fill="#FFD93D"/><circle cx="48" cy="62" r="2.8" fill="#333"/><circle cx="72" cy="62" r="2.8" fill="#333"/><path d="M56,75 Q60,79 64,75" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -187,7 +187,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     <div id="resultSection" class="result-section"></div>
 </div>
 
-
 <div class="sidebar">
     <div class="side-card">
         <div class="side-title">🔗 Related Tools</div>
@@ -207,7 +206,6 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:
     </div>
 </div>
 </div><!-- /page-layout -->
-
 
 <div class="seo-content"><div class="seo-section"><h2>What is a Past Life Test?</h2><p>The past life test estimates your past life's occupation, era, and personality based on your birthdate. It combines numerology and historical data to explore past life possibilities.</p></div><div class="seo-section"><h2>How to Use</h2><p>1. Enter your birthdate.<br>2. Your past life era, occupation, and personality are displayed.<br>3. Check how past life traits may influence your current life.</p></div><div class="seo-section"><h2>FAQ</h2><details class="seo-faq"><summary>What is a past life?</summary><p>A past life refers to an existence before your current one. Many cultures believe the soul is reborn multiple times.</p></details><details class="seo-faq"><summary>Can past lives influence the present?</summary><p>Many spiritual traditions say past life experiences manifest as talents, fears, and attractions in the current life. This is called karma.</p></details></div><div class="seo-section"><h2>Related Tools</h2><div class="seo-related"><a href="../tarot/">Tarot</a><a href="../numerology/">Numerology</a></div></div></div>
 </div>
@@ -306,7 +304,6 @@ function seededRand(seed) {
     for (let i = 0; i < 10; i++) s = (s * 16807) % 2147483647;
     return function() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
 }
-
 
 function calcKetu(year,month,day){var refDate=new Date(2000,0,1);var birthDate=new Date(year,month-1,day);var daysDiff=(birthDate-refDate)/(1000*60*60*24);var ketuRef=120;var dailyMotion=-360/(18.613*365.25);var ketuLon=((ketuRef+daysDiff*dailyMotion)%360+360)%360;return Math.floor(ketuLon/30);}
 
