@@ -305,4 +305,12 @@
   <url><loc>https://dudeojistudio.com/astro/de/blog/how-far-is-the-world/</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dudeojistudio.com/astro/fr/blog/how-far-is-the-world/</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dudeojistudio.com/astro/pt/blog/how-far-is-the-world/</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <!-- 2027 Yearly Horoscope -->
+  <url><loc>https://dudeojistudio.com/astro/yearly/</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dudeojistudio.com/astro/en/yearly/</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dudeojistudio.com/astro/jp/yearly/</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dudeojistudio.com/astro/de/yearly/</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dudeojistudio.com/astro/es/yearly/</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dudeojistudio.com/astro/fr/yearly/</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://dudeojistudio.com/astro/pt/yearly/</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
 </urlset>
